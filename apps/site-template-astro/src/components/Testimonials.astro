@@ -1,0 +1,80 @@
+---
+const { testimonials, cidade } = Astro.props;
+---
+
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">AVALIAÇÕES DE CLIENTES</span>
+      <h2>O Que Dizem Nossos Clientes em {cidade}</h2>
+      <p>Confira a experiência de quem contratou nossos serviços de desentupimento na região:</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"{t.text}"</p>
+          <div class="testimonial-author">
+            <strong>{t.name}</strong>
+            <small>{t.neighborhood}</small>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 80px 0;
+    background: #f8fafc;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+  }
+  .section-badge {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin: 10px 0;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .testimonial-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .stars {
+    color: #f59e0b;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .testimonial-text {
+    color: #334155;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testimonial-author strong {
+    display: block;
+    color: #0f172a;
+    font-size: 0.95rem;
+  }
+  .testimonial-author small {
+    color: #64748b;
+    font-size: 0.82rem;
+  }
+</style>

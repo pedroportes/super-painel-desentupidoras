@@ -1,0 +1,96 @@
+---
+const { cidade, seo } = Astro.props;
+---
+
+<section id="diferenciais" class="benefits-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">POR QUE NOS ESCOLHER</span>
+      <!-- STRICT SEO RULE: Last H2 with Primary Keyword -->
+      <h2>{seo.lastH2Title}</h2>
+      <p>Garantimos agilidade, transparência técnica e o melhor custo-benefício em {cidade}.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">⏱️</div>
+        <h3>Atendimento Rápido 24h</h3>
+        <p>Chegamos em qualquer bairro de {cidade} em até 30 a 40 minutos para resolver emergências de esgoto.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🛠️</div>
+        <h3>Equipamento Não-Destrutivo</h3>
+        <p>Utilizamos sistemas Roto-Rooter rotativos e hidrojateamento que desobstruem canos sem quebrar pisos ou paredes.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h3>Visita e Orçamento Grátis</h3>
+        <p>Nossa visita técnica no local é 100% gratuita e sem compromisso. Você só aprova se concordar com o valor.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">📋</div>
+        <h3>Garantia por Escrito</h3>
+        <p>Emitimos nota e laudo com garantia formal de até 90 dias para a tranquilidade de sua família ou empresa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-section {
+    padding: 80px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+  }
+  .section-badge {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 10px 0 16px 0;
+    color: #f8fafc;
+  }
+  .section-header p {
+    color: #94a3b8;
+    font-size: 1.05rem;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  .benefit-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    text-align: center;
+  }
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  .benefit-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #f8fafc;
+  }
+  .benefit-card p {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+</style>

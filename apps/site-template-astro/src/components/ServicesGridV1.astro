@@ -1,0 +1,81 @@
+---
+const { services, cidade, whatsapp } = Astro.props;
+---
+
+<section id="servicos" class="services-v1">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">NOSSOS SERVIÇOS</span>
+      <h2>Serviços Especializados de Desentupimento em {cidade}</h2>
+      <p>Atendemos residências, condomínios, comércios e indústrias com equipamentos de alta precisão.</p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((s) => (
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>{s.title} em {cidade}</h3>
+          <p>{s.description}</p>
+          <a href={`https://wa.me/55${whatsapp}?text=Olá,%20quero%20um%20orçamento%20para%20${s.title}%20em%20${cidade}`} class="service-link" target="_blank" rel="noopener">
+            Solicitar Orçamento →
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v1 {
+    padding: 80px 0;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+  }
+  .section-badge {
+    color: var(--color-primary, #0284c7);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 10px 0 16px 0;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .service-card {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  .service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .service-link {
+    color: var(--color-primary, #0284c7);
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>

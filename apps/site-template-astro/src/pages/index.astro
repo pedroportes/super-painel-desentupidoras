@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cityData from '../data/cityConfig.json';
+import '../styles/themePalettes.css';
+
+import Header from '../components/Header.astro';
+
+// Dynamic Hero Variation Selection
+import HeroV1 from '../components/HeroV1.astro';
+import HeroV2 from '../components/HeroV2.astro';
+
+// Dynamic ServicesGrid Variation Selection
+import ServicesGridV1 from '../components/ServicesGridV1.astro';
+import ServicesGridV2 from '../components/ServicesGridV2.astro';
+
+import Benefits from '../components/Benefits.astro';
+import WarningSigns from '../components/WarningSigns.astro';
+import LocalAreas from '../components/LocalAreas.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
+
+const HeroComponent = cityData.variants.hero === 'HeroV2' ? HeroV2 : HeroV1;
+const ServicesComponent = cityData.variants.services === 'ServicesGridV2' ? ServicesGridV2 : ServicesGridV1;
+---
+
+<Layout {...cityData}>
+  <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
+    <Header {...cityData} />
+    <HeroComponent {...cityData} />
+    <ServicesComponent {...cityData} />
+    <Benefits {...cityData} />
+    <WarningSigns {...cityData} />
+    <LocalAreas {...cityData} />
+    <Testimonials {...cityData} />
+    <FAQ {...cityData} />
+    <Footer {...cityData} />
+    <FloatingWhatsapp {...cityData} />
+  </div>
+</Layout>

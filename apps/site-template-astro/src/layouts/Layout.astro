@@ -1,0 +1,119 @@
+---
+import cityData from '../data/cityConfig.json';
+
+const { 
+  seo = cityData.seo, 
+  cidade = cityData.cidade, 
+  uf = cityData.uf, 
+  empresaNome = cityData.empresaNome, 
+  whatsapp = cityData.whatsapp,
+  telefoneFixo = cityData.telefoneFixo,
+  endereco = cityData.endereco,
+  geoCoordinates = cityData.geoCoordinates,
+  bairros = cityData.bairros,
+  faqs = cityData.faqs
+} = Astro.props;
+
+const siteUrl = Astro.url.origin;
+
+// Schema JSON-LD LocalBusiness & EmergencyService
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "EmergencyService"],
+  "name": `${empresaNome} - Desentupidora em ${cidade}`,
+  "description": seo.metaDescription,
+  "url": siteUrl,
+  "telephone": `+55${whatsapp}`,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": endereco,
+    "addressLocality": cidade,
+    "addressRegion": uf,
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": geoCoordinates.latitude,
+    "longitude": geoCoordinates.longitude
+  },
+  "areaServed": bairros.map(b => `${b}, ${cidade} - ${uf}`),
+  "priceRange": "$$",
+  "openingHours": "Mo-Su 00:00-23:59"
+};
+
+// Schema FAQPage for AEO
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }))
+};
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- STRICT SEO RULE: TITLE & META DESCRIPTION -->
+    <title>{seo.metaTitle}</title>
+    <meta name="description" content={seo.metaDescription} />
+    <meta name="keywords" content={`desentupidora em ${cidade}, desentupimento ${cidade}, limpa fossa ${cidade}, desentupir pia ${cidade}`} />
+    
+    <!-- Agent Discovery & IsItAgentReady.com Compliance Links -->
+    <link rel="api-catalog" href="/.well-known/api-catalog" />
+    <link rel="service-doc" href="/.well-known/service-doc" />
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json" />
+    <link rel="alternate" type="text/markdown" href="/site-markdown" title="Versão em Markdown para Agentes de IA" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background: #ffffff;
+    color: #0f172a;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .btn {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+  }
+</style>

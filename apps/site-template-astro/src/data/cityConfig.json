@@ -1,0 +1,94 @@
+{
+  "cidade": "araucaria",
+  "estado": "Paraná",
+  "uf": "PR",
+  "populacao": "150.000",
+  "ddd": "41",
+  "whatsapp": "41992795590",
+  "telefoneFixo": "(41) 3323-0000",
+  "empresaNome": "Desentupidora araucaria 24h",
+  "cnpj": "12.345.678/0001-90",
+  "endereco": "Av. Central, 500 - Centro, araucaria - PR",
+  "hospedagem": "cloudflare",
+  "paletaCores": "urgencia-azul-laranja",
+  "variants": {
+    "hero": "HeroV1",
+    "services": "ServicesGridV1",
+    "faq": "FAQV1"
+  },
+  "geoCoordinates": {
+    "latitude": -19.3911,
+    "longitude": -40.0722
+  },
+  "seo": {
+    "metaTitle": "Desentupidora em araucaria PR 24h | Atendimento Sem Quebrar Piso",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em araucaria PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em araucaria PR 24h",
+    "firstParagraphText": "Precisando de uma desentupidora em araucaria PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de araucaria e região, com garantia por escrito e o menor preço.",
+    "lastH2Title": "Por que escolher a melhor Desentupidora em araucaria PR?"
+  },
+  "bairros": [
+    "Centro",
+    "Jardim América",
+    "Bela Vista",
+    "São José",
+    "Santa Cruz",
+    "Vila Nova",
+    "Planalto",
+    "Bairro Alto"
+  ],
+  "services": [
+    {
+      "title": "Desentupimento de Esgoto",
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+      "icon": "🚿"
+    },
+    {
+      "title": "Desentupimento de Pia",
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "icon": "🚰"
+    },
+    {
+      "title": "Desentupimento de Vaso Sanitário",
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
+    },
+    {
+      "title": "Desentupimento de Ralo",
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
+    },
+    {
+      "title": "Esgotamento e Limpeza de Fossa",
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+      "icon": "🚛"
+    },
+    {
+      "title": "Hidrojateamento de Alta Pressão",
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+      "icon": "🌊"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Qual o valor cobrado para um desentupimento em araucaria?",
+      "answer": "O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região."
+    },
+    {
+      "question": "Vocês atendem emergências 24 horas aos finais de semana em araucaria?",
+      "answer": "Sim! Nossas equipes de plantão em araucaria operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+    },
+    {
+      "question": "Qual o tempo estimado de chegada até o meu endereço em araucaria?",
+      "answer": "Devido às equipes posicionadas nos principais bairros de araucaria, nosso tempo médio de chegada é de 20 a 40 minutos."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Carlos Eduardo M.",
+      "neighborhood": "Centro - araucaria",
+      "rating": 5,
+      "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+    }
+  ]
+}

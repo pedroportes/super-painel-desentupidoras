@@ -1,0 +1,85 @@
+---
+const { cidade, uf, bairros, whatsapp } = Astro.props;
+---
+
+<section id="bairros" class="local-areas-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">COBERTURA GEOGRÁFICA</span>
+      <h2>Atendimento Rápido nos Bairros de {cidade} - {uf}</h2>
+      <p>Nossas frotas de suporte estão estrategicamente posicionadas para atender residências e empresas em toda a cidade de {cidade}:</p>
+    </div>
+
+    <div class="bairros-grid">
+      {bairros.map((bairrosName) => (
+        <div class="bairro-chip">
+          <span class="pin-icon">📍</span>
+          <span>Desentupidora em {bairrosName} ({cidade})</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="bairros-note text-center">
+      <p>Seu bairro não está na lista acima? **Atendemos 100% dos bairros e zonas rurais de {cidade}!**</p>
+      <a href={`https://wa.me/55${whatsapp}?text=Olá,%20vocês%20atendem%20no%20meu%20bairro%20em%20${cidade}?`} class="btn btn-bairros" target="_blank" rel="noopener">
+        📲 Confirmar Atendimento no Meu Bairro
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .local-areas-section {
+    padding: 80px 0;
+    background: #ffffff;
+    color: #0f172a;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+  }
+  .section-badge {
+    color: #0284c7;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 10px 0 16px 0;
+  }
+  .bairros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .bairro-chip {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 14px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+  }
+  .bairros-note p {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .btn-bairros {
+    background: #0284c7;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+  }
+</style>

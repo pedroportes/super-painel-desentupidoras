@@ -1,0 +1,208 @@
+---
+const { seo, cidade, ddd, whatsapp, populacao } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>📍 Atendimento Garantido em {cidade} (Pop: {populacao})</span>
+      </div>
+      
+      <!-- STRICT SEO RULE: H1 title -->
+      <h1 class="hero-title">{seo.h1Title}</h1>
+      
+      <!-- STRICT SEO RULE: Keyword in 1st Paragraph -->
+      <p class="hero-paragraph">
+        {seo.firstParagraphText}
+      </p>
+
+      <div class="hero-features">
+        <div class="feature-tag">✔ Visita Grátis & Orçamento sem compromisso</div>
+        <div class="feature-tag">✔ Atendimento em até 30 minutos em {cidade}</div>
+        <div class="feature-tag">✔ Equipamento moderno sem quebrar pisos</div>
+        <div class="feature-tag">✔ Garantia de até 90 dias por escrito</div>
+      </div>
+
+      <div class="hero-actions">
+        <a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20de%20desentupimento%20urgente%20em%20${cidade}`} class="btn btn-hero-primary" target="_blank" rel="noopener">
+          🚀 Solicitar Visita Grátis no WhatsApp
+        </a>
+        <a href="#bairros" class="btn btn-hero-secondary">
+          📍 Ver Bairros Atendidos
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="card-header">
+        <h3>⚡ Urgência 24 Horas em {cidade}</h3>
+        <p>Ligue ou envie mensagem e receba um técnico especialista na sua casa!</p>
+      </div>
+
+      <form class="hero-form" onsubmit="event.preventDefault(); window.open('https://wa.me/55' + whatsapp + '?text=Olá,%20preciso%20de%20orçamento%20para%20' + document.getElementById('servico-select').value + '%20em%20' + cidade, '_blank')">
+        <div class="form-group">
+          <label for="servico-select">Qual problema precisa resolver?</label>
+          <select id="servico-select" class="form-control" required>
+            <option value="Desentupimento de Esgoto">Esgoto Entupido</option>
+            <option value="Desentupimento de Pia">Pia Entupida</option>
+            <option value="Desentupimento de Vaso Sanitário">Vaso Sanitário Entupido</option>
+            <option value="Desentupimento de Ralo">Ralo de Banheiro / Quintal</option>
+            <option value="Limpeza de Fossa">Limpeza / Esgotamento de Fossa</option>
+          </select>
+        </div>
+
+        <div class="form-info">
+          <span>🕒 Atendimento em plantão contínuo</span>
+          <span>💰 Sem taxa de visita técnica</span>
+        </div>
+
+        <button type="submit" class="btn btn-form-submit">
+          Chamar Técnico Agora
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 60px 0 80px 0;
+    color: #ffffff;
+    overflow: hidden;
+  }
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badge span {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #f8fafc;
+  }
+  .hero-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+  }
+  .hero-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .feature-tag {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 500;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-hero-primary {
+    background: #10b981;
+    color: #ffffff;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-hero-primary:hover {
+    background: #059669;
+    transform: translateY(-3px);
+  }
+  .btn-hero-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .hero-card {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  .card-header h3 {
+    font-size: 1.3rem;
+    color: #f8fafc;
+    margin-bottom: 8px;
+  }
+  .card-header p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+  .form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+  }
+  .btn-form-submit {
+    width: 100%;
+    background: #0284c7;
+    color: #ffffff;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    .hero-container { grid-template-columns: 1fr; }
+    .hero-features { grid-template-columns: 1fr; }
+  }
+</style>

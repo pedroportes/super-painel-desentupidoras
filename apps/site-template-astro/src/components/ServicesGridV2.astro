@@ -1,0 +1,98 @@
+---
+const { services, cidade, whatsapp } = Astro.props;
+---
+
+<section id="servicos" class="services-v2">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">SOLUÇÕES COMPLETAS</span>
+      <h2>O Que Fazemos por Você em {cidade}</h2>
+      <p>Equipes treinadas e prontas para atender qualquer tipo de obstrução em redes hidráulicas.</p>
+    </div>
+
+    <div class="services-list">
+      {services.map((s) => (
+        <div class="service-box">
+          <div class="box-left">
+            <span class="box-tag">Atendimento 24h</span>
+            <h3>{s.title} em {cidade}</h3>
+            <p>{s.description}</p>
+          </div>
+          <div class="box-right">
+            <a href={`https://wa.me/55${whatsapp}?text=Olá,%20quero%20um%20orçamento%20para%20${s.title}%20em%20${cidade}`} class="btn btn-service-v2" target="_blank" rel="noopener">
+              Chamar no WhatsApp
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v2 {
+    padding: 80px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+  }
+  .section-badge {
+    color: var(--color-accent, #f97316);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 10px 0;
+  }
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .service-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .box-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent, #f97316);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .box-left h3 {
+    font-size: 1.3rem;
+    margin: 6px 0 8px 0;
+  }
+  .box-left p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .btn-service-v2 {
+    background: var(--color-primary, #0284c7);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .service-box { flex-direction: column; align-items: flex-start; }
+  }
+</style>

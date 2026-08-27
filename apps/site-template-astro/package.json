@@ -1,0 +1,15 @@
+{
+  "name": "site-template-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "audit": "node scripts/seoGeoAuditor.js"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  }
+}

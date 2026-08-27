@@ -1,0 +1,71 @@
+/* PALETAS DE CORES PARA EVITAR CLONAGEM VISUAL ENTRE SITES */
+
+/* 1. Urgência Azul/Laranja */
+[data-theme="urgencia-azul-laranja"] {
+  --color-bg-dark: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-primary: #0284c7;
+  --color-primary-hover: #0369a1;
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-badge-bg: rgba(2, 132, 199, 0.15);
+  --color-badge-text: #38bdf8;
+}
+
+/* 2. Corporativo Verde/Cinza */
+[data-theme="corporativo-verde-cinza"] {
+  --color-bg-dark: #052e16;
+  --color-bg-card: #064e3b;
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-accent: #34d399;
+  --color-accent-hover: #10b981;
+  --color-text-main: #f0fdf4;
+  --color-text-muted: #a7f3d0;
+  --color-badge-bg: rgba(16, 185, 129, 0.2);
+  --color-badge-text: #6ee7b7;
+}
+
+/* 3. Residencial Bege/Terracota */
+[data-theme="residencial-bege"] {
+  --color-bg-dark: #1c1917;
+  --color-bg-card: #292524;
+  --color-primary: #d97706;
+  --color-primary-hover: #b45309;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-text-main: #fafaf9;
+  --color-text-muted: #d6d3d1;
+  --color-badge-bg: rgba(217, 119, 6, 0.2);
+  --color-badge-text: #fbbf24;
+}
+
+/* 4. Industrial Amarelo/Preto */
+[data-theme="industrial-amarelo"] {
+  --color-bg-dark: #18181b;
+  --color-bg-card: #27272a;
+  --color-primary: #eab308;
+  --color-primary-hover: #ca8a04;
+  --color-accent: #facc15;
+  --color-accent-hover: #eab308;
+  --color-text-main: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+  --color-badge-bg: rgba(234, 179, 8, 0.2);
+  --color-badge-text: #fef08a;
+}
+
+/* 5. Clean Azul/Branco */
+[data-theme="clean-azul"] {
+  --color-bg-dark: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-text-main: #ffffff;
+  --color-text-muted: #cbd5e1;
+  --color-badge-bg: rgba(37, 99, 235, 0.2);
+  --color-badge-text: #60a5fa;
+}

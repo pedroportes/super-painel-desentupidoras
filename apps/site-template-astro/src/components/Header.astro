@@ -1,0 +1,134 @@
+---
+const { cidade, uf, ddd, whatsapp, empresaNome } = Astro.props;
+---
+
+<header class="header">
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>⚡ Atendimento Emergencial 24 Horas em {cidade} - {uf}</span>
+      <a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="top-whatsapp" target="_blank" rel="noopener">
+        <span>📲 WhatsApp 24h: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="/">
+          <span class="logo-badge">24H</span>
+          <div class="logo-text">
+            <strong>{empresaNome}</strong>
+            <small>Desentupimentos & Hidrojateamento em {cidade}</small>
+          </div>
+        </a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#bairros">Áreas Atendidas</a>
+        <a href="#faq">Dúvidas (FAQ)</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href={`https://wa.me/55${whatsapp}?text=Olá!%20Quero%20um%20orçamento%20gratuito%20para%20${cidade}`} class="btn btn-header" target="_blank" rel="noopener">
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f172a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  .top-bar {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    font-weight: 500;
+  }
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-whatsapp {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .main-header {
+    padding: 14px 0;
+    background: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .logo-badge {
+    background: #10b981;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+  .logo-text strong {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: #f8fafc;
+  }
+  .logo-text small {
+    color: #94a3b8;
+    font-size: 0.78rem;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+  }
+  .nav-menu a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  .nav-menu a:hover {
+    color: #10b981;
+  }
+  .btn-header {
+    background: #10b981;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-header:hover {
+    background: #059669;
+    transform: translateY(-2px);
+  }
+  @media (max-width: 768px) {
+    .nav-menu, .top-bar span { display: none; }
+  }
+</style>

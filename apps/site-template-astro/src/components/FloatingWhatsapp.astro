@@ -1,0 +1,38 @@
+---
+const { whatsapp, cidade } = Astro.props;
+---
+
+<a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20de%20desentupimento%20emergencial%20em%20${cidade}`} class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <div class="whatsapp-icon">💬</div>
+  <span class="whatsapp-text">WhatsApp 24h</span>
+</a>
+
+<style>
+  .floating-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    background: #25d366;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .floating-whatsapp:hover {
+    transform: scale(1.06);
+    background: #20ba5a;
+  }
+  .whatsapp-icon {
+    font-size: 1.4rem;
+  }
+  .whatsapp-text {
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-col">
+      <h3>{empresaNome}</h3>
+      <p>Atendimento especializado em desentupimentos de esgotos, pias, vasos sanitários, ralos e limpeza de fossas com atendimento 24h em {cidade} - {uf}.</p>
+      <p><small>CNPJ: {cnpj}</small></p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Serviços em {cidade}</h4>
+      <ul>
+        <li>Desentupimento de Esgoto</li>
+        <li>Desentupimento de Pia</li>
+        <li>Desentupimento de Vaso Sanitário</li>
+        <li>Desentupimento de Ralo</li>
+        <li>Limpeza de Fossa Séptica</li>
+        <li>Hidrojateamento de Alta Pressão</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Atendimento 24 Horas</h4>
+      <p>📍 {endereco}</p>
+      <p>📲 WhatsApp: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</p>
+      <p>🕒 Plantão 24/7 (Segunda a Domingo)</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container text-center">
+      <p>© {new Date().getFullYear()} {empresaNome} - Todos os direitos reservados. Desentupidora em {cidade} {uf}.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #090d16;
+    color: #94a3b8;
+    padding-top: 60px;
+    font-size: 0.9rem;
+  }
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+  }
+  .footer-col h3 {
+    color: #f8fafc;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+  .footer-col h4 {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-col li {
+    margin-bottom: 10px;
+  }
+  .footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding: 20px 0;
+    font-size: 0.82rem;
+  }
+</style>

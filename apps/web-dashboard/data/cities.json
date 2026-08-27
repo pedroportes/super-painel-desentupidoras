@@ -1,0 +1,379 @@
+[
+  {
+    "id": "linhares",
+    "cidade": "Linhares",
+    "uf": "ES",
+    "populacao": "183.797",
+    "status": "ativo",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoralinhares.com.br",
+    "whatsapp": "27992795590",
+    "telefoneFixo": "(27) 3323-0000",
+    "empresaNome": "Desentupidora Linhares 24h",
+    "cnpj": "12.345.678/0001-90",
+    "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
+    "bairros": [
+      "Centro",
+      "Interlagos",
+      "Conceição",
+      "Novo Horizonte",
+      "Avisos",
+      "Araçá",
+      "BNH",
+      "Juparanã",
+      "Movelar",
+      "Três Barras",
+      "Shell",
+      "São José",
+      "teste"
+    ],
+    "auditScore": 90,
+    "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.",
+    "h1Title": "Desentupidora em Linhares ES 24horas"
+  },
+  {
+    "id": "cachoeiro",
+    "cidade": "Cachoeiro de Itapemirim",
+    "uf": "ES",
+    "populacao": "198.342",
+    "status": "ativo",
+    "hospedagem": "vercel",
+    "paletaCores": "corporativo-verde-cinza",
+    "heroVariant": "HeroV2",
+    "servicesVariant": "ServicesGridV2",
+    "dominio": "desentupidoracachoeiro.com.br",
+    "whatsapp": "28999887766",
+    "telefoneFixo": "(28) 3522-0000",
+    "empresaNome": "Desentupidora Cachoeiro 24h",
+    "cnpj": "98.765.432/0001-10",
+    "endereco": "Rua Bernardo Horta, 200 - Guandú, Cachoeiro de Itapemirim - ES",
+    "bairros": [
+      "Centro",
+      "Gilberto Machado",
+      "Alto Amarelo",
+      "Aquidaban",
+      "Baiminas",
+      "Coronel Borges",
+      "Ilha da Luz",
+      "Vila Rica"
+    ],
+    "auditScore": 100
+  },
+  {
+    "id": "pocosdecaldas",
+    "cidade": "Poços de Caldas",
+    "uf": "MG",
+    "populacao": "172.339",
+    "status": "ativo",
+    "hospedagem": "netlify",
+    "paletaCores": "residencial-bege",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV2",
+    "dominio": "desentupidorapocos.com.br",
+    "whatsapp": "35988776655",
+    "telefoneFixo": "(35) 3722-0000",
+    "empresaNome": "Desentupidora Poços 24h",
+    "cnpj": "11.222.333/0001-44",
+    "endereco": "Rua Assis Figueiredo, 1000 - Centro, Poços de Caldas - MG",
+    "bairros": [
+      "Centro",
+      "Jardim dos Estados",
+      "Cascatinha",
+      "Jardim Country Club",
+      "Santa Rosália",
+      "Vila Cruz",
+      "Zona Sul"
+    ],
+    "auditScore": 100
+  },
+  {
+    "id": "itabuna",
+    "cidade": "Itabuna",
+    "uf": "BA",
+    "populacao": "196.344",
+    "status": "em_construcao",
+    "hospedagem": "cloudflare",
+    "paletaCores": "industrial-amarelo",
+    "heroVariant": "HeroV2",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoraitabuna.com.br",
+    "whatsapp": "73999768717",
+    "telefoneFixo": "(73) 3613-0000",
+    "empresaNome": "Desentupidora Itabuna 24h",
+    "cnpj": "55.666.777/0001-88",
+    "endereco": "Av. Cinquentenário, 800 - Centro, Itabuna - BA",
+    "bairros": [
+      "Centro",
+      "São Caetano",
+      "Pontalzinho",
+      "Fátima",
+      "Conceição",
+      "Califórnia",
+      "Mangabinha",
+      "Jardim Vitória"
+    ],
+    "auditScore": 90
+  },
+  {
+    "id": "portoseguro",
+    "cidade": "Porto Seguro",
+    "uf": "BA",
+    "populacao": "182.630",
+    "status": "pendente",
+    "hospedagem": "vercel",
+    "paletaCores": "clean-azul",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoraportoseguro.com.br",
+    "whatsapp": "73988112233",
+    "telefoneFixo": "(73) 3288-0000",
+    "empresaNome": "Desentupidora Porto Seguro 24h",
+    "cnpj": "44.333.222/0001-99",
+    "endereco": "Av. dos Navegantes, 300 - Centro, Porto Seguro - BA",
+    "bairros": [
+      "Centro",
+      "Arraial d'Ajuda",
+      "Trancoso",
+      "Mundaí",
+      "Taperapuã",
+      "Fontana",
+      "Parque Ecológico",
+      "Frei Calixto"
+    ],
+    "auditScore": 0
+  },
+  {
+    "id": "guarapuava",
+    "cidade": "Guarapuava",
+    "uf": "PR",
+    "populacao": "189.630",
+    "status": "pendente",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV2",
+    "servicesVariant": "ServicesGridV2",
+    "dominio": "desentupidoraguarapuava.com.br",
+    "whatsapp": "42991264162",
+    "telefoneFixo": "(42) 3623-0000",
+    "empresaNome": "Desentupidora Guarapuava 24h",
+    "cnpj": "77.888.999/0001-22",
+    "endereco": "Rua Saldanha Marinho, 1500 - Centro, Guarapuava - PR",
+    "bairros": [
+      "Centro",
+      "Santa Cruz",
+      "Bonsucesso",
+      "Santana",
+      "Trianon",
+      "Batel",
+      "Vila Carli",
+      "Boqueirão"
+    ],
+    "auditScore": 0
+  },
+  {
+    "cidade": "curitiba",
+    "uf": "PR",
+    "populacao": "150.000",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "whatsapp": "27999998888",
+    "empresaNome": "Desentupidora curitiba 24h",
+    "endereco": "",
+    "bairros": [
+      "Centro",
+      "Interlagos",
+      "Conceição",
+      "Novo Horizonte",
+      "Avisos",
+      "Araçá",
+      "BNH",
+      "Juparanã"
+    ],
+    "dominio": "desentupidoracuritiba.com.br",
+    "h1Title": "Desentupidora em curitiba PR 24h",
+    "firstParagraph": "Precisando de desentupidora em curitiba PR urgente? Atendimento emergencial 24 horas para desentupimento de esgoto, pias, ralos e limpeza de fossa com chegada em até 30 min sem quebrar pisos.",
+    "lastH2": "Por que escolher a melhor Desentupidora em curitiba PR?",
+    "status": "pendente",
+    "auditScore": 0,
+    "id": "curitiba"
+  },
+  {
+    "id": "sojosdospinhais",
+    "cidade": "São José dos Pinhais",
+    "uf": "PR",
+    "populacao": "1.773.733",
+    "modeloTemplate": "urgencia-24h",
+    "status": "pendente",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoralinhares.com.br",
+    "whatsapp": "41992795590",
+    "telefoneFixo": "(41) 3323-0000",
+    "empresaNome": "Desentupidora São José dos Pinhais 24h",
+    "cnpj": "12.345.678/0001-90",
+    "endereco": "Av. Central, 500 - Centro, São José dos Pinhais - PR",
+    "h1Title": "Desentupidora em São José dos Pinhais PR 24h",
+    "firstParagraph": "Precisando de uma desentupidora em São José dos Pinhais PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de São José dos Pinhais e região, com garantia por escrito e o menor preço.",
+    "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
+    "lastH2": "Por que escolher a melhor Desentupidora em São José dos Pinhais PR?",
+    "bairros": [
+      "Centro",
+      "Jardim América",
+      "Bela Vista",
+      "São José",
+      "Santa Cruz",
+      "Vila Nova",
+      "Planalto",
+      "Bairro Alto"
+    ],
+    "services": [
+      {
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Qual o valor cobrado para um desentupimento em São José dos Pinhais?",
+        "answer": "O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região."
+      },
+      {
+        "question": "Vocês atendem emergências 24 horas aos finais de semana em São José dos Pinhais?",
+        "answer": "Sim! Nossas equipes de plantão em São José dos Pinhais operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em São José dos Pinhais?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de São José dos Pinhais, nosso tempo médio de chegada é de 20 a 40 minutos."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - São José dos Pinhais",
+        "rating": 5,
+        "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+      }
+    ],
+    "auditScore": 0
+  },
+  {
+    "id": "araucaria",
+    "cidade": "araucaria",
+    "uf": "PR",
+    "populacao": "150.000",
+    "modeloTemplate": "urgencia-24h",
+    "status": "pendente",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoralinhares.com.br",
+    "whatsapp": "41992795590",
+    "telefoneFixo": "(41) 3323-0000",
+    "empresaNome": "Desentupidora araucaria 24h",
+    "cnpj": "12.345.678/0001-90",
+    "endereco": "Av. Central, 500 - Centro, araucaria - PR",
+    "h1Title": "Desentupidora em araucaria PR 24h",
+    "firstParagraph": "Precisando de uma desentupidora em araucaria PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de araucaria e região, com garantia por escrito e o menor preço.",
+    "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
+    "lastH2": "Por que escolher a melhor Desentupidora em araucaria PR?",
+    "bairros": [
+      "Centro",
+      "Jardim América",
+      "Bela Vista",
+      "São José",
+      "Santa Cruz",
+      "Vila Nova",
+      "Planalto",
+      "Bairro Alto"
+    ],
+    "services": [
+      {
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Qual o valor cobrado para um desentupimento em araucaria?",
+        "answer": "O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região."
+      },
+      {
+        "question": "Vocês atendem emergências 24 horas aos finais de semana em araucaria?",
+        "answer": "Sim! Nossas equipes de plantão em araucaria operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em araucaria?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de araucaria, nosso tempo médio de chegada é de 20 a 40 minutos."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - araucaria",
+        "rating": 5,
+        "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+      }
+    ],
+    "auditScore": 0
+  }
+]
