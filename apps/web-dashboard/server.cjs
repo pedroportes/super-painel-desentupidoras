@@ -3,6 +3,8 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
+const multer = require('multer');
+const { deployCitySite } = require('./scripts/deployEngine.cjs');
 
 const app = express();
 const PORT = 5001;
@@ -15,6 +17,39 @@ const CITIES_FILE = path.join(DATA_DIR, 'cities.json');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 const ASTRO_DIR = path.join(__dirname, '..', 'site-template-astro');
 const ASTRO_CONFIG_FILE = path.join(ASTRO_DIR, 'src', 'data', 'cityConfig.json');
+const IMAGES_PUBLIC_DIR = path.join(ASTRO_DIR, 'public', 'images');
+
+// As imagens ficam DENTRO da pasta pública do site Astro (não em serviço
+// externo), pois é essa pasta que é enviada no deploy estático (Cloudflare
+// Pages / Vercel / Netlify) — assim a imagem vai junto com o site publicado,
+// hospedada de graça no mesmo provedor escolhido para aquela cidade.
+if (!fs.existsSync(IMAGES_PUBLIC_DIR)) fs.mkdirSync(IMAGES_PUBLIC_DIR, { recursive: true });
+
+const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'];
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024; // 5MB
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      const cityId = (req.body.cityId || req.query.cityId || 'sem-cidade').replace(/[^a-z0-9\-]/gi, '');
+      const dir = path.join(IMAGES_PUBLIC_DIR, cityId);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      cb(null, dir);
+    },
+    filename: (req, file, cb) => {
+      const kind = (req.body.kind || req.query.kind || 'imagem').replace(/[^a-z0-9\-]/gi, '');
+      const ext = path.extname(file.originalname).toLowerCase() || '.jpg';
+      cb(null, `${kind}${ext}`);
+    }
+  }),
+  limits: { fileSize: MAX_UPLOAD_BYTES },
+  fileFilter: (req, file, cb) => {
+    if (!ALLOWED_IMAGE_TYPES.includes(file.mimetype)) {
+      return cb(new Error('Tipo de arquivo não permitido. Envie JPG, PNG, WEBP ou SVG.'));
+    }
+    cb(null, true);
+  }
+});
 
 // Ensure data files exist
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -101,6 +136,22 @@ function syncCityToAstro(city) {
 }
 
 // 1. GET ALL CITIES
+app.use('/images', express.static(IMAGES_PUBLIC_DIR));
+
+app.post('/api/upload-image', (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err.message });
+    }
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: 'Nenhum arquivo enviado.' });
+    }
+    const cityId = (req.body.cityId || 'sem-cidade').replace(/[^a-z0-9\-]/gi, '');
+    const relativePath = `/images/${cityId}/${req.file.filename}`;
+    res.json({ success: true, path: relativePath });
+  });
+});
+
 app.get('/api/cities', (req, res) => {
   res.json(readCities());
 });
@@ -509,8 +560,11 @@ app.post('/api/build-city/:id', (req, res) => {
   });
 });
 
-// 9. REAL DEPLOY TO CONFIGURED PROVIDER
-app.post('/api/deploy-city/:id', (req, res) => {
+// 9. DEPLOY REAL PARA O PROVEDOR CONFIGURADO
+// Builda o site com os dados atuais da cidade e chama o CLI real do provedor
+// escolhido. Se faltar credencial ou o deploy falhar de verdade, retorna
+// success:false com o erro — nunca finge que publicou.
+app.post('/api/deploy-city/:id', async (req, res) => {
   const { id } = req.params;
   const cities = readCities();
   const city = cities.find(c => c.id === id);
@@ -520,33 +574,40 @@ app.post('/api/deploy-city/:id', (req, res) => {
     return res.status(404).json({ error: 'Cidade não encontrada' });
   }
 
-  const provider = city.hospedagem || 'cloudflare';
-  let deployUrl = '';
-  let providerMsg = '';
+  syncCityToAstro(city);
 
-  if (provider === 'cloudflare') {
-    const hasKey = settings.cloudflare && settings.cloudflare.apiToken;
-    deployUrl = `https://desentupidora-${city.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}.pages.dev`;
-    providerMsg = hasKey ? 'Deploy Cloudflare API executado com chave real' : 'Deploy Cloudflare executado (Modo Homologação/Simulado)';
-  } else if (provider === 'vercel') {
-    const hasKey = settings.vercel && settings.vercel.apiToken;
-    deployUrl = `https://desentupidora-${city.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}.vercel.app`;
-    providerMsg = hasKey ? 'Deploy Vercel API executado com token real' : 'Deploy Vercel executado (Modo Homologação/Simulado)';
-  } else if (provider === 'netlify') {
-    const hasKey = settings.netlify && settings.netlify.apiToken;
-    deployUrl = `https://desentupidora-${city.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}.netlify.app`;
-    providerMsg = hasKey ? 'Deploy Netlify API executado com token real' : 'Deploy Netlify executado (Modo Homologação/Simulado)';
+  const buildResult = await new Promise((resolve) => {
+    exec('npm run build', { cwd: ASTRO_DIR }, (error, stdout, stderr) => {
+      resolve({ error, output: stdout + '\n' + stderr });
+    });
+  });
+
+  if (buildResult.error) {
+    return res.json({
+      success: false,
+      error: 'O build do site falhou antes de tentar publicar. Corrija os erros abaixo e tente de novo.',
+      log: buildResult.output
+    });
+  }
+
+  const distDir = path.join(ASTRO_DIR, 'dist');
+  const deployResult = await deployCitySite(city, settings, distDir);
+
+  if (!deployResult.success) {
+    // Falha real: não altera status/score da cidade para não fingir que foi publicada.
+    return res.json({ success: false, error: deployResult.error, log: deployResult.log || '' });
   }
 
   city.status = 'ativo';
-  city.auditScore = 100;
+  city.deployUrl = deployResult.url;
+  city.lastDeployAt = deployResult.deployedAt;
   writeCities(cities);
 
   res.json({
     success: true,
-    provider,
-    deployUrl,
-    message: providerMsg,
+    provider: deployResult.provider,
+    deployUrl: deployResult.url,
+    log: deployResult.log,
     city
   });
 });

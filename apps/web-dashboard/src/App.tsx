@@ -31,6 +31,7 @@ export default function App() {
   // Modals & States
   const [auditLogModal, setAuditLogModal] = useState<{ isOpen: boolean; title: string; log: string; score: number } | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
+  const [imageUploadStatus, setImageUploadStatus] = useState<string | null>(null);
   const [newBairroInput, setNewBairroInput] = useState('');
 
   // New City Wizard Form
@@ -75,6 +76,39 @@ export default function App() {
       if (data && data.cloudflare) setSettings(data);
     } catch (e) {
       console.error('Erro ao buscar configurações:', e);
+    }
+  };
+
+  const handleImageUpload = async (file: File, kind: 'logo' | 'hero') => {
+    if (!editingCity) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      setImageUploadStatus('❌ Arquivo maior que 5MB. Escolha uma imagem menor.');
+      return;
+    }
+
+    setImageUploadStatus('⏳ Enviando imagem...');
+    try {
+      const formData = new FormData();
+      formData.append('cityId', editingCity.id);
+      formData.append('kind', kind);
+      formData.append('image', file);
+
+      const res = await fetch('/api/upload-image', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (!data.success) {
+        setImageUploadStatus(`❌ ${data.error || 'Falha ao enviar imagem.'}`);
+        return;
+      }
+
+      setEditingCity({
+        ...editingCity,
+        [kind === 'logo' ? 'logoUrl' : 'heroImage']: data.path
+      });
+      setImageUploadStatus('✅ Imagem enviada. Clique em "Salvar Alterações" para gravar no site.');
+    } catch (e) {
+      setImageUploadStatus('❌ Erro de conexão ao enviar imagem.');
     }
   };
 
@@ -207,14 +241,18 @@ export default function App() {
   };
 
   const handleDeployCity = async (city: CityConfig) => {
-    showNotify(`🚀 Disparando Deploy de ${city.cidade} EXCLUSIVAMENTE para ${city.hospedagem.toUpperCase()}...`);
+    showNotify(`🚀 Buildando e publicando ${city.cidade} EXCLUSIVAMENTE para ${city.hospedagem.toUpperCase()}... isso pode levar um minuto.`);
     try {
       const res = await fetch(`/api/deploy-city/${city.id}`, { method: 'POST' });
       const data = await res.json();
-      showNotify(`🟢 ${data.message}! URL: ${data.deployUrl}`);
+      if (!data.success) {
+        showNotify(`❌ Deploy falhou: ${data.error || 'erro desconhecido. Veja o console do servidor.'}`);
+        return;
+      }
+      showNotify(`✅ ${city.cidade} publicado de verdade em ${data.provider?.toUpperCase()}! URL: ${data.deployUrl}`);
       fetchCities();
     } catch (e) {
-      showNotify('❌ Erro no deploy da cidade.');
+      showNotify('❌ Erro de conexão ao tentar publicar.');
     }
   };
 
@@ -541,6 +579,39 @@ export default function App() {
                       onChange={(e) => setEditingCity({ ...editingCity, empresaNome: e.target.value })}
                       style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.88rem' }}
                     />
+                  </div>
+
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#cbd5e1', marginBottom: '4px', fontWeight: 600 }}>Logo da Empresa:</label>
+                    <input
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                      onChange={(e) => e.target.files && e.target.files[0] && handleImageUpload(e.target.files[0], 'logo')}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                    />
+                    {editingCity.logoUrl && (
+                      <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img src={editingCity.logoUrl} alt="Preview do logo" style={{ height: '40px', backgroundColor: '#0f172a', borderRadius: '4px', padding: '4px' }} />
+                        <button type="button" onClick={() => setEditingCity({ ...editingCity, logoUrl: '' })} style={{ background: 'none', border: '1px solid #ef4444', color: '#ef4444', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', fontSize: '0.78rem' }}>Remover</button>
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#cbd5e1', marginBottom: '4px', fontWeight: 600 }}>Imagem do Hero (banner principal):</label>
+                    <input
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp"
+                      onChange={(e) => e.target.files && e.target.files[0] && handleImageUpload(e.target.files[0], 'hero')}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                    />
+                    {imageUploadStatus && <p style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '6px' }}>{imageUploadStatus}</p>}
+                    {editingCity.heroImage && (
+                      <div style={{ marginTop: '8px' }}>
+                        <img src={editingCity.heroImage} alt="Preview da imagem do Hero" style={{ maxWidth: '100%', maxHeight: '160px', borderRadius: '6px', objectFit: 'cover' }} />
+                        <button type="button" onClick={() => setEditingCity({ ...editingCity, heroImage: '' })} style={{ display: 'block', marginTop: '6px', background: 'none', border: '1px solid #ef4444', color: '#ef4444', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', fontSize: '0.78rem' }}>Remover</button>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
