@@ -83,6 +83,11 @@ export default function App() {
     const found = cities.find(c => c.id === cityId);
     if (found) {
       setEditingCity(JSON.parse(JSON.stringify(found)));
+    } else {
+      // Nunca deixar o editor mostrando dados de uma cidade diferente da
+      // selecionada. Se não achou (ex: lista ainda não sincronizada), limpa
+      // o editor em vez de manter os dados antigos.
+      setEditingCity(null);
     }
   };
 
@@ -145,9 +150,17 @@ export default function App() {
       const data = await res.json();
 
       showNotify(`🎉 Site exclusivo para "${createCityForm.cidade} (${createCityForm.uf})" criado com o modelo selecionado!`);
-      await fetchCities();
-      handleSelectCityForEditor(data.city.id);
+
+      // Seleciona a cidade recém-criada usando o objeto retornado pela API
+      // diretamente, em vez de depender da lista 'cities' do estado (que ainda
+      // não teria sido atualizada de forma síncrona, causando o bug de mostrar
+      // dados da cidade anterior ao trocar de seleção).
+      setSelectedCityId(data.city.id);
+      setEditingCity(JSON.parse(JSON.stringify(data.city)));
       setActiveTab('editor');
+
+      // Sincroniza a lista 'cities' em segundo plano (não bloqueia a seleção acima)
+      fetchCities();
       
       // Reset form
       setCreateCityForm({
