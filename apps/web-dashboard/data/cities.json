@@ -5,7 +5,7 @@
     "uf": "ES",
     "populacao": "183.797",
     "status": "ativo",
-    "hospedagem": "cloudflare",
+    "hospedagem": "vercel",
     "paletaCores": "urgencia-azul-laranja",
     "heroVariant": "HeroV1",
     "servicesVariant": "ServicesGridV1",
@@ -32,7 +32,9 @@
     ],
     "auditScore": 100,
     "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
-    "h1Title": "Desentupidora em Linhares ES 24horas"
+    "h1Title": "Desentupidora em Linhares ES 24horas",
+    "deployUrl": "https://dist-1ec1nrews-pedros-projects-c35b6c79.vercel.app",
+    "lastDeployAt": "2026-08-28T17:48:21.289Z"
   },
   {
     "id": "cachoeiro",

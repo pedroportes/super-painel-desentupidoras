@@ -81,8 +81,9 @@ async function deployToVercel(cityConfig, keys, distDir) {
     };
   }
 
+  const projectName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
   const teamFlag = keys.teamId ? ` --scope=${keys.teamId}` : '';
-  const cmd = `npx --yes vercel@latest deploy "${distDir}" --prod --yes --token=${keys.apiToken}${teamFlag}`;
+  const cmd = `npx --yes vercel@latest deploy "${distDir}" --name=${projectName} --prod --yes --token=${keys.apiToken}${teamFlag}`;
 
   const { error, stdout, stderr } = await run(cmd);
   const output = stdout + '\n' + stderr;
@@ -91,11 +92,17 @@ async function deployToVercel(cityConfig, keys, distDir) {
     return { success: false, provider, error: `Falha no deploy Vercel: ${stderr || error.message}`, log: output };
   }
 
-  const urlMatch = output.match(/https:\/\/[a-z0-9.-]+\.vercel\.app\S*/i);
+  // Extract all valid clean .vercel.app URLs
+  const urls = output.match(/https:\/\/[a-zA-Z0-9.-]+\.vercel\.app/g);
+  let cleanUrl = urls ? urls[urls.length - 1] : null;
+  if (cleanUrl) {
+    cleanUrl = cleanUrl.replace(/["',;]/g, '').trim();
+  }
+
   return {
     success: true,
     provider,
-    url: urlMatch ? urlMatch[0].trim() : null,
+    url: cleanUrl || `https://${projectName}.vercel.app`,
     log: output,
     deployedAt: new Date().toISOString()
   };
