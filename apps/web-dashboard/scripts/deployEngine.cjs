@@ -46,12 +46,14 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
     };
   }
 
+  const apiToken = (keys.apiToken || '').trim();
+  const accountId = (keys.accountId || '').trim();
   const projectName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
   const cmd = `npx --yes wrangler@latest pages deploy "${distDir}" --project-name=${projectName} --branch=main`;
   const env = {
     ...process.env,
-    CLOUDFLARE_API_TOKEN: keys.apiToken,
-    CLOUDFLARE_ACCOUNT_ID: keys.accountId
+    CLOUDFLARE_API_TOKEN: apiToken,
+    CLOUDFLARE_ACCOUNT_ID: accountId
   };
 
   const { error, stdout, stderr } = await run(cmd, { env });
@@ -61,11 +63,11 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
     return { success: false, provider, error: `Falha no deploy Cloudflare Pages: ${stderr || error.message}`, log: output };
   }
 
-  const urlMatch = output.match(/https:\/\/[a-z0-9.-]+\.pages\.dev\S*/i);
+  const urlMatch = output.match(/https:\/\/[a-z0-9.-]+\.pages\.dev/i);
   return {
     success: true,
     provider,
-    url: urlMatch ? urlMatch[0] : `https://${projectName}.pages.dev`,
+    url: urlMatch ? urlMatch[0].replace(/["',;]/g, '').trim() : `https://${projectName}.pages.dev`,
     log: output,
     deployedAt: new Date().toISOString()
   };
