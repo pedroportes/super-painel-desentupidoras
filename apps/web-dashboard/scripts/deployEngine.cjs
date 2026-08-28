@@ -49,12 +49,18 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
   const apiToken = (keys.apiToken || '').trim();
   const accountId = (keys.accountId || '').trim();
   const projectName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-  const cmd = `npx --yes wrangler@latest pages deploy "${distDir}" --project-name=${projectName} --branch=main`;
   const env = {
     ...process.env,
     CLOUDFLARE_API_TOKEN: apiToken,
     CLOUDFLARE_ACCOUNT_ID: accountId
   };
+
+  // Cria o projeto na Cloudflare Pages se ainda não existir (automático e transparente)
+  const createCmd = `npx --yes wrangler@latest pages project create ${projectName} --production-branch=main`;
+  await run(createCmd, { env });
+
+  // Publica os arquivos compilados do Astro
+  const cmd = `npx --yes wrangler@latest pages deploy "${distDir}" --project-name=${projectName} --branch=main`;
 
   const { error, stdout, stderr } = await run(cmd, { env });
   const output = stdout + '\n' + stderr;
