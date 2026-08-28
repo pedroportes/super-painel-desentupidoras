@@ -9,7 +9,7 @@
   "empresaNome": "Desentupidora araucaria 24h",
   "cnpj": "12.345.678/0001-90",
   "endereco": "Av. Central, 500 - Centro, araucaria - PR",
-  "hospedagem": "cloudflare",
+  "hospedagem": "vercel",
   "paletaCores": "urgencia-azul-laranja",
   "variants": {
     "hero": "HeroV1",

@@ -295,8 +295,8 @@
     "uf": "PR",
     "populacao": "150.000",
     "modeloTemplate": "urgencia-24h",
-    "status": "pendente",
-    "hospedagem": "cloudflare",
+    "status": "ativo",
+    "hospedagem": "vercel",
     "paletaCores": "urgencia-azul-laranja",
     "heroVariant": "HeroV1",
     "servicesVariant": "ServicesGridV1",
@@ -374,7 +374,9 @@
         "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
       }
     ],
-    "auditScore": 0
+    "auditScore": 0,
+    "deployUrl": "https://dist-fv35crkyn-pedros-projects-c35b6c79.vercel.app\",",
+    "lastDeployAt": "2026-08-28T17:30:10.892Z"
   },
   {
     "id": "londrina",

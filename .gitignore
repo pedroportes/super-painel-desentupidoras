@@ -21,6 +21,8 @@ pnpm-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
+apps/web-dashboard/data/settings.json
+data/settings.json
 
 # Editor & OS files
 .DS_Store
