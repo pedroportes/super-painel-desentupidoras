@@ -154,7 +154,7 @@
     "cidade": "Guarapuava",
     "uf": "PR",
     "populacao": "189.630",
-    "status": "pendente",
+    "status": "ativo",
     "hospedagem": "cloudflare",
     "paletaCores": "urgencia-azul-laranja",
     "heroVariant": "HeroV2",
@@ -175,7 +175,9 @@
       "Vila Carli",
       "Boqueirão"
     ],
-    "auditScore": 0
+    "auditScore": 0,
+    "deployUrl": "https://16fe4cf9.desentupidora-guarapuava.pages.dev",
+    "lastDeployAt": "2026-08-28T18:51:03.930Z"
   },
   {
     "cidade": "curitiba",

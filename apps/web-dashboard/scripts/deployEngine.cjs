@@ -69,11 +69,10 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
     return { success: false, provider, error: `Falha no deploy Cloudflare Pages: ${stderr || error.message}`, log: output };
   }
 
-  const urlMatch = output.match(/https:\/\/[a-z0-9.-]+\.pages\.dev/i);
   return {
     success: true,
     provider,
-    url: urlMatch ? urlMatch[0].replace(/["',;]/g, '').trim() : `https://${projectName}.pages.dev`,
+    url: `https://${projectName}.pages.dev`,
     log: output,
     deployedAt: new Date().toISOString()
   };
