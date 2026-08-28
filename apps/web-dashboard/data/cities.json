@@ -30,8 +30,8 @@
       "São José",
       "teste"
     ],
-    "auditScore": 90,
-    "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.",
+    "auditScore": 100,
+    "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
     "h1Title": "Desentupidora em Linhares ES 24horas"
   },
   {
@@ -372,6 +372,89 @@
         "neighborhood": "Centro - araucaria",
         "rating": 5,
         "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+      }
+    ],
+    "auditScore": 0
+  },
+  {
+    "id": "londrina",
+    "cidade": "Londrina",
+    "uf": "PR",
+    "populacao": "1.773.733500000",
+    "modeloTemplate": "residencial-bairros",
+    "status": "pendente",
+    "hospedagem": "vercel",
+    "paletaCores": "residencial-bege",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoralondrina.com.br",
+    "whatsapp": "43999999999",
+    "telefoneFixo": "(27) 3400-0000",
+    "empresaNome": "Desentupidora Familiar Londrina",
+    "cnpj": "34.567.890/0001-12",
+    "endereco": "Rua das Flores, 250 - Bairro Residencial, Londrina - PR",
+    "h1Title": "Desentupidora Residencial em Londrina PR - Atendimento Sem Quebrar",
+    "firstParagraph": "Sua pia, ralo ou vaso sanitário entupiu em Londrina? Nossa equipe atende sua casa rapidamente com técnicos educados, trabalho 100% limpo sem quebrar azulejos ou pisos e orçamento gratuito na sua residência.",
+    "ctaButtonText": "Chamar Encanador no WhatsApp",
+    "lastH2": "A desentupidora mais recomendada pelas famílias de Londrina",
+    "bairros": [
+      "Centro",
+      "Jardim América",
+      "Bela Vista",
+      "São José",
+      "Santa Cruz",
+      "Vila Nova",
+      "Planalto",
+      "Bairro Alto"
+    ],
+    "services": [
+      {
+        "title": "Desentupimento de Pia de Cozinha",
+        "description": "Desobstrução rápida de gordura acumulada sem estragar o sifão e com limpeza total do local.",
+        "icon": "🚰"
+      },
+      {
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e cuidadoso. Desobstruímos seu vaso sanitário sem remover a louça.",
+        "icon": "🚽"
+      },
+      {
+        "title": "Desentupimento de Ralo e Banheiro",
+        "description": "Remoção de cabelos, sabonetes e sujeiras em ralos de chuveiro, lavanderias e quintais.",
+        "icon": "🛁"
+      },
+      {
+        "title": "Desentupimento de Rede de Esgoto",
+        "description": "Máquinas elétricas com sondas flexíveis que limpam as tubulações da casa com máxima segurança.",
+        "icon": "🚿"
+      },
+      {
+        "title": "Limpeza de Caixa de Gordura Residencial",
+        "description": "Remoção de resíduos sólidos para evitar mau cheiro e refluxo de água na cozinha.",
+        "icon": "🛢️"
+      },
+      {
+        "title": "Limpeza de Fossa Séptica Residencial",
+        "description": "Esgotamento rápido com caminhão limpa fossa para chácaras e residências de ${cidade}.",
+        "icon": "🚛"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "É cobrado algum valor pela visita técnica na minha casa em Londrina?",
+        "answer": "Não! Nossa visita e orçamento são 100% gratuitos. O técnico avalia o problema e passa o valor justo antes de iniciar o trabalho."
+      },
+      {
+        "question": "Precisa quebrar o piso ou as paredes para desentupir?",
+        "answer": "Em 99% dos casos não quebramos nada. Usamos maquinário rotativo especializado que passa pelas curvas do encanamento limpando tudo por dentro."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dona Maria Helena",
+        "neighborhood": "Jardim América - Londrina",
+        "rating": 5,
+        "text": "Os rapazes foram muito educados, usaram protetor nos sapatos e desentupiram a pia da minha cozinha em 20 minutos sem deixar nenhuma sujeira."
       }
     ],
     "auditScore": 0

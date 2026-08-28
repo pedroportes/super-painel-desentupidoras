@@ -45,6 +45,8 @@ export interface CityConfig {
   faqs?: FaqItem[];
   testimonials?: TestimonialItem[];
   auditScore: number;
+  latitude?: string;
+  longitude?: string;
 }
 
 // Known DDDs by State
@@ -243,10 +245,15 @@ export function generateUniqueCityContent(
     faqs: [
       { question: `Qual o valor cobrado para um desentupimento em ${cidade}?`, answer: `O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região.` },
       { question: `Vocês atendem emergências 24 horas aos finais de semana em ${cidade}?`, answer: `Sim! Nossas equipes de plantão em ${cidade} operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados.` },
-      { question: `Qual o tempo estimado de chegada até o meu endereço em ${cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${cidade}, nosso tempo médio de chegada é de 20 a 40 minutos.` }
+      { question: `Qual o tempo estimado de chegada até o meu endereço em ${cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${cidade}, nosso tempo médio de chegada é de 20 a 40 minutos.` },
+      { question: `O serviço possui alguma garantia?`, answer: `Oferecemos garantia total por escrito em todos os nossos serviços, respeitando as normas do Código de Defesa do Consumidor.` },
+      { question: `Precisa quebrar o piso ou a parede para realizar o desentupimento?`, answer: `Na grande maioria das vezes não! Utilizamos equipamentos rotativos profissionais que desobstruem as tubulações por dentro, sem necessidade de quebrar nada.` },
+      { question: `Quais formas de pagamento vocês aceitam?`, answer: `Facilitamos o pagamento. Aceitamos cartões de crédito, débito, Pix e dinheiro. Condições especiais podem ser negociadas diretamente com o técnico no local.` }
     ],
     testimonials: [
-      { name: 'Carlos Eduardo M.', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!` }
+      { name: 'Carlos Eduardo M.', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!` },
+      { name: 'Juliana Fernandes', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `A pia da cozinha estava parada há dias. O técnico foi super educado, fez o orçamento grátis e o serviço foi muito rápido. Recomendo muito!` },
+      { name: 'Roberto Almeida', neighborhood: `${bairros[2] || 'Bairro'} - ${cidade}`, rating: 5, text: `Preço justo e serviço limpo. Achei que iam cobrar uma fortuna pela urgência de madrugada, mas foram super transparentes.` }
     ],
     auditScore: 0
   };

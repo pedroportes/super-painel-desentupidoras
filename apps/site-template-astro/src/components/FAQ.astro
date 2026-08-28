@@ -11,7 +11,7 @@ const { faqs, cidade } = Astro.props;
     </div>
 
     <div class="faq-accordion">
-      {faqs.map((f, index) => (
+      {faqs.map((f: any, index: number) => (
         <details class="faq-item" open={index === 0}>
           <summary class="faq-question">
             <strong>{f.question}</strong>

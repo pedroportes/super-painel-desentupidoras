@@ -1,5 +1,10 @@
 ---
+import { slugify } from '../utils/slugify';
+import cityData from '../data/cityConfig.json';
+
 const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco } = Astro.props;
+const { services = cityData.services } = Astro.props;
+const cidadeSlug = slugify(cidade);
 ---
 
 <footer class="footer">
@@ -13,12 +18,11 @@ const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco } = Astro.props;
     <div class="footer-col">
       <h4>Serviços em {cidade}</h4>
       <ul>
-        <li>Desentupimento de Esgoto</li>
-        <li>Desentupimento de Pia</li>
-        <li>Desentupimento de Vaso Sanitário</li>
-        <li>Desentupimento de Ralo</li>
-        <li>Limpeza de Fossa Séptica</li>
-        <li>Hidrojateamento de Alta Pressão</li>
+        {services.map((service: any) => (
+          <li>
+            <a href={`/${slugify(service.title)}-em-${cidadeSlug}`}>{service.title}</a>
+          </li>
+        ))}
       </ul>
     </div>
 
@@ -33,6 +37,11 @@ const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco } = Astro.props;
   <div class="footer-bottom">
     <div class="container text-center">
       <p>© {new Date().getFullYear()} {empresaNome} - Todos os direitos reservados. Desentupidora em {cidade} {uf}.</p>
+      <div class="footer-links">
+        <a href="/politica-de-privacidade">Política de Privacidade</a> | 
+        <a href="/termos-de-uso">Termos de Uso</a> | 
+        <a href="/contato">Contato</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -72,5 +81,17 @@ const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco } = Astro.props;
     border-top: 1px solid #1e293b;
     padding: 20px 0;
     font-size: 0.82rem;
+  }
+  .footer-links {
+    margin-top: 10px;
+  }
+  .footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: #10b981;
   }
 </style>

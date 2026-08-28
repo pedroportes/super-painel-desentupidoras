@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cityData from '../data/cityConfig.json';
+import '../styles/themePalettes.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seo = {
+  ...cityData.seo,
+  metaTitle: `Política de Privacidade - Desentupidora em ${cityData.cidade}`,
+  metaDescription: `Nossa Política de Privacidade. Como tratamos e protegemos seus dados na Desentupidora ${cityData.empresaNome}.`,
+  h1Title: `Política de Privacidade`
+};
+---
+
+<Layout {...cityData} seo={seo}>
+  <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
+    <Header {...cityData} />
+    
+    <section class="internal-hero">
+      <div class="container text-center">
+        <h1>{seo.h1Title}</h1>
+      </div>
+    </section>
+
+    <section class="page-content container">
+      <div class="content-wrapper text-left">
+        <h2>1. Informações Gerais</h2>
+        <p>A presente Política de Privacidade contém informações sobre coleta, uso, armazenamento, tratamento e proteção dos dados pessoais dos usuários e visitantes do site da <strong>{cityData.empresaNome}</strong>, com a finalidade de demonstrar absoluta transparência quanto ao assunto e esclarecer a todos interessados sobre os tipos de dados que são coletados, os motivos da coleta e a forma como os usuários podem gerenciar ou excluir as suas informações pessoais.</p>
+
+        <h2>2. Coleta de Dados Pessoais</h2>
+        <p>Não coletamos dados sensíveis. Os dados que podem ser solicitados, como nome e telefone, ocorrem exclusivamente via contato direto (WhatsApp ou ligação telefônica) para a realização de orçamentos e agendamento de visitas técnicas na cidade de {cityData.cidade}.</p>
+
+        <h2>3. Uso dos Dados</h2>
+        <p>Os dados fornecidos são utilizados apenas para responder solicitações de orçamentos, realizar o serviço contratado e para fins de garantia do serviço prestado (conforme exigido por lei). Não compartilhamos suas informações com terceiros.</p>
+      </div>
+    </section>
+
+    <Footer {...cityData} />
+  </div>
+</Layout>
+
+<style>
+  .internal-hero {
+    background: #090d16;
+    color: white;
+    padding: 40px 0;
+    margin-bottom: 40px;
+  }
+  .internal-hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .page-content {
+    margin-bottom: 60px;
+  }
+  .content-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .content-wrapper h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #0f172a;
+  }
+  .content-wrapper p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 15px;
+  }
+</style>

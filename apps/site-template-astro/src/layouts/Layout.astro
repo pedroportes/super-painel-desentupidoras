@@ -1,28 +1,33 @@
 ---
 import cityData from '../data/cityConfig.json';
 
-const { 
-  seo = cityData.seo, 
-  cidade = cityData.cidade, 
-  uf = cityData.uf, 
-  empresaNome = cityData.empresaNome, 
-  whatsapp = cityData.whatsapp,
-  telefoneFixo = cityData.telefoneFixo,
-  endereco = cityData.endereco,
-  geoCoordinates = cityData.geoCoordinates,
-  bairros = cityData.bairros,
-  faqs = cityData.faqs
-} = Astro.props;
-
-const siteUrl = Astro.url.origin;
-
-// Schema JSON-LD LocalBusiness & EmergencyService
-const schemaLocalBusiness = {
+  const { 
+    seo = cityData.seo, 
+    cidade = cityData.cidade, 
+    uf = cityData.uf, 
+    empresaNome = cityData.empresaNome, 
+    whatsapp = cityData.whatsapp,
+    telefoneFixo = cityData.telefoneFixo,
+    endereco = cityData.endereco,
+    geoCoordinates = cityData.geoCoordinates,
+    bairros = cityData.bairros,
+    faqs = cityData.faqs
+  } = Astro.props;
+  
+  const siteUrl = Astro.url.origin;
+  const currentPath = Astro.url.pathname;
+  
+  // Use exact provided meta fields from the `seo` prop, otherwise fallback
+  const finalMetaTitle = seo.metaTitle || `Desentupidora em ${cidade} ${uf} 24h | Atendimento Sem Quebrar Piso`;
+  const finalMetaDescription = seo.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${cidade} ${uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
+  
+  // Schema JSON-LD LocalBusiness & EmergencyService
+  const schemaLocalBusiness = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "EmergencyService"],
-  "name": `${empresaNome} - Desentupidora em ${cidade}`,
-  "description": seo.metaDescription,
-  "url": siteUrl,
+  "name": `${empresaNome} - ${finalMetaTitle}`,
+  "description": finalMetaDescription,
+  "url": `${siteUrl}${currentPath}`,
   "telephone": `+55${whatsapp}`,
   "address": {
     "@type": "PostalAddress",
@@ -57,14 +62,14 @@ const schemaFAQ = {
 ---
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- STRICT SEO RULE: TITLE & META DESCRIPTION -->
-    <title>{seo.metaTitle}</title>
-    <meta name="description" content={seo.metaDescription} />
+    <title>{finalMetaTitle}</title>
+    <meta name="description" content={finalMetaDescription} />
     <meta name="keywords" content={`desentupidora em ${cidade}, desentupimento ${cidade}, limpa fossa ${cidade}, desentupir pia ${cidade}`} />
     
     <!-- Agent Discovery & IsItAgentReady.com Compliance Links -->
@@ -96,11 +101,14 @@ const schemaFAQ = {
   html {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
-    background: #ffffff;
-    color: #0f172a;
+    background: var(--color-bg-dark, #0f172a);
+    color: var(--color-text-main, #f8fafc);
   }
   body {
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   .container {
     width: 100%;

@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cityData from '../data/cityConfig.json';
+import { slugify } from '../utils/slugify';
+import '../styles/themePalettes.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
+import FAQ from '../components/FAQ.astro';
+import Benefits from '../components/Benefits.astro';
+
+export async function getStaticPaths() {
+  const cidadeSlug = slugify(cityData.cidade);
+  
+  // Create a route for every service
+  const servicePaths = cityData.services.map((service) => {
+    // Generate URL: e.g. /desentupimento-de-pia-em-londrina
+    const slug = `${slugify(service.title)}-em-${cidadeSlug}`;
+    
+    return {
+      params: { slug },
+      props: {
+        type: 'service',
+        title: service.title,
+        description: service.description,
+        icon: service.icon
+      }
+    };
+  });
+
+  // Create a route for every neighborhood
+  const neighborhoodPaths = cityData.bairros.map((bairro) => {
+    // Generate URL: e.g. /bairro-centro
+    const slug = slugify(bairro);
+    
+    return {
+      params: { slug },
+      props: {
+        type: 'neighborhood',
+        name: bairro
+      }
+    };
+  });
+
+  return [...servicePaths, ...neighborhoodPaths];
+}
+
+const { slug } = Astro.params;
+const props = Astro.props;
+
+// Prepare custom SEO based on page type
+let pageSeo = { ...cityData.seo };
+let pageFaqs = [];
+
+if (props.type === 'service') {
+  const serviceName = props.title;
+  pageSeo.metaTitle = `Desentupidora de ${serviceName} em ${cityData.cidade} ${cityData.uf} | Atendimento 24h`;
+  pageSeo.metaDescription = `Especialistas em ${serviceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Chegamos em 30 min, orçamento gratuito e atendimento sem quebrar piso. Plantão 24h!`;
+  pageSeo.h1Title = `Desentupidora de ${serviceName} em ${cityData.cidade} ${cityData.uf}`;
+  pageSeo.firstParagraph = `Problemas com entupimento? Nossa equipe é especializada em desentupidora de ${serviceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Oferecemos atendimento emergencial rápido, serviço 100% limpo sem quebrar azulejos, com garantia por escrito e orçamento gratuito na sua residência ou empresa.`;
+  pageSeo.lastH2 = `Por que somos a melhor opção para ${serviceName.toLowerCase()} em ${cityData.cidade}?`;
+  
+  pageFaqs = [
+    { question: `Vocês atendem emergência para ${serviceName.toLowerCase()} em ${cityData.cidade}?`, answer: `Sim! Nosso plantão é 24 horas. Chegamos na sua residência ou empresa em até 30 minutos em qualquer bairro de ${cityData.cidade}.` },
+    { question: `Precisa quebrar a parede para resolver o problema de ${serviceName.toLowerCase()}?`, answer: "Na grande maioria das vezes não. Utilizamos equipamentos modernos rotativos e de hidrojateamento que desobstruem o encanamento por dentro, sem necessidade de quebra-quebra." },
+    { question: `A visita técnica para ${serviceName.toLowerCase()} é cobrada?`, answer: `Não cobramos taxa de visita em ${cityData.cidade}. Nossos técnicos vão até o local, avaliam a situação e passam um orçamento transparente sem compromisso.` },
+    { question: `Qual é a garantia do serviço de ${serviceName.toLowerCase()}?`, answer: `Oferecemos garantia por escrito de até 90 dias para todos os nossos serviços de desentupimento, garantindo sua total tranquilidade.` },
+    { question: `Vocês atendem empresas e comércios para ${serviceName.toLowerCase()}?`, answer: `Sim, possuímos equipes especializadas tanto para atendimento residencial quanto para condomínios, restaurantes, indústrias e comércios em geral.` },
+    { question: `Quais equipamentos são usados no ${serviceName.toLowerCase()}?`, answer: `Utilizamos maquinário de ponta, como molas rotativas K-50 e K-500, além de caminhões de hidrojateamento de alta pressão, dependendo da gravidade da obstrução.` }
+  ];
+} else if (props.type === 'neighborhood') {
+  const bairroName = props.name;
+  pageSeo.metaTitle = `Desentupidora no bairro ${bairroName} em ${cityData.cidade} ${cityData.uf} | 24 Horas`;
+  pageSeo.metaDescription = `Precisando de desentupidora no bairro ${bairroName} em ${cityData.cidade} ${cityData.uf}? Atendimento emergencial 24h para esgoto, pias e ralos. Visita grátis e menor preço!`;
+  pageSeo.h1Title = `Desentupidora Plantão 24h no Bairro ${bairroName} em ${cityData.cidade} ${cityData.uf}`;
+  pageSeo.firstParagraph = `Se você mora ou tem empresa e precisa de uma desentupidora no bairro ${bairroName} em ${cityData.cidade} ${cityData.uf}, nós chegamos em até 30 minutos! Nosso plantão emergencial 24 horas garante desentupimento rápido e limpo de esgotos, pias, ralos e vasos sanitários diretamente na sua região, com orçamento gratuito.`;
+  pageSeo.lastH2 = `Serviços de Desentupimento Especializados no bairro ${bairroName}`;
+  
+  // Reuse home FAQs but contextualize them to the neighborhood
+  pageFaqs = (cityData.faqs || []).map(f => {
+    return {
+      question: f.question.replace(cityData.cidade, `${bairroName} - ${cityData.cidade}`),
+      answer: f.answer.replace(cityData.cidade, `${bairroName} - ${cityData.cidade}`)
+    };
+  });
+  // Ensure we have at least 6 FAQs if the original city config was lacking
+  while(pageFaqs.length < 6) {
+    pageFaqs.push({
+      question: `Como solicitar visita técnica no bairro ${bairroName}?`,
+      answer: `Basta nos chamar no WhatsApp ou ligar. Uma equipe mais próxima ao bairro ${bairroName} será despachada imediatamente.`
+    });
+  }
+}
+
+// Ensure layout knows the exact SEO overrides for the schema
+cityData.seo = { ...cityData.seo, ...pageSeo };
+---
+
+<Layout {...cityData} seo={pageSeo} faqs={pageFaqs}>
+  <Header {...cityData} />
+  
+  <!-- Custom Mini-Hero for Internal Pages -->
+  <section class="internal-hero">
+    <div class="container text-center">
+      <h1>{pageSeo.h1Title}</h1>
+      <p class="hero-desc">{pageSeo.firstParagraph}</p>
+    </div>
+  </section>
+
+  <section class="page-content container">
+    <div class="content-wrapper">
+      {props.type === 'service' && (
+        <div class="service-details">
+          <span class="big-icon">{props.icon}</span>
+          <h2>Como realizamos o {props.title}</h2>
+          <p>{props.description} Nossa equipe técnica utiliza equipamentos de ponta para garantir a desobstrução completa sem danificar sua tubulação. O serviço é rápido, higiênico e possui garantia total.</p>
+          
+          <a href={`https://wa.me/55${cityData.whatsapp}?text=Olá, preciso de um orçamento para ${props.title}`} class="btn btn-whatsapp">
+            Solicitar Orçamento Agora
+          </a>
+        </div>
+      )}
+      
+      {props.type === 'neighborhood' && (
+        <div class="neighborhood-details">
+          <span class="big-icon">📍</span>
+          <h2>Atendimento Exclusivo no {props.name}</h2>
+          <p>Moradores e empresas do bairro <strong>{props.name}</strong> contam com nosso plantão rápido. Por termos equipes espalhadas por toda {cityData.cidade}, conseguimos chegar em cerca de 30 minutos na sua localização.</p>
+          
+          <a href={`https://wa.me/55${cityData.whatsapp}?text=Olá, preciso de atendimento no bairro ${props.name}`} class="btn btn-primary">
+            Chamar Técnico Mais Próximo
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Last H2 and Benefits Section -->
+  <div class="internal-benefits">
+    <div class="container text-center" style="margin-bottom: -40px; padding-top: 40px;">
+      <h2 style="font-size: 2rem; color: #0f172a;">{pageSeo.lastH2}</h2>
+    </div>
+    <Benefits {...cityData} />
+  </div>
+
+  <!-- Shared FAQ Section injected with custom pageFaqs -->
+  <FAQ {...cityData} faqs={pageFaqs} cidade={props.type === 'neighborhood' ? `${props.name} - ${cityData.cidade}` : cityData.cidade} />
+
+  <Footer {...cityData} />
+  <FloatingWhatsapp {...cityData} />
+</Layout>
+
+<style>
+  .internal-hero {
+    background: #090d16;
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+  }
+  .internal-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .page-content {
+    margin-bottom: 60px;
+  }
+  .content-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .big-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .content-wrapper h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #0f172a;
+  }
+  .content-wrapper p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 30px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-whatsapp {
+    background: #25d366;
+    color: white;
+  }
+  .btn-primary {
+    background: #0e6ba8;
+    color: white;
+  }
+</style>

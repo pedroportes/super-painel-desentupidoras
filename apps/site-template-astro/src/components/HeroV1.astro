@@ -155,4 +155,19 @@ const { seo, cidade, ddd, whatsapp, populacao } = Astro.props;
     font-size: 1rem;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+    .hero-features {
+      grid-template-columns: 1fr;
+    }
+    .hero-card {
+      margin-top: 20px;
+    }
+  }
 </style>

@@ -12,10 +12,10 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
 
     <div class="bairros-grid">
       {bairros.map((bairrosName) => (
-        <div class="bairro-chip">
+        <a href={`/${bairrosName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} class="bairro-chip">
           <span class="pin-icon">📍</span>
           <span>Desentupidora em {bairrosName} ({cidade})</span>
-        </div>
+        </a>
       ))}
     </div>
 
@@ -24,6 +24,23 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
       <a href={`https://wa.me/55${whatsapp}?text=Olá,%20vocês%20atendem%20no%20meu%20bairro%20em%20${cidade}?`} class="btn btn-bairros" target="_blank" rel="noopener">
         📲 Confirmar Atendimento no Meu Bairro
       </a>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-container">
+      <h3 class="text-center" style="margin-bottom: 20px; color: #0f172a; font-size: 1.5rem;">Nossa Sede e Área de Cobertura</h3>
+      <div class="iframe-wrapper">
+        <iframe 
+          width="100%" 
+          height="400" 
+          frameborder="0" 
+          scrolling="no" 
+          marginheight="0" 
+          marginwidth="0" 
+          src={`https://maps.google.com/maps?q=${cidade},${uf}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+          style="border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+        ></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -67,6 +84,13 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
     font-size: 0.92rem;
     color: #334155;
     font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .bairro-chip:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
   }
   .bairros-note p {
     color: #64748b;
@@ -81,5 +105,14 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
     font-weight: 700;
     text-decoration: none;
     display: inline-block;
+  }
+  .map-container {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .iframe-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
   }
 </style>

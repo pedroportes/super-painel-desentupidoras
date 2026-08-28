@@ -1,5 +1,7 @@
 ---
+import { slugify } from '../utils/slugify';
 const { services, cidade, whatsapp } = Astro.props;
+const cidadeSlug = slugify(cidade);
 ---
 
 <section id="servicos" class="services-v2">
@@ -11,7 +13,7 @@ const { services, cidade, whatsapp } = Astro.props;
     </div>
 
     <div class="services-list">
-      {services.map((s) => (
+      {services.map((s: any) => (
         <div class="service-box">
           <div class="box-left">
             <span class="box-tag">Atendimento 24h</span>
@@ -19,8 +21,8 @@ const { services, cidade, whatsapp } = Astro.props;
             <p>{s.description}</p>
           </div>
           <div class="box-right">
-            <a href={`https://wa.me/55${whatsapp}?text=Olá,%20quero%20um%20orçamento%20para%20${s.title}%20em%20${cidade}`} class="btn btn-service-v2" target="_blank" rel="noopener">
-              Chamar no WhatsApp
+            <a href={`/${slugify(s.title)}-em-${cidadeSlug}`} class="btn btn-service-v2">
+              Saber mais e Orçamento
             </a>
           </div>
         </div>

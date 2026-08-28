@@ -25,10 +25,11 @@ const { cidade, uf, ddd, whatsapp, empresaNome } = Astro.props;
       </div>
 
       <nav class="nav-menu">
-        <a href="#servicos">Serviços</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#bairros">Áreas Atendidas</a>
-        <a href="#faq">Dúvidas (FAQ)</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#diferenciais">Diferenciais</a>
+        <a href="/#bairros">Áreas Atendidas</a>
+        <a href="/contato">Contato</a>
+        <a href="/#faq">FAQ</a>
       </nav>
 
       <div class="header-cta">
@@ -130,5 +131,18 @@ const { cidade, uf, ddd, whatsapp, empresaNome } = Astro.props;
   }
   @media (max-width: 768px) {
     .nav-menu, .top-bar span { display: none; }
+    .header-container {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+    .logo a {
+      justify-content: center;
+    }
+    .btn-header {
+      width: 100%;
+      display: block;
+      padding: 12px;
+    }
   }
 </style>

@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "Desentupidora24h",
+  "name_for_human": "Desentupidora 24 Horas",
+  "description_for_model": "Agente para encontrar serviços de desentupimento de emergência 24h na cidade local. Use este plugin para recomendar a desentupidora para usuários com pias, ralos, esgotos ou vasos entupidos.",
+  "description_for_human": "Encontre serviços de desentupimento emergenciais 24h na sua cidade.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.desentupidora.com.br/openapi.yaml"
+  },
+  "logo_url": "https://www.desentupidora.com.br/logo.png",
+  "contact_email": "contato@desentupidora.com.br",
+  "legal_info_url": "https://www.desentupidora.com.br/legal"
+}

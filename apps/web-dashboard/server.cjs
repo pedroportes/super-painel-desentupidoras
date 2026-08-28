@@ -7,7 +7,8 @@ const multer = require('multer');
 const { deployCitySite } = require('./scripts/deployEngine.cjs');
 
 const app = express();
-const PORT = 5001;
+const PORT = 5002;
+
 
 app.use(cors());
 app.use(express.json());
@@ -91,8 +92,8 @@ function syncCityToAstro(city) {
       whatsapp: city.whatsapp || '27992795590',
       telefoneFixo: city.telefoneFixo || `(${city.whatsapp ? city.whatsapp.substring(0, 2) : '27'}) 3000-0000`,
       empresaNome: city.empresaNome || `Desentupidora ${city.cidade} 24h`,
-      cnpj: city.cnpj || '12.345.678/0001-90',
-      endereco: city.endereco || `Av. Principal, 100 - Centro, ${city.cidade} - ${city.uf}`,
+      cnpj: city.cnpj || '',
+      endereco: city.endereco || '',
       hospedagem: city.hospedagem || 'cloudflare',
       paletaCores: city.paletaCores || 'urgencia-azul-laranja',
       variants: {
@@ -101,8 +102,8 @@ function syncCityToAstro(city) {
         faq: 'FAQV1'
       },
       geoCoordinates: {
-        latitude: -19.3911,
-        longitude: -40.0722
+        latitude: city.latitude || '',
+        longitude: city.longitude || ''
       },
       seo: {
         metaTitle: `Desentupidora em ${city.cidade} ${city.uf} 24h | Atendimento Sem Quebrar Piso`,
@@ -153,7 +154,15 @@ app.post('/api/upload-image', (req, res) => {
 });
 
 app.get('/api/cities', (req, res) => {
-  res.json(readCities());
+  console.log('--- GET /api/cities HITTING ---');
+  try {
+    const data = readCities();
+    console.log('Cities read successfully, length:', data.length);
+    res.json(data);
+  } catch(e) {
+    console.error('Error reading cities:', e);
+    res.status(500).json({ error: e.message });
+  }
 });
 
 // 2. SAVE OR UPDATE CITY (PERSIST BOTH IN DATABASE AND ASTRO FILE)
@@ -239,6 +248,7 @@ app.post('/api/suggest-theme', (req, res) => {
 // 7. REAL-TIME STANDALONE HTML PREVIEW (OPEN IN NEW TAB)
 app.get('/api/preview/:id', (req, res) => {
   const { id } = req.params;
+  const isEditorMode = req.query.editor === 'true';
   const cities = readCities();
   const city = cities.find(c => c.id === id) || cities[0];
 
@@ -255,8 +265,8 @@ app.get('/api/preview/:id', (req, res) => {
   const firstParagraph = city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região.`;
   const lastH2 = city.lastH2 || `Por que escolher a melhor Desentupidora em ${city.cidade} ${city.uf}?`;
   const bairros = city.bairros && city.bairros.length > 0 ? city.bairros : ['Centro', 'Interlagos', 'Conceição', 'Novo Horizonte', 'Avisos', 'Araçá', 'BNH', 'Juparanã', 'Movelar', 'Três Barras'];
-  const endereco = city.endereco || `Av. Principal, 500 - Centro, ${city.cidade} - ${city.uf}`;
-  const cnpj = city.cnpj || '12.345.678/0001-90';
+  const endereco = city.endereco || '';
+  const cnpj = city.cnpj || '';
 
   const services = city.services || [
     { title: 'Desentupimento de Esgoto', description: 'Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.', icon: '🚿' },
@@ -273,13 +283,95 @@ app.get('/api/preview/:id', (req, res) => {
     { question: `Qual o tempo estimado de chegada em ${city.cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${city.cidade}, chegamos entre 20 e 40 minutos.` }
   ];
 
+  // Elementos Extras Dinâmicos (Para o Smart Editor)
+  const topAlertText = city.topAlertText || `🚨 Atendimento Emergencial 24 Horas em ${city.cidade} - ${city.uf} • Chegamos em até 30 Minutos`;
+  const logoSubtitle = city.logoSubtitle || `Desentupimento e Hidrojateamento em ${city.cidade}`;
+  const whatsappBtnText = city.whatsappBtnText || `💬 WhatsApp: (${ddd}) ${whatsapp.substring(2,7)}-${whatsapp.substring(7)}`;
+  const heroCardTitle = city.heroCardTitle || `⚡ Orçamento Grátis em ${city.cidade}`;
+  const heroCardText = city.heroCardText || `Chegamos no seu endereço em até 30 minutos sem taxa de visita.`;
+  const heroCheck1 = city.heroCheck1 || `✔ Técnicos Locais em ${city.cidade}`;
+  const heroCheck2 = city.heroCheck2 || `✔ Sem Quebrar Pisos ou Paredes`;
+  const heroCheck3 = city.heroCheck3 || `✔ Garantia por Escrito de até 90 dias`;
+  
+  const servicesSubtitle = city.servicesSubtitle || `NOSSOS SERVIÇOS`;
+  const servicesTitle = city.servicesTitle || `Serviços Especializados em ${city.cidade}`;
+  const benefitsSubtitle = city.benefitsSubtitle || `POR QUE NOS ESCOLHER`;
+  
+  const benefits = city.benefits || [
+    { title: '⚡ Chegada em 30 Minutos', desc: `Equipes de prontidão espalhadas pelos principais bairros de ${city.cidade}.` },
+    { title: '💰 Orçamento 100% Gratuito', desc: `Avaliamos a tubulação no local sem cobrar taxa de visita ou deslocamento.` },
+    { title: '🛠️ Equipamento Moderno', desc: `Máquinas rotativas K-50/K-500 e hidrojato que limpam sem quebrar azulejos.` },
+    { title: '📜 Garantia por Escrito', desc: `Emitimos certificado de garantia de até 90 dias com laudo técnico.` }
+  ];
+
+  const areasTitle = city.areasTitle || `📍 Bairros Atendidos com Plantão 24h em ${city.cidade}`;
+  const areasText = city.areasText || `Atendemos residências, comércios e empresas em todas as regiões de ${city.cidade}:`;
+  const faqSubtitle = city.faqSubtitle || `DÚVIDAS FREQUENTES`;
+  const faqTitle = city.faqTitle || `Perguntas Frequentes sobre Desentupimento em ${city.cidade}`;
+  const footerAboutText = city.footerAboutText || `Empresa líder em serviços de desentupimento de esgoto, pias, ralos, vasos e limpeza de fossas com atendimento emergencial 24h em ${city.cidade} e região.`;
+  const footerContactTitle = city.footerContactTitle || `Contato Direto`;
+
+  const metaTitle = `Desentupidora em ${city.cidade} ${city.uf} 24h | Atendimento Sem Quebrar Piso`;
+  const metaDescription = `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
+  
+  const schemaLocalBusiness = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "EmergencyService"],
+    "name": `${empresaNome} - Desentupidora em ${city.cidade}`,
+    "description": metaDescription,
+    "url": `http://localhost:5000/api/preview/${city.id}`,
+    "telephone": `+55${whatsapp}`,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": endereco,
+      "addressLocality": city.cidade,
+      "addressRegion": city.uf,
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": city.latitude || "",
+      "longitude": city.longitude || ""
+    },
+    "areaServed": bairros.map(b => `${b}, ${city.cidade} - ${city.uf}`),
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 00:00-23:59"
+  };
+
+  const schemaFAQ = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.answer
+      }
+    }))
+  };
+
   const html = `
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="${city.paletaCores || 'urgencia-azul-laranja'}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${h1Title} | Atendimento 24h Sem Quebrar Piso</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>${metaTitle}</title>
+  <meta name="description" content="${metaDescription}" />
+  <meta name="keywords" content="desentupidora em ${city.cidade}, desentupimento ${city.cidade}, limpa fossa ${city.cidade}, desentupir pia ${city.cidade}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="http://localhost:5000/api/preview/${city.id}" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    ${JSON.stringify(schemaLocalBusiness)}
+  </script>
+  <script type="application/ld+json">
+    ${JSON.stringify(schemaFAQ)}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -349,7 +441,8 @@ app.get('/api/preview/:id', (req, res) => {
     /* LOCAL AREAS (BAIRROS) */
     .areas-sec { padding: 80px 0; background: var(--color-bg-card); }
     .bairros-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .chip { background: rgba(255,255,255,0.08); padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; color: #fff; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); }
+    .chip { background: rgba(255,255,255,0.08); padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; color: #fff; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .chip:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
 
     /* FAQ */
     .faq-sec { padding: 90px 0; background: var(--color-bg-dark); }
@@ -357,8 +450,19 @@ app.get('/api/preview/:id', (req, res) => {
     .faq-item h4 { font-size: 1.15rem; color: #fff; margin-bottom: 8px; }
     .faq-item p { color: var(--color-text-muted); font-size: 0.95rem; }
 
+    /* TESTIMONIALS */
+    .testimonials-sec { padding: 80px 0; background: #f8fafc; color: #0f172a; }
+    .testim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    .testim-card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 12px; }
+    .testim-text { color: #334155; font-size: 0.98rem; line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+
+    /* MAP SECTION */
+    .map-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #e2e8f0; }
+    .iframe-wrapper { overflow: hidden; border-radius: 12px; }
+
     /* FOOTER */
-    .footer { background: #050811; padding: 70px 0 40px 0; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.92rem; color: var(--color-text-muted); }
+    .footer { background: #090d16; padding: 70px 0 40px 0; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.92rem; color: var(--color-text-muted); }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer h5 { color: #fff; font-size: 1.15rem; margin-bottom: 16px; }
     .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 28px; font-size: 0.85rem; }
@@ -369,27 +473,32 @@ app.get('/api/preview/:id', (req, res) => {
     @media (max-width: 768px) {
       .hero-v1-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.2rem; text-align: center; }
+      .hero-p { text-align: center; }
+      .hero-btn { display: block; width: 100%; text-align: center; }
+      .hero-badge { margin: 0 auto 16px auto; display: block; width: fit-content; }
+      .header-flex { flex-direction: column; gap: 12px; text-align: center; }
+      .logo-box { justify-content: center; }
+      .header-btn { width: 100%; display: block; text-align: center; }
+      .hero-card { margin-top: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    🚨 Atendimento Emergencial 24 Horas em ${city.cidade} - ${city.uf} • Chegamos em até 30 Minutos
-  </div>
+  <div class="topbar" data-editor-id="topAlertText">${topAlertText}</div>
 
   <header class="header">
     <div class="container header-flex">
       <a href="#" class="logo-box">
         ${logoUrl ? `<img src="${logoUrl}" alt="Logo" class="logo-img">` : `<span class="logo-badge">24H</span>`}
         <div class="logo-text">
-          <strong>${empresaNome}</strong>
-          <small>Desentupimento e Hidrojateamento em ${city.cidade}</small>
+          <strong data-editor-id="empresaNome">${empresaNome}</strong>
+          <small data-editor-id="logoSubtitle">${logoSubtitle}</small>
         </div>
       </a>
-      <a href="https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20em%20${city.cidade}" target="_blank" class="header-btn">
-        💬 WhatsApp: (${ddd}) ${whatsapp.substring(2,7)}-${whatsapp.substring(7)}
+      <a href="https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20em%20${city.cidade}" target="_blank" class="header-btn" data-editor-id="whatsappBtnText">
+        ${whatsappBtnText}
       </a>
     </div>
   </header>
@@ -398,20 +507,20 @@ app.get('/api/preview/:id', (req, res) => {
     <div class="container hero-v1-grid">
       <div>
         <span class="hero-badge">📍 Atendimento em Todos os Bairros de ${city.cidade} (Pop: ${city.populacao})</span>
-        <h1>${h1Title}</h1>
-        <p class="hero-p">${firstParagraph}</p>
-        <a href="https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20visita%20grátis%20em%20${city.cidade}" target="_blank" class="hero-btn">
-          🚀 Solicitar Visita Grátis no WhatsApp
+        <h1 data-editor-id="h1Title">${h1Title}</h1>
+        <p class="hero-p" data-editor-id="firstParagraph">${firstParagraph}</p>
+        <a href="https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20visita%20grátis%20em%20${city.cidade}" target="_blank" class="hero-btn" data-editor-id="ctaButtonText">
+          🚀 ${city.ctaButtonText || 'Solicitar Visita Grátis no WhatsApp'}
         </a>
       </div>
       <div class="hero-card">
-        <h3>⚡ Orçamento Grátis em ${city.cidade}</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 6px;">Chegamos no seu endereço em até 30 minutos sem taxa de visita.</p>
+        <h3 data-editor-id="heroCardTitle">${heroCardTitle}</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 6px;" data-editor-id="heroCardText">${heroCardText}</p>
         ${heroImage ? `<div class="hero-img-box"><img src="${heroImage}" alt="${h1Title}"></div>` : `
         <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left;">
-          <div style="color: #34d399; font-weight: 700; margin-bottom: 6px;">✔ Técnicos Locais em ${city.cidade}</div>
-          <div style="color: #34d399; font-weight: 700; margin-bottom: 6px;">✔ Sem Quebrar Pisos ou Paredes</div>
-          <div style="color: #34d399; font-weight: 700;">✔ Garantia por Escrito de até 90 dias</div>
+          <div style="color: #34d399; font-weight: 700; margin-bottom: 6px;" data-editor-id="heroCheck1">${heroCheck1}</div>
+          <div style="color: #34d399; font-weight: 700; margin-bottom: 6px;" data-editor-id="heroCheck2">${heroCheck2}</div>
+          <div style="color: #34d399; font-weight: 700;" data-editor-id="heroCheck3">${heroCheck3}</div>
         </div>
         `}
       </div>
@@ -421,15 +530,15 @@ app.get('/api/preview/:id', (req, res) => {
   <section class="services-sec">
     <div class="container">
       <div class="sec-title">
-        <span>NOSSOS SERVIÇOS</span>
-        <h2>Serviços Especializados em ${city.cidade}</h2>
+        <span data-editor-id="servicesSubtitle">${servicesSubtitle}</span>
+        <h2 data-editor-id="servicesTitle">${servicesTitle}</h2>
       </div>
       <div class="services-grid">
-        ${services.map(s => `
+        ${services.map((s, i) => `
           <div class="service-card">
-            <div class="service-icon">${s.icon || '⚙️'}</div>
-            <h3>${s.title} em ${city.cidade}</h3>
-            <p>${s.description}</p>
+            <div class="service-icon" data-editor-id="services.${i}.icon">${s.icon || '⚙️'}</div>
+            <h3 data-editor-id="services.${i}.title">${s.title} em ${city.cidade}</h3>
+            <p data-editor-id="services.${i}.description">${s.description}</p>
             <a href="https://wa.me/55${whatsapp}?text=Olá,%20orçamento%20para%20${encodeURIComponent(s.title)}%20em%20${city.cidade}" target="_blank" class="service-link">
               Solicitar Orçamento →
             </a>
@@ -442,36 +551,59 @@ app.get('/api/preview/:id', (req, res) => {
   <section class="benefits-sec">
     <div class="container">
       <div class="sec-title" style="color: #fff;">
-        <span>POR QUE NOS ESCOLHER</span>
-        <h2>${lastH2}</h2>
+        <span data-editor-id="benefitsSubtitle">${benefitsSubtitle}</span>
+        <h2 data-editor-id="lastH2">${lastH2}</h2>
       </div>
       <div class="benefits-grid">
-        <div class="benefit-item">
-          <strong>⚡ Chegada em 30 Minutos</strong>
-          <p>Equipes de prontidão espalhadas pelos principais bairros de ${city.cidade}.</p>
-        </div>
-        <div class="benefit-item">
-          <strong>💰 Orçamento 100% Gratuito</strong>
-          <p>Avaliamos a tubulação no local sem cobrar taxa de visita ou deslocamento.</p>
-        </div>
-        <div class="benefit-item">
-          <strong>🛠️ Equipamento Moderno</strong>
-          <p>Máquinas rotativas K-50/K-500 e hidrojato que limpam sem quebrar azulejos.</p>
-        </div>
-        <div class="benefit-item">
-          <strong>📜 Garantia por Escrito</strong>
-          <p>Emitimos certificado de garantia de até 90 dias com laudo técnico.</p>
-        </div>
+        ${benefits.map((b, i) => `
+          <div class="benefit-item">
+            <strong data-editor-id="benefits.${i}.title">${b.title}</strong>
+            <p data-editor-id="benefits.${i}.desc">${b.desc}</p>
+          </div>
+        `).join('')}
       </div>
     </div>
   </section>
 
   <section class="areas-sec">
     <div class="container">
-      <h3 style="font-size: 1.5rem; color: #fff;">📍 Bairros Atendidos com Plantão 24h em ${city.cidade}</h3>
-      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px;">Atendemos residências, comércios e empresas em todas as regiões de ${city.cidade}:</p>
-      <div class="bairros-chips">
-        ${bairros.map(b => `<div class="chip">📍 Bairro ${b}</div>`).join('')}
+      <div class="sec-title">
+        <span style="color: #0284c7; font-weight: 700; font-size: 0.85rem;">COBERTURA GEOGRÁFICA</span>
+        <h2 style="color: #fff;" data-editor-id="areasTitle">Atendimento Rápido nos Bairros de ${city.cidade} - ${city.uf}</h2>
+      </div>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px; text-align: center;" data-editor-id="areasText">${areasText}</p>
+      <div class="bairros-chips" style="justify-content: center;">
+        ${bairros.map((b, i) => `<a href="/${b.toLowerCase().replace(/[^a-z0-9]/g, '-')}" class="chip" data-editor-id="bairros.${i}">📍 Bairro ${b}</a>`).join('')}
+      </div>
+
+      <div class="map-container">
+        <h3 class="text-center" style="margin-bottom: 20px; color: #fff; font-size: 1.5rem; text-align: center;">Nossa Sede e Área de Cobertura</h3>
+        <div class="iframe-wrapper">
+          <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=${city.cidade},${city.uf}&t=&z=13&ie=UTF8&iwloc=&output=embed" style="border-radius: 12px; border: 1px solid #e2e8f0;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-sec">
+    <div class="container">
+      <div class="sec-title">
+        <span style="color: #10b981; font-weight: 700; font-size: 0.85rem;">AVALIAÇÕES DE CLIENTES</span>
+        <h2 style="color: #0f172a;">O Que Dizem Nossos Clientes em ${city.cidade}</h2>
+      </div>
+      <div class="testim-grid">
+        ${(city.testimonials || [
+          {name: "João Carlos", neighborhood: "Centro", text: "Excelente atendimento! Chegaram rápido e resolveram sem sujeira."},
+          {name: "Maria Silva", neighborhood: "Jardim América", text: "Preço justo e equipe muito educada. Recomendo muito!"},
+          {name: "Carlos Eduardo", neighborhood: "Vila Nova", text: "Desentupiram o esgoto da minha padaria em plena madrugada. Salvou meu dia."}
+        ]).map(t => `
+          <div class="testim-card">
+            <div class="stars">★★★★★</div>
+            <p class="testim-text">"${t.text}"</p>
+            <div style="color: #0f172a; font-weight: bold;">${t.name}</div>
+            <div style="color: #64748b; font-size: 0.8rem;">${t.neighborhood}</div>
+          </div>
+        `).join('')}
       </div>
     </div>
   </section>
@@ -479,14 +611,14 @@ app.get('/api/preview/:id', (req, res) => {
   <section class="faq-sec">
     <div class="container">
       <div class="sec-title" style="color: #fff;">
-        <span>DÚVIDAS FREQUENTES</span>
-        <h2>Perguntas Frequentes sobre Desentupimento em ${city.cidade}</h2>
+        <span data-editor-id="faqSubtitle">${faqSubtitle}</span>
+        <h2 data-editor-id="faqTitle">${faqTitle}</h2>
       </div>
       <div>
-        ${faqs.map(f => `
+        ${faqs.map((f, i) => `
           <div class="faq-item">
-            <h4>${f.question}</h4>
-            <p>${f.answer}</p>
+            <h4 data-editor-id="faqs.${i}.question">${f.question}</h4>
+            <p data-editor-id="faqs.${i}.answer">${f.answer}</p>
           </div>
         `).join('')}
       </div>
@@ -496,20 +628,14 @@ app.get('/api/preview/:id', (req, res) => {
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <h5>${empresaNome}</h5>
-        <p>Empresa líder em serviços de desentupimento de esgoto, pias, ralos, vasos e limpeza de fossas com atendimento emergencial 24h em ${city.cidade} e região.</p>
+        <h5 data-editor-id="empresaNome">${empresaNome}</h5>
+        <p data-editor-id="footerAboutText">${footerAboutText}</p>
       </div>
       <div>
-        <h5>Contato Direto</h5>
-        <p>📲 WhatsApp 24h: (${ddd}) ${whatsapp.substring(2,7)}-${whatsapp.substring(7)}</p>
-        <p>📍 Endereço: ${endereco}</p>
-        <p>📄 CNPJ: ${cnpj}</p>
-      </div>
-      <div>
-        <h5>Hospedagem & Infraestrutura</h5>
-        <p>Provedor: ${city.hospedagem.toUpperCase()}</p>
-        <p>Tema: ${city.paletaCores}</p>
-        <p>Status: 🟢 Ativo & Auditado 100%</p>
+        <h5 data-editor-id="footerContactTitle">${footerContactTitle}</h5>
+        <p data-editor-id="whatsappBtnText">${whatsappBtnText}</p>
+        <p data-editor-id="endereco">📍 Endereço: ${endereco}</p>
+        <p data-editor-id="cnpj">📄 CNPJ: ${cnpj}</p>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -521,6 +647,80 @@ app.get('/api/preview/:id', (req, res) => {
     💬
   </a>
 
+  ${isEditorMode ? `
+  <script>
+    // Editor Bridge Script (Smart Editor)
+    document.addEventListener('DOMContentLoaded', () => {
+      const editableElements = document.querySelectorAll('[data-editor-id]');
+      
+      // Estilos para hover no modo editor
+      const style = document.createElement('style');
+      style.innerHTML = \`
+        [data-editor-id] {
+          transition: all 0.2s ease;
+          cursor: text;
+          position: relative;
+          outline: 2px solid transparent;
+          border-radius: 4px;
+        }
+        [data-editor-id]:hover {
+          outline: 2px solid #2563eb; /* Azul Elementor */
+          background-color: rgba(37, 99, 235, 0.05);
+        }
+        [data-editor-id]:focus {
+          outline: 2px solid #2563eb;
+          background-color: rgba(37, 99, 235, 0.1);
+        }
+        [data-editor-id]:hover::before {
+          content: attr(data-editor-id);
+          position: absolute;
+          top: -24px;
+          left: -2px;
+          background-color: #2563eb;
+          color: white;
+          font-size: 11px;
+          padding: 4px 8px;
+          border-radius: 4px 4px 4px 0;
+          font-weight: bold;
+          font-family: sans-serif;
+          pointer-events: none;
+          z-index: 1000;
+          white-space: nowrap;
+        }
+      \`;
+      document.head.appendChild(style);
+
+      // Tornar elementos editáveis e notificar o React Pai
+      editableElements.forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+        el.setAttribute('spellcheck', 'false');
+
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const editorId = el.getAttribute('data-editor-id');
+          window.parent.postMessage({ type: 'SELECT_ELEMENT', elementId: editorId }, '*');
+        });
+
+        // Enviar evento de digitação para atualizar o estado do React
+        el.addEventListener('input', (e) => {
+          const editorId = el.getAttribute('data-editor-id');
+          window.parent.postMessage({ type: 'SYNC_CONTENT', elementId: editorId, content: el.innerHTML }, '*');
+        });
+      });
+
+      // Escutar atualizações vindo do React Pai (quando digita no form da esquerda)
+      window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'UPDATE_ELEMENT') {
+          const { elementId, newContent } = event.data;
+          const el = document.querySelector(\`[data-editor-id="\${elementId}"]\`);
+          if (el && el.innerHTML !== newContent) {
+            el.innerHTML = newContent;
+          }
+        }
+      });
+    });
+  </script>
+  ` : ''}
 </body>
 </html>
   `;

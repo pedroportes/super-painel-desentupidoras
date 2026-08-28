@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cityData from '../data/cityConfig.json';
+import '../styles/themePalettes.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seo = {
+  ...cityData.seo,
+  metaTitle: `Termos de Uso - Desentupidora em ${cityData.cidade}`,
+  metaDescription: `Termos de Uso e Condições de Serviço da Desentupidora ${cityData.empresaNome}.`,
+  h1Title: `Termos de Uso`
+};
+---
+
+<Layout {...cityData} seo={seo}>
+  <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
+    <Header {...cityData} />
+    
+    <section class="internal-hero">
+      <div class="container text-center">
+        <h1>{seo.h1Title}</h1>
+      </div>
+    </section>
+
+    <section class="page-content container">
+      <div class="content-wrapper text-left">
+        <h2>1. Aceitação dos Termos</h2>
+        <p>Ao acessar o site da <strong>{cityData.empresaNome}</strong>, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis.</p>
+
+        <h2>2. Prestação de Serviços</h2>
+        <p>Nossos orçamentos são realizados no local sem compromisso. Os serviços de desentupimento possuem garantia conforme o Código de Defesa do Consumidor, sendo informada por escrito pelo técnico ao final da prestação do serviço em {cityData.cidade}.</p>
+
+        <h2>3. Isenção de responsabilidade</h2>
+        <p>Os materiais no site da {cityData.empresaNome} são fornecidos 'como estão'. Não oferecemos garantias, expressas ou implícitas, e, por este meio, isentamo-nos e negamos todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização.</p>
+      </div>
+    </section>
+
+    <Footer {...cityData} />
+  </div>
+</Layout>
+
+<style>
+  .internal-hero {
+    background: #090d16;
+    color: white;
+    padding: 40px 0;
+    margin-bottom: 40px;
+  }
+  .internal-hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .page-content {
+    margin-bottom: 60px;
+  }
+  .content-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .content-wrapper h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #0f172a;
+  }
+  .content-wrapper p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 15px;
+  }
+</style>

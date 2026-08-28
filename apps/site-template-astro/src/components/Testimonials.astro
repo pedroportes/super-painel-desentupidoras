@@ -11,7 +11,7 @@ const { testimonials, cidade } = Astro.props;
     </div>
 
     <div class="testimonials-grid">
-      {testimonials.map((t) => (
+      {testimonials.map((t: any) => (
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">"{t.text}"</p>

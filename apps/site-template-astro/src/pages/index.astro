@@ -26,16 +26,14 @@ const ServicesComponent = cityData.variants.services === 'ServicesGridV2' ? Serv
 ---
 
 <Layout {...cityData}>
-  <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
-    <Header {...cityData} />
-    <HeroComponent {...cityData} />
-    <ServicesComponent {...cityData} />
-    <Benefits {...cityData} />
-    <WarningSigns {...cityData} />
-    <LocalAreas {...cityData} />
-    <Testimonials {...cityData} />
-    <FAQ {...cityData} />
-    <Footer {...cityData} />
-    <FloatingWhatsapp {...cityData} />
-  </div>
+  <Header {...cityData} />
+  <HeroComponent {...cityData} />
+  <ServicesComponent {...cityData} />
+  <Benefits {...cityData} />
+  <WarningSigns {...cityData} />
+  <LocalAreas {...cityData} />
+  <Testimonials {...cityData} />
+  <FAQ {...cityData} />
+  <Footer {...cityData} />
+  <FloatingWhatsapp {...cityData} />
 </Layout>

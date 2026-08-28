@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cityData from '../data/cityConfig.json';
+import '../styles/themePalettes.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
+
+const seo = {
+  ...cityData.seo,
+  metaTitle: `Contato - Desentupidora em ${cityData.cidade} 24h`,
+  metaDescription: `Fale conosco agora! Atendimento 24h em ${cityData.cidade}. Orçamento gratuito via WhatsApp ou Telefone. Equipes prontas para emergências.`,
+  h1Title: `Contato Rápido`
+};
+---
+
+<Layout {...cityData} seo={seo}>
+  <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
+    <Header {...cityData} />
+    
+    <section class="internal-hero">
+      <div class="container text-center">
+        <h1>{seo.h1Title}</h1>
+        <p class="hero-desc">{seo.metaDescription}</p>
+      </div>
+    </section>
+
+    <section class="page-content container">
+      <div class="content-wrapper">
+        <h2>Atendimento 24 Horas em {cityData.cidade}</h2>
+        
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span class="icon">📱</span>
+            <h3>WhatsApp</h3>
+            <p>Atendimento imediato e orçamentos.</p>
+            <a href={`https://wa.me/55${cityData.whatsapp}?text=Olá!`} class="btn btn-whatsapp">
+              ({cityData.ddd}) {cityData.whatsapp.substring(2, 7)}-{cityData.whatsapp.substring(7)}
+            </a>
+          </div>
+          
+          <div class="contact-card">
+            <span class="icon">☎️</span>
+            <h3>Telefone Fixo</h3>
+            <p>Plantão de emergências locais.</p>
+            <p class="phone">{cityData.telefoneFixo}</p>
+          </div>
+          
+          <div class="contact-card">
+            <span class="icon">📍</span>
+            <h3>Base Local</h3>
+            <p>{cityData.endereco}</p>
+            <p class="small">Atendemos todos os bairros de {cityData.cidade}.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer {...cityData} />
+    <FloatingWhatsapp {...cityData} />
+  </div>
+</Layout>
+
+<style>
+  .internal-hero {
+    background: #090d16;
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+  }
+  .internal-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .page-content {
+    margin-bottom: 60px;
+  }
+  .content-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .content-wrapper h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #0f172a;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .contact-card {
+    padding: 30px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+  }
+  .contact-card .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+  }
+  .contact-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #1e293b;
+  }
+  .contact-card p {
+    color: #64748b;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+  .phone {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    color: #0f172a !important;
+  }
+  .small {
+    font-size: 0.85rem !important;
+  }
+  .btn-whatsapp {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-whatsapp:hover {
+    background: #1eb954;
+  }
+</style>

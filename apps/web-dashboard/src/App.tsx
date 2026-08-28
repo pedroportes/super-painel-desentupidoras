@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem } from './cityGenerator';
 
 interface HostingSettings {
@@ -13,8 +13,10 @@ export default function App() {
   const [cities, setCities] = useState<CityConfig[]>([]);
   const [selectedCityId, setSelectedCityId] = useState<string>('linhares');
   const [editingCity, setEditingCity] = useState<CityConfig | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [previewPath, setPreviewPath] = useState('/');
   const [editorSection, setEditorSection] = useState<'hero' | 'services' | 'bairros' | 'faqs' | 'media' | 'theme' | 'company'>('hero');
 
   const [settings, setSettings] = useState<HostingSettings>({
@@ -38,10 +40,14 @@ export default function App() {
   const [createCityForm, setCreateCityForm] = useState({
     cidade: '',
     uf: 'PR',
-    populacao: '1.773.733',
+    populacao: '150.000',
     modeloTemplate: 'urgencia-24h' as CityConfig['modeloTemplate'],
     hospedagem: 'cloudflare' as CityConfig['hospedagem'],
-    whatsapp: ''
+    whatsapp: '',
+    cnpj: '',
+    endereco: '',
+    latitude: '',
+    longitude: ''
   });
 
   const showNotify = (msg: string) => {
@@ -52,7 +58,73 @@ export default function App() {
   useEffect(() => {
     fetchCities();
     fetchSettings();
+
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'SELECT_ELEMENT') {
+        const { elementId } = event.data;
+        if (elementId === 'h1Title' || elementId === 'firstParagraph' || elementId === 'ctaButtonText' || elementId === 'lastH2') {
+          setEditorSection('hero');
+        }
+      }
+      
+      if (event.data && event.data.type === 'SYNC_CONTENT') {
+        const { elementId, content } = event.data;
+        setEditingCity(prev => {
+          if (!prev) return prev;
+          
+          if (elementId.includes('.')) {
+            // Suporte para arrays
+            const parts = elementId.split('.');
+            if (parts.length === 3) {
+              // Array de objetos (ex: services.0.title)
+              const [arrayName, indexStr, field] = parts;
+              const idx = parseInt(indexStr, 10);
+              const currentArray = prev[arrayName as keyof typeof prev] as any[];
+              
+              if (currentArray && currentArray[idx]) {
+                if (currentArray[idx][field] === content) return prev;
+                
+                const newArray = [...currentArray];
+                newArray[idx] = { ...newArray[idx], [field]: content };
+                return { ...prev, [arrayName]: newArray };
+              }
+            } else if (parts.length === 2) {
+              // Array de strings simples (ex: bairros.0)
+              const [arrayName, indexStr] = parts;
+              const idx = parseInt(indexStr, 10);
+              const currentArray = prev[arrayName as keyof typeof prev] as any[];
+              
+              if (currentArray && typeof currentArray[idx] !== 'undefined') {
+                if (currentArray[idx] === content) return prev;
+                
+                const newArray = [...currentArray];
+                newArray[idx] = content;
+                return { ...prev, [arrayName]: newArray };
+              }
+            }
+            return prev;
+          } else {
+            if (prev[elementId as keyof typeof prev] === content) return prev;
+            return { ...prev, [elementId]: content };
+          }
+        });
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
+
+  // Send updates to iframe when editingCity changes
+  useEffect(() => {
+    if (editingCity && iframeRef.current && iframeRef.current.contentWindow) {
+      const win = iframeRef.current.contentWindow;
+      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'h1Title', newContent: editingCity.h1Title || '' }, '*');
+      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'firstParagraph', newContent: editingCity.firstParagraph || '' }, '*');
+      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'ctaButtonText', newContent: editingCity.ctaButtonText || '' }, '*');
+      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'lastH2', newContent: editingCity.lastH2 || '' }, '*');
+    }
+  }, [editingCity]);
 
   const fetchCities = async () => {
     try {
@@ -175,6 +247,11 @@ export default function App() {
       if (createCityForm.whatsapp.trim()) {
         generated.whatsapp = createCityForm.whatsapp.trim().replace(/\D/g, '');
       }
+      
+      generated.cnpj = createCityForm.cnpj.trim();
+      generated.endereco = createCityForm.endereco.trim();
+      generated.latitude = createCityForm.latitude.trim();
+      generated.longitude = createCityForm.longitude.trim();
 
       const res = await fetch('/api/cities', {
         method: 'POST',
@@ -203,7 +280,11 @@ export default function App() {
         populacao: '150.000',
         modeloTemplate: 'urgencia-24h',
         hospedagem: 'cloudflare',
-        whatsapp: ''
+        whatsapp: '',
+        cnpj: '',
+        endereco: '',
+        latitude: '',
+        longitude: ''
       });
     } catch (e) {
       showNotify('❌ Erro ao criar cidade.');
@@ -326,7 +407,13 @@ export default function App() {
       {/* Top Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '14px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontWeight: 900, fontSize: '0.85rem' }}>PRO BUILDER</span>
+          <span 
+            onClick={() => window.location.reload()}
+            style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer' }}
+            title="Recarregar Painel"
+          >
+            PRO BUILDER
+          </span>
           <h1 style={{ fontSize: '1.6rem', fontWeight: 900, margin: 0, color: '#f8fafc' }}>
             Super Painel - Gestão & Editor Visual de Desentupidoras
           </h1>
@@ -499,7 +586,7 @@ export default function App() {
             <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '14px', padding: '16px', maxHeight: '82vh', overflowY: 'auto' }}>
               
               {/* Section Tabs */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '4px', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '10px' }}>
                 <button 
                   onClick={() => setEditorSection('hero')}
                   style={{ backgroundColor: editorSection === 'hero' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
@@ -517,6 +604,12 @@ export default function App() {
                   style={{ backgroundColor: editorSection === 'bairros' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
                 >
                   📍 Bairros ({editingCity.bairros?.length || 0})
+                </button>
+                <button 
+                  onClick={() => setEditorSection('faqs')}
+                  style={{ backgroundColor: editorSection === 'faqs' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  💬 FAQ & Depo.
                 </button>
                 <button 
                   onClick={() => setEditorSection('theme')}
@@ -698,7 +791,78 @@ export default function App() {
                 </div>
               )}
 
-              {/* 4. TEMPLATE & MODELS */}
+              {/* 4. FAQS E DEPOIMENTOS */}
+              {editorSection === 'faqs' && (
+                <div>
+                  <h3 style={{ fontSize: '1rem', color: '#f8fafc', marginBottom: '12px' }}>❓ Perguntas Frequentes (FAQ)</h3>
+                  {(editingCity.faqs || []).map((faq, idx) => (
+                    <div key={`faq-${idx}`} style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '12px', marginBottom: '10px' }}>
+                      <input 
+                        type="text" 
+                        value={faq.question}
+                        onChange={(e) => {
+                          const updated = [...(editingCity.faqs || [])];
+                          updated[idx] = { ...faq, question: e.target.value };
+                          setEditingCity({ ...editingCity, faqs: updated });
+                        }}
+                        style={{ width: '100%', padding: '6px 10px', borderRadius: '6px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#fff', fontWeight: 700, fontSize: '0.85rem', marginBottom: '6px' }}
+                      />
+                      <textarea 
+                        rows={2}
+                        value={faq.answer}
+                        onChange={(e) => {
+                          const updated = [...(editingCity.faqs || [])];
+                          updated[idx] = { ...faq, answer: e.target.value };
+                          setEditingCity({ ...editingCity, faqs: updated });
+                        }}
+                        style={{ width: '100%', padding: '6px 8px', borderRadius: '6px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#cbd5e1', fontSize: '0.8rem', lineHeight: 1.4 }}
+                      />
+                    </div>
+                  ))}
+
+                  <h3 style={{ fontSize: '1rem', color: '#f8fafc', margin: '24px 0 12px 0' }}>⭐ Depoimentos de Clientes</h3>
+                  {(editingCity.testimonials || []).map((testim, idx) => (
+                    <div key={`test-${idx}`} style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '12px', marginBottom: '10px' }}>
+                      <div style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
+                        <input 
+                          type="text" 
+                          value={testim.name}
+                          onChange={(e) => {
+                            const updated = [...(editingCity.testimonials || [])];
+                            updated[idx] = { ...testim, name: e.target.value };
+                            setEditingCity({ ...editingCity, testimonials: updated });
+                          }}
+                          placeholder="Nome do Cliente"
+                          style={{ flex: 1, padding: '6px 10px', borderRadius: '6px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#fff', fontWeight: 700, fontSize: '0.85rem' }}
+                        />
+                        <input 
+                          type="text" 
+                          value={testim.neighborhood}
+                          onChange={(e) => {
+                            const updated = [...(editingCity.testimonials || [])];
+                            updated[idx] = { ...testim, neighborhood: e.target.value };
+                            setEditingCity({ ...editingCity, testimonials: updated });
+                          }}
+                          placeholder="Bairro"
+                          style={{ flex: 1, padding: '6px 10px', borderRadius: '6px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#94a3b8', fontSize: '0.85rem' }}
+                        />
+                      </div>
+                      <textarea 
+                        rows={2}
+                        value={testim.text}
+                        onChange={(e) => {
+                          const updated = [...(editingCity.testimonials || [])];
+                          updated[idx] = { ...testim, text: e.target.value };
+                          setEditingCity({ ...editingCity, testimonials: updated });
+                        }}
+                        style={{ width: '100%', padding: '6px 8px', borderRadius: '6px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#cbd5e1', fontSize: '0.8rem', lineHeight: 1.4 }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 5. TEMPLATE & MODELS */}
               {editorSection === 'theme' && (
                 <div>
                   <h3 style={{ fontSize: '1rem', color: '#f8fafc', marginBottom: '12px' }}>🎨 Modelos de Site & Paleta de Cores</h3>
@@ -772,256 +936,67 @@ export default function App() {
                   </div>
                 </div>
               )}
-
             </div>
 
-            {/* RIGHT: LIVE WYSIWYG CANVAS WITH INLINE TEXT EDITING */}
-            <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#060a12', padding: '16px', borderRadius: '16px', border: '1px solid #1e293b', minHeight: '82vh', overflowY: 'auto' }}>
+            {/* RIGHT: REAL IFRAME PREVIEW */}
+            <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#060a12', padding: '16px', borderRadius: '16px', border: '1px solid #1e293b', minHeight: '82vh' }}>
               
-              <div 
-                style={{
-                  width: previewDevice === 'desktop' ? '100%' : '390px',
-                  backgroundColor: editingCity.paletaCores === 'corporativo-verde-cinza' ? '#052e16' : editingCity.paletaCores === 'residencial-bege' ? '#1c1917' : editingCity.paletaCores === 'industrial-amarelo' ? '#18181b' : '#0f172a',
-                  color: '#f8fafc',
-                  borderRadius: previewDevice === 'desktop' ? '8px' : '36px',
-                  border: previewDevice === 'desktop' ? '1px solid #334155' : '10px solid #1e293b',
-                  boxShadow: previewDevice === 'mobile' ? '0 20px 50px rgba(0,0,0,0.8)' : 'none',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                
-                {/* 1. TOPBAR */}
-                <div style={{ backgroundColor: editingCity.paletaCores === 'corporativo-verde-cinza' ? '#10b981' : editingCity.paletaCores === 'residencial-bege' ? '#d97706' : editingCity.paletaCores === 'industrial-amarelo' ? '#eab308' : '#0284c7', color: '#fff', padding: '8px 16px', fontSize: '0.82rem', fontWeight: 700, textAlign: 'center' }}>
-                  🚨 Atendimento Emergencial 24 Horas em {editingCity.cidade} - {editingCity.uf} • Chegamos em até 30 Minutos
-                </div>
-
-                {/* 2. HEADER */}
-                <div style={{ padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    {editingCity.logoUrl ? (
-                      <img src={editingCity.logoUrl} alt="Logo" style={{ maxHeight: '42px', objectFit: 'contain' }} />
-                    ) : (
-                      <span style={{ backgroundColor: '#f97316', color: '#fff', padding: '6px 10px', borderRadius: '8px', fontWeight: 900, fontSize: '0.85rem' }}>24H</span>
-                    )}
-                    <div>
-                      <strong 
-                        contentEditable={true}
-                        suppressContentEditableWarning={true}
-                        onBlur={(e) => setEditingCity({ ...editingCity, empresaNome: e.currentTarget.textContent || '' })}
-                        style={{ display: 'block', fontSize: '1.2rem', color: '#f8fafc', outline: 'none', borderBottom: '1px dashed rgba(255,255,255,0.3)', cursor: 'text' }}
-                        title="Clique para editar o nome da empresa"
-                      >
-                        {editingCity.empresaNome || `Desentupidora ${editingCity.cidade} 24h`}
-                      </strong>
-                      <small style={{ color: '#94a3b8', fontSize: '0.78rem' }}>Desentupimento e Hidrojateamento em {editingCity.cidade}</small>
-                    </div>
-                  </div>
-
-                  <a href="#" style={{ backgroundColor: '#f97316', color: '#fff', padding: '10px 18px', borderRadius: '8px', fontWeight: 800, textDecoration: 'none', fontSize: '0.85rem' }}>
-                    💬 WhatsApp: ({editingCity.whatsapp.substring(0,2)}) {editingCity.whatsapp.substring(2,7)}-{editingCity.whatsapp.substring(7)}
-                  </a>
-                </div>
-
-                {/* 3. HERO SECTION */}
-                <div style={{ padding: '40px 24px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: previewDevice === 'desktop' ? '1.2fr 0.8fr' : '1fr', gap: '30px', alignItems: 'center' }}>
-                    <div>
-                      <span style={{ display: 'inline-block', backgroundColor: 'rgba(2, 132, 199, 0.15)', border: '1px solid #0284c7', color: '#38bdf8', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 700, marginBottom: '14px' }}>
-                        📍 Atendimento em Todos os Bairros de {editingCity.cidade} (Pop: {editingCity.populacao})
-                      </span>
-
-                      {/* H1 INLINE EDITABLE */}
-                      <h1 
-                        contentEditable={true}
-                        suppressContentEditableWarning={true}
-                        onBlur={(e) => setEditingCity({ ...editingCity, h1Title: e.currentTarget.textContent || '' })}
-                        style={{ fontSize: previewDevice === 'desktop' ? '2.3rem' : '1.7rem', fontWeight: 900, lineHeight: 1.15, marginBottom: '16px', outline: 'none', borderBottom: '1px dashed #38bdf8', cursor: 'text' }}
-                        title="Clique para editar o H1 diretamente"
-                      >
-                        {editingCity.h1Title || `Desentupidora em ${editingCity.cidade} ${editingCity.uf} 24h`}
-                      </h1>
-
-                      {/* FIRST PARAGRAPH INLINE EDITABLE */}
-                      <p 
-                        contentEditable={true}
-                        suppressContentEditableWarning={true}
-                        onBlur={(e) => setEditingCity({ ...editingCity, firstParagraph: e.currentTarget.textContent || '' })}
-                        style={{ fontSize: '1rem', color: '#cbd5e1', lineHeight: 1.6, marginBottom: '24px', outline: 'none', borderBottom: '1px dashed #94a3b8', cursor: 'text' }}
-                        title="Clique para editar o 1º Parágrafo diretamente"
-                      >
-                        {editingCity.firstParagraph || `Precisando de uma desentupidora em ${editingCity.cidade} ${editingCity.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${editingCity.cidade} e região.`}
-                      </p>
-
-                      <a href="#" style={{ backgroundColor: '#f97316', color: '#fff', padding: '14px 28px', borderRadius: '10px', fontWeight: 800, textDecoration: 'none', display: 'inline-block', fontSize: '1rem', boxShadow: '0 8px 20px rgba(249, 115, 22, 0.4)' }}>
-                        🚀 {editingCity.ctaButtonText || 'Solicitar Visita Grátis no WhatsApp'}
-                      </a>
-                    </div>
-
-                    {/* HERO RIGHT CARD */}
-                    <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '24px', textAlign: 'center' }}>
-                      <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>⚡ Orçamento Grátis em {editingCity.cidade}</h3>
-                      <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '16px' }}>Chegamos no seu endereço em até 30 minutos sem taxa de visita.</p>
-                      
-                      {editingCity.heroImage ? (
-                        <div style={{ borderRadius: '10px', overflow: 'hidden', maxHeight: '180px' }}>
-                          <img src={editingCity.heroImage} alt="Hero" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        </div>
-                      ) : (
-                        <div style={{ textAlign: 'left', backgroundColor: 'rgba(0,0,0,0.2)', padding: '16px', borderRadius: '8px' }}>
-                          <div style={{ color: '#34d399', fontWeight: 700, marginBottom: '6px', fontSize: '0.85rem' }}>✔ Técnicos Locais em {editingCity.cidade}</div>
-                          <div style={{ color: '#34d399', fontWeight: 700, marginBottom: '6px', fontSize: '0.85rem' }}>✔ Sem Quebrar Pisos ou Paredes</div>
-                          <div style={{ color: '#34d399', fontWeight: 700, fontSize: '0.85rem' }}>✔ Garantia por Escrito de até 90 dias</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. SERVICES SECTION */}
-                <div style={{ padding: '40px 24px', backgroundColor: '#f8fafc', color: '#0f172a' }}>
-                  <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                    <span style={{ color: '#0284c7', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase' }}>NOSSOS SERVIÇOS</span>
-                    <h2 style={{ fontSize: '1.8rem', fontWeight: 900, marginTop: '4px' }}>Serviços Especializados em {editingCity.cidade}</h2>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: previewDevice === 'desktop' ? 'repeat(3, 1fr)' : '1fr', gap: '16px' }}>
-                    {(editingCity.services || []).map((s, idx) => (
-                      <div key={idx} style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.04)' }}>
-                        <div style={{ fontSize: '1.8rem', marginBottom: '8px' }}>{s.icon || '⚙️'}</div>
-                        
-                        {/* SERVICE TITLE INLINE EDITABLE */}
-                        <h3 
-                          contentEditable={true}
-                          suppressContentEditableWarning={true}
-                          onBlur={(e) => {
-                            const updated = [...(editingCity.services || [])];
-                            updated[idx] = { ...s, title: e.currentTarget.textContent || '' };
-                            setEditingCity({ ...editingCity, services: updated });
-                          }}
-                          style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '6px', color: '#0f172a', outline: 'none', borderBottom: '1px dashed #cbd5e1', cursor: 'text' }}
-                          title="Clique para editar o título do serviço"
-                        >
-                          {s.title}
-                        </h3>
-
-                        {/* SERVICE DESC INLINE EDITABLE */}
-                        <p 
-                          contentEditable={true}
-                          suppressContentEditableWarning={true}
-                          onBlur={(e) => {
-                            const updated = [...(editingCity.services || [])];
-                            updated[idx] = { ...s, description: e.currentTarget.textContent || '' };
-                            setEditingCity({ ...editingCity, services: updated });
-                          }}
-                          style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.5, marginBottom: '12px', outline: 'none', borderBottom: '1px dashed #cbd5e1', cursor: 'text' }}
-                          title="Clique para editar a descrição do serviço"
-                        >
-                          {s.description}
-                        </p>
-
-                        <a href="#" style={{ color: '#0284c7', fontWeight: 700, fontSize: '0.82rem', textDecoration: 'none' }}>
-                          Solicitar Orçamento →
-                        </a>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 5. BENEFITS SECTION (WITH LAST H2) */}
-                <div style={{ padding: '40px 24px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-                    <span style={{ color: '#0284c7', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase' }}>DIFERENCIAIS</span>
-                    
-                    {/* LAST H2 INLINE EDITABLE */}
-                    <h2 
-                      contentEditable={true}
-                      suppressContentEditableWarning={true}
-                      onBlur={(e) => setEditingCity({ ...editingCity, lastH2: e.currentTarget.textContent || '' })}
-                      style={{ fontSize: '1.8rem', fontWeight: 900, marginTop: '4px', outline: 'none', borderBottom: '1px dashed #38bdf8', cursor: 'text' }}
-                      title="Clique para editar o Último H2 diretamente"
-                    >
-                      {editingCity.lastH2 || `Por que escolher a melhor Desentupidora em ${editingCity.cidade} ${editingCity.uf}?`}
-                    </h2>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: previewDevice === 'desktop' ? 'repeat(4, 1fr)' : '1fr', gap: '14px' }}>
-                    <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '18px', borderRadius: '10px' }}>
-                      <strong style={{ display: 'block', fontSize: '1rem', color: '#fff', marginBottom: '4px' }}>⚡ Chegada em 30 min</strong>
-                      <p style={{ color: '#94a3b8', fontSize: '0.82rem' }}>Técnicos nos principais bairros de {editingCity.cidade}.</p>
-                    </div>
-                    <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '18px', borderRadius: '10px' }}>
-                      <strong style={{ display: 'block', fontSize: '1rem', color: '#fff', marginBottom: '4px' }}>💰 Visita Grátis</strong>
-                      <p style={{ color: '#94a3b8', fontSize: '0.82rem' }}>Avaliamos no local sem cobrar deslocamento.</p>
-                    </div>
-                    <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '18px', borderRadius: '10px' }}>
-                      <strong style={{ display: 'block', fontSize: '1rem', color: '#fff', marginBottom: '4px' }}>🛠️ Sem Quebrar</strong>
-                      <p style={{ color: '#94a3b8', fontSize: '0.82rem' }}>Máquinas rotativas e hidrojato de precisão.</p>
-                    </div>
-                    <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '18px', borderRadius: '10px' }}>
-                      <strong style={{ display: 'block', fontSize: '1rem', color: '#fff', marginBottom: '4px' }}>📜 Garantia 90 Dias</strong>
-                      <p style={{ color: '#94a3b8', fontSize: '0.82rem' }}>Certificado e laudo técnico por escrito.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 6. BAIRROS SECTION (GEO) */}
-                <div style={{ padding: '36px 24px', backgroundColor: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#fff', marginBottom: '4px' }}>
-                    📍 Bairros Atendidos com Plantão 24h em {editingCity.cidade}
-                  </h3>
-                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '16px' }}>
-                    Atendemos residências, comércios e empresas em todas as regiões de {editingCity.cidade}:
-                  </p>
-
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                    {(editingCity.bairros || []).map((b, idx) => (
-                      <div key={idx} style={{ backgroundColor: 'rgba(255,255,255,0.08)', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', color: '#fff', fontWeight: 600, border: '1px solid rgba(255,255,255,0.1)' }}>
-                        📍 Bairro {b}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 7. FAQ SECTION */}
-                <div style={{ padding: '36px 24px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#fff', marginBottom: '16px', textAlign: 'center' }}>
-                    Perguntas Frequentes sobre Desentupimento em {editingCity.cidade}
-                  </h3>
-
-                  {(editingCity.faqs || []).map((f, idx) => (
-                    <div key={idx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '16px', marginBottom: '10px' }}>
-                      <h4 style={{ fontSize: '0.95rem', color: '#fff', marginBottom: '4px' }}>{f.question}</h4>
-                      <p style={{ color: '#cbd5e1', fontSize: '0.85rem' }}>{f.answer}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* 8. FOOTER */}
-                <div style={{ backgroundColor: '#050811', padding: '32px 24px', fontSize: '0.85rem', color: '#94a3b8' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: previewDevice === 'desktop' ? '1.5fr 1fr 1fr' : '1fr', gap: '20px', marginBottom: '24px' }}>
-                    <div>
-                      <strong style={{ display: 'block', color: '#fff', fontSize: '1rem', marginBottom: '6px' }}>{editingCity.empresaNome || `Desentupidora ${editingCity.cidade} 24h`}</strong>
-                      <p style={{ fontSize: '0.8rem' }}>Empresa líder em serviços de desentupimento 24h em {editingCity.cidade} e região.</p>
-                    </div>
-                    <div>
-                      <strong style={{ display: 'block', color: '#fff', fontSize: '0.9rem', marginBottom: '6px' }}>Contatos</strong>
-                      <p style={{ fontSize: '0.8rem' }}>📲 WhatsApp: ({editingCity.whatsapp.substring(0,2)}) {editingCity.whatsapp.substring(2,7)}-{editingCity.whatsapp.substring(7)}</p>
-                      <p style={{ fontSize: '0.8rem' }}>📍 {editingCity.endereco || `Av. Principal, 500 - ${editingCity.cidade}`}</p>
-                    </div>
-                    <div>
-                      <strong style={{ display: 'block', color: '#fff', fontSize: '0.9rem', marginBottom: '6px' }}>Hospedagem</strong>
-                      <p style={{ fontSize: '0.8rem' }}>Provedor: {editingCity.hospedagem.toUpperCase()}</p>
-                      <p style={{ fontSize: '0.8rem' }}>Tema: {editingCity.paletaCores}</p>
-                    </div>
-                  </div>
-                  <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '16px', fontSize: '0.78rem' }}>
-                    © {new Date().getFullYear()} {editingCity.empresaNome}. Todos os direitos reservados.
-                  </div>
-                </div>
-
+              {/* PAGE SELECTOR */}
+              <div style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ color: '#94a3b8', fontSize: '0.9rem', fontWeight: 700 }}>👁️ Visualizar Página:</span>
+                <select
+                  value={previewPath}
+                  onChange={(e) => setPreviewPath(e.target.value)}
+                  style={{
+                    padding: '8px 12px',
+                    borderRadius: '8px',
+                    backgroundColor: '#1e293b',
+                    color: '#fff',
+                    border: '1px solid #334155',
+                    fontSize: '0.9rem',
+                    flex: 1
+                  }}
+                >
+                  <option value="/">🏠 Home (Página Principal)</option>
+                  <optgroup label="Serviços (Páginas Internas)">
+                    {(editingCity?.services || []).map((s: any) => {
+                      const cidadeSlug = editingCity.cidade.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                      const serviceSlug = s.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                      const fullSlug = `/${serviceSlug}-em-${cidadeSlug}`;
+                      return <option key={fullSlug} value={fullSlug}>🔧 {s.title}</option>;
+                    })}
+                  </optgroup>
+                  <optgroup label="Bairros (Páginas Internas)">
+                    {(editingCity?.bairros || []).map((b: string) => {
+                      const bairroSlug = `/${b.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                      return <option key={bairroSlug} value={bairroSlug}>📍 Bairro {b}</option>;
+                    })}
+                  </optgroup>
+                </select>
               </div>
 
+              <div style={{ display: 'flex', justifyContent: 'center', flex: 1, overflowY: 'auto' }}>
+                <div 
+                  style={{
+                    width: previewDevice === 'desktop' ? '100%' : '390px',
+                    backgroundColor: '#ffffff',
+                    borderRadius: previewDevice === 'desktop' ? '8px' : '36px',
+                    border: previewDevice === 'desktop' ? '1px solid #334155' : '10px solid #1e293b',
+                    boxShadow: previewDevice === 'mobile' ? '0 20px 50px rgba(0,0,0,0.8)' : 'none',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
+                  <iframe 
+                    ref={iframeRef}
+                    src={previewPath === '/' ? `/api/preview/${editingCity.id}?editor=true` : `http://localhost:4321${previewPath}`}
+                    title="Live Preview"
+                    style={{ width: '100%', height: '100%', border: 'none', flex: 1, minHeight: '700px' }}
+                  />
+                </div>
+              </div>
             </div>
 
           </div>
@@ -1268,6 +1243,54 @@ export default function App() {
                     </span>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>CNPJ do Parceiro (Obrigatório para SEO):</label>
+                <input 
+                  type="text" 
+                  placeholder="Ex: 12.345.678/0001-90"
+                  value={createCityForm.cnpj}
+                  onChange={(e) => setCreateCityForm({ ...createCityForm, cnpj: e.target.value })}
+                  style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>Endereço Físico Real (Obrigatório para SEO):</label>
+                <input 
+                  type="text" 
+                  placeholder="Ex: Av. Brasil, 1500 - Centro, Linhares - ES"
+                  value={createCityForm.endereco}
+                  onChange={(e) => setCreateCityForm({ ...createCityForm, endereco: e.target.value })}
+                  style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>Latitude (Google Maps):</label>
+                <input 
+                  type="text" 
+                  placeholder="Ex: -19.3911"
+                  value={createCityForm.latitude}
+                  onChange={(e) => setCreateCityForm({ ...createCityForm, latitude: e.target.value })}
+                  style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>Longitude (Google Maps):</label>
+                <input 
+                  type="text" 
+                  placeholder="Ex: -40.0722"
+                  value={createCityForm.longitude}
+                  onChange={(e) => setCreateCityForm({ ...createCityForm, longitude: e.target.value })}
+                  style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff' }}
+                />
               </div>
             </div>
 
