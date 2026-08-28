@@ -1,4 +1,5 @@
 ---
+import { slugify } from '../utils/slugify';
 const { cidade, uf, bairros, whatsapp } = Astro.props;
 ---
 
@@ -12,7 +13,7 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
 
     <div class="bairros-grid">
       {bairros.map((bairrosName) => (
-        <a href={`/${bairrosName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} class="bairro-chip">
+        <a href={`/${slugify(bairrosName)}`} class="bairro-chip">
           <span class="pin-icon">📍</span>
           <span>Desentupidora em {bairrosName} ({cidade})</span>
         </a>

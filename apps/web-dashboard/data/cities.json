@@ -62,7 +62,9 @@
       "Ilha da Luz",
       "Vila Rica"
     ],
-    "auditScore": 100
+    "auditScore": 100,
+    "deployUrl": "https://desentupidora-cachoeirodeitapemirim.vercel.app",
+    "lastDeployAt": "2026-08-28T18:24:51.017Z"
   },
   {
     "id": "pocosdecaldas",

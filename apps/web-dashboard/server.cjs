@@ -9,6 +9,19 @@ const { deployCitySite } = require('./scripts/deployEngine.cjs');
 const app = express();
 const PORT = 5002;
 
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
 
 app.use(cors());
 app.use(express.json());
@@ -573,7 +586,7 @@ app.get('/api/preview/:id', (req, res) => {
       </div>
       <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px; text-align: center;" data-editor-id="areasText">${areasText}</p>
       <div class="bairros-chips" style="justify-content: center;">
-        ${bairros.map((b, i) => `<a href="/${b.toLowerCase().replace(/[^a-z0-9]/g, '-')}" class="chip" data-editor-id="bairros.${i}">📍 Bairro ${b}</a>`).join('')}
+        ${bairros.map((b, i) => `<a href="/${slugify(b)}" class="chip" data-editor-id="bairros.${i}">📍 Bairro ${b}</a>`).join('')}
       </div>
 
       <div class="map-container">

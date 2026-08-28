@@ -1,19 +1,19 @@
 {
-  "cidade": "Linhares",
+  "cidade": "Cachoeiro de Itapemirim",
   "estado": "Espírito Santo",
   "uf": "ES",
-  "populacao": "183.797",
-  "ddd": "27",
-  "whatsapp": "27992795590",
-  "telefoneFixo": "(27) 3323-0000",
-  "empresaNome": "Desentupidora Linhares 24h",
-  "cnpj": "12.345.678/0001-90",
-  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
+  "populacao": "198.342",
+  "ddd": "28",
+  "whatsapp": "28999887766",
+  "telefoneFixo": "(28) 3522-0000",
+  "empresaNome": "Desentupidora Cachoeiro 24h",
+  "cnpj": "98.765.432/0001-10",
+  "endereco": "Rua Bernardo Horta, 200 - Guandú, Cachoeiro de Itapemirim - ES",
   "hospedagem": "vercel",
-  "paletaCores": "urgencia-azul-laranja",
+  "paletaCores": "corporativo-verde-cinza",
   "variants": {
-    "hero": "HeroV1",
-    "services": "ServicesGridV1",
+    "hero": "HeroV2",
+    "services": "ServicesGridV2",
     "faq": "FAQV1"
   },
   "geoCoordinates": {
@@ -21,26 +21,21 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Linhares ES 24h | Atendimento Sem Quebrar Piso",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Linhares ES 24horas",
-    "firstParagraphText": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Linhares ES?"
+    "metaTitle": "Desentupidora em Cachoeiro de Itapemirim ES 24h | Atendimento Sem Quebrar Piso",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Cachoeiro de Itapemirim ES. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Cachoeiro de Itapemirim ES 24h",
+    "firstParagraphText": "Precisando de uma desentupidora em Cachoeiro de Itapemirim ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Cachoeiro de Itapemirim e região, com garantia por escrito e o menor preço.",
+    "lastH2Title": "Por que escolher a melhor Desentupidora em Cachoeiro de Itapemirim ES?"
   },
   "bairros": [
     "Centro",
-    "Interlagos",
-    "Conceição",
-    "Novo Horizonte",
-    "Avisos",
-    "Araçá",
-    "BNH",
-    "Juparanã",
-    "Movelar",
-    "Três Barras",
-    "Shell",
-    "São José",
-    "teste"
+    "Gilberto Machado",
+    "Alto Amarelo",
+    "Aquidaban",
+    "Baiminas",
+    "Coronel Borges",
+    "Ilha da Luz",
+    "Vila Rica"
   ],
   "services": [
     {
@@ -76,24 +71,24 @@
   ],
   "faqs": [
     {
-      "question": "Qual o valor cobrado para um desentupimento em Linhares?",
+      "question": "Qual o valor cobrado para um desentupimento em Cachoeiro de Itapemirim?",
       "answer": "O orçamento é 100% gratuito e feito no local após avaliação técnica da tubulação."
     },
     {
-      "question": "Vocês atendem emergências 24 horas em Linhares?",
-      "answer": "Sim! Nossas equipes de plantão em Linhares operam 24 horas por dia, 7 dias por semana."
+      "question": "Vocês atendem emergências 24 horas em Cachoeiro de Itapemirim?",
+      "answer": "Sim! Nossas equipes de plantão em Cachoeiro de Itapemirim operam 24 horas por dia, 7 dias por semana."
     },
     {
-      "question": "Qual o tempo estimado de chegada em Linhares?",
+      "question": "Qual o tempo estimado de chegada em Cachoeiro de Itapemirim?",
       "answer": "Devido às equipes posicionadas nos principais bairros, chegamos entre 20 e 40 minutos."
     }
   ],
   "testimonials": [
     {
       "name": "Carlos Eduardo M.",
-      "neighborhood": "Centro - Linhares",
+      "neighborhood": "Centro - Cachoeiro de Itapemirim",
       "rating": 5,
-      "text": "Atendimento nota 1000! O esgoto do banheiro transbordou e a equipe chegou muito rápido em Linhares."
+      "text": "Atendimento nota 1000! O esgoto do banheiro transbordou e a equipe chegou muito rápido em Cachoeiro de Itapemirim."
     }
   ]
 }

@@ -1,6 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem } from './cityGenerator';
 
+function slugify(text: string): string {
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
 interface HostingSettings {
   cloudflare: { accountId: string; apiToken: string };
   vercel: { apiToken: string; teamId: string };
@@ -1013,15 +1026,15 @@ export default function App() {
                   <option value="/">🏠 Home (Página Principal)</option>
                   <optgroup label="Serviços (Páginas Internas)">
                     {(editingCity?.services || []).map((s: any) => {
-                      const cidadeSlug = editingCity.cidade.toLowerCase().replace(/[^a-z0-9]/g, '-');
-                      const serviceSlug = s.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                      const cidadeSlug = slugify(editingCity.cidade);
+                      const serviceSlug = slugify(s.title);
                       const fullSlug = `/${serviceSlug}-em-${cidadeSlug}`;
                       return <option key={fullSlug} value={fullSlug}>🔧 {s.title}</option>;
                     })}
                   </optgroup>
                   <optgroup label="Bairros (Páginas Internas)">
                     {(editingCity?.bairros || []).map((b: string) => {
-                      const bairroSlug = `/${b.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                      const bairroSlug = `/${slugify(b)}`;
                       return <option key={bairroSlug} value={bairroSlug}>📍 Bairro {b}</option>;
                     })}
                   </optgroup>
