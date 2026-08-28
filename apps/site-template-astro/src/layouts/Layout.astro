@@ -67,10 +67,25 @@ const schemaFAQ = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- STRICT SEO RULE: TITLE & META DESCRIPTION -->
+    <!-- STRICT SEO RULE: TITLE, META DESCRIPTION, CANONICAL & ROBOTS -->
     <title>{finalMetaTitle}</title>
     <meta name="description" content={finalMetaDescription} />
     <meta name="keywords" content={`desentupidora em ${cidade}, desentupimento ${cidade}, limpa fossa ${cidade}, desentupir pia ${cidade}`} />
+    <link rel="canonical" href={`${siteUrl}${currentPath === '/' ? '' : currentPath}`} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- OpenGraph / Social Meta Tags -->
+    <meta property="og:title" content={finalMetaTitle} />
+    <meta property="og:description" content={finalMetaDescription} />
+    <meta property="og:url" content={`${siteUrl}${currentPath === '/' ? '' : currentPath}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={empresaNome} />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={finalMetaTitle} />
+    <meta name="twitter:description" content={finalMetaDescription} />
     
     <!-- Agent Discovery & IsItAgentReady.com Compliance Links -->
     <link rel="api-catalog" href="/.well-known/api-catalog" />

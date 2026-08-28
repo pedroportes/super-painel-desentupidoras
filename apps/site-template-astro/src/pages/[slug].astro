@@ -91,9 +91,6 @@ if (props.type === 'service') {
     });
   }
 }
-
-// Ensure layout knows the exact SEO overrides for the schema
-cityData.seo = { ...cityData.seo, ...pageSeo };
 ---
 
 <Layout {...cityData} seo={pageSeo} faqs={pageFaqs}>

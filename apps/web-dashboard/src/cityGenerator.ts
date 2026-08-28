@@ -117,11 +117,17 @@ export function generateUniqueCityContent(
         { title: 'Vídeo Inspeção Robotizada', description: 'Diagnóstico por câmera de alta resolução para identificar trincas e pontos exatos de obstrução.', icon: '📹' }
       ],
       faqs: [
+        { question: `Vocês atendem emergências 24 horas para condomínios e empresas em ${cidade}?`, answer: `Sim! Nosso plantão corporativo opera 24 horas por dia, 7 dias por semana, com equipes preparadas para chamados urgentes.` },
+        { question: `Qual o tempo estimado de chegada para atendimento empresarial em ${cidade}?`, answer: `Chegamos em média entre 20 e 40 minutos em qualquer bairro de ${cidade} devido às nossas bases móveis descentralizadas.` },
+        { question: `A visita técnica e vistoria no local é gratuita?`, answer: `Sim, a visita técnica para diagnóstico e elaboração de proposta comercial é 100% gratuita e sem compromisso.` },
         { question: `A empresa emite nota fiscal e laudo técnico para condomínios em ${cidade}?`, answer: `Sim, emitimos nota fiscal eletrônica, laudo técnico de vistoria e certificado de garantia para prestação de contas de síndicos e administradoras.` },
-        { question: `Vocês trabalham com contratos de manutenção preventiva em ${cidade}?`, answer: `Sim, oferecemos planos mensais e semestrais para empresas, shoppings, hospitais e condomínios residenciais em ${cidade}.` }
+        { question: `Vocês trabalham com contratos de manutenção preventiva em ${cidade}?`, answer: `Sim, oferecemos planos mensais e semestrais para empresas, shoppings, hospitais e condomínios residenciais em ${cidade}.` },
+        { question: `Precisa interditar áreas ou quebrar pisos para desentupir?`, answer: `Não. Nossos equipamentos rotativos e de hidrojateamento atuam diretamente pelo interior das tubulações, sem causar sujeira ou quebra-quebra.` }
       ],
       testimonials: [
-        { name: 'Condomínio Residencial Parque Real', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Equipe muito técnica. Resolveram o refluxo da prumada do prédio num domingo à noite com hidrojato sem sujar as áreas comuns.` }
+        { name: 'Condomínio Residencial Parque Real', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Equipe muito técnica. Resolveram o refluxo da prumada do prédio num domingo à noite com hidrojato sem sujar as áreas comuns.` },
+        { name: 'Dr. Roberto Mendes (Clínica Médica)', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Atendimento impecável e altamente higiênico. Resolveram o problema na rede de esgoto sem interromper nossas atividades.` },
+        { name: 'Restaurante Sabor & Arte', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `A limpeza da caixa de gordura e desentupimento da cozinha foram rápidos e com documentação ambiental completa.` }
       ],
       auditScore: 0
     };
@@ -159,11 +165,17 @@ export function generateUniqueCityContent(
         { title: 'Limpeza de Fossa Séptica Residencial', description: 'Esgotamento rápido com caminhão limpa fossa para chácaras e residências de ${cidade}.', icon: '🚛' }
       ],
       faqs: [
-        { question: `É cobrado algum valor pela visita técnica na minha casa em ${cidade}?`, answer: `Não! Nossa visita e orçamento são 100% gratuitos. O técnico avalia o problema e passa o valor justo antes de iniciar o trabalho.` },
-        { question: `Precisa quebrar o piso ou as paredes para desentupir?`, answer: `Em 99% dos casos não quebramos nada. Usamos maquinário rotativo especializado que passa pelas curvas do encanamento limpando tudo por dentro.` }
+        { question: `Vocês atendem emergências 24 horas em ${cidade}?`, answer: `Sim! Nosso plantão atende residências 24 horas por dia, todos os dias da semana, inclusive sábados, domingos e feriados.` },
+        { question: `Qual o tempo estimado de chegada na minha residência em ${cidade}?`, answer: `Nossos técnicos estão distribuídos pelos principais bairros e chegam em média entre 20 e 35 minutos.` },
+        { question: `A visita técnica para avaliação em ${cidade} é gratuita?`, answer: `Sim! A visita é 100% gratuita e sem compromisso. O técnico avalia o local e passa a melhor solução antes de iniciar.` },
+        { question: `Precisa quebrar o piso ou as paredes para desentupir?`, answer: `Em 99% dos casos não quebramos nada. Usamos maquinário rotativo especializado que passa pelas curvas do encanamento limpando tudo por dentro.` },
+        { question: `Qual é a garantia dos serviços de desentupimento residencial?`, answer: `Fornecemos garantia total por escrito de até 90 dias para todos os serviços residenciais em ${cidade}.` },
+        { question: `Quais tipos de desentupimento residencial vocês realizam?`, answer: `Desentupimos pias, ralos de banheiro e quintal, vasos sanitários, caixas de gordura, colunas e redes gerais de esgoto.` }
       ],
       testimonials: [
-        { name: 'Dona Maria Helena', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Os rapazes foram muito educados, usaram protetor nos sapatos e desentupiram a pia da minha cozinha em 20 minutos sem deixar nenhuma sujeira.` }
+        { name: 'Dona Maria Helena', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Os rapazes foram muito educados, usaram protetor nos sapatos e desentupiram a pia da minha cozinha em 20 minutos sem deixar nenhuma sujeira.` },
+        { name: 'Renato Guimarães', neighborhood: `${bairros[0] || 'Centro'} - ${cidade}`, rating: 5, text: `Chamei num domingo para desentupir o vaso sanitário e chegaram muito rápido. Trabalho limpo, rápido e com garantia.` },
+        { name: 'Carla Silveira', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `Excelente atendimento! Limparam a caixa de gordura e o ralo do banheiro sem nenhum mau cheiro na casa.` }
       ],
       auditScore: 0
     };
@@ -202,10 +214,16 @@ export function generateUniqueCityContent(
       ],
       faqs: [
         { question: `A empresa possui licença ambiental para descarte de fossas em ${cidade}?`, answer: `Sim, possuímos todas as licenças dos órgãos ambientais e entregamos o Manifesto de Transporte de Resíduos (MTR) para cada serviço realizado.` },
-        { question: `Qual a capacidade dos caminhões limpa fossa em ${cidade}?`, answer: `Dispomos de caminhões com tanques de 8.000 a 15.000 litros, atendendo desde residências até grandes indústrias.` }
+        { question: `Qual a capacidade dos caminhões limpa fossa em ${cidade}?`, answer: `Dispomos de caminhões com tanques de 8.000 a 15.000 litros, atendendo desde residências até grandes indústrias.` },
+        { question: `Vocês realizam hidrojateamento de alta pressão em galerias em ${cidade}?`, answer: `Sim, nossa frota conta com bombas de alta pressão para desobstrução e higienização profunda de manilhas e redes pluviais.` },
+        { question: `Qual o prazo para atendimento com caminhão auto-vácuo?`, answer: `Atendemos chamados programados e emergências 24 horas em qualquer distrito ou bairro industrial de ${cidade}.` },
+        { question: `A visita técnica para orçamento de hidrojato é gratuita?`, answer: `Sim, nossos técnicos realizam a vistoria técnica no local sem qualquer custo ou taxa de deslocamento.` },
+        { question: `O serviço industrial acompanha certificado e garantia?`, answer: `Sim, todos os serviços são acompanhados de certificado de garantia por escrito e laudo de conformidade técnica.` }
       ],
       testimonials: [
-        { name: 'Transportadora Vale do Sol', neighborhood: `Distrito Industrial - ${cidade}`, rating: 5, text: `Serviço impecável na sucção das fossas e limpeza dos tanques da garagem de carretas. Caminhão moderno e documentação 100% correta.` }
+        { name: 'Transportadora Vale do Sol', neighborhood: `Distrito Industrial - ${cidade}`, rating: 5, text: `Serviço impecável na sucção das fossas e limpeza dos tanques da garagem de carretas. Caminhão moderno e documentação 100% correta.` },
+        { name: 'Indústria Metalúrgica Progresso', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Hidrojateamento de altíssima eficiência nas galerias pluviais da nossa fábrica. Equipe com EPIs e segurança impecável.` },
+        { name: 'Galpão Logístico Sul', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Contratamos para esgotamento e desobstrução das caixas de decantação. Serviço rápido e sem paralisar nossa operação.` }
       ],
       auditScore: 0
     };

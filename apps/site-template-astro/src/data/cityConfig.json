@@ -71,16 +71,28 @@
   ],
   "faqs": [
     {
-      "question": "Qual o valor cobrado para um desentupimento em Guarapuava?",
-      "answer": "O orçamento é 100% gratuito e feito no local após avaliação técnica da tubulação."
-    },
-    {
       "question": "Vocês atendem emergências 24 horas em Guarapuava?",
-      "answer": "Sim! Nossas equipes de plantão em Guarapuava operam 24 horas por dia, 7 dias por semana."
+      "answer": "Sim! Nossas equipes de plantão em Guarapuava operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
     },
     {
-      "question": "Qual o tempo estimado de chegada em Guarapuava?",
-      "answer": "Devido às equipes posicionadas nos principais bairros, chegamos entre 20 e 40 minutos."
+      "question": "Qual o tempo estimado de chegada até o meu endereço em Guarapuava?",
+      "answer": "Devido às equipes posicionadas nos principais bairros de Guarapuava, nosso tempo médio de chegada é de 20 a 40 minutos."
+    },
+    {
+      "question": "A visita técnica para avaliação em Guarapuava é gratuita?",
+      "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+    },
+    {
+      "question": "O serviço de desentupimento possui garantia por escrito?",
+      "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Guarapuava."
+    },
+    {
+      "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+      "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro."
+    },
+    {
+      "question": "Vocês atendem empresas, condomínios e comércios em Guarapuava?",
+      "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
     }
   ],
   "testimonials": [
@@ -88,7 +100,19 @@
       "name": "Carlos Eduardo M.",
       "neighborhood": "Centro - Guarapuava",
       "rating": 5,
-      "text": "Atendimento nota 1000! O esgoto do banheiro transbordou e a equipe chegou muito rápido em Guarapuava."
+      "text": "Atendimento nota 10! O esgoto do banheiro transbordou na madrugada e a equipe chegou muito rápido em Guarapuava, resolvendo sem sujeira."
+    },
+    {
+      "name": "Maria Aparecida Silva",
+      "neighborhood": "Santa Cruz - Guarapuava",
+      "rating": 5,
+      "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada. Recomendo muito!"
+    },
+    {
+      "name": "João Paulo Santos",
+      "neighborhood": "Bonsucesso - Guarapuava",
+      "rating": 5,
+      "text": "Chamei para uma emergência no ralo do quintal e chegaram em 25 minutos. Orçamento transparente e serviço com garantia."
     }
   ]
 }

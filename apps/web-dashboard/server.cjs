@@ -134,13 +134,18 @@ function syncCityToAstro(city) {
         { id: 'fossa', title: 'Esgotamento e Limpeza de Fossa', description: 'Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.' },
         { id: 'hidrojateamento', title: 'Hidrojateamento de Alta Pressão', description: 'Lavagem interna pressurizada para higienização e desobstrução profunda.' }
       ],
-      faqs: city.faqs || [
-        { question: `Qual o valor cobrado para um desentupimento em ${city.cidade}?`, answer: `O orçamento é 100% gratuito e feito no local após avaliação técnica da tubulação.` },
-        { question: `Vocês atendem emergências 24 horas em ${city.cidade}?`, answer: `Sim! Nossas equipes de plantão em ${city.cidade} operam 24 horas por dia, 7 dias por semana.` },
-        { question: `Qual o tempo estimado de chegada em ${city.cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros, chegamos entre 20 e 40 minutos.` }
+      faqs: (city.faqs && city.faqs.length >= 6) ? city.faqs : [
+        { question: `Vocês atendem emergências 24 horas em ${city.cidade}?`, answer: `Sim! Nossas equipes de plantão em ${city.cidade} operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados.` },
+        { question: `Qual o tempo estimado de chegada até o meu endereço em ${city.cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${city.cidade}, nosso tempo médio de chegada é de 20 a 40 minutos.` },
+        { question: `A visita técnica para avaliação em ${city.cidade} é gratuita?`, answer: `Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local.` },
+        { question: `O serviço de desentupimento possui garantia por escrito?`, answer: `Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em ${city.cidade}.` },
+        { question: `Precisa quebrar piso, azulejos ou paredes para desentupir?`, answer: `Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro.` },
+        { question: `Vocês atendem empresas, condomínios e comércios em ${city.cidade}?`, answer: `Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral.` }
       ],
-      testimonials: city.testimonials || [
-        { name: 'Carlos Eduardo M.', neighborhood: `Centro - ${city.cidade}`, rating: 5, text: `Atendimento nota 1000! O esgoto do banheiro transbordou e a equipe chegou muito rápido em ${city.cidade}.` }
+      testimonials: (city.testimonials && city.testimonials.length >= 3) ? city.testimonials : [
+        { name: 'Carlos Eduardo M.', neighborhood: `Centro - ${city.cidade}`, rating: 5, text: `Atendimento nota 10! O esgoto do banheiro transbordou na madrugada e a equipe chegou muito rápido em ${city.cidade}, resolvendo sem sujeira.` },
+        { name: 'Maria Aparecida Silva', neighborhood: `Santa Cruz - ${city.cidade}`, rating: 5, text: `Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada. Recomendo muito!` },
+        { name: 'João Paulo Santos', neighborhood: `Bonsucesso - ${city.cidade}`, rating: 5, text: `Chamei para uma emergência no ralo do quintal e chegaram em 25 minutos. Orçamento transparente e serviço com garantia.` }
       ]
     };
     fs.writeFileSync(ASTRO_CONFIG_FILE, JSON.stringify(astroConfig, null, 2), 'utf-8');
