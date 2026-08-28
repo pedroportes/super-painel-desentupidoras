@@ -13,10 +13,22 @@ import cityData from '../data/cityConfig.json';
     bairros = cityData.bairros,
     faqs = cityData.faqs
   } = Astro.props;
-  
-  const siteUrl = Astro.url.origin;
+
   const currentPath = Astro.url.pathname;
   
+  // Real Production Canonical Base (Cloudflare / Vercel / Custom Domain)
+  const cityKey = (cidade || cityData.cidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+  const hosting = cityData.hospedagem || 'cloudflare';
+  const productionBaseUrl = cityData.deployUrl 
+    ? cityData.deployUrl.replace(/\/$/, '')
+    : (hosting === 'cloudflare' 
+        ? `https://desentupidora-${cityKey}.pages.dev` 
+        : (hosting === 'vercel' 
+            ? `https://desentupidora-${cityKey}.vercel.app` 
+            : `https://${cityData.dominio || `desentupidora${cityKey}.com.br`}`));
+
+  const canonicalUrl = `${productionBaseUrl}${currentPath === '/' ? '' : currentPath}`;
+
   // Use exact provided meta fields from the `seo` prop, otherwise fallback
   const finalMetaTitle = seo.metaTitle || `Desentupidora em ${cidade} ${uf} 24h | Atendimento Sem Quebrar Piso`;
   const finalMetaDescription = seo.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${cidade} ${uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
@@ -27,7 +39,7 @@ import cityData from '../data/cityConfig.json';
   "@type": ["LocalBusiness", "EmergencyService"],
   "name": `${empresaNome} - ${finalMetaTitle}`,
   "description": finalMetaDescription,
-  "url": `${siteUrl}${currentPath}`,
+  "url": canonicalUrl,
   "telephone": `+55${whatsapp}`,
   "address": {
     "@type": "PostalAddress",
@@ -71,13 +83,13 @@ const schemaFAQ = {
     <title>{finalMetaTitle}</title>
     <meta name="description" content={finalMetaDescription} />
     <meta name="keywords" content={`desentupidora em ${cidade}, desentupimento ${cidade}, limpa fossa ${cidade}, desentupir pia ${cidade}`} />
-    <link rel="canonical" href={`${siteUrl}${currentPath === '/' ? '' : currentPath}`} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="index, follow" />
 
     <!-- OpenGraph / Social Meta Tags -->
     <meta property="og:title" content={finalMetaTitle} />
     <meta property="og:description" content={finalMetaDescription} />
-    <meta property="og:url" content={`${siteUrl}${currentPath === '/' ? '' : currentPath}`} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={empresaNome} />

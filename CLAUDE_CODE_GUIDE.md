@@ -41,12 +41,24 @@ Ao modificar ou criar novas páginas (`[slug].astro` ou `index.astro`), as segui
 
 1. **Title e Meta Description Exatas:** Devem conter a palavra-chave regional (`[Serviço/Bairro] em [Cidade] [UF]`).
 2. **H1 e 1º Parágrafo:** A palavra-chave exata deve estar no H1 e logo na primeira frase do primeiro parágrafo (controlado pelo objeto `pageSeo` em `[slug].astro`).
-3. **Último H2:** Antes do rodapé, a página deve conter um H2 de autoridade.
-4. **FAQ AEO-Focused (Mínimo de 6):** 
+3. **Último H2:** Antes do rodapé, a página deve conter um H2 de autoridade local.
+4. **Canonical URL Dinâmica de Produção:** O `Layout.astro` calcula dinamicamente a URL canônica com base no domínio de produção real (`.pages.dev`, `.vercel.app` ou domínio próprio), garantindo aprovação verde nas extensões de SEO e evitando `localhost:4321`.
+5. **Robots e OpenGraph:** Todo o layout possui `<meta name="robots" content="index, follow" />`, tags OpenGraph (`og:title`, `og:description`, `og:url`, `og:site_name`) e Twitter Cards.
+6. **FAQ AEO-Focused (Mínimo de 6 - Sem Menção a Preços):** 
+   - A Home possui 6 FAQs ricas focadas em atendimento 24h, tempo de chegada, equipamentos rotativos (sem quebra-quebra), garantia por escrito e atendimento a empresas/condomínios.
    - A aba de Bairros reaproveita as 6 FAQs da Home injetando o nome do bairro.
-   - A aba de Serviços usa 6 FAQs específicos daquele serviço, focando em "não quebrar" e "tempo", sem falar de preços.
-5. **Schema.org Dinâmico:** O `Layout.astro` recebe metadados dinâmicos e injeta `LocalBusiness` e `FAQPage` específicos para a URL.
-6. **Layout e Cores Globais:** `Layout.astro` aplica o atributo `data-theme` na tag `<html>` com `min-height: 100vh` no body.
+   - A aba de Serviços usa 6 FAQs específicos daquele serviço.
+7. **Depoimentos Reais (Mínimo de 3):** Exibição de 3 cards de avaliações com 5 estrelas, nomes e bairros locais da cidade.
+8. **Schema.org Dinâmico:** O `Layout.astro` recebe metadados dinâmicos e injeta `LocalBusiness` e `FAQPage` específicos para a URL.
+9. **Layout e Cores Globais:** `Layout.astro` aplica o atributo `data-theme` na tag `<html>` com `min-height: 100vh` no body.
+10. **Segurança contra Mutações:** O Astro compila todas as rotas em um mesmo processo Node; portanto, **nunca faça mutação in-place em `cityData`** (ex: `cityData.seo = ...`), sempre passe props isoladas.
+
+---
+
+## 🚀 Motor de Deploy Multi-Hospedagem (`deployEngine.cjs`)
+- **Vercel:** Executa `vercel deploy` autenticado via token, nomeia o projeto automaticamente com `desentupidora-[cidade]` e sanitiza a URL retornada.
+- **Cloudflare Pages:** Cria o projeto automaticamente na conta via `wrangler pages project create` caso não exista, e faz o deploy com `wrangler pages deploy`, retornando o domínio canônico limpo `https://desentupidora-[cidade].pages.dev`.
+- **Confirmação Visual no Painel:** Abre modal com status HTTP 200, data/hora e botão direto para abrir o site publicado, além de fixar uma barra verde de status no topo do editor.
 
 ---
 
