@@ -376,7 +376,8 @@ app.get('/api/preview/:id', (req, res) => {
 
   const areasTitle = city.areasTitle || `📍 Bairros Atendidos com Plantão 24h em ${city.cidade}`;
   const areasText = city.areasText || `Atendemos residências, comércios e empresas em todas as regiões de ${city.cidade}:`;
-  const faqSubtitle = city.faqSubtitle || `DÚVIDAS FREQUENTES`;
+  const aboutCityTitle = city.aboutCityTitle || `Estrutura e Atendimento de Desentupidora em ${city.cidade} - ${city.uf}`;
+  const aboutCityText = city.aboutCityText || `${city.cidade} é um dos municípios mais importantes de ${city.uf}, reunindo mais de ${city.populacao || '150.000'} habitantes e bairros com intensa movimentação residencial e comercial. Nossa empresa mantém veículos equipados e técnicos posicionados estrategicamente em ${city.cidade} para chegar em até 30 minutos em emergências de esgoto, pias e ralos.`;
   const faqTitle = city.faqTitle || `Perguntas Frequentes sobre Desentupimento em ${city.cidade}`;
   const footerAboutText = city.footerAboutText || `Empresa líder em serviços de desentupimento de esgoto, pias, ralos, vasos e limpeza de fossas com atendimento emergencial 24h em ${city.cidade} e região.`;
   const footerContactTitle = city.footerContactTitle || `Contato Direto`;
@@ -602,6 +603,33 @@ app.get('/api/preview/:id', (req, res) => {
           <div style="color: #34d399; font-weight: 700;" data-editor-id="heroCheck3">${heroCheck3}</div>
         </div>
         `}
+      </div>
+    </div>
+  </section>
+
+  <section class="city-context-sec" style="padding: 50px 0; background: #0f172a; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">
+    <div class="container" style="max-width: 960px;">
+      <span style="color: var(--color-primary, #38bdf8); font-weight: 800; font-size: 0.82rem; letter-spacing: 1px; display: inline-block; margin-bottom: 10px;">📍 CONHEÇA A CIDADE & NOSSA ATUAÇÃO</span>
+      <h2 data-editor-id="aboutCityTitle" style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 14px;">${aboutCityTitle}</h2>
+      <p data-editor-id="aboutCityText" style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; max-width: 840px; margin: 0 auto 30px auto;">${aboutCityText}</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 24px;">
+        <div style="background: rgba(30,41,59,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.8rem;">🏙️</span>
+          <div><strong style="display: block; color: #fff; font-size: 1rem;">${city.populacao || '150.000'}</strong><span style="color: #64748b; font-size: 0.78rem;">Habitantes</span></div>
+        </div>
+        <div style="background: rgba(30,41,59,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.8rem;">⏱️</span>
+          <div><strong style="display: block; color: #fff; font-size: 1rem;">20 a 35 min</strong><span style="color: #64748b; font-size: 0.78rem;">Tempo Médio</span></div>
+        </div>
+        <div style="background: rgba(30,41,59,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.8rem;">🛡️</span>
+          <div><strong style="display: block; color: #fff; font-size: 1rem;">100% Sem Quebra</strong><span style="color: #64748b; font-size: 0.78rem;">Preserva Pisos</span></div>
+        </div>
+        <div style="background: rgba(30,41,59,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.8rem;">📋</span>
+          <div><strong style="display: block; color: #fff; font-size: 1rem;">Até 90 Dias</strong><span style="color: #64748b; font-size: 0.78rem;">Garantia Escrita</span></div>
+        </div>
       </div>
     </div>
   </section>

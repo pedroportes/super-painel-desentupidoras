@@ -649,7 +649,7 @@ export default function App() {
               </button>
 
               <a 
-                href={`/api/preview/${editingCity.id}`}
+                href={`http://localhost:4321${previewPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
