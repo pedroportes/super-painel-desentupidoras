@@ -226,16 +226,29 @@ export default function App() {
     }
   };
 
-  const handleSelectCityForEditor = (cityId: string) => {
+  const handleSelectCityForEditor = async (cityId: string) => {
     setSelectedCityId(cityId);
     setPreviewPath('/'); // evita mostrar um bairro/serviço que não existe na cidade nova
     const found = cities.find(c => c.id === cityId);
     if (found) {
-      setEditingCity(JSON.parse(JSON.stringify(found)));
+      const cityData = JSON.parse(JSON.stringify(found));
+      setEditingCity(cityData);
+      
+      // Sincroniza a nova cidade selecionada com o Astro dev server imediatamente
+      try {
+        await fetch('/api/preview-sync', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(cityData)
+        });
+        // Atualiza a URL do iframe para recarregar com a cidade selecionada
+        if (iframeRef.current) {
+          iframeRef.current.src = `http://localhost:4321/?t=${Date.now()}`;
+        }
+      } catch (e) {
+        console.error('Erro ao sincronizar preview da cidade selecionada:', e);
+      }
     } else {
-      // Nunca deixar o editor mostrando dados de uma cidade diferente da
-      // selecionada. Se não achou (ex: lista ainda não sincronizada), limpa
-      // o editor em vez de manter os dados antigos.
       setEditingCity(null);
     }
   };
@@ -417,10 +430,10 @@ export default function App() {
     });
   };
 
-  const handleApplyModelTemplateToExisting = (modelo: CityConfig['modeloTemplate']) => {
+  const handleApplyModelTemplateToExisting = async (modelo: CityConfig['modeloTemplate']) => {
     if (!editingCity) return;
     const fresh = generateUniqueCityContent(editingCity.cidade, editingCity.uf, editingCity.populacao, modelo, editingCity.hospedagem);
-    setEditingCity({
+    const updated: CityConfig = {
       ...editingCity,
       modeloTemplate: modelo,
       paletaCores: fresh.paletaCores,
@@ -431,11 +444,26 @@ export default function App() {
       firstParagraph: fresh.firstParagraph,
       ctaButtonText: fresh.ctaButtonText,
       lastH2: fresh.lastH2,
+      aboutCityTitle: fresh.aboutCityTitle,
+      aboutCityText: fresh.aboutCityText,
       services: fresh.services,
       faqs: fresh.faqs,
       bairros: editingCity.bairros?.length ? editingCity.bairros : fresh.bairros
-    });
-    showNotify(`🔄 Modelo "${modelo}" aplicado ao site de ${editingCity.cidade}!`);
+    };
+    setEditingCity(updated);
+    try {
+      await fetch('/api/preview-sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updated)
+      });
+      if (iframeRef.current) {
+        iframeRef.current.src = `http://localhost:4321/?t=${Date.now()}`;
+      }
+    } catch (e) {
+      console.error('Erro ao sincronizar novo modelo:', e);
+    }
+    showNotify(`🎨 Modelo "${modelo}" aplicado ao preview de ${editingCity.cidade}!`);
   };
 
   const filteredCities = cities.filter(c => {

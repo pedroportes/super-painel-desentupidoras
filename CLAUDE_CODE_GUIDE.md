@@ -204,6 +204,17 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
   (só pdf/jpg/png/pptx/gif/mp4) — o fluxo correto é exportar PNG e converter
   com `npx --yes sharp-cli -i x.png -o x.webp -f webp -q 90`, apagando o
   PNG depois (reduziu 63,9 KB → 5,4 KB na logo real da Itabuna).
+  **Correção sobre a própria correção, mesma sessão**: a primeira versão
+  do prompt de logo pedia um "lockup" com símbolo + nome da empresa escrito
+  dentro da imagem (900×300px) — errado, porque `Header.astro` já renderiza
+  o nome como texto HTML separado; o resultado prático foi o nome aparecer
+  duplicado na tela. Corrigido pra logo ser só ícone, sem texto, 512×512
+  (1:1), igual ao favicon. Também trocado o símbolo abstrato genérico
+  ("gota + raio", que o usuário leu como parecendo um microscópio) por um
+  caminhão-tanque com mangueira visível — símbolo específico do negócio (o
+  veículo real usado no serviço de limpeza de fossa), validado e publicado
+  em Itabuna. Guia completo com o prompt final e a lição aprendida em
+  `PROMPT-IDENTIDADE-VISUAL.md`.
 - **`(próximo commit)`** (29/08/2026) — Auditoria completa pedida pelo usuário
   (ver `docs/auditoria-seo-cloudflare-2026-08-29.md`). Publicada a cidade
   Itabuna (BA), que estava com H1/1º parágrafo/CTA/último H2 vazios (caía no

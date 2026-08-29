@@ -26,8 +26,8 @@ outro.
 
 | Ativo | Onde é usado no código | Como é renderizado | Proporção ideal | Tamanho de exportação | Formato | Fundo |
 |---|---|---|---|---|---|---|
-| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:46px; max-width:140px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`) | Pequeno, no topo, sempre sobre fundo **escuro** | ~3:1 (paisagem larga) | **900×300px** (gerar em @2x, 1800×600px, se a ferramenta permitir — fica nítido em telas retina) | **WebP** (ver nota de conversão abaixo) | Fundo sólido na cor exata `--color-bg-dark` da paleta (ver nota de transparência abaixo) |
-| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | **WebP** (ver nota de conversão abaixo) | Símbolo isolado, **sem texto** (texto nessa escala vira mancha ilegível), fundo sólido na cor `--color-bg-dark` da paleta |
+| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:64px; max-width:200px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`). **O nome da empresa já é renderizado como texto HTML separado ao lado** — a logo é só o ícone. | Pequeno, no topo, sempre sobre fundo **escuro** | **1:1 (quadrado)** — não 3:1, ver correção abaixo | **512×512px** master | **WebP** (ver nota de conversão abaixo) | **Sem texto/wordmark**, símbolo isolado, fundo sólido na cor exata `--color-bg-dark` da paleta (ver nota de transparência abaixo) |
+| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | **WebP** (ver nota de conversão abaixo) | Mesmo símbolo da logo, ainda mais simplificado, **sem texto** (texto nessa escala vira mancha ilegível), fundo sólido na cor `--color-bg-dark` da paleta |
 | **Hero (páginas de serviço)** | `[slug].astro`: `.service-hero-img-box { max-height:300px }`, `object-fit:cover`, coluna de `grid-template-columns: 1.3fr 0.7fr` (~460px de largura útil no desktop, full-width no mobile) | Foto ao lado do texto, cortada pelas bordas conforme o viewport | 8:5 ou 16:9 (paisagem) | **1600×1000px** | **WebP** | Foto realista — sujeito centralizado, com margem de segurança pra corte (crop-safe) |
 | **OG / Social Share** (bônus — **ainda não existe no código**, ver nota abaixo) | Nenhum. `Layout.astro` hoje tem `og:title`/`og:description` mas **nenhum `og:image`** — gap real encontrado nesta auditoria | Preview de link no WhatsApp/Twitter/LinkedIn | 1200×630 (padrão OG) | **1200×630px** | JPG (WhatsApp/Twitter nem sempre respeitam webp em preview — manter JPG aqui) | Composição com paleta da cidade + logo + headline |
 
@@ -88,7 +88,7 @@ sem fio nenhum não adianta nada sozinho.
 
 **Nunca usar o mesmo arquivo de imagem pra dois campos diferentes.** Logo,
 favicon e hero têm propósitos visuais opostos:
-- Logo = marca **abstrata e pequena**, vetorial, cabe em 140×46px.
+- Logo = marca **abstrata e pequena**, vetorial, cabe em 200×64px.
 - Favicon = **só o símbolo**, sem texto, legível a 16px.
 - Hero = **foto realista** de um profissional trabalhando, nada de símbolo
   ou texto.
@@ -144,66 +144,97 @@ muito mais precisão e consistência do que em português, especialmente pra
 termos de composição/fotografia. Preencha os `{{placeholders}}` antes de
 enviar.
 
-### 1. LOGO (wordmark + símbolo)
+### 1. LOGO (ícone puro — SEM texto, SEM wordmark)
+
+**⚠️ Correção de um erro real cometido nesta sessão**: a primeira versão
+deste guia mandava gerar a logo como um "lockup" horizontal com símbolo +
+nome da empresa escrito dentro da imagem (formato 900×300px, 3:1). Isso
+estava **errado** — `Header.astro` já renderiza o nome da empresa como
+**texto HTML separado**, ao lado do `<img>` da logo
+(`<strong>{empresaNome}</strong>`). O resultado prático de colocar o nome
+também dentro da imagem foi o nome aparecer **duplicado** na tela (uma vez
+pequeno dentro do ícone, outra vez grande ao lado). A logo tem que ser
+**só o ícone/símbolo**, sem nenhuma letra — exatamente como a logo antiga
+de Linhares (`public/images/linhares/logo.jpg`), que é só um ícone
+quadrado. **Corrigida a tabela de tamanhos** acima: Logo agora é **1:1,
+512×512px**, igual ao Favicon (a diferença entre os dois é só o nível de
+simplificação do traço, não o formato do canvas).
+
+**Símbolo recomendado, validado com o usuário**: um **caminhão-tanque
+(auto-vácuo)** estilizado, com uma **mangueira visível** — é o veículo que
+a própria empresa usa no serviço de limpeza de fossa (ver
+`services` em `cities.json`, item "Esgotamento e Limpeza de Fossa"), e é
+mais específico/reconhecível do que símbolos abstratos genéricos (uma
+primeira tentativa com "gota + raio" ficou ambígua, lida como algo
+parecido com um microscópio; uma tentativa de "caminhão genérico" saiu
+como furgão, não como o caminhão-tanque real do negócio). Adaptar esse
+símbolo por cidade é opcional — o essencial é manter: **sem texto, fundo
+sólido na cor da paleta, silhueta simples e reconhecível pequena**.
 
 ```
-Design a professional, modern logo for a 24-hour drain-cleaning / plumbing
-emergency company called "{{empresaNome}}", based in {{cidade}}, {{uf}},
-Brazil.
+A minimalist, modern flat vector icon/symbol of a stylized TANKER TRUCK
+(vacuum/septic tank suction truck, used for "limpa fossa" / sewage suction
+service) for "{{empresaNome}}", a 24-hour drain-cleaning company in
+{{cidade}}, {{uf}}, Brazil.
 
-STYLE: flat vector logo, minimalist, corporate-trustworthy — like a modern
-local-service brand. NOT clipart, NOT a generic stock icon pack, NOT the
-overused "wrench + water drop" combo seen on every plumbing logo.
+SUBJECT: side-view silhouette of a truck cab pulling/fitted with a large
+prominent cylindrical tank/barrel on the back, PLUS a visible suction HOSE
+(coiled or hanging) attached to the tank — the hose is what makes it read
+as a vacuum/suction truck rather than a generic delivery van or fuel
+tanker. Keep the tank and hose as the two most prominent shapes.
 
-SYMBOL: one simple abstract mark suggesting fast response + water/drain
-flow (for example: a stylized water drop merged with a lightning bolt, or
-a circular arrow implying a 24-hour cycle). Keep it a single recognizable
-shape that still reads clearly when shrunk to 32px.
+ABSOLUTELY NO TEXT, NO LETTERS, NO WORDMARK, NO COMPANY NAME anywhere in
+the image — icon/symbol only. The company name is already rendered as
+separate HTML text next to this image on the real site; embedding it again
+here duplicates it visually.
 
-WORDMARK: the text "{{empresaNome}}" in a bold geometric sans-serif
-typeface, high legibility, one or two lines maximum. No script/handwriting
-fonts.
+STYLE: flat vector, minimalist, corporate-trustworthy. NOT clipart, NOT
+photorealistic, NOT a generic stock icon pack. Simple, bold, geometric
+shapes — no fine detail (no windows/mirrors/rivets) that would turn into
+noise when shrunk to 64px tall in a navbar.
 
-COLOR: symbol and text using ONLY {{colorAccent}} and an off-white/white
-tone ({{colorTextMain}}).
+COLOR: the truck and hose in {{colorAccent}} only (a single flat color, at
+most a simple 2-tone shading on the tank shape itself — never a rainbow of
+colors, never brown/muddy tones on the hose, keep it the same family as
+the truck body).
 
-LAYOUT: horizontal lockup (symbol on the left, wordmark on the right),
-composed inside a wide 3:1 landscape frame with a safe margin on all sides
-— nothing touching the edges.
+LAYOUT: square 1:1 composition, icon centered with generous padding
+(~15-20%) on all sides so nothing touches the edges.
 
 BACKGROUND REQUIREMENT: the background must be a single FLAT SOLID COLOR
 fill, exact hex {{colorBgDark}}, covering the entire canvas edge-to-edge
-with ZERO gradient, ZERO vignette, ZERO texture, ZERO glow radiating into
-the background — completely flat and uniform. This exact color must match
-the website's navbar background pixel-for-pixel (Canva does not support
-true transparent export for AI-generated logos — a solid matching color is
-the proven workaround, tested and confirmed close enough to be
-indistinguishable once embedded in the real header).
+with ZERO gradient, ZERO vignette, ZERO texture. This exact color must
+match the website's navbar background pixel-for-pixel (Canva does not
+support true transparent export for AI-generated logos/icons — a solid
+matching color is the proven workaround, tested and confirmed close enough
+— within 1-4 RGB units — to be indistinguishable once embedded in the real
+header).
 
 NEGATIVE PROMPT: no photorealistic elements, no drop shadows, no busy
-gradients (max a simple 2-tone blend on the symbol/text only, never on the
-background), no watermark, no extra tagline text, no stock "plumber
-holding a wrench" clipart, no lightbulb/idea icon, no text distortion, no
-misspelled letters.
+gradients, no watermark, no tagline text, no company name, no letters of
+any kind, no distorted/malformed truck proportions.
 
-OUTPUT: generate as PNG at 900x300px, then convert to WebP (`npx --yes
+OUTPUT: generate as PNG at 512x512px, then convert to WebP (`npx --yes
 sharp-cli -i logo.png -o logo.webp -f webp -q 90`) and delete the PNG.
 ```
 
-### 2. FAVICON (derivado do símbolo da logo — NUNCA da wordmark)
+### 2. FAVICON (mesma peça do símbolo da logo, simplificada)
+
+Como a logo já é só um ícone (sem wordmark), o favicon pode reaproveitar
+exatamente o mesmo conceito visual — só precisa ser ainda mais simplificado
+pra continuar legível a 16×16px (a logo só precisa ler bem a 64px).
 
 ```
-Take ONLY the abstract symbol from the logo above (the drop/lightning
-mark) — completely remove the company name / wordmark — and center it
-alone in a 1:1 square canvas.
+Take the same tanker-truck-with-hose icon concept from the logo above and
+simplify it further: thicker strokes, fewer details, higher contrast —
+it must stay recognizable as a small vehicle silhouette when scaled down
+to 16x16px, which is much smaller than the logo's use case. If the hose
+detail becomes unreadable noise at that size, it is acceptable to drop it
+here and keep only the truck+tank silhouette.
 
-STYLE: same colors as the logo symbol ({{colorAccent}}), on a flat solid
-square background filled with the exact hex {{colorBgDark}} — same
-transparency limitation and workaround as the logo above applies here.
-
-SIMPLICITY: simplify strokes so the icon stays recognizable when scaled
-down to 16x16px — thick, bold shapes, zero fine detail, absolutely no
-text.
+STYLE: same color ({{colorAccent}}), flat solid square background filled
+with the exact hex {{colorBgDark}} — same transparency limitation and
+workaround as the logo above applies here. Absolutely no text.
 
 OUTPUT: generate as PNG at 512x512px, then convert to WebP (`npx --yes
 sharp-cli -i favicon.png -o favicon.webp -f webp -q 90`) and delete the
@@ -297,15 +328,23 @@ variável de path entre chamadas.
 
 ## ✅ Checklist antes de aprovar uma imagem gerada
 
-- [ ] Logo continua legível quando reduzido de verdade a 140×46px (não só
-      "olhando grande e imaginando")
+- [ ] **A logo NÃO tem nenhum texto/letra dentro da imagem** — o nome da
+      empresa já aparece em HTML ao lado; embutir de novo duplica visualmente
+      (bug real já visto e corrigido nesta sessão)
+- [ ] Logo continua reconhecível quando reduzida de verdade a 64px de
+      altura (não só "olhando grande e imaginando")
 - [ ] Favicon continua reconhecível reduzido a 16×16px
+- [ ] O símbolo escolhido é específico do negócio (ex: caminhão-tanque com
+      mangueira) e não um ícone abstrato ambíguo — um símbolo genérico
+      demais já foi confundido com outra coisa (microscópio) numa tentativa
+      anterior
 - [ ] Hero não tem mãos/dedos deformados (erro clássico de gerador de
       imagem em cenas com mãos segurando ferramenta)
 - [ ] Nenhum dos arquivos gerados é idêntico a outro (mesmo tamanho em
       bytes é sinal de alerta — bug real já visto em produção)
 - [ ] Cores batem com a paleta real da cidade (tabela acima), nunca
-      inventadas ou "aproximadas de cabeça"
+      inventadas ou "aproximadas de cabeça" — inclusive a cor da mangueira/
+      detalhes secundários, não só a cor principal
 - [ ] Hero não tem texto nem logo "queimados" na imagem — o HTML já
       desenha texto por cima, texto embutido na foto vira ruído/duplicado
 - [ ] Nenhuma marca/logo de terceiros aparece sem querer no fundo da cena

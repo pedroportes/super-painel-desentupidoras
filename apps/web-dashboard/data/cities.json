@@ -519,7 +519,8 @@
     "lastH2": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?",
     "deployUrl": "https://desentupidora-itabuna.pages.dev",
     "lastDeployAt": "2026-08-29T21:24:55.134Z",
-    "logoUrl": "/images/itabuna/logo.webp"
+    "logoUrl": "/images/itabuna/logo.webp",
+    "faviconUrl": "/images/itabuna/logo.webp"
   },
   {
     "id": "portoseguro",

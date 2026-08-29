@@ -1,21 +1,21 @@
 {
-  "cidade": "Linhares",
-  "estado": "Espírito Santo",
-  "uf": "ES",
-  "populacao": "183.797",
-  "ddd": "27",
-  "whatsapp": "27992795590",
-  "telefoneFixo": "(27) 3323-0000",
-  "empresaNome": "Desentupidora Linhares 24h",
-  "cnpj": "12.345.678/0001-90",
-  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
-  "hospedagem": "vercel",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/linhares/logo.jpg",
-  "faviconUrl": "/images/linhares/favicon.jpg",
-  "heroImage": "/images/linhares/hero.webp",
+  "cidade": "Itabuna",
+  "estado": "Bahia",
+  "uf": "BA",
+  "populacao": "196.344",
+  "ddd": "73",
+  "whatsapp": "73999768717",
+  "telefoneFixo": "(73) 3613-0000",
+  "empresaNome": "Desentupidora Itabuna 24h",
+  "cnpj": "55.666.777/0001-88",
+  "endereco": "Av. Cinquentenário, 800 - Centro, Itabuna - BA",
+  "hospedagem": "cloudflare",
+  "paletaCores": "industrial-amarelo",
+  "logoUrl": "/images/itabuna/logo.webp",
+  "faviconUrl": "/images/itabuna/logo.webp",
+  "heroImage": "",
   "variants": {
-    "hero": "HeroV1",
+    "hero": "HeroV2",
     "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
@@ -24,11 +24,11 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Linhares ES 24h | Atendimento Sem Quebrar Piso",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Linhares ES 24horas",
-    "firstParagraphText": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Linhares ES?"
+    "metaTitle": "Desentupidora em Itabuna BA 24h | Atendimento Sem Quebrar Piso",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Itabuna BA. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Itabuna BA 24 Horas: Atendimento Sem Quebrar Piso",
+    "firstParagraphText": "Precisando de uma desentupidora em Itabuna BA com urgência? Nossa equipe atende 24 horas por dia o Centro, São Caetano, Pontalzinho, Fátima, Conceição, Califórnia, Mangabinha e Jardim Vitória, com desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, sempre com máquinas rotativas e hidrojateamento que preservam pisos e azulejos.",
+    "lastH2Title": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?"
   },
   "parceiros": [
     {
@@ -45,18 +45,13 @@
   ],
   "bairros": [
     "Centro",
-    "Interlagos",
+    "São Caetano",
+    "Pontalzinho",
+    "Fátima",
     "Conceição",
-    "Novo Horizonte",
-    "Avisos",
-    "Araçá",
-    "BNH",
-    "Juparanã",
-    "Movelar",
-    "Três Barras",
-    "Shell",
-    "São José",
-    "teste"
+    "Califórnia",
+    "Mangabinha",
+    "Jardim Vitória"
   ],
   "services": [
     {
@@ -98,48 +93,48 @@
   ],
   "faqs": [
     {
-      "question": "Vocês atendem emergências 24 horas em Linhares?",
-      "answer": "Sim! Nossas equipes de plantão em Linhares operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      "question": "Vocês atendem emergências 24 horas em Itabuna?",
+      "answer": "Sim! Nossas equipes de plantão em Itabuna operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
     },
     {
-      "question": "Qual o tempo estimado de chegada até o meu endereço em Linhares?",
-      "answer": "Devido às equipes posicionadas nos principais bairros de Linhares, nosso tempo médio de chegada é de 20 a 40 minutos."
+      "question": "Qual o tempo estimado de chegada até o meu endereço em Itabuna?",
+      "answer": "Devido às equipes posicionadas nos principais bairros de Itabuna, nosso tempo médio de chegada é de 20 a 40 minutos."
     },
     {
-      "question": "A visita técnica para avaliação em Linhares é gratuita?",
+      "question": "A visita técnica para avaliação em Itabuna é gratuita?",
       "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
     },
     {
       "question": "O serviço de desentupimento possui garantia por escrito?",
-      "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Linhares."
+      "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Itabuna."
     },
     {
       "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
       "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
     },
     {
-      "question": "Vocês atendem empresas, condomínios e comércios em Linhares?",
+      "question": "Vocês atendem empresas, condomínios e comércios em Itabuna?",
       "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
     }
   ],
   "testimonials": [
     {
       "name": "Carlos Eduardo M.",
-      "neighborhood": "Centro - Linhares",
+      "neighborhood": "Centro - Itabuna",
       "rating": 5,
-      "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Linhares, resolvendo sem sujeira."
+      "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Itabuna, resolvendo sem sujeira."
     },
     {
       "name": "Maria Aparecida Silva",
-      "neighborhood": "Interlagos - Linhares",
+      "neighborhood": "São Caetano - Itabuna",
       "rating": 5,
-      "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Linhares. Recomendo muito!"
+      "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Itabuna. Recomendo muito!"
     },
     {
       "name": "João Paulo Santos",
-      "neighborhood": "Conceição - Linhares",
+      "neighborhood": "Pontalzinho - Itabuna",
       "rating": 5,
-      "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Linhares."
+      "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Itabuna."
     }
   ]
 }
