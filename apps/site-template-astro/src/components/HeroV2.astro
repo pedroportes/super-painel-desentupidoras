@@ -9,16 +9,16 @@ const { seo, cidade, ddd, whatsapp, populacao } = Astro.props;
     </div>
 
     <!-- STRICT SEO RULE: H1 title -->
-    <h1 class="hero-v2-title">{seo.h1Title}</h1>
+    <h1 id="h1Title" class="hero-v2-title" data-edit-tab="hero">{seo.h1Title}</h1>
 
     <!-- STRICT SEO RULE: Keyword in 1st Paragraph -->
-    <p class="hero-v2-paragraph">
+    <p id="firstParagraph" class="hero-v2-paragraph" data-edit-tab="hero">
       {seo.firstParagraphText}
     </p>
 
     <div class="hero-v2-cta-box">
-      <a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20desentupimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-v2" target="_blank" rel="noopener">
-        📲 Chamar no WhatsApp: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}
+      <a id="ctaButtonText" href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20desentupimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-v2" target="_blank" rel="noopener" data-edit-tab="hero">
+        {seo.ctaButtonText || `📲 Chamar no WhatsApp: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}`}
       </a>
       <p class="cta-sub">Visita técnica gratuita em {cidade} • Orçamento sem compromisso</p>
     </div>

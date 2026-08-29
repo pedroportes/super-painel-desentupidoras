@@ -1,19 +1,22 @@
 {
-  "cidade": "Guarapuava",
-  "estado": "Paraná",
-  "uf": "PR",
-  "populacao": "189.630",
-  "ddd": "42",
-  "whatsapp": "42991264162",
-  "telefoneFixo": "(42) 3623-0000",
-  "empresaNome": "Desentupidora Guarapuava 24h",
-  "cnpj": "77.888.999/0001-22",
-  "endereco": "Rua Saldanha Marinho, 1500 - Centro, Guarapuava - PR",
-  "hospedagem": "cloudflare",
+  "cidade": "Linhares",
+  "estado": "Espírito Santo",
+  "uf": "ES",
+  "populacao": "183.797",
+  "ddd": "27",
+  "whatsapp": "27992795590",
+  "telefoneFixo": "(27) 3323-0000",
+  "empresaNome": "Desentupidora Linhares 24h",
+  "cnpj": "12.345.678/0001-90",
+  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
+  "hospedagem": "vercel",
   "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/linhares/logo.jpg",
+  "faviconUrl": "/images/linhares/favicon.jpg",
+  "heroImage": "/images/linhares/hero.webp",
   "variants": {
-    "hero": "HeroV2",
-    "services": "ServicesGridV2",
+    "hero": "HeroV1",
+    "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
   "geoCoordinates": {
@@ -21,98 +24,122 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Guarapuava PR 24h | Atendimento Sem Quebrar Piso",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Guarapuava PR. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Guarapuava PR 24h",
-    "firstParagraphText": "Precisando de uma desentupidora em Guarapuava PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Guarapuava e região, com garantia por escrito e o menor preço.",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Guarapuava PR?"
+    "metaTitle": "Desentupidora em Linhares ES 24h | Atendimento Sem Quebrar Piso",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Linhares ES 24horas",
+    "firstParagraphText": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
+    "lastH2Title": "Por que escolher a melhor Desentupidora em Linhares ES?"
   },
+  "parceiros": [
+    {
+      "id": "1788025977336",
+      "nome": "Desentupidora teste",
+      "cidade": "teste",
+      "uf": "",
+      "dominio": "sao jose ",
+      "url": "sao jose ",
+      "descricao": "teste",
+      "status": "ativo",
+      "tipo": "Parceiro de atendimento"
+    }
+  ],
   "bairros": [
     "Centro",
-    "Santa Cruz",
-    "Bonsucesso",
-    "Santana",
-    "Trianon",
-    "Batel",
-    "Vila Carli",
-    "Boqueirão"
+    "Interlagos",
+    "Conceição",
+    "Novo Horizonte",
+    "Avisos",
+    "Araçá",
+    "BNH",
+    "Juparanã",
+    "Movelar",
+    "Três Barras",
+    "Shell",
+    "São José",
+    "teste"
   ],
   "services": [
     {
       "id": "esgoto",
       "title": "Desentupimento de Esgoto",
-      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento."
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+      "icon": "🚿"
     },
     {
       "id": "pia",
       "title": "Desentupimento de Pia",
-      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão."
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "icon": "🚰"
     },
     {
       "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças."
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
     },
     {
       "id": "ralo",
       "title": "Desentupimento de Ralo",
-      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada."
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
     },
     {
       "id": "fossa",
       "title": "Esgotamento e Limpeza de Fossa",
-      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas."
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+      "icon": "🚛"
     },
     {
-      "id": "hidrojateamento",
+      "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
-      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda."
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+      "icon": "🌊"
     }
   ],
   "faqs": [
     {
-      "question": "Vocês atendem emergências 24 horas em Guarapuava?",
-      "answer": "Sim! Nossas equipes de plantão em Guarapuava operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      "question": "Vocês atendem emergências 24 horas em Linhares?",
+      "answer": "Sim! Nossas equipes de plantão em Linhares operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
     },
     {
-      "question": "Qual o tempo estimado de chegada até o meu endereço em Guarapuava?",
-      "answer": "Devido às equipes posicionadas nos principais bairros de Guarapuava, nosso tempo médio de chegada é de 20 a 40 minutos."
+      "question": "Qual o tempo estimado de chegada até o meu endereço em Linhares?",
+      "answer": "Devido às equipes posicionadas nos principais bairros de Linhares, nosso tempo médio de chegada é de 20 a 40 minutos."
     },
     {
-      "question": "A visita técnica para avaliação em Guarapuava é gratuita?",
+      "question": "A visita técnica para avaliação em Linhares é gratuita?",
       "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
     },
     {
       "question": "O serviço de desentupimento possui garantia por escrito?",
-      "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Guarapuava."
+      "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Linhares."
     },
     {
       "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
-      "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro."
+      "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
     },
     {
-      "question": "Vocês atendem empresas, condomínios e comércios em Guarapuava?",
+      "question": "Vocês atendem empresas, condomínios e comércios em Linhares?",
       "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
     }
   ],
   "testimonials": [
     {
       "name": "Carlos Eduardo M.",
-      "neighborhood": "Centro - Guarapuava",
+      "neighborhood": "Centro - Linhares",
       "rating": 5,
-      "text": "Atendimento nota 10! O esgoto do banheiro transbordou na madrugada e a equipe chegou muito rápido em Guarapuava, resolvendo sem sujeira."
+      "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Linhares, resolvendo sem sujeira."
     },
     {
       "name": "Maria Aparecida Silva",
-      "neighborhood": "Santa Cruz - Guarapuava",
+      "neighborhood": "Interlagos - Linhares",
       "rating": 5,
-      "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada. Recomendo muito!"
+      "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Linhares. Recomendo muito!"
     },
     {
       "name": "João Paulo Santos",
-      "neighborhood": "Bonsucesso - Guarapuava",
+      "neighborhood": "Conceição - Linhares",
       "rating": 5,
-      "text": "Chamei para uma emergência no ralo do quintal e chegaram em 25 minutos. Orçamento transparente e serviço com garantia."
+      "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Linhares."
     }
   ]
 }

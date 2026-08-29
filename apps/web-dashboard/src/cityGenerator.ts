@@ -17,6 +17,19 @@ export interface TestimonialItem {
   text: string;
 }
 
+export interface PartnerItem {
+  id: string;
+  nome: string;
+  cidade: string;
+  uf: string;
+  dominio: string;
+  url: string;
+  descricao: string;
+  logo?: string;
+  status: 'ativo' | 'inativo';
+  tipo: 'Parceiro de atendimento' | 'Empresa parceira' | 'Rede de atendimento' | 'Indicação regional';
+}
+
 export interface CityConfig {
   id: string;
   cidade: string;
@@ -37,6 +50,7 @@ export interface CityConfig {
   cnpj?: string;
   endereco?: string;
   logoUrl?: string;
+  faviconUrl?: string;
   heroImage?: string;
   h1Title?: string;
   firstParagraph?: string;
@@ -46,6 +60,7 @@ export interface CityConfig {
   services?: ServiceItem[];
   faqs?: FaqItem[];
   testimonials?: TestimonialItem[];
+  parceiros?: PartnerItem[];
   auditScore: number;
   latitude?: string;
   longitude?: string;

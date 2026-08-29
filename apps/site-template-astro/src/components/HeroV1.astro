@@ -10,10 +10,10 @@ const { seo, cidade, ddd, whatsapp, populacao } = Astro.props;
       </div>
       
       <!-- STRICT SEO RULE: H1 title -->
-      <h1 class="hero-title">{seo.h1Title}</h1>
+      <h1 id="h1Title" class="hero-title" data-edit-tab="hero">{seo.h1Title}</h1>
       
       <!-- STRICT SEO RULE: Keyword in 1st Paragraph -->
-      <p class="hero-paragraph">
+      <p id="firstParagraph" class="hero-paragraph" data-edit-tab="hero">
         {seo.firstParagraphText}
       </p>
 
@@ -25,8 +25,8 @@ const { seo, cidade, ddd, whatsapp, populacao } = Astro.props;
       </div>
 
       <div class="hero-actions">
-        <a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-primary" target="_blank" rel="noopener">
-          🚀 Solicitar Visita Grátis no WhatsApp
+        <a id="ctaButtonText" href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-primary" target="_blank" rel="noopener" data-edit-tab="hero">
+          {seo.ctaButtonText || "🚀 Solicitar Visita Grátis no WhatsApp"}
         </a>
       </div>
     </div>

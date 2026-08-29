@@ -14,11 +14,11 @@ const { faqs, cidade } = Astro.props;
       {faqs.map((f: any, index: number) => (
         <details class="faq-item" open={index === 0}>
           <summary class="faq-question">
-            <strong>{f.question}</strong>
+            <strong id={`faqs.${index}.question`} data-edit-tab="faqs">{f.question}</strong>
             <span class="faq-icon">▼</span>
           </summary>
           <div class="faq-answer">
-            <p>{f.answer}</p>
+            <p id={`faqs.${index}.answer`} data-edit-tab="faqs">{f.answer}</p>
           </div>
         </details>
       ))}

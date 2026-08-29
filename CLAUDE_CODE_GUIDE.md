@@ -39,6 +39,15 @@ uma por cidade, com o máximo de SEO, GEO (geolocalização local) e AEO
 - **Armazenamento: arquivos JSON simples**, não banco de dados nenhum.
   `data/cities.json` (lista de cidades) e `data/settings.json` (chaves de
   API de hospedagem). Não existe SQLite neste projeto.
+- ⚠️ **ATENÇÃO / NOTA SOBRE VERSÕES ONLINE NA VERCEL:**
+  - O `web-dashboard` e `desktop-app` NÃO funcionam adequadamente quando hospedados
+    estaticamente na Vercel online sem um backend ativo na nuvem.
+  - No `web-dashboard` na Vercel, o frontend tenta bater em `/api/...` local e
+    as cidades ficam zeradas ("Central de Cidades (0)"), com tela preta/vazia.
+  - O `desktop-app` na Vercel é apenas um protótipo inicial descontinuado com dados mockados.
+  - **O painel DEVE ser executado localmente via `npm run dev` na pasta `apps/web-dashboard`**
+    (acessível em `http://localhost:5000`), onde ele controla o `server.cjs`, o motor Astro
+    local e o sistema de arquivos.
 - Imagens enviadas pelo usuário (logo, hero) ficam em
   `apps/site-template-astro/public/images/<cidade>/`, ou seja, **dentro da
   pasta pública do site Astro** — assim elas vão junto no deploy estático
@@ -166,6 +175,42 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(próximo commit)`** (29/08/2026) — Auditoria completa pedida pelo usuário
+  (ver `docs/auditoria-seo-cloudflare-2026-08-29.md`). Publicada a cidade
+  Itabuna (BA), que estava com H1/1º parágrafo/CTA/último H2 vazios (caía no
+  fallback genérico do `server.cjs`). Corrigido bug real encontrado no
+  caminho: a página nova `/rede-de-parceiros`
+  (`[parceiros_route].astro`) chamava `<Header />` e `<Footer />` **sem**
+  `{...cityData}`, quebrando o build (`whatsapp.substring` de `undefined`)
+  em qualquer cidade com `parceiros` cadastrado — corrigido passando
+  `{...cityData}` nos dois. Também removido (**4ª vez**)
+  `public/.well-known/ai-plugin.json`, que tinha voltado a existir com dados
+  fabricados (domínio `desentupidora.com.br` fake) — mesma regressão já
+  documentada abaixo, sem tag `<link>` associada desta vez. Confirmado por
+  `npm run build && npm run audit`: 100% (11/11) para Itabuna. **Bug de UX
+  também identificado**: o botão "🚀 Publicar" (`/api/deploy-city/:id`) builda
+  e publica mas **nunca roda o auditor nem atualiza `auditScore`** — só o
+  botão "⚙️ Build" (`/api/build-city/:id`) faz isso. Resultado: o score
+  mostrado na Central de Cidades pode ficar desatualizado depois de um
+  "Publicar" sem "Build" antes/depois. Ainda não corrigido no código — ver
+  "Pendências conhecidas". **Validação externa real** contra
+  `isitagentready.com` (ferramenta da Cloudflare) achou um bug grave que
+  nenhuma auditoria anterior tinha pego: a negociação de Markdown **nunca
+  funcionou em produção**. Causa raiz: `deployEngine.cjs` rodava o
+  `wrangler pages deploy` sem `cwd`, herdando o diretório do processo do
+  `server.cjs` (`apps/web-dashboard/`) — o Wrangler só encontra a pasta
+  `functions/` (onde mora `_middleware.js`) relativa ao cwd de onde é
+  chamado, nunca relativa ao `distDir` publicado, então a Function nunca
+  era deployada. Corrigido passando `cwd: path.dirname(distDir)`. Corrigida
+  também a sintaxe do `Content-Signal` no `robots.txt.ts` (era lista solta,
+  o padrão real exige `chave=valor`). Site subiu de 20/100 (nível 1) pra
+  33/100 (nível 4) no isitagentready.com — o resto (API/OAuth/MCP/Skills/
+  Commerce, 0/8) foi deixado de fora por não fazer sentido pra uma landing
+  page estática sem API própria. Detalhes completos em
+  `docs/auditoria-seo-cloudflare-2026-08-29.md`. **Pegadinha registrada**:
+  editar `scripts/deployEngine.cjs` (ou qualquer arquivo que `server.cjs`
+  importe com `require`) não tem efeito até reiniciar o `npm run dev` — o
+  Node cacheia o `require`, não há nodemon/hot-reload no backend.
 - **`(próximo commit)`** (29/08/2026) — Unificado o preview do editor com o
   Astro real. Antes: iframe usava um gerador de HTML falso pra home e o
   Astro real só pras páginas internas — dois motores diferentes, podiam
@@ -198,21 +243,28 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
-1. **Editor estilo Elementor** (clicar no elemento pra editar, containers) —
+1. **`/api/deploy-city/:id` (botão "Publicar") não roda a auditoria nem
+   atualiza `auditScore`** — só `/api/build-city/:id` (botão "Build") faz
+   isso. Publicar uma cidade sem antes/depois clicar em Build deixa o score
+   na Central de Cidades desatualizado (visto em 29/08/2026 com Itabuna:
+   ficou mostrando 90% com o site já 100% no ar). Corrigir: fazer
+   `deploy-city` rodar `npm run audit` também (ou chamar a mesma lógica de
+   `build-city`) antes de marcar `status: 'ativo'`.
+2. **Editor estilo Elementor** (clicar no elemento pra editar, containers) —
    pedido explícito do usuário. Agora que o preview é o Astro real e já
    sincroniza ao vivo, esta é a próxima frente. Precisa: (a) um jeito de
    injetar overlay/contentEditable nas páginas Astro quando servidas em
    modo editor, (b) reconectar isso ao listener `handleMessage`/
    `SELECT_ELEMENT` que já existe em `App.tsx` mas está sem uso desde que o
    preview falso foi removido.
-2. **Negociação de Markdown para Vercel e Netlify** — hoje só funciona em
+3. **Negociação de Markdown para Vercel e Netlify** — hoje só funciona em
    Cloudflare Pages.
-3. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
+4. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
    (ex: "Desentupidora de Desentupimento de Pia") — a palavra-chave está lá,
    mas o fraseado é estranho.
-4. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
+5. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
    um risco real (propaganda enganosa) que vale revisitar no futuro.
-5. A rota antiga `/api/preview/:id` (gerador de HTML falso) ficou morta no
+6. A rota antiga `/api/preview/:id` (gerador de HTML falso) ficou morta no
    `server.cjs` — pode ser removida com segurança quando alguém for limpar
    código morto.
 

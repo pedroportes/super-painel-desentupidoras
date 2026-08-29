@@ -33,8 +33,108 @@
     "auditScore": 100,
     "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
     "h1Title": "Desentupidora em Linhares ES 24horas",
-    "deployUrl": "https://dist-1ec1nrews-pedros-projects-c35b6c79.vercel.app",
-    "lastDeployAt": "2026-08-28T17:48:21.289Z"
+    "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
+    "lastDeployAt": "2026-08-29T17:45:06.942Z",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Linhares?",
+        "answer": "Sim! Nossas equipes de plantão em Linhares operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Linhares?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Linhares, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Linhares é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Linhares."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Linhares?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Linhares",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Linhares, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Interlagos - Linhares",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Linhares. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Conceição - Linhares",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Linhares."
+      }
+    ],
+    "logoUrl": "/images/linhares/logo.jpg",
+    "faviconUrl": "/images/linhares/favicon.jpg",
+    "heroImage": "/images/linhares/hero.webp",
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "cachoeiro",
@@ -64,7 +164,104 @@
     ],
     "auditScore": 100,
     "deployUrl": "https://desentupidora-cachoeirodeitapemirim.vercel.app",
-    "lastDeployAt": "2026-08-28T18:24:51.017Z"
+    "lastDeployAt": "2026-08-28T18:24:51.017Z",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Cachoeiro de Itapemirim?",
+        "answer": "Sim! Nossas equipes de plantão em Cachoeiro de Itapemirim operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Cachoeiro de Itapemirim?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Cachoeiro de Itapemirim, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Cachoeiro de Itapemirim é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Cachoeiro de Itapemirim."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Cachoeiro de Itapemirim?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Cachoeiro de Itapemirim",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Cachoeiro de Itapemirim, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Gilberto Machado - Cachoeiro de Itapemirim",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Cachoeiro de Itapemirim. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Alto Amarelo - Cachoeiro de Itapemirim",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Cachoeiro de Itapemirim."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "pocosdecaldas",
@@ -91,14 +288,113 @@
       "Vila Cruz",
       "Zona Sul"
     ],
-    "auditScore": 100
+    "auditScore": 100,
+    "deployUrl": "https://desentupidora-pocosdecaldas.netlify.app",
+    "lastDeployAt": "2026-08-29T13:34:35.124Z",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Poços de Caldas?",
+        "answer": "Sim! Nossas equipes de plantão em Poços de Caldas operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Poços de Caldas?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Poços de Caldas, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Poços de Caldas é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Poços de Caldas."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Poços de Caldas?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Poços de Caldas",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Poços de Caldas, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Jardim dos Estados - Poços de Caldas",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Poços de Caldas. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Cascatinha - Poços de Caldas",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Poços de Caldas."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "itabuna",
     "cidade": "Itabuna",
     "uf": "BA",
     "populacao": "196.344",
-    "status": "em_construcao",
+    "status": "ativo",
     "hospedagem": "cloudflare",
     "paletaCores": "industrial-amarelo",
     "heroVariant": "HeroV2",
@@ -119,14 +415,117 @@
       "Mangabinha",
       "Jardim Vitória"
     ],
-    "auditScore": 90
+    "auditScore": 100,
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Itabuna?",
+        "answer": "Sim! Nossas equipes de plantão em Itabuna operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Itabuna?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Itabuna, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Itabuna é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Itabuna."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Itabuna?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Itabuna",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Itabuna, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "São Caetano - Itabuna",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Itabuna. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Pontalzinho - Itabuna",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Itabuna."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ],
+    "h1Title": "Desentupidora em Itabuna BA 24 Horas: Atendimento Sem Quebrar Piso",
+    "firstParagraph": "Precisando de uma desentupidora em Itabuna BA com urgência? Nossa equipe atende 24 horas por dia o Centro, São Caetano, Pontalzinho, Fátima, Conceição, Califórnia, Mangabinha e Jardim Vitória, com desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, sempre com máquinas rotativas e hidrojateamento que preservam pisos e azulejos.",
+    "ctaButtonText": "Chamar Desentupidora em Itabuna no WhatsApp",
+    "lastH2": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?",
+    "deployUrl": "https://desentupidora-itabuna.pages.dev",
+    "lastDeployAt": "2026-08-29T18:59:59.087Z"
   },
   {
     "id": "portoseguro",
     "cidade": "Porto Seguro",
     "uf": "BA",
     "populacao": "182.630",
-    "status": "pendente",
+    "status": "ativo",
     "hospedagem": "vercel",
     "paletaCores": "clean-azul",
     "heroVariant": "HeroV1",
@@ -147,7 +546,106 @@
       "Parque Ecológico",
       "Frei Calixto"
     ],
-    "auditScore": 0
+    "auditScore": 0,
+    "deployUrl": "https://desentupidora-portoseguro.vercel.app",
+    "lastDeployAt": "2026-08-29T13:24:07.103Z",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Porto Seguro?",
+        "answer": "Sim! Nossas equipes de plantão em Porto Seguro operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Porto Seguro?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Porto Seguro, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Porto Seguro é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Porto Seguro."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Porto Seguro?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Porto Seguro",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Porto Seguro, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Arraial d'Ajuda - Porto Seguro",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Porto Seguro. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Trancoso - Porto Seguro",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Porto Seguro."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "guarapuava",
@@ -177,7 +675,104 @@
     ],
     "auditScore": 0,
     "deployUrl": "https://16fe4cf9.desentupidora-guarapuava.pages.dev",
-    "lastDeployAt": "2026-08-28T18:51:03.930Z"
+    "lastDeployAt": "2026-08-28T18:51:03.930Z",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em Guarapuava?",
+        "answer": "Sim! Nossas equipes de plantão em Guarapuava operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Guarapuava?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Guarapuava, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Guarapuava é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Guarapuava."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Guarapuava?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Guarapuava",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Guarapuava, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Santa Cruz - Guarapuava",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Guarapuava. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Bonsucesso - Guarapuava",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Guarapuava."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "cidade": "curitiba",
@@ -206,7 +801,104 @@
     "lastH2": "Por que escolher a melhor Desentupidora em curitiba PR?",
     "status": "pendente",
     "auditScore": 0,
-    "id": "curitiba"
+    "id": "curitiba",
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas em curitiba?",
+        "answer": "Sim! Nossas equipes de plantão em curitiba operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+      },
+      {
+        "question": "Qual o tempo estimado de chegada até o meu endereço em curitiba?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de curitiba, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em curitiba é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em curitiba."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em curitiba?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - curitiba",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em curitiba, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Interlagos - curitiba",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em curitiba. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Conceição - curitiba",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em curitiba."
+      }
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "sojosdospinhais",
@@ -273,16 +965,28 @@
     ],
     "faqs": [
       {
-        "question": "Qual o valor cobrado para um desentupimento em São José dos Pinhais?",
-        "answer": "O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região."
-      },
-      {
-        "question": "Vocês atendem emergências 24 horas aos finais de semana em São José dos Pinhais?",
+        "question": "Vocês atendem emergências 24 horas em São José dos Pinhais?",
         "answer": "Sim! Nossas equipes de plantão em São José dos Pinhais operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
       },
       {
         "question": "Qual o tempo estimado de chegada até o meu endereço em São José dos Pinhais?",
         "answer": "Devido às equipes posicionadas nos principais bairros de São José dos Pinhais, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em São José dos Pinhais é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em São José dos Pinhais."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em São José dos Pinhais?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
       }
     ],
     "testimonials": [
@@ -290,10 +994,35 @@
         "name": "Carlos Eduardo M.",
         "neighborhood": "Centro - São José dos Pinhais",
         "rating": 5,
-        "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em São José dos Pinhais, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Jardim América - São José dos Pinhais",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em São José dos Pinhais. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Bela Vista - São José dos Pinhais",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em São José dos Pinhais."
       }
     ],
-    "auditScore": 0
+    "auditScore": 0,
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "araucaria",
@@ -360,16 +1089,28 @@
     ],
     "faqs": [
       {
-        "question": "Qual o valor cobrado para um desentupimento em araucaria?",
-        "answer": "O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região."
-      },
-      {
-        "question": "Vocês atendem emergências 24 horas aos finais de semana em araucaria?",
+        "question": "Vocês atendem emergências 24 horas em araucaria?",
         "answer": "Sim! Nossas equipes de plantão em araucaria operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
       },
       {
         "question": "Qual o tempo estimado de chegada até o meu endereço em araucaria?",
         "answer": "Devido às equipes posicionadas nos principais bairros de araucaria, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em araucaria é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em araucaria."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em araucaria?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
       }
     ],
     "testimonials": [
@@ -377,12 +1118,37 @@
         "name": "Carlos Eduardo M.",
         "neighborhood": "Centro - araucaria",
         "rating": 5,
-        "text": "Atendimento nota 1000! O esgoto do banheiro transbordou num domingo à noite e a equipe chegou em 25 minutos. Resolveram sem quebrar nada!"
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em araucaria, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
+        "neighborhood": "Jardim América - araucaria",
+        "rating": 5,
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em araucaria. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Bela Vista - araucaria",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em araucaria."
       }
     ],
     "auditScore": 0,
     "deployUrl": "https://dist-fv35crkyn-pedros-projects-c35b6c79.vercel.app\",",
-    "lastDeployAt": "2026-08-28T17:30:10.892Z"
+    "lastDeployAt": "2026-08-28T17:30:10.892Z",
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   },
   {
     "id": "londrina",
@@ -390,7 +1156,7 @@
     "uf": "PR",
     "populacao": "1.773.733500000",
     "modeloTemplate": "residencial-bairros",
-    "status": "pendente",
+    "status": "ativo",
     "hospedagem": "vercel",
     "paletaCores": "residencial-bege",
     "heroVariant": "HeroV1",
@@ -449,22 +1215,65 @@
     ],
     "faqs": [
       {
-        "question": "É cobrado algum valor pela visita técnica na minha casa em Londrina?",
-        "answer": "Não! Nossa visita e orçamento são 100% gratuitos. O técnico avalia o problema e passa o valor justo antes de iniciar o trabalho."
+        "question": "Vocês atendem emergências 24 horas em Londrina?",
+        "answer": "Sim! Nossas equipes de plantão em Londrina operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
       },
       {
-        "question": "Precisa quebrar o piso ou as paredes para desentupir?",
-        "answer": "Em 99% dos casos não quebramos nada. Usamos maquinário rotativo especializado que passa pelas curvas do encanamento limpando tudo por dentro."
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Londrina?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Londrina, nosso tempo médio de chegada é de 20 a 40 minutos."
+      },
+      {
+        "question": "A visita técnica para avaliação em Londrina é gratuita?",
+        "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia por escrito?",
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Londrina."
+      },
+      {
+        "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
+        "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
+      },
+      {
+        "question": "Vocês atendem empresas, condomínios e comércios em Londrina?",
+        "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
       }
     ],
     "testimonials": [
       {
-        "name": "Dona Maria Helena",
+        "name": "Carlos Eduardo M.",
+        "neighborhood": "Centro - Londrina",
+        "rating": 5,
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Londrina, resolvendo sem sujeira."
+      },
+      {
+        "name": "Maria Aparecida Silva",
         "neighborhood": "Jardim América - Londrina",
         "rating": 5,
-        "text": "Os rapazes foram muito educados, usaram protetor nos sapatos e desentupiram a pia da minha cozinha em 20 minutos sem deixar nenhuma sujeira."
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Londrina. Recomendo muito!"
+      },
+      {
+        "name": "João Paulo Santos",
+        "neighborhood": "Bela Vista - Londrina",
+        "rating": 5,
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Londrina."
       }
     ],
-    "auditScore": 0
+    "auditScore": 0,
+    "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
+    "lastDeployAt": "2026-08-29T17:43:05.019Z",
+    "parceiros": [
+      {
+        "id": "1788025977336",
+        "nome": "Desentupidora teste",
+        "cidade": "teste",
+        "uf": "",
+        "dominio": "sao jose ",
+        "url": "sao jose ",
+        "descricao": "teste",
+        "status": "ativo",
+        "tipo": "Parceiro de atendimento"
+      }
+    ]
   }
 ]

@@ -11,8 +11,8 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
       <p>Nossas frotas de suporte estão estrategicamente posicionadas para atender residências e empresas em toda a cidade de {cidade}:</p>
     </div>
 
-    <div class="bairros-grid">
-      {bairros.map((bairrosName) => (
+    <div class="bairros-grid" data-edit-tab="bairros">
+      {bairros.map((bairrosName: string) => (
         <a href={`/${slugify(bairrosName)}`} class="bairro-chip">
           <span class="pin-icon">📍</span>
           <span>Desentupidora em {bairrosName} ({cidade})</span>

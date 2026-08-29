@@ -109,6 +109,9 @@ function syncCityToAstro(city) {
       endereco: city.endereco || '',
       hospedagem: city.hospedagem || 'cloudflare',
       paletaCores: city.paletaCores || 'urgencia-azul-laranja',
+      logoUrl: city.logoUrl || '',
+      faviconUrl: city.faviconUrl || '',
+      heroImage: city.heroImage || '',
       variants: {
         hero: city.heroVariant || 'HeroV1',
         services: city.servicesVariant || 'ServicesGridV1',
@@ -125,6 +128,7 @@ function syncCityToAstro(city) {
         firstParagraphText: city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região, com garantia por escrito e o menor preço.`,
         lastH2Title: city.lastH2 || `Por que escolher a melhor Desentupidora em ${city.cidade} ${city.uf}?`
       },
+      parceiros: city.parceiros || [],
       bairros: city.bairros && city.bairros.length > 0 ? city.bairros : ['Centro', 'Interlagos', 'Conceição', 'Novo Horizonte'],
       services: city.services || [
         { id: 'esgoto', title: 'Desentupimento de Esgoto', description: 'Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.' },
@@ -277,6 +281,35 @@ app.post('/api/suggest-theme', (req, res) => {
   });
 });
 
+// SERVE STATIC IMAGES
+app.use('/images', express.static(IMAGES_PUBLIC_DIR));
+app.use('/uploads', express.static(IMAGES_PUBLIC_DIR));
+
+// 6.5. UPLOAD IMAGE (LOGO & HERO)
+app.post('/api/upload-image', (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err) {
+      console.error('Erro de upload multer:', err);
+      return res.status(400).json({ success: false, error: err.message || 'Erro ao enviar imagem.' });
+    }
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: 'Nenhum arquivo enviado.' });
+    }
+
+    const cityId = (req.body.cityId || req.query.cityId || 'sem-cidade').replace(/[^a-z0-9\-]/gi, '');
+    const kind = (req.body.kind || req.query.kind || 'imagem').replace(/[^a-z0-9\-]/gi, '');
+    const ext = path.extname(req.file.originalname).toLowerCase() || '.jpg';
+    
+    // Caminho público web: /images/linhares/logo.webp
+    const webPath = `/images/${cityId}/${kind}${ext}`;
+
+    res.json({
+      success: true,
+      path: webPath
+    });
+  });
+});
+
 // 7. REAL-TIME STANDALONE HTML PREVIEW (OPEN IN NEW TAB)
 app.get('/api/preview/:id', (req, res) => {
   const { id } = req.params;
@@ -309,10 +342,13 @@ app.get('/api/preview/:id', (req, res) => {
     { title: 'Hidrojateamento de Alta Pressão', description: 'Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.', icon: '🌊' }
   ];
 
-  const faqs = city.faqs || [
-    { question: `Qual o valor cobrado para um desentupimento em ${city.cidade}?`, answer: `O orçamento é 100% gratuito e feito no local após avaliação da tubulação com o melhor preço da região.` },
+  const faqs = (city.faqs && city.faqs.length >= 3) ? city.faqs : [
     { question: `Vocês atendem emergências 24 horas em ${city.cidade}?`, answer: `Sim! Nossas equipes de plantão em ${city.cidade} operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados.` },
-    { question: `Qual o tempo estimado de chegada em ${city.cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${city.cidade}, chegamos entre 20 e 40 minutos.` }
+    { question: `Qual o tempo estimado de chegada até o meu endereço em ${city.cidade}?`, answer: `Devido às equipes posicionadas nos principais bairros de ${city.cidade}, nosso tempo médio de chegada é de 20 a 40 minutos.` },
+    { question: `A visita técnica para avaliação em ${city.cidade} é gratuita?`, answer: `Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local.` },
+    { question: `O serviço de desentupimento possui garantia por escrito?`, answer: `Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em ${city.cidade}.` },
+    { question: `Precisa quebrar piso, azulejos ou paredes para desentupir?`, answer: `Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel.` },
+    { question: `Vocês atendem empresas, condomínios e comércios em ${city.cidade}?`, answer: `Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral.` }
   ];
 
   // Elementos Extras Dinâmicos (Para o Smart Editor)
@@ -394,6 +430,7 @@ app.get('/api/preview/:id', (req, res) => {
   <meta name="description" content="${metaDescription}" />
   <meta name="keywords" content="desentupidora em ${city.cidade}, desentupimento ${city.cidade}, limpa fossa ${city.cidade}, desentupir pia ${city.cidade}" />
   <meta name="robots" content="index, follow" />
+  <link rel="icon" id="site-favicon-link" href="${city.faviconUrl || '/favicon.svg'}" type="image/x-icon" />
   <link rel="canonical" href="http://localhost:5000/api/preview/${city.id}" />
 
   <!-- Schema.org JSON-LD -->
@@ -523,12 +560,20 @@ app.get('/api/preview/:id', (req, res) => {
   <header class="header">
     <div class="container header-flex">
       <a href="#" class="logo-box">
-        ${logoUrl ? `<img src="${logoUrl}" alt="Logo" class="logo-img">` : `<span class="logo-badge">24H</span>`}
+        <div id="site-logo-container" style="display: flex; align-items: center;">
+          ${logoUrl ? `<img src="${logoUrl}" alt="Logo" class="logo-img" id="site-logo-img">` : `<span class="logo-badge" id="site-logo-badge">24H</span>`}
+        </div>
         <div class="logo-text">
           <strong data-editor-id="empresaNome">${empresaNome}</strong>
           <small data-editor-id="logoSubtitle">${logoSubtitle}</small>
         </div>
       </a>
+      <nav class="nav-menu" style="display: flex; gap: 20px; align-items: center;">
+        <a href="#servicos" style="color: #cbd5e1; text-decoration: none; font-size: 0.9rem; font-weight: 600;">Serviços</a>
+        <a href="#diferenciais" style="color: #cbd5e1; text-decoration: none; font-size: 0.9rem; font-weight: 600;">Diferenciais</a>
+        <a href="#bairros" style="color: #cbd5e1; text-decoration: none; font-size: 0.9rem; font-weight: 600;">Áreas Atendidas</a>
+        <a href="#faq" style="color: #cbd5e1; text-decoration: none; font-size: 0.9rem; font-weight: 600;">FAQ</a>
+      </nav>
       <a href="https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20em%20${city.cidade}" target="_blank" class="header-btn" data-editor-id="whatsappBtnText">
         ${whatsappBtnText}
       </a>
@@ -605,7 +650,7 @@ app.get('/api/preview/:id', (req, res) => {
       </div>
       <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 4px; text-align: center;" data-editor-id="areasText">${areasText}</p>
       <div class="bairros-chips" style="justify-content: center;">
-        ${bairros.map((b, i) => `<a href="/${slugify(b)}" class="chip" data-editor-id="bairros.${i}">📍 Bairro ${b}</a>`).join('')}
+        ${bairros.map((b, i) => `<a href="http://localhost:4321/${slugify(b)}" target="_blank" class="chip" data-editor-id="bairros.${i}" title="Abrir página completa do bairro ${b}">📍 Bairro ${b} ↗</a>`).join('')}
       </div>
 
       <div class="map-container">
@@ -620,20 +665,20 @@ app.get('/api/preview/:id', (req, res) => {
   <section class="testimonials-sec">
     <div class="container">
       <div class="sec-title">
-        <span style="color: #10b981; font-weight: 700; font-size: 0.85rem;">AVALIAÇÕES DE CLIENTES</span>
-        <h2 style="color: #0f172a;">O Que Dizem Nossos Clientes em ${city.cidade}</h2>
+        <span style="color: #10b981; font-weight: 700; font-size: 0.85rem;" data-editor-id="testimonialsSubtitle">AVALIAÇÕES DE CLIENTES</span>
+        <h2 style="color: #0f172a;" data-editor-id="testimonialsTitle">O Que Dizem Nossos Clientes em ${city.cidade}</h2>
       </div>
       <div class="testim-grid">
-        ${(city.testimonials || [
-          {name: "João Carlos", neighborhood: "Centro", text: "Excelente atendimento! Chegaram rápido e resolveram sem sujeira."},
-          {name: "Maria Silva", neighborhood: "Jardim América", text: "Preço justo e equipe muito educada. Recomendo muito!"},
-          {name: "Carlos Eduardo", neighborhood: "Vila Nova", text: "Desentupiram o esgoto da minha padaria em plena madrugada. Salvou meu dia."}
-        ]).map(t => `
+        ${(city.testimonials && city.testimonials.length > 0 ? city.testimonials : [
+          {name: "João Carlos", neighborhood: "Centro", text: "Excelente atendimento! Chegaram rápido e resolveram sem sujeira.", rating: 5},
+          {name: "Maria Silva", neighborhood: "Jardim América", text: "Preço justo e equipe muito educada. Recomendo muito!", rating: 5},
+          {name: "Carlos Eduardo", neighborhood: "Vila Nova", text: "Desentupiram o esgoto da minha padaria em plena madrugada. Salvou meu dia.", rating: 5}
+        ]).map((t, i) => `
           <div class="testim-card">
             <div class="stars">★★★★★</div>
-            <p class="testim-text">"${t.text}"</p>
-            <div style="color: #0f172a; font-weight: bold;">${t.name}</div>
-            <div style="color: #64748b; font-size: 0.8rem;">${t.neighborhood}</div>
+            <p class="testim-text" data-editor-id="testimonials.${i}.text">"${t.text}"</p>
+            <div style="color: #0f172a; font-weight: bold;" data-editor-id="testimonials.${i}.name">${t.name}</div>
+            <div style="color: #64748b; font-size: 0.8rem;" data-editor-id="testimonials.${i}.neighborhood">${t.neighborhood || 'Centro'}</div>
           </div>
         `).join('')}
       </div>
@@ -662,16 +707,28 @@ app.get('/api/preview/:id', (req, res) => {
       <div>
         <h5 data-editor-id="empresaNome">${empresaNome}</h5>
         <p data-editor-id="footerAboutText">${footerAboutText}</p>
+        <p style="margin-top: 10px; font-size: 0.82rem; color: #64748b;" data-editor-id="cnpj">📄 CNPJ: ${cnpj}</p>
+      </div>
+      <div>
+        <h5>Serviços em ${city.cidade}</h5>
+        <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.1;">
+          ${services.map(s => `<li><a href="http://localhost:4321/${slugify(s.title)}-em-${slugify(city.cidade)}" target="_blank" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s;" title="Abrir página de ${s.title}">➔ ${s.title} ↗</a></li>`).join('')}
+        </ul>
       </div>
       <div>
         <h5 data-editor-id="footerContactTitle">${footerContactTitle}</h5>
-        <p data-editor-id="whatsappBtnText">${whatsappBtnText}</p>
-        <p data-editor-id="endereco">📍 Endereço: ${endereco}</p>
-        <p data-editor-id="cnpj">📄 CNPJ: ${cnpj}</p>
+        <p data-editor-id="whatsappBtnText">📲 WhatsApp 24h: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}</p>
+        <p data-editor-id="endereco">📍 ${endereco}</p>
+        <p>🕒 Plantão Emergencial 24/7 (Segunda a Domingo)</p>
       </div>
     </div>
     <div class="container footer-bottom">
-      © ${new Date().getFullYear()} ${empresaNome}. Todos os direitos reservados.
+      <p>© ${new Date().getFullYear()} ${empresaNome} - Todos os direitos reservados. Desentupidora em ${city.cidade} - ${city.uf}.</p>
+      <div style="margin-top: 8px; font-size: 0.82rem; color: #64748b;">
+        <a href="#" style="color: #64748b; text-decoration: none; margin: 0 6px;">Política de Privacidade</a> | 
+        <a href="#" style="color: #64748b; text-decoration: none; margin: 0 6px;">Termos de Uso</a> | 
+        <a href="#" style="color: #64748b; text-decoration: none; margin: 0 6px;">Contato</a>
+      </div>
     </div>
   </footer>
 
@@ -740,11 +797,44 @@ app.get('/api/preview/:id', (req, res) => {
         });
       });
 
-      // Escutar atualizações vindo do React Pai (quando digita no form da esquerda)
+      // Escutar atualizações vindo do React Pai (quando digita no form da esquerda ou envia imagem)
       window.addEventListener('message', (event) => {
         if (event.data && event.data.type === 'UPDATE_ELEMENT') {
           const { elementId, newContent } = event.data;
-          const el = document.querySelector(\`[data-editor-id="\${elementId}"]\`);
+
+          if (elementId === 'logoUrl') {
+            const container = document.getElementById('site-logo-container');
+            if (container) {
+              container.innerHTML = newContent ? '<img src="' + newContent + '?t=' + Date.now() + '" alt="Logo" class="logo-img" id="site-logo-img">' : '<span class="logo-badge" id="site-logo-badge">24H</span>';
+            }
+            return;
+          }
+
+          if (elementId === 'faviconUrl') {
+            const fav = document.getElementById('site-favicon-link');
+            if (fav) fav.href = newContent || '/favicon.svg';
+            return;
+          }
+
+          if (elementId === 'heroImage') {
+            const heroCard = document.querySelector('.hero-card');
+            let imgBox = document.querySelector('.hero-img-box');
+            if (newContent) {
+              if (imgBox) {
+                imgBox.innerHTML = '<img src="' + newContent + '?t=' + Date.now() + '" alt="Hero Image" style="width:100%;height:100%;object-fit:cover;">';
+              } else if (heroCard) {
+                imgBox = document.createElement('div');
+                imgBox.className = 'hero-img-box';
+                imgBox.innerHTML = '<img src="' + newContent + '?t=' + Date.now() + '" alt="Hero Image" style="width:100%;height:100%;object-fit:cover;">';
+                heroCard.appendChild(imgBox);
+              }
+            } else if (imgBox) {
+              imgBox.remove();
+            }
+            return;
+          }
+
+          const el = document.querySelector('[data-editor-id="' + elementId + '"]');
           if (el && el.innerHTML !== newContent) {
             el.innerHTML = newContent;
           }

@@ -13,12 +13,12 @@ const cidadeSlug = slugify(cidade);
     </div>
 
     <div class="services-list">
-      {services.map((s: any) => (
+      {services.map((s: any, idx: number) => (
         <div class="service-box">
           <div class="box-left">
             <span class="box-tag">Atendimento 24h</span>
-            <h3>{s.title} em {cidade}</h3>
-            <p>{s.description}</p>
+            <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>
+            <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
           </div>
           <div class="box-right">
             <a href={`/${slugify(s.title)}-em-${cidadeSlug}`} class="btn btn-service-v2">

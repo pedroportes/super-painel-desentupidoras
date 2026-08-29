@@ -10,7 +10,7 @@ const { cidade, lastH2Text } = Astro.props;
     <div class="section-header text-center">
       <span class="section-badge">POR QUE NOS ESCOLHER</span>
       <!-- STRICT SEO RULE: Last H2 with Primary Keyword — DEVE ser o último H2 da página, logo antes do rodapé -->
-      <h2>{lastH2Text}</h2>
+      <h2 id="lastH2" data-edit-tab="hero">{lastH2Text}</h2>
       <p>Garantimos agilidade, transparência técnica e o melhor custo-benefício em {cidade}.</p>
     </div>
 

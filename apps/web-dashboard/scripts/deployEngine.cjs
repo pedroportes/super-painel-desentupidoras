@@ -12,6 +12,7 @@
  */
 
 const { exec } = require('child_process');
+const path = require('path');
 
 function run(cmd, opts = {}) {
   return new Promise((resolve) => {
@@ -36,6 +37,15 @@ async function deployCitySite(cityConfig, apiKeys = {}, distDir) {
   }
 }
 
+function getCleanProjectName(cityName) {
+  const clean = (cityName || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+  return `desentupidora-${clean}`;
+}
+
 async function deployToCloudflarePages(cityConfig, keys, distDir) {
   const provider = 'cloudflare';
   if (!keys || !keys.apiToken || !keys.accountId) {
@@ -48,21 +58,32 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
 
   const apiToken = (keys.apiToken || '').trim();
   const accountId = (keys.accountId || '').trim();
-  const projectName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+  const projectName = getCleanProjectName(cityConfig.cidade);
   const env = {
     ...process.env,
     CLOUDFLARE_API_TOKEN: apiToken,
     CLOUDFLARE_ACCOUNT_ID: accountId
   };
 
+  // IMPORTANTE: o wrangler procura a pasta `functions/` (Cloudflare Pages
+  // Functions, usada pra negociação de Markdown) relativa ao diretório de
+  // onde o comando é executado (cwd), NUNCA relativa ao `distDir` publicado.
+  // Sem isso, `functions/_middleware.js` nunca é encontrado/deployado —
+  // bug real confirmado em 29/08/2026 via isitagentready.com (Markdown
+  // Negotiation dava FAIL em produção mesmo com o middleware existindo no
+  // código-fonte). `distDir` é sempre `<astroRoot>/dist`, então o pai dele
+  // é a raiz do projeto Astro, onde `functions/` de fato mora.
+  const astroRootDir = path.dirname(distDir);
+
   // Cria o projeto na Cloudflare Pages se ainda não existir (automático e transparente)
   const createCmd = `npx --yes wrangler@latest pages project create ${projectName} --production-branch=main`;
-  await run(createCmd, { env });
+  await run(createCmd, { env, cwd: astroRootDir });
 
-  // Publica os arquivos compilados do Astro
+  // Publica os arquivos compilados do Astro (junto com functions/, por
+  // rodar com cwd na raiz do projeto Astro)
   const cmd = `npx --yes wrangler@latest pages deploy "${distDir}" --project-name=${projectName} --branch=main`;
 
-  const { error, stdout, stderr } = await run(cmd, { env });
+  const { error, stdout, stderr } = await run(cmd, { env, cwd: astroRootDir });
   const output = stdout + '\n' + stderr;
 
   if (error) {
@@ -88,7 +109,7 @@ async function deployToVercel(cityConfig, keys, distDir) {
     };
   }
 
-  const projectName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+  const projectName = getCleanProjectName(cityConfig.cidade);
   const teamFlag = keys.teamId ? ` --scope=${keys.teamId}` : '';
   const cmd = `npx --yes vercel@latest deploy "${distDir}" --name=${projectName} --prod --yes --token=${keys.apiToken}${teamFlag}`;
 
@@ -125,26 +146,107 @@ async function deployToNetlify(cityConfig, keys, distDir) {
     };
   }
 
-  const siteName = `desentupidora-${cityConfig.cidade.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-  // --site aceita nome ou ID; se o site ainda não existir na conta, a Netlify
-  // CLI cria automaticamente com esse nome na primeira publicação.
-  const cmd = `npx --yes netlify-cli@latest deploy --prod --dir="${distDir}" --auth=${keys.apiToken} --site=${siteName}`;
+  const token = (keys.apiToken || '').trim();
+  const siteName = getCleanProjectName(cityConfig.cidade);
 
-  const { error, stdout, stderr } = await run(cmd);
-  const output = stdout + '\n' + stderr;
+  try {
+    // 1. Obter ou criar o site na Netlify API
+    let siteId = null;
+    let siteUrl = null;
 
-  if (error) {
-    return { success: false, provider, error: `Falha no deploy Netlify: ${stderr || error.message}`, log: output };
+    const listRes = await fetch('https://api.netlify.com/api/v1/sites', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (listRes.ok) {
+      const sites = await listRes.json();
+      const existing = sites.find(s => s.name === siteName);
+      if (existing) {
+        siteId = existing.id;
+        siteUrl = existing.ssl_url || existing.url;
+      }
+    }
+
+    if (!siteId) {
+      // Criar o site automaticamente se ainda não existir
+      const createRes = await fetch('https://api.netlify.com/api/v1/sites', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: siteName, sso_login: false, password: '' })
+      });
+      if (createRes.ok) {
+        const created = await createRes.json();
+        siteId = created.id;
+        siteUrl = created.ssl_url || created.url;
+      } else {
+        const errText = await createRes.text();
+        return { success: false, provider, error: `Falha ao criar site na Netlify: ${errText}` };
+      }
+    } else {
+      // Garantir que a proteção por senha/SSO está desativada para acesso público
+      await fetch(`https://api.netlify.com/api/v1/sites/${siteId}`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ sso_login: false, password: '' })
+      });
+    }
+
+    // 2. Compactar o diretório dist para zip
+    const fs = require('fs');
+    const path = require('path');
+    const zipPath = path.join(path.dirname(distDir), `${siteName}.zip`);
+    if (fs.existsSync(zipPath)) fs.unlinkSync(zipPath);
+
+    const isWin = process.platform === 'win32';
+    const zipCmd = isWin
+      ? `powershell -NoProfile -Command "Compress-Archive -Path '${distDir}\\*' -DestinationPath '${zipPath}' -Force"`
+      : `cd "${distDir}" && zip -r "${zipPath}" .`;
+
+    await run(zipCmd);
+
+    if (!fs.existsSync(zipPath)) {
+      return { success: false, provider, error: 'Falha ao compactar arquivos para envio à Netlify.' };
+    }
+
+    const zipBuffer = fs.readFileSync(zipPath);
+
+    // 3. Enviar o ZIP diretamente para a API de Deploys da Netlify
+    const deployRes = await fetch(`https://api.netlify.com/api/v1/sites/${siteId}/deploys`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/zip'
+      },
+      body: zipBuffer
+    });
+
+    // Limpar o zip temporário
+    try { fs.unlinkSync(zipPath); } catch (_) {}
+
+    if (!deployRes.ok) {
+      const errText = await deployRes.text();
+      return { success: false, provider, error: `Falha no envio do deploy Netlify: ${errText}` };
+    }
+
+    const deployData = await deployRes.json();
+    const cleanUrl = deployData.ssl_url || deployData.url || siteUrl || `https://${siteName}.netlify.app`;
+
+    return {
+      success: true,
+      provider,
+      url: cleanUrl,
+      log: `Netlify Deploy ID: ${deployData.id}\nEstado: ${deployData.state}\nURL: ${cleanUrl}`,
+      deployedAt: new Date().toISOString()
+    };
+  } catch (err) {
+    return { success: false, provider, error: `Erro inesperado no deploy Netlify: ${err.message}` };
   }
-
-  const urlMatch = output.match(/https:\/\/[a-z0-9.-]+\.netlify\.app\S*/i);
-  return {
-    success: true,
-    provider,
-    url: urlMatch ? urlMatch[0].trim() : null,
-    log: output,
-    deployedAt: new Date().toISOString()
-  };
 }
 
 module.exports = { deployCitySite };

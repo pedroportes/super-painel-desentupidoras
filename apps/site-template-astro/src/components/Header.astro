@@ -1,5 +1,6 @@
 ---
-const { cidade, uf, ddd, whatsapp, empresaNome } = Astro.props;
+import cityData from '../data/cityConfig.json';
+const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = Astro.props;
 ---
 
 <header class="header">
@@ -15,8 +16,12 @@ const { cidade, uf, ddd, whatsapp, empresaNome } = Astro.props;
   <div class="main-header">
     <div class="container header-container">
       <div class="logo">
-        <a href="/">
-          <span class="logo-badge">24H</span>
+        <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+          {logoUrl ? (
+            <img src={logoUrl} alt={empresaNome} style="height: 46px; max-width: 140px; object-fit: contain;" />
+          ) : (
+            <span class="logo-badge">24H</span>
+          )}
           <div class="logo-text">
             <strong>{empresaNome}</strong>
             <small>Desentupimentos & Hidrojateamento em {cidade}</small>

@@ -11,13 +11,13 @@ const { testimonials, cidade } = Astro.props;
     </div>
 
     <div class="testimonials-grid">
-      {testimonials.map((t: any) => (
+      {testimonials.map((t: any, index: number) => (
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"{t.text}"</p>
+          <p id={`testimonials.${index}.text`} data-edit-tab="faqs" class="testimonial-text">"{t.text}"</p>
           <div class="testimonial-author">
-            <strong>{t.name}</strong>
-            <small>{t.neighborhood}</small>
+            <strong id={`testimonials.${index}.name`} data-edit-tab="faqs">{t.name}</strong>
+            <small id={`testimonials.${index}.neighborhood`} data-edit-tab="faqs">{t.neighborhood}</small>
           </div>
         </div>
       ))}

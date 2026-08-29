@@ -76,8 +76,10 @@ export default function App() {
 
     const handleMessage = (event: MessageEvent) => {
       if (event.data && event.data.type === 'SELECT_ELEMENT') {
-        const { elementId } = event.data;
-        if (elementId === 'h1Title' || elementId === 'firstParagraph' || elementId === 'ctaButtonText' || elementId === 'lastH2') {
+        const { elementId, tab } = event.data;
+        if (tab) {
+          setEditorSection(tab as any);
+        } else if (['h1Title', 'firstParagraph', 'ctaButtonText', 'lastH2'].includes(elementId)) {
           setEditorSection('hero');
         }
       }
@@ -656,10 +658,10 @@ export default function App() {
           )}
 
           {/* Builder Split Layout: Left Complete Form Inspector | Right Live Interactive Canvas */}
-          <div style={{ display: 'grid', gridTemplateColumns: '440px 1fr', gap: '16px', alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isSidebarCollapsed ? '1fr' : `${sidebarWidth}px 1fr`, gap: isSidebarCollapsed ? '0px' : '16px', alignItems: 'start', transition: 'all 0.3s' }}>
             
             {/* LEFT INSPECTOR & FORM CONTROLS */}
-            <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '14px', padding: '16px', maxHeight: '82vh', overflowY: 'auto' }}>
+            <div style={{ backgroundColor: '#0f172a', display: isSidebarCollapsed ? 'none' : 'block', border: '1px solid #1e293b', borderRadius: '14px', padding: '16px', maxHeight: '82vh', overflowY: 'auto' }}>
               
               {/* Section Tabs */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '10px' }}>

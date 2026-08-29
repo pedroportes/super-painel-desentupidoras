@@ -22,8 +22,8 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Sinais de Conteúdo e Arquivo llms.txt para IAs
-Content-signal: search, train, agent
+# Sinais de Conteúdo (contentsignals.org) e Arquivo llms.txt para IAs
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
 Sitemap: ${baseUrl}/sitemap-index.xml
 llms-txt: ${baseUrl}/llms.txt
 `;
