@@ -518,7 +518,8 @@
     "ctaButtonText": "Chamar Desentupidora em Itabuna no WhatsApp",
     "lastH2": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?",
     "deployUrl": "https://desentupidora-itabuna.pages.dev",
-    "lastDeployAt": "2026-08-29T18:59:59.087Z"
+    "lastDeployAt": "2026-08-29T18:59:59.087Z",
+    "logoUrl": "/images/itabuna/logo.png"
   },
   {
     "id": "portoseguro",

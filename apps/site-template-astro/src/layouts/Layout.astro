@@ -132,7 +132,7 @@ const schemaFAQ = {
         }
 
         function initEditorBridge() {
-          const editableSelector = '#h1Title, #firstParagraph, #lastH2, #ctaButtonText, [id^="services."], [id^="faqs."], [id^="testimonials."], [data-editor-id]';
+          const editableSelector = 'h1, h2, h3, h4, h5, h6, p, span.section-badge, span.box-tag, span.badge-pill, .feature-tag, .bairro-chip span, .bairro-chip strong, .stat-card strong, .stat-card span, [data-editor-id], [data-edit-tab], #h1Title, #firstParagraph, #lastH2, #ctaButtonText, [id^="services."], [id^="faqs."], [id^="testimonials."], [id^="bairros."]';
           const editableElements = document.querySelectorAll(editableSelector);
 
           editableElements.forEach((el) => {
@@ -144,7 +144,8 @@ const schemaFAQ = {
               const tab = el.getAttribute('data-edit-tab') || 
                 (['h1Title', 'firstParagraph', 'lastH2', 'ctaButtonText'].includes(id) ? 'hero' :
                  id.startsWith('services.') ? 'services' :
-                 id.startsWith('faqs.') || id.startsWith('testimonials.') ? 'faqs' : 'hero');
+                 id.startsWith('faqs.') || id.startsWith('testimonials.') ? 'faqs' :
+                 id.startsWith('bairros.') ? 'bairros' : 'hero');
 
               window.parent.postMessage({ type: 'SELECT_ELEMENT', elementId: id, tab: tab }, '*');
             });
@@ -170,9 +171,21 @@ const schemaFAQ = {
               const tab = editEl.getAttribute('data-edit-tab') || 
                 (['h1Title', 'firstParagraph', 'lastH2', 'ctaButtonText'].includes(id) ? 'hero' :
                  id.startsWith('services.') ? 'services' :
-                 id.startsWith('faqs.') || id.startsWith('testimonials.') ? 'faqs' : 'hero');
+                 id.startsWith('faqs.') || id.startsWith('testimonials.') ? 'faqs' :
+                 id.startsWith('bairros.') ? 'bairros' : 'hero');
 
               window.parent.postMessage({ type: 'SELECT_ELEMENT', elementId: id, tab: tab }, '*');
+            }
+          });
+
+          // Receive real-time updates from parent sidebar without reloading page
+          window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'UPDATE_ELEMENT') {
+              const { elementId, newContent } = event.data;
+              const el = document.getElementById(elementId) || document.querySelector(`[data-editor-id="${elementId}"]`);
+              if (el && el !== document.activeElement && el.innerText !== newContent) {
+                el.innerText = newContent;
+              }
             }
           });
 

@@ -165,24 +165,8 @@ export default function App() {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  // Sincroniza o cityConfig.json (que o Astro real lê) sempre que editingCity
-  // muda, com debounce de 600ms — assim o preview no iframe (Astro dev
-  // server real, localhost:4321) atualiza sozinho via HMR do Vite, sem
-  // precisar clicar em "Salvar Alterações" a cada letra digitada.
-  // Substitui o antigo envio de postMessage 'UPDATE_ELEMENT', que só
-  // funcionava com o preview falso (removido) e nunca teve efeito no Astro
-  // real.
-  useEffect(() => {
-    if (!editingCity) return;
-    const timeoutId = setTimeout(() => {
-      fetch('/api/preview-sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editingCity)
-      }).catch(() => { /* preview ao vivo é best-effort; não interrompe a edição */ });
-    }, 600);
-    return () => clearTimeout(timeoutId);
-  }, [editingCity]);
+  // Sincronização ao vivo: quando digita inline, o preview já é atualizado diretamente no DOM.
+  // Gravação no disco é feita quando clica em 'Salvar Alterações', evitando recarregar o iframe e perder o cursor enquanto digita.
 
   const fetchCities = async () => {
     try {
