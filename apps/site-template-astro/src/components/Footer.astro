@@ -10,9 +10,9 @@ const cidadeSlug = slugify(cidade);
 <footer class="footer">
   <div class="container footer-container">
     <div class="footer-col">
-      <h3>{empresaNome}</h3>
+      <h3 id="empresaNome" data-editor-id="empresaNome">{empresaNome}</h3>
       <p>Atendimento especializado em desentupimentos de esgotos, pias, vasos sanitários, ralos e limpeza de fossas com atendimento 24h em {cidade} - {uf}.</p>
-      <p><small>CNPJ: {cnpj}</small></p>
+      <p><small>CNPJ: <span id="cnpj" data-editor-id="cnpj">{cnpj}</span></small></p>
     </div>
 
     <div class="footer-col">
@@ -28,7 +28,7 @@ const cidadeSlug = slugify(cidade);
 
     <div class="footer-col">
       <h4>Atendimento 24 Horas</h4>
-      <p>📍 {endereco}</p>
+      <p>📍 <span id="endereco" data-editor-id="endereco">{endereco}</span></p>
       <p>📲 WhatsApp: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</p>
       <p>🕒 Plantão 24/7 (Segunda a Domingo)</p>
     </div>
