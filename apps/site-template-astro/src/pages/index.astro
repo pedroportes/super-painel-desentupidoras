@@ -29,11 +29,12 @@ const ServicesComponent = cityData.variants.services === 'ServicesGridV2' ? Serv
   <Header {...cityData} />
   <HeroComponent {...cityData} />
   <ServicesComponent {...cityData} />
-  <Benefits {...cityData} />
   <WarningSigns {...cityData} />
   <LocalAreas {...cityData} />
   <Testimonials {...cityData} />
   <FAQ {...cityData} />
+  <!-- STRICT SEO RULE: este precisa ser o ÚLTIMO H2 da página, logo antes do rodapé -->
+  <Benefits {...cityData} lastH2Text={cityData.seo.lastH2Title} />
   <Footer {...cityData} />
   <FloatingWhatsapp {...cityData} />
 </Layout>

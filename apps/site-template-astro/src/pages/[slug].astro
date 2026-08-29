@@ -132,16 +132,12 @@ if (props.type === 'service') {
     </div>
   </section>
 
-  <!-- Last H2 and Benefits Section -->
-  <div class="internal-benefits">
-    <div class="container text-center" style="margin-bottom: -40px; padding-top: 40px;">
-      <h2 style="font-size: 2rem; color: #0f172a;">{pageSeo.lastH2}</h2>
-    </div>
-    <Benefits {...cityData} />
-  </div>
-
   <!-- Shared FAQ Section injected with custom pageFaqs -->
   <FAQ {...cityData} faqs={pageFaqs} cidade={props.type === 'neighborhood' ? `${props.name} - ${cityData.cidade}` : cityData.cidade} />
+
+  <!-- STRICT SEO RULE: este precisa ser o ÚLTIMO H2 da página, logo antes do rodapé.
+       Usa pageSeo.lastH2 (específico desta página de serviço/bairro), nunca o da home. -->
+  <Benefits {...cityData} lastH2Text={pageSeo.lastH2} />
 
   <Footer {...cityData} />
   <FloatingWhatsapp {...cityData} />

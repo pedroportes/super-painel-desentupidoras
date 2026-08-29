@@ -21,6 +21,8 @@ export interface CityConfig {
   id: string;
   cidade: string;
   uf: string;
+  deployUrl?: string;
+  lastDeployAt?: string;
   populacao: string;
   modeloTemplate: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato';
   status: 'ativo' | 'em_construcao' | 'pendente';

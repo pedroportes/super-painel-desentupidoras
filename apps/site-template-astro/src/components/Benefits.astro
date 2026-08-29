@@ -1,13 +1,16 @@
 ---
-const { cidade, seo } = Astro.props;
+// lastH2Text é passado explicitamente por quem usa este componente — nunca
+// lido implicitamente de 'seo', para nunca correr o risco de mostrar o H2
+// da home numa página de serviço/bairro (bug corrigido em 28/08/2026).
+const { cidade, lastH2Text } = Astro.props;
 ---
 
 <section id="diferenciais" class="benefits-section">
   <div class="container">
     <div class="section-header text-center">
       <span class="section-badge">POR QUE NOS ESCOLHER</span>
-      <!-- STRICT SEO RULE: Last H2 with Primary Keyword -->
-      <h2>{seo.lastH2Title}</h2>
+      <!-- STRICT SEO RULE: Last H2 with Primary Keyword — DEVE ser o último H2 da página, logo antes do rodapé -->
+      <h2>{lastH2Text}</h2>
       <p>Garantimos agilidade, transparência técnica e o melhor custo-benefício em {cidade}.</p>
     </div>
 

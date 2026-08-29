@@ -48,11 +48,15 @@ import cityData from '../data/cityConfig.json';
     "addressRegion": uf,
     "addressCountry": "BR"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": geoCoordinates.latitude,
-    "longitude": geoCoordinates.longitude
-  },
+  // STRICT RULE: nunca inventar/deixar coordenadas vazias no schema — um
+  // valor "" é JSON-LD inválido. Só inclui 'geo' quando há valores reais.
+  ...(geoCoordinates && geoCoordinates.latitude && geoCoordinates.longitude ? {
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": parseFloat(geoCoordinates.latitude),
+      "longitude": parseFloat(geoCoordinates.longitude)
+    }
+  } : {}),
   "areaServed": bairros.map(b => `${b}, ${cidade} - ${uf}`),
   "priceRange": "$$",
   "openingHours": "Mo-Su 00:00-23:59"
@@ -99,10 +103,7 @@ const schemaFAQ = {
     <meta name="twitter:title" content={finalMetaTitle} />
     <meta name="twitter:description" content={finalMetaDescription} />
     
-    <!-- Agent Discovery & IsItAgentReady.com Compliance Links -->
-    <link rel="api-catalog" href="/.well-known/api-catalog" />
-    <link rel="service-doc" href="/.well-known/service-doc" />
-    <link rel="ai-plugin" href="/.well-known/ai-plugin.json" />
+    <!-- Agent Discovery (AEO): sitemap real via Link header (public/_headers) + Markdown negotiation -->
     <link rel="alternate" type="text/markdown" href="/site-markdown" title="Versão em Markdown para Agentes de IA" />
 
     <!-- Google Fonts -->
