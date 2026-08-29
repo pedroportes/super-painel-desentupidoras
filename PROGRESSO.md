@@ -1,5 +1,11 @@
 # 📊 PROGRESSO DO PROJETO: Super Painel & Gerador de Rede Modular de Desentupidoras
 
+> ⚠️ **Leia `CLAUDE_CODE_GUIDE.md` primeiro.** As fases marcadas como
+> "CONCLUÍDA" abaixo tiveram bugs reais encontrados e corrigidos depois
+> (ver seção "Histórico de Correções" e "Pendências conhecidas" no guia) —
+> "concluída" aqui significa que a funcionalidade existe, não que está livre
+> de bugs ou 100% completa. O guia é a fonte de verdade mais atual.
+
 ## 📌 Status Geral das Fases
 
 - [x] **Fase 1: Estrutura Base do Template Astro + Cidade de Teste + Variações de Tema/Layout** (CONCLUÍDA)
