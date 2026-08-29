@@ -6,7 +6,8 @@
   "scripts": {
     "dev:frontend": "vite",
     "dev:backend": "node server.cjs",
-    "dev": "concurrently \"node server.cjs\" \"vite\"",
+    "dev:astro-preview": "npm run dev --prefix ../site-template-astro -- --port 4321",
+    "dev": "concurrently \"node server.cjs\" \"vite\" \"npm run dev:astro-preview\"",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

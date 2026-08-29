@@ -130,15 +130,23 @@ export default function App() {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  // Send updates to iframe when editingCity changes
+  // Sincroniza o cityConfig.json (que o Astro real lê) sempre que editingCity
+  // muda, com debounce de 600ms — assim o preview no iframe (Astro dev
+  // server real, localhost:4321) atualiza sozinho via HMR do Vite, sem
+  // precisar clicar em "Salvar Alterações" a cada letra digitada.
+  // Substitui o antigo envio de postMessage 'UPDATE_ELEMENT', que só
+  // funcionava com o preview falso (removido) e nunca teve efeito no Astro
+  // real.
   useEffect(() => {
-    if (editingCity && iframeRef.current && iframeRef.current.contentWindow) {
-      const win = iframeRef.current.contentWindow;
-      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'h1Title', newContent: editingCity.h1Title || '' }, '*');
-      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'firstParagraph', newContent: editingCity.firstParagraph || '' }, '*');
-      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'ctaButtonText', newContent: editingCity.ctaButtonText || '' }, '*');
-      win.postMessage({ type: 'UPDATE_ELEMENT', elementId: 'lastH2', newContent: editingCity.lastH2 || '' }, '*');
-    }
+    if (!editingCity) return;
+    const timeoutId = setTimeout(() => {
+      fetch('/api/preview-sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editingCity)
+      }).catch(() => { /* preview ao vivo é best-effort; não interrompe a edição */ });
+    }, 600);
+    return () => clearTimeout(timeoutId);
   }, [editingCity]);
 
   const fetchCities = async () => {
@@ -201,6 +209,7 @@ export default function App() {
 
   const handleSelectCityForEditor = (cityId: string) => {
     setSelectedCityId(cityId);
+    setPreviewPath('/'); // evita mostrar um bairro/serviço que não existe na cidade nova
     const found = cities.find(c => c.id === cityId);
     if (found) {
       setEditingCity(JSON.parse(JSON.stringify(found)));
@@ -283,6 +292,7 @@ export default function App() {
       // dados da cidade anterior ao trocar de seleção).
       setSelectedCityId(data.city.id);
       setEditingCity(JSON.parse(JSON.stringify(data.city)));
+      setPreviewPath('/');
       setActiveTab('editor');
 
       // Sincroniza a lista 'cities' em segundo plano (não bloqueia a seleção acima)
@@ -1057,8 +1067,8 @@ export default function App() {
                 >
                   <iframe 
                     ref={iframeRef}
-                    src={previewPath === '/' ? `/api/preview/${editingCity.id}?editor=true` : `http://localhost:4321${previewPath}`}
-                    title="Live Preview"
+                    src={`http://localhost:4321${previewPath}`}
+                    title="Live Preview (Astro real)"
                     style={{ width: '100%', height: '100%', border: 'none', flex: 1, minHeight: '700px' }}
                   />
                 </div>

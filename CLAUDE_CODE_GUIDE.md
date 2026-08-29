@@ -55,13 +55,31 @@ uma por cidade, com o máximo de SEO, GEO (geolocalização local) e AEO
   pra saber cidade + hospedagem) — o sitemap e o `robots.txt` usam essa
   mesma URL, nunca `localhost`.
 
-### ⚠️ Preview do editor: ainda tem 2 caminhos diferentes (não totalmente resolvido)
-- A aba padrão do editor no painel mostra um preview via `/api/preview/:id`
-  (HTML gerado à mão dentro do `server.cjs`, **não é o Astro real**).
-- Outras rotas do preview apontam pra `http://localhost:4321` (servidor de
-  desenvolvimento do Astro de verdade, precisa estar rodando à parte).
-- **Isso significa que o que você vê editando pode não ser 100% igual ao
-  que é publicado de verdade.** Ainda não foi unificado. Ver "Pendências".
+### ✅ Preview do editor: unificado com o Astro real (corrigido em 29/08/2026)
+- O iframe do editor **sempre** aponta pro Astro dev server real
+  (`http://localhost:4321<path>`), pra home e pras páginas internas. O
+  gerador de HTML falso (`/api/preview/:id` em `server.cjs`) não é mais
+  usado pelo iframe — ficou só como rota morta (pode ser removida no
+  futuro).
+- Sincronização ao vivo: toda mudança em `editingCity` dispara (com
+  debounce de 600ms) uma chamada a `POST /api/preview-sync`, que escreve
+  só no `cityConfig.json` (sem tocar em `cities.json`/sem exigir clicar em
+  "Salvar Alterações"). O Astro dev server detecta a mudança sozinho via
+  HMR do Vite — **testado manualmente de ponta a ponta, funciona sem
+  reiniciar nada**.
+- `previewPath` (qual página mostrar: home, bairro X, serviço Y) agora
+  **reseta pra `/` sempre que troca de cidade** — antes podia ficar preso
+  numa URL de bairro que não existe na cidade nova.
+- O script `npm run dev` do painel agora sobe o Astro dev server junto
+  (`concurrently`) — não precisa mais rodar isso manualmente à parte.
+- **O que ainda falta** (é o próximo passo, editor estilo Elementor): hoje
+  a edição continua sendo só form → preview (você digita no formulário, o
+  preview atualiza sozinho). Ainda não dá pra clicar num elemento dentro do
+  preview e editar diretamente ali. Construir isso exige injetar um script
+  de overlay/contentEditable no Astro quando ele é servido em modo editor
+  (ex: via query param `?editor=true`), e reconectar esse overlay ao
+  `postMessage` que já existe em `handleMessage` (que hoje está sem uso —
+  foi escrito originalmente pro preview falso antigo).
 
 ---
 
@@ -148,6 +166,17 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(próximo commit)`** (29/08/2026) — Unificado o preview do editor com o
+  Astro real. Antes: iframe usava um gerador de HTML falso pra home e o
+  Astro real só pras páginas internas — dois motores diferentes, podiam
+  divergir. Agora: sempre Astro real, com sincronização ao vivo via novo
+  endpoint `/api/preview-sync` (debounce 600ms, testado ponta a ponta sem
+  precisar reiniciar nada). Também corrigido: `previewPath` não resetava
+  ao trocar de cidade. `npm run dev` do painel agora sobe o Astro dev
+  server junto automaticamente.
+- **`efeb486`** (28/08/2026) — Reescrito este guia como documento de
+  continuidade. Removida afirmação falsa (SQLite). Removido
+  `public/llms.txt` genérico morto com texto de manipulação de IA.
 - **`5d5fa0b`** (28/08/2026) — Corrigido o bug do "último H2" não ser
   realmente o último (estava na 3ª posição de 7 seções, e duplicado/errado
   nas páginas internas). Sitemap real, `robots.txt` dinâmico, `_headers`,
@@ -170,20 +199,22 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
 1. **Editor estilo Elementor** (clicar no elemento pra editar, containers) —
-   pedido explícito do usuário, ainda não iniciado. Vai exigir unificar o
-   preview do editor com o Astro real primeiro (ver item 2), porque não faz
-   sentido construir clique-para-editar em cima de um preview falso.
-2. **Unificar o preview do editor com o Astro real** — hoje são 2 (às vezes
-   3) motores de renderização diferentes coexistindo. O ideal é o editor
-   sempre mostrar o resultado do Astro de verdade (rodando build/dev),
-   nunca um HTML paralelo escrito à mão.
-3. **Negociação de Markdown para Vercel e Netlify** — hoje só funciona em
+   pedido explícito do usuário. Agora que o preview é o Astro real e já
+   sincroniza ao vivo, esta é a próxima frente. Precisa: (a) um jeito de
+   injetar overlay/contentEditable nas páginas Astro quando servidas em
+   modo editor, (b) reconectar isso ao listener `handleMessage`/
+   `SELECT_ELEMENT` que já existe em `App.tsx` mas está sem uso desde que o
+   preview falso foi removido.
+2. **Negociação de Markdown para Vercel e Netlify** — hoje só funciona em
    Cloudflare Pages.
-4. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
+3. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
    (ex: "Desentupidora de Desentupimento de Pia") — a palavra-chave está lá,
    mas o fraseado é estranho.
-5. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
+4. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
    um risco real (propaganda enganosa) que vale revisitar no futuro.
+5. A rota antiga `/api/preview/:id` (gerador de HTML falso) ficou morta no
+   `server.cjs` — pode ser removida com segurança quando alguém for limpar
+   código morto.
 
 ---
 

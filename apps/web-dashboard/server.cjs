@@ -171,6 +171,20 @@ app.post('/api/upload-image', (req, res) => {
   });
 });
 
+// Sincronização leve para o PREVIEW AO VIVO: escreve só no cityConfig.json
+// que o Astro lê (sem tocar em cities.json / sem exigir clique em "Salvar
+// Alterações"). O Astro dev server detecta a mudança no arquivo sozinho
+// (Vite HMR) e a próxima requisição do iframe já reflete o texto atualizado
+// — testado manualmente, funciona sem reiniciar nada.
+app.post('/api/preview-sync', (req, res) => {
+  try {
+    syncCityToAstro(req.body);
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
 app.get('/api/cities', (req, res) => {
   console.log('--- GET /api/cities HITTING ---');
   try {
