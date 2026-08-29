@@ -110,6 +110,7 @@ function syncCityToAstro(city) {
       hospedagem: city.hospedagem || 'cloudflare',
       paletaCores: city.paletaCores || 'urgencia-azul-laranja',
       logoUrl: city.logoUrl || '',
+      logoHeight: city.logoHeight || 64,
       faviconUrl: city.faviconUrl || '',
       heroImage: city.heroImage || '',
       variants: {

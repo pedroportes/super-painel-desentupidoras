@@ -1,6 +1,6 @@
 ---
 import { slugify } from '../utils/slugify';
-const { cidade, uf, bairros, whatsapp } = Astro.props;
+const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
 ---
 
 <section id="bairros" class="local-areas-section">
@@ -27,20 +27,27 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
       </a>
     </div>
 
-    <!-- Map Section -->
+    <!-- Map Section (+ foto local, quando cadastrada) -->
     <div class="map-container">
       <h3 class="text-center" style="margin-bottom: 20px; color: #0f172a; font-size: 1.5rem;">Nossa Sede e Área de Cobertura</h3>
-      <div class="iframe-wrapper">
-        <iframe 
-          width="100%" 
-          height="400" 
-          frameborder="0" 
-          scrolling="no" 
-          marginheight="0" 
-          marginwidth="0" 
-          src={`https://maps.google.com/maps?q=${cidade},${uf}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
-          style="border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
-        ></iframe>
+      <div class:list={['map-photo-grid', { 'has-photo': !!heroImage }]}>
+        {heroImage && (
+          <div class="local-photo-wrapper">
+            <img src={heroImage} alt={`${cidade} - ${uf}`} class="local-photo" />
+          </div>
+        )}
+        <div class="iframe-wrapper">
+          <iframe
+            width="100%"
+            height="400"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src={`https://maps.google.com/maps?q=${cidade},${uf}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+            style="border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+          ></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -115,5 +122,35 @@ const { cidade, uf, bairros, whatsapp } = Astro.props;
   .iframe-wrapper {
     overflow: hidden;
     border-radius: 12px;
+  }
+  .map-photo-grid {
+    display: block;
+  }
+  .map-photo-grid.has-photo {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .local-photo-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    aspect-ratio: 4 / 3;
+  }
+  .local-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .map-photo-grid.has-photo {
+      grid-template-columns: 1fr;
+    }
+    .local-photo-wrapper {
+      aspect-ratio: 16 / 9;
+    }
   }
 </style>

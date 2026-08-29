@@ -26,8 +26,8 @@ outro.
 
 | Ativo | Onde é usado no código | Como é renderizado | Proporção ideal | Tamanho de exportação | Formato | Fundo |
 |---|---|---|---|---|---|---|
-| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:64px; max-width:200px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`). **O nome da empresa já é renderizado como texto HTML separado ao lado** — a logo é só o ícone. | Pequeno, no topo, sempre sobre fundo **escuro** | **1:1 (quadrado)** — não 3:1, ver correção abaixo | **512×512px** master | **WebP** (ver nota de conversão abaixo) | **Sem texto/wordmark**, símbolo isolado, fundo sólido na cor exata `--color-bg-dark` da paleta (ver nota de transparência abaixo) |
-| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | **WebP** (ver nota de conversão abaixo) | Mesmo símbolo da logo, ainda mais simplificado, **sem texto** (texto nessa escala vira mancha ilegível), fundo sólido na cor `--color-bg-dark` da paleta |
+| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:64px; max-width:200px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`). **O nome da empresa já é renderizado como texto HTML separado ao lado** — a logo é só o ícone. | Pequeno, no topo, sempre sobre fundo **escuro** | **1:1 (quadrado)** — não 3:1, ver correção abaixo | **512×512px** master | **WebP com alpha real** (gerar com fundo sólido no Canva, depois remover via chroma-key — ver nota abaixo; nunca entregar com fundo sólido) | **Sem texto/wordmark**, símbolo isolado, **fundo transparente de verdade** |
+| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | **WebP com alpha real** (mesmo processo do Logo) | Mesmo símbolo da logo, ainda mais simplificado, **sem texto** (texto nessa escala vira mancha ilegível), **fundo transparente de verdade** |
 | **Hero (páginas de serviço)** | `[slug].astro`: `.service-hero-img-box { max-height:300px }`, `object-fit:cover`, coluna de `grid-template-columns: 1.3fr 0.7fr` (~460px de largura útil no desktop, full-width no mobile) | Foto ao lado do texto, cortada pelas bordas conforme o viewport | 8:5 ou 16:9 (paisagem) | **1600×1000px** | **WebP** | Foto realista — sujeito centralizado, com margem de segurança pra corte (crop-safe) |
 | **OG / Social Share** (bônus — **ainda não existe no código**, ver nota abaixo) | Nenhum. `Layout.astro` hoje tem `og:title`/`og:description` mas **nenhum `og:image`** — gap real encontrado nesta auditoria | Preview de link no WhatsApp/Twitter/LinkedIn | 1200×630 (padrão OG) | **1200×630px** | JPG (WhatsApp/Twitter nem sempre respeitam webp em preview — manter JPG aqui) | Composição com paleta da cidade + logo + headline |
 
@@ -55,7 +55,15 @@ sobrar no repositório (é exatamente o tipo de arquivo morto que já causou
 o problema de peso em Linhares). Só o `.webp` final fica salvo em
 `public/images/<citySlug>/`.
 
-### ⚠️ Nota de transparência: limitação real do Canva encontrada nesta sessão
+### 🔴 REGRA (do usuário, inegociável): toda logo tem que ter fundo transparente de verdade
+
+**Nunca entregar uma logo com fundo sólido como resultado final.** O fundo
+sólido é só um passo intermediário do processo — ver o passo 2 abaixo, que
+sempre remove esse fundo antes do arquivo final ir pro site. Se por
+qualquer motivo o passo 2 não puder ser rodado, **avisar explicitamente**
+que a logo ficou com fundo sólido em vez de parar silenciosamente nisso.
+
+### ⚠️ Limitação real do Canva encontrada nesta sessão (e como contornar de verdade)
 
 **O Canva não permite exportar a logo com fundo realmente transparente**
 quando o design foi gerado com `design_type: "logo"` — o fundo vem como
@@ -65,15 +73,43 @@ de removê-la (testado e confirmado: `delete_element` no locator da página
 falha com `not_permitted`, e a flag `transparent_background: true` do
 `export-design` não afeta esse tipo de fundo).
 
-**Solução que funciona na prática**: em vez de pedir fundo transparente no
-prompt, pedir explicitamente um **fundo sólido, chapado, na cor hexadecimal
-exata `--color-bg-dark` da paleta da cidade** (ver tabela de paletas
-abaixo), com instrução clara de "zero gradiente, zero vinheta, zero
-textura, cobrindo a borda inteira do canvas". Testado e medido: o resultado
-saiu em **RGB (21,21,23) contra o alvo #18181b = (24,24,27)** — diferença
-de 1 a 4 unidades por canal, imperceptível a olho nu quando embutido no
-header de verdade. Efeito visual final idêntico a "transparente" sem
-depender de um recurso que o Canva não expõe.
+**Solução de 2 passos que funciona de verdade (transparência real, não
+"parecido"), testada e confirmada em produção (Itabuna, 29/08/2026):**
+
+**Passo 1 — gerar com fundo sólido de propósito.** Pedir no prompt um
+**fundo sólido, chapado, na cor hexadecimal exata `--color-bg-dark` da
+paleta da cidade** (ver tabela de paletas abaixo), com instrução clara de
+"zero gradiente, zero vinheta, zero textura, cobrindo a borda inteira do
+canvas". Isso não é o resultado final — é matéria-prima pro passo 2. Uma
+cor sólida e uniforme é exatamente o que um chroma-key precisa pra
+funcionar limpo, sem sobrar halo nas bordas do ícone.
+
+**Passo 2 — remover essa cor via chroma-key, virando transparência real.**
+Usar o script `apps/web-dashboard/scripts/removeLogoBackground.cjs`
+(usa a lib `sharp`, já uma dependência real do `web-dashboard`): ele lê os
+pixels crus da imagem, e qualquer pixel dentro de uma tolerância de
+distância RGB da cor de fundo vira alpha=0 (transparente de verdade).
+
+```bash
+cd apps/web-dashboard
+node scripts/removeLogoBackground.cjs <entrada> <saida.png> "#18181b" 40
+# depois, se precisar do .webp final:
+npx --yes sharp-cli -i <saida.png> -o logo.webp -f webp -q 90 --alpha-quality 100
+```
+
+Verificado pixel a pixel no resultado real: canto do fundo `RGBA(15,15,15,
+**0**)` (transparente), centro do ícone `RGBA(249,167,8, **255**)` (opaco)
+— e visualmente **sem halo/franja** ao redor do ícone. O arquivo `.webp`
+final tem que reportar "with alpha" quando inspecionado (`file logo.webp`).
+
+**Ajustando a tolerância**: o padrão (40) funcionou bem pro caso testado
+(ícone âmbar sobre fundo quase-preto — bastante contraste de cor). Se o
+ícone tiver alguma cor **muito parecida** com a cor de fundo (ex: um tom
+marrom escuro sobre `#18181b`), uma tolerância de 40 pode "furar" parte do
+próprio ícone sem querer — nesse caso, baixar a tolerância (ex: 20-25) e
+conferir visualmente o resultado antes de aprovar. Tolerância alta demais
+= corre risco de comer o ícone; tolerância baixa demais = sobra fundo
+visível nas bordas anti-aliased.
 
 **Nota sobre o OG image**: gerar esse 4º ativo já deixa o material pronto,
 mas **usá-lo de fato exige uma mudança de código** (`Layout.astro` precisa
@@ -214,8 +250,14 @@ NEGATIVE PROMPT: no photorealistic elements, no drop shadows, no busy
 gradients, no watermark, no tagline text, no company name, no letters of
 any kind, no distorted/malformed truck proportions.
 
-OUTPUT: generate as PNG at 512x512px, then convert to WebP (`npx --yes
-sharp-cli -i logo.png -o logo.webp -f webp -q 90`) and delete the PNG.
+OUTPUT: generate as PNG at 512x512px. This is intermediate material, not
+the final asset — the flat solid background gets chroma-keyed into real
+transparency next (mandatory step, see "REGRA" note above): run
+`node apps/web-dashboard/scripts/removeLogoBackground.cjs logo.png
+logo-transparent.png "{{colorBgDark}}" 40`, then convert the transparent
+PNG to WebP (`npx --yes sharp-cli -i logo-transparent.png -o logo.webp -f
+webp -q 90 --alpha-quality 100`) and delete both PNGs. Confirm the final
+`.webp` reports "with alpha" (`file logo.webp`) before considering it done.
 ```
 
 ### 2. FAVICON (mesma peça do símbolo da logo, simplificada)
@@ -233,44 +275,58 @@ detail becomes unreadable noise at that size, it is acceptable to drop it
 here and keep only the truck+tank silhouette.
 
 STYLE: same color ({{colorAccent}}), flat solid square background filled
-with the exact hex {{colorBgDark}} — same transparency limitation and
-workaround as the logo above applies here. Absolutely no text.
+with the exact hex {{colorBgDark}} — same Canva limitation as the logo
+above applies here; this is intermediate material, not the final asset.
+Absolutely no text.
 
-OUTPUT: generate as PNG at 512x512px, then convert to WebP (`npx --yes
-sharp-cli -i favicon.png -o favicon.webp -f webp -q 90`) and delete the
-PNG. Small safe margin (~10%) around the symbol.
+OUTPUT: generate as PNG at 512x512px, then run the same chroma-key step as
+the logo (`node apps/web-dashboard/scripts/removeLogoBackground.cjs
+favicon.png favicon-transparent.png "{{colorBgDark}}" 40`), convert to
+WebP with alpha (`npx --yes sharp-cli -i favicon-transparent.png -o
+favicon.webp -f webp -q 90 --alpha-quality 100`) and delete both PNGs.
+Small safe margin (~10%) around the symbol.
 ```
 
-### 3. HERO (foto realista — páginas de serviço)
+### 3. HERO (foto realista — páginas de serviço e seção Áreas Atendidas)
+
+**⚠️ Correção pedida pelo usuário (29/08/2026)**: ao contrário da logo/
+favicon (que NUNCA podem ter texto), a foto HERO **deve** mostrar um
+**caminhão limpa-fossa (auto-vácuo) de verdade, de preferência com a
+palavra "DESENTUPIDORA" pintada na lateral** — é uma foto de "prova social
+realista", não um ícone de marca, então texto pintado no próprio veículo é
+autêntico (é assim que caminhões de verdade são, no mundo real) e reforça
+a credibilidade em vez de atrapalhar. Isso é o oposto da regra do logo —
+não confundir as duas.
+
+**⚠️ Risco técnico conhecido**: geradores de imagem por IA frequentemente
+erram a ortografia de texto pintado em objetos da cena. **Sempre conferir
+visualmente se "DESENTUPIDORA" saiu escrito corretamente** antes de
+aprovar — se saiu com letras trocadas/ilegíveis, gerar de novo ou pedir
+fonte mais simples/blocada no prompt.
 
 ```
-A photorealistic, editorial-style photograph of a professional drain-
-cleaning / plumbing technician at work inside a residential Brazilian
-home, in {{cidade}}, {{uf}}.
+A photorealistic, editorial-style photograph of a real septic/vacuum tank
+truck (caminhão limpa-fossa) used for drain-cleaning and sewage suction
+service, parked or in motion on a residential Brazilian street in
+{{cidade}}, {{uf}}.
 
-SCENE: technician wearing dark/navy branded workwear with a small
-{{colorAccent}}-colored accent (no readable logo or text on the uniform),
-using professional rotary drain-cleaning equipment on a kitchen sink or
-bathroom drain. Clean, well-lit, modern middle-class Brazilian home
-interior. Warm, reassuring lighting — this image should sell competence
-and trust, not an emergency/disaster mood.
+SCENE: the truck has the word "DESENTUPIDORA" painted in bold, simple,
+blocky lettering on its side panel or tank — large, legible, correctly
+spelled, in a high-contrast color against the truck's body paint. The
+truck body itself can be white, orange, or {{colorAccent}}. Realistic
+Brazilian residential street setting, natural daylight. A technician may
+be visible near the truck (optional, candid pose, not looking at camera).
 
-COMPOSITION: subject positioned in the center-left third of the frame
-(rule of thirds), with enough headroom and surrounding context that the
-image survives being cropped tighter from both left/right and top/bottom
-(crop-safe for a responsive layout).
+STYLE: photorealistic, natural light, shot on a modern camera, shallow
+depth of field. NOT a cartoon or illustration. NOT an obviously staged
+stock photo.
 
-STYLE: photorealistic, natural light, shot on a modern mirrorless camera,
-shallow depth of field. NOT a cartoon or illustration. NOT AI-plastic-
-looking skin. NOT an obviously staged stock photo (no forced smiling
-directly at camera).
+NEGATIVE PROMPT: no misspelled or garbled text, no gibberish lettering, no
+other company names or logos, no watermark, no distorted vehicle
+proportions, no exaggerated mess/gore.
 
-NEGATIVE PROMPT: no visible faces smiling directly at the camera (keep it
-candid, mid-task), no text overlays, no logos on the uniform, no
-exaggerated mess/gore, no distorted or extra fingers, no malformed hands
-holding tools, no watermark, no visible brand names on equipment.
-
-OUTPUT: generate at 1600x1000px (8:5 landscape) and save/convert as WebP
+OUTPUT: generate at 1600x1000px (8:5 landscape), **inspect the painted
+text closely before accepting**, then save/convert as WebP
 (quality ~85 é suficiente pra foto).
 ```
 
@@ -302,22 +358,49 @@ OUTPUT: 1200x630px, JPG.
 
 ## 📁 Convenção de arquivos e onde salvar
 
-Todos os 3 ativos servidos pelo site terminam em `.webp` (ver nota de
-formato acima). Confirmado na prática com a logo de Itabuna
-(29/08/2026: `logo.webp`, 900×300px, 5,4 KB):
+Todos os 3-4 ativos servidos pelo site terminam em `.webp` (ver nota de
+formato acima) e ficam dentro da pasta da cidade, mas **o nome do arquivo
+em si tem que ser sugestivo** — nunca genérico tipo `logo.webp`/`hero.webp`
+puro. Regra do usuário (29/08/2026): sempre incluir o nome da cidade e/ou
+da desentupidora no nome do arquivo. Isso importa de verdade pra SEO de
+imagem (Google Imagens usa o nome do arquivo como sinal de relevância,
+além do `alt`), e também evita confusão quando alguém abre a pasta
+`public/images/<citySlug>/` e vê vários arquivos genéricos de cidades
+diferentes com o mesmo nome.
+
+**Padrão**: `<tipo-ou-conteúdo>-desentupidora-<citySlug>[-detalhe].webp`
 
 ```
 apps/site-template-astro/public/images/<citySlug>/
-  logo.webp     → campo cities.json: logoUrl    = "/images/<citySlug>/logo.webp"
-  favicon.webp  → campo cities.json: faviconUrl = "/images/<citySlug>/favicon.webp"
-  hero.webp     → campo cities.json: heroImage  = "/images/<citySlug>/hero.webp"
-  og.jpg        → (bônus, sem campo ainda — ver nota do OG acima; JPG mesmo, não webp)
+  logo-desentupidora-<citySlug>.webp
+    → cities.json: logoUrl = "/images/<citySlug>/logo-desentupidora-<citySlug>.webp"
+  favicon-desentupidora-<citySlug>.webp
+    → cities.json: faviconUrl = "/images/<citySlug>/favicon-desentupidora-<citySlug>.webp"
+    (pode reaproveitar o MESMO arquivo do logo — são o mesmo ícone — mas o
+    nome do arquivo pode continuar sendo o do logo; não precisa duplicar
+    fisicamente só pra ter um nome de favicon)
+  desentupidora-<citySlug>-tecnico-desentupimento.webp
+    → cities.json: heroImage = "/images/<citySlug>/desentupidora-<citySlug>-tecnico-desentupimento.webp"
+  og-desentupidora-<citySlug>.jpg
+    → (bônus, sem campo ainda — ver nota do OG acima; JPG mesmo, não webp)
 ```
+
+**Exemplo real (Itabuna, 29/08/2026)**:
+`logo-desentupidora-itabuna.webp` e
+`desentupidora-itabuna-tecnico-desentupimento.webp` — ambos aplicados e
+publicados em produção.
+
+Se no futuro existirem fotos específicas por página de serviço (ex: uma
+foto só pra "Desentupimento de Esgoto"), seguir o mesmo espírito:
+`desentupidora-<citySlug>-desentupimento-esgoto.webp`, nunca `service1.webp`
+ou similar.
 
 Pra subir automaticamente sem passar pela UI do painel, usar o endpoint já
 existente `POST /api/upload-image` (`server.cjs`), passando `cityId` e o
 arquivo — ele salva em `public/images/<cityId>/<nome-original>` e devolve
-o `path` relativo pra gravar no campo certo de `cities.json`.
+o `path` relativo pra gravar no campo certo de `cities.json`. **Nomear o
+arquivo com o padrão acima antes de fazer o upload**, já que o endpoint
+preserva o nome original enviado.
 
 **Nunca salvar dois campos apontando pro mesmo arquivo físico.** Se o
 agente for gerar os 3-4 ativos em lote, cada um precisa do seu próprio
@@ -328,6 +411,11 @@ variável de path entre chamadas.
 
 ## ✅ Checklist antes de aprovar uma imagem gerada
 
+- [ ] **Logo e Favicon têm fundo transparente de verdade** (`file logo.webp`
+      reporta "with alpha") — nunca entregar com o fundo sólido do Canva
+      sem passar pelo chroma-key (regra do usuário, inegociável)
+- [ ] Sem halo/franja da cor de fundo visível ao redor do ícone depois do
+      chroma-key (se aparecer, ajustar a tolerância do script e regerar)
 - [ ] **A logo NÃO tem nenhum texto/letra dentro da imagem** — o nome da
       empresa já aparece em HTML ao lado; embutir de novo duplica visualmente
       (bug real já visto e corrigido nesta sessão)

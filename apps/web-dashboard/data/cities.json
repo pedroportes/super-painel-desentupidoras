@@ -34,7 +34,7 @@
     "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
     "h1Title": "Desentupidora em Linhares ES 24horas",
     "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
-    "lastDeployAt": "2026-08-29T17:45:06.942Z",
+    "lastDeployAt": "2026-08-29T22:42:34.552Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Linhares?",
@@ -81,9 +81,9 @@
         "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Linhares."
       }
     ],
-    "logoUrl": "/images/linhares/logo.jpg",
-    "faviconUrl": "/images/linhares/favicon.jpg",
-    "heroImage": "/images/linhares/hero.webp",
+    "logoUrl": "/images/linhares/logo-desentupidora-linhares.webp",
+    "faviconUrl": "/images/linhares/logo-desentupidora-linhares.webp",
+    "heroImage": "/images/linhares/desentupidora-linhares-caminhao-limpa-fossa.webp",
     "services": [
       {
         "id": "esgoto",
@@ -518,9 +518,11 @@
     "ctaButtonText": "Chamar Desentupidora em Itabuna no WhatsApp",
     "lastH2": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?",
     "deployUrl": "https://desentupidora-itabuna.pages.dev",
-    "lastDeployAt": "2026-08-29T21:24:55.134Z",
-    "logoUrl": "/images/itabuna/logo.webp",
-    "faviconUrl": "/images/itabuna/logo.webp"
+    "lastDeployAt": "2026-08-29T22:21:58.349Z",
+    "logoUrl": "/images/itabuna/logo-desentupidora-itabuna.webp",
+    "faviconUrl": "/images/itabuna/logo-desentupidora-itabuna.webp",
+    "logoHeight": 98,
+    "heroImage": "/images/itabuna/desentupidora-itabuna-tecnico-desentupimento.webp"
   },
   {
     "id": "portoseguro",

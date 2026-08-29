@@ -50,6 +50,7 @@ export interface CityConfig {
   cnpj?: string;
   endereco?: string;
   logoUrl?: string;
+  logoHeight?: number;
   faviconUrl?: string;
   heroImage?: string;
   h1Title?: string;

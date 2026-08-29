@@ -70,12 +70,17 @@ uma por cidade, com o máximo de SEO, GEO (geolocalização local) e AEO
   gerador de HTML falso (`/api/preview/:id` em `server.cjs`) não é mais
   usado pelo iframe — ficou só como rota morta (pode ser removida no
   futuro).
-- Sincronização ao vivo: toda mudança em `editingCity` dispara (com
-  debounce de 600ms) uma chamada a `POST /api/preview-sync`, que escreve
-  só no `cityConfig.json` (sem tocar em `cities.json`/sem exigir clicar em
-  "Salvar Alterações"). O Astro dev server detecta a mudança sozinho via
-  HMR do Vite — **testado manualmente de ponta a ponta, funciona sem
-  reiniciar nada**.
+- Sincronização ao vivo: **⚠️ correção de uma afirmação falsa que estava
+  aqui** — isto dizia que "toda mudança em `editingCity` dispara (com
+  debounce de 600ms)" uma chamada a `POST /api/preview-sync`. Conferido no
+  código em 29/08/2026: **isso nunca existiu de verdade**. Só dois
+  caminhos chamam `preview-sync` + recarregam o iframe:
+  `handleSelectCityForEditor` (ao trocar de cidade) e a função
+  `syncPreviewLive` (criada em 29/08/2026, debounce real de 400ms),
+  ligada por enquanto só ao slider de tamanho da logo. Editar um campo de
+  texto (H1, parágrafo, CTA, etc.) **não** atualiza o preview ao vivo —
+  só reflete depois de "Salvar Alterações" ou trocar de cidade. Se for dar
+  esse mesmo tratamento a outros campos, reaproveitar `syncPreviewLive`.
 - `previewPath` (qual página mostrar: home, bairro X, serviço Y) agora
   **reseta pra `/` sempre que troca de cidade** — antes podia ficar preso
   numa URL de bairro que não existe na cidade nova.
@@ -175,6 +180,42 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(próximo commit)`** (29/08/2026) — **Sessão de identidade visual,
+  parte 2: seção "Áreas Atendidas" com foto local + correção da Linhares**.
+  Adicionado suporte a foto ao lado do mapa em `LocalAreas.astro` (prop
+  `heroImage`, grid `.map-photo-grid`, aspect-ratio 4:3 desktop / 16:9
+  mobile) — decisão explícita do usuário de **não** mexer no card de
+  conversão do `HeroV1.astro` (que tem um formulário, não uma foto; esse
+  card nunca teve foto em nenhum commit deste repo, apesar do usuário
+  lembrar de uma versão com foto — não foi encontrada em nenhum histórico
+  git, possivelmente de antes deste repositório existir).
+  **Bug real grave encontrado no caminho**: `heroImage` de Linhares E
+  Itabuna apontava pro mesmo arquivo (`hero.webp`, hash MD5 idêntico), que
+  continha um **watermark de outra empresa** ("HIDROCURITIBA" + telefone
+  `41 3051-1101`) — corrigido gerando fotos exclusivas e sem marca pra cada
+  cidade. Duas iterações até acertar: (1) a primeira geração via Canva
+  (`design_type: desktop_wallpaper`) veio com um efeito indesejado de
+  "moldura dentro da moldura" (foto nítida emoldurada por uma versão
+  borrada de si mesma) apesar do prompt pedir explicitamente "no border,
+  no frame" — corrigido recortando a camada interna com `sharp` (`.extract()`)
+  antes de salvar; (2) a régua de conteúdo da foto HERO foi corrigida a
+  pedido do usuário: ao contrário do logo (nunca texto), a foto HERO
+  **deve** mostrar um caminhão limpa-fossa real com "DESENTUPIDORA" pintado
+  na lateral — texto pintado em veículo é autêntico numa foto, diferente de
+  texto num ícone de marca. Testado: o Canva acertou a ortografia da
+  palavra em todas as 4 variações geradas (mas **sempre conferir
+  visualmente antes de aprovar** — geradores de imagem erram texto com
+  frequência).
+  **Nova regra de nomenclatura de arquivo** (pedido do usuário): todo
+  arquivo de imagem tem que ter nome sugestivo, incluindo cidade e/ou nome
+  da desentupidora — nunca `logo.webp`/`hero.webp` genérico. Aplicado nas
+  duas cidades: `logo-desentupidora-<cidade>.webp` e
+  `desentupidora-<cidade>-<descrição-do-conteúdo>.webp`. De brinde, isso
+  forçou a limpeza dos arquivos mortos de Linhares que já estavam
+  documentados como problema (os PNGs de 3,8 MB duplicados, `logo.jpg`,
+  `favicon.jpg` antigos) — todos removidos, restam só os 2 arquivos webp
+  novos e nomeados corretamente. Detalhe completo do processo, do prompt
+  final e das duas correções de curso em `PROMPT-IDENTIDADE-VISUAL.md`.
 - **`(próximo commit)`** (29/08/2026) — **Bug visual real encontrado ao
   aplicar a primeira logo gerada por IA em Itabuna**: `Header.astro` (o
   componente realmente usado por `index.astro`/`[slug].astro` — diferente
@@ -215,6 +256,33 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
   veículo real usado no serviço de limpeza de fossa), validado e publicado
   em Itabuna. Guia completo com o prompt final e a lição aprendida em
   `PROMPT-IDENTIDADE-VISUAL.md`.
+  **Evolução da mesma sessão — transparência real, não mais "cor
+  parecida"**: o usuário exigiu (regra inegociável) que toda logo tenha
+  fundo transparente de verdade. Resolvido com chroma-key: gerar no Canva
+  com fundo sólido de propósito (matéria-prima, não resultado final) e
+  remover essa cor via novo script `apps/web-dashboard/scripts/
+  removeLogoBackground.cjs` (usa `sharp`, adicionado como dependência real
+  do `web-dashboard`) — lê os pixels crus, zera o alpha de qualquer pixel
+  dentro de uma tolerância de distância RGB da cor de fundo. Testado e
+  confirmado pixel a pixel (canto do fundo `alpha=0`, centro do ícone
+  `alpha=255`, sem halo nas bordas) e publicado de verdade em Itabuna — o
+  `.webp` final agora reporta "with alpha". Documentado como processo
+  obrigatório de 2 passos em `PROMPT-IDENTIDADE-VISUAL.md`.
+  **Também nesta sessão**: (1) aumentado o tamanho padrão da logo no
+  header de 46px pra 64px (`Header.astro`), e criado um controle de
+  tamanho ajustável de verdade no painel (`logoHeight`, slider 32-120px em
+  `App.tsx`, propagado por `syncCityToAstro` em `server.cjs` e pelo tipo
+  `CityConfig`); (2) corrigido bug real: **nenhum campo do painel
+  atualizava o preview ao vivo automaticamente** — a documentação antiga
+  deste guia afirmava existir um debounce de 600ms fazendo isso pra
+  qualquer edição, o que **nunca existiu no código** (só troca de cidade ou
+  "Salvar Alterações" atualizavam o iframe). Corrigido criando
+  `syncPreviewLive` (debounce de 400ms) e ligando ao slider de tamanho da
+  logo — os demais campos de texto continuam no comportamento antigo
+  (só sincronizam ao salvar), por não terem sido pedidos; (3) corrigido
+  `type="image/x-icon"` fixo no `<link rel="icon">` de `Layout.astro`,
+  que estava sempre errado quando o favicon real era `.webp`/`.jpg` — agora
+  calculado pela extensão real do arquivo.
 - **`(próximo commit)`** (29/08/2026) — Auditoria completa pedida pelo usuário
   (ver `docs/auditoria-seo-cloudflare-2026-08-29.md`). Publicada a cidade
   Itabuna (BA), que estava com H1/1º parágrafo/CTA/último H2 vazios (caía no

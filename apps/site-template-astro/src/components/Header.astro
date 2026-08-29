@@ -1,6 +1,12 @@
 ---
 import cityData from '../data/cityConfig.json';
 const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = Astro.props;
+
+// Tamanho da logo ajustável pelo painel (campo `logoHeight`, em px).
+// max-width acompanha proporcionalmente (~3.1x a altura) pra manter espaço
+// suficiente pra logos mais largas sem esticar o layout do header.
+const logoHeight = cityData.logoHeight || 64;
+const logoMaxWidth = Math.round(logoHeight * 3.1);
 ---
 
 <header class="header">
@@ -18,7 +24,7 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
       <div class="logo">
         <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
           {logoUrl ? (
-            <img src={logoUrl} alt={empresaNome} style="height: 64px; max-width: 200px; object-fit: contain;" />
+            <img src={logoUrl} alt={empresaNome} style={`height: ${logoHeight}px; max-width: ${logoMaxWidth}px; object-fit: contain;`} />
           ) : (
             <span class="logo-badge">24H</span>
           )}

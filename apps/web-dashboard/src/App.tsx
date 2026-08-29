@@ -27,9 +27,32 @@ export default function App() {
   const [selectedCityId, setSelectedCityId] = useState<string>('linhares');
   const [editingCity, setEditingCity] = useState<CityConfig | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  
+  const previewSyncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'mobile'>('desktop');
   const [previewPath, setPreviewPath] = useState('/');
+
+  // Sincroniza qualquer mudança com o Astro dev server e recarrega o iframe
+  // do preview ao vivo, com debounce — usado por controles que precisam de
+  // feedback visual imediato (ex: slider de tamanho da logo), diferente dos
+  // campos de texto normais que só sincronizam ao clicar "Salvar Alterações".
+  const syncPreviewLive = (cityData: CityConfig) => {
+    if (previewSyncTimer.current) clearTimeout(previewSyncTimer.current);
+    previewSyncTimer.current = setTimeout(async () => {
+      try {
+        await fetch('/api/preview-sync', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(cityData)
+        });
+        if (iframeRef.current) {
+          iframeRef.current.src = `http://localhost:4321${previewPath}?t=${Date.now()}`;
+        }
+      } catch (e) {
+        console.error('Erro ao sincronizar preview ao vivo:', e);
+      }
+    }, 400);
+  };
   const [editorSection, setEditorSection] = useState<'hero' | 'services' | 'bairros' | 'faqs' | 'media' | 'theme' | 'company'>('hero');
 
   const [settings, setSettings] = useState<HostingSettings>({
@@ -865,10 +888,29 @@ export default function App() {
                     />
                     {editingCity.logoUrl && (
                       <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <img src={editingCity.logoUrl} alt="Preview do logo" style={{ height: '40px', backgroundColor: '#0f172a', borderRadius: '4px', padding: '4px' }} />
+                        <img src={editingCity.logoUrl} alt="Preview do logo" style={{ height: `${editingCity.logoHeight || 64}px`, backgroundColor: '#0f172a', borderRadius: '4px', padding: '4px' }} />
                         <button type="button" onClick={() => setEditingCity({ ...editingCity, logoUrl: '' })} style={{ background: 'none', border: '1px solid #ef4444', color: '#ef4444', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', fontSize: '0.78rem' }}>Remover</button>
                       </div>
                     )}
+                    <div style={{ marginTop: '10px' }}>
+                      <label style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#94a3b8', marginBottom: '4px' }}>
+                        <span>Tamanho da Logo no Cabeçalho</span>
+                        <span style={{ color: '#38bdf8', fontWeight: 700 }}>{editingCity.logoHeight || 64}px</span>
+                      </label>
+                      <input
+                        type="range"
+                        min={32}
+                        max={120}
+                        step={2}
+                        value={editingCity.logoHeight || 64}
+                        onChange={(e) => {
+                          const updated = { ...editingCity, logoHeight: parseInt(e.target.value, 10) };
+                          setEditingCity(updated);
+                          syncPreviewLive(updated);
+                        }}
+                        style={{ width: '100%' }}
+                      />
+                    </div>
                   </div>
 
                   <div style={{ marginBottom: '12px' }}>
