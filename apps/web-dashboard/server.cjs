@@ -128,6 +128,8 @@ function syncCityToAstro(city) {
         firstParagraphText: city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região, com garantia por escrito e o menor preço.`,
         lastH2Title: city.lastH2 || `Por que escolher a melhor Desentupidora em ${city.cidade} ${city.uf}?`
       },
+      aboutCityTitle: city.aboutCityTitle || `Estrutura e Atendimento de Desentupidora em ${city.cidade} - ${city.uf}`,
+      aboutCityText: city.aboutCityText || `${city.cidade} é um dos municípios mais importantes de ${city.uf}, reunindo mais de ${city.populacao || '150.000'} habitantes e bairros com intensa movimentação residencial e comercial. Nossa empresa mantém veículos equipados e técnicos posicionados estrategicamente em ${city.cidade} para chegar em até 30 minutos em emergências de esgoto, pias e ralos.`,
       parceiros: city.parceiros || [],
       bairros: city.bairros && city.bairros.length > 0 ? city.bairros : ['Centro', 'Interlagos', 'Conceição', 'Novo Horizonte'],
       services: city.services || [

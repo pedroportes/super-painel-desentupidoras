@@ -13,6 +13,8 @@ import HeroV2 from '../components/HeroV2.astro';
 import ServicesGridV1 from '../components/ServicesGridV1.astro';
 import ServicesGridV2 from '../components/ServicesGridV2.astro';
 
+import CityContext from '../components/CityContext.astro';
+
 import Benefits from '../components/Benefits.astro';
 import WarningSigns from '../components/WarningSigns.astro';
 import LocalAreas from '../components/LocalAreas.astro';
@@ -28,6 +30,7 @@ const ServicesComponent = cityData.variants.services === 'ServicesGridV2' ? Serv
 <Layout {...cityData}>
   <Header {...cityData} />
   <HeroComponent {...cityData} />
+  <CityContext {...cityData} />
   <ServicesComponent {...cityData} />
   <WarningSigns {...cityData} />
   <LocalAreas {...cityData} />

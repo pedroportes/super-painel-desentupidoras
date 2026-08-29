@@ -795,6 +795,28 @@ export default function App() {
                     />
                   </div>
 
+                  <div style={{ marginBottom: '12px', borderTop: '1px solid #334155', paddingTop: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#38bdf8', marginBottom: '4px', fontWeight: 700 }}>📍 Título da Seção Sobre a Cidade:</label>
+                    <input 
+                      type="text" 
+                      value={editingCity.aboutCityTitle || ''}
+                      placeholder={`Estrutura e Atendimento em ${editingCity.cidade} - ${editingCity.uf}`}
+                      onChange={(e) => setEditingCity({ ...editingCity, aboutCityTitle: e.target.value })}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.88rem' }}
+                    />
+                  </div>
+
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#38bdf8', marginBottom: '4px', fontWeight: 700 }}>📍 Texto Sobre a Cidade e Atuação:</label>
+                    <textarea 
+                      rows={4}
+                      value={editingCity.aboutCityText || ''}
+                      placeholder={`Texto descritivo sobre a história, porte e atendimento em ${editingCity.cidade}...`}
+                      onChange={(e) => setEditingCity({ ...editingCity, aboutCityText: e.target.value })}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem', lineHeight: 1.5 }}
+                    />
+                  </div>
+
                   <div style={{ marginBottom: '12px' }}>
                     <label style={{ display: 'block', fontSize: '0.8rem', color: '#cbd5e1', marginBottom: '4px', fontWeight: 600 }}>Nome da Empresa / Fantasia:</label>
                     <input 

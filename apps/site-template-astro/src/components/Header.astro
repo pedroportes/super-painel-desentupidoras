@@ -52,11 +52,11 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #0f172a;
+    background: var(--color-bg-dark, #0f172a);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   .top-bar {
-    background: #0284c7;
+    background: var(--color-primary, #0284c7);
     color: #ffffff;
     font-size: 0.85rem;
     padding: 6px 0;
@@ -74,7 +74,7 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
   }
   .main-header {
     padding: 14px 0;
-    background: #0f172a;
+    background: var(--color-bg-dark, #0f172a);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .header-container {
@@ -90,7 +90,7 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
     color: #ffffff;
   }
   .logo-badge {
-    background: #10b981;
+    background: var(--color-accent, #f97316);
     color: #ffffff;
     font-weight: 900;
     font-size: 0.9rem;
@@ -104,7 +104,7 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
     color: #f8fafc;
   }
   .logo-text small {
-    color: #94a3b8;
+    color: var(--color-text-muted, #94a3b8);
     font-size: 0.78rem;
   }
   .nav-menu {
@@ -112,17 +112,17 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
     gap: 24px;
   }
   .nav-menu a {
-    color: #cbd5e1;
+    color: var(--color-text-muted, #cbd5e1);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.2s;
   }
   .nav-menu a:hover {
-    color: #10b981;
+    color: var(--color-accent, #10b981);
   }
   .btn-header {
-    background: #10b981;
+    background: var(--color-accent, #f97316);
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 8px;
@@ -131,7 +131,7 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
     transition: background 0.2s, transform 0.2s;
   }
   .btn-header:hover {
-    background: #059669;
+    background: var(--color-accent-hover, #ea580c);
     transform: translateY(-2px);
   }
   @media (max-width: 768px) {

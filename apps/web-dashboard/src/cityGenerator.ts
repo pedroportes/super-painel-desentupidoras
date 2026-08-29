@@ -56,6 +56,8 @@ export interface CityConfig {
   firstParagraph?: string;
   ctaButtonText?: string;
   lastH2?: string;
+  aboutCityTitle?: string;
+  aboutCityText?: string;
   bairros?: string[];
   services?: ServiceItem[];
   faqs?: FaqItem[];
@@ -124,6 +126,8 @@ export function generateUniqueCityContent(
       firstParagraph: `Soluções especializadas em desentupimento técnico, manutenção preventiva de redes de esgoto, caixas de gordura e hidrojateamento para condomínios, restaurantes, indústrias e empresas em toda ${cidade} e região metropolitana, com emissão de laudo técnico e nota fiscal.`,
       ctaButtonText: `Solicitar Atendimento Corporativo`,
       lastH2: `Por que empresas e condomínios em ${cidade} contratam a nossa equipe?`,
+      aboutCityTitle: `Estrutura de Atendimento Corporativo e Predial em ${cidade} - ${uf}`,
+      aboutCityText: `${cidade} destaca-se como um polo estratégico com mais de ${populacao} habitantes, concentrando forte atividade empresarial, redes de comércio e condomínios residenciais. Para atender com eficiência o alto padrão exigido por síndicos e administradoras de ${cidade}, nossa empresa mantém frotas de prontidão para diagnósticos rápidos e desobstruções técnicas com equipamentos não-destrutivos.`,
       bairros,
       services: [
         { title: 'Desentupimento Predial e Condominial', description: 'Contratos e atendimentos de urgência em prumadas, caixas de esgoto e redes pluviais de edifícios.', icon: '🏢' },
@@ -172,6 +176,8 @@ export function generateUniqueCityContent(
       firstParagraph: `Sua pia, ralo ou vaso sanitário entupiu em ${cidade}? Nossa equipe atende sua casa rapidamente com técnicos educados, trabalho 100% limpo sem quebrar azulejos ou pisos e orçamento gratuito na sua residência.`,
       ctaButtonText: `Chamar Encanador no WhatsApp`,
       lastH2: `A desentupidora mais recomendada pelas famílias de ${cidade}`,
+      aboutCityTitle: `Atendimento Residencial Especializado em ${cidade} - ${uf}`,
+      aboutCityText: `Com mais de ${populacao} habitantes, ${cidade} é um município vibrante e acolhedor. Nossa missão é garantir a tranquilidade e higiene dos lares de ${cidade}, atuando com profissionais uniformizados e equipamentos rotativos modernos que resolvem entupimentos de pias, ralos e vasos sem causar danos a pisos e azulejos.`,
       bairros,
       services: [
         { title: 'Desentupimento de Pia de Cozinha', description: 'Desobstrução rápida de gordura acumulada sem estragar o sifão e com limpeza total do local.', icon: '🚰' },
@@ -220,6 +226,8 @@ export function generateUniqueCityContent(
       firstParagraph: `Frota própria de caminhões auto-vácuo de alta capacidade e hidrojateamento pressurizado para esgotamento de fossas sépticas, caixas de decantação e redes industriais em todos os bairros e distritos de ${cidade}.`,
       ctaButtonText: `Solicitar Caminhão Auto-Vácuo`,
       lastH2: `Líder em sucção de fossas e hidrojateamento pesado em ${cidade}`,
+      aboutCityTitle: `Estrutura de Hidrojateamento e Limpeza Pesada em ${cidade} - ${uf}`,
+      aboutCityText: `Com ampla malha industrial e logística atendendo mais de ${populacao} habitantes, ${cidade} demanda suporte pesado e contínuo em redes de saneamento. Nossa base operacional dispõe de caminhões vácuo e bombas de alta pressão licenciados para desentupimentos industriais e descarte ecológico.`,
       bairros,
       services: [
         { title: 'Esgotamento de Fossa Séptica e Negra', description: 'Caminhões vácuo de 8m³ a 15m³ para sucção rápida e descarte certificado em estação de tratamento.', icon: '🚛' },
@@ -268,6 +276,8 @@ export function generateUniqueCityContent(
     firstParagraph: `Precisando de uma desentupidora em ${cidade} ${uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${cidade} e região, com garantia por escrito e o menor preço.`,
     ctaButtonText: `Solicitar Visita Grátis no WhatsApp`,
     lastH2: `Por que escolher a melhor Desentupidora em ${cidade} ${uf}?`,
+    aboutCityTitle: `Estrutura e Atendimento de Desentupidora em ${cidade} - ${uf}`,
+    aboutCityText: `${cidade} é um dos municípios mais importantes de ${uf}, reunindo mais de ${populacao} habitantes e bairros com intensa movimentação residencial e comercial. Nossa empresa mantém veículos equipados e técnicos posicionados estrategicamente em ${cidade} para chegar em até 30 minutos em emergências de esgoto, pias e ralos.`,
     bairros,
     services: [
       { title: 'Desentupimento de Esgoto', description: 'Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.', icon: '🚿' },

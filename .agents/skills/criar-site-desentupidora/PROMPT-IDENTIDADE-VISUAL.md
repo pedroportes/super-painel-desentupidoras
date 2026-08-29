@@ -26,10 +26,54 @@ outro.
 
 | Ativo | Onde é usado no código | Como é renderizado | Proporção ideal | Tamanho de exportação | Formato | Fundo |
 |---|---|---|---|---|---|---|
-| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:46px; max-width:140px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`) | Pequeno, no topo, sempre sobre fundo **escuro** | ~3:1 (paisagem larga) | **900×300px** (gerar em @2x, 1800×600px, se a ferramenta permitir — fica nítido em telas retina) | PNG, fundo transparente | **Transparente** — símbolo/wordmark em tom claro, nunca fundo sólido |
-| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | PNG, fundo transparente ou sólido na cor `--color-bg-dark` da paleta | Símbolo isolado, **sem texto** (texto nessa escala vira mancha ilegível) |
-| **Hero (páginas de serviço)** | `[slug].astro`: `.service-hero-img-box { max-height:300px }`, `object-fit:cover`, coluna de `grid-template-columns: 1.3fr 0.7fr` (~460px de largura útil no desktop, full-width no mobile) | Foto ao lado do texto, cortada pelas bordas conforme o viewport | 8:5 ou 16:9 (paisagem) | **1600×1000px** | JPG ou WEBP | Foto realista — sujeito centralizado, com margem de segurança pra corte (crop-safe) |
-| **OG / Social Share** (bônus — **ainda não existe no código**, ver nota abaixo) | Nenhum. `Layout.astro` hoje tem `og:title`/`og:description` mas **nenhum `og:image`** — gap real encontrado nesta auditoria | Preview de link no WhatsApp/Twitter/LinkedIn | 1200×630 (padrão OG) | **1200×630px** | JPG | Composição com paleta da cidade + logo + headline |
+| **Logo** | `Header.astro` / `HeaderV1.astro`: `<img style="height:46px; max-width:140px; object-fit:contain">`, dentro do cabeçalho fixo (`.header-v1`, `background: var(--color-bg-dark)`) | Pequeno, no topo, sempre sobre fundo **escuro** | ~3:1 (paisagem larga) | **900×300px** (gerar em @2x, 1800×600px, se a ferramenta permitir — fica nítido em telas retina) | **WebP** (ver nota de conversão abaixo) | Fundo sólido na cor exata `--color-bg-dark` da paleta (ver nota de transparência abaixo) |
+| **Favicon** | `Layout.astro`: `<link rel="icon" href={faviconUrl}>` — ícone da aba do navegador | Minúsculo (o Chrome mostra a 16×16px de fato) | 1:1 (quadrado) | **512×512px** master | **WebP** (ver nota de conversão abaixo) | Símbolo isolado, **sem texto** (texto nessa escala vira mancha ilegível), fundo sólido na cor `--color-bg-dark` da paleta |
+| **Hero (páginas de serviço)** | `[slug].astro`: `.service-hero-img-box { max-height:300px }`, `object-fit:cover`, coluna de `grid-template-columns: 1.3fr 0.7fr` (~460px de largura útil no desktop, full-width no mobile) | Foto ao lado do texto, cortada pelas bordas conforme o viewport | 8:5 ou 16:9 (paisagem) | **1600×1000px** | **WebP** | Foto realista — sujeito centralizado, com margem de segurança pra corte (crop-safe) |
+| **OG / Social Share** (bônus — **ainda não existe no código**, ver nota abaixo) | Nenhum. `Layout.astro` hoje tem `og:title`/`og:description` mas **nenhum `og:image`** — gap real encontrado nesta auditoria | Preview de link no WhatsApp/Twitter/LinkedIn | 1200×630 (padrão OG) | **1200×630px** | JPG (WhatsApp/Twitter nem sempre respeitam webp em preview — manter JPG aqui) | Composição com paleta da cidade + logo + headline |
+
+### ⚠️ Nota de formato: por que WebP e como converter
+
+**Todo ativo servido pelo site (logo, favicon, hero) tem que terminar em
+`.webp`**, nunca ficar em `.png` — confirmado na prática nesta sessão: a
+mesma logo (900×300px) ficou com **63,9 KB em PNG** e **5,4 KB em WebP**
+(mesma qualidade visual, ~92% menor). Isso é ainda mais crítico depois do
+bug real já encontrado de imagens de **3,8 MB** paradas no repositório
+(ver seção de regra de ouro abaixo).
+
+**O Canva não exporta em WebP diretamente** (`get-export-formats` só lista
+`pdf, jpg, png, pptx, gif, mp4`). O fluxo correto é: exportar do Canva em
+PNG (`export-design`, `format.type: "png"`, no tamanho exato da tabela
+acima) e depois converter pra WebP com `sharp-cli` via `npx` (não precisa
+instalar nada global, o `npx` baixa e roda na hora):
+
+```bash
+npx --yes sharp-cli -i logo.png -o logo.webp -f webp -q 90
+```
+
+**Depois de converter, apagar o `.png` intermediário** — ele não deve
+sobrar no repositório (é exatamente o tipo de arquivo morto que já causou
+o problema de peso em Linhares). Só o `.webp` final fica salvo em
+`public/images/<citySlug>/`.
+
+### ⚠️ Nota de transparência: limitação real do Canva encontrada nesta sessão
+
+**O Canva não permite exportar a logo com fundo realmente transparente**
+quando o design foi gerado com `design_type: "logo"` — o fundo vem como
+uma **imagem raster de verdade** (`page.background.media`), não como uma
+cor de canvas, e não existe locator_id nem operação de `edit-design` capaz
+de removê-la (testado e confirmado: `delete_element` no locator da página
+falha com `not_permitted`, e a flag `transparent_background: true` do
+`export-design` não afeta esse tipo de fundo).
+
+**Solução que funciona na prática**: em vez de pedir fundo transparente no
+prompt, pedir explicitamente um **fundo sólido, chapado, na cor hexadecimal
+exata `--color-bg-dark` da paleta da cidade** (ver tabela de paletas
+abaixo), com instrução clara de "zero gradiente, zero vinheta, zero
+textura, cobrindo a borda inteira do canvas". Testado e medido: o resultado
+saiu em **RGB (21,21,23) contra o alvo #18181b = (24,24,27)** — diferença
+de 1 a 4 unidades por canal, imperceptível a olho nu quando embutido no
+header de verdade. Efeito visual final idêntico a "transparente" sem
+depender de um recurso que o Canva não expõe.
 
 **Nota sobre o OG image**: gerar esse 4º ativo já deixa o material pronto,
 mas **usá-lo de fato exige uma mudança de código** (`Layout.astro` precisa
@@ -121,22 +165,29 @@ typeface, high legibility, one or two lines maximum. No script/handwriting
 fonts.
 
 COLOR: symbol and text using ONLY {{colorAccent}} and an off-white/white
-tone ({{colorTextMain}}) — this logo will always sit on a dark navy/near-
-black background (~{{colorBgDark}}), so design it to glow and stay legible
-on dark. Do NOT design it for a white background.
+tone ({{colorTextMain}}).
 
 LAYOUT: horizontal lockup (symbol on the left, wordmark on the right),
 composed inside a wide 3:1 landscape frame with a safe margin on all sides
 — nothing touching the edges.
 
-BACKGROUND: fully transparent.
+BACKGROUND REQUIREMENT: the background must be a single FLAT SOLID COLOR
+fill, exact hex {{colorBgDark}}, covering the entire canvas edge-to-edge
+with ZERO gradient, ZERO vignette, ZERO texture, ZERO glow radiating into
+the background — completely flat and uniform. This exact color must match
+the website's navbar background pixel-for-pixel (Canva does not support
+true transparent export for AI-generated logos — a solid matching color is
+the proven workaround, tested and confirmed close enough to be
+indistinguishable once embedded in the real header).
 
 NEGATIVE PROMPT: no photorealistic elements, no drop shadows, no busy
-gradients (max a simple 2-tone blend), no watermark, no extra tagline
-text, no stock "plumber holding a wrench" clipart, no lightbulb/idea icon,
-no text distortion, no misspelled letters.
+gradients (max a simple 2-tone blend on the symbol/text only, never on the
+background), no watermark, no extra tagline text, no stock "plumber
+holding a wrench" clipart, no lightbulb/idea icon, no text distortion, no
+misspelled letters.
 
-OUTPUT: 900x300px, transparent background, PNG.
+OUTPUT: generate as PNG at 900x300px, then convert to WebP (`npx --yes
+sharp-cli -i logo.png -o logo.webp -f webp -q 90`) and delete the PNG.
 ```
 
 ### 2. FAVICON (derivado do símbolo da logo — NUNCA da wordmark)
@@ -146,16 +197,17 @@ Take ONLY the abstract symbol from the logo above (the drop/lightning
 mark) — completely remove the company name / wordmark — and center it
 alone in a 1:1 square canvas.
 
-STYLE: same colors as the logo symbol ({{colorAccent}} on a transparent
-background; if a solid backing is needed for visibility, fill it with
-{{colorBgDark}}).
+STYLE: same colors as the logo symbol ({{colorAccent}}), on a flat solid
+square background filled with the exact hex {{colorBgDark}} — same
+transparency limitation and workaround as the logo above applies here.
 
 SIMPLICITY: simplify strokes so the icon stays recognizable when scaled
 down to 16x16px — thick, bold shapes, zero fine detail, absolutely no
 text.
 
-OUTPUT: 512x512px, transparent background (or solid {{colorBgDark}}
-square), PNG, small safe margin (~10%) around the symbol.
+OUTPUT: generate as PNG at 512x512px, then convert to WebP (`npx --yes
+sharp-cli -i favicon.png -o favicon.webp -f webp -q 90`) and delete the
+PNG. Small safe margin (~10%) around the symbol.
 ```
 
 ### 3. HERO (foto realista — páginas de serviço)
@@ -187,7 +239,8 @@ candid, mid-task), no text overlays, no logos on the uniform, no
 exaggerated mess/gore, no distorted or extra fingers, no malformed hands
 holding tools, no watermark, no visible brand names on equipment.
 
-OUTPUT: 1600x1000px (8:5 landscape), JPG or WEBP.
+OUTPUT: generate at 1600x1000px (8:5 landscape) and save/convert as WebP
+(quality ~85 é suficiente pra foto).
 ```
 
 ### 4. OG / SOCIAL SHARE (bônus — requer mudança de código pra usar)
@@ -218,15 +271,16 @@ OUTPUT: 1200x630px, JPG.
 
 ## 📁 Convenção de arquivos e onde salvar
 
-Seguir exatamente o padrão já usado (confirmado em `cities.json` da
-cidade Linhares):
+Todos os 3 ativos servidos pelo site terminam em `.webp` (ver nota de
+formato acima). Confirmado na prática com a logo de Itabuna
+(29/08/2026: `logo.webp`, 900×300px, 5,4 KB):
 
 ```
 apps/site-template-astro/public/images/<citySlug>/
-  logo.jpg      → campo cities.json: logoUrl    = "/images/<citySlug>/logo.jpg"
-  favicon.jpg   → campo cities.json: faviconUrl = "/images/<citySlug>/favicon.jpg"
+  logo.webp     → campo cities.json: logoUrl    = "/images/<citySlug>/logo.webp"
+  favicon.webp  → campo cities.json: faviconUrl = "/images/<citySlug>/favicon.webp"
   hero.webp     → campo cities.json: heroImage  = "/images/<citySlug>/hero.webp"
-  og.jpg        → (bônus, sem campo ainda — ver nota do OG acima)
+  og.jpg        → (bônus, sem campo ainda — ver nota do OG acima; JPG mesmo, não webp)
 ```
 
 Pra subir automaticamente sem passar pela UI do painel, usar o endpoint já

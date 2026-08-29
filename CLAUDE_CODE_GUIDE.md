@@ -175,6 +175,35 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(próximo commit)`** (29/08/2026) — **Bug visual real encontrado ao
+  aplicar a primeira logo gerada por IA em Itabuna**: `Header.astro` (o
+  componente realmente usado por `index.astro`/`[slug].astro` — diferente
+  de `HeaderV1.astro`/`HeaderV2.astro`, que já estavam corretos) tinha as
+  cores do cabeçalho **fixas em hexadecimal** (`background: #0f172a`,
+  `#0284c7`, `#10b981`...) em vez de usar `var(--color-bg-dark)` /
+  `var(--color-primary)` / `var(--color-accent)` da paleta da cidade. Na
+  prática, **toda cidade fora da paleta `urgencia-azul-laranja` mostrava o
+  cabeçalho azul-marinho genérico**, não a cor da sua própria paleta —
+  só ficou visível ao colocar a logo amarela/âmbar de Itabuna
+  (`industrial-amarelo`, `--color-bg-dark: #18181b`) dentro de um header
+  ainda pintado de `#0f172a`. Corrigido replicando exatamente o padrão de
+  variáveis já usado em `HeaderV1.astro`. Cidades com paleta diferente da
+  azul-laranja que já foram publicadas antes desta correção **precisam ser
+  republicadas** pra pegar o header certo (Cachoeiro/Poços de
+  Caldas/Guarapuava usam a paleta azul por padrão então não foram afetadas
+  visualmente, mas vale conferir).
+  Criado também o prompt mestre de identidade visual
+  (`.agents/skills/criar-site-desentupidora/PROMPT-IDENTIDADE-VISUAL.md`)
+  com tamanhos exatos calibrados no CSS real do projeto, e testado de
+  ponta a ponta gerando a primeira logo real via Canva MCP: **o Canva não
+  exporta com fundo transparente pra designs `logo`** (o fundo é uma
+  imagem raster real, sem locator_id editável — testado e confirmado, ver
+  o próprio arquivo de prompt) — a solução funcional é pedir fundo sólido
+  na cor hex exata da paleta, testado com desvio de 1-4 unidades RGB
+  (imperceptível). Confirmado também que **o Canva não exporta em WebP**
+  (só pdf/jpg/png/pptx/gif/mp4) — o fluxo correto é exportar PNG e converter
+  com `npx --yes sharp-cli -i x.png -o x.webp -f webp -q 90`, apagando o
+  PNG depois (reduziu 63,9 KB → 5,4 KB na logo real da Itabuna).
 - **`(próximo commit)`** (29/08/2026) — Auditoria completa pedida pelo usuário
   (ver `docs/auditoria-seo-cloudflare-2026-08-29.md`). Publicada a cidade
   Itabuna (BA), que estava com H1/1º parágrafo/CTA/último H2 vazios (caía no
