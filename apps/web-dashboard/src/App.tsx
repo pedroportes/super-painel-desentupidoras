@@ -51,6 +51,12 @@ export default function App() {
   const [imageUploadStatus, setImageUploadStatus] = useState<string | null>(null);
   const [newBairroInput, setNewBairroInput] = useState('');
 
+  // Sidebar & Layout controls
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isTopCollapsed, setIsTopCollapsed] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(440);
+  const [isDragging, setIsDragging] = useState(false);
+
   // New City Wizard Form
   const [createCityForm, setCreateCityForm] = useState({
     cidade: '',
@@ -69,6 +75,33 @@ export default function App() {
     setNotification(msg);
     setTimeout(() => setNotification(null), 4500);
   };
+
+  // Gerenciamento de arrasto do mouse para redimensionamento da barra lateral
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      if (e.clientX < 140) {
+        setIsSidebarCollapsed(true);
+        setIsDragging(false);
+        return;
+      }
+      const newWidth = Math.max(260, Math.min(900, e.clientX - 20));
+      setSidebarWidth(newWidth);
+    };
+
+    const handleMouseUp = () => {
+      if (isDragging) setIsDragging(false);
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging]);
 
   useEffect(() => {
     fetchCities();
@@ -450,84 +483,120 @@ export default function App() {
         </div>
       )}
 
-      {/* Top Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '14px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span 
-            onClick={() => window.location.reload()}
-            style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer' }}
-            title="Recarregar Painel"
-          >
-            PRO BUILDER
-          </span>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 900, margin: 0, color: '#f8fafc' }}>
-            Super Painel - Gestão & Editor Visual de Desentupidoras
-          </h1>
-        </div>
-
-        {/* Tab Navigation */}
-        <div style={{ display: 'flex', gap: '8px', backgroundColor: '#0f172a', padding: '4px', borderRadius: '10px', border: '1px solid #1e293b' }}>
-          <button 
-            onClick={() => setActiveTab('editor')}
-            style={{
-              backgroundColor: activeTab === 'editor' ? '#8b5cf6' : 'transparent',
-              color: '#ffffff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            🎨 Editor Visual Ao Vivo (Elementor)
-          </button>
-
-          <button 
-            onClick={() => setActiveTab('cities')}
-            style={{
-              backgroundColor: activeTab === 'cities' ? '#0284c7' : 'transparent',
-              color: '#ffffff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            📋 Central de Cidades ({cities.length})
-          </button>
-
-          <button 
-            onClick={() => setActiveTab('new-city')}
-            style={{
-              backgroundColor: activeTab === 'new-city' ? '#10b981' : 'transparent',
-              color: '#ffffff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            ➕ Nova Cidade
-          </button>
-
-          <button 
-            onClick={() => setActiveTab('settings')}
-            style={{
-              backgroundColor: activeTab === 'settings' ? '#6366f1' : 'transparent',
-              color: '#ffffff',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            ⚙️ Hospedagem & Chaves API
-          </button>
-        </div>
+      {/* Top Floating Controls for Sidebar & Top collapse */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginBottom: '8px' }}>
+        <button
+          onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+          style={{
+            backgroundColor: isSidebarCollapsed ? '#8b5cf6' : 'rgba(255,255,255,0.08)',
+            border: '1px solid #334155',
+            color: '#fff',
+            borderRadius: '6px',
+            padding: '4px 10px',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            cursor: 'pointer'
+          }}
+        >
+          {isSidebarCollapsed ? '👁️ Mostrar Lateral' : '◀ Esconder Lateral'}
+        </button>
+        <button
+          onClick={() => setIsTopCollapsed(!isTopCollapsed)}
+          style={{
+            backgroundColor: isTopCollapsed ? '#8b5cf6' : 'rgba(255,255,255,0.08)',
+            border: '1px solid #334155',
+            color: '#fff',
+            borderRadius: '6px',
+            padding: '4px 10px',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            cursor: 'pointer'
+          }}
+        >
+          {isTopCollapsed ? '▼ Mostrar Topo' : '▲ Esconder Topo'}
+        </button>
       </div>
+
+      {/* Top Header */}
+      {!isTopCollapsed && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <span 
+              onClick={() => window.location.reload()}
+              style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer' }}
+              title="Recarregar Painel"
+            >
+              PRO BUILDER
+            </span>
+            <h1 style={{ fontSize: '1.6rem', fontWeight: 900, margin: 0, color: '#f8fafc' }}>
+              Super Painel - Gestão & Editor Visual de Desentupidoras
+            </h1>
+          </div>
+
+          {/* Tab Navigation */}
+          <div style={{ display: 'flex', gap: '8px', backgroundColor: '#0f172a', padding: '4px', borderRadius: '10px', border: '1px solid #1e293b' }}>
+            <button 
+              onClick={() => setActiveTab('editor')}
+              style={{
+                backgroundColor: activeTab === 'editor' ? '#8b5cf6' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              🎨 Editor Visual Ao Vivo (Elementor)
+            </button>
+
+            <button 
+              onClick={() => setActiveTab('cities')}
+              style={{
+                backgroundColor: activeTab === 'cities' ? '#0284c7' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              📋 Central de Cidades ({cities.length})
+            </button>
+
+            <button 
+              onClick={() => setActiveTab('new-city')}
+              style={{
+                backgroundColor: activeTab === 'new-city' ? '#10b981' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              ➕ Nova Cidade
+            </button>
+
+            <button 
+              onClick={() => setActiveTab('settings')}
+              style={{
+                backgroundColor: activeTab === 'settings' ? '#6366f1' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              ⚙️ Hospedagem & Chaves API
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ========================================================================= */}
       {/* TAB: VISUAL ELEMENTOR BUILDER COM EDIÇÃO COMPLETA DE SEÇÕES */}
@@ -658,7 +727,7 @@ export default function App() {
           )}
 
           {/* Builder Split Layout: Left Complete Form Inspector | Right Live Interactive Canvas */}
-          <div style={{ display: 'grid', gridTemplateColumns: isSidebarCollapsed ? '1fr' : `${sidebarWidth}px 1fr`, gap: isSidebarCollapsed ? '0px' : '16px', alignItems: 'start', transition: 'all 0.3s' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isSidebarCollapsed ? '1fr' : `${sidebarWidth}px 8px 1fr`, gap: isSidebarCollapsed ? '0px' : '12px', alignItems: 'start', transition: isDragging ? 'none' : 'grid-template-columns 0.2s ease' }}>
             
             {/* LEFT INSPECTOR & FORM CONTROLS */}
             <div style={{ backgroundColor: '#0f172a', display: isSidebarCollapsed ? 'none' : 'block', border: '1px solid #1e293b', borderRadius: '14px', padding: '16px', maxHeight: '82vh', overflowY: 'auto' }}>
@@ -1015,6 +1084,24 @@ export default function App() {
                 </div>
               )}
             </div>
+
+            {/* Draggable Resizer Handle */}
+            {!isSidebarCollapsed && (
+              <div
+                onMouseDown={() => setIsDragging(true)}
+                style={{
+                  width: '8px',
+                  cursor: 'col-resize',
+                  backgroundColor: isDragging ? '#8b5cf6' : '#1e293b',
+                  borderRadius: '4px',
+                  height: '100%',
+                  minHeight: '80vh',
+                  transition: 'background-color 0.2s',
+                  alignSelf: 'stretch'
+                }}
+                title="Arraste para redimensionar o painel lateral"
+              />
+            )}
 
             {/* RIGHT: REAL IFRAME PREVIEW */}
             <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#060a12', padding: '16px', borderRadius: '16px', border: '1px solid #1e293b', minHeight: '82vh' }}>

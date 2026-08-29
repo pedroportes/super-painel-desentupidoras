@@ -37,10 +37,23 @@ Antes de tocar no código do site, precisamos cadastrar a cidade no "banco de da
 
 ## 🎨 Passo 2: Sincronização e Mídia (Identidade Visual)
 
-A nova cidade precisa ter sua própria Logo, Favicon e Foto de Fundo (Hero).
+A nova cidade precisa ter sua própria Logo, Favicon e Foto de Fundo (Hero)
+— **3 arquivos distintos, nunca o mesmo arquivo reaproveitado** (isso já
+aconteceu de verdade em produção com a cidade de Linhares e é tratado como
+bug, não como atalho válido).
 
-1. No terminal, crie as imagens de exemplo (se o usuário não as forneceu) ou instrua o usuário a usar o painel web (em `http://localhost:5000`) para fazer upload da Logo e do Favicon da nova empresa.
-2. Certifique-se de que, dentro do Astro, o arquivo `apps/site-template-astro/src/data/cityConfig.json` esteja preenchido **exatamente** com os dados da nova cidade que será exportada. O Astro usa **APENAS** este arquivo para gerar o site no build.
+1. Gerar os 3 (ou 4, incluindo o OG bônus) ativos visuais seguindo **ao pé
+   da letra** o prompt mestre e os tamanhos exatos documentados em
+   [`PROMPT-IDENTIDADE-VISUAL.md`](PROMPT-IDENTIDADE-VISUAL.md) — ele já
+   vem calibrado contra o CSS real do projeto (tamanho do logo no header,
+   caixa do hero nas páginas de serviço, etc.) e contra a paleta de cores
+   real da cidade (`paletaCores`). Usar o Canva (MCP conectado) ou outro
+   gerador de imagem disponível pra rodar os 4 prompts.
+2. Subir os arquivos gerados via `POST /api/upload-image` (`server.cjs`)
+   ou pelo painel web (`http://localhost:5000`), preenchendo os campos
+   `logoUrl`, `faviconUrl` e `heroImage` da cidade — nunca deixar dois
+   campos apontando pro mesmo arquivo.
+3. Certifique-se de que, dentro do Astro, o arquivo `apps/site-template-astro/src/data/cityConfig.json` esteja preenchido **exatamente** com os dados da nova cidade que será exportada. O Astro usa **APENAS** este arquivo para gerar o site no build.
 
 ---
 
