@@ -19,13 +19,15 @@ import cityData from '../data/cityConfig.json';
   // Real Production Canonical Base (Cloudflare / Vercel / Custom Domain)
   const cityKey = (cidade || cityData.cidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
   const hosting = cityData.hospedagem || 'cloudflare';
-  const productionBaseUrl = cityData.deployUrl 
+  const productionBaseUrl = cityData.deployUrl
     ? cityData.deployUrl.replace(/\/$/, '')
-    : (hosting === 'cloudflare' 
-        ? `https://desentupidora-${cityKey}.pages.dev` 
-        : (hosting === 'vercel' 
-            ? `https://desentupidora-${cityKey}.vercel.app` 
-            : `https://${cityData.dominio || `desentupidora${cityKey}.com.br`}`));
+    : (hosting === 'cloudflare'
+        ? `https://desentupidora-${cityKey}.pages.dev`
+        : (hosting === 'vercel'
+            ? `https://desentupidora-${cityKey}.vercel.app`
+            : (hosting === 'netlify'
+                ? `https://desentupidora-${cityKey}.netlify.app`
+                : `https://${cityData.dominio || `desentupidora${cityKey}.com.br`}`)));
 
   const canonicalUrl = `${productionBaseUrl}${currentPath === '/' ? '' : currentPath}`;
 

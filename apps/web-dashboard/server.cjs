@@ -108,6 +108,15 @@ function syncCityToAstro(city) {
       cnpj: city.cnpj || '',
       endereco: city.endereco || '',
       hospedagem: city.hospedagem || 'cloudflare',
+      // BUG REAL CORRIGIDO (30/08/2026): esse campo nunca era passado pro
+      // Astro, então o canonical/og:url/schema (Layout.astro) sempre caía
+      // na fórmula "adivinhada" de URL em vez da URL real de deploy — e
+      // quando a real tinha sufixo aleatório (Vercel "-zeta", Cloudflare
+      // "-sns") ou a cidade era Netlify (fórmula nem cobria esse caso,
+      // caía no domínio fake em `dominio`), o canonical publicado ficava
+      // errado. Confirmado em produção: Linhares, Curitiba e Poços de
+      // Caldas com canonical apontando pra URL/domínio que não é o real.
+      deployUrl: city.deployUrl || '',
       paletaCores: city.paletaCores || 'urgencia-azul-laranja',
       logoUrl: city.logoUrl || '',
       logoHeight: city.logoHeight || 64,

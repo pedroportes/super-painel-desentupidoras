@@ -164,6 +164,11 @@ curl -sI https://<deployUrl>/ | grep -i "^link"
 
 ## 🏁 Passo 6: Revisão Final e Entrega
 
+⚠️ **Antes de declarar a cidade "no ar", rodar o checklist completo da
+skill [`checklist-pre-publicacao`](../checklist-pre-publicacao/SKILL.md)**
+— título certo não é prova de página funcionando (já causou 404 real em
+produção, ver histórico em `CLAUDE_CODE_GUIDE.md` de 30/08/2026).
+
 Com o link do deploy gerado (ex: `https://desentupidora-nomedacidade.pages.dev`):
 1. Teste o funcionamento do WhatsApp em um dos botões (verifique se o número foi formatado sem espaços).
 2. Rode o site real em [isitagentready.com](https://isitagentready.com/) (mobile) e no

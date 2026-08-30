@@ -410,6 +410,20 @@ qualquer modelo.
 
 ---
 
+## ✅ Checklist obrigatório antes de publicar (`checklist-pre-publicacao`)
+
+Existe uma skill dedicada,
+[`.agents/skills/checklist-pre-publicacao/SKILL.md`](.agents/skills/checklist-pre-publicacao/SKILL.md),
+criada em 30/08/2026 depois de uma rodada de redeploy em massa ter sido
+verificada só pelo `<title>` de cada página e deixado passar 3 bugs reais
+de infraestrutura (um deles causou 404 em produção, visto pelo usuário
+antes de mim). Ativar essa skill **sempre** antes de publicar/redeployar
+qualquer cidade — ela tem as regras de ouro de infraestrutura (URL real
+vs. calculada, nome de projeto vs. subdomínio, integração Git que rouba o
+deploy manual, caminho de imagem com casing) e o checklist passo a passo
+de verificação (nunca só o título — CSS, imagem, canonical, og:url e
+schema JSON-LD todos batendo com a URL real).
+
 ## 🚀 Motor de Deploy (`scripts/deployEngine.cjs`)
 
 - Roda deploy **de verdade** via CLI oficial de cada provedor (`wrangler`,
@@ -444,6 +458,36 @@ qualquer modelo.
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **3 bugs reais achados pelo
+  usuário em produção (não pela IA) depois de um redeploy em massa
+  verificado só pelo `<title>` de cada página — corrigidos e documentados
+  numa skill nova, [`checklist-pre-publicacao`](.agents/skills/checklist-pre-publicacao/SKILL.md):**
+  1. **`syncCityToAstro()` nunca repassava `city.deployUrl` pro
+     `cityConfig.json`** — o canonical/og:url/schema (`Layout.astro`)
+     sempre caíam numa URL "calculada por fórmula" em vez da real.
+     Confirmado quebrado em produção: Linhares (Vercel, sufixo `-zeta`
+     não coberto pela fórmula), Curitiba (Cloudflare, sufixo `-sns`) e
+     **Poços de Caldas** (canonical apontando pra
+     `desentupidorapocosdecaldas.com.br`, domínio que não existe — a
+     fórmula nem tinha um caso pra hospedagem Netlify). Corrigido: campo
+     `deployUrl` agora passa por `syncCityToAstro()`, e `Layout.astro`
+     ganhou o caso `netlify` explícito no fallback.
+  2. **Araucária e Curitiba com `logoUrl`/`heroImage`/`faviconUrl`
+     apontando pra pasta com maiúscula/acento** (`/images/Araucária/...`,
+     `/images/Curitiba/...`) que não existe em disco (pasta real é
+     minúscula/sem acento) — sobrou da correção de casing do campo
+     `cidade` numa sessão anterior, que vazou pro caminho de imagem por
+     engano. Logo/hero ficavam 404 silenciosamente (build não reclama).
+     Corrigido pra Araucária e confirmado (imagem 200 depois do
+     redeploy); Curitiba com o mesmo bug, correção pendente de aplicar.
+  3. Ver também os 2 achados já documentados abaixo (projeto órfão
+     Cloudflare, integração GitHub↔Vercel roubando o alias de produção).
+  **Como foram descobertos**: o usuário abriu a página publicada de
+  Linhares manualmente com uma extensão de auditoria SEO no navegador e
+  viu o canonical errado — nenhuma dessas 3 coisas tinha sido pega pela
+  verificação da IA (que só conferiu `<title>` via `curl`). Daí a criação
+  da skill `checklist-pre-publicacao` com a regra explícita de nunca mais
+  verificar só o título.
 - **`84c329c`** (30/08/2026) — **Bug de deploy Cloudflare corrigido de vez
   (2ª rodada, mesmo dia): projeto órfão criado a cada redeploy.** Ao
   redeployar as 10 cidades com o conteúdo único novo (ver entrada de
