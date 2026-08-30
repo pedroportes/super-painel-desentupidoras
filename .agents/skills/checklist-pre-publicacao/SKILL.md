@@ -94,6 +94,27 @@ nunca se repetir.
     funciona, mas CSS, imagens e qualquer página em subpasta ficam 404
     silenciosamente. Usar sempre `apps/web-dashboard/scripts/zipUtil.cjs`
     (zip nativo em Node, sem shell).
+12. **Toda página precisa de um `<main>` envolvendo o conteúdo
+    principal, e heading nunca pode pular nível** (h1 → h3 sem h2 no
+    meio) — achado real rodando PageSpeed Insights numa cidade nova
+    (Blumenau, 30/08/2026): `index.astro` não tinha `<main>`, e o card
+    "Urgência 24h" do Hero era `<h3>` logo depois do `<h1>`. Confirmar
+    isso sempre que mexer na composição de uma página (`index.astro`,
+    `[slug].astro`) ou em qualquer componente com heading próprio.
+13. **Ao gerar logo/favicon no Canva pedindo um fundo sólido num hex
+    exato, nunca confiar que o Canva respeitou o hex.** Achado real: a
+    cor de fundo pedida (`#052e16`) saiu bem diferente na prática
+    (`~#05553e`). Antes de rodar `removeLogoBackground.cjs`, **amostrar
+    a cor real de um pixel de canto da imagem gerada** (ex: via `sharp`
+    lendo o buffer raw) e usar essa cor real no chroma-key, não o hex do
+    prompt.
+14. **Cor de texto branco sobre `--color-primary`/`--color-accent` da
+    paleta pode não ter contraste suficiente — medir de verdade (fórmula
+    WCAG), nunca assumir que uma cor "parece escura o bastante".**
+    Achado real (30/08/2026): 4 das 5 paletas do projeto falham contraste
+    WCAG AA pra texto branco em botão/badge — ver regra de ouro 13 e
+    pendência -1 do `CLAUDE_CODE_GUIDE.md` pros números exatos e o
+    porquê de ainda não estar corrigido (decisão de marca, não só bug).
 
 ---
 

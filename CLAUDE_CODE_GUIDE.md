@@ -224,6 +224,45 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
       adicionar `aria-label` fixo naquele elemento** (não depende do CSS,
       sempre presente) — nunca confiar só no texto interno quando existe
       CSS que pode escondê-lo condicionalmente.
+13. **Acessibilidade estrutural (achado real 30/08/2026, testando a
+    cidade nova Blumenau com PageSpeed Insights)**:
+    - **Toda página precisa de exatamente um `<main>`** envolvendo o
+      conteúdo principal (entre `Header` e `Footer`). `index.astro` não
+      tinha — corrigido (`<main>` agora envolve tudo de `HeroComponent`
+      até `Benefits`). `[slug].astro` já tinha nos dois branches
+      (bairro e serviço), não precisou mexer.
+    - **Ordem de heading nunca pode pular nível** (h1 → h3 sem h2 no
+      meio, por exemplo). Achado real: o card "⚡ Urgência 24 Horas em
+      {cidade}" dentro do Hero (`Hero.astro` e `HeroV1.astro`) era um
+      `<h3>` logo depois do `<h1>`, pulando o h2 — corrigido pra `<h2>`
+      (e o CSS `.card-header h3` pra `.card-header h2` junto, senão o
+      texto herda o tamanho de h2 genérico do navegador).
+    - ⚠️ **Achado grave, AINDA NÃO CORRIGIDO — contraste de cor em
+      botões/badges falha em 4 das 5 paletas do projeto.** Medido de
+      verdade (fórmula WCAG, razão de contraste calculada, não
+      estimativa) entre texto branco e as cores `--color-primary`/
+      `--color-accent` de cada paleta (usadas de fundo em botões como
+      "Chamar no WhatsApp" e badges como "Atendimento Emergencial"):
+      | Paleta | branco/primary | branco/accent | Passa? |
+      |---|---|---|---|
+      | `urgencia-azul-laranja` | 4,10 | 2,80 | ❌ (mínimo 4,5 texto / 3,0 botão) |
+      | `corporativo-verde-cinza` | 2,54 | 1,92 | ❌ |
+      | `residencial-bege` | 3,19 | 2,15 | ❌ |
+      | `industrial-amarelo` | 1,92 | 1,53 | ❌ |
+      | `clean-azul` | 5,17 | 3,68 | ✅ (única que passa) |
+
+      Ou seja, **10 das 12 cidades atuais** (todas menos as que usam
+      `clean-azul`, hoje só Porto Seguro) têm texto branco genuinamente
+      difícil de ler em botões/badges de destaque — confirmado
+      visualmente (screenshot) e via `getComputedStyle` real no site
+      publicado de Blumenau, não só pelo Lighthouse. **Não corrigido
+      ainda de propósito**: mudar as cores de uma paleta usada em
+      produção é uma decisão de marca/visual (a cor "clara e vibrante"
+      pode ter sido escolhida assim de propósito), não só um bug de
+      código — precisa de decisão explícita do usuário sobre qual
+      caminho seguir (escurecer `primary`/`accent`, ou manter as cores e
+      trocar o texto do botão pra uma cor escura em vez de branco, ou
+      aceitar o risco e não mexer).
 
 ## 🌐 AEO (agentes de IA) — o que existe e o que falta
 
@@ -470,6 +509,37 @@ schema JSON-LD todos batendo com a URL real).
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **Cidade de teste Blumenau-SC
+  criada do zero ponta a ponta, validando todo o processo corrigido
+  nesta sessão.** Cadastro com conteúdo 100% único (fatos reais:
+  colonização alemã, Oktoberfest, indústria têxtil, histórico de
+  enchentes do Rio Itajaí-Açu), logo/favicon gerados via Canva (fundo
+  removido por chroma-key — achado no processo: o Canva não respeitou o
+  hex exato pedido pro fundo sólido, a cor real saiu bem diferente do
+  hex solicitado; corrigido amostrando a cor real do pixel em vez de
+  confiar no hex do prompt), hero fotorrealista gerado via Canva com
+  ortografia conferida visualmente antes de aprovar. Build local
+  (`auditScore: 100`) e deploy real no Cloudflare confirmados, checklist
+  completo batendo (`audit_live_sites.cjs`): título 40-60 chars,
+  descrição 120-160, canonical/og/schema batendo com a URL real, CSS e
+  imagem 200. Validação externa: **isitagentready.com deu 40/100, Nível
+  4 "Agent-Integrated"** (melhor que qualquer cidade Vercel/Netlify
+  porque a negociação de Markdown funciona no Cloudflare) e
+  **PageSpeed Insights: Performance 69, Acessibilidade 92, Práticas
+  Recomendadas 100, SEO 100**. A auditoria de acessibilidade do
+  PageSpeed nessa cidade nova revelou 3 achados novos, aplicados nas 12
+  cidades (ver regra de ouro 13 e pendência -1 acima): falta de `<main>`
+  na home, ordem de heading pulando nível no Hero, e um achado grave de
+  contraste de cor (4 de 5 paletas falham) ainda aguardando decisão do
+  usuário.
+- **`(pendente de commit)`** (30/08/2026) — **Título com piso mínimo de
+  40 caracteres, não só teto de 60.** Achado por extensão de auditoria
+  SEO no navegador que marcou em vermelho um título de 36 caracteres por
+  ser curto demais. `buildDefaultMetaTitle()` novo em `server.cjs`
+  adiciona complemento só quando cabe em 60 chars. `audit_live_sites.cjs`
+  ganhou constantes numéricas exatas (`TITLE_MIN/MAX`, `DESC_MIN/MAX`) —
+  checklist agora confere faixa completa, não só presença de keyword.
+  Redeployadas as 11 cidades existentes com o título corrigido.
 - **`(pendente de commit)`** (30/08/2026) — **Bug real e sério no deploy
   Netlify: zip do PowerShell corrompia toda a estrutura de pastas no ar.**
   Achado ao rodar o checklist completo em todas as 11 cidades (pedido
@@ -834,6 +904,11 @@ schema JSON-LD todos batendo com a URL real).
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
+-1. **Contraste de cor branco-sobre-paleta falha em 4 das 5 paletas —
+    AGUARDANDO DECISÃO DO USUÁRIO.** Ver regra de ouro 13 acima pra
+    números exatos. Afeta 10 das 12 cidades atuais. Landmark `<main>`
+    ausente e ordem de heading pulando nível **já foram corrigidos** (as
+    2 outras coisas achadas no mesmo teste) e aplicados nas 12 cidades.
 0. **Conteúdo quase-duplicado entre cidades — CORRIGIDO e REPUBLICADO em
    30/08/2026.** Ver seção completa "✅ RISCO CRÍTICO: conteúdo
    quase-duplicado entre cidades" acima: as 10 cidades com conteúdo
