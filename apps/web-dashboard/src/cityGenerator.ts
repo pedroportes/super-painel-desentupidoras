@@ -36,6 +36,11 @@ export interface CityConfig {
   uf: string;
   deployUrl?: string;
   lastDeployAt?: string;
+  // Nome REAL do projeto na Cloudflare Pages (distinto do subdomínio
+  // .pages.dev, que pode ganhar sufixo aleatório em caso de colisão global
+  // de nome). Só existe pra cidades hospedadas na Cloudflare. Ver
+  // deployEngine.cjs para o porquê disso nunca poder ser re-derivado da URL.
+  cloudflareProjectName?: string;
   populacao: string;
   modeloTemplate: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato';
   status: 'ativo' | 'em_construcao' | 'pendente';

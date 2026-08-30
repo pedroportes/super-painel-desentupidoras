@@ -58,18 +58,25 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
 
   const apiToken = (keys.apiToken || '').trim();
   const accountId = (keys.accountId || '').trim();
-  // Reaproveita o slug do projeto já existente (extraído do deployUrl salvo)
-  // sempre que possível, em vez de recalcular do nome da cidade toda vez —
-  // bug real encontrado em 30/08/2026 (cidade "curitiba"): o nome
-  // "desentupidora-curitiba" já estava ocupado por outro projeto/conta no
-  // Cloudflare (subdomínio .pages.dev é global, não só por conta), e o
-  // wrangler resolveu a colisão criando o projeto como
-  // "desentupidora-curitiba-sns" — só que o código sempre assumia
-  // cegamente a URL `https://${projectName}.pages.dev`, então o painel
-  // ficava reportando/salvando uma URL que nunca foi a real, e cada novo
-  // deploy arriscava colidir de novo e criar OUTRO projeto/subdomínio.
-  const existingSlugMatch = (cityConfig.deployUrl || '').match(/^https:\/\/([a-z0-9-]+)\.pages\.dev/i);
-  const projectName = existingSlugMatch ? existingSlugMatch[1] : getCleanProjectName(cityConfig.cidade);
+  // IMPORTANTE (bug real corrigido 2x, 30/08/2026): o NOME do projeto na
+  // Cloudflare e o SUBDOMÍNIO público (`<algo>.pages.dev`) são campos
+  // diferentes e podem divergir. Quando o nome pedido colide com outro
+  // projeto/conta (subdomínio .pages.dev é global), a Cloudflare mantém o
+  // nome do projeto como pedido mas gera um SUBDOMÍNIO com sufixo
+  // aleatório (ex: projeto "desentupidora-curitiba" -> subdomínio
+  // "desentupidora-curitiba-sns.pages.dev"). A primeira correção (extrair
+  // o "slug" de dentro da URL salva e reusar como --project-name) parecia
+  // funcionar mas na verdade piorava: como o slug extraído da URL
+  // ("desentupidora-curitiba-sns") não é o nome real do projeto
+  // ("desentupidora-curitiba"), cada redeploy criava um projeto NOVO com
+  // esse nome errado, que por sua vez colidia de novo e ganhava OUTRO
+  // sufixo — um projeto órfão novo a cada deploy. A correção definitiva é
+  // nunca mais derivar o nome do projeto a partir da URL: guardamos o
+  // nome real retornado pela própria Cloudflare (`cloudflareProjectName`)
+  // no cadastro da cidade na primeira vez, e sempre reusamos esse valor
+  // depois. Só cai no cálculo por nome da cidade se for o primeiro deploy
+  // de todos (cidade nunca publicada nessa conta).
+  const projectName = cityConfig.cloudflareProjectName || getCleanProjectName(cityConfig.cidade);
   const env = {
     ...process.env,
     CLOUDFLARE_API_TOKEN: apiToken,
@@ -116,6 +123,7 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
     success: true,
     provider,
     url: `https://${realProjectSlug}.pages.dev`,
+    cloudflareProjectName: projectName,
     log: output,
     deployedAt: new Date().toISOString()
   };

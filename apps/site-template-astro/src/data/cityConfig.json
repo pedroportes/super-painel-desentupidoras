@@ -1,20 +1,20 @@
 {
-  "cidade": "Londrina",
+  "cidade": "Curitiba",
   "estado": "Paraná",
   "uf": "PR",
-  "populacao": "1.773.733500000",
-  "ddd": "43",
-  "whatsapp": "43999999999",
-  "telefoneFixo": "(27) 3400-0000",
-  "empresaNome": "Desentupidora Familiar Londrina",
-  "cnpj": "34.567.890/0001-12",
-  "endereco": "Rua das Flores, 250 - Bairro Residencial, Londrina - PR",
-  "hospedagem": "vercel",
-  "paletaCores": "residencial-bege",
-  "logoUrl": "/images/londrina/logo-desentupidora-londrina.webp",
+  "populacao": "150.000",
+  "ddd": "27",
+  "whatsapp": "27999998888",
+  "telefoneFixo": "(27) 3000-0000",
+  "empresaNome": "Desentupidora Curitiba 24h",
+  "cnpj": "",
+  "endereco": "",
+  "hospedagem": "cloudflare",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/Curitiba/logo-desentupidora-Curitiba.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/londrina/logo-desentupidora-londrina.webp",
-  "heroImage": "/images/londrina/desentupidora-londrina-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/Curitiba/logo-desentupidora-Curitiba.webp",
+  "heroImage": "/images/Curitiba/desentupidora-Curitiba-tecnico-desentupimento.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -25,101 +25,107 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Londrina PR 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Londrina PR. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Londrina: Atendimento na Maior Cidade do Norte do Paraná",
-    "firstParagraphText": "Contratar uma desentupidora em Londrina significa contar com quem conhece a famosa terra roxa da região e seu efeito nas tubulações: atendemos toda a cidade, do Centro à Gleba Palhano, com atendimento 24h e sem quebra de piso.",
-    "lastH2Title": "A desentupidora de Londrina que entende o solo e o ritmo da cidade universitária"
+    "metaTitle": "Desentupidora em Curitiba PR 24h",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Curitiba PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Curitiba: Atendimento Rápido em Toda a Capital Paranaense",
+    "firstParagraphText": "Procurando uma desentupidora em Curitiba que atenda com agilidade nos bairros mais movimentados e nos mais residenciais? Trabalhamos em toda a capital paranaense, do Batel ao Boqueirão, com atendimento 24h e sem quebra de piso.",
+    "lastH2Title": "A desentupidora de Curitiba que atende com agilidade toda a capital"
   },
-  "aboutCityTitle": "Desentupidora em Londrina: atenção à terra roxa e à alta densidade de imóveis",
-  "aboutCityText": "Londrina nasceu como cidade planejada durante o ciclo do café e hoje é a maior cidade do Norte do Paraná, com grande concentração de estudantes por causa da Universidade Estadual de Londrina (UEL). O solo da região, conhecido como terra roxa, é fértil para a agricultura mas também bastante sensível à variação de umidade, expandindo e contraindo conforme a chuva — o que pode deslocar levemente tubulações enterradas mais antigas e causar entupimentos recorrentes. Em bairros com grande concentração de apartamentos e repúblicas estudantis, próximos à UEL, também é comum o acúmulo mais rápido de gordura e resíduos em pias de cozinha pelo uso intenso. Nossa equipe conhece essas características do solo e do perfil de ocupação da cidade.",
+  "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
+  "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Jardim América",
-    "Bela Vista",
-    "São José",
-    "Santa Cruz",
-    "Vila Nova",
-    "Planalto",
-    "Bairro Alto"
+    "Interlagos",
+    "Conceição",
+    "Novo Horizonte",
+    "Avisos",
+    "Araçá",
+    "BNH",
+    "Juparanã"
   ],
   "services": [
     {
-      "title": "Desentupimento de Pia de Cozinha",
-      "description": "Desobstrução rápida de gordura acumulada sem estragar o sifão e com limpeza total do local.",
-      "icon": "🚰"
-    },
-    {
-      "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e cuidadoso. Desobstruímos seu vaso sanitário sem remover a louça.",
-      "icon": "🚽"
-    },
-    {
-      "title": "Desentupimento de Ralo e Banheiro",
-      "description": "Remoção de cabelos, sabonetes e sujeiras em ralos de chuveiro, lavanderias e quintais.",
-      "icon": "🛁"
-    },
-    {
-      "title": "Desentupimento de Rede de Esgoto",
-      "description": "Máquinas elétricas com sondas flexíveis que limpam as tubulações da casa com máxima segurança.",
+      "id": "esgoto",
+      "title": "Desentupimento de Esgoto",
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
       "icon": "🚿"
     },
     {
-      "title": "Limpeza de Caixa de Gordura Residencial",
-      "description": "Remoção de resíduos sólidos para evitar mau cheiro e refluxo de água na cozinha.",
-      "icon": "🛢️"
+      "id": "pia",
+      "title": "Desentupimento de Pia",
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "icon": "🚰"
     },
     {
-      "title": "Limpeza de Fossa Séptica Residencial",
-      "description": "Esgotamento rápido com caminhão limpa fossa para chácaras e residências de ${cidade}.",
+      "id": "vaso",
+      "title": "Desentupimento de Vaso Sanitário",
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
+    },
+    {
+      "id": "ralo",
+      "title": "Desentupimento de Ralo",
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
+    },
+    {
+      "id": "fossa",
+      "title": "Esgotamento e Limpeza de Fossa",
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
       "icon": "🚛"
+    },
+    {
+      "id": "hidrojato",
+      "title": "Hidrojateamento de Alta Pressão",
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+      "icon": "🌊"
     }
   ],
   "faqs": [
     {
-      "question": "A terra roxa de Londrina pode causar entupimento na tubulação?",
-      "answer": "Sim, esse tipo de solo se expande e contrai com a umidade, podendo deslocar levemente tubulações enterradas mais antigas. Fazemos vídeo inspeção para identificar o ponto exato do problema."
+      "question": "O clima instável de Curitiba aumenta o risco de entupimento?",
+      "answer": "Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo."
     },
     {
-      "question": "Vocês atendem repúblicas e apartamentos de estudantes perto da UEL?",
-      "answer": "Sim, atendemos toda a região próxima à universidade, com agilidade para resolver o entupimento sem grandes transtornos."
+      "question": "Vocês atendem apartamentos e prédios em Curitiba?",
+      "answer": "Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde."
     },
     {
-      "question": "Qual o tempo de chegada em bairros como Gleba Palhano?",
-      "answer": "Em média de 20 a 40 minutos, dependendo do trânsito da cidade."
+      "question": "Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?",
+      "answer": "Em média de 25 a 45 minutos, dependendo do trânsito da cidade."
     },
     {
-      "question": "A visita técnica em Londrina tem custo?",
+      "question": "A visita técnica em Curitiba tem custo?",
       "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
     },
     {
-      "question": "Vocês atendem emergências 24 horas em Londrina?",
-      "answer": "Sim, plantão 24 horas todos os dias da semana, inclusive finais de semana."
+      "question": "Vocês atendem emergências durante temporais em Curitiba?",
+      "answer": "Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes."
     },
     {
-      "question": "Precisa quebrar piso para resolver entupimento causado pela terra roxa?",
-      "answer": "Raramente. Na maioria dos casos, a desobstrução é feita por dentro da tubulação, sem necessidade de obras."
+      "question": "Precisa quebrar piso de apartamento para desentupir a prumada?",
+      "answer": "Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação."
     }
   ],
   "testimonials": [
     {
-      "name": "Juliano Casagrande",
-      "neighborhood": "Gleba Palhano - Londrina",
+      "name": "Fernanda Osaki",
+      "neighborhood": "Batel - Curitiba",
       "rating": 5,
-      "text": "Meu quintal tem terra roxa mesmo, e o cano enterrado tinha se deslocado um pouco. Resolveram sem quebrar o jardim todo."
+      "text": "Moro em apartamento e a prumada entupiu num dia de chuva forte. Resolveram rápido sem precisar mexer no meu banheiro."
     },
     {
-      "name": "Amanda Kikuti",
-      "neighborhood": "Centro - Londrina",
+      "name": "Anderson Wolski",
+      "neighborhood": "Água Verde - Curitiba",
       "rating": 5,
-      "text": "Moro perto da UEL e divido apartamento com mais gente. A pia vivia entupindo de gordura. Depois da limpeza, melhorou muito."
+      "text": "Prédio antigo, cano velho, mas a equipe soube lidar bem e não sujou nada."
     },
     {
-      "name": "Rogério Sanches",
-      "neighborhood": "Igapó - Londrina",
+      "name": "Priscila Andrade",
+      "neighborhood": "Boqueirão - Curitiba",
       "rating": 5,
-      "text": "Atendimento rápido e educado, chegaram no horário combinado e resolveram na primeira visita."
+      "text": "Depois de um temporal, o esgoto voltou pela pia. Chamei e vieram mesmo com a chuva ainda forte."
     }
   ]
 }

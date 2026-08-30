@@ -965,6 +965,13 @@ app.post('/api/deploy-city/:id', async (req, res) => {
   city.status = 'ativo';
   city.deployUrl = deployResult.url;
   city.lastDeployAt = deployResult.deployedAt;
+  // Guarda o nome REAL do projeto na Cloudflare (distinto do subdomínio
+  // .pages.dev) pra nunca mais precisar re-derivar da URL — ver comentário
+  // em deployEngine.cjs sobre o bug de projetos órfãos criados a cada
+  // redeploy quando nome do projeto != slug do subdomínio.
+  if (deployResult.cloudflareProjectName) {
+    city.cloudflareProjectName = deployResult.cloudflareProjectName;
+  }
   writeCities(cities);
 
   res.json({
