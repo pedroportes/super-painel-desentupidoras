@@ -1,10 +1,21 @@
 /**
  * Auditoria real de todas as cidades publicadas — parte da skill
  * checklist-pre-publicacao. Confere, pra cada cidade: HTML 200, CSS 200,
- * imagem 200, title com keyword, canonical/og:url/schema batendo com a
- * URL real, e um trecho de conteúdo único presente. Não confia em nada
- * "provavelmente certo" — busca o HTML de verdade e testa cada asset.
+ * imagem 200, title/description com keyword E dentro da faixa numérica
+ * certa, canonical/og:url/schema batendo com a URL real. Não confia em
+ * nada "provavelmente certo" — busca o HTML de verdade e testa cada
+ * asset.
+ *
+ * Faixas numéricas (regra de ouro 10, achado real 30/08/2026): uma
+ * extensão de auditoria SEO marcou em VERMELHO um título de 36
+ * caracteres por ser CURTO DEMAIS, não só por estourar um máximo — título
+ * "≤60" não basta, tem que ter piso também.
  */
+const TITLE_MIN = 40;
+const TITLE_MAX = 60;
+const DESC_MIN = 120;
+const DESC_MAX = 160;
+
 const cities = require('../data/cities.json');
 
 async function auditCity(city) {
@@ -28,16 +39,27 @@ async function auditCity(city) {
     return result;
   }
 
-  // Title
+  // Title — keyword E faixa numérica (40-60 chars)
   const titleMatch = html.match(/<title>([^<]*)<\/title>/);
   const title = titleMatch ? titleMatch[1] : '';
   const cidadeFirstWord = city.cidade.split(' ')[0];
-  result.checks.title = title;
-  if (!title.toLowerCase().includes('desentupidora') || !title.toLowerCase().includes(cidadeFirstWord.toLowerCase())) {
+  result.checks.title = `${title} (${title.length} chars)`;
+  const titleHasKeyword = title.toLowerCase().includes('desentupidora') && title.toLowerCase().includes(cidadeFirstWord.toLowerCase());
+  const titleLenOk = title.length >= TITLE_MIN && title.length <= TITLE_MAX;
+  result.checks.titleOk = titleHasKeyword && titleLenOk;
+  if (!titleHasKeyword) result.checks.titleProblema = 'sem keyword/cidade no title';
+  if (!titleLenOk) result.checks.titleProblema = `tamanho fora de ${TITLE_MIN}-${TITLE_MAX} (tem ${title.length})`;
+  if (!result.checks.titleOk) result.ok = false;
+
+  // Meta description — faixa numérica (120-160 chars)
+  const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
+  const description = descMatch ? descMatch[1] : '';
+  result.checks.description = `${description.length} chars`;
+  const descLenOk = description.length >= DESC_MIN && description.length <= DESC_MAX;
+  result.checks.descriptionOk = descLenOk;
+  if (!descLenOk) {
+    result.checks.descriptionProblema = `tamanho fora de ${DESC_MIN}-${DESC_MAX} (tem ${description.length})`;
     result.ok = false;
-    result.checks.titleOk = false;
-  } else {
-    result.checks.titleOk = true;
   }
 
   // Canonical

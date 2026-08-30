@@ -9,6 +9,22 @@ const { deployCitySite } = require('./scripts/deployEngine.cjs');
 const app = express();
 const PORT = 5002;
 
+// Fórmula padrão de metaTitle — regra de ouro 10 (CLAUDE_CODE_GUIDE.md):
+// título tem que ficar entre 40 e 60 caracteres, nunca só "≤60". Achado
+// real (30/08/2026): uma extensão de auditoria SEO no navegador marcou em
+// VERMELHO um título de 36 caracteres por ser CURTO DEMAIS (desperdiça o
+// espaço de exibição do Google, ~50-60 chars), não só por estourar o
+// limite máximo. A fórmula original ("Desentupidora em {cidade} {uf}
+// 24h") ficava entre 31 e 47 chars pra nomes reais de cidade — sempre
+// abaixo do mínimo saudável. Correção: adiciona um complemento só quando
+// cabe dentro do limite de 60, senão cai pro título curto (nunca estoura
+// o máximo pra caber o complemento).
+function buildDefaultMetaTitle(cidade, uf) {
+  const base = `Desentupidora em ${cidade} ${uf} 24h`;
+  const rich = `${base} - Atendimento Rápido`;
+  return rich.length <= 60 ? rich : base;
+}
+
 function slugify(text) {
   return text
     .toString()
@@ -143,7 +159,7 @@ function syncCityToAstro(city) {
         // chars, "São José dos Pinhais" batia 75) — só "Linhares"/
         // "Itabuna" (nomes curtos) mascaravam o bug. Ver golden rule 10 em
         // CLAUDE_CODE_GUIDE.md.
-        metaTitle: city.metaTitle || `Desentupidora em ${city.cidade} ${city.uf} 24h`,
+        metaTitle: city.metaTitle || buildDefaultMetaTitle(city.cidade, city.uf),
         metaDescription: city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`,
         h1Title: city.h1Title || `Desentupidora em ${city.cidade} ${city.uf} 24h`,
         firstParagraphText: city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região, com garantia por escrito e o menor preço.`,
@@ -403,7 +419,7 @@ app.get('/api/preview/:id', (req, res) => {
   const footerAboutText = city.footerAboutText || `Empresa líder em serviços de desentupimento de esgoto, pias, ralos, vasos e limpeza de fossas com atendimento emergencial 24h em ${city.cidade} e região.`;
   const footerContactTitle = city.footerContactTitle || `Contato Direto`;
 
-  const metaTitle = city.metaTitle || `Desentupidora em ${city.cidade} ${city.uf} 24h`;
+  const metaTitle = city.metaTitle || buildDefaultMetaTitle(city.cidade, city.uf);
   const metaDescription = city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
   
   const schemaLocalBusiness = {

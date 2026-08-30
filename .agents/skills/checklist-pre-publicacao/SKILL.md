@@ -31,10 +31,16 @@ nunca se repetir.
    sem reescrever. Isso é risco real de penalização Google por "scaled
    content abuse" (ver [`CLAUDE_CODE_GUIDE.md`](../../../CLAUDE_CODE_GUIDE.md),
    seção "RISCO CRÍTICO: conteúdo quase-duplicado").
-2. **Title ≤ ~60 caracteres, Meta Description ≤ ~155-160 caracteres** —
-   contar caractere de verdade (`.length` em JS), nunca estimar de cabeça.
-   Nomes de cidade compostos (Cachoeiro de Itapemirim, São José dos
-   Pinhais, Vitória da Conquista) estouram fácil.
+2. **Title entre 40 e 60 caracteres, Meta Description entre 120 e 160
+   caracteres — faixa NUMÉRICA com piso e teto, nunca só um máximo.**
+   Contar caractere de verdade (`.length` em JS), nunca estimar de
+   cabeça. Nomes de cidade compostos (Cachoeiro de Itapemirim, São José
+   dos Pinhais, Vitória da Conquista) estouram o teto fácil; nomes
+   curtos (Linhares, Itabuna) ficam abaixo do piso fácil — achado real
+   30/08/2026: uma extensão de auditoria SEO marcou em vermelho um
+   título de 36 caracteres por ser curto demais, não por estourar nada.
+   `apps/web-dashboard/scripts/audit_live_sites.cjs` confere essa faixa
+   automaticamente (constantes no topo do arquivo).
 3. **Palavra-chave regional** (`[Serviço] em [Cidade] [UF]`) tem que
    aparecer no title, meta description, H1, primeira frase do primeiro
    parágrafo, **e no último H2 antes do rodapé** — confirmar que esse H2 é
@@ -111,7 +117,10 @@ Para **cada cidade** que for publicada ou redeployada:
 - [ ] Pelo menos 1 arquivo CSS referenciado no HTML: status 200 (não só
       "está no `<link>`", testar o arquivo de verdade)
 - [ ] Pelo menos 1 imagem referenciada no HTML (logo ou hero): status 200
-- [ ] `<title>` contém a palavra-chave e a cidade certa
+- [ ] `<title>` contém a palavra-chave e a cidade certa **e tem entre 40
+      e 60 caracteres** (não só checar presença de texto — medir
+      `.length` de verdade)
+- [ ] `<meta name="description">` tem entre 120 e 160 caracteres
 - [ ] **`<link rel="canonical">` bate exatamente com a URL que está sendo
       testada** (copiar um do outro, não só "parece certo")
 - [ ] `og:url` e o campo `"url"` do schema JSON-LD também batem com a URL

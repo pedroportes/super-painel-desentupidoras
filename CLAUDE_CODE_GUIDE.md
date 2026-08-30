@@ -153,25 +153,37 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
    1º parágrafo, `aboutCityText`, FAQs) manualmente com fatos reais e
    específicos daquela cidade — nunca usar `generateUniqueCityContent()`
    direto pra produção sem reescrever o texto.
-10. **Title ≤ ~60 caracteres, Meta Description ≤ ~155-160 caracteres** —
-    ⚠️ **bug real encontrado em 30/08/2026**: o `metaTitle` da cidade de
-    teste Vitória da Conquista ficou com **83 caracteres** e a
-    `metaDescription` com **165** (Google trunca/penaliza acima disso,
-    confirmado por extensão de auditoria SEO no navegador). Pior: **até a
-    fórmula padrão/fallback** em `syncCityToAstro()` (`server.cjs`) quebra
-    essa regra sozinha pra cidades de nome longo — `Desentupidora em
-    Vitória da Conquista BA 24h | Atendimento Sem Quebrar Piso` já nasce
-    com **75 caracteres**, sem nenhum texto custom. **Nunca concatenar o
-    nome da cidade num título/descrição fixo sem checar o tamanho final**
-    — cidades com nome curto (Linhares, 8 letras) mascaram esse bug,
-    cidades com nome composto/longo (Vitória da Conquista, Poços de
-    Caldas, São José dos Pinhais) o expõem. Antes de aprovar um
-    `metaTitle`/`metaDescription` (custom ou gerado por fórmula), **contar
-    caracteres de verdade** (`nome.length` em JS, não estimar de cabeça) e
-    manter título curto e direto (`Desentupidora em [Cidade] [UF] 24h` já
-    basta e cabe até em nomes longos) em vez de tentar encaixar
-    diferenciais extras no título — o diferencial fica no `firstParagraph`
-    e no `aboutCityText`, que não têm limite rígido de caracteres.
+10. **Title entre 40 e 60 caracteres, Meta Description entre 120 e 160
+    caracteres — faixa NUMÉRICA, com piso e teto, nunca só um máximo.**
+    ⚠️ **2 bugs reais encontrados, em datas diferentes**:
+    - **29/08/2026**: o `metaTitle` da cidade de teste Vitória da
+      Conquista ficou com **83 caracteres** e a `metaDescription` com
+      **165** (estourando o teto — Google trunca/penaliza). Até a
+      fórmula padrão/fallback em `syncCityToAstro()` quebrava essa regra
+      sozinha pra cidades de nome longo (`... | Atendimento Sem Quebrar
+      Piso` já nascia com 75 caracteres).
+    - **30/08/2026**: depois de corrigido o teto, uma extensão de
+      auditoria SEO no navegador marcou em **VERMELHO** um título de
+      **36 caracteres** ("Desentupidora em Porto Seguro BA 24h") — **por
+      ser CURTO DEMAIS**, não por estourar nada. Título "≤60" sem piso
+      desperdiça o espaço de exibição real do Google (~50-60 chars) e é
+      penalizado por ferramentas de auditoria. Medido: a fórmula padrão
+      simples ficava entre **31 e 47 chars** pra nomes reais de cidade —
+      sempre abaixo de um piso saudável.
+    - **Fórmula corrigida** (`buildDefaultMetaTitle()` em `server.cjs`):
+      adiciona o complemento `" - Atendimento Rápido"` só quando o
+      resultado cabe em 60 caracteres, senão cai pro título curto —
+      nunca estoura o teto pra caber o complemento. Testado nas 11
+      cidades reais: todas ficam entre 44 e 60 chars.
+    - **Nunca concatenar o nome da cidade num título/descrição fixo sem
+      checar o tamanho final contra as DUAS pontas** (`nome.length` em
+      JS, não estimar de cabeça) — cidades com nome curto (Linhares)
+      mascaram o teto estourando; cidades com nome longo (Vitória da
+      Conquista, São José dos Pinhais) mascaram o piso não sendo
+      atingido. `apps/web-dashboard/scripts/audit_live_sites.cjs`
+      confere essa faixa numérica automaticamente em produção agora
+      (constantes `TITLE_MIN`/`TITLE_MAX`/`DESC_MIN`/`DESC_MAX` no topo
+      do arquivo).
 11. **Nota real no [isitagentready.com](https://isitagentready.com/)** —
     além da auditoria interna (`npm run audit`, `seoGeoAuditor.js`, que
     verifica só a estrutura do HTML), todo site publicado deve ser testado

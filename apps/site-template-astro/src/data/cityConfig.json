@@ -1,21 +1,21 @@
 {
-  "cidade": "Porto Seguro",
+  "cidade": "Vitória da Conquista",
   "estado": "Bahia",
   "uf": "BA",
-  "populacao": "182.630",
-  "ddd": "73",
-  "whatsapp": "73988112233",
-  "telefoneFixo": "(73) 3288-0000",
-  "empresaNome": "Desentupidora Porto Seguro 24h",
-  "cnpj": "44.333.222/0001-99",
-  "endereco": "Av. dos Navegantes, 300 - Centro, Porto Seguro - BA",
-  "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-portoseguro.vercel.app",
-  "paletaCores": "clean-azul",
-  "logoUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+  "populacao": "343.000",
+  "ddd": "77",
+  "whatsapp": "77998877665",
+  "telefoneFixo": "(77) 3421-0000",
+  "empresaNome": "Desentupidora Conquista 24h",
+  "cnpj": "45.678.901/0001-23",
+  "endereco": "Av. Olívia Flores, 1200 - Candeias, Vitória da Conquista - BA",
+  "hospedagem": "cloudflare",
+  "deployUrl": "https://desentupidora-vitoriadaconquista.pages.dev",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
-  "heroImage": "/images/portoseguro/desentupidora-portoseguro-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
+  "heroImage": "/images/vitoriadaconquista/desentupidora-vitoriadaconquista-caminhao-limpa-fossa.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -26,24 +26,52 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Porto Seguro BA 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Porto Seguro BA. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Porto Seguro: Atendimento em Toda a Região Turística",
-    "firstParagraphText": "Precisa de uma desentupidora em Porto Seguro que entenda a realidade de uma cidade turística à beira-mar? Atendemos residências, pousadas e comércios do Centro Histórico a Arraial d'Ajuda e Trancoso, com orçamento gratuito.",
-    "lastH2Title": "A desentupidora de Porto Seguro preparada para a alta temporada"
+    "metaTitle": "Desentupidora em Vitória da Conquista BA 24h",
+    "metaDescription": "Desentupidora em Vitória da Conquista BA 24h: esgoto, fossa e caixa de gordura. Atendimento no Centro e no planalto, visita técnica grátis.",
+    "h1Title": "Desentupidora em Vitória da Conquista BA: Atendimento 24h no Planalto da Conquista",
+    "firstParagraphText": "Precisando de uma desentupidora em Vitória da Conquista BA? Nossa equipe atende toda a cidade — do Centro aos bairros mais altos do planalto — com plantão 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, incluindo clínicas e comércios da região, que é referência em saúde e serviços para todo o sudoeste baiano.",
+    "lastH2Title": "Por que escolher a melhor Desentupidora em Vitória da Conquista BA?"
   },
-  "aboutCityTitle": "Desentupidora em Porto Seguro: preparo para o clima litorâneo e a alta temporada",
-  "aboutCityText": "Porto Seguro é um dos destinos turísticos mais procurados do litoral baiano, com forte movimento em distritos como Arraial d'Ajuda e Trancoso, especialmente na alta temporada. O clima litorâneo, com maresia constante, acelera a corrosão de conexões metálicas e reduz a vida útil de tubulações mal protegidas, enquanto o solo arenoso típico da região favorece a infiltração de areia em ligações de esgoto mais antigas. Durante a alta temporada, o aumento de hóspedes em pousadas também sobrecarrega fossas e redes de esgoto dimensionadas para uso residencial. Nossa equipe conhece essas particularidades e atende com agilidade tanto moradores quanto empreendimentos turísticos.",
-  "parceiros": [],
+  "aboutCityTitle": "Estrutura e Atendimento de Desentupidora em Vitória da Conquista - BA",
+  "aboutCityText": "Vitória da Conquista fica no planalto do sudoeste da Bahia, a mais de 900 metros de altitude — clima bem mais ameno que o litoral baiano, o que também favorece a vegetação densa em bairros mais antigos como Candeias e Recreio, onde raízes de árvore são uma causa comum de entupimento em redes de esgoto mais antigas. A cidade é o maior polo comercial, de saúde e de educação do sudoeste da Bahia, recebendo fluxo constante de moradores de cidades vizinhas — o que significa alta demanda de clínicas, hospitais e comércios ao longo da BR-116 por manutenção preventiva de caixa de gordura e desobstrução de esgoto. Nossa equipe mantém viaturas posicionadas ao longo da rodovia para atender rápido tanto o Centro quanto os bairros mais afastados do planalto.",
+  "parceiros": [
+    {
+      "id": "1788109114948",
+      "nome": "Desentupidora Itabuna 24h",
+      "cidade": "Itabuna",
+      "uf": "BA",
+      "dominio": "desentupidoraitabuna.com.br",
+      "url": "https://desentupidora-itabuna.pages.dev",
+      "descricao": "Também fazemos parte da nossa rede de atendimento em Itabuna - BA, com equipe e estrutura própria posicionada na região sul da Bahia.",
+      "status": "ativo",
+      "tipo": "Rede de atendimento"
+    },
+    {
+      "id": "1788109114949",
+      "nome": "Desentupidora Porto Seguro 24h",
+      "cidade": "Porto Seguro",
+      "uf": "BA",
+      "dominio": "desentupidoraportoseguro.com.br",
+      "url": "https://desentupidora-portoseguro.vercel.app",
+      "descricao": "Nossa rede também mantém atendimento em Porto Seguro - BA, cobrindo a costa sul do estado com equipe própria.",
+      "status": "ativo",
+      "tipo": "Rede de atendimento"
+    }
+  ],
   "bairros": [
     "Centro",
-    "Arraial d'Ajuda",
-    "Trancoso",
-    "Mundaí",
-    "Taperapuã",
-    "Fontana",
-    "Parque Ecológico",
-    "Frei Calixto"
+    "Candeias",
+    "Recreio",
+    "Ibirapuera",
+    "Zabelê",
+    "Alto Maron",
+    "Guarani",
+    "Kadija",
+    "Patagônia",
+    "Boa Vista",
+    "Distrito Industrial",
+    "Jurema",
+    "Felícia"
   ],
   "services": [
     {
@@ -85,48 +113,48 @@
   ],
   "faqs": [
     {
-      "question": "A maresia de Porto Seguro estraga a tubulação mais rápido?",
-      "answer": "Sim, o ar salino acelera a corrosão de conexões metálicas próximas ao litoral. Recomendamos avaliação preventiva em imóveis à beira-mar."
+      "question": "Por que minha rede de esgoto entope com raízes de árvore em Vitória da Conquista?",
+      "answer": "O clima ameno do planalto favorece árvores de raiz agressiva em bairros mais antigos, como Candeias e Recreio. As raízes buscam a umidade das tubulações de esgoto mais antigas e acabam rompendo ou obstruindo a rede — resolvemos com máquina rotativa ou hidrojateamento, sem precisar trocar o encanamento."
     },
     {
-      "question": "Vocês atendem pousadas em Arraial d'Ajuda e Trancoso na alta temporada?",
-      "answer": "Sim, temos experiência com o aumento de demanda de hóspedes nesses distritos e atendemos com prioridade nesses períodos."
+      "question": "Vocês atendem clínicas e hospitais do polo de saúde da cidade?",
+      "answer": "Sim! Vitória da Conquista recebe pacientes de toda a região sudoeste da Bahia, e mantemos atendimento prioritário para clínicas, hospitais e laboratórios que precisam de desobstrução rápida sem interromper o funcionamento."
     },
     {
-      "question": "O solo arenoso de Porto Seguro causa entupimento de esgoto?",
-      "answer": "Sim, é comum a infiltração de areia em ligações mais antigas, principalmente perto da orla. Fazemos a limpeza e verificação da vedação."
+      "question": "O acesso pela BR-116 atrasa o atendimento nos bairros mais afastados?",
+      "answer": "Não. Mantemos viaturas posicionadas ao longo da rodovia justamente para reduzir o tempo de chegada tanto no Centro quanto em bairros mais distantes, como Distrito Industrial e Jurema."
     },
     {
-      "question": "Vocês fazem esgotamento de fossa para pousadas?",
-      "answer": "Sim, com caminhão auto-vácuo adequado para o volume de uso de pousadas e casas de temporada."
+      "question": "Vocês atendem comércios que recebem clientes de cidades vizinhas?",
+      "answer": "Sim! Restaurantes, hotéis e comércios que atendem o fluxo regional de Vitória da Conquista têm prioridade no agendamento, já que qualquer parada afeta diretamente o movimento do negócio."
     },
     {
-      "question": "A visita técnica em Porto Seguro tem custo?",
-      "answer": "Não, a avaliação é sempre gratuita, mesmo em distritos mais afastados do Centro."
+      "question": "A visita técnica para avaliação é gratuita?",
+      "answer": "Sim! A visita é 100% gratuita e sem compromisso — o técnico avalia o problema no local antes de fechar qualquer orçamento."
     },
     {
-      "question": "Qual o tempo de chegada em Trancoso ou Arraial d'Ajuda?",
-      "answer": "Por serem distritos mais distantes, o tempo médio é um pouco maior, entre 40 e 60 minutos, mas mantemos equipe de plantão para emergências."
+      "question": "Precisa quebrar piso ou parede pra desentupir em Vitória da Conquista?",
+      "answer": "Na grande maioria dos casos não. Usamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstroem por dentro do encanamento, mesmo em redes antigas do Centro."
     }
   ],
   "testimonials": [
     {
-      "name": "Bianca Nascimento",
-      "neighborhood": "Arraial d'Ajuda - Porto Seguro",
+      "name": "Marcos Vinícius R.",
+      "neighborhood": "Candeias - Vitória da Conquista",
       "rating": 5,
-      "text": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar."
+      "text": "Tinha raiz de árvore entupindo o esgoto do quintal há meses. Resolveram sem quebrar nada, rápido."
     },
     {
-      "name": "Diego Farias",
-      "neighborhood": "Centro - Porto Seguro",
+      "name": "Juliana Ferreira",
+      "neighborhood": "Recreio - Vitória da Conquista",
       "rating": 5,
-      "text": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho."
+      "text": "Atendimento rápido mesmo estando um pouco afastado do Centro. Chegaram no horário combinado."
     },
     {
-      "name": "Camila Duarte",
-      "neighborhood": "Trancoso - Porto Seguro",
+      "name": "Clínica Santa Helena",
+      "neighborhood": "Centro - Vitória da Conquista",
       "rating": 5,
-      "text": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo."
+      "text": "Precisávamos resolver sem parar o atendimento da clínica. Fizeram tudo de forma discreta e rápida."
     }
   ]
 }
