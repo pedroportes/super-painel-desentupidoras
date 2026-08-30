@@ -237,32 +237,31 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
       `<h3>` logo depois do `<h1>`, pulando o h2 — corrigido pra `<h2>`
       (e o CSS `.card-header h3` pra `.card-header h2` junto, senão o
       texto herda o tamanho de h2 genérico do navegador).
-    - ⚠️ **Achado grave, AINDA NÃO CORRIGIDO — contraste de cor em
-      botões/badges falha em 4 das 5 paletas do projeto.** Medido de
-      verdade (fórmula WCAG, razão de contraste calculada, não
-      estimativa) entre texto branco e as cores `--color-primary`/
-      `--color-accent` de cada paleta (usadas de fundo em botões como
-      "Chamar no WhatsApp" e badges como "Atendimento Emergencial"):
-      | Paleta | branco/primary | branco/accent | Passa? |
-      |---|---|---|---|
-      | `urgencia-azul-laranja` | 4,10 | 2,80 | ❌ (mínimo 4,5 texto / 3,0 botão) |
-      | `corporativo-verde-cinza` | 2,54 | 1,92 | ❌ |
-      | `residencial-bege` | 3,19 | 2,15 | ❌ |
-      | `industrial-amarelo` | 1,92 | 1,53 | ❌ |
-      | `clean-azul` | 5,17 | 3,68 | ✅ (única que passa) |
+    - ⚠️ **Achado grave, CORRIGIDO em 30/08/2026 (usuário aprovou
+      escurecer) — contraste de cor em botões/badges falhava em 4 das 5
+      paletas do projeto.** Medido de verdade (fórmula WCAG, razão de
+      contraste calculada, não estimativa) entre texto branco e as cores
+      `--color-primary`/`--color-accent` de cada paleta (usadas de fundo
+      em botões como "Chamar no WhatsApp" e badges como "Atendimento
+      Emergencial"):
+      | Paleta | branco/primary ANTES→DEPOIS | branco/accent ANTES→DEPOIS |
+      |---|---|---|
+      | `urgencia-azul-laranja` | 4,10 → 4,69 | 2,80 → 4,61 |
+      | `corporativo-verde-cinza` | 2,54 → 4,64 | 1,92 → 4,65 |
+      | `residencial-bege` | 3,19 → 4,58 | 2,15 → 4,58 |
+      | `industrial-amarelo` | 1,92 → 4,69 | 1,53 → 4,69 |
+      | `clean-azul` | 5,17 (já passava) | 3,68 → 4,52 |
 
-      Ou seja, **10 das 12 cidades atuais** (todas menos as que usam
-      `clean-azul`, hoje só Porto Seguro) têm texto branco genuinamente
-      difícil de ler em botões/badges de destaque — confirmado
-      visualmente (screenshot) e via `getComputedStyle` real no site
-      publicado de Blumenau, não só pelo Lighthouse. **Não corrigido
-      ainda de propósito**: mudar as cores de uma paleta usada em
-      produção é uma decisão de marca/visual (a cor "clara e vibrante"
-      pode ter sido escolhida assim de propósito), não só um bug de
-      código — precisa de decisão explícita do usuário sobre qual
-      caminho seguir (escurecer `primary`/`accent`, ou manter as cores e
-      trocar o texto do botão pra uma cor escura em vez de branco, ou
-      aceitar o risco e não mexer).
+      Corrigido escurecendo `--color-primary`/`--color-accent` (e os
+      `-hover`) em `themePalettes.css` até todos passarem 4,5:1 — mantendo
+      o matiz original de cada paleta (só reduz luminosidade em HSL, não
+      muda a cor). Redeployado nas 12 cidades, confirmado via
+      `getComputedStyle` real que a violação original sumiu.
+      ⚠️ **Mas corrigir a variável de paleta não corrigiu tudo** — o
+      mesmo teste revelou várias cores hardcoded direto em componentes
+      (não usam a variável de tema), incluindo texto ainda mostrando a
+      cor ANTIGA (pré-correção) de uma paleta diferente da cidade
+      testada. Ver pendência -1 pra lista completa, ainda não corrigida.
 
 ## 🌐 AEO (agentes de IA) — o que existe e o que falta
 
@@ -904,11 +903,39 @@ schema JSON-LD todos batendo com a URL real).
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
--1. **Contraste de cor branco-sobre-paleta falha em 4 das 5 paletas —
-    AGUARDANDO DECISÃO DO USUÁRIO.** Ver regra de ouro 13 acima pra
-    números exatos. Afeta 10 das 12 cidades atuais. Landmark `<main>`
-    ausente e ordem de heading pulando nível **já foram corrigidos** (as
-    2 outras coisas achadas no mesmo teste) e aplicados nas 12 cidades.
+-1. **Contraste de cor branco-sobre-paleta em 4 das 5 paletas —
+    CORRIGIDO em 30/08/2026 (usuário aprovou escurecer).** As 5 paletas
+    em `themePalettes.css` tiveram `--color-primary`/`--color-accent`
+    (e os `-hover` correspondentes) escurecidos até passar 4,5:1 contra
+    branco — ver a tabela na regra de ouro 13 pros valores antigos vs
+    novos. Aplicado e redeployado nas 12 cidades, confirmado que a
+    violação original (botões "Chamar no WhatsApp"/"Chamar Técnico
+    Agora" ilegíveis) sumiu.
+    ⚠️ **Mas o mesmo teste revelou um problema maior, AINDA NÃO
+    CORRIGIDO: várias cores no site são hardcoded direto no componente
+    em vez de usar `var(--color-primary)`/`var(--color-accent)`** — ou
+    seja, corrigir a paleta não corrigiu tudo. Achados reais medidos em
+    Blumenau depois do fix de paleta:
+    - Alguns textos (`section-badge` de "Cobertura Geográfica", "Dúvidas
+      Frequentes") aparecem com `rgb(2, 132, 199)` — esse é o **primary
+      antigo (pré-escurecimento) da paleta `urgencia-azul-laranja`**,
+      hardcoded, mesmo Blumenau usando `corporativo-verde-cinza`. Mesma
+      coisa com "Avaliações de Clientes" mostrando o verde antigo
+      `rgb(16, 185, 129)`.
+    - Itens de lista de serviço (`Desentupimento de Esgoto`, etc.)
+      aparecem com a cor **azul padrão de link não estilizado do
+      navegador** (`rgb(0, 0, 238)`) sobre fundo escuro — razão 2,07:1,
+      sugere um `<a>` sem `color` definido em CSS nenhum lugar.
+    - Estrelas de avaliação (`★★★★★`) com laranja fixo
+      `rgb(245, 158, 11)` sobre branco — razão 2,15:1 (falha até o
+      mínimo de botão grande, 3,0).
+    - O botão flutuante do WhatsApp usa o verde de marca do WhatsApp
+      (`rgb(37, 211, 102)`) com texto branco — razão 1,98:1 — cor de
+      marca reconhecível, mas tecnicamente também falha WCAG.
+    Nenhum desses foi corrigido ainda — são hardcodes espalhados em
+    componentes diferentes (`LocalAreas.astro`, `Testimonials.astro`,
+    o componente de lista de serviços, `FloatingWhatsapp.astro`),
+    precisam de um levantamento próprio antes de corrigir.
 0. **Conteúdo quase-duplicado entre cidades — CORRIGIDO e REPUBLICADO em
    30/08/2026.** Ver seção completa "✅ RISCO CRÍTICO: conteúdo
    quase-duplicado entre cidades" acima: as 10 cidades com conteúdo

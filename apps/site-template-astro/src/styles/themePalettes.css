@@ -1,13 +1,26 @@
 /* PALETAS DE CORES PARA EVITAR CLONAGEM VISUAL ENTRE SITES */
 
+/* ⚠️ REGRA DE OURO 13 (CLAUDE_CODE_GUIDE.md, achado 30/08/2026):
+   --color-primary e --color-accent são usados como fundo de botão/badge
+   com TEXTO BRANCO em cima (ver Hero.astro, Header.astro, etc.) — o
+   valor tem que garantir contraste WCAG AA (≥4.5:1) contra branco
+   #ffffff, senão o texto fica ilegível. Medido de verdade (fórmula
+   WCAG), não estimado. As 5 paletas abaixo foram escurecidas em
+   30/08/2026 pra passar nesse mínimo (antes, 4 das 5 falhavam, algumas
+   com razão tão baixa quanto 1,53:1). --color-primary-hover/
+   --color-accent-hover são ainda mais escuros de propósito (~6,5:1),
+   só pra dar feedback visual de hover, não é o mínimo exigido.
+   Qualquer cor nova de paleta tem que ser conferida contra esse mesmo
+   mínimo antes de entrar em produção. */
+
 /* 1. Urgência Azul/Laranja */
 [data-theme="urgencia-azul-laranja"] {
   --color-bg-dark: #0f172a;
   --color-bg-card: #1e293b;
-  --color-primary: #0284c7;
-  --color-primary-hover: #0369a1;
-  --color-accent: #f97316;
-  --color-accent-hover: #ea580c;
+  --color-primary: #027ab8;
+  --color-primary-hover: #016395;
+  --color-accent: #c35305;
+  --color-accent-hover: #9b4204;
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
   --color-badge-bg: rgba(2, 132, 199, 0.15);
@@ -18,10 +31,10 @@
 [data-theme="corporativo-verde-cinza"] {
   --color-bg-dark: #052e16;
   --color-bg-card: #064e3b;
-  --color-primary: #10b981;
-  --color-primary-hover: #059669;
-  --color-accent: #34d399;
-  --color-accent-hover: #10b981;
+  --color-primary: #0c855d;
+  --color-primary-hover: #096949;
+  --color-accent: #1d845f;
+  --color-accent-hover: #16674a;
   --color-text-main: #f0fdf4;
   --color-text-muted: #a7f3d0;
   --color-badge-bg: rgba(16, 185, 129, 0.2);
@@ -32,10 +45,10 @@
 [data-theme="residencial-bege"] {
   --color-bg-dark: #1c1917;
   --color-bg-card: #292524;
-  --color-primary: #d97706;
-  --color-primary-hover: #b45309;
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
+  --color-primary: #b16105;
+  --color-primary-hover: #8a4b04;
+  --color-accent: #a36907;
+  --color-accent-hover: #805305;
   --color-text-main: #fafaf9;
   --color-text-muted: #d6d3d1;
   --color-badge-bg: rgba(217, 119, 6, 0.2);
@@ -46,10 +59,10 @@
 [data-theme="industrial-amarelo"] {
   --color-bg-dark: #18181b;
   --color-bg-card: #27272a;
-  --color-primary: #eab308;
-  --color-primary-hover: #ca8a04;
-  --color-accent: #facc15;
-  --color-accent-hover: #eab308;
+  --color-primary: #916f05;
+  --color-primary-hover: #745804;
+  --color-accent: #8c7103;
+  --color-accent-hover: #6f5902;
   --color-text-main: #f4f4f5;
   --color-text-muted: #a1a1aa;
   --color-badge-bg: rgba(234, 179, 8, 0.2);
@@ -61,9 +74,9 @@
   --color-bg-dark: #0f172a;
   --color-bg-card: #1e293b;
   --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
+  --color-primary-hover: #1451d8;
+  --color-accent: #1e6ff5;
+  --color-accent-hover: #0953cc;
   --color-text-main: #ffffff;
   --color-text-muted: #cbd5e1;
   --color-badge-bg: rgba(37, 99, 235, 0.2);
