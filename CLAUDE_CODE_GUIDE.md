@@ -239,6 +239,112 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ---
 
+## ⚠️ RISCO CRÍTICO: conteúdo quase-duplicado entre cidades (achado em 30/08/2026, NÃO CORRIGIDO)
+
+**Contexto**: cada cidade é publicada num domínio próprio
+(`desentupidora<cidade>.com.br`). O Google trata isso como uma **rede de
+sites do mesmo operador**, não como páginas internas de um site só — ou
+seja, ele NÃO escolhe uma "versão canônica" como faria com duplicidade
+dentro de um mesmo domínio. Duas políticas de spam do Google se aplicam
+direto a esse padrão: **"scaled content abuse"** (conteúdo em escala com
+pouca/nenhuma diferenciação real, cujo objetivo é manipular ranking — não
+importa se foi feito à mão ou automatizado) e **"doorway pages"** (páginas
+por cidade com pouco valor único, todas levando pro mesmo negócio). Se o
+padrão for identificado, uma ação manual pode afetar **vários domínios de
+uma vez**, não só um.
+
+### Notas SEO / GEO / AEO do estado atual (30/08/2026)
+| Categoria | Nota | Por quê |
+|---|---|---|
+| SEO | 5,5/10 | Fundação técnica boa (sitemap, robots, schema, headers — já corrigidos). Conteúdo é o ponto fraco: zero diferenciação real entre páginas competindo pelas mesmas keywords em cidades diferentes. |
+| GEO | 3/10 | Motores de resposta de IA (Perplexity, AI Overviews) priorizam conteúdo distintivo/citável. Texto idêntico ao de outros domínios do mesmo operador não gera sinal de autoridade. |
+| AEO | 3,5/10 | Schema de FAQ presente mas **sem benefício de rich result no Google** (Google descontinuou completamente os rich results de FAQ em maio de 2026, pra todos os sites, não só os "não-autoritativos" — confirmar se ainda vale a pena manter o schema só pra ajuda de parsing de outros motores). Conteúdo genérico das respostas também não ajuda a ser "a melhor resposta" pra nenhuma pergunta local específica. |
+
+### O que existe hoje pra resolver isso (`apps/web-dashboard/src/cityGenerator.ts`)
+Esse arquivo é uma tentativa real (não cosmética) de resolver o problema:
+gera 4 "modelos" com H1, parágrafo, CTA, 6 serviços, 6 FAQs e 3 depoimentos
+**genuinamente diferentes** em texto (não é só trocar o nome da cidade):
+
+- `urgencia-24h` (padrão, pré-selecionado na tela "Criar Novo Site") — tom
+  de urgência/menor preço.
+- `corporativo-empresarial` — tom B2B (condomínios, laudo técnico, nota
+  fiscal).
+- `residencial-bairros` — tom família/residencial.
+- `industrial-hidrojato` — tom pesado/industrial (caminhão auto-vácuo,
+  MTR, licença ambiental).
+
+Estruturalmente só existem **2 esqueletos visuais** (`HeroV1`+
+`ServicesGridV1` para os modelos 1 e 3; `HeroV2`+`ServicesGridV2` para os
+modelos 2 e 4) — os 4 modelos diferem de verdade só no texto e na paleta de
+cor, não no HTML/layout. Isso é secundário (texto pesa muito mais que
+estrutura de HTML pra detecção de duplicidade), mas registrar pra não
+confundir "4 modelos" com "4 layouts".
+
+### Dois problemas concretos que estão anulando esse trabalho
+
+**1. Bug no domínio do Modelo 1 (`urgencia-24h`)** — em
+`cityGenerator.ts`, linha ~272, o campo `dominio` está **hardcoded**:
+```js
+dominio: `desentupidoralinhares.com.br`,   // ERRADO — deveria ser dinâmico
+```
+Os outros 3 modelos fazem certo: `dominio: \`desentupidora${cityKey}.com.br\``.
+Isso é a causa raiz confirmada do bug que eu tinha registrado antes como
+"erro de cadastro" (São José dos Pinhais e Araucária com o mesmo domínio
+de Linhares) — na verdade é determinístico: **toda cidade nova criada com
+o Modelo 1 (o padrão pré-selecionado, o que a maioria vai clicar sem
+pensar) nasce com esse domínio errado.** Correção: trocar a linha pra usar
+`cityKey` como os outros 3 modelos já fazem.
+
+**2. Script `apps/web-dashboard/scripts/update_cities_faqs.cjs` nivelou
+tudo pra um texto genérico único** — esse script varre `cities.json` e,
+pra qualquer cidade com menos de 6 FAQs ou 3 depoimentos, **sobrescreve**
+com um conjunto fixo — que por acaso é uma cópia do texto genérico mais
+antigo do projeto (de antes até do `cityGenerator.ts` existir), incluindo
+os mesmos 3 nomes fictícios de sempre: "Carlos Eduardo M.", "Maria
+Aparecida Silva", "João Paulo Santos". Rodar esse script **desfaz** a
+diferenciação que o `cityGenerator.ts` foi feito pra trazer, porque ele
+não olha pra `modeloTemplate` da cidade — aplica o mesmo texto pra
+qualquer modelo.
+
+**Estado real medido em 30/08/2026** (`data/cities.json`, 11 cidades):
+- **10 de 11 cidades** têm os mesmos 3 nomes fictícios de depoimento e as
+  mesmas 6 FAQs, palavra por palavra — incluindo cidades que já foram
+  criadas com o sistema novo de modelos (São José dos Pinhais, Araucária).
+  Só Vitória da Conquista escapou (tem depoimentos próprios: "Marcos
+  Vinícius R.", "Juliana Ferreira", "Clínica Santa Helena").
+- Isso quer dizer que, na prática, a diferenciação por modelo **existe no
+  código mas não está aplicada nos dados salvos** pra maioria das cidades
+  já cadastradas.
+
+### O que precisa ser feito (em ordem de prioridade)
+1. **Corrigir a linha do domínio hardcoded** no Modelo 1 do
+   `cityGenerator.ts` (1 linha) — evita novos bugs de domínio duplicado em
+   toda cidade futura criada com o modelo padrão.
+2. **Reprocessar as 10 cidades afetadas** pra terem de fato FAQs e
+   depoimentos do modelo escolhido (ou variar os modelos entre elas de
+   propósito) — sem deixar `update_cities_faqs.cjs` pisar em cima de novo.
+   Antes de reprocessar, decidir/registrar qual modelo cada cidade deveria
+   usar (hoje a maioria não tem `modeloTemplate` salvo, ou seja, cai no
+   fallback do modelo padrão).
+3. **Não rodar `update_cities_faqs.cjs` de novo sem adaptar** — se for
+   necessário garantir mínimo de FAQs/depoimentos no futuro, a lógica
+   precisa ler `modeloTemplate` e usar o conteúdo do `cityGenerator.ts`
+   correspondente, não um texto genérico único.
+4. **Teto de escala com só 4 modelos**: a partir de ~5 cidades por modelo,
+   volta a haver clones completos de texto entre cidades do mesmo modelo.
+   Com o crescimento da rede, vai ser necessário (a) mais modelos-base,
+   e/ou (b) uma camada leve de variação por cidade em cima do modelo
+   (reescrever/reordenar frases pontuais), não só a troca do nome da
+   cidade.
+5. Ver também a pendência antiga (ainda válida): depoimentos são 100%
+   fabricados/fictícios — risco de propaganda enganosa (CDC) além do risco
+   de SEO. Usuário pediu pra não mexer nisso "por enquanto" nas rodadas
+   anteriores; reavaliar se ainda vale essa decisão à luz do achado acima
+   (o problema de SEO piora justamente pelo fato de serem os MESMOS nomes
+   fictícios repetidos, não só por serem fictícios).
+
+---
+
 ## 🚀 Motor de Deploy (`scripts/deployEngine.cjs`)
 
 - Roda deploy **de verdade** via CLI oficial de cada provedor (`wrangler`,
@@ -544,6 +650,13 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
+0. **[MÁXIMA PRIORIDADE] Conteúdo quase-duplicado entre cidades (risco de
+   penalização Google) — NÃO CORRIGIDO.** Ver seção completa
+   "⚠️ RISCO CRÍTICO: conteúdo quase-duplicado entre cidades" acima, com
+   notas de SEO/GEO/AEO, causa raiz de 2 bugs concretos
+   (`cityGenerator.ts` linha ~272 e `scripts/update_cities_faqs.cjs`) e
+   plano de correção em 5 passos. Analisado e documentado em 30/08/2026,
+   correção ainda não aplicada.
 1. **Negociação de Markdown (AEO) só funciona em cidades no Cloudflare
    Pages** — confirmado em 30/08/2026 rodando o isitagentready.com de
    verdade contra uma cidade no Vercel (Cachoeiro de Itapemirim): Content
