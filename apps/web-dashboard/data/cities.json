@@ -122,19 +122,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "cachoeiro",
@@ -249,19 +237,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "pocosdecaldas",
@@ -375,19 +351,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "itabuna",
@@ -500,19 +464,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ],
+    "parceiros": [],
     "h1Title": "Desentupidora em Itabuna BA 24 Horas: Atendimento Sem Quebrar Piso",
     "firstParagraph": "Precisando de uma desentupidora em Itabuna BA com urgência? Nossa equipe atende 24 horas por dia o Centro, São Caetano, Pontalzinho, Fátima, Conceição, Califórnia, Mangabinha e Jardim Vitória, com desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, sempre com máquinas rotativas e hidrojateamento que preservam pisos e azulejos.",
     "ctaButtonText": "Chamar Desentupidora em Itabuna no WhatsApp",
@@ -637,19 +589,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "guarapuava",
@@ -764,19 +704,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "cidade": "curitiba",
@@ -890,19 +818,7 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "sojosdospinhais",
@@ -1014,19 +930,7 @@
       }
     ],
     "auditScore": 0,
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "araucaria",
@@ -1140,19 +1044,7 @@
     "auditScore": 0,
     "deployUrl": "https://dist-fv35crkyn-pedros-projects-c35b6c79.vercel.app\",",
     "lastDeployAt": "2026-08-28T17:30:10.892Z",
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   },
   {
     "id": "londrina",
@@ -1266,18 +1158,6 @@
     "auditScore": 0,
     "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
     "lastDeployAt": "2026-08-29T17:43:05.019Z",
-    "parceiros": [
-      {
-        "id": "1788025977336",
-        "nome": "Desentupidora teste",
-        "cidade": "teste",
-        "uf": "",
-        "dominio": "sao jose ",
-        "url": "sao jose ",
-        "descricao": "teste",
-        "status": "ativo",
-        "tipo": "Parceiro de atendimento"
-      }
-    ]
+    "parceiros": []
   }
 ]

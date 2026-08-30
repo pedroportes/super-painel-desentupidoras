@@ -1,0 +1,341 @@
+---
+// Página de "Fora da Área de Cobertura" — hub + subpágina por parceiro.
+//
+// Arquitetura (decidida em 30/08/2026, ver docs/rede-de-parceiros-plano.md):
+//   /fora-da-area-de-cobertura/            -> hub (lista os parceiros)
+//   /fora-da-area-de-cobertura/{slug}/     -> 1 subpágina por parceiro real
+//
+// Regras de minimização de risco de link scheme aplicadas aqui:
+//  - Só gera QUALQUER rota se houver pelo menos 1 parceiro com status "ativo"
+//    (getStaticPaths retorna [] senão -> nenhuma URL fake é publicada).
+//  - O link de saída pro site do parceiro (rel="noopener" externo) só existe
+//    na subpágina dele, nunca no hub e nunca no rodapé do site.
+//  - Texto de cada subpágina varia (array de frases rotacionado por hash do
+//    id do parceiro) para não virar um template idêntico replicado em
+//    centenas de sites (footprint de "scaled content").
+//  - Âncora do botão de saída é sempre o NOME comercial do parceiro, nunca
+//    uma keyword exata tipo "desentupidora cidade 24h".
+import Layout from '../../layouts/Layout.astro';
+import cityData from '../../data/cityConfig.json';
+import '../../styles/themePalettes.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FloatingWhatsapp from '../../components/FloatingWhatsapp.astro';
+import { partnerSlug } from '../../utils/partnerSlug';
+
+// Pequeno hash determinístico só pra escolher a variação de texto de forma
+// estável (o mesmo parceiro sempre cai na mesma frase, mas parceiros
+// diferentes tendem a cair em frases diferentes).
+function pick<T>(arr: T[], seed: string): T {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  return arr[h % arr.length];
+}
+
+export async function getStaticPaths() {
+  const activePartners = (cityData.parceiros || []).filter(
+    (p: any) => p.status === 'ativo' && p.nome && p.cidade && p.url
+  );
+
+  if (activePartners.length === 0) return [];
+
+  const paths: any[] = [{ params: { partner: undefined } }]; // hub
+  for (const p of activePartners) {
+    paths.push({ params: { partner: partnerSlug(p) }, props: { partner: p } });
+  }
+  return paths;
+}
+
+const { partner } = Astro.props as { partner?: any };
+const activePartners = (cityData.parceiros || []).filter((p: any) => p.status === 'ativo');
+const cidadePrincipal = `${cityData.cidade} - ${cityData.uf}`;
+
+const introVariations = [
+  (p: any) =>
+    `Recebemos, de tempos em tempos, pedidos de moradores de ${p.cidade} que estão fora da nossa área principal de atendimento em ${cidadePrincipal}. Para esses casos, contamos com a ${p.nome}, que conhece bem a região.`,
+  (p: any) =>
+    `Nossa atuação é focada em ${cidadePrincipal} e arredores. Quando o pedido vem de ${p.cidade}, indicamos a ${p.nome}, que atende diretamente essa região.`,
+  (p: any) =>
+    `Já tivemos contato com clientes de ${p.cidade} buscando desentupimento e serviços relacionados — nesses casos, a ${p.nome} costuma ser a melhor opção, por atuar localmente.`,
+];
+
+const tipoFrase: Record<string, string> = {
+  'Parceiro de atendimento': 'atua como parceiro de atendimento nessa região',
+  'Empresa parceira': 'é uma empresa parceira que conhecemos e recomendamos',
+  'Rede de atendimento': 'faz parte da nossa rede de atendimento estendido',
+  'Indicação regional': 'é uma indicação regional de confiança',
+};
+
+const pageSeo = partner
+  ? {
+      metaTitle: `Desentupidora em ${partner.cidade} — Indicação | ${cityData.empresaNome}`,
+      metaDescription: `Não atendemos diretamente ${partner.cidade}${partner.uf ? ' - ' + partner.uf : ''}. Conheça a ${partner.nome}, empresa parceira que atua na região.`,
+    }
+  : {
+      metaTitle: `Fora da Nossa Área de Cobertura | ${cityData.empresaNome}`,
+      metaDescription: `Nossa atuação principal é em ${cidadePrincipal}. Veja empresas parceiras que atendem outras regiões quando não podemos atender diretamente.`,
+    };
+---
+
+<Layout seo={pageSeo}>
+  <Header {...cityData} />
+
+  <main>
+    {partner ? (
+      <!-- ===================== SUBPÁGINA DE 1 PARCEIRO ===================== -->
+      <section class="coverage-page">
+        <div class="container">
+          <div class="breadcrumbs">
+            <a href="/">Início</a> <span>›</span>
+            <a href="/fora-da-area-de-cobertura">Fora da Área de Cobertura</a> <span>›</span>
+            <strong>{partner.cidade}</strong>
+          </div>
+
+          <div class="partner-hero">
+            <span class="tag">Fora da nossa área de cobertura</span>
+            <h1>Desentupidora em {partner.cidade}{partner.uf ? ` - ${partner.uf}` : ''}</h1>
+            <p class="lead">{pick(introVariations, String(partner.id || partner.nome))(partner)}</p>
+          </div>
+
+          <div class="partner-detail-card">
+            <h2>{partner.nome}</h2>
+            <p class="partner-relation">
+              {partner.nome} {tipoFrase[partner.tipo] || 'atua como parceira nessa região'}.
+            </p>
+            {partner.descricao && <p class="partner-desc">{partner.descricao}</p>}
+
+            <a href={partner.url} target="_blank" rel="noopener noreferrer" class="btn-visit">
+              Visitar o site da {partner.nome}
+            </a>
+          </div>
+
+          <div class="not-listed">
+            <h3>Não encontrou sua região?</h3>
+            <p>Fale com a gente pelo WhatsApp — se não atendermos diretamente, podemos verificar se existe outra empresa parceira próxima ao seu endereço.</p>
+            <a
+              href={`https://wa.me/55${cityData.whatsapp}?text=${encodeURIComponent(`Olá! Preciso de desentupidora em ${partner.cidade}, vocês atendem ou indicam alguém?`)}`}
+              target="_blank"
+              rel="noopener"
+              class="btn-whatsapp"
+            >
+              Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    ) : (
+      <!-- ===================== HUB ===================== -->
+      <section class="coverage-page">
+        <div class="container">
+          <div class="breadcrumbs">
+            <a href="/">Início</a> <span>›</span> <strong>Fora da Área de Cobertura</strong>
+          </div>
+
+          <div class="hub-hero">
+            <span class="tag">Cobertura regional</span>
+            <h1>Fora da nossa área de cobertura?</h1>
+            <p class="lead">
+              Nossa atuação principal é em <strong>{cidadePrincipal}</strong> e região. Nem sempre
+              conseguimos atender diretamente todas as cidades vizinhas — por isso, quando fizer
+              sentido, indicamos empresas parceiras que atuam diretamente nessas localidades.
+            </p>
+          </div>
+
+          <div class="hub-grid">
+            {activePartners.map((p: any) => (
+              <a class="hub-card" href={`/fora-da-area-de-cobertura/${partnerSlug(p)}`}>
+                <span class="hub-card-tag">{p.cidade}{p.uf ? ` - ${p.uf}` : ''}</span>
+                <h3>{p.nome}</h3>
+                <p>{(p.descricao || '').slice(0, 110)}{p.descricao && p.descricao.length > 110 ? '…' : ''}</p>
+                <span class="hub-card-link">Ver indicação para {p.cidade} →</span>
+              </a>
+            ))}
+          </div>
+
+          <div class="not-listed">
+            <h3>Sua cidade não está na lista?</h3>
+            <p>Fale com a gente pelo WhatsApp e verificamos a melhor forma de te atender ou indicar alguém de confiança.</p>
+            <a
+              href={`https://wa.me/55${cityData.whatsapp}?text=${encodeURIComponent('Olá! Minha cidade não está na lista de parceiros, vocês atendem ou indicam alguém?')}`}
+              target="_blank"
+              rel="noopener"
+              class="btn-whatsapp"
+            >
+              Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer {...cityData} />
+  <FloatingWhatsapp phone={cityData.whatsapp} />
+</Layout>
+
+<style>
+  .coverage-page {
+    padding: 100px 0 80px;
+    background: var(--color-bg-body, #ffffff);
+    color: var(--color-text-dark, #0f172a);
+  }
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--color-text-light, #64748b);
+    margin-bottom: 32px;
+  }
+  .breadcrumbs a {
+    color: var(--color-primary, #0284c7);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .tag {
+    display: inline-block;
+    background-color: var(--color-primary-light, #e0f2fe);
+    color: var(--color-primary, #0284c7);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+  }
+  .hub-hero, .partner-hero {
+    max-width: 780px;
+    margin: 0 auto 48px auto;
+    text-align: center;
+  }
+  .hub-hero h1, .partner-hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+  .lead {
+    font-size: 1.08rem;
+    color: var(--color-text-light, #475569);
+    line-height: 1.65;
+  }
+
+  /* HUB GRID */
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+  }
+  .hub-card {
+    display: block;
+    background: var(--color-bg-alt, #f8fafc);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: 16px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+  .hub-card:hover {
+    border-color: var(--color-primary, #0284c7);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  }
+  .hub-card-tag {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--color-primary, #0284c7);
+  }
+  .hub-card h3 {
+    margin: 10px 0 8px 0;
+    font-size: 1.25rem;
+  }
+  .hub-card p {
+    color: var(--color-text-light, #64748b);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .hub-card-link {
+    font-weight: 700;
+    color: var(--color-primary, #0284c7);
+    font-size: 0.9rem;
+  }
+
+  /* SUBPÁGINA DE PARCEIRO */
+  .partner-detail-card {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    background: var(--color-bg-alt, #f8fafc);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+  }
+  .partner-detail-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .partner-relation {
+    font-weight: 600;
+    color: var(--color-primary, #0284c7);
+    margin-bottom: 16px;
+  }
+  .partner-desc {
+    color: var(--color-text-light, #475569);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .btn-visit {
+    display: inline-block;
+    background-color: var(--color-primary, #0284c7);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-visit:hover {
+    filter: brightness(1.08);
+  }
+
+  /* NÃO ENCONTROU */
+  .not-listed {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border, #e2e8f0);
+  }
+  .not-listed h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .not-listed p {
+    color: var(--color-text-light, #64748b);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .btn-whatsapp {
+    display: inline-block;
+    background-color: #16a34a;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-whatsapp:hover {
+    filter: brightness(1.08);
+  }
+
+  @media (max-width: 768px) {
+    .coverage-page { padding: 60px 0; }
+    .hub-hero h1, .partner-hero h1 { font-size: 1.9rem; }
+    .partner-detail-card { padding: 28px; }
+  }
+</style>

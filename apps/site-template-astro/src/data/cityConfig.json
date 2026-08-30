@@ -33,19 +33,7 @@
   },
   "aboutCityTitle": "Estrutura e Atendimento de Desentupidora em Linhares - ES",
   "aboutCityText": "Linhares é um dos municípios mais importantes de ES, reunindo mais de 183.797 habitantes e bairros com intensa movimentação residencial e comercial. Nossa empresa mantém veículos equipados e técnicos posicionados estrategicamente em Linhares para chegar em até 30 minutos em emergências de esgoto, pias e ralos.",
-  "parceiros": [
-    {
-      "id": "1788025977336",
-      "nome": "Desentupidora teste",
-      "cidade": "teste",
-      "uf": "",
-      "dominio": "sao jose ",
-      "url": "sao jose ",
-      "descricao": "teste",
-      "status": "ativo",
-      "tipo": "Parceiro de atendimento"
-    }
-  ],
+  "parceiros": [],
   "bairros": [
     "Centro",
     "Interlagos",

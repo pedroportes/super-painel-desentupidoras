@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "apps/web-dashboard"],
       "port": 5173
+    },
+    {
+      "name": "astro-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "apps/site-template-astro", "run", "dev"],
+      "port": 4321
     }
   ]
 }

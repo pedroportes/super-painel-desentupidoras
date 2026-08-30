@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem } from './cityGenerator';
+import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem, PartnerItem } from './cityGenerator';
 
 function slugify(text: string): string {
   return text
@@ -53,7 +53,7 @@ export default function App() {
       }
     }, 400);
   };
-  const [editorSection, setEditorSection] = useState<'hero' | 'services' | 'bairros' | 'faqs' | 'media' | 'theme' | 'company'>('hero');
+  const [editorSection, setEditorSection] = useState<'hero' | 'services' | 'bairros' | 'faqs' | 'media' | 'theme' | 'company' | 'parceiros'>('hero');
 
   const [settings, setSettings] = useState<HostingSettings>({
     cloudflare: { accountId: '', apiToken: '' },
@@ -73,6 +73,17 @@ export default function App() {
   const [notification, setNotification] = useState<string | null>(null);
   const [imageUploadStatus, setImageUploadStatus] = useState<string | null>(null);
   const [newBairroInput, setNewBairroInput] = useState('');
+
+  // ===================== REDE DE PARCEIROS (Fora da Área de Cobertura) =====================
+  // Ver .agents/skills/rede-de-parceiros/SKILL.md para as regras de risco de
+  // link scheme que esse cadastro deve sempre respeitar (poucos parceiros
+  // reais por cidade, nunca dado de teste em produção, nunca link recíproco
+  // automático).
+  const emptyPartnerForm: Omit<PartnerItem, 'id'> = {
+    nome: '', cidade: '', uf: '', dominio: '', url: '', descricao: '', status: 'ativo', tipo: 'Parceiro de atendimento'
+  };
+  const [partnerForm, setPartnerForm] = useState<Omit<PartnerItem, 'id'>>(emptyPartnerForm);
+  const [editingPartnerId, setEditingPartnerId] = useState<string | null>(null);
 
   // Sidebar & Layout controls
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -453,6 +464,65 @@ export default function App() {
     });
   };
 
+  const handleEditPartnerClick = (p: PartnerItem) => {
+    setEditingPartnerId(p.id);
+    const { id, ...rest } = p;
+    setPartnerForm(rest);
+  };
+
+  const handleCancelPartnerForm = () => {
+    setEditingPartnerId(null);
+    setPartnerForm(emptyPartnerForm);
+  };
+
+  const handleSaveOrUpdatePartner = () => {
+    if (!editingCity) return;
+    if (!partnerForm.nome.trim() || !partnerForm.cidade.trim() || !partnerForm.url.trim()) {
+      showNotify('⚠️ Preencha ao menos Nome, Cidade e URL do parceiro.');
+      return;
+    }
+    const current = editingCity.parceiros || [];
+    let updatedCity: CityConfig;
+    if (editingPartnerId) {
+      // editar parceiro existente
+      const updated = current.map(p => p.id === editingPartnerId ? { ...p, ...partnerForm, id: editingPartnerId } : p);
+      updatedCity = { ...editingCity, parceiros: updated };
+      showNotify(`🤝 Parceiro "${partnerForm.nome}" atualizado (lembre de Salvar Alterações).`);
+    } else {
+      // novo parceiro
+      const novo: PartnerItem = { ...partnerForm, id: Date.now().toString() };
+      updatedCity = { ...editingCity, parceiros: [...current, novo] };
+      showNotify(`🤝 Parceiro "${partnerForm.nome}" adicionado (lembre de Salvar Alterações).`);
+    }
+    setEditingCity(updatedCity);
+    syncPreviewLive(updatedCity);
+    handleCancelPartnerForm();
+  };
+
+  const handleDeletePartner = (partnerId: string) => {
+    if (!editingCity) return;
+    if (!window.confirm('Remover este parceiro? A subpágina dele deixa de ser gerada no próximo build.')) return;
+    const updatedCity = {
+      ...editingCity,
+      parceiros: (editingCity.parceiros || []).filter(p => p.id !== partnerId)
+    };
+    setEditingCity(updatedCity);
+    syncPreviewLive(updatedCity);
+    if (editingPartnerId === partnerId) handleCancelPartnerForm();
+  };
+
+  const handleTogglePartnerStatus = (partnerId: string) => {
+    if (!editingCity) return;
+    const updatedCity = {
+      ...editingCity,
+      parceiros: (editingCity.parceiros || []).map(p =>
+        p.id === partnerId ? { ...p, status: (p.status === 'ativo' ? 'inativo' : 'ativo') as PartnerItem['status'] } : p
+      )
+    };
+    setEditingCity(updatedCity);
+    syncPreviewLive(updatedCity);
+  };
+
   const handleApplyModelTemplateToExisting = async (modelo: CityConfig['modeloTemplate']) => {
     if (!editingCity) return;
     const fresh = generateUniqueCityContent(editingCity.cidade, editingCity.uf, editingCity.populacao, modelo, editingCity.hospedagem);
@@ -768,7 +838,7 @@ export default function App() {
             <div style={{ backgroundColor: '#0f172a', display: isSidebarCollapsed ? 'none' : 'block', border: '1px solid #1e293b', borderRadius: '14px', padding: '16px', maxHeight: '82vh', overflowY: 'auto' }}>
               
               {/* Section Tabs */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '4px', marginBottom: '16px', borderBottom: '1px solid #1e293b', paddingBottom: '10px' }}>
                 <button 
                   onClick={() => setEditorSection('hero')}
                   style={{ backgroundColor: editorSection === 'hero' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
@@ -793,11 +863,17 @@ export default function App() {
                 >
                   💬 FAQ & Depo.
                 </button>
-                <button 
+                <button
                   onClick={() => setEditorSection('theme')}
                   style={{ backgroundColor: editorSection === 'theme' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
                 >
                   🎨 Modelos
+                </button>
+                <button
+                  onClick={() => setEditorSection('parceiros')}
+                  style={{ backgroundColor: editorSection === 'parceiros' ? '#8b5cf6' : '#1e293b', color: '#fff', border: 'none', padding: '8px 4px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  🤝 Parceiros ({editingCity.parceiros?.length || 0})
                 </button>
               </div>
 
@@ -1011,6 +1087,148 @@ export default function App() {
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* PARCEIROS: gera /fora-da-area-de-cobertura no site (só quando há >= 1 ativo) */}
+              {editorSection === 'parceiros' && (
+                <div>
+                  <h3 style={{ fontSize: '1rem', color: '#f8fafc', marginBottom: '6px' }}>🤝 Rede de Parceiros (Fora da Área de Cobertura)</h3>
+                  <p style={{ fontSize: '0.78rem', color: '#94a3b8', marginBottom: '4px' }}>
+                    Cada parceiro ativo vira uma subpágina própria em <code>/fora-da-area-de-cobertura/</code> no site desta cidade.
+                    Sem parceiro ativo, a página nem é gerada.
+                  </p>
+                  <p style={{ fontSize: '0.75rem', color: '#fbbf24', marginBottom: '16px' }}>
+                    ⚠️ Só cadastre parceiros reais (empresas de verdade, com acordo de indicação). Ver <code>.agents/skills/rede-de-parceiros/SKILL.md</code> — risco de link scheme se usado como rede fechada entre sites próprios.
+                  </p>
+
+                  {/* Lista de parceiros existentes */}
+                  {(editingCity.parceiros || []).length === 0 && (
+                    <div style={{ backgroundColor: '#1e293b', border: '1px dashed #334155', borderRadius: '8px', padding: '16px', color: '#64748b', fontSize: '0.85rem', textAlign: 'center', marginBottom: '16px' }}>
+                      Nenhum parceiro cadastrado ainda.
+                    </div>
+                  )}
+                  {(editingCity.parceiros || []).map((p) => (
+                    <div key={p.id} style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '12px', marginBottom: '10px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                        <div>
+                          <div style={{ fontWeight: 800, color: '#f8fafc', fontSize: '0.9rem' }}>{p.nome}</div>
+                          <div style={{ color: '#94a3b8', fontSize: '0.78rem' }}>{p.cidade}{p.uf ? ` - ${p.uf}` : ''} • {p.tipo}</div>
+                        </div>
+                        <span
+                          onClick={() => handleTogglePartnerStatus(p.id)}
+                          title="Clique para ativar/desativar"
+                          style={{
+                            cursor: 'pointer',
+                            backgroundColor: p.status === 'ativo' ? 'rgba(16,185,129,0.15)' : 'rgba(148,163,184,0.15)',
+                            color: p.status === 'ativo' ? '#34d399' : '#94a3b8',
+                            padding: '3px 10px',
+                            borderRadius: '20px',
+                            fontWeight: 700,
+                            fontSize: '0.72rem',
+                            whiteSpace: 'nowrap'
+                          }}
+                        >
+                          {p.status === 'ativo' ? '🟢 Ativo' : '⚪ Inativo'}
+                        </span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '10px' }}>
+                        <button
+                          onClick={() => handleEditPartnerClick(p)}
+                          style={{ backgroundColor: '#0284c7', color: '#fff', border: 'none', padding: '5px 10px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.75rem' }}
+                        >
+                          ✏️ Editar
+                        </button>
+                        <button
+                          onClick={() => handleDeletePartner(p.id)}
+                          style={{ backgroundColor: '#ef4444', color: '#fff', border: 'none', padding: '5px 10px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.75rem' }}
+                        >
+                          🗑️ Excluir
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Formulário de adicionar/editar */}
+                  <div style={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', padding: '14px', marginTop: '18px' }}>
+                    <h4 style={{ fontSize: '0.88rem', color: '#a78bfa', marginBottom: '10px' }}>
+                      {editingPartnerId ? '✏️ Editando Parceiro' : '+ Adicionar Parceiro'}
+                    </h4>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
+                      <input
+                        type="text"
+                        placeholder="Nome da empresa parceira"
+                        value={partnerForm.nome}
+                        onChange={(e) => setPartnerForm({ ...partnerForm, nome: e.target.value })}
+                        style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                      />
+                      <select
+                        value={partnerForm.tipo}
+                        onChange={(e) => setPartnerForm({ ...partnerForm, tipo: e.target.value as PartnerItem['tipo'] })}
+                        style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                      >
+                        <option value="Parceiro de atendimento">Parceiro de atendimento</option>
+                        <option value="Empresa parceira">Empresa parceira</option>
+                        <option value="Rede de atendimento">Rede de atendimento</option>
+                        <option value="Indicação regional">Indicação regional</option>
+                      </select>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 0.5fr', gap: '8px', marginBottom: '8px' }}>
+                      <input
+                        type="text"
+                        placeholder="Cidade do parceiro (Ex: Colatina)"
+                        value={partnerForm.cidade}
+                        onChange={(e) => setPartnerForm({ ...partnerForm, cidade: e.target.value })}
+                        style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                      />
+                      <input
+                        type="text"
+                        placeholder="UF"
+                        value={partnerForm.uf}
+                        onChange={(e) => setPartnerForm({ ...partnerForm, uf: e.target.value.toUpperCase() })}
+                        style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem' }}
+                      />
+                    </div>
+
+                    <input
+                      type="text"
+                      placeholder="URL do site do parceiro (https://...)"
+                      value={partnerForm.url}
+                      onChange={(e) => setPartnerForm({ ...partnerForm, url: e.target.value, dominio: partnerForm.dominio || e.target.value.replace(/^https?:\/\//, '').replace(/\/$/, '') })}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem', marginBottom: '8px' }}
+                    />
+
+                    <textarea
+                      rows={2}
+                      placeholder="Descrição curta (o que o parceiro faz, região que atende)"
+                      value={partnerForm.descricao}
+                      onChange={(e) => setPartnerForm({ ...partnerForm, descricao: e.target.value })}
+                      style={{ width: '100%', padding: '8px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#fff', fontSize: '0.82rem', lineHeight: 1.4, marginBottom: '10px' }}
+                    />
+
+                    <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+                      {editingPartnerId && (
+                        <button
+                          onClick={handleCancelPartnerForm}
+                          style={{ backgroundColor: '#334155', color: '#fff', border: 'none', padding: '8px 14px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+                        >
+                          Cancelar
+                        </button>
+                      )}
+                      <button
+                        onClick={handleSaveOrUpdatePartner}
+                        style={{ backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+                      >
+                        {editingPartnerId ? '💾 Atualizar Parceiro' : '+ Adicionar Parceiro'}
+                      </button>
+                    </div>
+                  </div>
+
+                  <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '10px' }}>
+                    Lembre de clicar em "💾 Salvar Alterações" no topo pra persistir, e depois "🚀 Publicar" pra gerar as páginas no site.
+                  </p>
                 </div>
               )}
 
@@ -1280,6 +1498,12 @@ export default function App() {
               <option value="vercel">Vercel</option>
               <option value="netlify">Netlify</option>
             </select>
+            <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
+              <span style={{ fontWeight: 900, color: '#34d399', fontSize: '1rem' }}>
+                🤝 {cities.reduce((acc, c) => acc + (c.parceiros?.filter(p => p.status === 'ativo').length || 0), 0)}
+              </span>
+              <span style={{ color: '#94a3b8', fontSize: '0.78rem' }}>Parceiros ativos<br />na rede</span>
+            </div>
           </div>
 
           {/* Table */}
@@ -1293,6 +1517,7 @@ export default function App() {
                   <th style={{ padding: '16px 20px' }}>MODELO / TEMA</th>
                   <th style={{ padding: '16px 20px' }}>WHATSAPP</th>
                   <th style={{ padding: '16px 20px' }}>AUDIT SCORE</th>
+                  <th style={{ padding: '16px 20px' }}>PARCEIROS</th>
                   <th style={{ padding: '16px 20px', textAlign: 'right' }}>AÇÕES</th>
                 </tr>
               </thead>
@@ -1339,9 +1564,32 @@ export default function App() {
                       </span>
                     </td>
 
+                    <td style={{ padding: '16px 20px' }}>
+                      <button
+                        onClick={() => {
+                          handleSelectCityForEditor(c.id);
+                          setEditorSection('parceiros');
+                          setActiveTab('editor');
+                        }}
+                        title="Gerenciar parceiros desta cidade"
+                        style={{
+                          backgroundColor: (c.parceiros?.filter(p => p.status === 'ativo').length || 0) > 0 ? 'rgba(16,185,129,0.15)' : 'rgba(148,163,184,0.15)',
+                          color: (c.parceiros?.filter(p => p.status === 'ativo').length || 0) > 0 ? '#34d399' : '#94a3b8',
+                          border: 'none',
+                          padding: '4px 10px',
+                          borderRadius: '20px',
+                          fontWeight: 700,
+                          fontSize: '0.78rem',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        🤝 {c.parceiros?.filter(p => p.status === 'ativo').length || 0}
+                      </button>
+                    </td>
+
                     <td style={{ padding: '16px 20px', textAlign: 'right' }}>
                       <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-                        <button 
+                        <button
                           onClick={() => {
                             handleSelectCityForEditor(c.id);
                             setActiveTab('editor');

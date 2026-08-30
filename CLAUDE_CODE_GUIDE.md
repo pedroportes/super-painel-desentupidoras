@@ -180,6 +180,43 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **Módulo de Rede de Parceiros
+  ("Fora da Área de Cobertura")**, do design de risco à implementação
+  completa. Contexto: usuário trouxe um prompt próprio que pedia pra
+  implementar via Antigravity um sistema de "sites parceiros" com
+  cross-linking entre as cidades da rede, inclusive propondo inicialmente
+  uma topologia "em círculo" (A→B→C→A) usando hospedagens diferentes pra
+  tentar escapar de detecção do Google. **Análise de risco feita antes de
+  qualquer código** (documentada na conversa e na skill nova): topologia e
+  hospedagem não mudam a classificação de link scheme — o que importa é
+  propriedade comum + padrão sistemático de link, não a forma do grafo.
+  Pesquisa real de mercado (`desentupidorakennedy.com.br` = anchor text
+  keyword-stuffing num rodapé "PARCEIROS"; `desentupidoralitoral.com.br` =
+  940 páginas de doorway/scaled-content) confirmou os dois anti-padrões a
+  evitar. Decisão final: hub `/fora-da-area-de-cobertura/` + 1 subpágina
+  por parceiro real (nunca lista de links, nunca reciprocidade automática,
+  nunca dado de teste em produção). Detalhes completos, regras e passo a
+  passo em
+  [`.agents/skills/rede-de-parceiros/SKILL.md`](.agents/skills/rede-de-parceiros/SKILL.md).
+  **Implementado**: rota Astro
+  `src/pages/fora-da-area-de-cobertura/[...partner].astro` (hub + subpágina
+  num arquivo só, via rest param — só gera rota se houver parceiro ativo);
+  util `partnerSlug.ts` extraído pra corrigir um bug real do compilador do
+  Astro (`getStaticPaths` roda num escopo separado do corpo do componente —
+  uma função declarada localmente no frontmatter e usada só dali quebra o
+  build com `X is not defined`); `Footer.astro` mostra um único link
+  condicional; aba nova **🤝 Parceiros** no Editor Visual do painel
+  (`App.tsx`) com formulário completo (adicionar/editar/excluir/ativar-
+  desativar), coluna **PARCEIROS** na tabela de Central de Cidades, e
+  contador "Parceiros ativos na rede" no topo da tabela. Testado ponta a
+  ponta: build real gerou as 3 rotas esperadas pra Linhares (com 2
+  parceiros de exemplo, claramente marcados `(EXEMPLO)`, usados só pra
+  validar visual). **Limpeza final**: removidos os 2 parceiros de exemplo
+  de Linhares e o registro de lixo pré-existente `"Desentupidora teste"`
+  das outras 9 cidades — hoje todas as 10 cidades estão com
+  `parceiros: []`. Confirmado que sem parceiro ativo a rota
+  `/fora-da-area-de-cobertura` retorna 404 (nem é gerada no build), e o
+  auditor SEO/GEO/AEO continua em 100%.
 - **`(próximo commit)`** (29/08/2026) — **Sessão de identidade visual,
   parte 2: seção "Áreas Atendidas" com foto local + correção da Linhares**.
   Adicionado suporte a foto ao lado do mapa em `LocalAreas.astro` (prop

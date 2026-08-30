@@ -41,8 +41,8 @@ const cidadeSlug = slugify(cidade);
         <a href="/politica-de-privacidade">Política de Privacidade</a> | 
         <a href="/termos-de-uso">Termos de Uso</a> | 
         <a href="/contato">Contato</a>
-        {cityData.parceiros && cityData.parceiros.length > 0 && (
-          <> | <a href="/rede-de-parceiros">Rede de Parceiros</a></>
+        {cityData.parceiros && cityData.parceiros.some((p: any) => p.status === 'ativo') && (
+          <> | <a href="/fora-da-area-de-cobertura">Fora da Área de Cobertura</a></>
         )}
       </div>
     </div>
