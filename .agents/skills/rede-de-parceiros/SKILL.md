@@ -61,11 +61,37 @@ vivo, não hipotéticas):
    durante desenvolvimento deve ser marcado explicitamente com
    `(EXEMPLO)` no nome e nunca publicado assim — ver seção 5.
 7. **Parceiro = empresa de terceiro real com acordo de indicação**, não
-   outro site da própria rede disfarçado de "parceiro". Se um dia a
-   necessidade for linkar entre sites da própria rede (ex: uma cidade
-   nossa cobre outra que não tem site ainda), isso precisa ser decidido
-   explicitamente com o usuário de novo — não é o que este módulo faz hoje
-   por padrão.
+   outro site da própria rede disfarçado de "parceiro" — **a menos que a
+   decisão explícita abaixo se aplique.**
+
+   **Decisão tomada em 30/08/2026**: como ainda não existem parceiros
+   externos reais (nenhuma empresa de fora quer se associar a um site sem
+   tráfego ainda), o usuário decidiu conscientemente usar **outras cidades
+   da própria rede** como "parceiros" no tipo `Rede de atendimento`,
+   seguindo um padrão de risco minimizado:
+   - **Padrão "satélite → polo", nunca ciclo, nunca recíproco**: uma cidade
+     menor aponta pra uma cidade-polo da mesma região (ex: Guarapuava →
+     Curitiba, São José dos Pinhais → Curitiba), mas o polo **não** aponta
+     de volta. Nunca A→B e B→A ao mesmo tempo, nunca um ciclo A→B→C→A —
+     isso reintroduziria exatamente o padrão de rede fechada que este
+     documento existe pra evitar.
+   - **Só entre cidades geograficamente plausíveis** (mesmo estado, região
+     metropolitana real) — nunca forçar um vínculo entre cidades de
+     estados distantes só pra "preencher". Ex: Poços de Caldas (MG) ficou
+     **sem parceiro** porque não existe nenhuma outra cidade nossa em MG
+     ou por perto — forçar um vínculo com Bahia/Paraná seria implausível e
+     quebraria a credibilidade da página.
+   - **Texto honesto sobre a relação real**: usar frases tipo "também
+     fazemos parte da nossa rede de atendimento em [cidade]" — nunca
+     fingir que é uma empresa terceira independente quando não é. O
+     `tipo: 'Rede de atendimento'` já existe no cadastro exatamente pra
+     esse caso (frase automática: "faz parte da nossa rede de atendimento
+     estendido").
+   - Isso continua sendo uma rede de links entre sites do mesmo dono — a
+     minimização de risco aqui é de **grau**, não elimina o risco por
+     completo. Documentar sempre que isso for expandido, e se o usuário um
+     dia conseguir parceiros externos reais, esses devem ser preferidos e
+     substituir os links internos quando fizer sentido.
 
 Se o usuário pedir pra "voltar" a um modelo de rede fechada/circular entre
 sites próprios, ou pedir uma lista extensa de parceiros por cidade, **alertar
@@ -163,19 +189,28 @@ cadastro (útil pra pausar uma indicação sem perder os dados).
 
 ---
 
-## 🧹 5. Estado atual dos dados (limpo)
+## 🧹 5. Estado atual dos dados
 
 Durante a prototipagem desta skill (30/08/2026), a cidade **Linhares**
 recebeu 2 parceiros de exemplo (`(EXEMPLO)`, domínios fictícios) só para
-validar visualmente o hub + subpágina. Depois de aprovados o texto e o
-layout, **todos os registros de exemplo/teste foram removidos** das 10
-cidades — incluindo o lixo pré-existente `"nome": "Desentupidora teste"`
-que já estava em 9 delas antes desta skill existir.
+validar visualmente o hub + subpágina, depois removidos — junto com o lixo
+pré-existente `"nome": "Desentupidora teste"` que já estava em 9 cidades
+antes desta skill existir. Se algum dia aparecer de novo um registro com
+`(EXEMPLO)` no nome ou `"cidade": "teste"` em produção, é sinal de
+regressão — remover pela UI do painel.
 
-Resultado: hoje **todas as cidades têm `parceiros: []`**. Isso é o estado
-correto e esperado — nenhuma cidade deve gerar `/fora-da-area-de-cobertura/`
-até que um parceiro **real** seja cadastrado pela UI do painel (seção 3
-acima). Se algum dia aparecer de novo um registro com `(EXEMPLO)` no nome
-ou `"cidade": "teste"` em produção, é sinal de regressão — remover pela UI
-do painel (editar a cidade → aba 🤝 Parceiros → 🗑️ Excluir), nunca deixar
-subir pro site publicado.
+**Estado real em produção (30/08/2026, depois da decisão da seção 1, regra
+7)**: várias cidades **têm** parceiro cadastrado e publicado, usando o
+padrão satélite→polo com outras cidades da própria rede:
+- Cachoeiro de Itapemirim → Linhares (ES)
+- Guarapuava → Curitiba (PR)
+- São José dos Pinhais → Curitiba (PR)
+- Vitória da Conquista → Itabuna e Porto Seguro (BA, ambos `Rede de
+  atendimento`, usados no teste de publicação real da skill
+  `criar-site-desentupidora`)
+
+Cidades **sem** parceiro (esperado, não é bug): Poços de Caldas (sem
+vizinho plausível na rede), Curitiba (é o polo, não precisa apontar pra
+ninguém), Itabuna/Porto Seguro/Londrina/araucaria (ainda não priorizadas).
+Antes de adicionar mais parceiros, reler a regra 7 da seção 1 — o padrão é
+satélite→polo, nunca ciclo, nunca recíproco.

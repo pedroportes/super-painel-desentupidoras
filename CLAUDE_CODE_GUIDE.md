@@ -130,8 +130,88 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
    apresentados como reais. Isso é um risco de propaganda enganosa (CDC) —
    **mas o usuário pediu explicitamente para NÃO mexer nisso por enquanto**.
    Não alterar sem pedido explícito novo.
-
----
+9. **FAQs reais, não genéricas** — cada FAQ tem que responder algo que um
+   cliente daquela cidade especificamente perguntaria (ex: uma cidade de
+   solo argiloso/vermelho pode ter uma FAQ sobre raízes de árvore
+   entupindo a rede; uma cidade litorânea, sobre maré alta causando
+   refluxo). **Nunca copiar a mesma pergunta/resposta trocando só o nome
+   da cidade** — isso é conteúdo duplicado em escala (mesmo risco de
+   "scaled content abuse" documentado na skill
+   [`rede-de-parceiros`](.agents/skills/rede-de-parceiros/SKILL.md), mas
+   aplicado ao conteúdo principal do site, não só à página de parceiros).
+   ⚠️ **Bug conhecido, ainda não corrigido**: `generateUniqueCityContent()`
+   em `cityGenerator.ts` gera hoje um `aboutCityText` e um conjunto de
+   FAQs **100% fixos por modelo de template** (só troca `${cidade}`) — e
+   as páginas de bairro (`[slug].astro`) são piores: os mesmos 4 cards
+   ("Perfil e Infraestrutura", "Desafios Hidráulicos Comuns", "Pontos
+   Conhecidos", "Tecnologia Sem Quebrar Piso") têm **texto idêntico,
+   palavra por palavra, em todo bairro de toda cidade**, só troca o nome
+   do bairro. Isso já soma 100+ páginas quase-idênticas publicadas hoje —
+   é a mesma classe de risco do exemplo de mercado de 940 páginas
+   analisado na skill de parceiros, só que em escala menor e já ao vivo,
+   não hipotético. Ao criar uma cidade nova, escrever o conteúdo (H1,
+   1º parágrafo, `aboutCityText`, FAQs) manualmente com fatos reais e
+   específicos daquela cidade — nunca usar `generateUniqueCityContent()`
+   direto pra produção sem reescrever o texto.
+10. **Title ≤ ~60 caracteres, Meta Description ≤ ~155-160 caracteres** —
+    ⚠️ **bug real encontrado em 30/08/2026**: o `metaTitle` da cidade de
+    teste Vitória da Conquista ficou com **83 caracteres** e a
+    `metaDescription` com **165** (Google trunca/penaliza acima disso,
+    confirmado por extensão de auditoria SEO no navegador). Pior: **até a
+    fórmula padrão/fallback** em `syncCityToAstro()` (`server.cjs`) quebra
+    essa regra sozinha pra cidades de nome longo — `Desentupidora em
+    Vitória da Conquista BA 24h | Atendimento Sem Quebrar Piso` já nasce
+    com **75 caracteres**, sem nenhum texto custom. **Nunca concatenar o
+    nome da cidade num título/descrição fixo sem checar o tamanho final**
+    — cidades com nome curto (Linhares, 8 letras) mascaram esse bug,
+    cidades com nome composto/longo (Vitória da Conquista, Poços de
+    Caldas, São José dos Pinhais) o expõem. Antes de aprovar um
+    `metaTitle`/`metaDescription` (custom ou gerado por fórmula), **contar
+    caracteres de verdade** (`nome.length` em JS, não estimar de cabeça) e
+    manter título curto e direto (`Desentupidora em [Cidade] [UF] 24h` já
+    basta e cabe até em nomes longos) em vez de tentar encaixar
+    diferenciais extras no título — o diferencial fica no `firstParagraph`
+    e no `aboutCityText`, que não têm limite rígido de caracteres.
+11. **Nota real no [isitagentready.com](https://isitagentready.com/)** —
+    além da auditoria interna (`npm run audit`, `seoGeoAuditor.js`, que
+    verifica só a estrutura do HTML), todo site publicado deve ser testado
+    de verdade nessa ferramenta (validador de discoverability/AEO afiliado
+    à Cloudflare) depois do deploy. A auditoria interna pode dar 100% e o
+    site ainda ter problemas reais de produção não cobertos por ela (foi
+    o caso do bug de negociação de Markdown, `commit 5d5fa0b`/histórico
+    acima) — **100% no `npm run audit` não substitui o teste externo real**.
+12. **Rodar também o [PageSpeed Insights](https://pagespeed.web.dev/) (mobile) depois do deploy** —
+    pega uma classe de bug que nem o auditor interno nem o isitagentready.com
+    cobrem: robots.txt inválido, imagem sem `width`/`height`, iframe sem
+    `title`, link sem nome acessível. **Bugs reais encontrados e corrigidos
+    em 30/08/2026** (cidade de teste Vitória da Conquista, ver histórico):
+    - `robots.txt` tinha a linha `llms-txt: <url>` — **não é uma diretiva
+      válida** (Lighthouse/`robots-parser` não reconhece, reporta "Unknown
+      directive" e derruba o SEO de 100 pra 92). A descoberta do
+      `llms.txt` **não depende do robots.txt** — já existe via `Link`
+      header (`rel="llms-txt"`, ver `public/_headers`), que é o mecanismo
+      que o isitagentready.com de fato lê. **Nunca inventar diretiva de
+      robots.txt fora do padrão real (`User-agent`, `Allow`, `Disallow`,
+      `Sitemap`, `Crawl-delay`)** — se quiser anunciar um recurso pra
+      agentes, usar `Link` header ou `.well-known`, nunca o robots.txt.
+    - Todo `<img>` de conteúdo (logo no `Header.astro`, foto em
+      `LocalAreas.astro`, hero em `[slug].astro`) **precisa de `width` e
+      `height` explícitos** (as dimensões reais do master, mesmo que o CSS
+      redimensione depois) — sem isso o navegador não reserva espaço e
+      gera Cumulative Layout Shift.
+    - Todo `<iframe>` (os 2 embeds de Google Maps, em `LocalAreas.astro` e
+      `[slug].astro`) **precisa de `title` descritivo** — sem isso é
+      reportado como falha de acessibilidade ("frame sem título").
+    - ⚠️ **Pegadinha sutil, a mais fácil de repetir por acidente**: a regra
+      de CSS responsivo `.top-bar span { display: none; }` (esconde o
+      texto no mobile pra economizar espaço) **também escondia o único
+      texto acessível do link do WhatsApp no topo** (`Header.astro`) — o
+      link ficava sem nome nenhum pro leitor de tela em telas pequenas,
+      mesmo tendo texto visível no desktop. **Toda vez que uma regra CSS
+      esconder o conteúdo de texto de um link/botão em algum breakpoint,
+      adicionar `aria-label` fixo naquele elemento** (não depende do CSS,
+      sempre presente) — nunca confiar só no texto interno quando existe
+      CSS que pode escondê-lo condicionalmente.
 
 ## 🌐 AEO (agentes de IA) — o que existe e o que falta
 
@@ -180,6 +260,82 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **Bug real de deploy Cloudflare
+  descoberto e corrigido: `deployToCloudflarePages()` nunca lia a URL real
+  reportada pelo wrangler**, só assumia `https://<nomeCalculado>.pages.dev`
+  cegamente. Descoberto ao conferir o checklist da Curitiba: o site
+  publicado de verdade estava em `desentupidora-curitiba-sns.pages.dev`
+  (Cloudflare renomeou por colisão de nome/subdomínio — `.pages.dev` é
+  global, não só por conta), mas o painel continuava mostrando/salvando
+  `desentupidora-curitiba.pages.dev`, que aponta pra um site antigo/de
+  outra origem ("R$ 79,90 o metro", claramente não é nosso conteúdo).
+  Corrigido: (1) a URL final agora é sempre extraída do output real do
+  wrangler (linha "Take a peek over at..."), nunca assumida; (2) o nome do
+  projeto pedido em deploys futuros passa a reaproveitar o slug real já
+  salvo em `deployUrl`, evitando pedir de novo um nome que sabidamente
+  colide. Redeploy de Curitiba confirmou a correção (título e Link header
+  batendo com o cadastro atual).
+  **Mais 2 bugs de dado real corrigidos no caminho**: `cidade: "araucaria"`
+  e `cidade: "curitiba"` estavam salvos em minúsculo/sem acento (vazava pro
+  `<title>` publicado); e o `dominio` de araucaria apontava por engano pro
+  domínio da Linhares (`desentupidoralinhares.com.br`). Também corrigido:
+  `firstParagraph` de Londrina não tinha a palavra-chave nas primeiras 30
+  palavras (auditor pegou, 91%→100% depois do ajuste).
+  Depois disso, **republicadas todas as cidades no Vercel e Cloudflare que
+  ainda estavam com deploy anterior à correção do título/`vercel.json`**
+  (Linhares, Porto Seguro, Itabuna, Guarapuava, São José dos Pinhais,
+  Curitiba) — todas confirmadas com `curl` mostrando título curto e `Link`
+  header presente.
+- **`(pendente de commit)`** (30/08/2026) — **Logo+favicon+hero geradas
+  para 5 cidades (Cachoeiro, Poços de Caldas, Guarapuava, Curitiba, São
+  José dos Pinhais) e publicadas de verdade** (200 OK confirmado em todas
+  via curl). Hero usou fotos geradas pelo próprio usuário no ChatGPT/Gemini
+  (prompt salvo em `PROMPT-IDENTIDADE-VISUAL.md`) — 1 das 6 rejeitada por
+  erro de ortografia real ("HIDOJATEAMENTO", faltando R). Parcerias
+  esparsas adicionadas em 3 delas (Cachoeiro→Linhares, Guarapuava→Curitiba,
+  São José dos Pinhais→Curitiba — todas unidirecionais, sem ciclo, só
+  "satélite aponta pro polo", seguindo a skill `rede-de-parceiros`; Poços
+  de Caldas ficou sem parceiro por falta de vizinho geográfico plausível
+  na rede). **2 bugs reais novos encontrados rodando o checklist completo
+  numa delas (Cachoeiro) e corrigidos** — detalhes na seção de Pendências
+  (itens 1 e 2): `_headers` não funciona no Vercel (corrigido com
+  `public/vercel.json`) e negociação de Markdown não existe fora do
+  Cloudflare Pages (não corrigido, documentado como pendência). Também
+  corrigido de quebra o **bug sistêmico de título estourando 60
+  caracteres** que já valia pra quase toda cidade (só nomes curtos tipo
+  "Linhares"/"Itabuna" mascaravam) — removido o sufixo fixo
+  `"| Atendimento Sem Quebrar Piso"` da fórmula padrão em `server.cjs`.
+- **`(pendente de commit)`** (30/08/2026) — **Teste ponta a ponta de
+  criação de cidade com conteúdo 100% único (Vitória da Conquista, BA) +
+  publicação real + correção de bugs achados por ferramentas externas**.
+  Criada como teste do fluxo "conteúdo único por cidade" discutido (ver
+  regra 9 acima): H1/1º parágrafo/`aboutCityText`/FAQs escritos com fatos
+  reais da cidade (planalto, altitude, raízes de árvore, polo de saúde
+  regional, BR-116), nunca template genérico. Imagens geradas via Canva
+  seguindo `PROMPT-IDENTIDADE-VISUAL.md` (logo com chroma-key real, hero
+  com "DESENTUPIDORA" pintado no caminhão, texto conferido). Publicada de
+  verdade no Cloudflare Pages
+  (`https://desentupidora-vitoriadaconquista.pages.dev`) a pedido do
+  usuário pra rodar validação externa real. **3 bugs reais encontrados e
+  corrigidos** (detalhes na regra 12 das Regras de Ouro): `metaTitle`/
+  `metaDescription` estourando o limite de caracteres (83/165 chars, até a
+  fórmula padrão do `server.cjs` quebra pra cidade de nome longo);
+  `llms-txt:` como diretiva inválida dentro do `robots.txt` (Lighthouse
+  reportava erro, SEO caía de 100 pra 92); `<img>` sem `width`/`height`,
+  `<iframe>` sem `title`, e o link do WhatsApp do topo ficando sem nome
+  acessível no mobile por causa do CSS `.top-bar span { display: none; }`.
+  **Resultado real no PageSpeed Insights (mobile) depois de tudo
+  corrigido**: SEO 92→**100**, Acessibilidade 83→**92**, Navegação
+  agêntica 2/3→**3/3 (completo)** — medido antes/depois, não estimado.
+  Isso tudo **também melhorou o score real do isitagentready.com de 33 pra 40**
+  (Discoverability 50%→75%) — ganho medido, não estimado. Como as imagens
+  candidatas descartadas (3 de logo, 3 de hero) eram boas, ficaram salvas
+  em `.agents/skills/criar-site-desentupidora/exemplos-gerados/vitoriadaconquista/`
+  pra reaproveitar depois em vez de gerar de novo. Correções nos arquivos
+  compartilhados (`_headers`, `robots.txt.ts`, `Header.astro`,
+  `LocalAreas.astro`, `[slug].astro`, `cityGenerator.ts`, `server.cjs`)
+  valem pra **todas** as cidades, não só a de teste — as outras 10 ainda
+  precisam ser republicadas pra herdar esses ganhos (pendência).
 - **`(pendente de commit)`** (30/08/2026) — **Módulo de Rede de Parceiros
   ("Fora da Área de Cobertura")**, do design de risco à implementação
   completa. Contexto: usuário trouxe um prompt próprio que pedia pra
@@ -388,30 +544,60 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
-1. **`/api/deploy-city/:id` (botão "Publicar") não roda a auditoria nem
+1. **Negociação de Markdown (AEO) só funciona em cidades no Cloudflare
+   Pages** — confirmado em 30/08/2026 rodando o isitagentready.com de
+   verdade contra uma cidade no Vercel (Cachoeiro de Itapemirim): Content
+   Accessibility deu **0/1**, derrubando o nível de "Agent-Integrated"
+   (4) pra "Bot-Aware" (2), mesmo com Discoverability e Bot Access Control
+   iguais aos de uma cidade no Cloudflare. Causa: `functions/_middleware.js`
+   é uma convenção **exclusiva do Cloudflare Pages** — no Vercel e
+   provavelmente no Netlify esse arquivo é ignorado silenciosamente, sem
+   erro nenhum no deploy. Afeta hoje Linhares, Cachoeiro, Porto Seguro,
+   araucaria (Vercel) e Poços de Caldas (Netlify) — 5 das 11 cidades.
+   **Não corrigido ainda** — precisa de uma Vercel Edge Middleware
+   (`middleware.ts` na raiz, API diferente da do Cloudflare Worker) e,
+   separadamente, uma Netlify Edge Function, reescrevendo a mesma lógica
+   de negociação de `Accept: text/markdown` pra cada plataforma. Não é
+   reaproveitável 1:1 entre as 3 hospedagens.
+2. **`_headers` (formato Netlify/Cloudflare Pages) não funciona no
+   Vercel** — **já corrigido** em 30/08/2026: o `Link` HTTP header
+   (usado pro isitagentready.com descobrir `llms.txt`, política de
+   privacidade e termos de uso) não aparecia em nenhuma cidade no Vercel,
+   porque o Vercel não lê `_headers`, só `vercel.json`. Solução: criado
+   `public/vercel.json` com o mesmo conteúdo do `Link` header (Astro copia
+   pra `dist/` automaticamente igual já fazia com `_headers`, e os dois
+   arquivos convivem sem conflito — Cloudflare/Netlify ignoram o
+   `vercel.json` solto). Testado e confirmado com `curl -I` antes/depois.
+3. **`/api/deploy-city/:id` (botão "Publicar") não roda a auditoria nem
    atualiza `auditScore`** — só `/api/build-city/:id` (botão "Build") faz
    isso. Publicar uma cidade sem antes/depois clicar em Build deixa o score
    na Central de Cidades desatualizado (visto em 29/08/2026 com Itabuna:
    ficou mostrando 90% com o site já 100% no ar). Corrigir: fazer
    `deploy-city` rodar `npm run audit` também (ou chamar a mesma lógica de
    `build-city`) antes de marcar `status: 'ativo'`.
-2. **Editor estilo Elementor** (clicar no elemento pra editar, containers) —
+4. **Editor estilo Elementor** (clicar no elemento pra editar, containers) —
    pedido explícito do usuário. Agora que o preview é o Astro real e já
    sincroniza ao vivo, esta é a próxima frente. Precisa: (a) um jeito de
    injetar overlay/contentEditable nas páginas Astro quando servidas em
    modo editor, (b) reconectar isso ao listener `handleMessage`/
    `SELECT_ELEMENT` que já existe em `App.tsx` mas está sem uso desde que o
    preview falso foi removido.
-3. **Negociação de Markdown para Vercel e Netlify** — hoje só funciona em
-   Cloudflare Pages.
-4. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
+5. Qualidade de copy: alguns títulos de página de serviço ficam redundantes
    (ex: "Desentupidora de Desentupimento de Pia") — a palavra-chave está lá,
    mas o fraseado é estranho.
-5. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
+6. Depoimentos fabricados — usuário pediu pra não mexer por enquanto, mas é
    um risco real (propaganda enganosa) que vale revisitar no futuro.
-6. A rota antiga `/api/preview/:id` (gerador de HTML falso) ficou morta no
+7. A rota antiga `/api/preview/:id` (gerador de HTML falso) ficou morta no
    `server.cjs` — pode ser removida com segurança quando alguém for limpar
    código morto.
+8. ~~**Deploy URLs quebradas em `cities.json`**~~ — **corrigido em
+   30/08/2026**: Porto Seguro tinha um deploy do Vercel que expirou/sumiu
+   (404, corrigido republicando); `araucaria.deployUrl` e
+   `londrina.deployUrl` estavam com URL errada/lixo — corrigido apagando o
+   campo e deixando o próprio deploy gerar um novo de verdade. Ver
+   histórico de correções pra detalhes completos (inclusive o bug maior de
+   `deployToCloudflarePages` nunca ler a URL real do wrangler, achado no
+   mesmo mutirão).
 
 ---
 

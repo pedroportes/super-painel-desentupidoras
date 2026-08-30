@@ -330,6 +330,111 @@ text closely before accepting**, then save/convert as WebP
 (quality ~85 é suficiente pra foto).
 ```
 
+**Variante em português, escrita pelo usuário (30/08/2026), testada e
+aprovada** — produziu boas fotos via ChatGPT e Gemini/Nano Banana. Preferir
+esta versão ao gerar hero pra novas cidades, adaptando só se for pedir uma
+cor de caminhão diferente:
+
+```
+Crie uma fotografia altamente realista e profissional de um caminhão de
+desentupidora realizando um serviço em uma rua residencial de bairro no
+Brasil.
+
+O caminhão deve ser grande, do tipo caminhão de sucção e hidrojateamento,
+com tanque cilíndrico metálico e equipamentos profissionais visíveis,
+incluindo conexões, válvulas, tubulações e carretéis de mangueiras.
+
+A pintura do caminhão deve ser predominantemente branca e azul escuro.
+
+No tanque do caminhão deve aparecer SOMENTE os seguintes textos, escritos
+corretamente e de forma legível:
+
+DESENTUPIDORA
+
+HIDROJATEAMENTO DE ALTA PRESSÃO
+
+Não incluir nenhum outro texto, número de telefone, nome de empresa,
+logotipo, endereço, site, placa legível, slogan ou qualquer outra escrita
+no caminhão, uniforme ou cenário.
+
+A cena deve mostrar dois funcionários profissionais trabalhando ao lado do
+caminhão.
+
+Os dois funcionários devem estar realizando atividades diferentes.
+
+O primeiro funcionário deve estar operando uma mangueira grossa de sucção
+a vácuo, com aproximadamente 3 polegadas de diâmetro. A mangueira deve ser
+claramente espessa, reforçada e corrugada, semelhante a uma mangueira
+industrial utilizada em caminhões de sucção.
+
+Esse funcionário deve estar posicionando a mangueira dentro de uma
+abertura de bueiro ou poço no chão.
+
+O segundo funcionário deve estar próximo ao caminhão realizando uma
+atividade diferente, como operando os comandos e válvulas do equipamento,
+organizando outra mangueira ou preparando os equipamentos.
+
+Os funcionários devem utilizar uniformes profissionais, sem textos e sem
+logotipos visíveis, em tons de azul escuro, calças de trabalho e
+equipamentos de segurança adequados.
+
+A cena deve acontecer durante o dia, em uma rua típica de bairro
+brasileiro.
+
+O cenário deve apresentar características realistas do Brasil:
+
+- casas residenciais brasileiras;
+- calçadas simples;
+- muros;
+- portões;
+- postes de energia;
+- fiação elétrica aérea;
+- árvores;
+- asfalto levemente irregular;
+- meio-fio;
+- arquitetura típica de bairro brasileiro.
+
+Adicionar pequenos detalhes realistas de uma operação profissional, como
+cones de sinalização próximos ao caminhão, equipamentos organizados e uma
+pequena área de trabalho isolada.
+
+A composição deve parecer uma fotografia profissional feita por um
+fotógrafo documental, mostrando claramente o caminhão e os dois
+funcionários trabalhando.
+
+Estilo: fotografia hiper-realista.
+
+Iluminação natural diurna.
+
+Alta definição.
+
+Texturas extremamente realistas.
+
+Perspectiva fotográfica profissional.
+
+Proporções humanas e do caminhão corretas.
+
+Profundidade de campo natural.
+
+Aspecto de fotografia real, não ilustração, não desenho e não renderização
+3D.
+
+IMPORTANTE: não gerar textos adicionais. Os únicos textos permitidos em
+toda a imagem são:
+
+DESENTUPIDORA
+
+HIDROJATEAMENTO DE ALTA PRESSÃO
+```
+
+**Resultado real desse prompt (30/08/2026)**: rodado 2x no ChatGPT e 4x no
+Gemini (Nano Banana). Uma das 6 saiu com erro de ortografia real
+("HIDOJATEAMENTO", faltando o R) — **rejeitada**. As outras 5 saíram com o
+texto certo e foram aproveitadas em 5 cidades diferentes (ver
+`cities.json`). **Confirma o risco já documentado**: mesmo com um prompt
+bem escrito e explícito, sempre conferir a ortografia de cada imagem antes
+de aprovar, nunca assumir que saiu certo.
+
 ### 4. OG / SOCIAL SHARE (bônus — requer mudança de código pra usar)
 
 ```

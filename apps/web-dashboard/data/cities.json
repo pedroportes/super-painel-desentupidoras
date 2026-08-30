@@ -34,7 +34,7 @@
     "firstParagraph": "Precisando de uma desentupidora em Linhares ES urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Linhares e região.rr",
     "h1Title": "Desentupidora em Linhares ES 24horas",
     "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
-    "lastDeployAt": "2026-08-29T22:42:34.552Z",
+    "lastDeployAt": "2026-08-30T18:25:25.252Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Linhares?",
@@ -152,7 +152,7 @@
     ],
     "auditScore": 100,
     "deployUrl": "https://desentupidora-cachoeirodeitapemirim.vercel.app",
-    "lastDeployAt": "2026-08-28T18:24:51.017Z",
+    "lastDeployAt": "2026-08-30T18:03:40.336Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Cachoeiro de Itapemirim?",
@@ -237,7 +237,22 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": []
+    "parceiros": [
+      {
+        "id": "1788112630165580",
+        "nome": "Desentupidora Linhares 24h",
+        "cidade": "Linhares",
+        "uf": "ES",
+        "dominio": "desentupidoralinhares.com.br",
+        "url": "https://desentupidora-linhares-zeta.vercel.app",
+        "descricao": "Também fazemos parte da nossa rede de atendimento em Linhares - ES, cobrindo o litoral norte do estado com equipe própria.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ],
+    "heroImage": "/images/cachoeiro/desentupidora-cachoeiro-tecnico-desentupimento.webp",
+    "logoUrl": "/images/cachoeiro/logo-desentupidora-cachoeiro.webp",
+    "faviconUrl": "/images/cachoeiro/logo-desentupidora-cachoeiro.webp"
   },
   {
     "id": "pocosdecaldas",
@@ -266,7 +281,7 @@
     ],
     "auditScore": 100,
     "deployUrl": "https://desentupidora-pocosdecaldas.netlify.app",
-    "lastDeployAt": "2026-08-29T13:34:35.124Z",
+    "lastDeployAt": "2026-08-30T17:36:19.470Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Poços de Caldas?",
@@ -351,7 +366,10 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": []
+    "parceiros": [],
+    "heroImage": "/images/pocosdecaldas/desentupidora-pocosdecaldas-tecnico-desentupimento.webp",
+    "logoUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp",
+    "faviconUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp"
   },
   {
     "id": "itabuna",
@@ -470,7 +488,7 @@
     "ctaButtonText": "Chamar Desentupidora em Itabuna no WhatsApp",
     "lastH2": "Por que a Desentupidora Itabuna 24h é a mais recomendada da cidade?",
     "deployUrl": "https://desentupidora-itabuna.pages.dev",
-    "lastDeployAt": "2026-08-29T22:21:58.349Z",
+    "lastDeployAt": "2026-08-30T18:24:26.414Z",
     "logoUrl": "/images/itabuna/logo-desentupidora-itabuna.webp",
     "faviconUrl": "/images/itabuna/logo-desentupidora-itabuna.webp",
     "logoHeight": 98,
@@ -504,7 +522,7 @@
     ],
     "auditScore": 0,
     "deployUrl": "https://desentupidora-portoseguro.vercel.app",
-    "lastDeployAt": "2026-08-29T13:24:07.103Z",
+    "lastDeployAt": "2026-08-30T18:25:51.149Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Porto Seguro?",
@@ -617,9 +635,9 @@
       "Vila Carli",
       "Boqueirão"
     ],
-    "auditScore": 0,
-    "deployUrl": "https://16fe4cf9.desentupidora-guarapuava.pages.dev",
-    "lastDeployAt": "2026-08-28T18:51:03.930Z",
+    "auditScore": 100,
+    "deployUrl": "https://desentupidora-guarapuava.pages.dev",
+    "lastDeployAt": "2026-08-30T18:23:04.971Z",
     "faqs": [
       {
         "question": "Vocês atendem emergências 24 horas em Guarapuava?",
@@ -704,10 +722,25 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": []
+    "parceiros": [
+      {
+        "id": "1788112630165225",
+        "nome": "Desentupidora curitiba 24h",
+        "cidade": "curitiba",
+        "uf": "PR",
+        "dominio": "desentupidoracuritiba.com.br",
+        "url": "https://desentupidora-curitiba.pages.dev",
+        "descricao": "Nossa rede também mantém atendimento na Grande Curitiba - PR, cobrindo a capital e região metropolitana.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ],
+    "heroImage": "/images/guarapuava/desentupidora-guarapuava-tecnico-desentupimento.webp",
+    "logoUrl": "/images/guarapuava/logo-desentupidora-guarapuava.webp",
+    "faviconUrl": "/images/guarapuava/logo-desentupidora-guarapuava.webp"
   },
   {
-    "cidade": "curitiba",
+    "cidade": "Curitiba",
     "uf": "PR",
     "populacao": "150.000",
     "hospedagem": "cloudflare",
@@ -715,7 +748,7 @@
     "heroVariant": "HeroV1",
     "servicesVariant": "ServicesGridV1",
     "whatsapp": "27999998888",
-    "empresaNome": "Desentupidora curitiba 24h",
+    "empresaNome": "Desentupidora Curitiba 24h",
     "endereco": "",
     "bairros": [
       "Centro",
@@ -728,56 +761,56 @@
       "Juparanã"
     ],
     "dominio": "desentupidoracuritiba.com.br",
-    "h1Title": "Desentupidora em curitiba PR 24h",
-    "firstParagraph": "Precisando de desentupidora em curitiba PR urgente? Atendimento emergencial 24 horas para desentupimento de esgoto, pias, ralos e limpeza de fossa com chegada em até 30 min sem quebrar pisos.",
-    "lastH2": "Por que escolher a melhor Desentupidora em curitiba PR?",
-    "status": "pendente",
-    "auditScore": 0,
+    "h1Title": "Desentupidora em Curitiba PR 24h",
+    "firstParagraph": "Precisando de desentupidora em Curitiba PR urgente? Atendimento emergencial 24 horas para desentupimento de esgoto, pias, ralos e limpeza de fossa com chegada em até 30 min sem quebrar pisos.",
+    "lastH2": "Por que escolher a melhor Desentupidora em Curitiba PR?",
+    "status": "ativo",
+    "auditScore": 100,
     "id": "curitiba",
     "faqs": [
       {
-        "question": "Vocês atendem emergências 24 horas em curitiba?",
-        "answer": "Sim! Nossas equipes de plantão em curitiba operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+        "question": "Vocês atendem emergências 24 horas em Curitiba?",
+        "answer": "Sim! Nossas equipes de plantão em Curitiba operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
       },
       {
-        "question": "Qual o tempo estimado de chegada até o meu endereço em curitiba?",
-        "answer": "Devido às equipes posicionadas nos principais bairros de curitiba, nosso tempo médio de chegada é de 20 a 40 minutos."
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Curitiba?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Curitiba, nosso tempo médio de chegada é de 20 a 40 minutos."
       },
       {
-        "question": "A visita técnica para avaliação em curitiba é gratuita?",
+        "question": "A visita técnica para avaliação em Curitiba é gratuita?",
         "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
       },
       {
         "question": "O serviço de desentupimento possui garantia por escrito?",
-        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em curitiba."
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Curitiba."
       },
       {
         "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
         "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
       },
       {
-        "question": "Vocês atendem empresas, condomínios e comércios em curitiba?",
+        "question": "Vocês atendem empresas, condomínios e comércios em Curitiba?",
         "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
       }
     ],
     "testimonials": [
       {
         "name": "Carlos Eduardo M.",
-        "neighborhood": "Centro - curitiba",
+        "neighborhood": "Centro - Curitiba",
         "rating": 5,
-        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em curitiba, resolvendo sem sujeira."
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Curitiba, resolvendo sem sujeira."
       },
       {
         "name": "Maria Aparecida Silva",
-        "neighborhood": "Interlagos - curitiba",
+        "neighborhood": "Interlagos - Curitiba",
         "rating": 5,
-        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em curitiba. Recomendo muito!"
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Curitiba. Recomendo muito!"
       },
       {
         "name": "João Paulo Santos",
-        "neighborhood": "Conceição - curitiba",
+        "neighborhood": "Conceição - Curitiba",
         "rating": 5,
-        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em curitiba."
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Curitiba."
       }
     ],
     "services": [
@@ -818,7 +851,12 @@
         "icon": "🌊"
       }
     ],
-    "parceiros": []
+    "parceiros": [],
+    "heroImage": "/images/Curitiba/desentupidora-Curitiba-tecnico-desentupimento.webp",
+    "logoUrl": "/images/Curitiba/logo-desentupidora-Curitiba.webp",
+    "faviconUrl": "/images/Curitiba/logo-desentupidora-Curitiba.webp",
+    "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
+    "lastDeployAt": "2026-08-30T18:21:53.076Z"
   },
   {
     "id": "sojosdospinhais",
@@ -826,7 +864,7 @@
     "uf": "PR",
     "populacao": "1.773.733",
     "modeloTemplate": "urgencia-24h",
-    "status": "pendente",
+    "status": "ativo",
     "hospedagem": "cloudflare",
     "paletaCores": "urgencia-azul-laranja",
     "heroVariant": "HeroV1",
@@ -929,12 +967,29 @@
         "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em São José dos Pinhais."
       }
     ],
-    "auditScore": 0,
-    "parceiros": []
+    "auditScore": 100,
+    "parceiros": [
+      {
+        "id": "1788112630166948",
+        "nome": "Desentupidora curitiba 24h",
+        "cidade": "curitiba",
+        "uf": "PR",
+        "dominio": "desentupidoracuritiba.com.br",
+        "url": "https://desentupidora-curitiba.pages.dev",
+        "descricao": "Também atendemos a capital, Curitiba - PR, através da nossa rede na região metropolitana.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ],
+    "heroImage": "/images/sojosdospinhais/desentupidora-saojosedospinhais-tecnico-desentupimento.webp",
+    "logoUrl": "/images/sojosdospinhais/logo-desentupidora-saojosedospinhais.webp",
+    "faviconUrl": "/images/sojosdospinhais/logo-desentupidora-saojosedospinhais.webp",
+    "deployUrl": "https://desentupidora-saojosedospinhais.pages.dev",
+    "lastDeployAt": "2026-08-30T18:23:43.706Z"
   },
   {
     "id": "araucaria",
-    "cidade": "araucaria",
+    "cidade": "Araucária",
     "uf": "PR",
     "populacao": "150.000",
     "modeloTemplate": "urgencia-24h",
@@ -943,16 +998,16 @@
     "paletaCores": "urgencia-azul-laranja",
     "heroVariant": "HeroV1",
     "servicesVariant": "ServicesGridV1",
-    "dominio": "desentupidoralinhares.com.br",
+    "dominio": "desentupidoraaraucaria.com.br",
     "whatsapp": "41992795590",
     "telefoneFixo": "(41) 3323-0000",
-    "empresaNome": "Desentupidora araucaria 24h",
+    "empresaNome": "Desentupidora Araucária 24h",
     "cnpj": "12.345.678/0001-90",
-    "endereco": "Av. Central, 500 - Centro, araucaria - PR",
-    "h1Title": "Desentupidora em araucaria PR 24h",
-    "firstParagraph": "Precisando de uma desentupidora em araucaria PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de araucaria e região, com garantia por escrito e o menor preço.",
+    "endereco": "Av. Central, 500 - Centro, Araucária - PR",
+    "h1Title": "Desentupidora em Araucária PR 24h",
+    "firstParagraph": "Precisando de uma desentupidora em Araucária PR urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de Araucária e região, com garantia por escrito e o menor preço.",
     "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
-    "lastH2": "Por que escolher a melhor Desentupidora em araucaria PR?",
+    "lastH2": "Por que escolher a melhor Desentupidora em Araucária PR?",
     "bairros": [
       "Centro",
       "Jardim América",
@@ -997,54 +1052,57 @@
     ],
     "faqs": [
       {
-        "question": "Vocês atendem emergências 24 horas em araucaria?",
-        "answer": "Sim! Nossas equipes de plantão em araucaria operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
+        "question": "Vocês atendem emergências 24 horas em Araucária?",
+        "answer": "Sim! Nossas equipes de plantão em Araucária operam 24 horas por dia, 7 dias por semana, inclusive domingos e feriados."
       },
       {
-        "question": "Qual o tempo estimado de chegada até o meu endereço em araucaria?",
-        "answer": "Devido às equipes posicionadas nos principais bairros de araucaria, nosso tempo médio de chegada é de 20 a 40 minutos."
+        "question": "Qual o tempo estimado de chegada até o meu endereço em Araucária?",
+        "answer": "Devido às equipes posicionadas nos principais bairros de Araucária, nosso tempo médio de chegada é de 20 a 40 minutos."
       },
       {
-        "question": "A visita técnica para avaliação em araucaria é gratuita?",
+        "question": "A visita técnica para avaliação em Araucária é gratuita?",
         "answer": "Sim! A visita técnica é 100% gratuita e sem qualquer compromisso. O técnico avalia o problema no local."
       },
       {
         "question": "O serviço de desentupimento possui garantia por escrito?",
-        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em araucaria."
+        "answer": "Oferecemos garantia total por escrito de até 90 dias em todos os serviços realizados em Araucária."
       },
       {
         "question": "Precisa quebrar piso, azulejos ou paredes para desentupir?",
         "answer": "Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro sem danificar o imóvel."
       },
       {
-        "question": "Vocês atendem empresas, condomínios e comércios em araucaria?",
+        "question": "Vocês atendem empresas, condomínios e comércios em Araucária?",
         "answer": "Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral."
       }
     ],
     "testimonials": [
       {
         "name": "Carlos Eduardo M.",
-        "neighborhood": "Centro - araucaria",
+        "neighborhood": "Centro - Araucária",
         "rating": 5,
-        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em araucaria, resolvendo sem sujeira."
+        "text": "Atendimento nota 10! O esgoto transbordou na madrugada e a equipe chegou muito rápido em Araucária, resolvendo sem sujeira."
       },
       {
         "name": "Maria Aparecida Silva",
-        "neighborhood": "Jardim América - araucaria",
+        "neighborhood": "Jardim América - Araucária",
         "rating": 5,
-        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em araucaria. Recomendo muito!"
+        "text": "Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada em Araucária. Recomendo muito!"
       },
       {
         "name": "João Paulo Santos",
-        "neighborhood": "Bela Vista - araucaria",
+        "neighborhood": "Bela Vista - Araucária",
         "rating": 5,
-        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em araucaria."
+        "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Araucária."
       }
     ],
-    "auditScore": 0,
-    "deployUrl": "https://dist-fv35crkyn-pedros-projects-c35b6c79.vercel.app\",",
-    "lastDeployAt": "2026-08-28T17:30:10.892Z",
-    "parceiros": []
+    "auditScore": 100,
+    "lastDeployAt": "2026-08-30T18:16:53.546Z",
+    "parceiros": [],
+    "logoUrl": "/images/Araucária/logo-desentupidora-Araucária.webp",
+    "faviconUrl": "/images/Araucária/logo-desentupidora-Araucária.webp",
+    "heroImage": "/images/Araucária/desentupidora-Araucária-tecnico-desentupimento.webp",
+    "deployUrl": "https://desentupidora-araucaria.vercel.app"
   },
   {
     "id": "londrina",
@@ -1064,7 +1122,7 @@
     "cnpj": "34.567.890/0001-12",
     "endereco": "Rua das Flores, 250 - Bairro Residencial, Londrina - PR",
     "h1Title": "Desentupidora Residencial em Londrina PR - Atendimento Sem Quebrar",
-    "firstParagraph": "Sua pia, ralo ou vaso sanitário entupiu em Londrina? Nossa equipe atende sua casa rapidamente com técnicos educados, trabalho 100% limpo sem quebrar azulejos ou pisos e orçamento gratuito na sua residência.",
+    "firstParagraph": "Precisando de uma desentupidora em Londrina PR? Sua pia, ralo ou vaso sanitário entupiu? Nossa equipe atende sua casa rapidamente com técnicos educados, trabalho 100% limpo sem quebrar azulejos ou pisos e orçamento gratuito na sua residência.",
     "ctaButtonText": "Chamar Encanador no WhatsApp",
     "lastH2": "A desentupidora mais recomendada pelas famílias de Londrina",
     "bairros": [
@@ -1155,9 +1213,170 @@
         "text": "Chamei para uma emergência no ralo e chegaram em 25 minutos. Orçamento transparente e serviço com garantia em Londrina."
       }
     ],
-    "auditScore": 0,
-    "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
-    "lastDeployAt": "2026-08-29T17:43:05.019Z",
-    "parceiros": []
+    "auditScore": 100,
+    "lastDeployAt": "2026-08-30T18:14:44.067Z",
+    "parceiros": [],
+    "logoUrl": "/images/londrina/logo-desentupidora-londrina.webp",
+    "faviconUrl": "/images/londrina/logo-desentupidora-londrina.webp",
+    "heroImage": "/images/londrina/desentupidora-londrina-caminhao-limpa-fossa.webp",
+    "deployUrl": "https://desentupidora-londrina.vercel.app"
+  },
+  {
+    "id": "vitoriadaconquista",
+    "cidade": "Vitória da Conquista",
+    "uf": "BA",
+    "populacao": "343.000",
+    "modeloTemplate": "urgencia-24h",
+    "status": "ativo",
+    "hospedagem": "cloudflare",
+    "paletaCores": "urgencia-azul-laranja",
+    "heroVariant": "HeroV1",
+    "servicesVariant": "ServicesGridV1",
+    "dominio": "desentupidoravitoriadaconquista.com.br",
+    "whatsapp": "77998877665",
+    "telefoneFixo": "(77) 3421-0000",
+    "empresaNome": "Desentupidora Conquista 24h",
+    "cnpj": "45.678.901/0001-23",
+    "endereco": "Av. Olívia Flores, 1200 - Candeias, Vitória da Conquista - BA",
+    "logoUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
+    "logoHeight": 64,
+    "faviconUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
+    "heroImage": "/images/vitoriadaconquista/desentupidora-vitoriadaconquista-caminhao-limpa-fossa.webp",
+    "metaTitle": "Desentupidora em Vitória da Conquista BA 24h",
+    "metaDescription": "Desentupidora em Vitória da Conquista BA 24h: esgoto, fossa e caixa de gordura. Atendimento no Centro e no planalto, visita técnica grátis.",
+    "h1Title": "Desentupidora em Vitória da Conquista BA: Atendimento 24h no Planalto da Conquista",
+    "firstParagraph": "Precisando de uma desentupidora em Vitória da Conquista BA? Nossa equipe atende toda a cidade — do Centro aos bairros mais altos do planalto — com plantão 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, incluindo clínicas e comércios da região, que é referência em saúde e serviços para todo o sudoeste baiano.",
+    "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
+    "lastH2": "Por que escolher a melhor Desentupidora em Vitória da Conquista BA?",
+    "aboutCityTitle": "Estrutura e Atendimento de Desentupidora em Vitória da Conquista - BA",
+    "aboutCityText": "Vitória da Conquista fica no planalto do sudoeste da Bahia, a mais de 900 metros de altitude — clima bem mais ameno que o litoral baiano, o que também favorece a vegetação densa em bairros mais antigos como Candeias e Recreio, onde raízes de árvore são uma causa comum de entupimento em redes de esgoto mais antigas. A cidade é o maior polo comercial, de saúde e de educação do sudoeste da Bahia, recebendo fluxo constante de moradores de cidades vizinhas — o que significa alta demanda de clínicas, hospitais e comércios ao longo da BR-116 por manutenção preventiva de caixa de gordura e desobstrução de esgoto. Nossa equipe mantém viaturas posicionadas ao longo da rodovia para atender rápido tanto o Centro quanto os bairros mais afastados do planalto.",
+    "bairros": [
+      "Centro",
+      "Candeias",
+      "Recreio",
+      "Ibirapuera",
+      "Zabelê",
+      "Alto Maron",
+      "Guarani",
+      "Kadija",
+      "Patagônia",
+      "Boa Vista",
+      "Distrito Industrial",
+      "Jurema",
+      "Felícia"
+    ],
+    "services": [
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+        "icon": "🚰"
+      },
+      {
+        "id": "vaso",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+        "icon": "🚽"
+      },
+      {
+        "id": "ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+        "icon": "🛁"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento e Limpeza de Fossa",
+        "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+        "icon": "🚛"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+        "icon": "🌊"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Por que minha rede de esgoto entope com raízes de árvore em Vitória da Conquista?",
+        "answer": "O clima ameno do planalto favorece árvores de raiz agressiva em bairros mais antigos, como Candeias e Recreio. As raízes buscam a umidade das tubulações de esgoto mais antigas e acabam rompendo ou obstruindo a rede — resolvemos com máquina rotativa ou hidrojateamento, sem precisar trocar o encanamento."
+      },
+      {
+        "question": "Vocês atendem clínicas e hospitais do polo de saúde da cidade?",
+        "answer": "Sim! Vitória da Conquista recebe pacientes de toda a região sudoeste da Bahia, e mantemos atendimento prioritário para clínicas, hospitais e laboratórios que precisam de desobstrução rápida sem interromper o funcionamento."
+      },
+      {
+        "question": "O acesso pela BR-116 atrasa o atendimento nos bairros mais afastados?",
+        "answer": "Não. Mantemos viaturas posicionadas ao longo da rodovia justamente para reduzir o tempo de chegada tanto no Centro quanto em bairros mais distantes, como Distrito Industrial e Jurema."
+      },
+      {
+        "question": "Vocês atendem comércios que recebem clientes de cidades vizinhas?",
+        "answer": "Sim! Restaurantes, hotéis e comércios que atendem o fluxo regional de Vitória da Conquista têm prioridade no agendamento, já que qualquer parada afeta diretamente o movimento do negócio."
+      },
+      {
+        "question": "A visita técnica para avaliação é gratuita?",
+        "answer": "Sim! A visita é 100% gratuita e sem compromisso — o técnico avalia o problema no local antes de fechar qualquer orçamento."
+      },
+      {
+        "question": "Precisa quebrar piso ou parede pra desentupir em Vitória da Conquista?",
+        "answer": "Na grande maioria dos casos não. Usamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstroem por dentro do encanamento, mesmo em redes antigas do Centro."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Marcos Vinícius R.",
+        "neighborhood": "Candeias - Vitória da Conquista",
+        "rating": 5,
+        "text": "Tinha raiz de árvore entupindo o esgoto do quintal há meses. Resolveram sem quebrar nada, rápido."
+      },
+      {
+        "name": "Juliana Ferreira",
+        "neighborhood": "Recreio - Vitória da Conquista",
+        "rating": 5,
+        "text": "Atendimento rápido mesmo estando um pouco afastado do Centro. Chegaram no horário combinado."
+      },
+      {
+        "name": "Clínica Santa Helena",
+        "neighborhood": "Centro - Vitória da Conquista",
+        "rating": 5,
+        "text": "Precisávamos resolver sem parar o atendimento da clínica. Fizeram tudo de forma discreta e rápida."
+      }
+    ],
+    "parceiros": [
+      {
+        "id": "1788109114948",
+        "nome": "Desentupidora Itabuna 24h",
+        "cidade": "Itabuna",
+        "uf": "BA",
+        "dominio": "desentupidoraitabuna.com.br",
+        "url": "https://desentupidora-itabuna.pages.dev",
+        "descricao": "Também fazemos parte da nossa rede de atendimento em Itabuna - BA, com equipe e estrutura própria posicionada na região sul da Bahia.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      },
+      {
+        "id": "1788109114949",
+        "nome": "Desentupidora Porto Seguro 24h",
+        "cidade": "Porto Seguro",
+        "uf": "BA",
+        "dominio": "desentupidoraportoseguro.com.br",
+        "url": "https://desentupidora-portoseguro.vercel.app",
+        "descricao": "Nossa rede também mantém atendimento em Porto Seguro - BA, cobrindo a costa sul do estado com equipe própria.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ],
+    "auditScore": 100,
+    "latitude": "",
+    "longitude": "",
+    "deployUrl": "https://desentupidora-vitoriadaconquista.pages.dev",
+    "lastDeployAt": "2026-08-30T16:59:17.199Z"
   }
 ]

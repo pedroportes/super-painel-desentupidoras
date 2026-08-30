@@ -13,7 +13,13 @@ const logoMaxWidth = Math.round(logoHeight * 3.1);
   <div class="top-bar">
     <div class="container top-bar-content">
       <span>⚡ Atendimento Emergencial 24 Horas em {cidade} - {uf}</span>
-      <a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="top-whatsapp" target="_blank" rel="noopener">
+      <a
+        href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`}
+        class="top-whatsapp"
+        target="_blank"
+        rel="noopener"
+        aria-label={`Falar no WhatsApp 24h: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}`}
+      >
         <span>📲 WhatsApp 24h: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</span>
       </a>
     </div>
@@ -24,7 +30,7 @@ const logoMaxWidth = Math.round(logoHeight * 3.1);
       <div class="logo">
         <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
           {logoUrl ? (
-            <img src={logoUrl} alt={empresaNome} style={`height: ${logoHeight}px; max-width: ${logoMaxWidth}px; object-fit: contain;`} />
+            <img src={logoUrl} alt={empresaNome} width="512" height="512" style={`height: ${logoHeight}px; max-width: ${logoMaxWidth}px; object-fit: contain;`} />
           ) : (
             <span class="logo-badge">24H</span>
           )}

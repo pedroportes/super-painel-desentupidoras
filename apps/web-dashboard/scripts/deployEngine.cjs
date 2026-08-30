@@ -58,7 +58,18 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
 
   const apiToken = (keys.apiToken || '').trim();
   const accountId = (keys.accountId || '').trim();
-  const projectName = getCleanProjectName(cityConfig.cidade);
+  // Reaproveita o slug do projeto já existente (extraído do deployUrl salvo)
+  // sempre que possível, em vez de recalcular do nome da cidade toda vez —
+  // bug real encontrado em 30/08/2026 (cidade "curitiba"): o nome
+  // "desentupidora-curitiba" já estava ocupado por outro projeto/conta no
+  // Cloudflare (subdomínio .pages.dev é global, não só por conta), e o
+  // wrangler resolveu a colisão criando o projeto como
+  // "desentupidora-curitiba-sns" — só que o código sempre assumia
+  // cegamente a URL `https://${projectName}.pages.dev`, então o painel
+  // ficava reportando/salvando uma URL que nunca foi a real, e cada novo
+  // deploy arriscava colidir de novo e criar OUTRO projeto/subdomínio.
+  const existingSlugMatch = (cityConfig.deployUrl || '').match(/^https:\/\/([a-z0-9-]+)\.pages\.dev/i);
+  const projectName = existingSlugMatch ? existingSlugMatch[1] : getCleanProjectName(cityConfig.cidade);
   const env = {
     ...process.env,
     CLOUDFLARE_API_TOKEN: apiToken,
@@ -90,10 +101,21 @@ async function deployToCloudflarePages(cityConfig, keys, distDir) {
     return { success: false, provider, error: `Falha no deploy Cloudflare Pages: ${stderr || error.message}`, log: output };
   }
 
+  // Nunca assumir a URL — ler a URL real que o próprio wrangler reportou
+  // (linha "Take a peek over at https://<hash>.<slug>.pages.dev"). O slug
+  // real pode ser diferente do `projectName` pedido se houve colisão de
+  // nome (ver nota acima). A URL de produção estável é
+  // `https://<slug>.pages.dev` (sem o hash do deploy específico).
+  const realUrlMatch = output.match(/https:\/\/[a-z0-9]+\.([a-z0-9-]+)\.pages\.dev/i);
+  const realProjectSlug = realUrlMatch ? realUrlMatch[1] : projectName;
+  if (realProjectSlug !== projectName) {
+    console.warn(`⚠️ Cloudflare renomeou o projeto de "${projectName}" pra "${realProjectSlug}" (colisão de nome/subdomínio). Salvando a URL real.`);
+  }
+
   return {
     success: true,
     provider,
-    url: `https://${projectName}.pages.dev`,
+    url: `https://${realProjectSlug}.pages.dev`,
     log: output,
     deployedAt: new Date().toISOString()
   };

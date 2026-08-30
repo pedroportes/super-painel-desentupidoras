@@ -53,6 +53,8 @@ export interface CityConfig {
   logoHeight?: number;
   faviconUrl?: string;
   heroImage?: string;
+  metaTitle?: string;
+  metaDescription?: string;
   h1Title?: string;
   firstParagraph?: string;
   ctaButtonText?: string;

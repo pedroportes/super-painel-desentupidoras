@@ -123,8 +123,19 @@ function syncCityToAstro(city) {
         longitude: city.longitude || ''
       },
       seo: {
-        metaTitle: `Desentupidora em ${city.cidade} ${city.uf} 24h | Atendimento Sem Quebrar Piso`,
-        metaDescription: `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`,
+        // Override manual tem prioridade — cada cidade pode (e devia, pra
+        // evitar meta tag idêntica em escala) ter seu próprio metaTitle e
+        // metaDescription escritos com contexto real da cidade. O fallback
+        // abaixo só existe pra não quebrar cidades antigas sem esse campo.
+        // ⚠️ REGRA DE OURO (30/08/2026): title tem que caber em ~60
+        // caracteres. O sufixo "| Atendimento Sem Quebrar Piso" foi
+        // removido daqui porque estourava esse limite pra quase toda
+        // cidade de nome longo (ex: "Cachoeiro de Itapemirim" batia 78
+        // chars, "São José dos Pinhais" batia 75) — só "Linhares"/
+        // "Itabuna" (nomes curtos) mascaravam o bug. Ver golden rule 10 em
+        // CLAUDE_CODE_GUIDE.md.
+        metaTitle: city.metaTitle || `Desentupidora em ${city.cidade} ${city.uf} 24h`,
+        metaDescription: city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`,
         h1Title: city.h1Title || `Desentupidora em ${city.cidade} ${city.uf} 24h`,
         firstParagraphText: city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região, com garantia por escrito e o menor preço.`,
         lastH2Title: city.lastH2 || `Por que escolher a melhor Desentupidora em ${city.cidade} ${city.uf}?`

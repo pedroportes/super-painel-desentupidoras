@@ -33,11 +33,12 @@ const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
       <div class:list={['map-photo-grid', { 'has-photo': !!heroImage }]}>
         {heroImage && (
           <div class="local-photo-wrapper">
-            <img src={heroImage} alt={`${cidade} - ${uf}`} class="local-photo" />
+            <img src={heroImage} alt={`${cidade} - ${uf}`} class="local-photo" width="1600" height="1000" loading="lazy" />
           </div>
         )}
         <div class="iframe-wrapper">
           <iframe
+            title={`Mapa de cobertura em ${cidade} - ${uf}`}
             width="100%"
             height="400"
             frameborder="0"

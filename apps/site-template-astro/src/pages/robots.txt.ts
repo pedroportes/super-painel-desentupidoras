@@ -22,11 +22,18 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Sinais de Conteúdo (contentsignals.org) e Arquivo llms.txt para IAs
+# Sinais de Conteúdo (contentsignals.org)
 Content-Signal: search=yes, ai-train=yes, ai-input=yes
 Sitemap: ${baseUrl}/sitemap-index.xml
-llms-txt: ${baseUrl}/llms.txt
 `;
+// NOTA (30/08/2026): "llms-txt:" chegou a existir aqui como diretiva, mas
+// não é reconhecida pelo Lighthouse/robots-parser (nem faz parte do padrão
+// real de robots.txt/REP) — o Google PageSpeed Insights reporta isso como
+// "Unknown directive" e marca o robots.txt inteiro como inválido (SEO
+// audit cai de 100 pra 92). A descoberta do llms.txt já acontece de forma
+// válida via HTTP Link header (ver public/_headers: `rel="llms-txt"`),
+// que o próprio isitagentready.com lê corretamente — não duplicar essa
+// informação aqui dentro do robots.txt de novo.
 
   return new Response(content, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' }
