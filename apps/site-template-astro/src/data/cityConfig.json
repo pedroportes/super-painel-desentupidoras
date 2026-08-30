@@ -1,21 +1,21 @@
 {
-  "cidade": "Linhares",
-  "estado": "Espírito Santo",
-  "uf": "ES",
-  "populacao": "183.797",
+  "cidade": "Curitiba",
+  "estado": "Paraná",
+  "uf": "PR",
+  "populacao": "150.000",
   "ddd": "27",
-  "whatsapp": "27992795590",
-  "telefoneFixo": "(27) 3323-0000",
-  "empresaNome": "Desentupidora Linhares 24h",
-  "cnpj": "12.345.678/0001-90",
-  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
-  "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
+  "whatsapp": "27999998888",
+  "telefoneFixo": "(27) 3000-0000",
+  "empresaNome": "Desentupidora Curitiba 24h",
+  "cnpj": "",
+  "endereco": "",
+  "hospedagem": "cloudflare",
+  "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
   "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/linhares/logo-desentupidora-linhares.webp",
+  "logoUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/linhares/logo-desentupidora-linhares.webp",
-  "heroImage": "/images/linhares/desentupidora-linhares-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
+  "heroImage": "/images/curitiba/desentupidora-curitiba-tecnico-desentupimento.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -26,14 +26,14 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Linhares ES 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Linhares ES: Atendimento Rápido em Toda a Cidade",
-    "firstParagraphText": "A desentupidora em Linhares que mais atende clientes na região do Rio Doce: chegamos rápido em bairros próximos ao centro e em áreas mais afastadas, resolvendo entupimentos de esgoto, pia e vaso sanitário com equipamento profissional e sem quebra-quebra.",
-    "lastH2Title": "Por que a Desentupidora de Linhares mais chamada pelos moradores é a nossa?"
+    "metaTitle": "Desentupidora em Curitiba PR 24h",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Curitiba PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Curitiba: Atendimento Rápido em Toda a Capital Paranaense",
+    "firstParagraphText": "Procurando uma desentupidora em Curitiba que atenda com agilidade nos bairros mais movimentados e nos mais residenciais? Trabalhamos em toda a capital paranaense, do Batel ao Boqueirão, com atendimento 24h e sem quebra de piso.",
+    "lastH2Title": "A desentupidora de Curitiba que atende com agilidade toda a capital"
   },
-  "aboutCityTitle": "Desentupidora em Linhares: atendimento adaptado ao solo arenoso e ao clima do Rio Doce",
-  "aboutCityText": "Linhares é o maior município do Espírito Santo em extensão territorial, cortado pelo Rio Doce e cercado por áreas de solo arenoso na região litorânea e solo argiloso nos bairros mais centrais. Essa combinação favorece o entupimento de tubulações por acúmulo de areia fina e por raízes de árvores que se infiltram em encanamentos mais antigos, um problema comum em bairros com arborização densa como Interlagos e Conceição. Nos períodos de maior volume de chuva, quando o nível do Rio Doce sobe, é comum que redes de esgoto mais antigas sofram refluxo — por isso mantemos equipes com hidrojateamento de alta pressão prontas para atender Linhares mesmo nos dias de maior demanda.",
+  "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
+  "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
   "parceiros": [],
   "bairros": [
     "Centro",
@@ -43,12 +43,7 @@
     "Avisos",
     "Araçá",
     "BNH",
-    "Juparanã",
-    "Movelar",
-    "Três Barras",
-    "Shell",
-    "São José",
-    "teste"
+    "Juparanã"
   ],
   "services": [
     {
@@ -90,48 +85,48 @@
   ],
   "faqs": [
     {
-      "question": "O solo arenoso de Linhares pode causar entupimento na tubulação da minha casa?",
-      "answer": "Sim. Em bairros próximos ao litoral e às margens do Rio Doce, o solo arenoso costuma se infiltrar em ligações antigas ou mal vedadas, causando obstrução gradual. Identificamos esse tipo de problema com vídeo inspeção antes de iniciar o serviço."
+      "question": "O clima instável de Curitiba aumenta o risco de entupimento?",
+      "answer": "Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo."
     },
     {
-      "question": "Vocês atendem chamados em dias de chuva forte em Linhares?",
-      "answer": "Sim, inclusive nos períodos em que o Rio Doce sobe de nível e aumenta o risco de refluxo no esgoto. Nossas equipes de plantão continuam operando 24 horas mesmo em dias de temporal."
+      "question": "Vocês atendem apartamentos e prédios em Curitiba?",
+      "answer": "Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde."
     },
     {
-      "question": "Raízes de árvore causam entupimento de esgoto em Linhares?",
-      "answer": "É uma das causas mais comuns em bairros com arborização densa, como Interlagos e Conceição. Usamos máquinas rotativas capazes de cortar raízes sem danificar a tubulação."
+      "question": "Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?",
+      "answer": "Em média de 25 a 45 minutos, dependendo do trânsito da cidade."
     },
     {
-      "question": "Qual o tempo de chegada em bairros mais afastados do centro de Linhares?",
-      "answer": "Mantemos equipes distribuídas também fora do centro, e o tempo médio de chegada gira em torno de 30 a 45 minutos, dependendo da distância e do trânsito na BR-101."
+      "question": "A visita técnica em Curitiba tem custo?",
+      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
     },
     {
-      "question": "A visita técnica em Linhares tem algum custo?",
-      "answer": "Não, a avaliação técnica é sempre gratuita, e o orçamento é apresentado antes de qualquer serviço."
+      "question": "Vocês atendem emergências durante temporais em Curitiba?",
+      "answer": "Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes."
     },
     {
-      "question": "Vocês atendem propriedades rurais na zona rural de Linhares?",
-      "answer": "Sim, atendemos fazendas e sítios da zona rural de Linhares, incluindo esgotamento de fossa com caminhão auto-vácuo."
+      "question": "Precisa quebrar piso de apartamento para desentupir a prumada?",
+      "answer": "Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação."
     }
   ],
   "testimonials": [
     {
-      "name": "Fabiana Reis",
-      "neighborhood": "Interlagos - Linhares",
+      "name": "Fernanda Osaki",
+      "neighborhood": "Batel - Curitiba",
       "rating": 5,
-      "text": "Minha casa é cercada de árvores grandes e o esgoto vivia entupindo com raiz. Depois que limparam direito, não tive mais problema."
+      "text": "Moro em apartamento e a prumada entupiu num dia de chuva forte. Resolveram rápido sem precisar mexer no meu banheiro."
     },
     {
-      "name": "Sérgio Bitencourt",
-      "neighborhood": "Centro - Linhares",
+      "name": "Anderson Wolski",
+      "neighborhood": "Água Verde - Curitiba",
       "rating": 5,
-      "text": "Chamei numa época de muita chuva, achei que ia demorar, mas chegaram rápido mesmo com o trânsito complicado perto do Rio Doce."
+      "text": "Prédio antigo, cano velho, mas a equipe soube lidar bem e não sujou nada."
     },
     {
-      "name": "Adriana Coutinho",
-      "neighborhood": "Conceição - Linhares",
+      "name": "Priscila Andrade",
+      "neighborhood": "Boqueirão - Curitiba",
       "rating": 5,
-      "text": "Fizeram a limpeza da fossa do sítio da minha família na zona rural sem complicação nenhuma, caminhão grande e equipe pontual."
+      "text": "Depois de um temporal, o esgoto voltou pela pia. Chamei e vieram mesmo com a chuva ainda forte."
     }
   ]
 }

@@ -228,17 +228,25 @@ async function deployToNetlify(cityConfig, keys, distDir) {
     }
 
     // 2. Compactar o diretório dist para zip
+    // IMPORTANTE (bug real corrigido 30/08/2026): NUNCA usar o
+    // `Compress-Archive` do PowerShell aqui. Ele grava metadado de origem
+    // Windows/FAT no cabeçalho de cada entrada do zip, e o parser da
+    // Netlify, ao ver esse metadado, reinterpreta o separador de pasta
+    // como barra invertida — mesmo com os nomes internos gravados
+    // corretamente com `/`. Resultado: toda a estrutura de pastas
+    // (`_astro/`, `images/`, cada página) virava um nome de arquivo
+    // achatado com `\` literal, e só o `index.html` da raiz funcionava —
+    // o site publicado ficava sem CSS e sem imagens. Confirmado isolando
+    // o teste (mesmo `dist/` compactado com metadado Unix funcionou).
+    // `zipUtil.cjs` cria o zip nativamente em Node com metadado Unix,
+    // sem depender de shell nenhum.
     const fs = require('fs');
     const path = require('path');
+    const { zipDirectory } = require('./zipUtil.cjs');
     const zipPath = path.join(path.dirname(distDir), `${siteName}.zip`);
     if (fs.existsSync(zipPath)) fs.unlinkSync(zipPath);
 
-    const isWin = process.platform === 'win32';
-    const zipCmd = isWin
-      ? `powershell -NoProfile -Command "Compress-Archive -Path '${distDir}\\*' -DestinationPath '${zipPath}' -Force"`
-      : `cd "${distDir}" && zip -r "${zipPath}" .`;
-
-    await run(zipCmd);
+    zipDirectory(distDir, zipPath);
 
     if (!fs.existsSync(zipPath)) {
       return { success: false, provider, error: 'Falha ao compactar arquivos para envio à Netlify.' };

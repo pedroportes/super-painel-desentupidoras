@@ -82,6 +82,12 @@ nunca se repetir.
     script que varre `cities.json` inteiro, mudança de infraestrutura) sem
     testar numa cidade só primeiro, verificar de verdade, e só depois
     replicar pras demais.** Regra explícita do usuário, 30/08/2026.
+11. **Nunca gerar o zip de deploy via `Compress-Archive` do PowerShell.**
+    Ele grava metadado de origem Windows/FAT que faz o parser da Netlify
+    reinterpretar `/` como `\` na estrutura de pastas — o HTML da raiz
+    funciona, mas CSS, imagens e qualquer página em subpasta ficam 404
+    silenciosamente. Usar sempre `apps/web-dashboard/scripts/zipUtil.cjs`
+    (zip nativo em Node, sem shell).
 
 ---
 

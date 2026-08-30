@@ -458,6 +458,28 @@ schema JSON-LD todos batendo com a URL real).
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **Bug real e sério no deploy
+  Netlify: zip do PowerShell corrompia toda a estrutura de pastas no ar.**
+  Achado ao rodar o checklist completo em todas as 11 cidades (pedido
+  explícito do usuário: "aplique o checklist tem que ficar tudo verde") —
+  Poços de Caldas (única cidade Netlify) tinha HTML 200 mas **CSS e
+  imagens 404**, página completamente sem estilo. Causa raiz: o zip criado
+  por `Compress-Archive` (PowerShell) grava metadado de origem
+  Windows/FAT no cabeçalho de cada entrada; o parser da Netlify, ao ver
+  esse metadado, reinterpreta o separador de pasta como barra invertida
+  (`\`) mesmo com os nomes gravados corretamente com `/` — confirmado
+  isolando o teste via API da Netlify (mesmo `dist/`, um zip do
+  PowerShell e um zip com metadado Unix, resultados diferentes na
+  listagem de arquivos do deploy). Só o `index.html` da raiz (sem
+  subpasta) funcionava; qualquer asset dentro de `_astro/`, `images/` ou
+  qualquer página de bairro/serviço virava um arquivo achatado com nome
+  quebrado. **Esse bug provavelmente afetou TODOS os deploys Netlify
+  desde sempre**, não só o de hoje. Corrigido com um criador de ZIP
+  nativo em Node, sem dependência de shell nenhum
+  (`apps/web-dashboard/scripts/zipUtil.cjs`, usa `zlib.crc32`/
+  `deflateRawSync` do próprio Node), substituindo o `Compress-Archive` em
+  `deployEngine.cjs`. Testado isoladamente contra a API da Netlify antes
+  de integrar, depois testado de ponta a ponta via `/api/deploy-city/`.
 - **`(pendente de commit)`** (30/08/2026) — **3 bugs reais achados pelo
   usuário em produção (não pela IA) depois de um redeploy em massa
   verificado só pelo `<title>` de cada página — corrigidos e documentados
@@ -479,7 +501,8 @@ schema JSON-LD todos batendo com a URL real).
      `cidade` numa sessão anterior, que vazou pro caminho de imagem por
      engano. Logo/hero ficavam 404 silenciosamente (build não reclama).
      Corrigido pra Araucária e confirmado (imagem 200 depois do
-     redeploy); Curitiba com o mesmo bug, correção pendente de aplicar.
+     redeploy); Curitiba com o mesmo bug, **corrigido e confirmado
+     também** (imagem 200 depois do redeploy).
   3. Ver também os 2 achados já documentados abaixo (projeto órfão
      Cloudflare, integração GitHub↔Vercel roubando o alias de produção).
   **Como foram descobertos**: o usuário abriu a página publicada de
