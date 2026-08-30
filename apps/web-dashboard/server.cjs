@@ -394,8 +394,8 @@ app.get('/api/preview/:id', (req, res) => {
   const footerAboutText = city.footerAboutText || `Empresa líder em serviços de desentupimento de esgoto, pias, ralos, vasos e limpeza de fossas com atendimento emergencial 24h em ${city.cidade} e região.`;
   const footerContactTitle = city.footerContactTitle || `Contato Direto`;
 
-  const metaTitle = `Desentupidora em ${city.cidade} ${city.uf} 24h | Atendimento Sem Quebrar Piso`;
-  const metaDescription = `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
+  const metaTitle = city.metaTitle || `Desentupidora em ${city.cidade} ${city.uf} 24h`;
+  const metaDescription = city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
   
   const schemaLocalBusiness = {
     "@context": "https://schema.org",

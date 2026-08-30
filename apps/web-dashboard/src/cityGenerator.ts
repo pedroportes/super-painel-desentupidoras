@@ -269,7 +269,7 @@ export function generateUniqueCityContent(
     paletaCores: 'urgencia-azul-laranja',
     heroVariant: 'HeroV1',
     servicesVariant: 'ServicesGridV1',
-    dominio: `desentupidoralinhares.com.br`,
+    dominio: `desentupidora${cityKey}.com.br`,
     whatsapp: `${ddd}992795590`,
     telefoneFixo: `(${ddd}) 3323-0000`,
     empresaNome: `Desentupidora ${cidade} 24h`,

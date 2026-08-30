@@ -239,7 +239,62 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
 
 ---
 
-## ⚠️ RISCO CRÍTICO: conteúdo quase-duplicado entre cidades (achado em 30/08/2026, NÃO CORRIGIDO)
+## ✅ RISCO CRÍTICO: conteúdo quase-duplicado entre cidades (achado em 30/08/2026, CORRIGIDO em 30/08/2026)
+
+**Atualização 30/08/2026 (mesmo dia, sessão seguinte)**: os 5 passos do
+plano abaixo foram aplicados. Resumo do que mudou (detalhes na seção
+seguinte, "O que foi corrigido"):
+- Bug do domínio hardcoded do Modelo 1 corrigido em `cityGenerator.ts`.
+- `dominio` de São José dos Pinhais corrigido (não existe site real —
+  confirmado com o usuário; usado o padrão `desentupidora<cidade>.com.br`
+  só como valor de cadastro/schema, igual às outras cidades sem domínio
+  próprio registrado).
+- As 10 cidades com conteúdo genérico/clonado ganharam `h1Title`,
+  `firstParagraph`, `aboutCityTitle`, `aboutCityText`, `lastH2`, 6 `faqs` e
+  3 `testimonials` **individualmente escritos com fatos reais do
+  município** (geografia, clima, economia local, um problema hidráulico
+  plausível pra região) via
+  `apps/web-dashboard/scripts/apply_unique_city_content.cjs` — não é mais
+  reaproveitamento de template por modelo, é conteúdo único por cidade,
+  igual ao padrão já usado em Vitória da Conquista.
+- Validado por script: 0 nomes de depoimento repetidos entre as 11
+  cidades, 11/11 `firstParagraph` e `aboutCityText` únicos, todas passam a
+  regra de keyword-nas-30-primeiras-palavras e keyword-no-último-H2.
+- Todas as 11 cidades rebuildadas localmente (`/api/build-city/:id`) com
+  sucesso e `auditScore: 100` — **nenhum deploy foi refeito nessa rodada**,
+  a correção ficou só em `cities.json`/build local, por pedido explícito do
+  usuário ("arrume nossa versão local"). Publicar essas 10 cidades de novo
+  fica pendente pra quando o usuário pedir.
+- `update_cities_faqs.cjs` **não foi apagado** (fica como registro
+  histórico do bug), mas não deve ser rodado de novo — se precisar de uma
+  rotina de "garantir mínimo de FAQs/depoimentos" no futuro, usar
+  `apply_unique_city_content.cjs` como referência (lê conteúdo por
+  cidade, nunca um texto genérico único).
+
+### ⚠️ Novo achado (30/08/2026), AINDA NÃO CORRIGIDO — bairros fictícios/copiados
+Enquanto investigava o conteúdo, encontrei outro bug de dados, mais
+delicado, que decidi **não corrigir sozinho** porque mexe em algo que pode
+quebrar URLs já indexadas pelo Google:
+- O campo `bairros` de **Curitiba** é, literalmente, a lista de bairros
+  reais de **Linhares** (`Interlagos, Conceição, Novo Horizonte, Avisos,
+  Araçá...`) — não tem nenhum bairro real de Curitiba.
+- **São José dos Pinhais, Araucária e Londrina** compartilham a mesma
+  lista genérica de bairros fictícios (`Centro, Jardim América, Bela
+  Vista, São José, Santa Cruz, Vila Nova, Planalto, Bairro Alto`) — nomes
+  que não existem de verdade nessas cidades.
+- Por que não corrigi direto: cada bairro gera uma página própria
+  indexável (`/[slug]` no Astro). Se essas 4 cidades já estão publicadas e
+  o Google já indexou `/interlagos` pra "desentupidora Curitiba", por
+  exemplo, trocar o nome do bairro de uma hora pra outra criaria uma URL
+  nova e devolveria 404 na antiga (a não ser que se implemente redirect
+  301, o que o motor de deploy atual não faz). Isso é uma decisão de
+  produto/SEO que exige aprovação explícita antes de mexer.
+- **Ação recomendada, aguardando decisão**: trocar `bairros` dessas 4
+  cidades pelos bairros reais (`cityGenerator.ts` já tem uma lista correta
+  de Curitiba em `KNOWN_NEIGHBORHOODS`; São José dos Pinhais/Araucária/
+  Londrina precisam de lista nova) e, no mesmo deploy, configurar redirects
+  301 dos slugs antigos pros novos — ou, se ainda não há tráfego/indexação
+  real nessas URLs, apenas trocar direto sem redirect.
 
 **Contexto**: cada cidade é publicada num domínio próprio
 (`desentupidora<cidade>.com.br`). O Google trata isso como uma **rede de
@@ -253,12 +308,14 @@ por cidade com pouco valor único, todas levando pro mesmo negócio). Se o
 padrão for identificado, uma ação manual pode afetar **vários domínios de
 uma vez**, não só um.
 
-### Notas SEO / GEO / AEO do estado atual (30/08/2026)
-| Categoria | Nota | Por quê |
-|---|---|---|
-| SEO | 5,5/10 | Fundação técnica boa (sitemap, robots, schema, headers — já corrigidos). Conteúdo é o ponto fraco: zero diferenciação real entre páginas competindo pelas mesmas keywords em cidades diferentes. |
-| GEO | 3/10 | Motores de resposta de IA (Perplexity, AI Overviews) priorizam conteúdo distintivo/citável. Texto idêntico ao de outros domínios do mesmo operador não gera sinal de autoridade. |
-| AEO | 3,5/10 | Schema de FAQ presente mas **sem benefício de rich result no Google** (Google descontinuou completamente os rich results de FAQ em maio de 2026, pra todos os sites, não só os "não-autoritativos" — confirmar se ainda vale a pena manter o schema só pra ajuda de parsing de outros motores). Conteúdo genérico das respostas também não ajuda a ser "a melhor resposta" pra nenhuma pergunta local específica. |
+### Notas SEO / GEO / AEO — antes e depois da correção (30/08/2026)
+| Categoria | Antes | Depois | Por quê |
+|---|---|---|---|
+| SEO | 5,5/10 | ~7,5/10 | Fundação técnica já era boa (sitemap, robots, schema, headers). O ponto fraco era o conteúdo idêntico entre cidades — agora cada uma tem H1/parágrafo/texto-sobre-a-cidade/FAQs/depoimentos próprios com fatos reais do município. Falta ainda diversificar os textos curtos de `services` (permanecem genéricos, ver pendência) e resolver o bug de bairros fictícios (ver achado acima) pra chegar mais perto de 9-10. |
+| GEO | 3/10 | ~6,5/10 | Cada cidade agora tem um ângulo distintivo e citável (ex: água mineral em Poços de Caldas, terra roxa em Londrina, Repar em Araucária) em vez de texto genérico raspável. Ainda não testado de fato em Perplexity/AI Overviews. |
+| AEO | 3,5/10 | ~5/10 | FAQs agora respondem perguntas específicas e plausíveis da região, não genéricas — ajuda motores que fazem parsing de conteúdo mesmo sem rich result do Google (descontinuado em maio de 2026). |
+
+Notas "Depois" são estimativa qualitativa da IA com base nos critérios acima, não uma ferramenta externa — **rodar isitagentready.com e PageSpeed Insights depois do próximo deploy real** (regra 11/12 do guia) pra validar de fato.
 
 ### O que existe hoje pra resolver isso (`apps/web-dashboard/src/cityGenerator.ts`)
 Esse arquivo é uma tentativa real (não cosmética) de resolver o problema:
@@ -316,32 +373,40 @@ qualquer modelo.
   código mas não está aplicada nos dados salvos** pra maioria das cidades
   já cadastradas.
 
-### O que precisa ser feito (em ordem de prioridade)
-1. **Corrigir a linha do domínio hardcoded** no Modelo 1 do
-   `cityGenerator.ts` (1 linha) — evita novos bugs de domínio duplicado em
-   toda cidade futura criada com o modelo padrão.
-2. **Reprocessar as 10 cidades afetadas** pra terem de fato FAQs e
-   depoimentos do modelo escolhido (ou variar os modelos entre elas de
-   propósito) — sem deixar `update_cities_faqs.cjs` pisar em cima de novo.
-   Antes de reprocessar, decidir/registrar qual modelo cada cidade deveria
-   usar (hoje a maioria não tem `modeloTemplate` salvo, ou seja, cai no
-   fallback do modelo padrão).
-3. **Não rodar `update_cities_faqs.cjs` de novo sem adaptar** — se for
-   necessário garantir mínimo de FAQs/depoimentos no futuro, a lógica
-   precisa ler `modeloTemplate` e usar o conteúdo do `cityGenerator.ts`
-   correspondente, não um texto genérico único.
-4. **Teto de escala com só 4 modelos**: a partir de ~5 cidades por modelo,
-   volta a haver clones completos de texto entre cidades do mesmo modelo.
-   Com o crescimento da rede, vai ser necessário (a) mais modelos-base,
-   e/ou (b) uma camada leve de variação por cidade em cima do modelo
-   (reescrever/reordenar frases pontuais), não só a troca do nome da
-   cidade.
-5. Ver também a pendência antiga (ainda válida): depoimentos são 100%
-   fabricados/fictícios — risco de propaganda enganosa (CDC) além do risco
-   de SEO. Usuário pediu pra não mexer nisso "por enquanto" nas rodadas
-   anteriores; reavaliar se ainda vale essa decisão à luz do achado acima
-   (o problema de SEO piora justamente pelo fato de serem os MESMOS nomes
-   fictícios repetidos, não só por serem fictícios).
+### O que precisa ser feito (em ordem de prioridade) — status 30/08/2026
+1. ✅ **Corrigir a linha do domínio hardcoded** no Modelo 1 do
+   `cityGenerator.ts` — feito, agora usa `cityKey` como os outros 3
+   modelos.
+2. ✅ **Reprocessar as cidades afetadas** com conteúdo próprio — feito via
+   `apply_unique_city_content.cjs`, mas **por escrita manual direta por
+   cidade** (fatos reais), não reaplicando os 4 modelos do
+   `cityGenerator.ts` como o plano original sugeria — os modelos ainda
+   compartilham texto entre si (ver item 4), então reaplicá-los teria
+   resolvido só parte do problema.
+3. ✅ **Não usar `update_cities_faqs.cjs` de novo** — mantido como registro
+   histórico, documentado aqui pra não ser reexecutado sem adaptar.
+4. ⏳ **Ainda pendente — teto de escala com só 4 modelos**: os 4 modelos de
+   `cityGenerator.ts` continuam compartilhando texto idêntico entre
+   cidades do mesmo modelo (útil só na criação de cidade nova, ver Passo 1
+   da skill `criar-site-desentupidora`, que já orienta reescrever à mão).
+   Sem mudança de processo, a partir de ~5 cidades novas no mesmo modelo
+   o clone completo volta a acontecer. Considerar variar/reescrever pontos
+   do modelo por cidade no momento da criação, não só confiar no texto
+   fixo do modelo.
+5. ⏳ **Ainda pendente — bairros fictícios/copiados**: ver achado novo
+   registrado acima (Curitiba com bairros de Linhares; São José dos
+   Pinhais/Araucária/Londrina com lista genérica fictícia) — aguardando
+   decisão do usuário por envolver risco de quebrar URLs indexadas.
+6. ⏳ **Ainda pendente — depoimentos 100% fabricados/fictícios**: risco de
+   propaganda enganosa (CDC) além do risco de SEO, mantido por pedido
+   explícito do usuário em rodadas anteriores. Continuam fictícios mesmo
+   após a reescrita de 30/08 (só deixaram de ser *idênticos* entre
+   cidades) — reavaliar essa decisão em algum momento.
+7. ⏳ **Ainda pendente — textos curtos de `services` (os 6 cards de
+   serviço)** continuam idênticos, palavra por palavra, entre todas as 11
+   cidades (não fazem parte do texto reescrito em 30/08, prioridade mais
+   baixa por serem descrições curtas e genéricas de serviço, prática comum
+   no setor — mas ainda vale variar no futuro se o tempo permitir).
 
 ---
 
@@ -650,13 +715,18 @@ qualquer modelo.
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
-0. **[MÁXIMA PRIORIDADE] Conteúdo quase-duplicado entre cidades (risco de
-   penalização Google) — NÃO CORRIGIDO.** Ver seção completa
-   "⚠️ RISCO CRÍTICO: conteúdo quase-duplicado entre cidades" acima, com
-   notas de SEO/GEO/AEO, causa raiz de 2 bugs concretos
-   (`cityGenerator.ts` linha ~272 e `scripts/update_cities_faqs.cjs`) e
-   plano de correção em 5 passos. Analisado e documentado em 30/08/2026,
-   correção ainda não aplicada.
+0. **Conteúdo quase-duplicado entre cidades — CORRIGIDO em 30/08/2026.**
+   Ver seção completa "✅ RISCO CRÍTICO: conteúdo quase-duplicado entre
+   cidades" acima: as 10 cidades com conteúdo clonado ganharam H1/parágrafo/
+   texto-sobre-a-cidade/FAQs/depoimentos únicos, com fatos reais de cada
+   município, via `apply_unique_city_content.cjs`. Correção aplicada só em
+   `cities.json` + build local (`auditScore: 100` nas 11 cidades) — **os
+   deploys reais dessas 10 cidades ainda não foram refeitos**, então o que
+   está publicado hoje ainda é o conteúdo antigo até alguém rodar
+   `/api/deploy-city/:id` de novo. Ficaram 2 pendências novas registradas
+   na mesma seção: bairros fictícios/copiados em 4 cidades (aguardando
+   decisão do usuário) e o teto de escala dos 4 modelos do
+   `cityGenerator.ts` (só relevante pra cidades novas).
 1. **Negociação de Markdown (AEO) só funciona em cidades no Cloudflare
    Pages** — confirmado em 30/08/2026 rodando o isitagentready.com de
    verdade contra uma cidade no Vercel (Cachoeiro de Itapemirim): Content
