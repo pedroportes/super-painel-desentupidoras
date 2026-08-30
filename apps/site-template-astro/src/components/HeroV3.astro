@@ -1,0 +1,87 @@
+---
+// HeroV3: imagem de fundo em tela cheia, overlay escuro, texto centralizado,
+// um único CTA. Genuinamente diferente do HeroV1 (form lateral) e do HeroV2
+// (centralizado sem foto, com stats) — layout, não só cor.
+const { seo, cidade, ddd, whatsapp, heroImage } = Astro.props;
+---
+
+<section class="hero-v3" style={heroImage ? `--hero-bg-image: url(${heroImage});` : ''}>
+  <div class="hero-v3-overlay"></div>
+  <div class="container hero-v3-container text-center">
+    <span class="hero-v3-badge">⚡ Atendimento 24 Horas em {cidade}</span>
+
+    <!-- STRICT SEO RULE: H1 title -->
+    <h1 id="h1Title" class="hero-v3-title" data-edit-tab="hero">{seo.h1Title}</h1>
+
+    <!-- STRICT SEO RULE: Keyword in 1st Paragraph -->
+    <p id="firstParagraph" class="hero-v3-paragraph" data-edit-tab="hero">
+      {seo.firstParagraphText}
+    </p>
+
+    <a id="ctaButtonText" href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-v3" target="_blank" rel="noopener" data-edit-tab="hero">
+      {seo.ctaButtonText || `📲 Chamar no WhatsApp: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}`}
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero-v3 {
+    position: relative;
+    padding: 130px 0 110px 0;
+    background-color: var(--color-bg-dark, #0f172a);
+    background-image: var(--hero-bg-image, none);
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+  }
+  .hero-v3-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 100%);
+  }
+  .hero-v3-container {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .hero-v3-badge {
+    display: inline-block;
+    background: var(--color-accent, #f97316);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+  }
+  .hero-v3-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .hero-v3-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin-bottom: 34px;
+  }
+  .btn-hero-v3 {
+    background: var(--color-primary, #0284c7);
+    color: #ffffff;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+  @media (max-width: 640px) {
+    .hero-v3 { padding: 100px 0 80px 0; }
+    .hero-v3-title { font-size: 2rem; }
+  }
+</style>

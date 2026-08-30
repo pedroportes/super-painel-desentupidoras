@@ -5,13 +5,20 @@ import '../styles/themePalettes.css';
 
 import Header from '../components/Header.astro';
 
-// Dynamic Hero Variation Selection
+// Seleção dinâmica de Hero — 4 layouts genuinamente diferentes (não só
+// cor/texto): V1 = form lateral, V2 = centralizado sem foto (com stats),
+// V3 = foto de fundo em tela cheia, V4 = foto ao lado sem form.
 import HeroV1 from '../components/HeroV1.astro';
 import HeroV2 from '../components/HeroV2.astro';
+import HeroV3 from '../components/HeroV3.astro';
+import HeroV4 from '../components/HeroV4.astro';
 
-// Dynamic ServicesGrid Variation Selection
+// Seleção dinâmica de Serviços — 4 layouts: V1 = grid de cards claro,
+// V2 = lista escura com tag, V3 = sanfona/accordion, V4 = ícones em passos.
 import ServicesGridV1 from '../components/ServicesGridV1.astro';
 import ServicesGridV2 from '../components/ServicesGridV2.astro';
+import ServicesGridV3 from '../components/ServicesGridV3.astro';
+import ServicesGridV4 from '../components/ServicesGridV4.astro';
 
 import CityContext from '../components/CityContext.astro';
 
@@ -23,17 +30,29 @@ import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
 
-const HeroComponent = cityData.variants.hero === 'HeroV2' ? HeroV2 : HeroV1;
-const ServicesComponent = cityData.variants.services === 'ServicesGridV2' ? ServicesGridV2 : ServicesGridV1;
+const HERO_MAP: Record<string, any> = { HeroV1, HeroV2, HeroV3, HeroV4 };
+const SERVICES_MAP: Record<string, any> = { ServicesGridV1, ServicesGridV2, ServicesGridV3, ServicesGridV4 };
+const HeroComponent = HERO_MAP[cityData.variants.hero] || HeroV1;
+const ServicesComponent = SERVICES_MAP[cityData.variants.services] || ServicesGridV1;
+
+// Presença de seção variável por modelo (regra de ouro do usuário:
+// "modelo" tem que mudar estrutura, não só cor/texto) — cada modelo em
+// cityGenerator.ts pode desligar seções que não fazem sentido pro seu
+// tom (ex: um modelo residencial/família pode preferir não ter os
+// "sinais de alerta" alarmistas do WarningSigns). Default = tudo ligado,
+// pra nunca quebrar cidade antiga sem esse campo.
+const sections = cityData.sectionsConfig || {};
+const showWarningSigns = sections.warningSigns !== false;
+const showCityContext = sections.cityContext !== false;
 ---
 
 <Layout {...cityData}>
   <Header {...cityData} />
   <main>
     <HeroComponent {...cityData} />
-    <CityContext {...cityData} />
+    {showCityContext && <CityContext {...cityData} />}
     <ServicesComponent {...cityData} />
-    <WarningSigns {...cityData} />
+    {showWarningSigns && <WarningSigns {...cityData} />}
     <LocalAreas {...cityData} />
     <Testimonials {...cityData} />
     <FAQ {...cityData} />

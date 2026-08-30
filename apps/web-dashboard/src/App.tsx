@@ -1312,10 +1312,14 @@ export default function App() {
                     <label style={{ display: 'block', fontSize: '0.82rem', color: '#cbd5e1', marginBottom: '6px', fontWeight: 600 }}>Trocar Modelo Estrutural do Site:</label>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                       {[
-                        { id: 'urgencia-24h', label: '⚡ Modelo 1: Urgência Máxima 24 Horas (Azul/Laranja)' },
-                        { id: 'corporativo-empresarial', label: '🏢 Modelo 2: Corporativo & Condomínios (Verde/Cinza)' },
-                        { id: 'residencial-bairros', label: '🏡 Modelo 3: Residencial Familiar & Bairros (Bege)' },
-                        { id: 'industrial-hidrojato', label: '🚜 Modelo 4: Limpa Fossa & Hidrojato (Amarelo/Preto)' }
+                        { id: 'urgencia-24h', label: '⚡ Modelo 1: Urgência Máxima 24 Horas — Hero c/ formulário + grid de cards' },
+                        { id: 'corporativo-empresarial', label: '🏢 Modelo 2: Corporativo & Condomínios — Hero centralizado + lista c/ tag' },
+                        { id: 'residencial-bairros', label: '🏡 Modelo 3: Residencial Familiar & Bairros — Hero c/ foto + grid de cards' },
+                        { id: 'industrial-hidrojato', label: '🚜 Modelo 4: Limpa Fossa & Hidrojato — Hero foto de fundo + ícones em passos' },
+                        { id: 'premium-clean', label: '💎 Modelo 5: Premium & Alto Padrão — Hero centralizado + ícones em passos' },
+                        { id: 'rapido-economico', label: '💰 Modelo 6: Rápido & Econômico — Hero c/ formulário + sanfona' },
+                        { id: 'familia-seguranca', label: '👨‍👩‍👧 Modelo 7: Família & Segurança — Hero c/ foto + lista c/ tag' },
+                        { id: 'tecnico-especializado', label: '🔬 Modelo 8: Técnico Especializado — Hero foto de fundo + sanfona' }
                       ].map(m => (
                         <button
                           key={m.id}
@@ -1709,8 +1713,32 @@ export default function App() {
                   {
                     id: 'industrial-hidrojato',
                     title: '🚜 Modelo 4: Limpa Fossa & Hidrojato',
-                    desc: 'Foco em caminhão auto-vácuo de alta sucção, fossas sépticas, galerias e hidrojateamento pesado.',
+                    desc: 'Foco em caminhão auto-vácuo de alta sucção, fossas sépticas, galerias e hidrojateamento pesado. Hero com foto de fundo em tela cheia, serviços em ícones/passos.',
                     theme: 'Amarelo / Preto'
+                  },
+                  {
+                    id: 'premium-clean',
+                    title: '💎 Modelo 5: Premium & Alto Padrão',
+                    desc: 'Foco em condomínios de alto padrão e clientes exigentes, tom discreto e técnico. Hero centralizado, serviços em ícones/passos.',
+                    theme: 'Azul / Branco'
+                  },
+                  {
+                    id: 'rapido-economico',
+                    title: '💰 Modelo 6: Rápido & Econômico',
+                    desc: 'Foco em preço justo e velocidade de atendimento, sem taxa escondida. Hero com formulário, serviços em sanfona/accordion.',
+                    theme: 'Azul / Laranja'
+                  },
+                  {
+                    id: 'familia-seguranca',
+                    title: '👨‍👩‍👧 Modelo 7: Família & Segurança',
+                    desc: 'Foco em confiança, técnico identificado e cuidado com crianças/idosos. Hero com foto ao lado, serviços em lista.',
+                    theme: 'Bege / Terracota'
+                  },
+                  {
+                    id: 'tecnico-especializado',
+                    title: '🔬 Modelo 8: Técnico Especializado',
+                    desc: 'Foco em diagnóstico por vídeo inspeção e laudo técnico antes de agir. Hero com foto de fundo, serviços em sanfona/accordion.',
+                    theme: 'Verde / Cinza'
                   }
                 ].map(mod => (
                   <div 

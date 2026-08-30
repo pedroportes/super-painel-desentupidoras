@@ -143,6 +143,10 @@ function syncCityToAstro(city) {
         services: city.servicesVariant || 'ServicesGridV1',
         faq: 'FAQV1'
       },
+      // Liga/desliga seções da home por modelo (ver cityGenerator.ts) —
+      // sem isso, index.astro sempre cai no "tudo ligado" (comportamento
+      // antigo, nunca quebra cidade sem esse campo).
+      sectionsConfig: city.sectionsConfig || {},
       geoCoordinates: {
         latitude: city.latitude || '',
         longitude: city.longitude || ''

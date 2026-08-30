@@ -1,0 +1,111 @@
+---
+// ServicesGridV3: sanfona/accordion — cada serviço é um item que expande
+// ao clicar (via <details>/<summary> nativo do HTML, sem JS). Layout
+// genuinamente diferente do grid de cards (V1) e da lista com tag (V2).
+import { slugify } from '../utils/slugify';
+const { services, cidade, whatsapp } = Astro.props;
+const cidadeSlug = slugify(cidade);
+---
+
+<section id="servicos" class="services-v3">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">SERVIÇOS DISPONÍVEIS</span>
+      <h2>Qual Problema Você Tem em {cidade}?</h2>
+      <p>Clique num serviço abaixo para ver os detalhes e pedir orçamento.</p>
+    </div>
+
+    <div class="services-accordion">
+      {services.map((s: any, idx: number) => (
+        <details class="accordion-item" open={idx === 0}>
+          <summary>
+            <span class="accordion-icon">🔧</span>
+            <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>
+            <span class="accordion-chevron">▾</span>
+          </summary>
+          <div class="accordion-body">
+            <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
+            <a href={`/${slugify(s.title)}-em-${cidadeSlug}`} class="accordion-link">
+              Ver detalhes completos e pedir orçamento →
+            </a>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v3 {
+    padding: 80px 0;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 44px auto;
+  }
+  .section-badge {
+    color: var(--color-primary, #0284c7);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 10px 0 16px 0;
+  }
+  .services-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .accordion-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .accordion-item summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .accordion-item summary::-webkit-details-marker { display: none; }
+  .accordion-icon { font-size: 1.4rem; }
+  .accordion-item summary h3 {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .accordion-chevron {
+    font-size: 1.2rem;
+    color: var(--color-primary, #0284c7);
+    transition: transform 0.2s;
+  }
+  .accordion-item[open] .accordion-chevron {
+    transform: rotate(180deg);
+  }
+  .accordion-body {
+    padding: 0 24px 24px 60px;
+  }
+  .accordion-body p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 14px 0;
+  }
+  .accordion-link {
+    color: var(--color-primary, #0284c7);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+</style>

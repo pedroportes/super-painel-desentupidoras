@@ -1,21 +1,21 @@
 {
-  "cidade": "Vitória da Conquista",
-  "estado": "Bahia",
-  "uf": "BA",
-  "populacao": "343.000",
-  "ddd": "77",
-  "whatsapp": "77998877665",
-  "telefoneFixo": "(77) 3421-0000",
-  "empresaNome": "Desentupidora Conquista 24h",
-  "cnpj": "45.678.901/0001-23",
-  "endereco": "Av. Olívia Flores, 1200 - Candeias, Vitória da Conquista - BA",
+  "cidade": "Blumenau",
+  "estado": "Brasil",
+  "uf": "SC",
+  "populacao": "350.000",
+  "ddd": "47",
+  "whatsapp": "47992795590",
+  "telefoneFixo": "(47) 3323-0000",
+  "empresaNome": "Desentupidora Blumenau 24h",
+  "cnpj": "12.345.678/0001-90",
+  "endereco": "Av. Rio Branco, 1000 - Centro, Blumenau - SC",
   "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-vitoriadaconquista.pages.dev",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
+  "deployUrl": "https://desentupidora-blumenau.pages.dev",
+  "paletaCores": "corporativo-verde-cinza",
+  "logoUrl": "/images/blumenau/logo-desentupidora-blumenau.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/vitoriadaconquista/logo-desentupidora-vitoriadaconquista.webp",
-  "heroImage": "/images/vitoriadaconquista/desentupidora-vitoriadaconquista-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/blumenau/logo-desentupidora-blumenau.webp",
+  "heroImage": "/images/blumenau/desentupidora-blumenau-tecnico-desentupimento.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -26,86 +26,59 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Vitória da Conquista BA 24h",
-    "metaDescription": "Desentupidora em Vitória da Conquista BA 24h: esgoto, fossa e caixa de gordura. Atendimento no Centro e no planalto, visita técnica grátis.",
-    "h1Title": "Desentupidora em Vitória da Conquista BA: Atendimento 24h no Planalto da Conquista",
-    "firstParagraphText": "Precisando de uma desentupidora em Vitória da Conquista BA? Nossa equipe atende toda a cidade — do Centro aos bairros mais altos do planalto — com plantão 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas, incluindo clínicas e comércios da região, que é referência em saúde e serviços para todo o sudoeste baiano.",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Vitória da Conquista BA?"
+    "metaTitle": "Desentupidora em Blumenau SC 24h - Atendimento Rápido",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Blumenau SC. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Blumenau SC: Atendimento na Capital do Vale Europeu",
+    "firstParagraphText": "Precisa de uma desentupidora em Blumenau que conheça os riscos de enchente do Rio Itajaí-Açu? Atendemos toda a cidade, dos bairros próximos ao rio às áreas mais altas do Vale Europeu, com atendimento 24h e sem quebra de piso.",
+    "lastH2Title": "A desentupidora de Blumenau preparada para o histórico de enchentes da cidade"
   },
-  "aboutCityTitle": "Estrutura e Atendimento de Desentupidora em Vitória da Conquista - BA",
-  "aboutCityText": "Vitória da Conquista fica no planalto do sudoeste da Bahia, a mais de 900 metros de altitude — clima bem mais ameno que o litoral baiano, o que também favorece a vegetação densa em bairros mais antigos como Candeias e Recreio, onde raízes de árvore são uma causa comum de entupimento em redes de esgoto mais antigas. A cidade é o maior polo comercial, de saúde e de educação do sudoeste da Bahia, recebendo fluxo constante de moradores de cidades vizinhas — o que significa alta demanda de clínicas, hospitais e comércios ao longo da BR-116 por manutenção preventiva de caixa de gordura e desobstrução de esgoto. Nossa equipe mantém viaturas posicionadas ao longo da rodovia para atender rápido tanto o Centro quanto os bairros mais afastados do planalto.",
-  "parceiros": [
-    {
-      "id": "1788109114948",
-      "nome": "Desentupidora Itabuna 24h",
-      "cidade": "Itabuna",
-      "uf": "BA",
-      "dominio": "desentupidoraitabuna.com.br",
-      "url": "https://desentupidora-itabuna.pages.dev",
-      "descricao": "Também fazemos parte da nossa rede de atendimento em Itabuna - BA, com equipe e estrutura própria posicionada na região sul da Bahia.",
-      "status": "ativo",
-      "tipo": "Rede de atendimento"
-    },
-    {
-      "id": "1788109114949",
-      "nome": "Desentupidora Porto Seguro 24h",
-      "cidade": "Porto Seguro",
-      "uf": "BA",
-      "dominio": "desentupidoraportoseguro.com.br",
-      "url": "https://desentupidora-portoseguro.vercel.app",
-      "descricao": "Nossa rede também mantém atendimento em Porto Seguro - BA, cobrindo a costa sul do estado com equipe própria.",
-      "status": "ativo",
-      "tipo": "Rede de atendimento"
-    }
-  ],
+  "aboutCityTitle": "Desentupidora em Blumenau: preparo para o histórico de enchentes do Rio Itajaí-Açu",
+  "aboutCityText": "Blumenau foi fundada por imigrantes alemães em 1850 e hoje é o coração do Vale Europeu, conhecida pela arquitetura enxaimel, pela Oktoberfest e por uma forte tradição têxtil. A cidade também convive com um histórico sério de enchentes do Rio Itajaí-Açu, que já causou desastres graves, como a enchente de 2008. Esse histórico faz com que bairros próximos ao rio, como Velha e Itoupava Seca, sofram mais com refluxo de esgoto e infiltração em dias de chuva forte, enquanto bairros nas encostas do Vale Europeu enfrentam desafios de pressão de água por causa do relevo montanhoso. Nossa equipe conhece essas duas realidades e mantém equipamento de hidrojateamento de alta pressão pronto para atender Blumenau em qualquer situação.",
+  "parceiros": [],
   "bairros": [
     "Centro",
-    "Candeias",
-    "Recreio",
-    "Ibirapuera",
-    "Zabelê",
-    "Alto Maron",
-    "Guarani",
-    "Kadija",
-    "Patagônia",
+    "Velha",
+    "Itoupava Seca",
+    "Itoupava Central",
+    "Vorstadt",
+    "Garcia",
+    "Fortaleza",
+    "Água Verde",
+    "Ponta Aguda",
+    "Progresso",
     "Boa Vista",
-    "Distrito Industrial",
-    "Jurema",
-    "Felícia"
+    "Vila Formosa",
+    "Salto",
+    "Vila Itoupava",
+    "Badenfurt"
   ],
   "services": [
     {
-      "id": "esgoto",
       "title": "Desentupimento de Esgoto",
       "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
       "icon": "🚿"
     },
     {
-      "id": "pia",
       "title": "Desentupimento de Pia",
       "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
       "icon": "🚰"
     },
     {
-      "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
       "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
       "icon": "🚽"
     },
     {
-      "id": "ralo",
       "title": "Desentupimento de Ralo",
       "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
       "icon": "🛁"
     },
     {
-      "id": "fossa",
       "title": "Esgotamento e Limpeza de Fossa",
       "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
       "icon": "🚛"
     },
     {
-      "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
       "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
       "icon": "🌊"
@@ -113,48 +86,48 @@
   ],
   "faqs": [
     {
-      "question": "Por que minha rede de esgoto entope com raízes de árvore em Vitória da Conquista?",
-      "answer": "O clima ameno do planalto favorece árvores de raiz agressiva em bairros mais antigos, como Candeias e Recreio. As raízes buscam a umidade das tubulações de esgoto mais antigas e acabam rompendo ou obstruindo a rede — resolvemos com máquina rotativa ou hidrojateamento, sem precisar trocar o encanamento."
+      "question": "O histórico de enchentes do Rio Itajaí-Açu afeta a rede de esgoto em Blumenau?",
+      "answer": "Sim, em bairros próximos ao rio, como Velha e Itoupava Seca, o nível alto da água pode causar refluxo de esgoto durante temporais. Nossa equipe atende com prioridade nesses períodos."
     },
     {
-      "question": "Vocês atendem clínicas e hospitais do polo de saúde da cidade?",
-      "answer": "Sim! Vitória da Conquista recebe pacientes de toda a região sudoeste da Bahia, e mantemos atendimento prioritário para clínicas, hospitais e laboratórios que precisam de desobstrução rápida sem interromper o funcionamento."
+      "question": "Vocês atendem bairros nas encostas do Vale Europeu?",
+      "answer": "Sim, atendemos toda a região, incluindo bairros de relevo mais acidentado, onde a variação de pressão da água pode acelerar o desgaste das tubulações."
     },
     {
-      "question": "O acesso pela BR-116 atrasa o atendimento nos bairros mais afastados?",
-      "answer": "Não. Mantemos viaturas posicionadas ao longo da rodovia justamente para reduzir o tempo de chegada tanto no Centro quanto em bairros mais distantes, como Distrito Industrial e Jurema."
+      "question": "Casas antigas de arquitetura enxaimel têm mais problema de encanamento?",
+      "answer": "Muitas construções históricas de Blumenau têm tubulações mais antigas, e fazemos avaliação cuidadosa para não danificar estruturas de valor histórico durante o desentupimento."
     },
     {
-      "question": "Vocês atendem comércios que recebem clientes de cidades vizinhas?",
-      "answer": "Sim! Restaurantes, hotéis e comércios que atendem o fluxo regional de Vitória da Conquista têm prioridade no agendamento, já que qualquer parada afeta diretamente o movimento do negócio."
+      "question": "Qual o tempo de chegada em Blumenau?",
+      "answer": "Em média de 20 a 40 minutos, dependendo da região da cidade."
     },
     {
-      "question": "A visita técnica para avaliação é gratuita?",
-      "answer": "Sim! A visita é 100% gratuita e sem compromisso — o técnico avalia o problema no local antes de fechar qualquer orçamento."
+      "question": "A visita técnica em Blumenau é gratuita?",
+      "answer": "Sim, sempre gratuita e sem compromisso."
     },
     {
-      "question": "Precisa quebrar piso ou parede pra desentupir em Vitória da Conquista?",
-      "answer": "Na grande maioria dos casos não. Usamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstroem por dentro do encanamento, mesmo em redes antigas do Centro."
+      "question": "Vocês atendem emergências durante a época de chuvas fortes em Blumenau?",
+      "answer": "Sim, mantemos plantão 24 horas reforçado durante os períodos de maior risco de enchente."
     }
   ],
   "testimonials": [
     {
-      "name": "Marcos Vinícius R.",
-      "neighborhood": "Candeias - Vitória da Conquista",
+      "name": "Heinz Wagner",
+      "neighborhood": "Velha - Blumenau",
       "rating": 5,
-      "text": "Tinha raiz de árvore entupindo o esgoto do quintal há meses. Resolveram sem quebrar nada, rápido."
+      "text": "Minha casa é perto do rio e depois de uma chuva forte o esgoto voltou. A equipe veio rápido e resolveu sem sujeira."
     },
     {
-      "name": "Juliana Ferreira",
-      "neighborhood": "Recreio - Vitória da Conquista",
+      "name": "Marlene Zimmermann",
+      "neighborhood": "Itoupava Seca - Blumenau",
       "rating": 5,
-      "text": "Atendimento rápido mesmo estando um pouco afastado do Centro. Chegaram no horário combinado."
+      "text": "Atendimento rápido e educado. Explicaram certinho por que acontece o refluxo aqui perto do rio."
     },
     {
-      "name": "Clínica Santa Helena",
-      "neighborhood": "Centro - Vitória da Conquista",
+      "name": "Rogério Bittencourt",
+      "neighborhood": "Garcia - Blumenau",
       "rating": 5,
-      "text": "Precisávamos resolver sem parar o atendimento da clínica. Fizeram tudo de forma discreta e rápida."
+      "text": "Moro numa subida e o cano vivia com problema de pressão. Resolveram e ainda deram uma dica de manutenção."
     }
   ]
 }

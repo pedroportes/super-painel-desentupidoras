@@ -380,12 +380,54 @@ gera 4 "modelos" com H1, parágrafo, CTA, 6 serviços, 6 FAQs e 3 depoimentos
 - `industrial-hidrojato` — tom pesado/industrial (caminhão auto-vácuo,
   MTR, licença ambiental).
 
-Estruturalmente só existem **2 esqueletos visuais** (`HeroV1`+
-`ServicesGridV1` para os modelos 1 e 3; `HeroV2`+`ServicesGridV2` para os
-modelos 2 e 4) — os 4 modelos diferem de verdade só no texto e na paleta de
-cor, não no HTML/layout. Isso é secundário (texto pesa muito mais que
-estrutura de HTML pra detecção de duplicidade), mas registrar pra não
-confundir "4 modelos" com "4 layouts".
+⚠️ **Isso era verdade até 30/08/2026, quando o usuário pediu explicitamente
+mais modelos "genuinamente diferentes, não só cor"** — só existiam **2
+esqueletos visuais** (`HeroV1`+`ServicesGridV1` para os modelos 1 e 3;
+`HeroV2`+`ServicesGridV2` para os modelos 2 e 4), e os 4 modelos diferiam
+de verdade só no texto e na paleta, não no HTML/layout. **Corrigido no
+mesmo dia — ver seção "🎨 8 Modelos Estruturais" abaixo.**
+
+### 🎨 8 Modelos Estruturais (desde 30/08/2026)
+
+Pedido explícito do usuário: "modelo" tem que significar layout/estrutura
+diferente, não só cor/texto em cima do mesmo HTML. Construídos **2 Heroes
+novos** (`HeroV3.astro` = foto de fundo em tela cheia; `HeroV4.astro` =
+foto ao lado, sem formulário) e **2 grids de Serviços novos**
+(`ServicesGridV3.astro` = sanfona/accordion via `<details>`;
+`ServicesGridV4.astro` = ícones circulares em passos), além dos 2 Heroes
+e 2 grids que já existiam. Com isso, **cada um dos 8 modelos tem uma
+combinação única de Hero+Serviços — nenhum repete a combinação de outro**:
+
+| # | `modeloTemplate` | Hero | Serviços | Seções desligadas |
+|---|---|---|---|---|
+| 1 | `urgencia-24h` | V1 (form lateral) | V1 (cards claros) | — |
+| 2 | `corporativo-empresarial` | V2 (centralizado, stats) | V2 (lista escura c/ tag) | — |
+| 3 | `residencial-bairros` | V4 (foto ao lado) | V1 (cards claros) | `WarningSigns` |
+| 4 | `industrial-hidrojato` | V3 (foto de fundo) | V4 (ícones em passos) | — |
+| 5 | `premium-clean` | V2 (centralizado, stats) | V4 (ícones em passos) | — |
+| 6 | `rapido-economico` | V1 (form lateral) | V3 (sanfona) | — |
+| 7 | `familia-seguranca` | V4 (foto ao lado) | V2 (lista escura c/ tag) | `WarningSigns` |
+| 8 | `tecnico-especializado` | V3 (foto de fundo) | V3 (sanfona) | — |
+
+Mecanismo novo: `cityData.sectionsConfig` (objeto `{ warningSigns?, cityContext? }`,
+lido em `index.astro`) liga/desliga seções por modelo — ausente = tudo
+ligado (nunca quebra cidade antiga sem esse campo). Hoje só
+`WarningSigns` é desligado (nos modelos de tom família/residencial, que
+não combinam com alarme de "sinais de perigo"), mas o mecanismo suporta
+mais seções no futuro.
+
+**Como testar um modelo sem cadastrar cidade real**: rodar
+`npx tsx apps/web-dashboard/scripts/test_new_models.mjs <modeloId>`
+dentro de `apps/web-dashboard` (escreve direto em
+`cityConfig.json`), depois `npm run build` em `site-template-astro`.
+**Nunca fazer deploy depois disso sem antes rodar `/api/build-city/:id`
+numa cidade real** pra restaurar o `cityConfig.json` de verdade.
+
+**Bugs reais corrigidos no processo**: os modelos 3 (`residencial-bairros`)
+e 4 (`industrial-hidrojato`) tinham exatamente a mesma
+`heroVariant`/`servicesVariant` dos modelos 1 e 2 respectivamente — ou
+seja, eram "modelos" só de nome, idênticos em estrutura ao 1/2. Corrigido
+dando a cada um sua própria combinação (ver tabela acima).
 
 ### Dois problemas concretos que estão anulando esse trabalho
 
@@ -435,12 +477,17 @@ qualquer modelo.
    resolvido só parte do problema.
 3. ✅ **Não usar `update_cities_faqs.cjs` de novo** — mantido como registro
    histórico, documentado aqui pra não ser reexecutado sem adaptar.
-4. ⏳ **Ainda pendente — teto de escala com só 4 modelos**: os 4 modelos de
-   `cityGenerator.ts` continuam compartilhando texto idêntico entre
-   cidades do mesmo modelo (útil só na criação de cidade nova, ver Passo 1
-   da skill `criar-site-desentupidora`, que já orienta reescrever à mão).
-   Sem mudança de processo, a partir de ~5 cidades novas no mesmo modelo
-   o clone completo volta a acontecer. Considerar variar/reescrever pontos
+4. ✅ **Teto de escala com poucos modelos — parcialmente resolvido em
+   30/08/2026**: eram 4 modelos (2 esqueletos visuais reais), agora são
+   **8 modelos, cada um com combinação única de Hero+Serviços** (ver
+   seção "🎨 8 Modelos Estruturais" abaixo) — dobra o teto antes de
+   clones estruturais completos aparecerem. **Ainda vale o aviso**: o
+   texto (FAQs, depoimentos, `aboutCityText`) de `cityGenerator.ts`
+   continua fixo por modelo — cidades novas do mesmo modelo ainda
+   precisam reescrever à mão (Passo 1 da skill
+   `criar-site-desentupidora`), a única coisa que mudou é que agora elas
+   também têm **estrutura visual diferente** de metade das outras
+   cidades, não só texto diferente. Considerar variar/reescrever pontos
    do modelo por cidade no momento da criação, não só confiar no texto
    fixo do modelo.
 5. ⏳ **Ainda pendente — bairros fictícios/copiados**: ver achado novo
@@ -508,6 +555,16 @@ schema JSON-LD todos batendo com a URL real).
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`(pendente de commit)`** (30/08/2026) — **8 Modelos Estruturais**
+  (eram 4, e só 2 esqueletos visuais reais). Pedido explícito do
+  usuário: modelo tem que mudar layout, não só cor/texto. Construídos
+  `HeroV3.astro`/`HeroV4.astro` e `ServicesGridV3.astro`/
+  `ServicesGridV4.astro`, e corrigidos os modelos 3/4 que duplicavam a
+  estrutura dos modelos 1/2. Ver seção completa "🎨 8 Modelos
+  Estruturais" acima. Testado localmente (build, sem deploy) pros 8
+  modelos via `scripts/test_new_models.mjs`, confirmado por
+  `getComputedStyle`/grep no HTML que cada modelo gera a seção/hero
+  certos (inclusive o desligamento de `WarningSigns` nos modelos 3 e 7).
 - **`(pendente de commit)`** (30/08/2026) — **Cidade de teste Blumenau-SC
   criada do zero ponta a ponta, validando todo o processo corrigido
   nesta sessão.** Cadastro com conteúdo 100% único (fatos reais:

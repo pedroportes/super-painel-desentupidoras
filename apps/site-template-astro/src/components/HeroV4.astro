@@ -1,0 +1,119 @@
+---
+// HeroV4: dividido em 2 colunas como o HeroV1, mas sem formulário/card de
+// agendamento — do lado direito entra a FOTO real (heroImage), com dois
+// CTAs diretos (WhatsApp + ligação) do lado esquerdo. Layout genuinamente
+// diferente: V1 tem form interativo, V2 é centralizado sem foto, V3 é foto
+// de fundo cheia — V4 é foto lado a lado, sem form.
+const { seo, cidade, ddd, whatsapp, telefoneFixo, heroImage, empresaNome } = Astro.props;
+---
+
+<section class="hero-v4">
+  <div class="container hero-v4-container">
+    <div class="hero-v4-content">
+      <span class="hero-v4-badge">✅ {empresaNome || `Desentupidora ${cidade}`}</span>
+
+      <!-- STRICT SEO RULE: H1 title -->
+      <h1 id="h1Title" class="hero-v4-title" data-edit-tab="hero">{seo.h1Title}</h1>
+
+      <!-- STRICT SEO RULE: Keyword in 1st Paragraph -->
+      <p id="firstParagraph" class="hero-v4-paragraph" data-edit-tab="hero">
+        {seo.firstParagraphText}
+      </p>
+
+      <div class="hero-v4-ctas">
+        <a id="ctaButtonText" href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`} class="btn btn-hero-v4-primary" target="_blank" rel="noopener" data-edit-tab="hero">
+          {seo.ctaButtonText || "📲 Chamar no WhatsApp"}
+        </a>
+        {telefoneFixo && (
+          <a href={`tel:${telefoneFixo.replace(/\D/g, '')}`} class="btn btn-hero-v4-secondary">
+            📞 {telefoneFixo}
+          </a>
+        )}
+      </div>
+    </div>
+
+    <div class="hero-v4-photo">
+      {heroImage ? (
+        <img src={heroImage} alt={`Desentupidora em ${cidade}`} width="800" height="600" />
+      ) : (
+        <div class="hero-v4-photo-placeholder"></div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-v4 {
+    padding: 70px 0;
+    background: var(--color-bg-dark, #0f172a);
+    color: var(--color-text-main, #ffffff);
+  }
+  .hero-v4-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .hero-v4-badge {
+    display: inline-block;
+    background: var(--color-badge-bg, rgba(255,255,255,0.1));
+    color: var(--color-badge-text, #ffffff);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+  }
+  .hero-v4-title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .hero-v4-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #94a3b8);
+    margin-bottom: 30px;
+  }
+  .hero-v4-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .btn-hero-v4-primary, .btn-hero-v4-secondary {
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.02rem;
+  }
+  .btn-hero-v4-primary {
+    background: var(--color-primary, #0284c7);
+    color: #ffffff;
+  }
+  .btn-hero-v4-secondary {
+    background: transparent;
+    color: var(--color-text-main, #ffffff);
+    border: 2px solid var(--color-text-muted, #475569);
+  }
+  .hero-v4-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .hero-v4-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    background: var(--color-bg-card, #1e293b);
+  }
+  @media (max-width: 900px) {
+    .hero-v4-container { grid-template-columns: 1fr; }
+    .hero-v4-photo { order: -1; }
+    .hero-v4-title { font-size: 2rem; }
+  }
+</style>
