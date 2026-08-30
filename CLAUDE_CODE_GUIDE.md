@@ -426,11 +426,51 @@ qualquer modelo.
 - O front-end (`handleDeployCity` em `App.tsx`) **precisa checar
   `data.success`** antes de mostrar mensagem de "publicado" — já existiu bug
   em que isso não era checado e a UI sempre dizia sucesso.
+- **Cloudflare: nome do projeto ≠ subdomínio `.pages.dev`** — são campos
+  diferentes na API da Cloudflare, e podem divergir quando há colisão de
+  nome (subdomínio é global). **Nunca derivar o nome do projeto a partir
+  da URL salva** (bug real, corrigido 2x em 30/08/2026, ver histórico
+  abaixo) — o nome real é guardado em `city.cloudflareProjectName` na
+  primeira vez que a Cloudflare responde e sempre reaproveitado depois.
+  Só cai no `getCleanProjectName(cidade)` se a cidade nunca foi publicada
+  nessa conta.
+- ⚠️ **Existe hoje 1 projeto órfão na conta Cloudflare**
+  (`desentupidora-curitiba-sns`, subdomínio com sufixo `-f0c`, sem
+  tráfego real) criado pelo bug acima antes da correção definitiva.
+  Não foi apagado automaticamente — aguardando o usuário confirmar a
+  exclusão (painel da Cloudflare ou API).
 
 ---
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- **`84c329c`** (30/08/2026) — **Bug de deploy Cloudflare corrigido de vez
+  (2ª rodada, mesmo dia): projeto órfão criado a cada redeploy.** Ao
+  redeployar as 10 cidades com o conteúdo único novo (ver entrada de
+  conteúdo quase-duplicado abaixo), o redeploy de Curitiba criou um
+  **projeto novo do zero** na Cloudflare em vez de reusar o existente — o
+  conteúdo corrigido foi parar num projeto órfão
+  (`desentupidora-curitiba-sns-f0c.pages.dev`) e o site real
+  (`desentupidora-curitiba-sns.pages.dev`) ficou com o conteúdo antigo.
+  Causa raiz: a correção da rodada anterior (linha abaixo) extraía o
+  "slug" de dentro da URL salva e reusava como `--project-name` — mas
+  esse slug é o **subdomínio**, não o **nome do projeto**, e os dois
+  campos são diferentes na Cloudflare quando há colisão. Fix definitivo:
+  o nome real do projeto agora é salvo em `city.cloudflareProjectName` e
+  nunca mais re-derivado da URL. Confirmado via API da Cloudflare que o
+  redeploy correto de Curitiba não criou projeto novo (conta permaneceu
+  com 6 projetos). Ficou 1 projeto órfão pra limpar
+  (`desentupidora-curitiba-sns`, sufixo `-f0c`), aguardando confirmação do
+  usuário.
+- **`bbd567c` / `af1b121`** (30/08/2026) — **Conteúdo quase-duplicado
+  entre 10 de 11 cidades corrigido e republicado.** Ver seção completa "✅
+  RISCO CRÍTICO: conteúdo quase-duplicado entre cidades" acima. H1,
+  primeiro parágrafo, texto sobre a cidade, último H2, FAQs e depoimentos
+  reescritos com fatos reais por cidade (não mais template genérico
+  raspado por `update_cities_faqs.cjs`), validado (0 nomes de depoimento
+  repetidos, 11/11 textos únicos, `auditScore: 100` em todas), e
+  **republicado de verdade** nas 10 cidades (confirmado por `curl` no
+  título e no texto único de cada uma, nos 3 provedores).
 - **`(pendente de commit)`** (30/08/2026) — **Bug real de deploy Cloudflare
   descoberto e corrigido: `deployToCloudflarePages()` nunca lia a URL real
   reportada pelo wrangler**, só assumia `https://<nomeCalculado>.pages.dev`
@@ -715,18 +755,21 @@ qualquer modelo.
 
 ## 🔧 Pendências conhecidas, em ordem de prioridade
 
-0. **Conteúdo quase-duplicado entre cidades — CORRIGIDO em 30/08/2026.**
-   Ver seção completa "✅ RISCO CRÍTICO: conteúdo quase-duplicado entre
-   cidades" acima: as 10 cidades com conteúdo clonado ganharam H1/parágrafo/
-   texto-sobre-a-cidade/FAQs/depoimentos únicos, com fatos reais de cada
-   município, via `apply_unique_city_content.cjs`. Correção aplicada só em
-   `cities.json` + build local (`auditScore: 100` nas 11 cidades) — **os
-   deploys reais dessas 10 cidades ainda não foram refeitos**, então o que
-   está publicado hoje ainda é o conteúdo antigo até alguém rodar
-   `/api/deploy-city/:id` de novo. Ficaram 2 pendências novas registradas
-   na mesma seção: bairros fictícios/copiados em 4 cidades (aguardando
-   decisão do usuário) e o teto de escala dos 4 modelos do
-   `cityGenerator.ts` (só relevante pra cidades novas).
+0. **Conteúdo quase-duplicado entre cidades — CORRIGIDO e REPUBLICADO em
+   30/08/2026.** Ver seção completa "✅ RISCO CRÍTICO: conteúdo
+   quase-duplicado entre cidades" acima: as 10 cidades com conteúdo
+   clonado ganharam H1/parágrafo/texto-sobre-a-cidade/FAQs/depoimentos
+   únicos, com fatos reais de cada município, via
+   `apply_unique_city_content.cjs`, e foram **republicadas de verdade**
+   nos 3 provedores (confirmado por `curl` no conteúdo ao vivo). No
+   caminho, achado e corrigido um 2º bug real no motor de deploy
+   Cloudflare (projeto órfão criado a cada redeploy — ver "Motor de
+   Deploy" e histórico acima). Ficaram 2 pendências novas: bairros
+   fictícios/copiados em 4 cidades (aguardando decisão do usuário, risco
+   de quebrar URL indexada) e o teto de escala dos 4 modelos do
+   `cityGenerator.ts` (só relevante pra cidades novas). E 1 limpeza
+   pendente: apagar o projeto órfão `desentupidora-curitiba-sns` (sufixo
+   `-f0c`) criado na Cloudflare pelo bug antes de ser corrigido.
 1. **Negociação de Markdown (AEO) só funciona em cidades no Cloudflare
    Pages** — confirmado em 30/08/2026 rodando o isitagentready.com de
    verdade contra uma cidade no Vercel (Cachoeiro de Itapemirim): Content
