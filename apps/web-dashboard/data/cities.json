@@ -538,7 +538,7 @@
     ],
     "auditScore": 100,
     "deployUrl": "https://desentupidora-portoseguro.vercel.app",
-    "lastDeployAt": "2026-08-30T20:11:30.103Z",
+    "lastDeployAt": "2026-08-30T20:49:53.461Z",
     "faqs": [
       {
         "question": "A maresia de Porto Seguro estraga a tubulação mais rápido?",
@@ -628,7 +628,10 @@
     "firstParagraph": "Precisa de uma desentupidora em Porto Seguro que entenda a realidade de uma cidade turística à beira-mar? Atendemos residências, pousadas e comércios do Centro Histórico a Arraial d'Ajuda e Trancoso, com orçamento gratuito.",
     "aboutCityTitle": "Desentupidora em Porto Seguro: preparo para o clima litorâneo e a alta temporada",
     "aboutCityText": "Porto Seguro é um dos destinos turísticos mais procurados do litoral baiano, com forte movimento em distritos como Arraial d'Ajuda e Trancoso, especialmente na alta temporada. O clima litorâneo, com maresia constante, acelera a corrosão de conexões metálicas e reduz a vida útil de tubulações mal protegidas, enquanto o solo arenoso típico da região favorece a infiltração de areia em ligações de esgoto mais antigas. Durante a alta temporada, o aumento de hóspedes em pousadas também sobrecarrega fossas e redes de esgoto dimensionadas para uso residencial. Nossa equipe conhece essas particularidades e atende com agilidade tanto moradores quanto empreendimentos turísticos.",
-    "lastH2": "A desentupidora de Porto Seguro preparada para a alta temporada"
+    "lastH2": "A desentupidora de Porto Seguro preparada para a alta temporada",
+    "logoUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+    "faviconUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+    "heroImage": "/images/portoseguro/desentupidora-portoseguro-caminhao-limpa-fossa.webp"
   },
   {
     "id": "guarapuava",

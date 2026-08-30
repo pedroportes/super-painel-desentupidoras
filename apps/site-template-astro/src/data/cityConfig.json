@@ -1,21 +1,21 @@
 {
-  "cidade": "Curitiba",
-  "estado": "Paraná",
-  "uf": "PR",
-  "populacao": "150.000",
-  "ddd": "27",
-  "whatsapp": "27999998888",
-  "telefoneFixo": "(27) 3000-0000",
-  "empresaNome": "Desentupidora Curitiba 24h",
-  "cnpj": "",
-  "endereco": "",
-  "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
+  "cidade": "Porto Seguro",
+  "estado": "Bahia",
+  "uf": "BA",
+  "populacao": "182.630",
+  "ddd": "73",
+  "whatsapp": "73988112233",
+  "telefoneFixo": "(73) 3288-0000",
+  "empresaNome": "Desentupidora Porto Seguro 24h",
+  "cnpj": "44.333.222/0001-99",
+  "endereco": "Av. dos Navegantes, 300 - Centro, Porto Seguro - BA",
+  "hospedagem": "vercel",
+  "deployUrl": "https://desentupidora-portoseguro.vercel.app",
+  "paletaCores": "clean-azul",
+  "logoUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
-  "heroImage": "/images/curitiba/desentupidora-curitiba-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+  "heroImage": "/images/portoseguro/desentupidora-portoseguro-caminhao-limpa-fossa.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -26,24 +26,24 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Curitiba PR 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Curitiba PR. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Curitiba: Atendimento Rápido em Toda a Capital Paranaense",
-    "firstParagraphText": "Procurando uma desentupidora em Curitiba que atenda com agilidade nos bairros mais movimentados e nos mais residenciais? Trabalhamos em toda a capital paranaense, do Batel ao Boqueirão, com atendimento 24h e sem quebra de piso.",
-    "lastH2Title": "A desentupidora de Curitiba que atende com agilidade toda a capital"
+    "metaTitle": "Desentupidora em Porto Seguro BA 24h",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Porto Seguro BA. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Porto Seguro: Atendimento em Toda a Região Turística",
+    "firstParagraphText": "Precisa de uma desentupidora em Porto Seguro que entenda a realidade de uma cidade turística à beira-mar? Atendemos residências, pousadas e comércios do Centro Histórico a Arraial d'Ajuda e Trancoso, com orçamento gratuito.",
+    "lastH2Title": "A desentupidora de Porto Seguro preparada para a alta temporada"
   },
-  "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
-  "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
+  "aboutCityTitle": "Desentupidora em Porto Seguro: preparo para o clima litorâneo e a alta temporada",
+  "aboutCityText": "Porto Seguro é um dos destinos turísticos mais procurados do litoral baiano, com forte movimento em distritos como Arraial d'Ajuda e Trancoso, especialmente na alta temporada. O clima litorâneo, com maresia constante, acelera a corrosão de conexões metálicas e reduz a vida útil de tubulações mal protegidas, enquanto o solo arenoso típico da região favorece a infiltração de areia em ligações de esgoto mais antigas. Durante a alta temporada, o aumento de hóspedes em pousadas também sobrecarrega fossas e redes de esgoto dimensionadas para uso residencial. Nossa equipe conhece essas particularidades e atende com agilidade tanto moradores quanto empreendimentos turísticos.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Interlagos",
-    "Conceição",
-    "Novo Horizonte",
-    "Avisos",
-    "Araçá",
-    "BNH",
-    "Juparanã"
+    "Arraial d'Ajuda",
+    "Trancoso",
+    "Mundaí",
+    "Taperapuã",
+    "Fontana",
+    "Parque Ecológico",
+    "Frei Calixto"
   ],
   "services": [
     {
@@ -85,48 +85,48 @@
   ],
   "faqs": [
     {
-      "question": "O clima instável de Curitiba aumenta o risco de entupimento?",
-      "answer": "Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo."
+      "question": "A maresia de Porto Seguro estraga a tubulação mais rápido?",
+      "answer": "Sim, o ar salino acelera a corrosão de conexões metálicas próximas ao litoral. Recomendamos avaliação preventiva em imóveis à beira-mar."
     },
     {
-      "question": "Vocês atendem apartamentos e prédios em Curitiba?",
-      "answer": "Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde."
+      "question": "Vocês atendem pousadas em Arraial d'Ajuda e Trancoso na alta temporada?",
+      "answer": "Sim, temos experiência com o aumento de demanda de hóspedes nesses distritos e atendemos com prioridade nesses períodos."
     },
     {
-      "question": "Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?",
-      "answer": "Em média de 25 a 45 minutos, dependendo do trânsito da cidade."
+      "question": "O solo arenoso de Porto Seguro causa entupimento de esgoto?",
+      "answer": "Sim, é comum a infiltração de areia em ligações mais antigas, principalmente perto da orla. Fazemos a limpeza e verificação da vedação."
     },
     {
-      "question": "A visita técnica em Curitiba tem custo?",
-      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
+      "question": "Vocês fazem esgotamento de fossa para pousadas?",
+      "answer": "Sim, com caminhão auto-vácuo adequado para o volume de uso de pousadas e casas de temporada."
     },
     {
-      "question": "Vocês atendem emergências durante temporais em Curitiba?",
-      "answer": "Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes."
+      "question": "A visita técnica em Porto Seguro tem custo?",
+      "answer": "Não, a avaliação é sempre gratuita, mesmo em distritos mais afastados do Centro."
     },
     {
-      "question": "Precisa quebrar piso de apartamento para desentupir a prumada?",
-      "answer": "Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação."
+      "question": "Qual o tempo de chegada em Trancoso ou Arraial d'Ajuda?",
+      "answer": "Por serem distritos mais distantes, o tempo médio é um pouco maior, entre 40 e 60 minutos, mas mantemos equipe de plantão para emergências."
     }
   ],
   "testimonials": [
     {
-      "name": "Fernanda Osaki",
-      "neighborhood": "Batel - Curitiba",
+      "name": "Bianca Nascimento",
+      "neighborhood": "Arraial d'Ajuda - Porto Seguro",
       "rating": 5,
-      "text": "Moro em apartamento e a prumada entupiu num dia de chuva forte. Resolveram rápido sem precisar mexer no meu banheiro."
+      "text": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar."
     },
     {
-      "name": "Anderson Wolski",
-      "neighborhood": "Água Verde - Curitiba",
+      "name": "Diego Farias",
+      "neighborhood": "Centro - Porto Seguro",
       "rating": 5,
-      "text": "Prédio antigo, cano velho, mas a equipe soube lidar bem e não sujou nada."
+      "text": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho."
     },
     {
-      "name": "Priscila Andrade",
-      "neighborhood": "Boqueirão - Curitiba",
+      "name": "Camila Duarte",
+      "neighborhood": "Trancoso - Porto Seguro",
       "rating": 5,
-      "text": "Depois de um temporal, o esgoto voltou pela pia. Chamei e vieram mesmo com a chuva ainda forte."
+      "text": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo."
     }
   ]
 }
