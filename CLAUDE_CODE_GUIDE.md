@@ -1395,3 +1395,10 @@ em `.agents/skills/checklist-pre-publicacao/SKILL.md`, regra de ouro 16.
 - `npm run build` (dentro de `apps/site-template-astro`): gera o `dist/`
   real que é publicado — **sempre teste aqui antes de assumir que uma
   mudança de SEO funcionou**, não confie só em ler o `.astro`.
+- `node apps/web-dashboard/scripts/checklist_completo.cjs <cityId|--all>`:
+  **o checklist inteiro (`checklist-pre-publicacao/SKILL.md`, regra 17) em
+  1 comando**, contra o site publicado de verdade — testa TODA página real
+  da cidade (não amostra), não só a home. Sempre rodar este comando antes
+  de dizer "está no ar" — nunca reconstruir a verificação com `curl`
+  avulso na hora (foi exatamente isso que fez o mesmo bug passar batido
+  em várias sessões seguidas, ver regra 16/17).

@@ -1,6 +1,6 @@
 ---
 name: checklist-pre-publicacao
-description: Checklist obrigatório e regras de ouro invioláveis a rodar SEMPRE antes de considerar uma página/cidade "publicada" ou "pronta" — build local, verificação de página completa (não só título), SEO/GEO/AEO, e cuidados de infraestrutura de deploy. Ativar sempre que for publicar/redeployar qualquer cidade, criar uma cidade nova, ou depois de qualquer mudança em massa.
+description: Checklist obrigatório e regras de ouro invioláveis a rodar SEMPRE antes de considerar uma página/cidade "publicada" ou "pronta" — build local, verificação de página completa (não só título), SEO/GEO/AEO, e cuidados de infraestrutura de deploy. Ativar sempre que for publicar/redeployar qualquer cidade, criar uma cidade nova, ou depois de qualquer mudança em massa. O comando `node apps/web-dashboard/scripts/checklist_completo.cjs <cityId|--all>` É esta skill em forma executável — rodar ele, não reconstruir a verificação na mão.
 ---
 
 # ✅ Checklist Pré-Publicação — Regras de Ouro Invioláveis
@@ -17,6 +17,16 @@ declarou sucesso, e **3 bugs de infraestrutura graves passaram batido** —
 um deles resultou em 404 real em produção, visto pelo usuário antes de mim.
 Título certo não significa página funcionando. Esta skill existe pra isso
 nunca se repetir.
+
+🚫 **Regra de ouro 17 (31/08/2026, pedido explícito do usuário)**: essa
+skill documentava a verificação em prosa/checkbox havia dias, e ainda
+assim o mesmo trabalho de checagem foi refeito manualmente (e incompleto)
+várias sessões seguidas — bairro/serviço nunca eram testados de verdade
+porque dava trabalho fazer isso na mão a cada vez. **A partir de agora, a
+verificação da seção 3 tem um comando único e determinístico —
+`node apps/web-dashboard/scripts/checklist_completo.cjs <cityId>` (ou
+`--all`) — e ele é sempre a forma de checar, nunca `curl` avulso
+reconstruído na hora.** Ver seção 3 abaixo pro que ele cobre.
 
 ---
 
@@ -234,21 +244,48 @@ Para **cada cidade** que for publicada ou redeployada:
       Cloudflare ou Vercel, considerar confirmar via API do provedor que
       não foi criado um projeto/domínio novo por engano
 
-### 3. Verificação da página publicada — **NUNCA SÓ O `<title>`**
-- [ ] `curl` na home real: status 200
-- [ ] Pelo menos 1 arquivo CSS referenciado no HTML: status 200 (não só
-      "está no `<link>`", testar o arquivo de verdade)
-- [ ] Pelo menos 1 imagem referenciada no HTML (logo ou hero): status 200
-- [ ] `<title>` contém a palavra-chave e a cidade certa **e tem entre 40
-      e 60 caracteres** (não só checar presença de texto — medir
-      `.length` de verdade)
-- [ ] `<meta name="description">` tem entre 120 e 160 caracteres
-- [ ] **`<link rel="canonical">` bate exatamente com a URL que está sendo
-      testada** (copiar um do outro, não só "parece certo")
-- [ ] `og:url` e o campo `"url"` do schema JSON-LD também batem com a URL
-      real
+### 3. Verificação da página publicada — **NUNCA SÓ O `<title>`, NUNCA CURL MANUAL AVULSO**
+
+🚫 **Regra de ouro 17 (achado real 31/08/2026, pedido explícito do
+usuário — "estamos fazendo e refazendo várias vezes o mesmo serviço, isso
+não pode acontecer")**: esta seção **já foi** uma lista de passos pra
+rodar na mão com `curl`, um por um — e por isso, sessão após sessão,
+alguém pulava um item (quase sempre o de bairro/serviço, porque dava
+trabalho testar cada um manualmente) e "100% no checklist" continuava
+significando "só testei a home". **Não existe mais desculpa pra isso**:
+rode o comando único abaixo, que testa TODA página real da cidade (não
+uma amostra) contra o site publicado de verdade — não reconstrua essa
+verificação na mão, nem parcialmente:
+
+```bash
+cd apps/web-dashboard
+node scripts/checklist_completo.cjs <cityId>       # 1 cidade, TODAS as páginas
+node scripts/checklist_completo.cjs --all           # todas as 14 cidades, TODAS as páginas (demorado, ~1-2min)
+node scripts/checklist_completo.cjs --all --sample  # todas as cidades, amostra rápida (1 bairro + 1 serviço cada)
+```
+
+Ele confere, em **cada** página (home, cada bairro, cada serviço, as 3
+institucionais) — não só a home:
+- Status 200, CSS e imagem da home retornando 200 de verdade (não só
+  presentes no HTML)
+- `<title>` com `"desentupidora"` e dentro da faixa certa por tipo de
+  página (40-60 home, 40-80 subpágina — ver regra 2)
+- `<meta name="description">` com `"desentupidora"` e entre 120-160 chars
+- `<h1>` e o **último** `<h2>` com `"desentupidora"`
+- `<link rel="canonical">`, `og:url` e schema `"url"` batendo **exatamente**
+  com a URL real da própria página (não a home, a página testada)
+- `<main>` presente
+- **Todo `href` interno termina em `/`** (bate com o canonical, nunca gera
+  URL "duplicada" pro Google)
+
+Saída clara: `✅ tudo verde` ou lista exata do que falhou, por página. Sai
+com código 1 se algo falhar — nunca declarar "está no ar" com esse comando
+retornando falha.
+
+**O que esse comando NÃO cobre** (continua manual, mas só precisa ser
+feito 1x por cidade nova, não repetido a cada verificação):
 - [ ] Um trecho de FAQ ou depoimento específico daquela cidade aparece no
-      HTML (prova de que não é conteúdo genérico)
+      HTML (prova de que não é conteúdo genérico) — ler visualmente 1 vez
 - [ ] **Cada nome em `city.bairros` foi confirmado real por busca**
       (WebSearch/Wikipédia/site de CEP) — nunca por memória, nunca copiado
       de outra cidade, nunca valor de teste (`"teste"` etc.), nunca nome de
@@ -264,10 +301,12 @@ Para **cada cidade** que for publicada ou redeployada:
 
 ### 5. Se a mudança afeta MAIS de uma cidade
 - [ ] Rodar o checklist completo (1-3) numa cidade só primeiro
+      (`node scripts/checklist_completo.cjs <cityId>`)
 - [ ] Reportar o resultado ao usuário / confirmar que passou
-- [ ] Só então replicar pras demais cidades
-- [ ] Rodar pelo menos a verificação da seção 3 em CADA cidade da leva, não
-      só na primeira
+- [ ] Só então replicar pras demais cidades (build + deploy real em cada)
+- [ ] Rodar `node scripts/checklist_completo.cjs --all` (ou `--all --sample`
+      se o tempo for curto) no final — cobre a seção 3 em CADA cidade da
+      leva, não só na primeira
 
 ---
 
