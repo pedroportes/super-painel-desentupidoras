@@ -47,7 +47,10 @@ const CITIES_FILE = path.join(DATA_DIR, 'cities.json');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 const ASTRO_DIR = path.join(__dirname, '..', 'site-template-astro');
 const ASTRO_CONFIG_FILE = path.join(ASTRO_DIR, 'src', 'data', 'cityConfig.json');
+const ASTRO_PUBLIC_DIR = path.join(ASTRO_DIR, 'public');
 const IMAGES_PUBLIC_DIR = path.join(ASTRO_DIR, 'public', 'images');
+const REDIRECTS_FILE = path.join(ASTRO_PUBLIC_DIR, '_redirects');
+const VERCEL_JSON_FILE = path.join(ASTRO_PUBLIC_DIR, 'vercel.json');
 
 // As imagens ficam DENTRO da pasta pública do site Astro (não em serviço
 // externo), pois é essa pasta que é enviada no deploy estático (Cloudflare
@@ -196,8 +199,51 @@ function syncCityToAstro(city) {
       ]
     };
     fs.writeFileSync(ASTRO_CONFIG_FILE, JSON.stringify(astroConfig, null, 2), 'utf-8');
+    writeBairroRedirects(city);
   } catch (e) {
     console.error('Erro ao sincronizar Astro:', e);
+  }
+}
+
+// Achado 31/08/2026: 4 cidades (Curitiba, São José dos Pinhais, Araucária,
+// Londrina) tinham lista de bairros fictícia/copiada (Curitiba com bairros
+// reais de LINHARES-ES). Corrigido trocando pela lista real de cada
+// cidade — mas cada bairro antigo já virou uma URL própria
+// (`/[slug-do-bairro]`, ver [slug].astro) que pode estar indexada pelo
+// Google. Pra não gerar 404 nessas URLs, guardamos a lista antiga em
+// `city.bairrosAntigos` e geramos redirect 301 de cada slug antigo (que
+// não existe mais na lista nova) pra home (`/`) — nunca pra um bairro novo
+// qualquer, porque não há correspondência geográfica real entre eles.
+//
+// Precisa dos DOIS formatos porque cada provedor lê de um jeito diferente:
+// - Cloudflare Pages / Netlify: arquivo `_redirects` (formato próprio,
+//   lido automaticamente se estiver na raiz do publish directory).
+// - Vercel: array `redirects` dentro de `vercel.json`.
+// Ambos os arquivos moram em `public/`, que o Astro copia pra dentro de
+// `dist/` no build — por isso isso tem que rodar ANTES do `npm run build`
+// (mesmo timing do resto do syncCityToAstro).
+//
+// Como cada build é de UMA cidade por vez (mesmo padrão do
+// cityConfig.json), os dois arquivos são sempre REGRAVADOS do zero a cada
+// chamada — nunca acumulam redirect de uma cidade anterior.
+function writeBairroRedirects(city) {
+  try {
+    const newSlugs = new Set((city.bairros || []).map(slugify));
+    const oldBairros = city.bairrosAntigos || [];
+    const staleSlugs = [...new Set(oldBairros.map(slugify))].filter(s => s && !newSlugs.has(s));
+
+    const redirectLines = staleSlugs.map(s => `/${s}  /  301`);
+    fs.writeFileSync(REDIRECTS_FILE, redirectLines.length ? redirectLines.join('\n') + '\n' : '', 'utf-8');
+
+    let vercelConfig = {};
+    try { vercelConfig = JSON.parse(fs.readFileSync(VERCEL_JSON_FILE, 'utf-8')); } catch (_) {}
+    delete vercelConfig.redirects;
+    if (staleSlugs.length) {
+      vercelConfig.redirects = staleSlugs.map(s => ({ source: `/${s}`, destination: '/', permanent: true }));
+    }
+    fs.writeFileSync(VERCEL_JSON_FILE, JSON.stringify(vercelConfig, null, 2), 'utf-8');
+  } catch (e) {
+    console.error('Erro ao gerar redirects de bairros:', e);
   }
 }
 

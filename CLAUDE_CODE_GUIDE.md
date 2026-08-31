@@ -321,30 +321,48 @@ seguinte, "O que foi corrigido"):
   `apply_unique_city_content.cjs` como referência (lê conteúdo por
   cidade, nunca um texto genérico único).
 
-### ⚠️ Novo achado (30/08/2026), AINDA NÃO CORRIGIDO — bairros fictícios/copiados
-Enquanto investigava o conteúdo, encontrei outro bug de dados, mais
-delicado, que decidi **não corrigir sozinho** porque mexe em algo que pode
-quebrar URLs já indexadas pelo Google:
-- O campo `bairros` de **Curitiba** é, literalmente, a lista de bairros
+### ✅ Bairros fictícios/copiados — CORRIGIDO (31/08/2026)
+Achado original (30/08/2026), confirmado de forma independente por outra
+IA numa varredura pedida pelo usuário, e então corrigido com aprovação
+explícita ("acho melhor colocar bairros reais e redirecionar para os
+reais"):
+- O campo `bairros` de **Curitiba** era, literalmente, a lista de bairros
   reais de **Linhares** (`Interlagos, Conceição, Novo Horizonte, Avisos,
-  Araçá...`) — não tem nenhum bairro real de Curitiba.
-- **São José dos Pinhais, Araucária e Londrina** compartilham a mesma
+  Araçá...`) — não tinha nenhum bairro real de Curitiba.
+- **São José dos Pinhais, Araucária e Londrina** compartilhavam a mesma
   lista genérica de bairros fictícios (`Centro, Jardim América, Bela
   Vista, São José, Santa Cruz, Vila Nova, Planalto, Bairro Alto`) — nomes
   que não existem de verdade nessas cidades.
-- Por que não corrigi direto: cada bairro gera uma página própria
-  indexável (`/[slug]` no Astro). Se essas 4 cidades já estão publicadas e
-  o Google já indexou `/interlagos` pra "desentupidora Curitiba", por
-  exemplo, trocar o nome do bairro de uma hora pra outra criaria uma URL
-  nova e devolveria 404 na antiga (a não ser que se implemente redirect
-  301, o que o motor de deploy atual não faz). Isso é uma decisão de
-  produto/SEO que exige aprovação explícita antes de mexer.
-- **Ação recomendada, aguardando decisão**: trocar `bairros` dessas 4
-  cidades pelos bairros reais (`cityGenerator.ts` já tem uma lista correta
-  de Curitiba em `KNOWN_NEIGHBORHOODS`; São José dos Pinhais/Araucária/
-  Londrina precisam de lista nova) e, no mesmo deploy, configurar redirects
-  301 dos slugs antigos pros novos — ou, se ainda não há tráfego/indexação
-  real nessas URLs, apenas trocar direto sem redirect.
+
+**Correção aplicada** (regra "testar 1, confirmar, só depois aplicar nas
+outras" seguida à risca: Curitiba primeiro, verificado em produção com
+`curl`, só então as outras 3):
+1. Bairros reais confirmados via WebSearch/Wikipédia pra cada cidade (não
+   por memória) e escritos em `city.bairros`. A lista antiga fictícia foi
+   preservada em um campo novo, `city.bairrosAntigos`, só pra gerar
+   redirect — nunca mais usada como conteúdo real.
+2. Nova função `writeBairroRedirects()` em `server.cjs`, chamada dentro de
+   `syncCityToAstro()` (roda antes do `npm run build`, igual o resto do
+   sync): calcula os slugs que existiam na lista antiga e não existem mais
+   na nova, e gera redirect 301/308 permanente desses slugs pra home (`/`)
+   — nunca pra um bairro novo qualquer, porque não há correspondência
+   geográfica real entre o nome fictício antigo e o bairro real novo.
+   Escreve nos dois formatos que os provedores leem, porque cada um é
+   diferente: `public/_redirects` (Cloudflare Pages e Netlify, arquivo na
+   raiz do publish dir) e o array `redirects` dentro de `public/vercel.json`
+   (mesclado, preservando os `headers` que já existiam nesse arquivo).
+   Ambos os arquivos moram em `public/`, que o Astro copia pra `dist/` no
+   build. Como cada build é de uma cidade por vez, os dois arquivos são
+   **sempre regravados do zero** a cada chamada — nunca acumulam redirect
+   de uma cidade anterior.
+3. Verificado em produção nas 4 cidades, nos dois provedores afetados
+   (Cloudflare: Curitiba, São José dos Pinhais; Vercel: Araucária,
+   Londrina) — bairro falso antigo devolve 301/308 pra home, bairro real
+   novo devolve 200 com título/H1 corretos, bairro que por coincidência
+   existia nas duas listas (ex: "Centro") continua funcionando normalmente
+   sem redirect.
+4. Reauditadas as 12 cidades com `audit_live_sites.cjs` depois do deploy —
+   zero regressão, todas continuam 100% verdes.
 
 **Contexto**: cada cidade é publicada num domínio próprio
 (`desentupidora<cidade>.com.br`). O Google trata isso como uma **rede de
@@ -361,7 +379,7 @@ uma vez**, não só um.
 ### Notas SEO / GEO / AEO — antes e depois da correção (30/08/2026)
 | Categoria | Antes | Depois | Por quê |
 |---|---|---|---|
-| SEO | 5,5/10 | ~7,5/10 | Fundação técnica já era boa (sitemap, robots, schema, headers). O ponto fraco era o conteúdo idêntico entre cidades — agora cada uma tem H1/parágrafo/texto-sobre-a-cidade/FAQs/depoimentos próprios com fatos reais do município. Falta ainda diversificar os textos curtos de `services` (permanecem genéricos, ver pendência) e resolver o bug de bairros fictícios (ver achado acima) pra chegar mais perto de 9-10. |
+| SEO | 5,5/10 | ~7,5/10 | Fundação técnica já era boa (sitemap, robots, schema, headers). O ponto fraco era o conteúdo idêntico entre cidades — agora cada uma tem H1/parágrafo/texto-sobre-a-cidade/FAQs/depoimentos próprios com fatos reais do município. O bug de bairros fictícios (ver acima) já foi corrigido em 31/08/2026. Falta ainda diversificar os textos curtos de `services` (permanecem genéricos, ver pendência) pra chegar mais perto de 9-10. |
 | GEO | 3/10 | ~6,5/10 | Cada cidade agora tem um ângulo distintivo e citável (ex: água mineral em Poços de Caldas, terra roxa em Londrina, Repar em Araucária) em vez de texto genérico raspável. Ainda não testado de fato em Perplexity/AI Overviews. |
 | AEO | 3,5/10 | ~5/10 | FAQs agora respondem perguntas específicas e plausíveis da região, não genéricas — ajuda motores que fazem parsing de conteúdo mesmo sem rich result do Google (descontinuado em maio de 2026). |
 
@@ -518,10 +536,12 @@ qualquer modelo.
    cidades, não só texto diferente. Considerar variar/reescrever pontos
    do modelo por cidade no momento da criação, não só confiar no texto
    fixo do modelo.
-5. ⏳ **Ainda pendente — bairros fictícios/copiados**: ver achado novo
-   registrado acima (Curitiba com bairros de Linhares; São José dos
-   Pinhais/Araucária/Londrina com lista genérica fictícia) — aguardando
-   decisão do usuário por envolver risco de quebrar URLs indexadas.
+5. ✅ **Corrigido em 31/08/2026 — bairros fictícios/copiados**: ver seção
+   "✅ Bairros fictícios/copiados — CORRIGIDO" acima (Curitiba tinha
+   bairros de Linhares; São José dos Pinhais/Araucária/Londrina tinham
+   lista genérica fictícia). Trocados pelos bairros reais + redirect
+   301/308 dos slugs antigos pra home, verificado em produção nas 4
+   cidades.
 6. ⏳ **Ainda pendente — depoimentos 100% fabricados/fictícios**: risco de
    propaganda enganosa (CDC) além do risco de SEO, mantido por pedido
    explícito do usuário em rodadas anteriores. Continuam fictícios mesmo

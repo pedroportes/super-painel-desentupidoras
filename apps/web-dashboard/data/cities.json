@@ -782,6 +782,20 @@
     "endereco": "",
     "bairros": [
       "Centro",
+      "Batel",
+      "Água Verde",
+      "Bigorrilho",
+      "Juvevê",
+      "Cabral",
+      "Portão",
+      "Santa Felicidade",
+      "Cristo Rei",
+      "Boqueirão",
+      "Xaxim",
+      "Cajuru"
+    ],
+    "bairrosAntigos": [
+      "Centro",
       "Interlagos",
       "Conceição",
       "Novo Horizonte",
@@ -886,7 +900,7 @@
     "logoUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
     "faviconUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
     "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
-    "lastDeployAt": "2026-08-30T22:35:46.555Z",
+    "lastDeployAt": "2026-08-31T13:07:33.849Z",
     "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
     "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
     "cloudflareProjectName": "desentupidora-curitiba"
@@ -913,6 +927,20 @@
     "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
     "lastH2": "A desentupidora de São José dos Pinhais que atende indústria e colônia",
     "bairros": [
+      "Centro",
+      "Afonso Pena",
+      "Águas Belas",
+      "Aviação",
+      "Cristal",
+      "Costeira",
+      "Guatupê",
+      "Rio Pequeno",
+      "Roseira de São Sebastião",
+      "Cidade Jardim",
+      "Ipê",
+      "Iná"
+    ],
+    "bairrosAntigos": [
       "Centro",
       "Jardim América",
       "Bela Vista",
@@ -1018,7 +1046,7 @@
     "logoUrl": "/images/sojosdospinhais/logo-desentupidora-saojosedospinhais.webp",
     "faviconUrl": "/images/sojosdospinhais/logo-desentupidora-saojosedospinhais.webp",
     "deployUrl": "https://desentupidora-saojosedospinhais.pages.dev",
-    "lastDeployAt": "2026-08-30T22:36:05.259Z",
+    "lastDeployAt": "2026-08-31T13:09:21.054Z",
     "aboutCityTitle": "Desentupidora em São José dos Pinhais: atendimento ao polo industrial e às colônias rurais",
     "aboutCityText": "São José dos Pinhais é um dos municípios mais industrializados da Região Metropolitana de Curitiba, sede de montadoras e empresas de logística ligadas ao Aeroporto Internacional Afonso Pena. Esse perfil traz duas realidades bem diferentes de atendimento: de um lado, galpões e indústrias com redes de esgoto de maior porte, e do outro, as tradicionais colônias rurais de descendência polonesa e alemã, onde muitas propriedades ainda dependem de fossas sépticas. Nossa equipe atende as duas realidades, da região do Aeroporto Afonso Pena às áreas de colônia mais afastadas.",
     "cloudflareProjectName": "desentupidora-saojosedospinhais"
@@ -1045,6 +1073,20 @@
     "ctaButtonText": "Solicitar Visita Grátis no WhatsApp",
     "lastH2": "A desentupidora de Araucária preparada para as exigências da região industrial",
     "bairros": [
+      "Centro",
+      "Boqueirão",
+      "Cachoeira",
+      "Capela Velha",
+      "Costeira",
+      "Estação",
+      "Fazenda Velha",
+      "Iguaçu",
+      "Sabiá",
+      "Thomaz Coelho",
+      "Tindiquera",
+      "Vila Nova"
+    ],
+    "bairrosAntigos": [
       "Centro",
       "Jardim América",
       "Bela Vista",
@@ -1133,7 +1175,7 @@
       }
     ],
     "auditScore": 100,
-    "lastDeployAt": "2026-08-30T22:36:17.146Z",
+    "lastDeployAt": "2026-08-31T13:10:11.640Z",
     "parceiros": [],
     "logoUrl": "/images/araucaria/logo-desentupidora-araucaria.webp",
     "faviconUrl": "/images/araucaria/logo-desentupidora-araucaria.webp",
@@ -1164,6 +1206,20 @@
     "ctaButtonText": "Chamar Encanador no WhatsApp",
     "lastH2": "A desentupidora de Londrina que entende o solo e o ritmo da cidade universitária",
     "bairros": [
+      "Centro",
+      "Gleba Palhano",
+      "Higienópolis",
+      "Ipiranga",
+      "Petrópolis",
+      "Aeroporto",
+      "Cafezal",
+      "Vila Nova",
+      "Bandeirantes",
+      "Vila Casoni",
+      "Shangri-lá",
+      "Guanabara"
+    ],
+    "bairrosAntigos": [
       "Centro",
       "Jardim América",
       "Bela Vista",
@@ -1252,7 +1308,7 @@
       }
     ],
     "auditScore": 100,
-    "lastDeployAt": "2026-08-30T22:36:28.863Z",
+    "lastDeployAt": "2026-08-31T13:10:42.077Z",
     "parceiros": [],
     "logoUrl": "/images/londrina/logo-desentupidora-londrina.webp",
     "faviconUrl": "/images/londrina/logo-desentupidora-londrina.webp",

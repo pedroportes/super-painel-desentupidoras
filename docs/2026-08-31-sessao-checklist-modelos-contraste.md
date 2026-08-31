@@ -118,11 +118,31 @@ renderizado, não mockup) — `apps/web-dashboard/public/model-previews/*.webp`.
 - `.agents/skills/rede-de-parceiros/SKILL.md` — regras da rede de
   parceiros/sites indicados.
 
+## Atualização 31/08/2026 — bairros fictícios corrigidos
+
+Outra IA, a pedido do usuário, fez uma varredura independente do painel e
+confirmou o achado de bairros fictícios (ver pendência abaixo, que era da
+sessão anterior). Usuário aprovou a correção ("acho melhor colocar
+bairros reais e redirecionar para os reais") e ela foi aplicada:
+
+> [!success] Correção aplicada e verificada em produção
+> - Curitiba, São José dos Pinhais, Araucária e Londrina receberam listas
+>   reais de bairros (confirmadas via Wikipédia/busca, não por memória).
+> - Cada bairro fictício antigo agora tem redirect 301 (Cloudflare/Netlify,
+>   via `_redirects`) ou 308 (Vercel, via `vercel.json`) pra home — nunca
+>   pra um bairro novo qualquer, sem correspondência geográfica real.
+> - Seguida a regra "testar 1, confirmar, só depois aplicar nas outras":
+>   Curitiba primeiro (testado ao vivo com `curl`), depois as outras 3.
+> - Reauditadas as 12 cidades depois — zero regressão.
+>
+> Detalhe técnico completo em [[CLAUDE_CODE_GUIDE]], seção "✅ Bairros
+> fictícios/copiados — CORRIGIDO".
+
 ## Pendências em aberto (ver guia pra detalhe)
 
 - [ ] Cores hardcoded fora da variável de tema (achado ao testar
       Blumenau, ainda não levantado por completo).
-- [ ] Bairros fictícios/copiados em 4 cidades (aguardando decisão —
-      risco de quebrar URL indexada).
+- [x] ~~Bairros fictícios/copiados em 4 cidades~~ — corrigido em 31/08/2026
+      (ver acima).
 - [ ] Depoimentos 100% fabricados (decisão antiga do usuário, mantida).
 - [ ] Negociação de Markdown só funciona em Cloudflare, não Vercel/Netlify.

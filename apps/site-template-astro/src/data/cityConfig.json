@@ -1,137 +1,131 @@
 {
-  "cidade": "Linhares",
-  "estado": "Espírito Santo",
-  "uf": "ES",
-  "populacao": "183.797",
-  "ddd": "27",
-  "whatsapp": "27992795590",
-  "telefoneFixo": "(27) 3323-0000",
-  "empresaNome": "Desentupidora Linhares 24h",
-  "cnpj": "12.345.678/0001-90",
-  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
+  "cidade": "Londrina",
+  "estado": "Paraná",
+  "uf": "PR",
+  "populacao": "1.773.733500000",
+  "ddd": "43",
+  "whatsapp": "43999999999",
+  "telefoneFixo": "(27) 3400-0000",
+  "empresaNome": "Desentupidora Familiar Londrina",
+  "cnpj": "34.567.890/0001-12",
+  "endereco": "Rua das Flores, 250 - Bairro Residencial, Londrina - PR",
   "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/linhares/logo-desentupidora-linhares.webp",
+  "deployUrl": "https://desentupidora-londrina.vercel.app",
+  "paletaCores": "residencial-bege",
+  "logoUrl": "/images/londrina/logo-desentupidora-londrina.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/linhares/logo-desentupidora-linhares.webp",
-  "heroImage": "/images/linhares/desentupidora-linhares-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/londrina/logo-desentupidora-londrina.webp",
+  "heroImage": "/images/londrina/desentupidora-londrina-caminhao-limpa-fossa.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
+  "sectionsConfig": {},
   "geoCoordinates": {
     "latitude": "",
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Linhares ES 24h - Atendimento Rápido",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Linhares ES: Atendimento Rápido em Toda a Cidade",
-    "firstParagraphText": "A desentupidora em Linhares que mais atende clientes na região do Rio Doce: chegamos rápido em bairros próximos ao centro e em áreas mais afastadas, resolvendo entupimentos de esgoto, pia e vaso sanitário com equipamento profissional e sem quebra-quebra.",
-    "lastH2Title": "Por que a Desentupidora de Linhares mais chamada pelos moradores é a nossa?"
+    "metaTitle": "Desentupidora em Londrina PR 24h - Atendimento Rápido",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Londrina PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Londrina: Atendimento na Maior Cidade do Norte do Paraná",
+    "firstParagraphText": "Contratar uma desentupidora em Londrina significa contar com quem conhece a famosa terra roxa da região e seu efeito nas tubulações: atendemos toda a cidade, do Centro à Gleba Palhano, com atendimento 24h e sem quebra de piso.",
+    "lastH2Title": "A desentupidora de Londrina que entende o solo e o ritmo da cidade universitária"
   },
-  "aboutCityTitle": "Desentupidora em Linhares: atendimento adaptado ao solo arenoso e ao clima do Rio Doce",
-  "aboutCityText": "Linhares é o maior município do Espírito Santo em extensão territorial, cortado pelo Rio Doce e cercado por áreas de solo arenoso na região litorânea e solo argiloso nos bairros mais centrais. Essa combinação favorece o entupimento de tubulações por acúmulo de areia fina e por raízes de árvores que se infiltram em encanamentos mais antigos, um problema comum em bairros com arborização densa como Interlagos e Conceição. Nos períodos de maior volume de chuva, quando o nível do Rio Doce sobe, é comum que redes de esgoto mais antigas sofram refluxo — por isso mantemos equipes com hidrojateamento de alta pressão prontas para atender Linhares mesmo nos dias de maior demanda.",
+  "aboutCityTitle": "Desentupidora em Londrina: atenção à terra roxa e à alta densidade de imóveis",
+  "aboutCityText": "Londrina nasceu como cidade planejada durante o ciclo do café e hoje é a maior cidade do Norte do Paraná, com grande concentração de estudantes por causa da Universidade Estadual de Londrina (UEL). O solo da região, conhecido como terra roxa, é fértil para a agricultura mas também bastante sensível à variação de umidade, expandindo e contraindo conforme a chuva — o que pode deslocar levemente tubulações enterradas mais antigas e causar entupimentos recorrentes. Em bairros com grande concentração de apartamentos e repúblicas estudantis, próximos à UEL, também é comum o acúmulo mais rápido de gordura e resíduos em pias de cozinha pelo uso intenso. Nossa equipe conhece essas características do solo e do perfil de ocupação da cidade.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Interlagos",
-    "Conceição",
-    "Novo Horizonte",
-    "Avisos",
-    "Araçá",
-    "BNH",
-    "Juparanã",
-    "Movelar",
-    "Três Barras",
-    "Shell",
-    "São José",
-    "teste"
+    "Gleba Palhano",
+    "Higienópolis",
+    "Ipiranga",
+    "Petrópolis",
+    "Aeroporto",
+    "Cafezal",
+    "Vila Nova",
+    "Bandeirantes",
+    "Vila Casoni",
+    "Shangri-lá",
+    "Guanabara"
   ],
   "services": [
     {
-      "id": "esgoto",
-      "title": "Desentupimento de Esgoto",
-      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
-      "icon": "🚿"
-    },
-    {
-      "id": "pia",
-      "title": "Desentupimento de Pia",
-      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "title": "Desentupimento de Pia de Cozinha",
+      "description": "Desobstrução rápida de gordura acumulada sem estragar o sifão e com limpeza total do local.",
       "icon": "🚰"
     },
     {
-      "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "description": "Atendimento higiênico e cuidadoso. Desobstruímos seu vaso sanitário sem remover a louça.",
       "icon": "🚽"
     },
     {
-      "id": "ralo",
-      "title": "Desentupimento de Ralo",
-      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "title": "Desentupimento de Ralo e Banheiro",
+      "description": "Remoção de cabelos, sabonetes e sujeiras em ralos de chuveiro, lavanderias e quintais.",
       "icon": "🛁"
     },
     {
-      "id": "fossa",
-      "title": "Esgotamento e Limpeza de Fossa",
-      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
-      "icon": "🚛"
+      "title": "Desentupimento de Rede de Esgoto",
+      "description": "Máquinas elétricas com sondas flexíveis que limpam as tubulações da casa com máxima segurança.",
+      "icon": "🚿"
     },
     {
-      "id": "hidrojato",
-      "title": "Hidrojateamento de Alta Pressão",
-      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
-      "icon": "🌊"
+      "title": "Limpeza de Caixa de Gordura Residencial",
+      "description": "Remoção de resíduos sólidos para evitar mau cheiro e refluxo de água na cozinha.",
+      "icon": "🛢️"
+    },
+    {
+      "title": "Limpeza de Fossa Séptica Residencial",
+      "description": "Esgotamento rápido com caminhão limpa fossa para chácaras e residências de ${cidade}.",
+      "icon": "🚛"
     }
   ],
   "faqs": [
     {
-      "question": "O solo arenoso de Linhares pode causar entupimento na tubulação da minha casa?",
-      "answer": "Sim. Em bairros próximos ao litoral e às margens do Rio Doce, o solo arenoso costuma se infiltrar em ligações antigas ou mal vedadas, causando obstrução gradual. Identificamos esse tipo de problema com vídeo inspeção antes de iniciar o serviço."
+      "question": "A terra roxa de Londrina pode causar entupimento na tubulação?",
+      "answer": "Sim, esse tipo de solo se expande e contrai com a umidade, podendo deslocar levemente tubulações enterradas mais antigas. Fazemos vídeo inspeção para identificar o ponto exato do problema."
     },
     {
-      "question": "Vocês atendem chamados em dias de chuva forte em Linhares?",
-      "answer": "Sim, inclusive nos períodos em que o Rio Doce sobe de nível e aumenta o risco de refluxo no esgoto. Nossas equipes de plantão continuam operando 24 horas mesmo em dias de temporal."
+      "question": "Vocês atendem repúblicas e apartamentos de estudantes perto da UEL?",
+      "answer": "Sim, atendemos toda a região próxima à universidade, com agilidade para resolver o entupimento sem grandes transtornos."
     },
     {
-      "question": "Raízes de árvore causam entupimento de esgoto em Linhares?",
-      "answer": "É uma das causas mais comuns em bairros com arborização densa, como Interlagos e Conceição. Usamos máquinas rotativas capazes de cortar raízes sem danificar a tubulação."
+      "question": "Qual o tempo de chegada em bairros como Gleba Palhano?",
+      "answer": "Em média de 20 a 40 minutos, dependendo do trânsito da cidade."
     },
     {
-      "question": "Qual o tempo de chegada em bairros mais afastados do centro de Linhares?",
-      "answer": "Mantemos equipes distribuídas também fora do centro, e o tempo médio de chegada gira em torno de 30 a 45 minutos, dependendo da distância e do trânsito na BR-101."
+      "question": "A visita técnica em Londrina tem custo?",
+      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
     },
     {
-      "question": "A visita técnica em Linhares tem algum custo?",
-      "answer": "Não, a avaliação técnica é sempre gratuita, e o orçamento é apresentado antes de qualquer serviço."
+      "question": "Vocês atendem emergências 24 horas em Londrina?",
+      "answer": "Sim, plantão 24 horas todos os dias da semana, inclusive finais de semana."
     },
     {
-      "question": "Vocês atendem propriedades rurais na zona rural de Linhares?",
-      "answer": "Sim, atendemos fazendas e sítios da zona rural de Linhares, incluindo esgotamento de fossa com caminhão auto-vácuo."
+      "question": "Precisa quebrar piso para resolver entupimento causado pela terra roxa?",
+      "answer": "Raramente. Na maioria dos casos, a desobstrução é feita por dentro da tubulação, sem necessidade de obras."
     }
   ],
   "testimonials": [
     {
-      "name": "Fabiana Reis",
-      "neighborhood": "Interlagos - Linhares",
+      "name": "Juliano Casagrande",
+      "neighborhood": "Gleba Palhano - Londrina",
       "rating": 5,
-      "text": "Minha casa é cercada de árvores grandes e o esgoto vivia entupindo com raiz. Depois que limparam direito, não tive mais problema."
+      "text": "Meu quintal tem terra roxa mesmo, e o cano enterrado tinha se deslocado um pouco. Resolveram sem quebrar o jardim todo."
     },
     {
-      "name": "Sérgio Bitencourt",
-      "neighborhood": "Centro - Linhares",
+      "name": "Amanda Kikuti",
+      "neighborhood": "Centro - Londrina",
       "rating": 5,
-      "text": "Chamei numa época de muita chuva, achei que ia demorar, mas chegaram rápido mesmo com o trânsito complicado perto do Rio Doce."
+      "text": "Moro perto da UEL e divido apartamento com mais gente. A pia vivia entupindo de gordura. Depois da limpeza, melhorou muito."
     },
     {
-      "name": "Adriana Coutinho",
-      "neighborhood": "Conceição - Linhares",
+      "name": "Rogério Sanches",
+      "neighborhood": "Igapó - Londrina",
       "rating": 5,
-      "text": "Fizeram a limpeza da fossa do sítio da minha família na zona rural sem complicação nenhuma, caminhão grande e equipe pontual."
+      "text": "Atendimento rápido e educado, chegaram no horário combinado e resolveram na primeira visita."
     }
   ]
 }
