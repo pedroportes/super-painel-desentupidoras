@@ -215,17 +215,28 @@ async function deployToNetlify(cityConfig, keys, distDir) {
         const errText = await createRes.text();
         return { success: false, provider, error: `Falha ao criar site na Netlify: ${errText}` };
       }
-    } else {
-      // Garantir que a proteção por senha/SSO está desativada para acesso público
-      await fetch(`https://api.netlify.com/api/v1/sites/${siteId}`, {
-        method: 'PATCH',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ sso_login: false, password: '' })
-      });
     }
+
+    // Garantir que a proteção por senha/SSO está desativada para acesso
+    // público. BUG REAL CORRIGIDO (31/08/2026): esse PATCH só rodava no
+    // branch "site já existe" (`else` acima) — nunca no primeiro deploy de
+    // uma cidade nova. O `sso_login: false` mandado no corpo do POST de
+    // criação NÃO é suficiente: a Netlify aplica a proteção de
+    // login/SSO da conta/team como padrão em site recém-criado mesmo
+    // assim. Resultado: toda cidade nova na Netlify nascia com a home e
+    // todos os assets (imagens, CSS) devolvendo 401 "Login Redirect" pro
+    // público — só sumia se alguém rodasse um SEGUNDO deploy manualmente
+    // depois. Confirmado em produção com Santa Bárbara d'Oeste (primeira
+    // cidade nova na Netlify desde a correção do bug do zip). Agora o
+    // PATCH roda sempre, criado ou não.
+    await fetch(`https://api.netlify.com/api/v1/sites/${siteId}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ sso_login: false, password: '' })
+    });
 
     // 2. Compactar o diretório dist para zip
     // IMPORTANTE (bug real corrigido 30/08/2026): NUNCA usar o

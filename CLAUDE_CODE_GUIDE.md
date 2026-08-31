@@ -475,6 +475,65 @@ outras miniaturas no futuro, não só modelo de cidade.
 `test_new_models.mjs` acima) — sempre rodar `/api/build-city/:id` numa
 cidade real depois de terminar, antes de qualquer deploy.
 
+### 🏙️ Primeira cidade publicada com um modelo novo: Santa Bárbara d'Oeste-SP (31/08/2026)
+
+Primeira cidade real a usar um dos 4 modelos novos (`tecnico-especializado`
+— HeroV3 + ServicesGridV3), publicada pra validar o modelo 8 de ponta a
+ponta em produção, não só localmente. Escolhida a partir da planilha
+`BANCO_CIDADES_DESENTUPIDORAS_2026` (ver [[mapa-oportunidades-expansao]]):
+próxima colocada no ranking de Nota Oportunidade Parcial ainda não
+cadastrada (#3, atrás de Cachoeiro de Itapemirim e Guarapuava, já
+publicadas). Hospedagem: Netlify (propositalmente — só tinha 1 cidade
+testada nesse provedor desde a correção do bug do zip).
+
+**Conteúdo único, com fatos reais confirmados via WebSearch/Wikipédia**
+(nunca por memória, mesma regra dos bairros): cidade fundada em 1869,
+sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem
+Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro
+(Romi-Isetta) foi fabricado ali — fato bem específico e citável, difícil
+de confundir com outra cidade. Os 12 bairros também confirmados por busca
+real (Centro, Jardim Europa, Cidade Nova, Pérola, Vila Mollon IV,
+Linópolis, Jardim São Francisco, Jardim Souza Queiroz, Jardim Santa Rita
+de Cássia, Distrito Industrial, Olaria, Cruzeiro do Sul).
+
+**Imagens geradas via Canva MCP** (logo + foto hero), mesmo processo já
+documentado (regra de ouro 13): o logo gerado veio com o **texto do nome
+da empresa em cinza claro sobre fundo verde escuro** — ilegível se
+colocado sobre o header branco do site (`Header.astro` já renderiza
+`empresaNome` como texto separado ao lado do logo, então o texto dentro
+da imagem era redundante e problemático). Corrigido cortando só o ícone
+(chave de boca) da imagem antes do chroma-key, descartando o texto
+embutido. A foto de hero veio dentro de um pôster com texto em inglês
+sobreposto ("INSPECTION", "PLUMBING TECH") — corrigido recortando só a
+região da fotografia real (técnico com câmera de inspeção), descartando
+o texto do pôster.
+
+**Bug real encontrado e corrigido**: primeiro deploy voltou **401 "Login
+Redirect"** em toda a home e assets — a Netlify aplica proteção de
+login/SSO por padrão em site **recém-criado**, e o PATCH que desativa essa
+proteção (`sso_login: false`) em `deployEngine.cjs` só rodava no branch
+"site já existe" (`else`), nunca no primeiro deploy de uma cidade nova. O
+`sso_login: false` mandado no corpo do POST de criação não é suficiente
+sozinho. Corrigido movendo o PATCH pra rodar sempre, criado ou não —
+provavelmente afetava **toda cidade nova publicada na Netlify até agora**
+(mascarado nas cidades antigas porque um redeploy manual posterior
+"corrigia" sem ninguém entender por quê). Ver comentário no código-fonte.
+
+**Checklist rodado depois do fix, tudo verde**:
+- `audit_live_sites.cjs` nas 13 cidades: zero falhas.
+- Auditoria interna do Astro (`npm run audit`): **100% (11/11)** — achou e
+  corrigiu no processo uma falha real: a palavra-chave "desentupidora"
+  precisa aparecer nas **primeiras 30 palavras do 1º parágrafo**, e a
+  primeira versão do texto só citava "entupimento", não "desentupidora"
+  literalmente, até esse ponto.
+- **isitagentready.com**: 33/100, Nível 2 "Bot-Aware" — mesma faixa de
+  Porto Seguro (outra cidade não-Cloudflare), confirma o limite já
+  documentado (Markdown Negotiation só funciona em Cloudflare).
+- **PageSpeed Insights** (mobile): Desempenho 68 · Acessibilidade 95 ·
+  Boas Práticas 100 · SEO 100 · Navegação agêntica 3/3 — acessibilidade
+  ainda melhor que a de Blumenau (92), efeito das paletas de contraste já
+  corrigidas.
+
 ### Dois problemas concretos que estão anulando esse trabalho
 
 **1. Bug no domínio do Modelo 1 (`urgencia-24h`)** — em

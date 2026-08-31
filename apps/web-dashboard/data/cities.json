@@ -1602,5 +1602,134 @@
     "deployUrl": "https://desentupidora-blumenau.pages.dev",
     "lastDeployAt": "2026-08-30T22:33:02.972Z",
     "cloudflareProjectName": "desentupidora-blumenau"
+  },
+  {
+    "id": "santabarbaradoeste",
+    "cidade": "Santa Bárbara d'Oeste",
+    "uf": "SP",
+    "populacao": "189.456",
+    "modeloTemplate": "tecnico-especializado",
+    "status": "ativo",
+    "hospedagem": "netlify",
+    "paletaCores": "corporativo-verde-cinza",
+    "heroVariant": "HeroV3",
+    "servicesVariant": "ServicesGridV3",
+    "dominio": "desentupidorasantabarbaradoeste.com.br",
+    "whatsapp": "19993221100",
+    "telefoneFixo": "(19) 4000-0000",
+    "empresaNome": "Desentupidora Técnica Santa Bárbara d'Oeste",
+    "cnpj": "",
+    "endereco": "",
+    "h1Title": "Desentupidora Técnica Especializada em Santa Bárbara d'Oeste SP",
+    "firstParagraph": "Uma desentupidora em Santa Bárbara d'Oeste que investiga antes de agir: a cidade foi fundada em 1869 e tem bairros com tubulação de décadas bem diferentes entre si, do Centro histórico ao Distrito Industrial. Por isso usamos vídeo inspeção pra identificar a causa real do entupimento antes de qualquer intervenção.",
+    "ctaButtonText": "Solicitar Diagnóstico Técnico",
+    "lastH2": "A desentupidora técnica que investiga a causa real em Santa Bárbara d'Oeste",
+    "bairros": [
+      "Centro",
+      "Jardim Europa",
+      "Cidade Nova",
+      "Pérola",
+      "Vila Mollon IV",
+      "Linópolis",
+      "Jardim São Francisco",
+      "Jardim Souza Queiroz",
+      "Jardim Santa Rita de Cássia",
+      "Distrito Industrial",
+      "Olaria",
+      "Cruzeiro do Sul"
+    ],
+    "aboutCityTitle": "Diagnóstico Técnico Especializado em Santa Bárbara d'Oeste - SP",
+    "aboutCityText": "Santa Bárbara d'Oeste é um dos municípios mais antigos da região de Campinas, emancipada em 1869, e viveu décadas de forte industrialização: sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro, o Romi-Isetta, foi fabricado na cidade. Esse histórico industrial deixou a rede de esgoto com idades muito diferentes conforme o bairro — trechos centenários no Centro e Cidade Nova convivem com redes mais novas em bairros como Distrito Industrial. Por isso, nossa equipe usa vídeo inspeção antes de intervir: identificamos raiz de árvore, colapso de tubulação antiga, acúmulo de gordura industrial ou objeto preso, e explicamos ao cliente exatamente o que foi encontrado antes de cobrar qualquer coisa.",
+    "parceiros": [],
+    "services": [
+      {
+        "id": "inspecao",
+        "title": "Vídeo Inspeção de Tubulação",
+        "description": "Câmera de alta resolução identifica a causa exata do entupimento antes de qualquer intervenção — essencial nas redes mais antigas do Centro.",
+        "icon": "📹"
+      },
+      {
+        "id": "esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Método escolhido conforme o diagnóstico: rotativo, hidrojato ou combinação dos dois.",
+        "icon": "🚿"
+      },
+      {
+        "id": "pia",
+        "title": "Desentupimento de Pia e Ralo",
+        "description": "Diagnóstico rápido para obstruções domésticas simples, com explicação da causa ao morador.",
+        "icon": "🚰"
+      },
+      {
+        "id": "reparo",
+        "title": "Reparo de Tubulação Colapsada",
+        "description": "Identificação de trechos danificados por décadas de uso que causam entupimento recorrente.",
+        "icon": "🔧"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento Técnico",
+        "description": "Pressão ajustada conforme o material e a idade da tubulação identificados na inspeção.",
+        "icon": "🌊"
+      },
+      {
+        "id": "laudo",
+        "title": "Laudo Técnico de Diagnóstico",
+        "description": "Relatório com fotos e vídeo do problema encontrado, útil para laudos de imóvel e seguros.",
+        "icon": "📄"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A vídeo inspeção em Santa Bárbara d'Oeste tem custo separado?",
+        "answer": "Não, está incluída na visita técnica gratuita sempre que for necessária para o diagnóstico."
+      },
+      {
+        "question": "Por que o entupimento é recorrente em bairros mais antigos como o Centro?",
+        "answer": "Trechos de tubulação com mais de 50 anos são comuns na região central, e costumam ter colapsos parciais ou raízes infiltradas que a inspeção por câmera identifica com precisão."
+      },
+      {
+        "question": "Vocês emitem laudo técnico em Santa Bárbara d'Oeste?",
+        "answer": "Sim, entregamos laudo com registro fotográfico e em vídeo do problema encontrado, útil para laudo de imóvel ou acionamento de seguro."
+      },
+      {
+        "question": "Vocês atendem indústrias e galpões do Distrito Industrial?",
+        "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial."
+      },
+      {
+        "question": "O diagnóstico técnico demora mais que um desentupimento comum?",
+        "answer": "Leva alguns minutos a mais, mas evita retrabalho e intervenção no trecho errado da tubulação."
+      },
+      {
+        "question": "A visita técnica com inspeção é gratuita em Santa Bárbara d'Oeste?",
+        "answer": "Sim, sempre gratuita e sem compromisso."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Eng. Rogério Fadel",
+        "neighborhood": "Distrito Industrial - Santa Bárbara d'Oeste",
+        "rating": 5,
+        "text": "Fizeram a inspeção por câmera no galpão e mostraram exatamente onde estava o colapso na tubulação. Muito mais profissional que só tentar."
+      },
+      {
+        "name": "Síndica Marli Terezinha",
+        "neighborhood": "Centro - Santa Bárbara d'Oeste",
+        "rating": 5,
+        "text": "Prédio antigo do Centro, cano de décadas, e eles descobriram a raiz de árvore com a câmera antes de fazer qualquer coisa."
+      },
+      {
+        "name": "Douglas Piovezan",
+        "neighborhood": "Jardim Europa - Santa Bárbara d'Oeste",
+        "rating": 5,
+        "text": "Entupia toda semana e ninguém sabia por quê. Com a vídeo inspeção acharam o problema na hora e ainda me deram o laudo."
+      }
+    ],
+    "logoUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+    "faviconUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+    "heroImage": "/images/santabarbaradoeste/desentupidora-santabarbaradoeste-tecnico-desentupimento.webp",
+    "auditScore": 100,
+    "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
+    "lastDeployAt": "2026-08-31T13:27:44.633Z"
   }
 ]

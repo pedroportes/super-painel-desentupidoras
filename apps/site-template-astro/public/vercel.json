@@ -9,37 +9,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/jardim-america",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/bela-vista",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/sao-jose",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/santa-cruz",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/planalto",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/bairro-alto",
-      "destination": "/",
-      "permanent": true
-    }
   ]
 }

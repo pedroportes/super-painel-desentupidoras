@@ -1,24 +1,24 @@
 {
-  "cidade": "Londrina",
-  "estado": "Paraná",
-  "uf": "PR",
-  "populacao": "1.773.733500000",
-  "ddd": "43",
-  "whatsapp": "43999999999",
-  "telefoneFixo": "(27) 3400-0000",
-  "empresaNome": "Desentupidora Familiar Londrina",
-  "cnpj": "34.567.890/0001-12",
-  "endereco": "Rua das Flores, 250 - Bairro Residencial, Londrina - PR",
-  "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-londrina.vercel.app",
-  "paletaCores": "residencial-bege",
-  "logoUrl": "/images/londrina/logo-desentupidora-londrina.webp",
+  "cidade": "Santa Bárbara d'Oeste",
+  "estado": "São Paulo",
+  "uf": "SP",
+  "populacao": "189.456",
+  "ddd": "19",
+  "whatsapp": "19993221100",
+  "telefoneFixo": "(19) 4000-0000",
+  "empresaNome": "Desentupidora Técnica Santa Bárbara d'Oeste",
+  "cnpj": "",
+  "endereco": "",
+  "hospedagem": "netlify",
+  "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
+  "paletaCores": "corporativo-verde-cinza",
+  "logoUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/londrina/logo-desentupidora-londrina.webp",
-  "heroImage": "/images/londrina/desentupidora-londrina-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+  "heroImage": "/images/santabarbaradoeste/desentupidora-santabarbaradoeste-tecnico-desentupimento.webp",
   "variants": {
-    "hero": "HeroV1",
-    "services": "ServicesGridV1",
+    "hero": "HeroV3",
+    "services": "ServicesGridV3",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,105 +27,111 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Londrina PR 24h - Atendimento Rápido",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Londrina PR. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Londrina: Atendimento na Maior Cidade do Norte do Paraná",
-    "firstParagraphText": "Contratar uma desentupidora em Londrina significa contar com quem conhece a famosa terra roxa da região e seu efeito nas tubulações: atendemos toda a cidade, do Centro à Gleba Palhano, com atendimento 24h e sem quebra de piso.",
-    "lastH2Title": "A desentupidora de Londrina que entende o solo e o ritmo da cidade universitária"
+    "metaTitle": "Desentupidora em Santa Bárbara d'Oeste SP 24h",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Santa Bárbara d'Oeste SP. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora Técnica Especializada em Santa Bárbara d'Oeste SP",
+    "firstParagraphText": "Uma desentupidora em Santa Bárbara d'Oeste que investiga antes de agir: a cidade foi fundada em 1869 e tem bairros com tubulação de décadas bem diferentes entre si, do Centro histórico ao Distrito Industrial. Por isso usamos vídeo inspeção pra identificar a causa real do entupimento antes de qualquer intervenção.",
+    "lastH2Title": "A desentupidora técnica que investiga a causa real em Santa Bárbara d'Oeste"
   },
-  "aboutCityTitle": "Desentupidora em Londrina: atenção à terra roxa e à alta densidade de imóveis",
-  "aboutCityText": "Londrina nasceu como cidade planejada durante o ciclo do café e hoje é a maior cidade do Norte do Paraná, com grande concentração de estudantes por causa da Universidade Estadual de Londrina (UEL). O solo da região, conhecido como terra roxa, é fértil para a agricultura mas também bastante sensível à variação de umidade, expandindo e contraindo conforme a chuva — o que pode deslocar levemente tubulações enterradas mais antigas e causar entupimentos recorrentes. Em bairros com grande concentração de apartamentos e repúblicas estudantis, próximos à UEL, também é comum o acúmulo mais rápido de gordura e resíduos em pias de cozinha pelo uso intenso. Nossa equipe conhece essas características do solo e do perfil de ocupação da cidade.",
+  "aboutCityTitle": "Diagnóstico Técnico Especializado em Santa Bárbara d'Oeste - SP",
+  "aboutCityText": "Santa Bárbara d'Oeste é um dos municípios mais antigos da região de Campinas, emancipada em 1869, e viveu décadas de forte industrialização: sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro, o Romi-Isetta, foi fabricado na cidade. Esse histórico industrial deixou a rede de esgoto com idades muito diferentes conforme o bairro — trechos centenários no Centro e Cidade Nova convivem com redes mais novas em bairros como Distrito Industrial. Por isso, nossa equipe usa vídeo inspeção antes de intervir: identificamos raiz de árvore, colapso de tubulação antiga, acúmulo de gordura industrial ou objeto preso, e explicamos ao cliente exatamente o que foi encontrado antes de cobrar qualquer coisa.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Gleba Palhano",
-    "Higienópolis",
-    "Ipiranga",
-    "Petrópolis",
-    "Aeroporto",
-    "Cafezal",
-    "Vila Nova",
-    "Bandeirantes",
-    "Vila Casoni",
-    "Shangri-lá",
-    "Guanabara"
+    "Jardim Europa",
+    "Cidade Nova",
+    "Pérola",
+    "Vila Mollon IV",
+    "Linópolis",
+    "Jardim São Francisco",
+    "Jardim Souza Queiroz",
+    "Jardim Santa Rita de Cássia",
+    "Distrito Industrial",
+    "Olaria",
+    "Cruzeiro do Sul"
   ],
   "services": [
     {
-      "title": "Desentupimento de Pia de Cozinha",
-      "description": "Desobstrução rápida de gordura acumulada sem estragar o sifão e com limpeza total do local.",
-      "icon": "🚰"
+      "id": "inspecao",
+      "title": "Vídeo Inspeção de Tubulação",
+      "description": "Câmera de alta resolução identifica a causa exata do entupimento antes de qualquer intervenção — essencial nas redes mais antigas do Centro.",
+      "icon": "📹"
     },
     {
-      "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e cuidadoso. Desobstruímos seu vaso sanitário sem remover a louça.",
-      "icon": "🚽"
-    },
-    {
-      "title": "Desentupimento de Ralo e Banheiro",
-      "description": "Remoção de cabelos, sabonetes e sujeiras em ralos de chuveiro, lavanderias e quintais.",
-      "icon": "🛁"
-    },
-    {
-      "title": "Desentupimento de Rede de Esgoto",
-      "description": "Máquinas elétricas com sondas flexíveis que limpam as tubulações da casa com máxima segurança.",
+      "id": "esgoto",
+      "title": "Desentupimento de Esgoto",
+      "description": "Método escolhido conforme o diagnóstico: rotativo, hidrojato ou combinação dos dois.",
       "icon": "🚿"
     },
     {
-      "title": "Limpeza de Caixa de Gordura Residencial",
-      "description": "Remoção de resíduos sólidos para evitar mau cheiro e refluxo de água na cozinha.",
-      "icon": "🛢️"
+      "id": "pia",
+      "title": "Desentupimento de Pia e Ralo",
+      "description": "Diagnóstico rápido para obstruções domésticas simples, com explicação da causa ao morador.",
+      "icon": "🚰"
     },
     {
-      "title": "Limpeza de Fossa Séptica Residencial",
-      "description": "Esgotamento rápido com caminhão limpa fossa para chácaras e residências de ${cidade}.",
-      "icon": "🚛"
+      "id": "reparo",
+      "title": "Reparo de Tubulação Colapsada",
+      "description": "Identificação de trechos danificados por décadas de uso que causam entupimento recorrente.",
+      "icon": "🔧"
+    },
+    {
+      "id": "hidrojato",
+      "title": "Hidrojateamento Técnico",
+      "description": "Pressão ajustada conforme o material e a idade da tubulação identificados na inspeção.",
+      "icon": "🌊"
+    },
+    {
+      "id": "laudo",
+      "title": "Laudo Técnico de Diagnóstico",
+      "description": "Relatório com fotos e vídeo do problema encontrado, útil para laudos de imóvel e seguros.",
+      "icon": "📄"
     }
   ],
   "faqs": [
     {
-      "question": "A terra roxa de Londrina pode causar entupimento na tubulação?",
-      "answer": "Sim, esse tipo de solo se expande e contrai com a umidade, podendo deslocar levemente tubulações enterradas mais antigas. Fazemos vídeo inspeção para identificar o ponto exato do problema."
+      "question": "A vídeo inspeção em Santa Bárbara d'Oeste tem custo separado?",
+      "answer": "Não, está incluída na visita técnica gratuita sempre que for necessária para o diagnóstico."
     },
     {
-      "question": "Vocês atendem repúblicas e apartamentos de estudantes perto da UEL?",
-      "answer": "Sim, atendemos toda a região próxima à universidade, com agilidade para resolver o entupimento sem grandes transtornos."
+      "question": "Por que o entupimento é recorrente em bairros mais antigos como o Centro?",
+      "answer": "Trechos de tubulação com mais de 50 anos são comuns na região central, e costumam ter colapsos parciais ou raízes infiltradas que a inspeção por câmera identifica com precisão."
     },
     {
-      "question": "Qual o tempo de chegada em bairros como Gleba Palhano?",
-      "answer": "Em média de 20 a 40 minutos, dependendo do trânsito da cidade."
+      "question": "Vocês emitem laudo técnico em Santa Bárbara d'Oeste?",
+      "answer": "Sim, entregamos laudo com registro fotográfico e em vídeo do problema encontrado, útil para laudo de imóvel ou acionamento de seguro."
     },
     {
-      "question": "A visita técnica em Londrina tem custo?",
-      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
+      "question": "Vocês atendem indústrias e galpões do Distrito Industrial?",
+      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial."
     },
     {
-      "question": "Vocês atendem emergências 24 horas em Londrina?",
-      "answer": "Sim, plantão 24 horas todos os dias da semana, inclusive finais de semana."
+      "question": "O diagnóstico técnico demora mais que um desentupimento comum?",
+      "answer": "Leva alguns minutos a mais, mas evita retrabalho e intervenção no trecho errado da tubulação."
     },
     {
-      "question": "Precisa quebrar piso para resolver entupimento causado pela terra roxa?",
-      "answer": "Raramente. Na maioria dos casos, a desobstrução é feita por dentro da tubulação, sem necessidade de obras."
+      "question": "A visita técnica com inspeção é gratuita em Santa Bárbara d'Oeste?",
+      "answer": "Sim, sempre gratuita e sem compromisso."
     }
   ],
   "testimonials": [
     {
-      "name": "Juliano Casagrande",
-      "neighborhood": "Gleba Palhano - Londrina",
+      "name": "Eng. Rogério Fadel",
+      "neighborhood": "Distrito Industrial - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Meu quintal tem terra roxa mesmo, e o cano enterrado tinha se deslocado um pouco. Resolveram sem quebrar o jardim todo."
+      "text": "Fizeram a inspeção por câmera no galpão e mostraram exatamente onde estava o colapso na tubulação. Muito mais profissional que só tentar."
     },
     {
-      "name": "Amanda Kikuti",
-      "neighborhood": "Centro - Londrina",
+      "name": "Síndica Marli Terezinha",
+      "neighborhood": "Centro - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Moro perto da UEL e divido apartamento com mais gente. A pia vivia entupindo de gordura. Depois da limpeza, melhorou muito."
+      "text": "Prédio antigo do Centro, cano de décadas, e eles descobriram a raiz de árvore com a câmera antes de fazer qualquer coisa."
     },
     {
-      "name": "Rogério Sanches",
-      "neighborhood": "Igapó - Londrina",
+      "name": "Douglas Piovezan",
+      "neighborhood": "Jardim Europa - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Atendimento rápido e educado, chegaram no horário combinado e resolveram na primeira visita."
+      "text": "Entupia toda semana e ninguém sabia por quê. Com a vídeo inspeção acharam o problema na hora e ainda me deram o laudo."
     }
   ]
 }
