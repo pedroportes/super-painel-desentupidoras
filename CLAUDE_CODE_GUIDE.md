@@ -364,6 +364,38 @@ outras" seguida à risca: Curitiba primeiro, verificado em produção com
 4. Reauditadas as 12 cidades com `audit_live_sites.cjs` depois do deploy —
    zero regressão, todas continuam 100% verdes.
 
+### ✅ Varredura completa das 13 cidades — mais 2 achados corrigidos (31/08/2026)
+
+A pedido do usuário ("veja se tem bairros fictícios nas outras cidades"),
+cross-checadas TODAS as 13 cidades (não só as 4 já corrigidas acima)
+contra listas reais de bairro via WebSearch/Wikipédia, uma por uma. A
+maioria (Cachoeiro de Itapemirim, Poços de Caldas — exceto um item, ver
+abaixo —, Itabuna, Porto Seguro, Guarapuava, Vitória da Conquista,
+Blumenau) já estava 100% real, incluindo vários nomes que pareciam
+suspeitos à primeira vista (ex: "Batel"/"Santana" em Guarapuava,
+"Baiminas"/"Coronel Borges" em Cachoeiro) e se confirmaram corretos.
+Achados 2 problemas reais, ambos corrigidos com o mesmo mecanismo de
+redirect 301/308 já existente (`bairrosAntigos` + `writeBairroRedirects()`):
+
+- **Linhares**: um bairro literalmente chamado `"teste"` — sobra de dado
+  de teste, nunca limpa, publicada em produção. Trocado por `"Planalto"`
+  (bairro real confirmado).
+- **Poços de Caldas**: `"Zona Sul"` — não é um nome inventado, mas
+  também não é um bairro: é uma macrorregião administrativa oficial da
+  prefeitura (a "Regional Sul"), que engloba vários bairros reais.
+  Trocado por `"Jardim Kennedy"` (bairro real confirmado dentro dessa
+  zona).
+
+Verificado em produção nas duas cidades (bairro novo real → 200 com
+título correto; slug antigo → 301/308 → home) e reauditadas as 13
+cidades — zero regressão.
+
+**Esse achado virou regra de ouro permanente** — ver regra 15 em
+[`.agents/skills/checklist-pre-publicacao/SKILL.md`](.agents/skills/checklist-pre-publicacao/SKILL.md):
+nunca inventar, copiar de outra cidade, ou deixar valor de teste no campo
+`bairros`; nunca usar nome de zona/região no lugar de um bairro
+específico; sempre confirmar por busca real, nunca por memória.
+
 **Contexto**: cada cidade é publicada num domínio próprio
 (`desentupidora<cidade>.com.br`). O Google trata isso como uma **rede de
 sites do mesmo operador**, não como páginas internas de um site só — ou

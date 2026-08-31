@@ -50,6 +50,9 @@ nunca se repetir.
    cadastrado de verdade, omitir o campo do schema, nunca usar placeholder.
 5. **FAQs específicas da cidade**, nunca a mesma pergunta/resposta só
    trocando o nome.
+5b. **Bairros (`city.bairros`) têm que ser nomes reais, confirmados por
+   busca — nunca inventados, copiados de outra cidade, ou valor de teste.**
+   Ver regra de ouro 15 abaixo pro detalhe completo e os achados reais.
 
 ### Infraestrutura de Deploy (achado em 30/08/2026 — o que faltava aqui)
 6. **A URL/canonical/og:url/schema publicados têm que ser a URL REAL de
@@ -115,6 +118,32 @@ nunca se repetir.
     WCAG AA pra texto branco em botão/badge — ver regra de ouro 13 e
     pendência -1 do `CLAUDE_CODE_GUIDE.md` pros números exatos e o
     porquê de ainda não estar corrigido (decisão de marca, não só bug).
+15. **JAMAIS inventar, copiar de outra cidade, ou usar valor de teste no
+    campo `bairros` — todo nome tem que ser um bairro real, confirmado por
+    busca (WebSearch/Wikipédia/site de CEP), nunca por memória.** Cada
+    bairro vira uma URL própria indexável (`/[slug]`), e um nome fictício
+    ou errado é conteúdo enganoso publicado como se fosse real, além de
+    risco de SEO/GEO — um endereço que não existe não serve pra achar a
+    empresa perto de casa. Achados reais confirmados em 31/08/2026:
+    - **Curitiba** publicada com a lista de bairros REAL de **Linhares**
+      (Interlagos, Conceição, Avisos etc. — Espírito Santo, não Paraná).
+    - **São José dos Pinhais, Araucária e Londrina** compartilhando a
+      mesma lista genérica fictícia (`Jardim América, Bela Vista, São
+      José, Santa Cruz, Vila Nova, Planalto, Bairro Alto`) — nomes que não
+      existem de verdade em nenhuma das três.
+    - **Linhares** com um bairro literalmente chamado `"teste"` — sobra
+      de dado de teste nunca limpa, publicada em produção.
+    - **Poços de Caldas** com `"Zona Sul"` — não é fictício, mas também
+      não é um bairro: é uma macrorregião administrativa da prefeitura,
+      que engloba vários bairros reais (ex: Jardim Kennedy). Usar sempre o
+      nome do bairro específico, nunca o nome de uma zona/região.
+    **Ao trocar bairros fictícios por reais**: cada bairro antigo já pode
+    estar indexado pelo Google como URL própria — nunca simplesmente
+    apagar/trocar o nome. Sempre gerar redirect 301/308 permanente do
+    slug antigo pra home (nunca pra um bairro novo qualquer, sem
+    correspondência geográfica real) — ver `bairrosAntigos` +
+    `writeBairroRedirects()` em `server.cjs`, que já faz isso
+    automaticamente a partir da lista antiga preservada nesse campo.
 
 ---
 
@@ -148,6 +177,10 @@ Para **cada cidade** que for publicada ou redeployada:
       real
 - [ ] Um trecho de FAQ ou depoimento específico daquela cidade aparece no
       HTML (prova de que não é conteúdo genérico)
+- [ ] **Cada nome em `city.bairros` foi confirmado real por busca**
+      (WebSearch/Wikipédia/site de CEP) — nunca por memória, nunca copiado
+      de outra cidade, nunca valor de teste (`"teste"` etc.), nunca nome de
+      zona/região (`"Zona Sul"` etc.) no lugar de um bairro específico
 
 ### 4. Validação externa (pelo menos numa leva de publicação, não precisa
    toda vez, mas obrigatório antes de considerar a cidade "pronta de

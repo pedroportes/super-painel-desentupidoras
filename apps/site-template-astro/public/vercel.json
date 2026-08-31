@@ -9,5 +9,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/zona-sul",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

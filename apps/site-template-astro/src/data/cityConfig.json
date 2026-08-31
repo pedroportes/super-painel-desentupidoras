@@ -1,24 +1,24 @@
 {
-  "cidade": "Santa Bárbara d'Oeste",
-  "estado": "São Paulo",
-  "uf": "SP",
-  "populacao": "189.456",
-  "ddd": "19",
-  "whatsapp": "19993221100",
-  "telefoneFixo": "(19) 4000-0000",
-  "empresaNome": "Desentupidora Técnica Santa Bárbara d'Oeste",
-  "cnpj": "",
-  "endereco": "",
+  "cidade": "Poços de Caldas",
+  "estado": "Minas Gerais",
+  "uf": "MG",
+  "populacao": "172.339",
+  "ddd": "35",
+  "whatsapp": "35988776655",
+  "telefoneFixo": "(35) 3722-0000",
+  "empresaNome": "Desentupidora Poços 24h",
+  "cnpj": "11.222.333/0001-44",
+  "endereco": "Rua Assis Figueiredo, 1000 - Centro, Poços de Caldas - MG",
   "hospedagem": "netlify",
-  "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
-  "paletaCores": "corporativo-verde-cinza",
-  "logoUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+  "deployUrl": "https://desentupidora-pocosdecaldas.netlify.app",
+  "paletaCores": "residencial-bege",
+  "logoUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
-  "heroImage": "/images/santabarbaradoeste/desentupidora-santabarbaradoeste-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp",
+  "heroImage": "/images/pocosdecaldas/desentupidora-pocosdecaldas-tecnico-desentupimento.webp",
   "variants": {
-    "hero": "HeroV3",
-    "services": "ServicesGridV3",
+    "hero": "HeroV1",
+    "services": "ServicesGridV2",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,111 +27,106 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Santa Bárbara d'Oeste SP 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Santa Bárbara d'Oeste SP. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora Técnica Especializada em Santa Bárbara d'Oeste SP",
-    "firstParagraphText": "Uma desentupidora em Santa Bárbara d'Oeste que investiga antes de agir: a cidade foi fundada em 1869 e tem bairros com tubulação de décadas bem diferentes entre si, do Centro histórico ao Distrito Industrial. Por isso usamos vídeo inspeção pra identificar a causa real do entupimento antes de qualquer intervenção.",
-    "lastH2Title": "A desentupidora técnica que investiga a causa real em Santa Bárbara d'Oeste"
+    "metaTitle": "Desentupidora em Poços de Caldas MG 24h - Atendimento Rápido",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Poços de Caldas MG. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Poços de Caldas: Atendimento na Cidade das Águas Termais",
+    "firstParagraphText": "Contratar uma desentupidora em Poços de Caldas exige conhecer as particularidades da água mineral da região: aqui, o acúmulo de calcário nas tubulações é mais comum, e trabalhamos com equipamento próprio para remover essas incrustações sem quebrar piso.",
+    "lastH2Title": "A desentupidora de Poços de Caldas preparada para a água mineral da região"
   },
-  "aboutCityTitle": "Diagnóstico Técnico Especializado em Santa Bárbara d'Oeste - SP",
-  "aboutCityText": "Santa Bárbara d'Oeste é um dos municípios mais antigos da região de Campinas, emancipada em 1869, e viveu décadas de forte industrialização: sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro, o Romi-Isetta, foi fabricado na cidade. Esse histórico industrial deixou a rede de esgoto com idades muito diferentes conforme o bairro — trechos centenários no Centro e Cidade Nova convivem com redes mais novas em bairros como Distrito Industrial. Por isso, nossa equipe usa vídeo inspeção antes de intervir: identificamos raiz de árvore, colapso de tubulação antiga, acúmulo de gordura industrial ou objeto preso, e explicamos ao cliente exatamente o que foi encontrado antes de cobrar qualquer coisa.",
+  "aboutCityTitle": "Desentupidora em Poços de Caldas: cuidado especial com a água rica em minerais da região",
+  "aboutCityText": "Poços de Caldas fica dentro de uma cratera vulcânica e é famosa em todo o Brasil pelas suas águas termais e minerais, motivo de forte turismo de pousadas e hotéis na cidade. Essa mesma característica geológica faz com que a água de muitos bairros, como Jardim dos Estados e Cascatinha, tenha maior concentração de minerais, o que acelera a formação de incrustações de calcário dentro de tubulações antigas e reduz o fluxo de água com o tempo. Por causa da altitude elevada e do clima mais frio da cidade, também é comum haver ressecamento em conexões de PVC mais antigas. Nossa equipe conhece essas características técnicas do município e usa hidrojateamento de alta pressão para remover incrustações sem danificar o encanamento.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Jardim Europa",
-    "Cidade Nova",
-    "Pérola",
-    "Vila Mollon IV",
-    "Linópolis",
-    "Jardim São Francisco",
-    "Jardim Souza Queiroz",
-    "Jardim Santa Rita de Cássia",
-    "Distrito Industrial",
-    "Olaria",
-    "Cruzeiro do Sul"
+    "Jardim dos Estados",
+    "Cascatinha",
+    "Jardim Country Club",
+    "Santa Rosália",
+    "Vila Cruz",
+    "Jardim Kennedy"
   ],
   "services": [
     {
-      "id": "inspecao",
-      "title": "Vídeo Inspeção de Tubulação",
-      "description": "Câmera de alta resolução identifica a causa exata do entupimento antes de qualquer intervenção — essencial nas redes mais antigas do Centro.",
-      "icon": "📹"
-    },
-    {
       "id": "esgoto",
       "title": "Desentupimento de Esgoto",
-      "description": "Método escolhido conforme o diagnóstico: rotativo, hidrojato ou combinação dos dois.",
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
       "icon": "🚿"
     },
     {
       "id": "pia",
-      "title": "Desentupimento de Pia e Ralo",
-      "description": "Diagnóstico rápido para obstruções domésticas simples, com explicação da causa ao morador.",
+      "title": "Desentupimento de Pia",
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
       "icon": "🚰"
     },
     {
-      "id": "reparo",
-      "title": "Reparo de Tubulação Colapsada",
-      "description": "Identificação de trechos danificados por décadas de uso que causam entupimento recorrente.",
-      "icon": "🔧"
+      "id": "vaso",
+      "title": "Desentupimento de Vaso Sanitário",
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
+    },
+    {
+      "id": "ralo",
+      "title": "Desentupimento de Ralo",
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
+    },
+    {
+      "id": "fossa",
+      "title": "Esgotamento e Limpeza de Fossa",
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+      "icon": "🚛"
     },
     {
       "id": "hidrojato",
-      "title": "Hidrojateamento Técnico",
-      "description": "Pressão ajustada conforme o material e a idade da tubulação identificados na inspeção.",
+      "title": "Hidrojateamento de Alta Pressão",
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
       "icon": "🌊"
-    },
-    {
-      "id": "laudo",
-      "title": "Laudo Técnico de Diagnóstico",
-      "description": "Relatório com fotos e vídeo do problema encontrado, útil para laudos de imóvel e seguros.",
-      "icon": "📄"
     }
   ],
   "faqs": [
     {
-      "question": "A vídeo inspeção em Santa Bárbara d'Oeste tem custo separado?",
-      "answer": "Não, está incluída na visita técnica gratuita sempre que for necessária para o diagnóstico."
+      "question": "A água termal de Poços de Caldas causa mais entupimento por calcário?",
+      "answer": "Sim, em bairros com água mais rica em minerais, o acúmulo de calcário nas tubulações é mais frequente. Usamos hidrojateamento de alta pressão para remover essas incrustações."
     },
     {
-      "question": "Por que o entupimento é recorrente em bairros mais antigos como o Centro?",
-      "answer": "Trechos de tubulação com mais de 50 anos são comuns na região central, e costumam ter colapsos parciais ou raízes infiltradas que a inspeção por câmera identifica com precisão."
+      "question": "O clima frio de Poços de Caldas afeta a tubulação das casas?",
+      "answer": "Em imóveis mais antigos, a variação de temperatura pode ressecar vedações e conexões de PVC, favorecendo pequenos vazamentos e entupimentos. Fazemos essa avaliação na visita técnica."
     },
     {
-      "question": "Vocês emitem laudo técnico em Santa Bárbara d'Oeste?",
-      "answer": "Sim, entregamos laudo com registro fotográfico e em vídeo do problema encontrado, útil para laudo de imóvel ou acionamento de seguro."
+      "question": "Vocês atendem pousadas e hotéis na cidade?",
+      "answer": "Sim, atendemos o setor de hospedagem, muito forte em Poços de Caldas, com agilidade para não impactar a operação do estabelecimento."
     },
     {
-      "question": "Vocês atendem indústrias e galpões do Distrito Industrial?",
-      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial."
+      "question": "Qual o tempo de chegada em bairros altos como Cascatinha?",
+      "answer": "Em média de 20 a 40 minutos, mesmo em bairros de maior altitude dentro da cratera."
     },
     {
-      "question": "O diagnóstico técnico demora mais que um desentupimento comum?",
-      "answer": "Leva alguns minutos a mais, mas evita retrabalho e intervenção no trecho errado da tubulação."
+      "question": "A visita técnica é gratuita?",
+      "answer": "Sim, sempre gratuita, com avaliação detalhada antes de qualquer serviço."
     },
     {
-      "question": "A visita técnica com inspeção é gratuita em Santa Bárbara d'Oeste?",
-      "answer": "Sim, sempre gratuita e sem compromisso."
+      "question": "Vocês fazem limpeza de caixa d'água com resíduo mineral em Poços de Caldas?",
+      "answer": "Sim, fazemos a limpeza e desincrustação de caixas d'água afetadas pelo alto teor mineral da água local."
     }
   ],
   "testimonials": [
     {
-      "name": "Eng. Rogério Fadel",
-      "neighborhood": "Distrito Industrial - Santa Bárbara d'Oeste",
+      "name": "Eliane Toledo",
+      "neighborhood": "Jardim dos Estados - Poços de Caldas",
       "rating": 5,
-      "text": "Fizeram a inspeção por câmera no galpão e mostraram exatamente onde estava o colapso na tubulação. Muito mais profissional que só tentar."
+      "text": "Minha caixa d'água tinha um monte de calcário grudado, imagino que seja da água daqui mesmo. Limparam tudo e explicaram o motivo."
     },
     {
-      "name": "Síndica Marli Terezinha",
-      "neighborhood": "Centro - Santa Bárbara d'Oeste",
+      "name": "Ricardo Andrade",
+      "neighborhood": "Cascatinha - Poços de Caldas",
       "rating": 5,
-      "text": "Prédio antigo do Centro, cano de décadas, e eles descobriram a raiz de árvore com a câmera antes de fazer qualquer coisa."
+      "text": "Tenho uma pousada e não podia parar por muito tempo. Vieram rápido e resolveram o entupimento do esgoto sem transtorno para os hóspedes."
     },
     {
-      "name": "Douglas Piovezan",
-      "neighborhood": "Jardim Europa - Santa Bárbara d'Oeste",
+      "name": "Sônia Malta",
+      "neighborhood": "Centro - Poços de Caldas",
       "rating": 5,
-      "text": "Entupia toda semana e ninguém sabia por quê. Com a vídeo inspeção acharam o problema na hora e ainda me deram o laudo."
+      "text": "Equipe muito atenciosa, explicou certinho por que a água daqui suja mais as tubulações. Recomendo."
     }
   ]
 }

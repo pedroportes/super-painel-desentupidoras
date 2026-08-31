@@ -28,13 +28,16 @@
       "Três Barras",
       "Shell",
       "São José",
+      "Planalto"
+    ],
+    "bairrosAntigos": [
       "teste"
     ],
     "auditScore": 100,
     "firstParagraph": "A desentupidora em Linhares que mais atende clientes na região do Rio Doce: chegamos rápido em bairros próximos ao centro e em áreas mais afastadas, resolvendo entupimentos de esgoto, pia e vaso sanitário com equipamento profissional e sem quebra-quebra.",
     "h1Title": "Desentupidora em Linhares ES: Atendimento Rápido em Toda a Cidade",
     "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
-    "lastDeployAt": "2026-08-30T22:34:06.451Z",
+    "lastDeployAt": "2026-08-31T13:35:24.509Z",
     "faqs": [
       {
         "question": "O solo arenoso de Linhares pode causar entupimento na tubulação da minha casa?",
@@ -285,11 +288,14 @@
       "Jardim Country Club",
       "Santa Rosália",
       "Vila Cruz",
+      "Jardim Kennedy"
+    ],
+    "bairrosAntigos": [
       "Zona Sul"
     ],
     "auditScore": 100,
     "deployUrl": "https://desentupidora-pocosdecaldas.netlify.app",
-    "lastDeployAt": "2026-08-30T22:34:25.836Z",
+    "lastDeployAt": "2026-08-31T13:35:44.630Z",
     "faqs": [
       {
         "question": "A água termal de Poços de Caldas causa mais entupimento por calcário?",
