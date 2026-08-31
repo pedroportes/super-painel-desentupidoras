@@ -1741,23 +1741,40 @@ export default function App() {
                     theme: 'Verde / Cinza'
                   }
                 ].map(mod => (
-                  <div 
+                  <div
                     key={mod.id}
                     onClick={() => setCreateCityForm({ ...createCityForm, modeloTemplate: mod.id as any })}
                     style={{
                       border: createCityForm.modeloTemplate === mod.id ? '2px solid #8b5cf6' : '1px solid #334155',
                       backgroundColor: createCityForm.modeloTemplate === mod.id ? 'rgba(139, 92, 246, 0.15)' : '#1e293b',
                       borderRadius: '10px',
-                      padding: '16px',
+                      overflow: 'hidden',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease'
                     }}
                   >
-                    <div style={{ fontWeight: 800, color: '#f8fafc', fontSize: '0.95rem', marginBottom: '4px' }}>{mod.title}</div>
-                    <div style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.4, marginBottom: '8px' }}>{mod.desc}</div>
-                    <span style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: '#cbd5e1', padding: '2px 8px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 600 }}>
-                      Paleta: {mod.theme}
-                    </span>
+                    <div style={{ position: 'relative' }}>
+                      <img
+                        src={`/model-previews/${mod.id}.webp`}
+                        alt={`Exemplo visual do ${mod.title}`}
+                        style={{ width: '100%', height: '130px', objectFit: 'cover', objectPosition: 'top', display: 'block', borderBottom: '1px solid #334155' }}
+                      />
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); window.open(`/model-previews/${mod.id}.webp`, '_blank'); }}
+                        title="Ver exemplo em tamanho real"
+                        style={{ position: 'absolute', top: '8px', right: '8px', background: 'rgba(15,23,42,0.85)', color: '#f8fafc', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', padding: '4px 9px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer' }}
+                      >
+                        🔍 Ver exemplo
+                      </button>
+                    </div>
+                    <div style={{ padding: '16px' }}>
+                      <div style={{ fontWeight: 800, color: '#f8fafc', fontSize: '0.95rem', marginBottom: '4px' }}>{mod.title}</div>
+                      <div style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.4, marginBottom: '8px' }}>{mod.desc}</div>
+                      <span style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: '#cbd5e1', padding: '2px 8px', borderRadius: '4px', fontSize: '0.72rem', fontWeight: 600 }}>
+                        Paleta: {mod.theme}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>

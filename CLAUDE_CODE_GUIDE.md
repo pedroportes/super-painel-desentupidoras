@@ -429,6 +429,34 @@ e 4 (`industrial-hidrojato`) tinham exatamente a mesma
 seja, eram "modelos" só de nome, idênticos em estrutura ao 1/2. Corrigido
 dando a cada um sua própria combinação (ver tabela acima).
 
+#### 🖼️ Preview visual dos 8 modelos no painel (31/08/2026)
+
+Pedido do usuário ao ver a tela "Criar Novo Site" só com texto: "não
+teria como ter um tipo de preview antes de escolher". Cada card do
+seletor de modelo (tela "Nova Cidade" e a lista de troca de modelo em
+`editorSection === 'theme'`) agora mostra uma **miniatura real** (não
+mockup) do modelo, gerada de verdade renderizando o site com Playwright
+— arquivos em `apps/web-dashboard/public/model-previews/<modeloId>.webp`
+(servidos como assets estáticos do Vite), botão "🔍 Ver exemplo" abre o
+PNG em tamanho real numa aba nova.
+
+**Como gerar/regenerar essas miniaturas** (rodar de novo sempre que um
+Hero/ServicesGrid mudar visualmente):
+```bash
+cd apps/web-dashboard
+npm install --no-save playwright   # só a lib JS, não precisa dos browsers de novo se já instalados
+npx --yes playwright install chromium   # baixa o Chromium headless (~150MB), só na 1ª vez
+bash scripts/generate_model_previews.sh
+cp scripts/_previews/*.png public/model-previews/   # ou já converta pra webp, ver script
+```
+`scripts/screenshot_model.mjs` é o script Playwright reaproveitável
+(recebe URL + caminho de saída + altura do recorte) — pode ser usado pra
+outras miniaturas no futuro, não só modelo de cidade.
+⚠️ O script `generate_model_previews.sh` **sobrescreve
+`cityConfig.json`** a cada iteração (mesma ressalva do
+`test_new_models.mjs` acima) — sempre rodar `/api/build-city/:id` numa
+cidade real depois de terminar, antes de qualquer deploy.
+
 ### Dois problemas concretos que estão anulando esse trabalho
 
 **1. Bug no domínio do Modelo 1 (`urgencia-24h`)** — em

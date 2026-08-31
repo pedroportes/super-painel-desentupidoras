@@ -1,21 +1,21 @@
 {
-  "cidade": "Blumenau",
-  "estado": "Brasil",
-  "uf": "SC",
-  "populacao": "350.000",
-  "ddd": "47",
-  "whatsapp": "47992795590",
-  "telefoneFixo": "(47) 3323-0000",
-  "empresaNome": "Desentupidora Blumenau 24h",
+  "cidade": "Linhares",
+  "estado": "Espírito Santo",
+  "uf": "ES",
+  "populacao": "183.797",
+  "ddd": "27",
+  "whatsapp": "27992795590",
+  "telefoneFixo": "(27) 3323-0000",
+  "empresaNome": "Desentupidora Linhares 24h",
   "cnpj": "12.345.678/0001-90",
-  "endereco": "Av. Rio Branco, 1000 - Centro, Blumenau - SC",
-  "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-blumenau.pages.dev",
-  "paletaCores": "corporativo-verde-cinza",
-  "logoUrl": "/images/blumenau/logo-desentupidora-blumenau.webp",
+  "endereco": "Av. Governador Lindemberg, 500 - Centro, Linhares - ES",
+  "hospedagem": "vercel",
+  "deployUrl": "https://desentupidora-linhares-zeta.vercel.app",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/linhares/logo-desentupidora-linhares.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/blumenau/logo-desentupidora-blumenau.webp",
-  "heroImage": "/images/blumenau/desentupidora-blumenau-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/linhares/logo-desentupidora-linhares.webp",
+  "heroImage": "/images/linhares/desentupidora-linhares-caminhao-limpa-fossa.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
@@ -26,59 +26,63 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Blumenau SC 24h - Atendimento Rápido",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Blumenau SC. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Blumenau SC: Atendimento na Capital do Vale Europeu",
-    "firstParagraphText": "Precisa de uma desentupidora em Blumenau que conheça os riscos de enchente do Rio Itajaí-Açu? Atendemos toda a cidade, dos bairros próximos ao rio às áreas mais altas do Vale Europeu, com atendimento 24h e sem quebra de piso.",
-    "lastH2Title": "A desentupidora de Blumenau preparada para o histórico de enchentes da cidade"
+    "metaTitle": "Desentupidora em Linhares ES 24h - Atendimento Rápido",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Linhares ES. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Linhares ES: Atendimento Rápido em Toda a Cidade",
+    "firstParagraphText": "A desentupidora em Linhares que mais atende clientes na região do Rio Doce: chegamos rápido em bairros próximos ao centro e em áreas mais afastadas, resolvendo entupimentos de esgoto, pia e vaso sanitário com equipamento profissional e sem quebra-quebra.",
+    "lastH2Title": "Por que a Desentupidora de Linhares mais chamada pelos moradores é a nossa?"
   },
-  "aboutCityTitle": "Desentupidora em Blumenau: preparo para o histórico de enchentes do Rio Itajaí-Açu",
-  "aboutCityText": "Blumenau foi fundada por imigrantes alemães em 1850 e hoje é o coração do Vale Europeu, conhecida pela arquitetura enxaimel, pela Oktoberfest e por uma forte tradição têxtil. A cidade também convive com um histórico sério de enchentes do Rio Itajaí-Açu, que já causou desastres graves, como a enchente de 2008. Esse histórico faz com que bairros próximos ao rio, como Velha e Itoupava Seca, sofram mais com refluxo de esgoto e infiltração em dias de chuva forte, enquanto bairros nas encostas do Vale Europeu enfrentam desafios de pressão de água por causa do relevo montanhoso. Nossa equipe conhece essas duas realidades e mantém equipamento de hidrojateamento de alta pressão pronto para atender Blumenau em qualquer situação.",
+  "aboutCityTitle": "Desentupidora em Linhares: atendimento adaptado ao solo arenoso e ao clima do Rio Doce",
+  "aboutCityText": "Linhares é o maior município do Espírito Santo em extensão territorial, cortado pelo Rio Doce e cercado por áreas de solo arenoso na região litorânea e solo argiloso nos bairros mais centrais. Essa combinação favorece o entupimento de tubulações por acúmulo de areia fina e por raízes de árvores que se infiltram em encanamentos mais antigos, um problema comum em bairros com arborização densa como Interlagos e Conceição. Nos períodos de maior volume de chuva, quando o nível do Rio Doce sobe, é comum que redes de esgoto mais antigas sofram refluxo — por isso mantemos equipes com hidrojateamento de alta pressão prontas para atender Linhares mesmo nos dias de maior demanda.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Velha",
-    "Itoupava Seca",
-    "Itoupava Central",
-    "Vorstadt",
-    "Garcia",
-    "Fortaleza",
-    "Água Verde",
-    "Ponta Aguda",
-    "Progresso",
-    "Boa Vista",
-    "Vila Formosa",
-    "Salto",
-    "Vila Itoupava",
-    "Badenfurt"
+    "Interlagos",
+    "Conceição",
+    "Novo Horizonte",
+    "Avisos",
+    "Araçá",
+    "BNH",
+    "Juparanã",
+    "Movelar",
+    "Três Barras",
+    "Shell",
+    "São José",
+    "teste"
   ],
   "services": [
     {
+      "id": "esgoto",
       "title": "Desentupimento de Esgoto",
       "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
       "icon": "🚿"
     },
     {
+      "id": "pia",
       "title": "Desentupimento de Pia",
       "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
       "icon": "🚰"
     },
     {
+      "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
       "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
       "icon": "🚽"
     },
     {
+      "id": "ralo",
       "title": "Desentupimento de Ralo",
       "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
       "icon": "🛁"
     },
     {
+      "id": "fossa",
       "title": "Esgotamento e Limpeza de Fossa",
       "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
       "icon": "🚛"
     },
     {
+      "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
       "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
       "icon": "🌊"
@@ -86,48 +90,48 @@
   ],
   "faqs": [
     {
-      "question": "O histórico de enchentes do Rio Itajaí-Açu afeta a rede de esgoto em Blumenau?",
-      "answer": "Sim, em bairros próximos ao rio, como Velha e Itoupava Seca, o nível alto da água pode causar refluxo de esgoto durante temporais. Nossa equipe atende com prioridade nesses períodos."
+      "question": "O solo arenoso de Linhares pode causar entupimento na tubulação da minha casa?",
+      "answer": "Sim. Em bairros próximos ao litoral e às margens do Rio Doce, o solo arenoso costuma se infiltrar em ligações antigas ou mal vedadas, causando obstrução gradual. Identificamos esse tipo de problema com vídeo inspeção antes de iniciar o serviço."
     },
     {
-      "question": "Vocês atendem bairros nas encostas do Vale Europeu?",
-      "answer": "Sim, atendemos toda a região, incluindo bairros de relevo mais acidentado, onde a variação de pressão da água pode acelerar o desgaste das tubulações."
+      "question": "Vocês atendem chamados em dias de chuva forte em Linhares?",
+      "answer": "Sim, inclusive nos períodos em que o Rio Doce sobe de nível e aumenta o risco de refluxo no esgoto. Nossas equipes de plantão continuam operando 24 horas mesmo em dias de temporal."
     },
     {
-      "question": "Casas antigas de arquitetura enxaimel têm mais problema de encanamento?",
-      "answer": "Muitas construções históricas de Blumenau têm tubulações mais antigas, e fazemos avaliação cuidadosa para não danificar estruturas de valor histórico durante o desentupimento."
+      "question": "Raízes de árvore causam entupimento de esgoto em Linhares?",
+      "answer": "É uma das causas mais comuns em bairros com arborização densa, como Interlagos e Conceição. Usamos máquinas rotativas capazes de cortar raízes sem danificar a tubulação."
     },
     {
-      "question": "Qual o tempo de chegada em Blumenau?",
-      "answer": "Em média de 20 a 40 minutos, dependendo da região da cidade."
+      "question": "Qual o tempo de chegada em bairros mais afastados do centro de Linhares?",
+      "answer": "Mantemos equipes distribuídas também fora do centro, e o tempo médio de chegada gira em torno de 30 a 45 minutos, dependendo da distância e do trânsito na BR-101."
     },
     {
-      "question": "A visita técnica em Blumenau é gratuita?",
-      "answer": "Sim, sempre gratuita e sem compromisso."
+      "question": "A visita técnica em Linhares tem algum custo?",
+      "answer": "Não, a avaliação técnica é sempre gratuita, e o orçamento é apresentado antes de qualquer serviço."
     },
     {
-      "question": "Vocês atendem emergências durante a época de chuvas fortes em Blumenau?",
-      "answer": "Sim, mantemos plantão 24 horas reforçado durante os períodos de maior risco de enchente."
+      "question": "Vocês atendem propriedades rurais na zona rural de Linhares?",
+      "answer": "Sim, atendemos fazendas e sítios da zona rural de Linhares, incluindo esgotamento de fossa com caminhão auto-vácuo."
     }
   ],
   "testimonials": [
     {
-      "name": "Heinz Wagner",
-      "neighborhood": "Velha - Blumenau",
+      "name": "Fabiana Reis",
+      "neighborhood": "Interlagos - Linhares",
       "rating": 5,
-      "text": "Minha casa é perto do rio e depois de uma chuva forte o esgoto voltou. A equipe veio rápido e resolveu sem sujeira."
+      "text": "Minha casa é cercada de árvores grandes e o esgoto vivia entupindo com raiz. Depois que limparam direito, não tive mais problema."
     },
     {
-      "name": "Marlene Zimmermann",
-      "neighborhood": "Itoupava Seca - Blumenau",
+      "name": "Sérgio Bitencourt",
+      "neighborhood": "Centro - Linhares",
       "rating": 5,
-      "text": "Atendimento rápido e educado. Explicaram certinho por que acontece o refluxo aqui perto do rio."
+      "text": "Chamei numa época de muita chuva, achei que ia demorar, mas chegaram rápido mesmo com o trânsito complicado perto do Rio Doce."
     },
     {
-      "name": "Rogério Bittencourt",
-      "neighborhood": "Garcia - Blumenau",
+      "name": "Adriana Coutinho",
+      "neighborhood": "Conceição - Linhares",
       "rating": 5,
-      "text": "Moro numa subida e o cano vivia com problema de pressão. Resolveram e ainda deram uma dica de manutenção."
+      "text": "Fizeram a limpeza da fossa do sítio da minha família na zona rural sem complicação nenhuma, caminhão grande e equipe pontual."
     }
   ]
 }
