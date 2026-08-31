@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Permissões Explícitas para Agentes de IA e Motores de Resposta (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sinais de Conteúdo (contentsignals.org)
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
+Sitemap: https://desentupidorasaocaetanodosul.com.br/sitemap-index.xml
