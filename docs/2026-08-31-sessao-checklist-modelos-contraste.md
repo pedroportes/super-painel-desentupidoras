@@ -1,5 +1,5 @@
 ---
-title: Sessão 30-31/08/2026 — Checklist, contraste e 8 modelos
+title: Sessão 30-31/08/2026 — Checklist, modelos, bairros e Render
 date: 2026-08-31
 tags:
   - super-painel-desentupidoras
@@ -7,11 +7,14 @@ tags:
   - checklist
   - seo
   - acessibilidade
+  - deploy
+  - render
 aliases:
   - Sessão checklist e modelos
+  - Sessão bairros e Render
 ---
 
-# Sessão 30-31/08/2026 — Checklist de publicação, contraste WCAG e 8 modelos estruturais
+# Sessão 30-31/08/2026 — Checklist de publicação, contraste WCAG, 8 modelos, bairros reais e 4º provedor (Render)
 
 > [!info] Contexto
 > Nota de trabalho (Obsidian) espelhando o que já está registrado de
@@ -137,6 +140,89 @@ bairros reais e redirecionar para os reais") e ela foi aplicada:
 >
 > Detalhe técnico completo em [[CLAUDE_CODE_GUIDE]], seção "✅ Bairros
 > fictícios/copiados — CORRIGIDO".
+
+## Nova cidade: Santa Bárbara d'Oeste-SP, primeiro modelo novo em produção
+
+Pedido do usuário ("suba uma nova cidade da planilha, modelo novo"):
+primeira cidade real usando um dos 4 modelos estruturais novos —
+`tecnico-especializado` (HeroV3 + ServicesGridV3, foco em vídeo
+inspeção/diagnóstico). Escolhida a partir do ranking da planilha
+`BANCO_CIDADES_DESENTUPIDORAS_2026` (ver [[mapa-oportunidades-expansao]]),
+próxima colocada ainda não cadastrada.
+
+> [!success] Conteúdo único com fato real e citável
+> Fundada em 1869, sediou a primeira indústria têxtil da região e — o
+> achado mais forte — fabricou em 1956 o **primeiro automóvel genuinamente
+> brasileiro** (Romi-Isetta). 12 bairros reais confirmados por busca.
+> Imagens (logo + hero) geradas via Canva MCP; logo veio com texto
+> embutido ilegível sobre fundo claro — corrigido cortando só o ícone.
+
+> [!bug] Bug real achado e corrigido: Netlify 401 em cidade nova
+> Toda cidade NOVA publicada na Netlify nascia com `401 Login Redirect`
+> na home inteira — o PATCH que desativa a proteção de login/SSO só
+> rodava pro branch "site já existe", nunca no primeiro deploy. Corrigido
+> em `deployEngine.cjs` (rodava sempre agora). Provavelmente afetava
+> outras cidades Netlify no passado, mascarado por redeploy manual
+> posterior.
+
+Pontuação: `audit_live_sites.cjs` 13/13 sem falha, auditoria interna
+Astro 100% (11/11 — achou e corrigiu no processo a regra "desentupidora"
+tem que aparecer nas primeiras 30 palavras do 1º parágrafo, não só
+"entupimento"), isitagentready.com 33/100 Nível 2 (Netlify, esperado),
+PageSpeed mobile 68/95/100/100, navegação agêntica 3/3.
+
+## Varredura completa das 13 cidades: mais 2 bairros fictícios + regra de ouro 15
+
+Pedido do usuário: "veja se tem bairros fictícios nas outras cidades e
+deixe isso como regra de ouro pra nunca mais inventar bairros". Todas as
+13 cidades cross-checadas contra fonte real (WebSearch/Wikipédia), não
+por memória — a maioria já estava limpa, inclusive nomes que pareciam
+suspeitos (Batel/Santana em Guarapuava, Baiminas/Coronel Borges em
+Cachoeiro) se confirmaram reais.
+
+> [!bug] 2 achados reais, corrigidos
+> - **Linhares**: um bairro literalmente chamado `"teste"` — sobra de
+>   dado de teste publicada em produção. Trocado por `"Planalto"` (real).
+> - **Poços de Caldas**: `"Zona Sul"` — não é fictício, mas também não é
+>   um bairro: é uma macrorregião administrativa oficial da prefeitura.
+>   Trocado por `"Jardim Kennedy"` (bairro real dentro dela).
+>
+> Corrigidos com o mesmo mecanismo de redirect já existente, verificados
+> em produção, reauditadas as 13 cidades sem regressão.
+
+**Regra de ouro 15** (nova, permanente) em
+`.agents/skills/checklist-pre-publicacao/SKILL.md`: nunca inventar,
+copiar de outra cidade, ou deixar valor de teste/nome de zona no campo
+`bairros` — todo nome tem que ser confirmado por busca real. Também virou
+item obrigatório do checklist de verificação (seção 3), não só algo que
+se confere quando alguém pergunta.
+
+## Render: 4º provedor de hospedagem
+
+Pedido do usuário, com print do dashboard da Render criando uma API Key.
+Investigado antes de programar: a Render **não tem API de upload direto
+de arquivo/zip** como os outros 3 provedores — só publica puxando de um
+repositório Git conectado. Perguntado ao usuário (`AskUserQuestion`) como
+resolver isso; decisão: reusar o **próprio repositório deste projeto**
+(pasta `dist-sites/<cidade>/` nele) em vez de criar repositório novo por
+cidade — evita precisar de um token do GitHub à parte.
+
+> [!success] `deployToRender()` implementado e testado de ponta a ponta
+> Copia `dist/` pra `dist-sites/<id>/`, `git add/commit/push` só dessa
+> pasta, cria (1ª vez) ou redeploya (guardando `renderServiceId`) o
+> Static Site via API da Render, faz *polling* até `status: live`, nunca
+> assume a URL — sempre lê `serviceDetails.url` da própria API.
+>
+> Testado com uma cidade descartável (`renderteste`, apagada depois):
+> criação funcionando (home/CSS/imagens/bairro todos 200), redeploy sem
+> mudança de conteúdo (achou e corrigiu um bug real — a checagem de "nada
+> pra commitar" só reconhecia texto em inglês/português específico, e o
+> git real devolveu uma terceira mensagem diferente), redeploy com
+> mudança real (propaga depois do cache de CDN da Render expirar, até
+> 5min — documentado pra não confundir com falha numa sessão futura).
+
+Detalhe técnico completo (schema da API, ordem das chamadas) em
+[[CLAUDE_CODE_GUIDE]], seção "🎨 Render — 4º provedor".
 
 ## Pendências em aberto (ver guia pra detalhe)
 
