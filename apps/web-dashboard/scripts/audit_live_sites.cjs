@@ -10,11 +10,71 @@
  * extensão de auditoria SEO marcou em VERMELHO um título de 36
  * caracteres por ser CURTO DEMAIS, não só por estourar um máximo — título
  * "≤60" não basta, tem que ter piso também.
+ *
+ * 🚫 Regra de ouro 16 (achado real 31/08/2026): este script SEMPRE só
+ * checou a home (`url + '/'`) de cada cidade — nunca as páginas de
+ * serviço/bairro, que são a maioria das páginas reais do site e foi
+ * exatamente onde ficaram escondidos título estourando o teto, meta
+ * description sem a palavra-chave e sem o piso de 120 chars, em produção,
+ * em várias cidades. Agora também busca 1 página de bairro e 1 de serviço
+ * por cidade (as primeiras da lista) com as mesmas checagens de
+ * title/description — não é 100% de cobertura como o `seoGeoAuditor.js`
+ * (que roda local, contra TODAS as páginas do build), mas já detecta a
+ * classe de bug em produção sem multiplicar o tempo de execução por
+ * dezenas de páginas × 14 cidades.
  */
 const TITLE_MIN = 40;
 const TITLE_MAX = 60;
+const TITLE_MAX_SUBPAGE = 80;
 const DESC_MIN = 120;
 const DESC_MAX = 160;
+
+// Cópia fiel de apps/site-template-astro/src/utils/slugify.ts — tem que
+// gerar o MESMO slug que o Astro gera de verdade (achado real: uma versão
+// simplificada aqui trocava apóstrofo por "-" em vez de remover, gerando
+// "santa-barbara-d-oeste" em vez do "santa-barbara-doeste" real, e todo
+// sub_servico de Santa Bárbara d'Oeste dava 404 por causa disso — falso
+// negativo do auditor, não bug do site).
+function slugify(text) {
+  return (text || '')
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
+async function auditSubpage(url, routePath, label, result) {
+  try {
+    const r = await fetch(url + routePath, { redirect: 'follow' });
+    if (r.status !== 200) { result.checks[`sub_${label}`] = `HTML ${r.status}`; result.ok = false; return; }
+    const html = await r.text();
+    const titleMatch = html.match(/<title>([^<]*)<\/title>/);
+    const title = titleMatch ? titleMatch[1] : '';
+    const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
+    const description = descMatch ? descMatch[1] : '';
+    const titleHasKeyword = title.toLowerCase().includes('desentupidora');
+    const titleLenOk = title.length >= TITLE_MIN && title.length <= TITLE_MAX_SUBPAGE;
+    const descHasKeyword = description.toLowerCase().includes('desentupidora');
+    const descLenOk = description.length >= DESC_MIN && description.length <= DESC_MAX;
+    const canonMatch = html.match(/<link rel="canonical" href="([^"]*)"/);
+    const canonical = canonMatch ? canonMatch[1] : null;
+    const canonicalOk = canonical === `${url}${routePath}`;
+    const ok = titleHasKeyword && titleLenOk && descHasKeyword && descLenOk && canonicalOk;
+    result.checks[`sub_${label}`] = {
+      routePath, title: `${title} (${title.length} chars)`, description: `${description.length} chars`,
+      canonical, canonicalOk, ok
+    };
+    if (!ok) result.ok = false;
+  } catch (e) {
+    result.checks[`sub_${label}`] = 'ERRO: ' + e.message;
+    result.ok = false;
+  }
+}
 
 const cities = require('../data/cities.json');
 
@@ -121,6 +181,13 @@ async function auditCity(city) {
 (async () => {
   for (const city of cities) {
     const r = await auditCity(city);
+    if (r.url && city.bairros && city.bairros[0]) {
+      await auditSubpage(r.url, `/${slugify(city.bairros[0])}/`, 'bairro', r);
+    }
+    if (r.url && city.services && city.services[0]) {
+      const cidadeSlug = slugify(city.cidade);
+      await auditSubpage(r.url, `/${slugify(city.services[0].title)}-em-${cidadeSlug}/`, 'servico', r);
+    }
     console.log('='.repeat(60));
     console.log((r.ok ? '✅' : '❌'), r.id, '|', r.url);
     console.log(JSON.stringify(r.checks, null, 2));

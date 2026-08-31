@@ -31,21 +31,32 @@ nunca se repetir.
    sem reescrever. Isso é risco real de penalização Google por "scaled
    content abuse" (ver [`CLAUDE_CODE_GUIDE.md`](../../../CLAUDE_CODE_GUIDE.md),
    seção "RISCO CRÍTICO: conteúdo quase-duplicado").
-2. **Title entre 40 e 60 caracteres, Meta Description entre 120 e 160
-   caracteres — faixa NUMÉRICA com piso e teto, nunca só um máximo.**
-   Contar caractere de verdade (`.length` em JS), nunca estimar de
-   cabeça. Nomes de cidade compostos (Cachoeiro de Itapemirim, São José
-   dos Pinhais, Vitória da Conquista) estouram o teto fácil; nomes
-   curtos (Linhares, Itabuna) ficam abaixo do piso fácil — achado real
-   30/08/2026: uma extensão de auditoria SEO marcou em vermelho um
-   título de 36 caracteres por ser curto demais, não por estourar nada.
-   `apps/web-dashboard/scripts/audit_live_sites.cjs` confere essa faixa
-   automaticamente (constantes no topo do arquivo).
+2. **Title entre 40 e 60 caracteres (páginas escritas à mão: home/cidade),
+   80 no teto pra páginas de serviço/bairro AUTO-GERADAS (ver regra 16);
+   Meta Description sempre entre 120 e 160 caracteres — faixa NUMÉRICA com
+   piso e teto, nunca só um máximo.** Contar caractere de verdade
+   (`.length` em JS), nunca estimar de cabeça. Nomes de cidade compostos
+   (Cachoeiro de Itapemirim, São José dos Pinhais, Vitória da Conquista)
+   estouram o teto fácil; nomes curtos (Linhares, Itabuna) ficam abaixo do
+   piso fácil — achado real 30/08/2026: uma extensão de auditoria SEO
+   marcou em vermelho um título de 36 caracteres por ser curto demais, não
+   por estourar nada. **Isso vale pra TODA página do site, não só a
+   home** — achado real 31/08/2026 (regra 16): título/descrição de
+   página de serviço/bairro estouravam até 79 caracteres sem que ninguém
+   percebesse, porque nada auditava essas páginas. `apps/web-dashboard/
+   scripts/audit_live_sites.cjs` (produção) e `apps/site-template-astro/
+   scripts/seoGeoAuditor.js` (build local, ver regra 16) conferem essa
+   faixa automaticamente.
 3. **Palavra-chave regional** (`[Serviço] em [Cidade] [UF]`) tem que
    aparecer no title, meta description, H1, primeira frase do primeiro
    parágrafo, **e no último H2 antes do rodapé** — confirmar que esse H2 é
    *literalmente* o último H2 renderizado (já quebrou 2x por reordenação
-   de componente).
+   de componente). **Vale pra TODA página, inclusive as de serviço e
+   bairro geradas por template** (`[slug].astro`) — não só a home; a
+   palavra literal tem que ser `"desentupidora"` (não basta
+   `"desentupimento"`), inclusive na meta description, que antes desta
+   sessão nunca era checada por palavra-chave (só por tamanho). Ver regra
+   16.
 4. **Nunca inventar dado** (CNPJ, endereço, coordenadas GPS) — se não foi
    cadastrado de verdade, omitir o campo do schema, nunca usar placeholder.
 5. **FAQs específicas da cidade**, nunca a mesma pergunta/resposta só
@@ -151,6 +162,60 @@ nunca se repetir.
     correspondência geográfica real) — ver `bairrosAntigos` +
     `writeBairroRedirects()` em `server.cjs`, que já faz isso
     automaticamente a partir da lista antiga preservada nesse campo.
+16. **JAMAIS auditar só a home — TODA página do site (serviço, bairro,
+    contato, política, termos) tem que passar pelas mesmas checagens de
+    SEO/GEO/estrutura.** Achado real 31/08/2026 (São Caetano do Sul,
+    achado pelo usuário com uma extensão SEO num navegador, não pela
+    própria auditoria interna): `seoGeoAuditor.js` **sempre** só leu
+    `dist/index.html` — nenhuma das dezenas de páginas de serviço/bairro
+    de qualquer cidade jamais foi auditada de verdade, e foi exatamente aí
+    que ficaram escondidos, em produção, em várias cidades ao mesmo tempo:
+    - **Título estourando o teto** (até 79 caracteres: "Desentupidora de
+      Desentupimento de Vaso Sanitário em Cachoeiro de Itapemirim ES") —
+      o próprio nome do serviço já vinha prefixado com "Desentupimento
+      de"/"Desobstrução de" em `cities.json`, e o template duplicava o
+      conceito colando "Desentupidora de" na frente de novo.
+    - **Meta description sem a palavra-chave `"desentupidora"`** — a
+      fórmula-padrão de `server.cjs` (usada por toda cidade sem
+      `metaDescription` customizado, ou seja, praticamente todas) dizia
+      "Especialistas em **desentupimento**...", nunca "desentupidora".
+      Esse check nem existia antes desta sessão — só tamanho era
+      verificado, nunca a palavra-chave dentro da description.
+    - **Meta description abaixo do piso de 120** (chegava a 96 caracteres
+      pra serviço/bairro de nome curto) — o template original nunca tinha
+      sido calibrado pro caso curto, só testado de olho no caso comprido.
+    - **Último `<h2>` de página de serviço sem a palavra `"desentupidora"`**
+      (dizia só o nome do serviço, ex: "Por que somos a melhor opção para
+      desentupimento de vaso sanitário...").
+    - **Links internos pra bairro/serviço sem barra final**
+      (`href="/fundacao"`) enquanto o canonical da própria página usa
+      barra final (`.../fundacao/`) — cria duas URLs "diferentes" pra
+      Google pra mesma página; achado via extensão SEO que visitou pelo
+      link (sem barra) e comparou com o canonical (com barra) da página
+      alvo.
+    - **`<main>` ausente** nas 3 páginas institucionais (`/contato/`,
+      `/politica-de-privacidade/`, `/termos-de-uso/`) de TODA cidade —
+      usavam `<div>` no lugar, mesma classe de bug já documentada na
+      regra 12, mas nunca corrigida nessas 3 páginas especificamente.
+
+    **Corrigido definitivamente, não só nesta cidade**: `seoGeoAuditor.js`
+    agora varre recursivamente **todo** `index.html` dentro de `dist/`
+    (home + cada serviço + cada bairro + institucionais) e roda: título
+    com `"desentupidora"` + faixa de tamanho por tipo de página (40-60 pra
+    home, 40-80 pra serviço/bairro — nome de serviço/cidade composto
+    empurra o teto, documentado como tensão aceita na regra 2), meta
+    description com `"desentupidora"` + faixa 120-160, H1/1º parágrafo/
+    último H2 com a palavra-chave, `<main>` presente, e **todo `href`
+    interno de conteúdo termina com `/`** (exceto rotas de arquivo único
+    tipo `/site-markdown`). `[slug].astro` e a fórmula-padrão de
+    `server.cjs` foram reescritos com fallback de 2-3 níveis (versão longa
+    → versão média → nunca corta o nome do serviço/bairro/cidade em si)
+    pra caber na faixa em qualquer combinação real das 14 cidades
+    cadastradas. **Rodar `npm run audit` (ou `/api/build-city/:id`) depois
+    de QUALQUER mudança em `[slug].astro`, `Header.astro`, `Footer.astro`,
+    `Layout.astro` ou nas fórmulas de SEO de `server.cjs` — o score de
+    100% agora só é confiável porque cobre todas as páginas, não porque a
+    home passou.**
 
 ---
 

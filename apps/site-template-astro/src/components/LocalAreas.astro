@@ -13,7 +13,7 @@ const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
 
     <div class="bairros-grid" data-edit-tab="bairros">
       {bairros.map((bairrosName: string, idx: number) => (
-        <a href={`/${slugify(bairrosName)}`} class="bairro-chip">
+        <a href={`/${slugify(bairrosName)}/`} class="bairro-chip">
           <span class="pin-icon">📍</span>
           <span>Desentupidora em <strong id={`bairros.${idx}`} data-editor-id={`bairros.${idx}`}>{bairrosName}</strong> ({cidade})</span>
         </a>

@@ -20,7 +20,7 @@ const cidadeSlug = slugify(cidade);
       <ul>
         {services.map((service: any) => (
           <li>
-            <a href={`/${slugify(service.title)}-em-${cidadeSlug}`}>{service.title}</a>
+            <a href={`/${slugify(service.title)}-em-${cidadeSlug}/`}>{service.title}</a>
           </li>
         ))}
       </ul>
@@ -38,11 +38,11 @@ const cidadeSlug = slugify(cidade);
     <div class="container text-center">
       <p>© {new Date().getFullYear()} {empresaNome} - Todos os direitos reservados. Desentupidora em {cidade} {uf}.</p>
       <div class="footer-links">
-        <a href="/politica-de-privacidade">Política de Privacidade</a> | 
-        <a href="/termos-de-uso">Termos de Uso</a> | 
-        <a href="/contato">Contato</a>
+        <a href="/politica-de-privacidade/">Política de Privacidade</a> |
+        <a href="/termos-de-uso/">Termos de Uso</a> |
+        <a href="/contato/">Contato</a>
         {cityData.parceiros && cityData.parceiros.some((p: any) => p.status === 'ativo') && (
-          <> | <a href="/fora-da-area-de-cobertura">Fora da Área de Cobertura</a></>
+          <> | <a href="/fora-da-area-de-cobertura/">Fora da Área de Cobertura</a></>
         )}
       </div>
     </div>

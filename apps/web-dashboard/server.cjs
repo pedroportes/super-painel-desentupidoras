@@ -167,7 +167,7 @@ function syncCityToAstro(city) {
         // "Itabuna" (nomes curtos) mascaravam o bug. Ver golden rule 10 em
         // CLAUDE_CODE_GUIDE.md.
         metaTitle: city.metaTitle || buildDefaultMetaTitle(city.cidade, city.uf),
-        metaDescription: city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`,
+        metaDescription: city.metaDescription || `Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`,
         h1Title: city.h1Title || `Desentupidora em ${city.cidade} ${city.uf} 24h`,
         firstParagraphText: city.firstParagraph || `Precisando de uma desentupidora em ${city.cidade} ${city.uf} urgente? Nossa equipe especializada oferece atendimento emergencial 24 horas para desentupimento de esgoto, pias, vasos sanitários, ralos e limpeza de fossas sépticas em todos os bairros de ${city.cidade} e região, com garantia por escrito e o menor preço.`,
         lastH2Title: city.lastH2 || `Por que escolher a melhor Desentupidora em ${city.cidade} ${city.uf}?`
@@ -470,7 +470,7 @@ app.get('/api/preview/:id', (req, res) => {
   const footerContactTitle = city.footerContactTitle || `Contato Direto`;
 
   const metaTitle = city.metaTitle || buildDefaultMetaTitle(city.cidade, city.uf);
-  const metaDescription = city.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
+  const metaDescription = city.metaDescription || `Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em ${city.cidade} ${city.uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
   
   const schemaLocalBusiness = {
     "@context": "https://schema.org",

@@ -18,7 +18,7 @@ const cidadeSlug = slugify(cidade);
           <div class="service-icon">⚙️</div>
           <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>
           <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
-          <a href={`/${slugify(s.title)}-em-${cidadeSlug}`} class="service-link">
+          <a href={`/${slugify(s.title)}-em-${cidadeSlug}/`} class="service-link">
             Detalhes do Serviço →
           </a>
         </div>

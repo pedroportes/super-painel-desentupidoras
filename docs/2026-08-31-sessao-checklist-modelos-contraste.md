@@ -263,6 +263,50 @@ cidades não-Cloudflare.
 Detalhe técnico completo em [[CLAUDE_CODE_GUIDE]], seção "🏙️ Primeira
 cidade real na Render + bug de canonical no 1º deploy".
 
+## Achado do usuário: auditoria interna nunca checou página de bairro/serviço — bug em produção nas 13 cidades
+
+O usuário rodou uma extensão de SEO do navegador contra `/fundacao/` e
+`/oswaldo-cruz/` de São Caetano do Sul e achou 2 problemas reais: título
+com 73-77 caracteres e canonical "Canonicalised" (mismatch de barra final
+entre link interno e canonical). O `npm run audit` local tinha dado 100%
+segundos antes — porque **sempre auditou só a home**, nunca as páginas de
+serviço/bairro (a maioria real de um site).
+
+> [!bug] Investigação revelou 6 achados sistêmicos, presentes nas 13 cidades já publicadas
+> 1. Título de serviço estourando até 79 chars (nome do serviço já vinha
+>    prefixado "Desentupimento de" em `cities.json`, template duplicava
+>    "Desentupidora de" na frente).
+> 2. Meta description da home de TODA cidade sem `metaDescription`
+>    customizado dizia "Especialistas em **desentupimento**...", nunca
+>    "desentupidora" — keyword na description nunca tinha sido checada.
+> 3. Meta description de serviço/bairro curto abaixo do piso de 120 chars.
+> 4. Último H2 de página de serviço sem a palavra "desentupidora".
+> 5. Links internos pra bairro/serviço sem barra final
+>    (`href="/fundacao"`) enquanto o canonical da própria página usa barra
+>    final — exatamente o que a extensão do usuário sinalizou. 6
+>    componentes afetados.
+> 6. `<main>` ausente em `/contato/`, `/politica-de-privacidade/`,
+>    `/termos-de-uso/` de toda cidade (usavam `<div>`).
+
+> [!success] Corrigido de forma definitiva, não remendado
+> `seoGeoAuditor.js` agora varre **todo** `index.html` de `dist/`, não só
+> a home — com faixa de tamanho por tipo de página (40-60 home, 40-80
+> subpágina, calibrado contra as 14 cidades reais) e checagem de que todo
+> link interno termina em `/`. `audit_live_sites.cjs` (produção) ganhou
+> amostragem de 1 bairro + 1 serviço por cidade. Páginas da rede de
+> parceiros ficaram de fora de propósito (são desenhadas pra nunca repetir
+> template, não é bug).
+>
+> Replicado nas 13 cidades já publicadas seguindo a regra de ouro 10
+> (testado 1º só em São Caetano do Sul, confirmado, só então replicado):
+> todas rebuildadas (100% local) e redeployadas de verdade. Auditoria de
+> produção final: **14/14 cidades verdes**.
+
+Detalhe técnico completo (os 6 achados, a fórmula final de título/
+description) em [[CLAUDE_CODE_GUIDE]], seção "🚨 Auditoria interna sempre
+só checou a home", e em `checklist-pre-publicacao/SKILL.md`, regra de
+ouro 16.
+
 ## Pendências em aberto (ver guia pra detalhe)
 
 - [ ] Cores hardcoded fora da variável de tema (achado ao testar

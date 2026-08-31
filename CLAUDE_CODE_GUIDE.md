@@ -799,6 +799,80 @@ agêntica 3/3 — **isitagentready.com** 27/100, Nível 2 "Bot-Aware" (mesma
 faixa das outras cidades não-Cloudflare, robots.txt/sitemap/regras de bot de
 IA todos passando).
 
+### 🚨 Auditoria interna sempre só checou a home — bug estrutural em produção nas 13 cidades (31/08/2026)
+
+**Como foi achado**: o usuário rodou uma extensão de SEO do navegador
+(headings/canonical/title/description) contra `/fundacao/` e
+`/oswaldo-cruz/` de São Caetano do Sul e reportou 2 achados reais: título
+com 73-77 caracteres (estourando o teto de 60) e canonical marcado
+"Canonicalised" (a URL acessada, sem barra final, diferente do canonical,
+com barra final). O checklist interno (`npm run audit`) tinha dado 100%
+segundos antes — porque **sempre auditou só `dist/index.html`**, nunca as
+dezenas de páginas de serviço/bairro que são a maioria real do site.
+Investigação revelou que era **sistêmico, presente nas 13 cidades já
+publicadas**, não um bug isolado desta cidade nova. Achados reais:
+
+1. **Título de serviço/bairro estourando até 79 caracteres** —
+   `[slug].astro` colava `"Desentupidora de "` na frente do nome do
+   serviço, mas o nome do serviço em `cities.json` já vinha prefixado com
+   `"Desentupimento de"`/`"Desobstrução de"` (ex: resultado real:
+   *"Desentupidora de Desentupimento de Vaso Sanitário em Cachoeiro de
+   Itapemirim ES"*, 79 caracteres).
+2. **Meta description sem a palavra-chave `"desentupidora"`** — a
+   fórmula-padrão de `server.cjs` (usada pela home de toda cidade sem
+   `metaDescription` customizado — praticamente todas) dizia
+   *"Especialistas em **desentupimento** de esgoto..."*, nunca
+   "desentupidora". Esse check nunca existiu antes desta sessão — só
+   tamanho da description era verificado, nunca a palavra-chave dentro
+   dela.
+3. **Meta description de serviço/bairro abaixo do piso de 120** (chegava
+   a 96 caracteres pra serviço/bairro de nome curto, ex: "Pia" em Itabuna).
+4. **Último `<h2>` de página de serviço sem `"desentupidora"`** literal.
+5. **Links internos pra bairro/serviço sem barra final**
+   (`href="/fundacao"`) enquanto o canonical da própria página usa barra
+   final (`.../fundacao/`, formato padrão do build de diretório do
+   Astro/sitemap) — Google (ou a extensão do usuário) navegando pelo link
+   interno chega numa URL "diferente" do canonical, exatamente o que a
+   extensão sinalizou. 6 componentes afetados: `LocalAreas.astro`,
+   `ServicesGridV1-4.astro`, `Footer.astro`.
+6. **`<main>` ausente** nas 3 páginas institucionais
+   (`/contato/`, `/politica-de-privacidade/`, `/termos-de-uso/`) de TODA
+   cidade — usavam `<div>` no lugar (mesma classe de bug da regra de ouro
+   12, nunca corrigida nessas 3 páginas específicas).
+
+**Corrigido definitivamente, não só remendado**: `[slug].astro` reescrito
+com título/description usando degradação graciosa em 2-3 níveis (versão
+longa → versão sem UF/mais enxuta → nunca corta o nome real do
+serviço/bairro/cidade — isso seria dado errado, pior que um título alguns
+caracteres fora da faixa ideal) calibrada contra as 14 cidades reais
+cadastradas (script de verificação descartável rodado contra
+`cities.json` inteiro antes de aceitar a fórmula final). `seoGeoAuditor.js`
+(auditoria de build local) **reescrito pra varrer recursivamente TODO
+`index.html` dentro de `dist/`** — não só a home — checando título/H1/1º
+parágrafo/último H2 com a keyword, faixa de tamanho por tipo de página
+(40-60 home, 40-80 subpágina — ver regra de ouro 2 no
+`checklist-pre-publicacao/SKILL.md` pro porquê do teto maior), e todo
+`href` interno terminando em `/`. `audit_live_sites.cjs` (auditoria de
+produção) ganhou uma checagem por amostragem (1 bairro + 1 serviço por
+cidade, não as centenas de páginas — custo de rede) com o mesmo critério.
+Páginas da rede de parceiros (`/fora-da-area-de-cobertura/**`) foram
+explicitamente excluídas dessas checagens de keyword — são desenhadas de
+propósito pra nunca repetir o template padrão (ver comentário no topo de
+`[...partner].astro`), reprovar isso seria brigar com uma decisão de
+design deliberada contra "scaled content", não achar um bug.
+
+**Replicado pras 13 cidades já publicadas** (regra de ouro 10: testado
+primeiro só em São Caetano do Sul, confirmado 100% local + produção, só
+então replicado): `build-city` rodado nas 13, todas 100% no auditor local
+novo; `deploy-city` rodado nas 13, todas republicadas de verdade nos
+respectivos provedores (Vercel, Cloudflare Pages, Netlify); `
+audit_live_sites.cjs` rodado contra as 14 cidades (13 + São Caetano do
+Sul) no final — **14/14 verde**, incluindo a checagem por amostragem de
+bairro+serviço de cada uma.
+
+Detalhe completo (todos os achados, a fórmula final, os números exatos)
+em `.agents/skills/checklist-pre-publicacao/SKILL.md`, regra de ouro 16.
+
 ---
 
 ## 📜 Histórico de Correções (mais recente primeiro)

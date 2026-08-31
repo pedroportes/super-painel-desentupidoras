@@ -87,7 +87,7 @@ const pageSeo = partner
         <div class="container">
           <div class="breadcrumbs">
             <a href="/">Início</a> <span>›</span>
-            <a href="/fora-da-area-de-cobertura">Fora da Área de Cobertura</a> <span>›</span>
+            <a href="/fora-da-area-de-cobertura/">Fora da Área de Cobertura</a> <span>›</span>
             <strong>{partner.cidade}</strong>
           </div>
 
@@ -143,7 +143,7 @@ const pageSeo = partner
 
           <div class="hub-grid">
             {activePartners.map((p: any) => (
-              <a class="hub-card" href={`/fora-da-area-de-cobertura/${partnerSlug(p)}`}>
+              <a class="hub-card" href={`/fora-da-area-de-cobertura/${partnerSlug(p)}/`}>
                 <span class="hub-card-tag">{p.cidade}{p.uf ? ` - ${p.uf}` : ''}</span>
                 <h3>{p.nome}</h3>
                 <p>{(p.descricao || '').slice(0, 110)}{p.descricao && p.descricao.length > 110 ? '…' : ''}</p>

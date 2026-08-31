@@ -25,7 +25,7 @@ const cidadeSlug = slugify(cidade);
           </summary>
           <div class="accordion-body">
             <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
-            <a href={`/${slugify(s.title)}-em-${cidadeSlug}`} class="accordion-link">
+            <a href={`/${slugify(s.title)}-em-${cidadeSlug}/`} class="accordion-link">
               Ver detalhes completos e pedir orçamento →
             </a>
           </div>

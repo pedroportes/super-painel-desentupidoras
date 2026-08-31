@@ -50,11 +50,38 @@ let pageFaqs = [];
 
 if (props.type === 'service') {
   const serviceName = props.title;
-  pageSeo.metaTitle = `Desentupidora de ${serviceName} em ${cityData.cidade} ${cityData.uf} | Atendimento 24h`;
-  pageSeo.metaDescription = `Especialistas em ${serviceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Chegamos em 30 min, orçamento gratuito e atendimento sem quebrar piso. Plantão 24h!`;
-  pageSeo.h1Title = `Desentupidora de ${serviceName} em ${cityData.cidade} ${cityData.uf}`;
-  pageSeo.firstParagraph = `Problemas com entupimento? Nossa equipe é especializada em desentupidora de ${serviceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Oferecemos atendimento emergencial rápido, serviço 100% limpo sem quebrar azulejos, com garantia por escrito e orçamento gratuito na sua residência ou empresa.`;
-  pageSeo.lastH2 = `Por que somos a melhor opção para ${serviceName.toLowerCase()} em ${cityData.cidade}?`;
+  // 🚫 Regra de ouro (achado 31/08/2026, São Caetano do Sul): o metaTitle
+  // NÃO pode estourar 60 caracteres, mas o nome do serviço já vem prefixado
+  // com "Desentupimento de"/"Desobstrução de" em vários registros de
+  // cities.json — manter o prefixo completo E "Desentupidora de" na frente
+  // duplicava o conceito e estourava o limite pra qualquer cidade de nome
+  // composto (ex: "Desentupidora de Desentupimento de Vaso Sanitário em
+  // Cachoeiro de Itapemirim ES" = 79 caracteres). Corrigido com 2 passos:
+  // 1) tira o prefixo redundante do nome do serviço antes de recombinar;
+  // 2) se ainda estourar 60 com o UF, tenta de novo sem o UF (degradação
+  // graciosa, nunca corta o nome da cidade/bairro — isso seria dado errado,
+  // não só estética).
+  const shortServiceName = serviceName.replace(/^Desentupimento (de\s+)?/i, '').replace(/^Desobstru[cç][aã]o (de\s+)?/i, '');
+  const titleWithUf = `Desentupidora de ${shortServiceName} em ${cityData.cidade} ${cityData.uf}`;
+  const titleNoUf = `Desentupidora de ${shortServiceName} em ${cityData.cidade}`;
+  let serviceTitle = titleWithUf.length <= 60 ? titleWithUf : titleNoUf;
+  // Piso de 40 caracteres (regra de ouro 2): cidade curta ("Linhares") +
+  // serviço curto ("Esgoto") gera título de só 38 chars sem isso — achado
+  // real 31/08/2026 ao replicar o fix pras 13 cidades restantes. "24h" é
+  // fato real (toda cidade opera plantão 24h), nunca dado inventado.
+  if (serviceTitle.length < 40) serviceTitle += ' - Atendimento 24h';
+  pageSeo.metaTitle = serviceTitle;
+  // Mesma lógica de degradação graciosa do título: a versão "longa" cobre
+  // o piso de 120 caracteres (regra de ouro 2) até pra serviços de nome
+  // curto ("Pia" em cidade curta batia só 96 chars sem esse texto extra);
+  // se o serviço/cidade for muito comprido e estourar o teto de 160, cai
+  // pra uma versão mais enxuta em vez de cortar o nome do serviço/cidade.
+  const descLong = `Desentupidora especialista em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Atendimento rápido, visita técnica e orçamento gratuito. Plantão de emergência 24h!`;
+  const descMedium = `Desentupidora especialista em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Atendimento rápido e orçamento gratuito. Plantão 24h!`;
+  pageSeo.metaDescription = descLong.length <= 160 ? descLong : descMedium;
+  pageSeo.h1Title = titleWithUf;
+  pageSeo.firstParagraph = `Problemas com entupimento? Nossa equipe é especializada em desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Oferecemos atendimento emergencial rápido, serviço 100% limpo sem quebrar azulejos, com garantia por escrito e orçamento gratuito na sua residência ou empresa.`;
+  pageSeo.lastH2 = `Por que somos a melhor opção para desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade}?`;
   
   pageFaqs = [
     { question: `Vocês atendem emergência para ${serviceName.toLowerCase()} em ${cityData.cidade}?`, answer: `Sim! Nosso plantão é 24 horas. Chegamos na sua residência ou empresa em até 30 minutos em qualquer bairro de ${cityData.cidade}.` },
@@ -66,8 +93,28 @@ if (props.type === 'service') {
   ];
 } else if (props.type === 'neighborhood') {
   const bairroName = props.name;
-  pageSeo.metaTitle = `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf} | Atendimento 24h`;
-  pageSeo.metaDescription = `Precisando de desentupidora no bairro ${bairroName} em ${cityData.cidade} ${cityData.uf}? Atendimento emergencial 24h para esgoto, pias e ralos. Visita grátis e menor preço!`;
+  // 🚫 Regra de ouro (achado 31/08/2026, São Caetano do Sul): mesmo
+  // problema do bloco de serviço acima — bairro com nome composto
+  // (ex: "Jardim Santa Rita de Cássia") + cidade composta estourava 60
+  // caracteres fácil com o sufixo "| Atendimento 24h" (que não agrega
+  // nada ao SEO, só ocupa espaço). Removido o sufixo fixo; se mesmo assim
+  // passar de 60 com o UF, tenta de novo sem UF antes de aceitar o
+  // resultado — nunca corta o nome do bairro/cidade em si.
+  const titleWithUf = `Desentupidora em ${bairroName} - ${cityData.cidade} ${cityData.uf}`;
+  const titleNoUf = `Desentupidora em ${bairroName} - ${cityData.cidade}`;
+  let neighTitle = titleWithUf.length <= 60 ? titleWithUf : titleNoUf;
+  // Piso de 40 caracteres (regra de ouro 2) — mesmo achado do bloco de
+  // serviço acima, bairro curto + cidade curta (ex: "Araçá - Linhares ES")
+  // ficava com só 36 chars.
+  if (neighTitle.length < 40) neighTitle += ' - Atendimento 24h';
+  pageSeo.metaTitle = neighTitle;
+  // Mesma degradação graciosa do título: versão longa cobre o piso de 120
+  // (bairro/cidade curtos, ex: "BNH, Linhares" ficava só 96 chars sem esse
+  // texto extra); se bairro+cidade compostos estourarem o teto de 160, cai
+  // pra uma versão mais enxuta — nunca corta o nome do bairro/cidade.
+  const descLong = `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24h, visita técnica e orçamento 100% grátis, sem compromisso!`;
+  const descMedium = `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento 24h, visita e orçamento grátis!`;
+  pageSeo.metaDescription = descLong.length <= 160 ? descLong : descMedium;
   pageSeo.h1Title = `Desentupidora no ${bairroName}, ${cityData.cidade}: Atendimento Rápido no Seu Bairro`;
   pageSeo.firstParagraph = `Precisando de uma desentupidora no ${bairroName}, ${cityData.cidade}? A ${cityData.empresaNome} atende o bairro com técnicos que conhecem a região, visita técnica gratuita e orçamento fechado antes de começar qualquer serviço.`;
   pageSeo.lastH2 = `Por que escolher a ${cityData.empresaNome} no bairro ${bairroName}?`;

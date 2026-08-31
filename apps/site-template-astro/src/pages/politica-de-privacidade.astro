@@ -16,7 +16,7 @@ const seo = {
 <Layout {...cityData} seo={seo}>
   <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
     <Header {...cityData} />
-    
+    <main>
     <section class="internal-hero">
       <div class="container text-center">
         <h1>{seo.h1Title}</h1>
@@ -35,6 +35,7 @@ const seo = {
         <p>Os dados fornecidos são utilizados apenas para responder solicitações de orçamentos, realizar o serviço contratado e para fins de garantia do serviço prestado (conforme exigido por lei). Não compartilhamos suas informações com terceiros.</p>
       </div>
     </section>
+    </main>
 
     <Footer {...cityData} />
   </div>

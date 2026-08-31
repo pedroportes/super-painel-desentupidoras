@@ -1,24 +1,24 @@
 {
-  "cidade": "São Caetano do Sul",
+  "cidade": "Santa Bárbara d'Oeste",
   "estado": "São Paulo",
   "uf": "SP",
-  "populacao": "172.693",
-  "ddd": "11",
-  "whatsapp": "11994455667",
-  "telefoneFixo": "(11) 3500-0000",
-  "empresaNome": "Desentupidora Corporativa São Caetano do Sul",
+  "populacao": "189.456",
+  "ddd": "19",
+  "whatsapp": "19993221100",
+  "telefoneFixo": "(19) 4000-0000",
+  "empresaNome": "Desentupidora Técnica Santa Bárbara d'Oeste",
   "cnpj": "",
   "endereco": "",
-  "hospedagem": "render",
-  "deployUrl": "https://desentupidora-saocaetanodosul.onrender.com",
+  "hospedagem": "netlify",
+  "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
   "paletaCores": "corporativo-verde-cinza",
-  "logoUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
+  "logoUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
-  "heroImage": "/images/saocaetanodosul/desentupidora-saocaetanodosul-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+  "heroImage": "/images/santabarbaradoeste/desentupidora-santabarbaradoeste-tecnico-desentupimento.webp",
   "variants": {
-    "hero": "HeroV2",
-    "services": "ServicesGridV2",
+    "hero": "HeroV3",
+    "services": "ServicesGridV3",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,114 +27,111 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em São Caetano do Sul SP 24h",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em São Caetano do Sul SP. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora Corporativa e Predial em São Caetano do Sul SP",
-    "firstParagraphText": "Uma desentupidora em São Caetano do Sul preparada para a realidade de um município com apenas 15 km², o menor em área da Grande São Paulo: altíssima densidade de prédios, condomínios verticais e sedes empresariais concentrados lado a lado, exigindo equipamento técnico e resposta rápida em qualquer bairro.",
-    "lastH2Title": "Por que empresas e condomínios contratam a desentupidora corporativa de São Caetano do Sul?"
+    "metaTitle": "Desentupidora em Santa Bárbara d'Oeste SP 24h",
+    "metaDescription": "Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em Santa Bárbara d'Oeste SP. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora Técnica Especializada em Santa Bárbara d'Oeste SP",
+    "firstParagraphText": "Uma desentupidora em Santa Bárbara d'Oeste que investiga antes de agir: a cidade foi fundada em 1869 e tem bairros com tubulação de décadas bem diferentes entre si, do Centro histórico ao Distrito Industrial. Por isso usamos vídeo inspeção pra identificar a causa real do entupimento antes de qualquer intervenção.",
+    "lastH2Title": "A desentupidora técnica que investiga a causa real em Santa Bárbara d'Oeste"
   },
-  "aboutCityTitle": "Estrutura de Atendimento Corporativo e Predial em São Caetano do Sul - SP",
-  "aboutCityText": "São Caetano do Sul nasceu em 1877 como núcleo colonial de 28 famílias imigrantes vindas de Treviso, na Itália, e hoje é conhecida por dois recordes: maior IDH Municipal do Brasil (0,862, classificado como muito alto pelo PNUD) e um dos menores territórios entre os municípios brasileiros, com cerca de 15 km². Essa combinação gerou uma das maiores densidades populacionais do país, com prédios comerciais e condomínios residenciais verticais concentrados em poucos quilômetros quadrados — a cidade também integra o polo industrial do ABC Paulista, sediando desde 1930 o complexo fabril da General Motors, a primeira fábrica da montadora fora dos Estados Unidos. Para atender síndicos, administradoras e empresas nesse cenário adensado, mantemos equipes técnicas com equipamento de hidrojateamento de alta pressão e vídeo inspeção, aptas a chegar rápido em qualquer prédio ou galpão da cidade.",
+  "aboutCityTitle": "Diagnóstico Técnico Especializado em Santa Bárbara d'Oeste - SP",
+  "aboutCityText": "Santa Bárbara d'Oeste é um dos municípios mais antigos da região de Campinas, emancipada em 1869, e viveu décadas de forte industrialização: sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro, o Romi-Isetta, foi fabricado na cidade. Esse histórico industrial deixou a rede de esgoto com idades muito diferentes conforme o bairro — trechos centenários no Centro e Cidade Nova convivem com redes mais novas em bairros como Distrito Industrial. Por isso, nossa equipe usa vídeo inspeção antes de intervir: identificamos raiz de árvore, colapso de tubulação antiga, acúmulo de gordura industrial ou objeto preso, e explicamos ao cliente exatamente o que foi encontrado antes de cobrar qualquer coisa.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Olímpico",
-    "Nova Gerty",
-    "Santa Paula",
-    "Prosperidade",
-    "Jardim São Caetano",
-    "Cerâmica",
-    "Barcelona",
-    "Santo Antônio",
-    "São José",
-    "Boa Vista",
-    "Fundação",
-    "Mauá",
-    "Oswaldo Cruz",
-    "Santa Maria"
+    "Jardim Europa",
+    "Cidade Nova",
+    "Pérola",
+    "Vila Mollon IV",
+    "Linópolis",
+    "Jardim São Francisco",
+    "Jardim Souza Queiroz",
+    "Jardim Santa Rita de Cássia",
+    "Distrito Industrial",
+    "Olaria",
+    "Cruzeiro do Sul"
   ],
   "services": [
     {
-      "id": "predial",
-      "title": "Desentupimento Predial e Condominial",
-      "description": "Atendimento de urgência em prumadas, caixas de esgoto e redes pluviais dos edifícios verticais que dominam o território compacto de São Caetano do Sul.",
-      "icon": "🏢"
-    },
-    {
-      "id": "gordura",
-      "title": "Limpeza de Caixa de Gordura Comercial",
-      "description": "Higienização e descarte ecológico com certificação ambiental para restaurantes e empresas do centro comercial da cidade.",
-      "icon": "🛢️"
-    },
-    {
-      "id": "hidrojato",
-      "title": "Hidrojateamento de Alta Pressão",
-      "description": "Desobstrução de tubulações industriais de grande diâmetro, incluindo galpões do polo ABC, com bombas de alta performance.",
-      "icon": "🌊"
+      "id": "inspecao",
+      "title": "Vídeo Inspeção de Tubulação",
+      "description": "Câmera de alta resolução identifica a causa exata do entupimento antes de qualquer intervenção — essencial nas redes mais antigas do Centro.",
+      "icon": "📹"
     },
     {
       "id": "esgoto",
-      "title": "Desobstrução de Redes de Esgoto",
-      "description": "Equipamentos rotativos industriais que eliminam raízes, gordura e incrustações em tubulações prediais e comerciais.",
-      "icon": "⚙️"
+      "title": "Desentupimento de Esgoto",
+      "description": "Método escolhido conforme o diagnóstico: rotativo, hidrojato ou combinação dos dois.",
+      "icon": "🚿"
     },
     {
-      "id": "fossa",
-      "title": "Esgotamento de Fossas e Efluentes",
-      "description": "Caminhões auto-vácuo licenciados pelos órgãos ambientais para coleta e transporte seguro de efluentes.",
-      "icon": "🚛"
+      "id": "pia",
+      "title": "Desentupimento de Pia e Ralo",
+      "description": "Diagnóstico rápido para obstruções domésticas simples, com explicação da causa ao morador.",
+      "icon": "🚰"
     },
     {
-      "id": "inspecao",
-      "title": "Vídeo Inspeção Robotizada",
-      "description": "Diagnóstico por câmera de alta resolução para identificar trincas e pontos exatos de obstrução em prédios antigos e novos.",
-      "icon": "📹"
+      "id": "reparo",
+      "title": "Reparo de Tubulação Colapsada",
+      "description": "Identificação de trechos danificados por décadas de uso que causam entupimento recorrente.",
+      "icon": "🔧"
+    },
+    {
+      "id": "hidrojato",
+      "title": "Hidrojateamento Técnico",
+      "description": "Pressão ajustada conforme o material e a idade da tubulação identificados na inspeção.",
+      "icon": "🌊"
+    },
+    {
+      "id": "laudo",
+      "title": "Laudo Técnico de Diagnóstico",
+      "description": "Relatório com fotos e vídeo do problema encontrado, útil para laudos de imóvel e seguros.",
+      "icon": "📄"
     }
   ],
   "faqs": [
     {
-      "question": "Vocês atendem emergências 24 horas para condomínios e empresas em São Caetano do Sul?",
-      "answer": "Sim! Nosso plantão corporativo opera 24 horas por dia, 7 dias por semana, com equipes preparadas para chamados urgentes."
+      "question": "A vídeo inspeção em Santa Bárbara d'Oeste tem custo separado?",
+      "answer": "Não, está incluída na visita técnica gratuita sempre que for necessária para o diagnóstico."
     },
     {
-      "question": "O território pequeno de São Caetano do Sul ajuda no tempo de chegada?",
-      "answer": "Sim — com apenas 15 km² de área, conseguimos chegar em qualquer bairro da cidade, do Olímpico à Fundação, em poucos minutos."
+      "question": "Por que o entupimento é recorrente em bairros mais antigos como o Centro?",
+      "answer": "Trechos de tubulação com mais de 50 anos são comuns na região central, e costumam ter colapsos parciais ou raízes infiltradas que a inspeção por câmera identifica com precisão."
     },
     {
-      "question": "A visita técnica e vistoria no local é gratuita?",
-      "answer": "Sim, a visita técnica para diagnóstico e elaboração de proposta comercial é 100% gratuita e sem compromisso."
+      "question": "Vocês emitem laudo técnico em Santa Bárbara d'Oeste?",
+      "answer": "Sim, entregamos laudo com registro fotográfico e em vídeo do problema encontrado, útil para laudo de imóvel ou acionamento de seguro."
     },
     {
-      "question": "A empresa emite nota fiscal e laudo técnico para condomínios em São Caetano do Sul?",
-      "answer": "Sim, emitimos nota fiscal eletrônica, laudo técnico de vistoria e certificado de garantia para prestação de contas de síndicos e administradoras."
+      "question": "Vocês atendem indústrias e galpões do Distrito Industrial?",
+      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial."
     },
     {
-      "question": "Vocês atendem galpões industriais na região do complexo GM/ABC Paulista?",
-      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial típico do polo ABC."
+      "question": "O diagnóstico técnico demora mais que um desentupimento comum?",
+      "answer": "Leva alguns minutos a mais, mas evita retrabalho e intervenção no trecho errado da tubulação."
     },
     {
-      "question": "Precisa interditar áreas ou quebrar pisos para desentupir prédios altos?",
-      "answer": "Não. Nossos equipamentos rotativos e de hidrojateamento atuam diretamente pelo interior das prumadas, sem causar sujeira ou quebra-quebra nas áreas comuns."
+      "question": "A visita técnica com inspeção é gratuita em Santa Bárbara d'Oeste?",
+      "answer": "Sim, sempre gratuita e sem compromisso."
     }
   ],
   "testimonials": [
     {
-      "name": "Condomínio Edifício Olímpico",
-      "neighborhood": "Olímpico - São Caetano do Sul",
+      "name": "Eng. Rogério Fadel",
+      "neighborhood": "Distrito Industrial - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Prumada entupida um domingo à noite e resolveram com hidrojato sem sujar as áreas comuns do prédio. Muito técnicos."
+      "text": "Fizeram a inspeção por câmera no galpão e mostraram exatamente onde estava o colapso na tubulação. Muito mais profissional que só tentar."
     },
     {
-      "name": "Dra. Fernanda Vieira (Clínica Odontológica)",
-      "neighborhood": "Santa Paula - São Caetano do Sul",
+      "name": "Síndica Marli Terezinha",
+      "neighborhood": "Centro - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Atendimento rápido e higiênico. Resolveram o refluxo na rede de esgoto sem interromper o atendimento aos pacientes."
+      "text": "Prédio antigo do Centro, cano de décadas, e eles descobriram a raiz de árvore com a câmera antes de fazer qualquer coisa."
     },
     {
-      "name": "Restaurante Cantina Nova Gerty",
-      "neighborhood": "Nova Gerty - São Caetano do Sul",
+      "name": "Douglas Piovezan",
+      "neighborhood": "Jardim Europa - Santa Bárbara d'Oeste",
       "rating": 5,
-      "text": "Limpeza da caixa de gordura com toda a documentação ambiental. Equipe pontual e nota fiscal certinha."
+      "text": "Entupia toda semana e ninguém sabia por quê. Com a vídeo inspeção acharam o problema na hora e ainda me deram o laudo."
     }
   ]
 }

@@ -16,7 +16,7 @@ const seo = {
 <Layout {...cityData} seo={seo}>
   <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
     <Header {...cityData} />
-    
+    <main>
     <section class="internal-hero">
       <div class="container text-center">
         <h1>{seo.h1Title}</h1>
@@ -35,6 +35,7 @@ const seo = {
         <p>Os materiais no site da {cityData.empresaNome} são fornecidos 'como estão'. Não oferecemos garantias, expressas ou implícitas, e, por este meio, isentamo-nos e negamos todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização.</p>
       </div>
     </section>
+    </main>
 
     <Footer {...cityData} />
   </div>
