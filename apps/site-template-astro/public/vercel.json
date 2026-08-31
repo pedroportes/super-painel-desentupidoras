@@ -9,42 +9,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/interlagos",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/conceicao",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/novo-horizonte",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/avisos",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/araca",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/bnh",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/juparana",
-      "destination": "/",
-      "permanent": true
-    }
   ]
 }

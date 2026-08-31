@@ -41,20 +41,20 @@ Princípio central (definido pelo Pedro): não procurar a cidade com menos conco
 
 ### Top 12 atual — Nota Oportunidade Parcial (só população × saneamento, sem concorrência ainda)
 
-| # | Cidade | UF | População | Saneamento real | Nota |
-|---|--------|----|-----------|------------------|------|
-| 1 | Cachoeiro de Itapemirim | ES | 198.342 | 93,7% | 185.787 |
-| 2 | Guarapuava | PR | 189.630 | 96,0% | 182.083 |
-| 3 | Santa Bárbara d'Oeste | SP | 189.456 | 95,6% | 181.044 |
-| 4 | Itabuna | BA | 196.344 | 89,8% | 176.219 |
-| 5 | São Caetano do Sul | SP | 172.693 | 95,9% | 165.647 |
-| 6 | Poços de Caldas | MG | 172.339 | 95,0% | 163.739 |
-| 7 | Ferraz de Vasconcelos | SP | 186.479 | 86,8% | 161.901 |
-| 8 | Jaraguá do Sul | SC | 199.519 | 78,2% | 156.044 |
-| 9 | Pindamonhangaba | SP | 172.681 | 90,3% | 155.983 |
-| 10 | Fazenda Rio Grande | PR | 165.943 | 89,7% | 148.851 |
-| 11 | Linhares | ES | 183.797 | 80,6% | 148.214 |
-| 12 | Mogi Guaçu | SP | 160.318 | 91,5% | 146.659 |
+| # | Cidade | UF | População | Saneamento real | Nota | Status |
+|---|--------|----|-----------|------------------|------|--------|
+| 1 | Cachoeiro de Itapemirim | ES | 198.342 | 93,7% | 185.787 | ✅ cadastrada |
+| 2 | Guarapuava | PR | 189.630 | 96,0% | 182.083 | ✅ cadastrada |
+| 3 | Santa Bárbara d'Oeste | SP | 189.456 | 95,6% | 181.044 | ✅ cadastrada |
+| 4 | Itabuna | BA | 196.344 | 89,8% | 176.219 | ✅ cadastrada |
+| 5 | São Caetano do Sul | SP | 172.693 | 95,9% | 165.647 | ✅ cadastrada 31/08/2026 (Render) |
+| 6 | Poços de Caldas | MG | 172.339 | 95,0% | 163.739 | ✅ cadastrada |
+| 7 | Ferraz de Vasconcelos | SP | 186.479 | 86,8% | 161.901 | pendente |
+| 8 | Jaraguá do Sul | SC | 199.519 | 78,2% | 156.044 | pendente |
+| 9 | Pindamonhangaba | SP | 172.681 | 90,3% | 155.983 | pendente |
+| 10 | Fazenda Rio Grande | PR | 165.943 | 89,7% | 148.851 | pendente |
+| 11 | Linhares | ES | 183.797 | 80,6% | 148.214 | ✅ cadastrada |
+| 12 | Mogi Guaçu | SP | 160.318 | 91,5% | 146.659 | pendente |
 
 ⚠️ Essa lista ainda não considera concorrência — cidades com muitos concorrentes fortes podem cair no ranking final quando o dado de SERP/Google Maps entrar.
 

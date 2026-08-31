@@ -1737,5 +1737,138 @@
     "auditScore": 100,
     "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
     "lastDeployAt": "2026-08-31T13:27:44.633Z"
+  },
+  {
+    "id": "saocaetanodosul",
+    "cidade": "São Caetano do Sul",
+    "uf": "SP",
+    "populacao": "172.693",
+    "modeloTemplate": "corporativo-empresarial",
+    "status": "ativo",
+    "hospedagem": "render",
+    "paletaCores": "corporativo-verde-cinza",
+    "heroVariant": "HeroV2",
+    "servicesVariant": "ServicesGridV2",
+    "dominio": "desentupidorasaocaetanodosul.com.br",
+    "whatsapp": "11994455667",
+    "telefoneFixo": "(11) 3500-0000",
+    "empresaNome": "Desentupidora Corporativa São Caetano do Sul",
+    "cnpj": "",
+    "endereco": "",
+    "h1Title": "Desentupidora Corporativa e Predial em São Caetano do Sul SP",
+    "firstParagraph": "Uma desentupidora em São Caetano do Sul preparada para a realidade de um município com apenas 15 km², o menor em área da Grande São Paulo: altíssima densidade de prédios, condomínios verticais e sedes empresariais concentrados lado a lado, exigindo equipamento técnico e resposta rápida em qualquer bairro.",
+    "ctaButtonText": "Solicitar Atendimento Corporativo",
+    "lastH2": "Por que empresas e condomínios contratam a desentupidora corporativa de São Caetano do Sul?",
+    "aboutCityTitle": "Estrutura de Atendimento Corporativo e Predial em São Caetano do Sul - SP",
+    "aboutCityText": "São Caetano do Sul nasceu em 1877 como núcleo colonial de 28 famílias imigrantes vindas de Treviso, na Itália, e hoje é conhecida por dois recordes: maior IDH Municipal do Brasil (0,862, classificado como muito alto pelo PNUD) e um dos menores territórios entre os municípios brasileiros, com cerca de 15 km². Essa combinação gerou uma das maiores densidades populacionais do país, com prédios comerciais e condomínios residenciais verticais concentrados em poucos quilômetros quadrados — a cidade também integra o polo industrial do ABC Paulista, sediando desde 1930 o complexo fabril da General Motors, a primeira fábrica da montadora fora dos Estados Unidos. Para atender síndicos, administradoras e empresas nesse cenário adensado, mantemos equipes técnicas com equipamento de hidrojateamento de alta pressão e vídeo inspeção, aptas a chegar rápido em qualquer prédio ou galpão da cidade.",
+    "bairros": [
+      "Centro",
+      "Olímpico",
+      "Nova Gerty",
+      "Santa Paula",
+      "Prosperidade",
+      "Jardim São Caetano",
+      "Cerâmica",
+      "Barcelona",
+      "Santo Antônio",
+      "São José",
+      "Boa Vista",
+      "Fundação",
+      "Mauá",
+      "Oswaldo Cruz",
+      "Santa Maria"
+    ],
+    "services": [
+      {
+        "id": "predial",
+        "title": "Desentupimento Predial e Condominial",
+        "description": "Atendimento de urgência em prumadas, caixas de esgoto e redes pluviais dos edifícios verticais que dominam o território compacto de São Caetano do Sul.",
+        "icon": "🏢"
+      },
+      {
+        "id": "gordura",
+        "title": "Limpeza de Caixa de Gordura Comercial",
+        "description": "Higienização e descarte ecológico com certificação ambiental para restaurantes e empresas do centro comercial da cidade.",
+        "icon": "🛢️"
+      },
+      {
+        "id": "hidrojato",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Desobstrução de tubulações industriais de grande diâmetro, incluindo galpões do polo ABC, com bombas de alta performance.",
+        "icon": "🌊"
+      },
+      {
+        "id": "esgoto",
+        "title": "Desobstrução de Redes de Esgoto",
+        "description": "Equipamentos rotativos industriais que eliminam raízes, gordura e incrustações em tubulações prediais e comerciais.",
+        "icon": "⚙️"
+      },
+      {
+        "id": "fossa",
+        "title": "Esgotamento de Fossas e Efluentes",
+        "description": "Caminhões auto-vácuo licenciados pelos órgãos ambientais para coleta e transporte seguro de efluentes.",
+        "icon": "🚛"
+      },
+      {
+        "id": "inspecao",
+        "title": "Vídeo Inspeção Robotizada",
+        "description": "Diagnóstico por câmera de alta resolução para identificar trincas e pontos exatos de obstrução em prédios antigos e novos.",
+        "icon": "📹"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Vocês atendem emergências 24 horas para condomínios e empresas em São Caetano do Sul?",
+        "answer": "Sim! Nosso plantão corporativo opera 24 horas por dia, 7 dias por semana, com equipes preparadas para chamados urgentes."
+      },
+      {
+        "question": "O território pequeno de São Caetano do Sul ajuda no tempo de chegada?",
+        "answer": "Sim — com apenas 15 km² de área, conseguimos chegar em qualquer bairro da cidade, do Olímpico à Fundação, em poucos minutos."
+      },
+      {
+        "question": "A visita técnica e vistoria no local é gratuita?",
+        "answer": "Sim, a visita técnica para diagnóstico e elaboração de proposta comercial é 100% gratuita e sem compromisso."
+      },
+      {
+        "question": "A empresa emite nota fiscal e laudo técnico para condomínios em São Caetano do Sul?",
+        "answer": "Sim, emitimos nota fiscal eletrônica, laudo técnico de vistoria e certificado de garantia para prestação de contas de síndicos e administradoras."
+      },
+      {
+        "question": "Vocês atendem galpões industriais na região do complexo GM/ABC Paulista?",
+        "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial típico do polo ABC."
+      },
+      {
+        "question": "Precisa interditar áreas ou quebrar pisos para desentupir prédios altos?",
+        "answer": "Não. Nossos equipamentos rotativos e de hidrojateamento atuam diretamente pelo interior das prumadas, sem causar sujeira ou quebra-quebra nas áreas comuns."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Condomínio Edifício Olímpico",
+        "neighborhood": "Olímpico - São Caetano do Sul",
+        "rating": 5,
+        "text": "Prumada entupida um domingo à noite e resolveram com hidrojato sem sujar as áreas comuns do prédio. Muito técnicos."
+      },
+      {
+        "name": "Dra. Fernanda Vieira (Clínica Odontológica)",
+        "neighborhood": "Santa Paula - São Caetano do Sul",
+        "rating": 5,
+        "text": "Atendimento rápido e higiênico. Resolveram o refluxo na rede de esgoto sem interromper o atendimento aos pacientes."
+      },
+      {
+        "name": "Restaurante Cantina Nova Gerty",
+        "neighborhood": "Nova Gerty - São Caetano do Sul",
+        "rating": 5,
+        "text": "Limpeza da caixa de gordura com toda a documentação ambiental. Equipe pontual e nota fiscal certinha."
+      }
+    ],
+    "parceiros": [],
+    "auditScore": 100,
+    "logoUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
+    "faviconUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
+    "heroImage": "/images/saocaetanodosul/desentupidora-saocaetanodosul-tecnico-desentupimento.webp",
+    "deployUrl": "https://desentupidora-saocaetanodosul.onrender.com",
+    "lastDeployAt": "2026-08-31T14:27:17.167Z",
+    "renderServiceId": "srv-daaot6p42hec73b4o97g"
   }
 ]

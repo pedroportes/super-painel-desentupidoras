@@ -65,6 +65,13 @@ nunca se repetir.
    real (nunca recalcular), e sempre confirmar que esse campo realmente
    chega até o Astro (`cityConfig.json`) — já existiu bug de
    `syncCityToAstro()` simplesmente esquecer de repassar esse campo.
+   **Achado real 31/08/2026 (São Caetano do Sul, 1ª cidade Render)**: o 1º
+   deploy de QUALQUER cidade nova builda o site antes de a URL real
+   existir (é a resposta do próprio deploy que revela a URL) — `server.cjs`
+   / `/api/deploy-city/:id` agora detecta isso (URL real ≠ URL usada no
+   build) e refaz build+deploy uma 2ª vez com a URL certa. Sempre confirmar
+   com `curl` (cache-busting) que canonical/`og:url`/`schema.url` batem com
+   a URL real, mesmo depois de um deploy "de sucesso".
 7. **Nome do projeto na nuvem ≠ subdomínio público.** Cloudflare Pages
    (nome do projeto vs `.pages.dev`) e potencialmente outros provedores
    guardam esses dois valores separados. Nunca derivar o nome do projeto a

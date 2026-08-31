@@ -224,6 +224,45 @@ cidade — evita precisar de um token do GitHub à parte.
 Detalhe técnico completo (schema da API, ordem das chamadas) em
 [[CLAUDE_CODE_GUIDE]], seção "🎨 Render — 4º provedor".
 
+## São Caetano do Sul-SP: 1ª cidade real na Render + bug de canonical corrigido
+
+Nova cidade cadastrada usando o modelo `corporativo-empresarial` (ainda
+inédito em produção) e a hospedagem Render de verdade (não mais só o teste
+descartável). Escolhida pelo ranking da planilha
+`BANCO_CIDADES_DESENTUPIDORAS_2026` (posição #5, ver
+[[mapa-oportunidades-expansao]]) — perfil real da cidade bate bem com o
+modelo corporativo: 15 km² (um dos menores territórios do Brasil), maior
+IDH Municipal do país, altíssima densidade de prédios/condomínios, sede da
+GM desde 1930. Fatos e os 15 bairros confirmados via WebSearch/Wikipédia.
+
+> [!bug] Bug real encontrado: canonical do 1º deploy apontava pro domínio
+> fake
+> O 1º build de qualquer cidade nova roda **antes** de a URL real de
+> deploy existir (é a própria resposta do deploy que revela a URL) — e o
+> código nunca refazia esse build depois. Pra Render isso significava
+> canonical/`og:url`/schema `"url"` publicados apontando pro domínio fake
+> em `city.dominio` (nunca registrado de verdade), violando a regra de
+> ouro 6. Provavelmente já afetava o 1º deploy de qualquer cidade em
+> qualquer provedor, mascarado nos outros 3 porque a fórmula de fallback
+> geralmente acerta a URL por coincidência de padrão.
+
+> [!success] Corrigido em `server.cjs`
+> `/api/deploy-city/:id` agora compara a URL real devolvida pelo deploy
+> com a que foi usada no build — se forem diferentes (sempre no 1º deploy
+> de uma cidade nova), refaz `syncCityToAstro()` + build + deploy uma 2ª
+> vez, já com a URL certa. Testado nesta própria cidade: 1º deploy saiu
+> com canonical errado, 2º (pós-fix) saiu com canonical/`og:url`/`schema.url`
+> todos batendo com a URL real — confirmado via `curl` com cache-busting.
+
+**Checklist rodado, tudo verde**: build local 100/100, `curl` confirmando
+status 200 de home/CSS/imagem, `<main>` presente, heading sem pular nível,
+WhatsApp com DDI. Validação externa: PageSpeed mobile 70/95/100/100 (3/3
+agêntico) e isitagentready.com 27/100 Nível 2 — mesma faixa das outras
+cidades não-Cloudflare.
+
+Detalhe técnico completo em [[CLAUDE_CODE_GUIDE]], seção "🏙️ Primeira
+cidade real na Render + bug de canonical no 1º deploy".
+
 ## Pendências em aberto (ver guia pra detalhe)
 
 - [ ] Cores hardcoded fora da variável de tema (achado ao testar

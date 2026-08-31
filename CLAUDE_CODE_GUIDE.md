@@ -749,6 +749,56 @@ conteúdo correto.
 (API Key da Render + id do workspace, via `GET /v1/owners`). Configurável
 também pela UI em "Hospedagem & Chaves API".
 
+### 🏙️ Primeira cidade real na Render + bug de canonical no 1º deploy (31/08/2026)
+
+**São Caetano do Sul-SP**, publicada com o modelo `corporativo-empresarial`
+(ainda não usado em produção até então) e hospedagem Render — 1ª cidade de
+verdade no provedor (o teste anterior usou uma cidade fictícia descartável).
+Escolhida a partir do ranking da planilha `BANCO_CIDADES_DESENTUPIDORAS_2026`
+(ver [[mapa-oportunidades-expansao]]): posição #5, a próxima ainda não
+cadastrada. Modelo `corporativo-empresarial` combina bem com o perfil real da
+cidade: 15 km² (um dos menores territórios do Brasil em área), maior IDH
+Municipal do país (0,862), altíssima densidade de prédios/condomínios
+verticais, sede do complexo fabril da GM desde 1930 (1ª fábrica da montadora
+fora dos EUA) — fundada em 1877 por 28 famílias imigrantes de Treviso,
+Itália. Fatos confirmados via WebSearch/Wikipédia, nunca por memória (mesma
+regra dos bairros). Os 15 bairros também vieram da Wikipédia
+(`Lista de bairros de São Caetano do Sul`).
+
+**Bug real encontrado e corrigido**: o canonical/`og:url`/schema `"url"`
+publicados no 1º deploy apontavam pro domínio fake em `city.dominio`
+(`desentupidorasaocaetanodosul.com.br`, que não existe/não tem DNS), não pra
+URL real (`https://desentupidora-saocaetanodosul.onrender.com`) — violação
+direta da regra de ouro 6. Causa raiz: `/api/deploy-city/:id` sempre builda o
+site **antes** de saber a URL real (a própria resposta do deploy é quem
+revela a URL), e nunca refazia esse build depois — `Layout.astro` cai então
+no cálculo por fórmula, e a fórmula não tinha nenhum branch pra `hospedagem:
+'render'`, caindo direto no fallback de `dominio`. Esse bug **provavelmente
+já afetava o 1º deploy de qualquer cidade nova em qualquer provedor**
+(mascarado nos outros 3 porque a fórmula por nome geralmente acerta a URL
+real por coincidência de padrão, exceto quando o provedor troca o subdomínio
+por colisão de nome — o cenário que a própria regra 6 já alertava).
+**Corrigido** em `server.cjs` (`/api/deploy-city/:id`): depois do deploy,
+compara a URL real retornada com a que foi usada nesse build — se forem
+diferentes (sempre no 1º deploy de uma cidade nova), refaz
+`syncCityToAstro()` + build + deploy uma 2ª vez, agora com a URL certa já
+conhecida, e só então considera o resultado final. Testado nessa própria
+cidade: 1º deploy saiu com canonical errado, 2º deploy (depois do fix, sem
+recriar o serviço — reaproveitou `renderServiceId`) saiu com canonical, `og:url`
+e `schema.url` todos batendo com a URL real, confirmado via `curl` com
+cache-busting.
+
+**Checklist rodado, tudo verde**: build local 100/100 no auditor interno
+(`npm run audit`, corrigiu no processo um último-H2 sem a palavra
+"desentupidora"), `curl` confirmando status 200 de home/CSS/imagem,
+`<main>` presente, sequência de heading sem pular nível, WhatsApp formatado
+com DDI (`5511994455667`). Validação externa: **PageSpeed Insights**
+(mobile) Desempenho 70 · Acessibilidade 95 (mesmo achado de contraste já
+documentado, não é bug novo) · Boas Práticas 100 · SEO 100 · Navegação
+agêntica 3/3 — **isitagentready.com** 27/100, Nível 2 "Bot-Aware" (mesma
+faixa das outras cidades não-Cloudflare, robots.txt/sitemap/regras de bot de
+IA todos passando).
+
 ---
 
 ## 📜 Histórico de Correções (mais recente primeiro)

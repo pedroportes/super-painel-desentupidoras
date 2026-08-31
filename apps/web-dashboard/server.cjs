@@ -1013,13 +1013,21 @@ app.post('/api/deploy-city/:id', async (req, res) => {
     return res.status(404).json({ error: 'Cidade não encontrada' });
   }
 
+  // URL usada pra gerar o canonical/og:url/schema no build ANTES desse
+  // deploy rodar — pode estar vazia (cidade nova, 1º deploy) ou desatualizada
+  // (provedor trocou o subdomínio por colisão de nome). Comparada depois do
+  // deploy real pra decidir se precisa de um 2º build (ver comentário abaixo).
+  const deployUrlBeforeThisDeploy = city.deployUrl || '';
+
   syncCityToAstro(city);
 
-  const buildResult = await new Promise((resolve) => {
+  const runBuild = () => new Promise((resolve) => {
     exec('npm run build', { cwd: ASTRO_DIR }, (error, stdout, stderr) => {
       resolve({ error, output: stdout + '\n' + stderr });
     });
   });
+
+  const buildResult = await runBuild();
 
   if (buildResult.error) {
     return res.json({
@@ -1030,7 +1038,7 @@ app.post('/api/deploy-city/:id', async (req, res) => {
   }
 
   const distDir = path.join(ASTRO_DIR, 'dist');
-  const deployResult = await deployCitySite(city, settings, distDir);
+  let deployResult = await deployCitySite(city, settings, distDir);
 
   if (!deployResult.success) {
     // Falha real: não altera status/score da cidade para não fingir que foi publicada.
@@ -1053,6 +1061,36 @@ app.post('/api/deploy-city/:id', async (req, res) => {
   if (deployResult.renderServiceId) {
     city.renderServiceId = deployResult.renderServiceId;
   }
+
+  // 🚫 Regra de ouro 6: canonical/og:url/schema publicados têm que ser a
+  // URL REAL de deploy, nunca uma "calculada por fórmula". Bug real achado
+  // 31/08/2026 (1ª cidade Render, São Caetano do Sul): o 1º build de uma
+  // cidade nova roda ANTES da URL real existir (é a própria resposta do
+  // deploy que revela a URL), então o HTML publicado nesse 1º passe sempre
+  // carrega o canonical calculado por `Layout.astro` (fórmula por provedor,
+  // ou o domínio fake em `dominio` pros provedores sem fórmula própria —
+  // caso do Render, que caía direto nisso). Se a URL real for diferente da
+  // usada nesse 1º build (sempre no 1º deploy de uma cidade, e também
+  // quando o provedor troca o subdomínio por colisão de nome), refaz o
+  // build com a URL certa agora conhecida e publica de novo — só então o
+  // canonical bate com a URL de verdade.
+  if (deployResult.url && deployResult.url !== deployUrlBeforeThisDeploy) {
+    syncCityToAstro(city);
+    const secondBuild = await runBuild();
+    if (!secondBuild.error) {
+      const secondDeploy = await deployCitySite(city, settings, distDir);
+      if (secondDeploy.success) {
+        deployResult = secondDeploy;
+        city.deployUrl = deployResult.url;
+        city.lastDeployAt = deployResult.deployedAt;
+        if (deployResult.cloudflareProjectName) city.cloudflareProjectName = deployResult.cloudflareProjectName;
+        if (deployResult.renderServiceId) city.renderServiceId = deployResult.renderServiceId;
+      }
+      // Se o 2º deploy falhar, mantém o resultado do 1º (já publicado, só
+      // com canonical desatualizado) em vez de fingir falha total.
+    }
+  }
+
   writeCities(cities);
 
   res.json({

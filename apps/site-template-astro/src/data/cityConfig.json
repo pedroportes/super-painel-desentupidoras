@@ -1,24 +1,24 @@
 {
-  "cidade": "Curitiba",
-  "estado": "Paraná",
-  "uf": "PR",
-  "populacao": "150.000",
-  "ddd": "27",
-  "whatsapp": "27999998888",
-  "telefoneFixo": "(27) 3000-0000",
-  "empresaNome": "Desentupidora Curitiba 24h",
+  "cidade": "São Caetano do Sul",
+  "estado": "São Paulo",
+  "uf": "SP",
+  "populacao": "172.693",
+  "ddd": "11",
+  "whatsapp": "11994455667",
+  "telefoneFixo": "(11) 3500-0000",
+  "empresaNome": "Desentupidora Corporativa São Caetano do Sul",
   "cnpj": "",
   "endereco": "",
-  "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
+  "hospedagem": "render",
+  "deployUrl": "https://desentupidora-saocaetanodosul.onrender.com",
+  "paletaCores": "corporativo-verde-cinza",
+  "logoUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
-  "heroImage": "/images/curitiba/desentupidora-curitiba-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/saocaetanodosul/logo-desentupidora-saocaetanodosul.webp",
+  "heroImage": "/images/saocaetanodosul/desentupidora-saocaetanodosul-tecnico-desentupimento.webp",
   "variants": {
-    "hero": "HeroV1",
-    "services": "ServicesGridV1",
+    "hero": "HeroV2",
+    "services": "ServicesGridV2",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,111 +27,114 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Curitiba PR 24h - Atendimento Rápido",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Curitiba PR. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Curitiba: Atendimento Rápido em Toda a Capital Paranaense",
-    "firstParagraphText": "Procurando uma desentupidora em Curitiba que atenda com agilidade nos bairros mais movimentados e nos mais residenciais? Trabalhamos em toda a capital paranaense, do Batel ao Boqueirão, com atendimento 24h e sem quebra de piso.",
-    "lastH2Title": "A desentupidora de Curitiba que atende com agilidade toda a capital"
+    "metaTitle": "Desentupidora em São Caetano do Sul SP 24h",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em São Caetano do Sul SP. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora Corporativa e Predial em São Caetano do Sul SP",
+    "firstParagraphText": "Uma desentupidora em São Caetano do Sul preparada para a realidade de um município com apenas 15 km², o menor em área da Grande São Paulo: altíssima densidade de prédios, condomínios verticais e sedes empresariais concentrados lado a lado, exigindo equipamento técnico e resposta rápida em qualquer bairro.",
+    "lastH2Title": "Por que empresas e condomínios contratam a desentupidora corporativa de São Caetano do Sul?"
   },
-  "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
-  "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
+  "aboutCityTitle": "Estrutura de Atendimento Corporativo e Predial em São Caetano do Sul - SP",
+  "aboutCityText": "São Caetano do Sul nasceu em 1877 como núcleo colonial de 28 famílias imigrantes vindas de Treviso, na Itália, e hoje é conhecida por dois recordes: maior IDH Municipal do Brasil (0,862, classificado como muito alto pelo PNUD) e um dos menores territórios entre os municípios brasileiros, com cerca de 15 km². Essa combinação gerou uma das maiores densidades populacionais do país, com prédios comerciais e condomínios residenciais verticais concentrados em poucos quilômetros quadrados — a cidade também integra o polo industrial do ABC Paulista, sediando desde 1930 o complexo fabril da General Motors, a primeira fábrica da montadora fora dos Estados Unidos. Para atender síndicos, administradoras e empresas nesse cenário adensado, mantemos equipes técnicas com equipamento de hidrojateamento de alta pressão e vídeo inspeção, aptas a chegar rápido em qualquer prédio ou galpão da cidade.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Batel",
-    "Água Verde",
-    "Bigorrilho",
-    "Juvevê",
-    "Cabral",
-    "Portão",
-    "Santa Felicidade",
-    "Cristo Rei",
-    "Boqueirão",
-    "Xaxim",
-    "Cajuru"
+    "Olímpico",
+    "Nova Gerty",
+    "Santa Paula",
+    "Prosperidade",
+    "Jardim São Caetano",
+    "Cerâmica",
+    "Barcelona",
+    "Santo Antônio",
+    "São José",
+    "Boa Vista",
+    "Fundação",
+    "Mauá",
+    "Oswaldo Cruz",
+    "Santa Maria"
   ],
   "services": [
     {
-      "id": "esgoto",
-      "title": "Desentupimento de Esgoto",
-      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
-      "icon": "🚿"
+      "id": "predial",
+      "title": "Desentupimento Predial e Condominial",
+      "description": "Atendimento de urgência em prumadas, caixas de esgoto e redes pluviais dos edifícios verticais que dominam o território compacto de São Caetano do Sul.",
+      "icon": "🏢"
     },
     {
-      "id": "pia",
-      "title": "Desentupimento de Pia",
-      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
-      "icon": "🚰"
-    },
-    {
-      "id": "vaso",
-      "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
-      "icon": "🚽"
-    },
-    {
-      "id": "ralo",
-      "title": "Desentupimento de Ralo",
-      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
-      "icon": "🛁"
-    },
-    {
-      "id": "fossa",
-      "title": "Esgotamento e Limpeza de Fossa",
-      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
-      "icon": "🚛"
+      "id": "gordura",
+      "title": "Limpeza de Caixa de Gordura Comercial",
+      "description": "Higienização e descarte ecológico com certificação ambiental para restaurantes e empresas do centro comercial da cidade.",
+      "icon": "🛢️"
     },
     {
       "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
-      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+      "description": "Desobstrução de tubulações industriais de grande diâmetro, incluindo galpões do polo ABC, com bombas de alta performance.",
       "icon": "🌊"
+    },
+    {
+      "id": "esgoto",
+      "title": "Desobstrução de Redes de Esgoto",
+      "description": "Equipamentos rotativos industriais que eliminam raízes, gordura e incrustações em tubulações prediais e comerciais.",
+      "icon": "⚙️"
+    },
+    {
+      "id": "fossa",
+      "title": "Esgotamento de Fossas e Efluentes",
+      "description": "Caminhões auto-vácuo licenciados pelos órgãos ambientais para coleta e transporte seguro de efluentes.",
+      "icon": "🚛"
+    },
+    {
+      "id": "inspecao",
+      "title": "Vídeo Inspeção Robotizada",
+      "description": "Diagnóstico por câmera de alta resolução para identificar trincas e pontos exatos de obstrução em prédios antigos e novos.",
+      "icon": "📹"
     }
   ],
   "faqs": [
     {
-      "question": "O clima instável de Curitiba aumenta o risco de entupimento?",
-      "answer": "Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo."
+      "question": "Vocês atendem emergências 24 horas para condomínios e empresas em São Caetano do Sul?",
+      "answer": "Sim! Nosso plantão corporativo opera 24 horas por dia, 7 dias por semana, com equipes preparadas para chamados urgentes."
     },
     {
-      "question": "Vocês atendem apartamentos e prédios em Curitiba?",
-      "answer": "Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde."
+      "question": "O território pequeno de São Caetano do Sul ajuda no tempo de chegada?",
+      "answer": "Sim — com apenas 15 km² de área, conseguimos chegar em qualquer bairro da cidade, do Olímpico à Fundação, em poucos minutos."
     },
     {
-      "question": "Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?",
-      "answer": "Em média de 25 a 45 minutos, dependendo do trânsito da cidade."
+      "question": "A visita técnica e vistoria no local é gratuita?",
+      "answer": "Sim, a visita técnica para diagnóstico e elaboração de proposta comercial é 100% gratuita e sem compromisso."
     },
     {
-      "question": "A visita técnica em Curitiba tem custo?",
-      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
+      "question": "A empresa emite nota fiscal e laudo técnico para condomínios em São Caetano do Sul?",
+      "answer": "Sim, emitimos nota fiscal eletrônica, laudo técnico de vistoria e certificado de garantia para prestação de contas de síndicos e administradoras."
     },
     {
-      "question": "Vocês atendem emergências durante temporais em Curitiba?",
-      "answer": "Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes."
+      "question": "Vocês atendem galpões industriais na região do complexo GM/ABC Paulista?",
+      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial típico do polo ABC."
     },
     {
-      "question": "Precisa quebrar piso de apartamento para desentupir a prumada?",
-      "answer": "Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação."
+      "question": "Precisa interditar áreas ou quebrar pisos para desentupir prédios altos?",
+      "answer": "Não. Nossos equipamentos rotativos e de hidrojateamento atuam diretamente pelo interior das prumadas, sem causar sujeira ou quebra-quebra nas áreas comuns."
     }
   ],
   "testimonials": [
     {
-      "name": "Fernanda Osaki",
-      "neighborhood": "Batel - Curitiba",
+      "name": "Condomínio Edifício Olímpico",
+      "neighborhood": "Olímpico - São Caetano do Sul",
       "rating": 5,
-      "text": "Moro em apartamento e a prumada entupiu num dia de chuva forte. Resolveram rápido sem precisar mexer no meu banheiro."
+      "text": "Prumada entupida um domingo à noite e resolveram com hidrojato sem sujar as áreas comuns do prédio. Muito técnicos."
     },
     {
-      "name": "Anderson Wolski",
-      "neighborhood": "Água Verde - Curitiba",
+      "name": "Dra. Fernanda Vieira (Clínica Odontológica)",
+      "neighborhood": "Santa Paula - São Caetano do Sul",
       "rating": 5,
-      "text": "Prédio antigo, cano velho, mas a equipe soube lidar bem e não sujou nada."
+      "text": "Atendimento rápido e higiênico. Resolveram o refluxo na rede de esgoto sem interromper o atendimento aos pacientes."
     },
     {
-      "name": "Priscila Andrade",
-      "neighborhood": "Boqueirão - Curitiba",
+      "name": "Restaurante Cantina Nova Gerty",
+      "neighborhood": "Nova Gerty - São Caetano do Sul",
       "rating": 5,
-      "text": "Depois de um temporal, o esgoto voltou pela pia. Chamei e vieram mesmo com a chuva ainda forte."
+      "text": "Limpeza da caixa de gordura com toda a documentação ambiental. Equipe pontual e nota fiscal certinha."
     }
   ]
 }
