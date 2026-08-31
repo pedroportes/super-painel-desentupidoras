@@ -1,0 +1,20 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</sitemap-index.xml>; rel=\"sitemap\", </llms.txt>; rel=\"llms-txt\", </robots.txt>; rel=\"robots\", </politica-de-privacidade>; rel=\"privacy-policy\", </termos-de-uso>; rel=\"terms-of-service\""
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/zona-sul",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
