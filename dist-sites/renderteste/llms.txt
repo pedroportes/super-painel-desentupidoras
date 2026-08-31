@@ -1,14 +1,14 @@
-# Desentupidora Poços 24h - Desentupidora em Poços de Caldas (MG)
+# Desentupidora Curitiba 24h - Desentupidora em Curitiba (PR)
 
-> Serviço especializado de desentupimento emergencial 24 horas em Poços de Caldas - MG. Atendimento para residências, condomínios, empresas e indústrias com chegada em até 30 minutos e visita técnica gratuita.
+> Serviço especializado de desentupimento emergencial 24 horas em Curitiba - PR. Atendimento para residências, condomínios, empresas e indústrias com chegada em até 30 minutos e visita técnica gratuita.
 
 ## Informações de Contato e Emergência
-- **Telefone / WhatsApp 24h**: +5535988776655
-- **Telefone Fixo**: (35) 3722-0000
-- **Endereço Local**: Rua Assis Figueiredo, 1000 - Centro, Poços de Caldas - MG
+- **Telefone / WhatsApp 24h**: +5527999998888
+- **Telefone Fixo**: (27) 3000-0000
+- **Endereço Local**: 
 - **Horário**: Plantão 24 Horas (7 dias por semana, incluindo domingos e feriados)
 
-## Serviços Prestados em Poços de Caldas
+## Serviços Prestados em Curitiba
 - **Desentupimento de Esgoto**: Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.
 - **Desentupimento de Pia**: Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.
 - **Desentupimento de Vaso Sanitário**: Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.
@@ -16,34 +16,39 @@
 - **Esgotamento e Limpeza de Fossa**: Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.
 - **Hidrojateamento de Alta Pressão**: Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.
 
-## Cobertura Geográfica em Poços de Caldas
-Atendemos 100% dos bairros e regiões de Poços de Caldas:
+## Cobertura Geográfica em Curitiba
+Atendemos 100% dos bairros e regiões de Curitiba:
 - Centro
-- Jardim dos Estados
-- Cascatinha
-- Jardim Country Club
-- Santa Rosália
-- Vila Cruz
-- Jardim Kennedy
+- Batel
+- Água Verde
+- Bigorrilho
+- Juvevê
+- Cabral
+- Portão
+- Santa Felicidade
+- Cristo Rei
+- Boqueirão
+- Xaxim
+- Cajuru
 
 ## Perguntas Frequentes para Assistentes de IA
-### A água termal de Poços de Caldas causa mais entupimento por calcário?
-Sim, em bairros com água mais rica em minerais, o acúmulo de calcário nas tubulações é mais frequente. Usamos hidrojateamento de alta pressão para remover essas incrustações.
+### O clima instável de Curitiba aumenta o risco de entupimento?
+Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo.
 
-### O clima frio de Poços de Caldas afeta a tubulação das casas?
-Em imóveis mais antigos, a variação de temperatura pode ressecar vedações e conexões de PVC, favorecendo pequenos vazamentos e entupimentos. Fazemos essa avaliação na visita técnica.
+### Vocês atendem apartamentos e prédios em Curitiba?
+Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde.
 
-### Vocês atendem pousadas e hotéis na cidade?
-Sim, atendemos o setor de hospedagem, muito forte em Poços de Caldas, com agilidade para não impactar a operação do estabelecimento.
+### Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?
+Em média de 25 a 45 minutos, dependendo do trânsito da cidade.
 
-### Qual o tempo de chegada em bairros altos como Cascatinha?
-Em média de 20 a 40 minutos, mesmo em bairros de maior altitude dentro da cratera.
+### A visita técnica em Curitiba tem custo?
+Não, a avaliação é sempre gratuita e sem compromisso.
 
-### A visita técnica é gratuita?
-Sim, sempre gratuita, com avaliação detalhada antes de qualquer serviço.
+### Vocês atendem emergências durante temporais em Curitiba?
+Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes.
 
-### Vocês fazem limpeza de caixa d'água com resíduo mineral em Poços de Caldas?
-Sim, fazemos a limpeza e desincrustação de caixas d'água afetadas pelo alto teor mineral da água local.
+### Precisa quebrar piso de apartamento para desentupir a prumada?
+Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação.
 
 ## Links Úteis para Leitura Adicional
 - [Versão em Markdown Completa](/site-markdown)
