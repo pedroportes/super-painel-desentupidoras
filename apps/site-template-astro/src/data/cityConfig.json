@@ -1,24 +1,24 @@
 {
-  "cidade": "Poços de Caldas",
-  "estado": "Minas Gerais",
-  "uf": "MG",
-  "populacao": "172.339",
-  "ddd": "35",
-  "whatsapp": "35988776655",
-  "telefoneFixo": "(35) 3722-0000",
-  "empresaNome": "Desentupidora Poços 24h",
-  "cnpj": "11.222.333/0001-44",
-  "endereco": "Rua Assis Figueiredo, 1000 - Centro, Poços de Caldas - MG",
-  "hospedagem": "netlify",
-  "deployUrl": "https://desentupidora-pocosdecaldas.netlify.app",
-  "paletaCores": "residencial-bege",
-  "logoUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp",
+  "cidade": "Curitiba",
+  "estado": "Paraná",
+  "uf": "PR",
+  "populacao": "150.000",
+  "ddd": "27",
+  "whatsapp": "27999998888",
+  "telefoneFixo": "(27) 3000-0000",
+  "empresaNome": "Desentupidora Curitiba 24h",
+  "cnpj": "",
+  "endereco": "",
+  "hospedagem": "cloudflare",
+  "deployUrl": "https://desentupidora-curitiba-sns.pages.dev",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/pocosdecaldas/logo-desentupidora-pocosdecaldas.webp",
-  "heroImage": "/images/pocosdecaldas/desentupidora-pocosdecaldas-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/curitiba/logo-desentupidora-curitiba.webp",
+  "heroImage": "/images/curitiba/desentupidora-curitiba-tecnico-desentupimento.webp",
   "variants": {
     "hero": "HeroV1",
-    "services": "ServicesGridV2",
+    "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,23 +27,28 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Poços de Caldas MG 24h - Atendimento Rápido",
-    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Poços de Caldas MG. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Poços de Caldas: Atendimento na Cidade das Águas Termais",
-    "firstParagraphText": "Contratar uma desentupidora em Poços de Caldas exige conhecer as particularidades da água mineral da região: aqui, o acúmulo de calcário nas tubulações é mais comum, e trabalhamos com equipamento próprio para remover essas incrustações sem quebrar piso.",
-    "lastH2Title": "A desentupidora de Poços de Caldas preparada para a água mineral da região"
+    "metaTitle": "Desentupidora em Curitiba PR 24h - Atendimento Rápido",
+    "metaDescription": "Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em Curitiba PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Curitiba: Atendimento Rápido em Toda a Capital Paranaense",
+    "firstParagraphText": "Procurando uma desentupidora em Curitiba que atenda com agilidade nos bairros mais movimentados e nos mais residenciais? Trabalhamos em toda a capital paranaense, do Batel ao Boqueirão, com atendimento 24h e sem quebra de piso.",
+    "lastH2Title": "A desentupidora de Curitiba que atende com agilidade toda a capital"
   },
-  "aboutCityTitle": "Desentupidora em Poços de Caldas: cuidado especial com a água rica em minerais da região",
-  "aboutCityText": "Poços de Caldas fica dentro de uma cratera vulcânica e é famosa em todo o Brasil pelas suas águas termais e minerais, motivo de forte turismo de pousadas e hotéis na cidade. Essa mesma característica geológica faz com que a água de muitos bairros, como Jardim dos Estados e Cascatinha, tenha maior concentração de minerais, o que acelera a formação de incrustações de calcário dentro de tubulações antigas e reduz o fluxo de água com o tempo. Por causa da altitude elevada e do clima mais frio da cidade, também é comum haver ressecamento em conexões de PVC mais antigas. Nossa equipe conhece essas características técnicas do município e usa hidrojateamento de alta pressão para remover incrustações sem danificar o encanamento.",
+  "aboutCityTitle": "Desentupidora em Curitiba: atendimento adaptado ao clima variável da capital",
+  "aboutCityText": "Curitiba é conhecida por seu planejamento urbano e por um clima que pode mudar diversas vezes no mesmo dia, com chuvas repentinas mesmo em dias de sol. Essa variação de temperatura e umidade acelera o desgaste de tubulações em prédios mais antigos de bairros como Água Verde e Batel, e as chuvas de curta duração e alta intensidade sobrecarregam redes pluviais e de esgoto em pontos mais baixos da cidade, como partes do Boqueirão e do Portão. Atendemos apartamentos, casas e comércios em toda a capital, com equipamento adequado para prédios verticais e para residências horizontais.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Jardim dos Estados",
-    "Cascatinha",
-    "Jardim Country Club",
-    "Santa Rosália",
-    "Vila Cruz",
-    "Jardim Kennedy"
+    "Batel",
+    "Água Verde",
+    "Bigorrilho",
+    "Juvevê",
+    "Cabral",
+    "Portão",
+    "Santa Felicidade",
+    "Cristo Rei",
+    "Boqueirão",
+    "Xaxim",
+    "Cajuru"
   ],
   "services": [
     {
@@ -85,48 +90,48 @@
   ],
   "faqs": [
     {
-      "question": "A água termal de Poços de Caldas causa mais entupimento por calcário?",
-      "answer": "Sim, em bairros com água mais rica em minerais, o acúmulo de calcário nas tubulações é mais frequente. Usamos hidrojateamento de alta pressão para remover essas incrustações."
+      "question": "O clima instável de Curitiba aumenta o risco de entupimento?",
+      "answer": "Sim, chuvas repentinas e de forte intensidade podem sobrecarregar a rede de esgoto em pontos mais baixos da cidade, aumentando o risco de refluxo."
     },
     {
-      "question": "O clima frio de Poços de Caldas afeta a tubulação das casas?",
-      "answer": "Em imóveis mais antigos, a variação de temperatura pode ressecar vedações e conexões de PVC, favorecendo pequenos vazamentos e entupimentos. Fazemos essa avaliação na visita técnica."
+      "question": "Vocês atendem apartamentos e prédios em Curitiba?",
+      "answer": "Sim, temos experiência com prumadas de prédios residenciais e comerciais em bairros como Batel e Água Verde."
     },
     {
-      "question": "Vocês atendem pousadas e hotéis na cidade?",
-      "answer": "Sim, atendemos o setor de hospedagem, muito forte em Poços de Caldas, com agilidade para não impactar a operação do estabelecimento."
+      "question": "Qual o tempo de chegada em bairros mais afastados, como Boqueirão e CIC?",
+      "answer": "Em média de 25 a 45 minutos, dependendo do trânsito da cidade."
     },
     {
-      "question": "Qual o tempo de chegada em bairros altos como Cascatinha?",
-      "answer": "Em média de 20 a 40 minutos, mesmo em bairros de maior altitude dentro da cratera."
+      "question": "A visita técnica em Curitiba tem custo?",
+      "answer": "Não, a avaliação é sempre gratuita e sem compromisso."
     },
     {
-      "question": "A visita técnica é gratuita?",
-      "answer": "Sim, sempre gratuita, com avaliação detalhada antes de qualquer serviço."
+      "question": "Vocês atendem emergências durante temporais em Curitiba?",
+      "answer": "Sim, nossa equipe de plantão continua atendendo mesmo durante chuvas fortes."
     },
     {
-      "question": "Vocês fazem limpeza de caixa d'água com resíduo mineral em Poços de Caldas?",
-      "answer": "Sim, fazemos a limpeza e desincrustação de caixas d'água afetadas pelo alto teor mineral da água local."
+      "question": "Precisa quebrar piso de apartamento para desentupir a prumada?",
+      "answer": "Raramente. Usamos equipamento específico para prumadas que atua por dentro da tubulação."
     }
   ],
   "testimonials": [
     {
-      "name": "Eliane Toledo",
-      "neighborhood": "Jardim dos Estados - Poços de Caldas",
+      "name": "Fernanda Osaki",
+      "neighborhood": "Batel - Curitiba",
       "rating": 5,
-      "text": "Minha caixa d'água tinha um monte de calcário grudado, imagino que seja da água daqui mesmo. Limparam tudo e explicaram o motivo."
+      "text": "Moro em apartamento e a prumada entupiu num dia de chuva forte. Resolveram rápido sem precisar mexer no meu banheiro."
     },
     {
-      "name": "Ricardo Andrade",
-      "neighborhood": "Cascatinha - Poços de Caldas",
+      "name": "Anderson Wolski",
+      "neighborhood": "Água Verde - Curitiba",
       "rating": 5,
-      "text": "Tenho uma pousada e não podia parar por muito tempo. Vieram rápido e resolveram o entupimento do esgoto sem transtorno para os hóspedes."
+      "text": "Prédio antigo, cano velho, mas a equipe soube lidar bem e não sujou nada."
     },
     {
-      "name": "Sônia Malta",
-      "neighborhood": "Centro - Poços de Caldas",
+      "name": "Priscila Andrade",
+      "neighborhood": "Boqueirão - Curitiba",
       "rating": 5,
-      "text": "Equipe muito atenciosa, explicou certinho por que a água daqui suja mais as tubulações. Recomendo."
+      "text": "Depois de um temporal, o esgoto voltou pela pia. Chamei e vieram mesmo com a chuva ainda forte."
     }
   ]
 }

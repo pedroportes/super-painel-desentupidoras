@@ -1047,6 +1047,12 @@ app.post('/api/deploy-city/:id', async (req, res) => {
   if (deployResult.cloudflareProjectName) {
     city.cloudflareProjectName = deployResult.cloudflareProjectName;
   }
+  // Guarda o id do serviço Static Site criado na Render — precisa ser
+  // reusado em todo redeploy seguinte (sem isso, cada deploy criaria um
+  // serviço novo em vez de atualizar o existente). Ver deployEngine.cjs.
+  if (deployResult.renderServiceId) {
+    city.renderServiceId = deployResult.renderServiceId;
+  }
   writeCities(cities);
 
   res.json({

@@ -18,6 +18,7 @@ interface HostingSettings {
   cloudflare: { accountId: string; apiToken: string };
   vercel: { apiToken: string; teamId: string };
   netlify: { apiToken: string; accountSlug: string };
+  render: { apiToken: string; ownerId: string };
   googleSheets: { sheetUrl: string };
 }
 
@@ -59,6 +60,7 @@ export default function App() {
     cloudflare: { accountId: '', apiToken: '' },
     vercel: { apiToken: '', teamId: '' },
     netlify: { apiToken: '', accountSlug: '' },
+    render: { apiToken: '', ownerId: '' },
     googleSheets: { sheetUrl: '' }
   });
 
@@ -1367,6 +1369,7 @@ export default function App() {
                       <option value="cloudflare">Cloudflare Pages</option>
                       <option value="vercel">Vercel</option>
                       <option value="netlify">Netlify</option>
+                      <option value="render">Render</option>
                     </select>
                   </div>
 
@@ -1501,6 +1504,7 @@ export default function App() {
               <option value="cloudflare">Cloudflare Pages</option>
               <option value="vercel">Vercel</option>
               <option value="netlify">Netlify</option>
+              <option value="render">Render</option>
             </select>
             <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
               <span style={{ fontWeight: 900, color: '#34d399', fontSize: '1rem' }}>
@@ -1850,6 +1854,7 @@ export default function App() {
                   <option value="cloudflare">Cloudflare Pages (Recomendado)</option>
                   <option value="vercel">Vercel</option>
                   <option value="netlify">Netlify</option>
+                  <option value="render">Render</option>
                 </select>
               </div>
             </div>
@@ -1934,6 +1939,38 @@ export default function App() {
                 onChange={(e) => setSettings({ ...settings, netlify: { ...settings.netlify, apiToken: e.target.value } })}
                 style={{ width: '100%', padding: '10px', borderRadius: '8px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#fff' }}
               />
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '12px', padding: '20px', marginBottom: '28px' }}>
+            <h3 style={{ color: '#a78bfa', fontSize: '1.1rem', marginBottom: '12px' }}>🎨 Render API</h3>
+            <p style={{ fontSize: '0.78rem', color: '#94a3b8', marginBottom: '14px', lineHeight: 1.5 }}>
+              A Render publica puxando de um repositório Git (não recebe upload
+              direto de arquivo como os outros provedores) — cada cidade Render
+              ganha uma pasta própria neste repositório, commitada
+              automaticamente a cada deploy.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '6px' }}>Render API Key:</label>
+                <input
+                  type="password"
+                  placeholder="••••••••••••••••••••"
+                  value={settings.render?.apiToken || ''}
+                  onChange={(e) => setSettings({ ...settings, render: { ...settings.render, apiToken: e.target.value } })}
+                  style={{ width: '100%', padding: '10px', borderRadius: '8px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#fff' }}
+                />
+              </div>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '6px' }}>Render Owner ID:</label>
+                <input
+                  type="text"
+                  placeholder="Ex: tea-xxxxxxxxxxxxxxxxxxxx"
+                  value={settings.render?.ownerId || ''}
+                  onChange={(e) => setSettings({ ...settings, render: { ...settings.render, ownerId: e.target.value } })}
+                  style={{ width: '100%', padding: '10px', borderRadius: '8px', backgroundColor: '#0f172a', border: '1px solid #475569', color: '#fff' }}
+                />
+              </div>
             </div>
           </div>
 

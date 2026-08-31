@@ -690,6 +690,65 @@ schema JSON-LD todos batendo com a URL real).
   Não foi apagado automaticamente — aguardando o usuário confirmar a
   exclusão (painel da Cloudflare ou API).
 
+### 🎨 Render — 4º provedor (adicionado 31/08/2026)
+
+**Mecanismo fundamentalmente diferente dos outros 3** — decidido junto
+com o usuário depois de eu explicar a limitação: a Render **não tem API
+de upload direto de arquivo/zip pra site estático**, só publica puxando
+de um repositório Git conectado. Cloudflare/Vercel/Netlify recebem o
+`dist/` já pronto via CLI/API; a Render precisa que o conteúdo esteja
+commitado num repo que ela acompanha.
+
+**Decisão de arquitetura** (perguntada ao usuário antes de implementar,
+via `AskUserQuestion` — ver duas opções descartadas: repo novo por
+cidade via API do GitHub, ou repo único mas separado): reusar o **próprio
+repositório deste projeto**. Cada cidade Render ganha uma pasta
+`dist-sites/<id-da-cidade>/` nele — o `dist/` já buildado é copiado pra
+lá e commitado/pushado a cada deploy (só essa pasta, nunca mexe em mais
+nada do repo). Evita precisar de um token novo do GitHub ou de criar
+repositório por cidade.
+
+**Fluxo em `deployToRender()` (`deployEngine.cjs`)**:
+1. Copia `dist/` pra `dist-sites/<id>/`.
+2. `git add`/`commit`/`push` só dessa pasta — checa se há diferença
+   staged via `git diff --cached --quiet` (código de saída), **nunca**
+   tentando reconhecer a mensagem de texto do `git commit` (achado real
+   no teste: a mensagem "no changes added to commit" não batia com o
+   regex que só cobria "nothing to commit"/"nada a submeter", fazendo um
+   redeploy sem mudança de conteúdo falhar à toa).
+3. Primeira vez: `POST /v1/services` cria um Static Site na Render
+   (`type: static_site`, `repo`, `branch: main`, `rootDir:
+   dist-sites/<id>`, sem build command de verdade — conteúdo já pronto).
+   Guarda o `service.id` retornado em `city.renderServiceId` — **precisa
+   ser reaproveitado em todo redeploy seguinte**, senão cada deploy cria
+   um serviço novo (mesmo princípio do bug do `cloudflareProjectName`).
+4. Deploys seguintes: `POST /v1/services/{id}/deploys` (dispara
+   explicitamente, não confia só no webhook automático do push).
+5. Faz *polling* em `GET /v1/services/{id}/deploys/{deployId}` até
+   `status: "live"` (ou erro real) — timeout de 2min.
+6. Nunca assume a URL — sempre lê `serviceDetails.url` de
+   `GET /v1/services/{id}` no final, mesmo princípio já usado nos outros
+   3 provedores.
+
+**Achado no teste**: depois de um redeploy com conteúdo realmente
+diferente, a URL continuou servindo o HTML antigo por alguns segundos —
+não é bug, é cache de CDN da própria Render (`Cache-Control: public,
+max-age=0, s-maxage=300`, até 5min). Confirmado testando com
+`?cache-bust` na query string. Documentado aqui pra não confundir isso
+com falha de deploy numa sessão futura.
+
+**Testado de ponta a ponta** (script descartável
+`test_render_deploy.mjs`, cidade fictícia `renderteste`, apagada do
+serviço da Render e do repo depois de confirmar): criação de serviço
+funcionando, redeploy sem mudança (não duplica serviço, não falha à
+toa), redeploy com mudança real de conteúdo (propaga depois do cache de
+CDN expirar), CSS/imagens/rotas internas de bairro todos 200 com
+conteúdo correto.
+
+**Credenciais**: `data/settings.json` → `render: { apiToken, ownerId }`
+(API Key da Render + id do workspace, via `GET /v1/owners`). Configurável
+também pela UI em "Hospedagem & Chaves API".
+
 ---
 
 ## 📜 Histórico de Correções (mais recente primeiro)

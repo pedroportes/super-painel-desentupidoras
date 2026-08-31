@@ -41,6 +41,11 @@ export interface CityConfig {
   // de nome). Só existe pra cidades hospedadas na Cloudflare. Ver
   // deployEngine.cjs para o porquê disso nunca poder ser re-derivado da URL.
   cloudflareProjectName?: string;
+  // Id do serviço Static Site criado na Render (ex: "srv_abc123") — só
+  // existe pra cidades hospedadas na Render. Precisa ser reusado em todo
+  // redeploy seguinte, senão cada deploy cria um serviço novo em vez de
+  // atualizar o existente. Ver deployEngine.cjs.
+  renderServiceId?: string;
   populacao: string;
   // 30/08/2026: eram só 4 modelos, e 2 deles (residencial-bairros,
   // industrial-hidrojato) compartilhavam heroVariant/servicesVariant com
@@ -51,7 +56,7 @@ export interface CityConfig {
   // não só cor/texto em cima do mesmo layout.
   modeloTemplate: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato' | 'premium-clean' | 'rapido-economico' | 'familia-seguranca' | 'tecnico-especializado';
   status: 'ativo' | 'em_construcao' | 'pendente';
-  hospedagem: 'cloudflare' | 'vercel' | 'netlify';
+  hospedagem: 'cloudflare' | 'vercel' | 'netlify' | 'render';
   paletaCores: 'urgencia-azul-laranja' | 'corporativo-verde-cinza' | 'residencial-bege' | 'industrial-amarelo' | 'clean-azul';
   heroVariant: 'HeroV1' | 'HeroV2' | 'HeroV3' | 'HeroV4';
   servicesVariant: 'ServicesGridV1' | 'ServicesGridV2' | 'ServicesGridV3' | 'ServicesGridV4';
@@ -115,7 +120,7 @@ export function generateUniqueCityContent(
   uf: string,
   populacao: string = '150.000',
   modelo: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato' | 'premium-clean' | 'rapido-economico' | 'familia-seguranca' | 'tecnico-especializado' = 'urgencia-24h',
-  hospedagem: 'cloudflare' | 'vercel' | 'netlify' = 'cloudflare'
+  hospedagem: 'cloudflare' | 'vercel' | 'netlify' | 'render' = 'cloudflare'
 ): CityConfig {
   const cityKey = cidade.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
   const ddd = DDD_MAP[uf.toUpperCase()] || '27';

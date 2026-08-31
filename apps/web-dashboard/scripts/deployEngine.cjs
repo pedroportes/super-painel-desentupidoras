@@ -1,8 +1,10 @@
 /**
- * DEPLOY ENGINE - Publicação Individual por Cidade (Cloudflare | Vercel | Netlify)
+ * DEPLOY ENGINE - Publicação Individual por Cidade (Cloudflare | Vercel | Netlify | Render)
  *
  * IMPORTANTE: este módulo executa deploys DE VERDADE via CLI oficial de cada
- * provedor (wrangler / vercel / netlify-cli, via npx). Ele NUNCA retorna
+ * provedor (wrangler / vercel / netlify-cli, via npx) — Render é a exceção,
+ * ver nota grande na função `deployToRender` abaixo sobre por que o
+ * mecanismo dela é fundamentalmente diferente. Ele NUNCA retorna
  * success:true sem ter realmente rodado o comando de deploy e conferido o
  * resultado. Se faltar credencial ou o comando falhar, retorna success:false
  * com o erro real — nunca finge sucesso.
@@ -32,6 +34,8 @@ async function deployCitySite(cityConfig, apiKeys = {}, distDir) {
       return deployToVercel(cityConfig, apiKeys.vercel, distDir);
     case 'netlify':
       return deployToNetlify(cityConfig, apiKeys.netlify, distDir);
+    case 'render':
+      return deployToRender(cityConfig, apiKeys.render, distDir);
     default:
       return { success: false, provider, error: `Provedor desconhecido: ${provider}` };
   }
@@ -295,6 +299,181 @@ async function deployToNetlify(cityConfig, keys, distDir) {
     };
   } catch (err) {
     return { success: false, provider, error: `Erro inesperado no deploy Netlify: ${err.message}` };
+  }
+}
+
+// IMPORTANTE (mecanismo fundamentalmente diferente dos outros 3
+// provedores, decidido com o usuário em 31/08/2026): a Render NÃO tem API
+// de upload direto de arquivo/zip pra site estático — ela só publica
+// puxando de um repositório Git conectado (a cada push ou chamada
+// explícita de "trigger deploy", ela builda e serve). Em vez de criar um
+// repositório novo por cidade (mais um token, mais superfície), reusamos
+// o PRÓPRIO repositório deste projeto: cada cidade Render ganha uma pasta
+// `dist-sites/<id-da-cidade>/` nele, onde o `dist/` já buildado é
+// copiado e commitado a cada deploy — e o serviço Render aponta o
+// `rootDir` pra essa pasta, sem build command nenhum (arquivo já pronto).
+async function deployToRender(cityConfig, keys, distDir) {
+  const provider = 'render';
+  if (!keys || !keys.apiToken || !keys.ownerId) {
+    return {
+      success: false,
+      provider,
+      error: 'Faltam as credenciais da Render. Configure a API Key e o Owner ID em "Hospedagem & Chaves API" antes de publicar.'
+    };
+  }
+
+  const fs = require('fs');
+  const token = (keys.apiToken || '').trim();
+  const ownerId = (keys.ownerId || '').trim();
+  const cityId = cityConfig.id;
+  if (!cityId) {
+    return { success: false, provider, error: 'Cidade sem `id` — não é possível determinar a pasta dist-sites/.' };
+  }
+
+  const API = 'https://api.render.com/v1';
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+    Accept: 'application/json'
+  };
+
+  // Raiz do repositório deste próprio projeto (deployEngine.cjs mora em
+  // apps/web-dashboard/scripts/, a raiz é 3 níveis acima).
+  const repoRoot = path.join(__dirname, '..', '..', '..');
+  const relFolder = `dist-sites/${cityId}`;
+  const targetDir = path.join(repoRoot, 'dist-sites', cityId);
+
+  // 1. Copiar o dist/ já buildado pra dentro da pasta rastreada pelo Git.
+  try {
+    if (fs.existsSync(targetDir)) fs.rmSync(targetDir, { recursive: true, force: true });
+    fs.mkdirSync(targetDir, { recursive: true });
+    fs.cpSync(distDir, targetDir, { recursive: true });
+  } catch (err) {
+    return { success: false, provider, error: `Falha ao copiar o build pra dist-sites/${cityId}: ${err.message}` };
+  }
+
+  // 2. Commit + push só dessa pasta (nunca mexe em mais nada do repo).
+  const gitAdd = await run(`git add "${relFolder}"`, { cwd: repoRoot });
+  if (gitAdd.error) {
+    return { success: false, provider, error: `Falha no "git add" de ${relFolder}: ${gitAdd.stderr || gitAdd.error.message}` };
+  }
+  // Checa via CÓDIGO DE SAÍDA se há mudança de verdade staged pra essa
+  // pasta (exit 0 = sem diferença), em vez de tentar reconhecer a
+  // mensagem de texto do "git commit" — mensagem varia entre versões e
+  // idioma do git instalado (achado real: "no changes added to commit"
+  // não bate com o regex que só cobria "nothing to commit"/"nada a
+  // submeter", fazendo um redeploy sem mudança de conteúdo falhar à toa).
+  const diffCheck = await run(`git diff --cached --quiet -- "${relFolder}"`, { cwd: repoRoot });
+  const hasChanges = !!diffCheck.error; // exit code != 0 → há diferença staged
+  if (hasChanges) {
+    const commitMsg = `deploy(render): ${cityConfig.cidade || cityId} - ${new Date().toISOString()}`;
+    const gitCommit = await run(`git commit -m "${commitMsg}"`, { cwd: repoRoot });
+    if (gitCommit.error) {
+      return { success: false, provider, error: `Falha no "git commit": ${gitCommit.stderr || gitCommit.error.message}`, log: gitCommit.stdout };
+    }
+    const gitPush = await run(`git push origin HEAD`, { cwd: repoRoot });
+    if (gitPush.error) {
+      return { success: false, provider, error: `Falha no "git push" de dist-sites/${cityId}: ${gitPush.stderr || gitPush.error.message}`, log: gitPush.stdout + gitPush.stderr };
+    }
+  }
+
+  const repoUrlRes = await run('git config --get remote.origin.url', { cwd: repoRoot });
+  const repoUrl = (repoUrlRes.stdout || '').trim();
+  if (!repoUrl) {
+    return { success: false, provider, error: 'Não consegui determinar a URL do repositório Git (remote.origin.url) pra configurar o serviço na Render.' };
+  }
+
+  let serviceId = cityConfig.renderServiceId;
+  let deployId = null;
+
+  try {
+    if (!serviceId) {
+      // 3a. Primeira vez: cria o serviço Static Site na Render apontando
+      // pra essa pasta do repositório.
+      const createRes = await fetch(`${API}/services`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          type: 'static_site',
+          name: getCleanProjectName(cityConfig.cidade || cityId),
+          ownerId,
+          repo: repoUrl,
+          branch: 'main',
+          rootDir: relFolder,
+          autoDeploy: 'yes',
+          serviceDetails: {
+            buildCommand: 'true',
+            publishPath: '.'
+          }
+        })
+      });
+      if (!createRes.ok) {
+        const errText = await createRes.text();
+        return { success: false, provider, error: `Falha ao criar serviço na Render: ${errText}` };
+      }
+      const created = await createRes.json();
+      serviceId = created.service && created.service.id;
+      deployId = created.deployId;
+      if (!serviceId) {
+        return { success: false, provider, error: `Render não retornou um service id válido: ${JSON.stringify(created)}` };
+      }
+    } else {
+      // 3b. Serviço já existe: dispara um deploy explícito da última
+      // versão da pasta (não confia só no webhook automático do push).
+      const deployRes = await fetch(`${API}/services/${serviceId}/deploys`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ clearCache: 'do_not_clear' })
+      });
+      if (!deployRes.ok) {
+        const errText = await deployRes.text();
+        return { success: false, provider, error: `Falha ao disparar deploy na Render: ${errText}` };
+      }
+      const deployData = await deployRes.json();
+      deployId = deployData.id;
+    }
+
+    // 4. Espera o deploy terminar de verdade (nunca assume sucesso só por
+    // ter disparado) — polling com timeout de ~2min, tempo de sobra pra
+    // um site estático sem build de verdade.
+    let finalStatus = null;
+    const deadline = Date.now() + 120000;
+    while (Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 4000));
+      const statusRes = await fetch(`${API}/services/${serviceId}/deploys/${deployId}`, { headers });
+      if (!statusRes.ok) continue;
+      const statusData = await statusRes.json();
+      finalStatus = statusData.status;
+      if (finalStatus === 'live') break;
+      if (['build_failed', 'update_failed', 'canceled', 'deactivated'].includes(finalStatus)) {
+        return { success: false, provider, error: `Deploy na Render terminou com status "${finalStatus}".`, renderServiceId: serviceId };
+      }
+    }
+    if (finalStatus !== 'live') {
+      return { success: false, provider, error: `Deploy na Render não confirmou "live" dentro do tempo esperado (último status: "${finalStatus}"). Confira o painel da Render — o deploy pode só estar demorando.`, renderServiceId: serviceId };
+    }
+
+    // 5. Nunca assumir a URL — sempre ler a real retornada pela própria API.
+    const serviceRes = await fetch(`${API}/services/${serviceId}`, { headers });
+    if (!serviceRes.ok) {
+      return { success: false, provider, error: 'Deploy concluído, mas não consegui confirmar a URL real do serviço na Render.', renderServiceId: serviceId };
+    }
+    const serviceData = await serviceRes.json();
+    const liveUrl = serviceData.serviceDetails && serviceData.serviceDetails.url;
+    if (!liveUrl) {
+      return { success: false, provider, error: 'Deploy concluído, mas a Render não retornou a URL pública do serviço.', renderServiceId: serviceId };
+    }
+
+    return {
+      success: true,
+      provider,
+      url: liveUrl,
+      renderServiceId: serviceId,
+      log: `Render service: ${serviceId}\nDeploy: ${deployId}\nURL: ${liveUrl}`,
+      deployedAt: new Date().toISOString()
+    };
+  } catch (err) {
+    return { success: false, provider, error: `Erro inesperado no deploy Render: ${err.message}`, renderServiceId: serviceId || undefined };
   }
 }
 
