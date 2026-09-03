@@ -4,6 +4,15 @@ Sistema de inteligência de mercado pra decidir em quais cidades brasileiras abr
 
 Esse documento é a fonte de verdade do projeto de decisão de cidades. As cidades escolhidas aqui viram input pro `web-dashboard` / `cityConfig.json` deste repo, que gera o site novo em `apps/site-template-astro`.
 
+⚠️ **O painel NÃO puxa a planilha automaticamente** (achado 03/09/2026) —
+não existe nenhuma integração entre o Google Sheets
+`BANCO_CIDADES_DESENTUPIDORAS_2026` e `cities.json`. A tabela "Top 12
+atual" abaixo é uma **cópia manual congelada** do ranking da planilha,
+atualizada à mão sempre que uma cidade é cadastrada. Se a planilha for
+recalculada (nova rodada de SERP, dado de concorrência, etc.), essa tabela
+fica desatualizada até alguém copiar de novo — sempre conferir a planilha
+original se o ranking parecer antigo.
+
 ## Artefatos principais (links)
 
 - **Caderno NotebookLM**: "MAPA DE OPORTUNIDADES — DESENTUPIDORAS BRASIL 2026" — https://notebook.google.com/notebook/7956e02e-7fcf-4aab-a233-e2db4e92a995 — contém notas "Descrição" e "Prompts de Análise" (prompt mestre + 2 prompts de ranking) e fontes públicas (IBGE, Receita Federal/CNPJ, Google Trends, SINISA, DATASUS, Portal de Dados Abertos).
@@ -49,7 +58,7 @@ Princípio central (definido pelo Pedro): não procurar a cidade com menos conco
 | 4 | Itabuna | BA | 196.344 | 89,8% | 176.219 | ✅ cadastrada |
 | 5 | São Caetano do Sul | SP | 172.693 | 95,9% | 165.647 | ✅ cadastrada 31/08/2026 (Render) |
 | 6 | Poços de Caldas | MG | 172.339 | 95,0% | 163.739 | ✅ cadastrada |
-| 7 | Ferraz de Vasconcelos | SP | 186.479 | 86,8% | 161.901 | pendente |
+| 7 | Ferraz de Vasconcelos | SP | 186.479 | 86,8% | 161.901 | ⚠️ rascunho em `cities.json` (`isDraft: true`, feito pelo ChatGPT em sessão paralela — ainda não publicada, ver `docs/MODELOS_09_A_11_2026-09-02.md`) |
 | 8 | Jaraguá do Sul | SC | 199.519 | 78,2% | 156.044 | pendente |
 | 9 | Pindamonhangaba | SP | 172.681 | 90,3% | 155.983 | pendente |
 | 10 | Fazenda Rio Grande | PR | 165.943 | 89,7% | 148.851 | pendente |
