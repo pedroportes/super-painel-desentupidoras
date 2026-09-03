@@ -57,6 +57,7 @@ const DIRETORIOS = [
   'apontador.com.br', 'guialocal.com.br', 'listacapital.com.br',
   'guiafone.com.br', 'empresasfaceis.com.br', 'catalogoempresas.com.br',
   'triponon.com', 'iguide.com.br', 'econtreaqui.com.br', 'anunciar-classificados.com.br',
+  'getninjas.com.br', 'starofservice.com.br', 'clickdisk.com.br', 'econodata.com.br', 'guiafix.com.br', 'mechameaqui.com.br',
 ];
 const MARKETPLACES = ['olx.com.br', 'mercadolivre.com.br', 'mercadolivre.com', 'wa.me', 'linktr.ee'];
 const REDES_SOCIAIS = ['facebook.com', 'instagram.com', 'wa.me', 'linkedin.com', 'youtube.com'];

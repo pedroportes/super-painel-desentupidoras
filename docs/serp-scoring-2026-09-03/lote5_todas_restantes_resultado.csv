@@ -1,0 +1,411 @@
+Cidade,UF,IndiceConcorrenciaFraca,TotalResultados,Sociais,Diretorios,Marketplaces,SitesProprios
+"Bebedouro","SP",10.0,10,1,0,0,9
+"Itajubá","MG",11.1,9,1,0,0,8
+"Bagé","RS",50.0,8,2,2,0,4
+"Três Rios","RJ",0.0,9,0,0,0,9
+"Lins","SP",22.2,9,2,0,0,7
+"Cajamar","SP",11.1,9,1,0,0,8
+"Telêmaco Borba","PR",40.0,10,3,1,0,6
+"Almirante Tamandaré","PR",10.0,10,1,0,0,9
+"Cruzeiro","SP",0.0,9,0,0,0,9
+"São Mateus","ES",0.0,9,0,0,0,9
+"Catalão","GO",33.3,9,1,2,0,6
+"Jaboticabal","SP",0.0,9,0,0,0,9
+"Paracatu","MG",33.3,9,2,1,0,6
+"Serra Talhada","PE",11.1,9,1,0,0,8
+"Viçosa","MG",22.2,9,2,0,0,7
+"Luís Eduardo Magalhães","BA",44.4,9,1,3,0,5
+"Itapira","SP",22.2,9,2,0,0,7
+"Mineiros","GO",44.4,9,1,3,0,5
+"Lages","SC",30.0,10,2,1,0,7
+"Sarandi","PR",22.2,9,2,0,0,7
+"Vinhedo","SP",0.0,9,0,0,0,9
+"Alfenas","MG",11.1,9,1,0,0,8
+"Rio Grande","RS",44.4,9,3,1,0,5
+"Primavera do Leste","MT",44.4,9,3,1,0,5
+"Fernandópolis","SP",30.0,10,3,0,0,7
+"Itapeva","SP",11.1,9,1,0,0,8
+"Pirassununga","SP",0.0,9,0,0,0,9
+"Parnaíba","PI",22.2,9,2,0,0,7
+"Cubatão","SP",0.0,10,0,0,0,10
+"Saquarema","RJ",11.1,9,1,0,0,8
+"Lençóis Paulista","SP",30.0,10,2,1,0,7
+"Goianésia","GO",12.5,8,1,0,0,7
+"Guarapari","ES",14.3,7,1,0,0,6
+"Arujá","SP",0.0,9,0,0,0,9
+"Vacaria","RS",33.3,9,2,1,0,6
+"Itapetinga","BA",11.1,9,1,0,0,8
+"Três Corações","MG",0.0,9,0,0,0,9
+"Unaí","MG",50.0,8,3,1,0,4
+"Valença","BA",25.0,8,2,0,0,6
+"Mirassol","SP",0.0,9,0,0,0,9
+"São Sebastião do Paraíso","MG",11.1,9,0,1,0,8
+"Sorriso","MT",25.0,8,2,0,0,6
+"Curvelo","MG",22.2,9,1,1,0,7
+"Altamira","PA",55.6,9,3,2,0,4
+"Formiga","MG",12.5,8,1,0,0,7
+"Castro","PR",22.2,9,2,0,0,7
+"Nova Odessa","SP",0.0,9,0,0,0,9
+"Penápolis","SP",0.0,9,0,0,0,9
+"União dos Palmares","AL",12.5,8,1,0,0,7
+"Alagoinhas","BA",25.0,8,1,1,0,6
+"Tupã","SP",11.1,9,1,0,0,8
+"Itanhaém","SP",0.0,9,0,0,0,9
+"Cianorte","PR",30.0,10,3,0,0,7
+"Jaguariúna","SP",11.1,9,1,0,0,8
+"Mococa","SP",11.1,9,1,0,0,8
+"Timon","MA",37.5,8,3,0,0,5
+"Itapema","SC",10.0,10,1,0,0,9
+"Ponte Nova","MG",11.1,9,1,0,0,8
+"Caratinga","MG",22.2,9,2,0,0,7
+"Ibitinga","SP",11.1,9,1,0,0,8
+"Porto Feliz","SP",20.0,10,2,0,0,8
+"Araguaína","TO",22.2,9,1,1,0,7
+"Mariana","MG",11.1,9,1,0,0,8
+"Ponta Porã","MS",33.3,9,1,2,0,6
+"Três Pontas","MG",11.1,9,0,1,0,8
+"Cosmópolis","SP",11.1,9,1,0,0,8
+"Andradina","SP",11.1,9,1,0,0,8
+"Cacoal","RO",33.3,9,2,1,0,6
+"Caldas Novas","GO",22.2,9,2,0,0,7
+"Monte Mor","SP",11.1,9,1,0,0,8
+"Gurupi","TO",22.2,9,2,0,0,7
+"Irati","PR",22.2,9,2,0,0,7
+"Olímpia","SP",0.0,9,0,0,0,9
+"Mongaguá","SP",0.0,9,0,0,0,9
+"Campo Limpo Paulista","SP",0.0,8,0,0,0,8
+"Batatais","SP",0.0,9,0,0,0,9
+"São José do Rio Pardo","SP",30.0,10,2,1,0,7
+"Paço do Lumiar","MA",25.0,8,1,0,1,6
+"Porto Ferreira","SP",11.1,9,1,0,0,8
+"Corumbá","MS",20.0,10,1,1,0,8
+"Cataguases","MG",28.6,7,2,0,0,5
+"Amparo","SP",0.0,9,0,0,0,9
+"Ibiporã","PR",11.1,9,1,0,0,8
+"Barra do Garças","MT",37.5,8,2,1,0,5
+"Itupeva","SP",0.0,9,0,0,0,9
+"Capivari","SP",11.1,9,1,0,0,8
+"Peruíbe","SP",0.0,9,0,0,0,9
+"Campo Belo","MG",0.0,9,0,0,0,9
+"Senhor do Bonfim","BA",22.2,9,0,2,0,7
+"Pesqueira","PE",11.1,9,1,0,0,8
+"Taquaritinga","SP",11.1,9,1,0,0,8
+"Leopoldina","MG",0.0,9,0,0,0,9
+"Santiago","RS",33.3,9,3,0,0,6
+"São Sebastião","SP",0.0,9,0,0,0,9
+"São Bento do Una","PE",0.0,8,0,0,0,8
+"Louveira","SP",11.1,9,1,0,0,8
+"Brejo da Madre de Deus","PE",0.0,9,0,0,0,9
+"Lagoa da Prata","MG",0.0,9,0,0,0,9
+"Tubarão","SC",30.0,10,2,1,0,7
+"Tremembé","SP",0.0,9,0,0,0,9
+"Frutal","MG",44.4,9,4,0,0,5
+"Itabirito","MG",11.1,9,1,0,0,8
+"Jales","SP",11.1,9,1,0,0,8
+"Novo Gama","GO",11.1,9,1,0,0,8
+"Artur Nogueira","SP",0.0,9,0,0,0,9
+"Rio Bonito","RJ",11.1,9,1,0,0,8
+"Guanambi","BA",11.1,9,1,0,0,8
+"Buíque","PE",12.5,8,1,0,0,7
+"Rolândia","PR",22.2,9,1,1,0,7
+"Registro","SP",12.5,8,1,0,0,7
+"Esteio","RS",11.1,9,1,0,0,8
+"Boituva","SP",11.1,9,1,0,0,8
+"Quirinópolis","GO",25.0,8,2,0,0,6
+"Bom Despacho","MG",22.2,9,2,0,0,7
+"Campina Grande do Sul","PR",11.1,9,1,0,0,8
+"Santo Antônio do Descoberto","GO",11.1,9,0,1,0,8
+"Guaxupé","MG",30.0,10,1,2,0,7
+"Picos","PI",25.0,8,1,1,0,6
+"Porto Nacional","TO",33.3,9,2,0,1,6
+"Pedro Leopoldo","MG",0.0,9,0,0,0,9
+"Simões Filho","BA",0.0,9,0,0,0,9
+"Goiana","PE",11.1,9,1,0,0,8
+"Rio das Ostras","RJ",57.1,7,2,2,0,3
+"Ouro Preto","MG",11.1,9,1,0,0,8
+"Inhumas","GO",37.5,8,2,1,0,5
+"Bertioga","SP",10.0,10,1,0,0,9
+"São Miguel dos Campos","AL",0.0,9,0,0,0,9
+"São Gonçalo do Amarante","RN",0.0,8,0,0,0,8
+"Palmas","PR",33.3,9,2,1,0,6
+"São Roque","SP",0.0,9,0,0,0,9
+"Ubatuba","SP",11.1,9,1,0,0,8
+"Vitória de Santo Antão","PE",22.2,9,1,1,0,7
+"Paulo Afonso","BA",22.2,9,1,1,0,7
+"Crato","CE",44.4,9,3,1,0,5
+"Dias d'Ávila","BA",0.0,9,0,0,0,9
+"Araripina","PE",25.0,8,2,0,0,6
+"Itamaraju","BA",11.1,9,1,0,0,8
+"Congonhas","MG",11.1,9,1,0,0,8
+"Morrinhos","GO",12.5,8,1,0,0,7
+"Cidade Ocidental","GO",20.0,10,2,0,0,8
+"Lucas do Rio Verde","MT",22.2,9,2,0,0,7
+"São Lourenço da Mata","PE",33.3,9,2,1,0,6
+"Lagoa Santa","MG",11.1,9,1,0,0,8
+"São Bento do Sul","SC",22.2,9,2,0,0,7
+"Capão da Canoa","RS",0.0,9,0,0,0,9
+"Itaguaí","RJ",20.0,10,1,1,0,8
+"Guarabira","PB",12.5,8,1,0,0,7
+"Sant'Ana do Livramento","RS",11.1,9,0,1,0,8
+"Pontes e Lacerda","MT",22.2,9,2,0,0,7
+"Casa Nova","BA",12.5,8,1,0,0,7
+"Candeias","BA",0.0,9,0,0,0,9
+"Mairiporã","SP",0.0,9,0,0,0,9
+"São Gabriel","RS",30.0,10,3,0,0,7
+"Mairinque","SP",0.0,9,0,0,0,9
+"Cruz das Almas","BA",12.5,8,1,0,0,7
+"Cachoeira do Sul","RS",37.5,8,2,1,0,5
+"Guaíba","RS",11.1,9,1,0,0,8
+"Itaberaba","BA",12.5,8,1,0,0,7
+"Delmiro Gouveia","AL",12.5,8,1,0,0,7
+"Santa Cruz do Sul","RS",33.3,9,2,1,0,6
+"Pacatuba","CE",12.5,8,1,0,0,7
+"Prudentópolis","PR",33.3,9,2,1,0,6
+"Canaã dos Carajás","PA",20.0,10,2,0,0,8
+"São Cristóvão","SE",0.0,9,0,0,0,9
+"Pirapora","MG",0.0,9,0,0,0,9
+"Santa Rosa","RS",22.2,9,2,0,0,7
+"Barcarena","PA",25.0,8,1,1,0,6
+"Embu-Guaçu","SP",0.0,9,0,0,0,9
+"Cabedelo","PB",22.2,9,2,0,0,7
+"Sapucaia do Sul","RS",0.0,9,0,0,0,9
+"Viana","ES",12.5,8,1,0,0,7
+"Indaial","SC",25.0,8,2,0,0,6
+"Tangará da Serra","MT",50.0,8,2,2,0,4
+"Itapipoca","CE",42.9,7,3,0,0,4
+"Santo Amaro","BA",0.0,9,0,0,0,9
+"Salgueiro","PE",12.5,8,1,0,0,7
+"Crateús","CE",14.3,7,0,1,0,6
+"Tijucas","SC",12.5,8,1,0,0,7
+"Extrema","MG",0.0,9,0,0,0,9
+"Belo Jardim","PE",0.0,8,0,0,0,8
+"Medianeira","PR",44.4,9,3,1,0,5
+"Camocim","CE",22.2,9,1,1,0,7
+"União da Vitória","PR",22.2,9,2,0,0,7
+"Santa Isabel","SP",11.1,9,1,0,0,8
+"Cristalina","GO",10.0,10,1,0,0,9
+"Brejo Santo","CE",11.1,9,1,0,0,8
+"Alta Floresta","MT",33.3,9,2,1,0,6
+"Santo Ângelo","RS",33.3,9,2,1,0,6
+"Abreu e Lima","PE",11.1,9,1,0,0,8
+"Vargem Grande Paulista","SP",0.0,9,0,0,0,9
+"Itabaiana","SE",25.0,8,1,1,0,6
+"Barra","BA",11.1,9,1,0,0,8
+"Santo Antônio de Jesus","BA",33.3,9,2,1,0,6
+"Nova Lima","MG",0.0,9,0,0,0,9
+"Mesquita","RJ",11.1,9,0,1,0,8
+"Bom Jesus da Lapa","BA",11.1,9,0,1,0,8
+"Boa Viagem","CE",0.0,9,0,0,0,9
+"Araci","BA",0.0,8,0,0,0,8
+"Moreno","PE",0.0,9,0,0,0,9
+"Ipojuca","PE",0.0,9,0,0,0,9
+"Nova Andradina","MS",11.1,9,0,1,0,8
+"Valença","RJ",25.0,8,2,0,0,6
+"Naviraí","MS",22.2,9,1,1,0,7
+"Ijuí","RS",12.5,8,1,0,0,7
+"Concórdia","SC",33.3,9,3,0,0,6
+"Viçosa do Ceará","CE",11.1,9,1,0,0,8
+"Garanhuns","PE",28.6,7,1,1,0,5
+"Gravatá","PE",22.2,9,2,0,0,7
+"Canguçu","RS",20.0,5,1,0,0,4
+"Janaúba","MG",11.1,9,1,0,0,8
+"Marechal Cândido Rondon","PR",0.0,8,0,0,0,8
+"São Francisco","MG",11.1,9,1,0,0,8
+"Goianira","GO",12.5,8,1,0,0,7
+"São Francisco do Sul","SC",22.2,9,2,0,0,7
+"Limoeiro do Norte","CE",25.0,8,2,0,0,6
+"Iguatu","CE",22.2,9,0,2,0,7
+"Piedade","SP",10.0,10,1,0,0,9
+"Alegrete","RS",12.5,8,1,0,0,7
+"Marechal Deodoro","AL",0.0,9,0,0,0,9
+"Canindé","CE",11.1,9,1,0,0,8
+"Floriano","PI",11.1,9,1,0,0,8
+"Araranguá","SC",33.3,9,2,1,0,6
+"Marituba","PA",14.3,7,1,0,0,6
+"Caicó","RN",12.5,8,1,0,0,7
+"Rio Largo","AL",0.0,9,0,0,0,9
+"Ipirá","BA",11.1,9,1,0,0,8
+"Tramandaí","RS",11.1,9,1,0,0,8
+"Surubim","PE",25.0,8,2,0,0,6
+"Tianguá","CE",50.0,8,2,2,0,4
+"Quixadá","CE",11.1,9,1,0,0,8
+"Coruripe","AL",12.5,8,1,0,0,7
+"Paraíso do Tocantins","TO",33.3,9,2,1,0,6
+"Patos","PB",40.0,10,2,2,0,6
+"Icó","CE",11.1,9,1,0,0,8
+"Piripiri","PI",11.1,9,1,0,0,8
+"Russas","CE",11.1,9,1,0,0,8
+"Ceará-Mirim","RN",11.1,9,1,0,0,8
+"Maranguape","CE",42.9,7,1,2,0,4
+"Maués","AM",11.1,9,1,0,0,8
+"Cruz Alta","RS",20.0,10,1,1,0,8
+"Paragominas","PA",25.0,8,2,0,0,6
+"São Borja","RS",11.1,9,1,0,0,8
+"Içara","SC",11.1,9,1,0,0,8
+"Eunápolis","BA",33.3,9,2,1,0,6
+"Caxias","MA",11.1,9,0,1,0,8
+"Aquiraz","CE",22.2,9,1,1,0,7
+"Cajazeiras","PB",0.0,9,0,0,0,9
+"Codó","MA",25.0,8,1,1,0,6
+"Jacobina","BA",12.5,8,1,0,0,7
+"Ibiúna","SP",22.2,9,1,1,0,7
+"Irecê","BA",33.3,9,2,1,0,6
+"Nova Venécia","ES",0.0,9,0,0,0,9
+"Esmeraldas","MG",10.0,10,1,0,0,9
+"Januária","MG",22.2,9,1,1,0,7
+"Aracati","CE",12.5,8,1,0,0,7
+"Tucano","BA",50.0,8,3,1,0,4
+"Canela","RS",22.2,9,2,0,0,7
+"Canoinhas","SC",33.3,9,1,2,0,6
+"Venâncio Aires","RS",25.0,8,2,0,0,6
+"Sapé","PB",33.3,9,2,1,0,6
+"Lagarto","SE",37.5,8,1,2,0,5
+"Euclides da Cunha","BA",0.0,10,0,0,0,10
+"Araquari","SC",33.3,9,3,0,0,6
+"São Benedito","CE",0.0,9,0,0,0,9
+"Eusébio","CE",33.3,9,2,1,0,6
+"Cáceres","MT",22.2,9,1,1,0,7
+"Estância","SE",11.1,9,0,1,0,8
+"Serrinha","BA",0.0,9,0,0,0,9
+"Itapecuru Mirim","MA",0.0,9,0,0,0,9
+"Bayeux","PB",22.2,9,2,0,0,7
+"Horizonte","CE",22.2,9,1,1,0,7
+"São Gonçalo do Amarante","CE",0.0,8,0,0,0,8
+"Santa Rita","PB",11.1,9,1,0,0,8
+"Barbalha","CE",12.5,8,1,0,0,7
+"Igarassu","PE",33.3,9,1,1,1,6
+"Barreirinhas","MA",11.1,9,1,0,0,8
+"Bacabal","MA",22.2,9,1,1,0,7
+"Santo Estêvão","BA",10.0,10,1,0,0,9
+"Brumado","BA",11.1,9,1,0,0,8
+"Senador Canedo","GO",22.2,9,1,1,0,7
+"Redenção","PA",11.1,9,1,0,0,8
+"Beberibe","CE",11.1,9,1,0,0,8
+"Balsas","MA",11.1,9,1,0,0,8
+"Tauá","CE",0.0,9,0,0,0,9
+"Arcoverde","PE",22.2,9,1,1,0,7
+"Coroatá","MA",22.2,9,2,0,0,7
+"Sapiranga","RS",0.0,9,0,0,0,9
+"Acaraú","CE",12.5,8,1,0,0,7
+"Imbituba","SC",12.5,8,1,0,0,7
+"Granja","CE",0.0,9,0,0,0,9
+"Macaíba","RN",11.1,9,1,0,0,8
+"Campo Formoso","BA",0.0,9,0,0,0,9
+"Novo Repartimento","PA",0.0,8,0,0,0,8
+"Ariquemes","RO",50.0,8,2,2,0,4
+"Palmeira dos Índios","AL",22.2,9,1,1,0,7
+"Conceição do Coité","BA",0.0,7,0,0,0,7
+"Altos","PI",11.1,9,1,0,0,8
+"Lajeado","RS",11.1,9,1,0,0,8
+"Camaragibe","PE",11.1,9,1,0,0,8
+"Cascavel","CE",20.0,10,2,0,0,8
+"Ji-Paraná","RO",33.3,9,1,2,0,6
+"Gaspar","SC",11.1,9,1,0,0,8
+"Pacajus","CE",25.0,8,2,0,0,6
+"Xinguara","PA",0.0,9,0,0,0,9
+"Trairi","CE",11.1,9,1,0,0,8
+"Açailândia","MA",12.5,8,1,0,0,7
+"Rolim de Moura","RO",22.2,9,1,1,0,7
+"Santana","AP",0.0,9,0,0,0,9
+"Morada Nova","CE",11.1,9,0,1,0,8
+"Tutóia","MA",14.3,7,1,0,0,6
+"Ribeira do Pombal","BA",11.1,9,1,0,0,8
+"Queimadas","PB",12.5,8,1,0,0,7
+"Itupiranga","PA",11.1,9,1,0,0,8
+"Bento Gonçalves","RS",20.0,10,1,1,0,8
+"Seropédica","RJ",0.0,9,0,0,0,9
+"Itaitinga","CE",12.5,8,1,0,0,7
+"Dom Eliseu","PA",22.2,9,1,1,0,7
+"São José de Mipibu","RN",11.1,9,1,0,0,8
+"Videira","SC",22.2,9,2,0,0,7
+"Catu","BA",11.1,9,1,0,0,8
+"Campo Bom","RS",22.2,9,2,0,0,7
+"Teresópolis","RJ",22.2,9,1,1,0,7
+"Abaetetuba","PA",22.2,9,1,1,0,7
+"Nilópolis","RJ",11.1,9,0,1,0,8
+"Brusque","SC",44.4,9,2,2,0,5
+"Queimados","RJ",30.0,10,1,2,0,7
+"Cametá","PA",25.0,8,2,0,0,6
+"Itaituba","PA",22.2,9,1,1,0,7
+"Bragança","PA",0.0,9,0,0,0,9
+"Camboriú","SC",11.1,9,1,0,0,8
+"Breves","PA",22.2,9,2,0,0,7
+"Itacoatiara","AM",33.3,9,2,1,0,6
+"Manacapuru","AM",11.1,9,1,0,0,8
+"Vilhena","RO",44.4,9,2,2,0,5
+"Erechim","RS",40.0,10,2,2,0,6
+"Santa Cruz do Capibaribe","PE",22.2,9,1,1,0,7
+"Japeri","RJ",22.2,9,1,1,0,7
+"Parintins","AM",22.2,9,2,0,0,7
+"Cruzeiro do Sul","AC",0.0,9,0,0,0,9
+"Tucuruí","PA",33.3,9,2,1,0,6
+"Navegantes","SC",11.1,9,1,0,0,8
+"Moju","PA",12.5,8,1,0,0,7
+"Santa Inês","MA",0.0,9,0,0,0,9
+"Pinheiro","MA",22.2,9,2,0,0,7
+"Barra do Corda","MA",12.5,8,1,0,0,7
+"Quixeramobim","CE",12.5,8,1,0,0,7
+"Chapadinha","MA",14.3,7,1,0,0,6
+"Biguaçu","SC",37.5,8,2,1,0,5
+"Carpina","PE",22.2,9,1,1,0,7
+"Tefé","AM",12.5,8,1,0,0,7
+"Santa Izabel do Pará","PA",12.5,8,1,0,0,7
+"Rio do Sul","SC",37.5,8,3,0,0,5
+"Grajaú","MA",0.0,9,0,0,0,9
+"Caçador","SC",25.0,8,2,0,0,6
+"Alenquer","PA",11.1,9,1,0,0,8
+"Capanema","PA",33.3,9,2,1,0,6
+"Tailândia","PA",22.2,9,1,1,0,7
+"Coari","AM",0.0,6,0,0,0,6
+"Tabatinga","AM",0.0,8,0,0,0,8
+"Tomé-Açu","PA",0.0,9,0,0,0,9
+"Oriximiná","PA",11.1,9,1,0,0,8
+"Farroupilha","RS",11.1,9,1,0,0,8
+"Sousa","PB",22.2,9,2,0,0,7
+"Igarapé-Miri","PA",0.0,8,0,0,0,8
+"Benevides","PA",16.7,6,1,0,0,5
+"Iranduba","AM",11.1,9,1,0,0,8
+"Extremoz","RN",12.5,8,1,0,0,7
+"Ouricuri","PE",37.5,8,3,0,0,5
+"Portel","PA",11.1,9,1,0,0,8
+"Montenegro","RS",14.3,7,1,0,0,6
+"Bezerros","PE",11.1,9,1,0,0,8
+"São Félix do Xingu","PA",11.1,9,0,1,0,8
+"Monte Alegre","PA",11.1,9,0,1,0,8
+"Camaquã","RS",22.2,9,2,0,0,7
+"Carazinho","RS",22.2,9,2,0,0,7
+"Nova Mutum","MT",22.2,9,2,0,0,7
+"Humaitá","AM",0.0,9,0,0,0,9
+"Acará","PA",22.2,9,2,0,0,7
+"Viseu","PA",12.5,8,1,0,0,7
+"Escada","PE",12.5,8,1,0,0,7
+"Capitão Poço","PA",11.1,9,1,0,0,8
+"Penedo","AL",0.0,9,0,0,0,9
+"Paudalho","PE",0.0,8,0,0,0,8
+"Cachoeiras de Macacu","RJ",0.0,9,0,0,0,9
+"Limoeiro","PE",25.0,8,2,0,0,6
+"Açu","RN",0.0,8,0,0,0,8
+"Santa Luzia","MA",11.1,9,1,0,0,8
+"Manicoré","AM",12.5,8,1,0,0,7
+"São Gabriel da Cachoeira","AM",22.2,9,2,0,0,7
+"Mafra","SC",37.5,8,3,0,0,5
+"Rondon do Pará","PA",0.0,8,0,0,0,8
+"Baião","PA",11.1,9,1,0,0,8
+"Buriticupu","MA",12.5,8,1,0,0,7
+"Palmares","PE",12.5,8,1,0,0,7
+"São Miguel do Guamá","PA",0.0,9,0,0,0,9
+"Jaru","RO",12.5,8,1,0,0,7
+"Óbidos","PA",22.2,9,2,0,0,7
+"Xanxerê","SC",33.3,9,2,1,0,6
+"Caetité","BA",0.0,8,0,0,0,8
+"Taquara","RS",11.1,9,1,0,0,8
+"Guapimirim","RJ",0.0,9,0,0,0,9
+"Juruti","PA",22.2,9,2,0,0,7
+"Vigia","PA",12.5,8,1,0,0,7
+"Parobé","RS",0.0,9,0,0,0,9
+"Viana","MA",12.5,8,1,0,0,7
+"Barra Velha","SC",22.2,9,2,0,0,7
+"Tobias Barreto","SE",11.1,9,1,0,0,8
+"Campo Novo do Parecis","MT",33.3,9,3,0,0,6
+"Guaramirim","SC",10.0,10,1,0,0,9
+"Poções","BA",11.1,9,0,0,1,8
