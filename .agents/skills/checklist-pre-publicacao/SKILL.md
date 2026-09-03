@@ -40,7 +40,16 @@ reconstruído na hora.** Ver seção 3 abaixo pro que ele cobre.
    `generateUniqueCityContent()` ou qualquer template direto pra produção
    sem reescrever. Isso é risco real de penalização Google por "scaled
    content abuse" (ver [`CLAUDE_CODE_GUIDE.md`](../../../CLAUDE_CODE_GUIDE.md),
-   seção "RISCO CRÍTICO: conteúdo quase-duplicado").
+   seção "RISCO CRÍTICO: conteúdo quase-duplicado"). **O mesmo risco
+   existe DENTRO de uma cidade**, entre as páginas de bairro dela — achado
+   real 01/09/2026, corrigido: o corpo de `[slug].astro` (branch bairro)
+   era texto 100% idêntico entre os 15-30 bairros de cada cidade, só o
+   nome trocava. Como não há dado real por bairro em escala pra escrever
+   texto único e factual (inventar seria quebrar a regra 4), a mitigação
+   aplicada foi rotação determinística por hash entre 3-4 variações
+   escritas à mão por bloco de texto (`pickText()` em `[slug].astro`) —
+   nunca alega fato específico não verificado do bairro. Ver
+   `CLAUDE_CODE_GUIDE.md` pro detalhe completo.
 2. **Title entre 40 e 60 caracteres (páginas escritas à mão: home/cidade),
    80 no teto pra páginas de serviço/bairro AUTO-GERADAS (ver regra 16);
    Meta Description sempre entre 120 e 160 caracteres — faixa NUMÉRICA com

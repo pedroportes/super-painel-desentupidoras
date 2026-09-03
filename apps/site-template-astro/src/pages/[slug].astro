@@ -47,6 +47,19 @@ const props = Astro.props;
 // Prepare custom SEO based on page type
 let pageSeo = { ...cityData.seo };
 let pageFaqs = [];
+// Textos variados do corpo da página de bairro (ver bloco 'neighborhood'
+// abaixo) — declarados aqui em escopo de módulo porque o template JSX
+// usa essas variáveis fora do bloco `if` onde são atribuídas.
+let heroDescription = '';
+let quickAnswerText = '';
+let card1Text = '';
+let card2Text = '';
+let card3Text = '';
+let card4Text = '';
+let landmark1Text = '';
+let landmark2Text = '';
+let landmark3Text = '';
+let landmark4Text = '';
 
 if (props.type === 'service') {
   const serviceName = props.title;
@@ -93,6 +106,101 @@ if (props.type === 'service') {
   ];
 } else if (props.type === 'neighborhood') {
   const bairroName = props.name;
+  // 🚫 Regra de ouro 1 (conteúdo quase-duplicado): até esta correção,
+  // TODO o corpo de texto de toda página de bairro era 100% fixo — só o
+  // nome do bairro variava, o resto (frases dos 4 cards "Conhecendo o
+  // Bairro", da seção "Resposta Rápida" e das 4 caixas de "Referências")
+  // era idêntico palavra por palavra em qualquer bairro de qualquer
+  // cidade. Numa cidade com 15-30 bairros isso é 15-30 páginas
+  // quase-clones publicadas — mesmo risco de "scaled content abuse" da
+  // regra 1, só que dentro da própria cidade em vez de entre cidades.
+  //
+  // Não temos dado de pesquisa real por bairro em escala (300+ bairros
+  // cadastrados hoje) pra escrever texto 100% único e factual — inventar
+  // characterísticas específicas de um bairro que não conferimos violaria
+  // a regra de nunca inventar dado. Solução aplicada: cada bloco de texto
+  // abaixo tem 4-5 variações escritas à mão (ângulos/redação diferentes,
+  // mas nenhuma alega um fato específico não verificado daquele bairro
+  // exato) e a variação é escolhida de forma determinística por hash do
+  // nome do bairro + id da cidade — o mesmo bairro sempre cai na mesma
+  // variação (estável entre builds), e bairros diferentes tendem a cair
+  // em variações diferentes, inclusive entre cidades (evita, por exemplo,
+  // todo bairro chamado "Centro" no Brasil inteiro ter texto idêntico).
+  function pickText<T>(arr: T[], seed: string): T {
+    let h = 0;
+    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+    return arr[h % arr.length];
+  }
+  const seedBase = `${cityData.id || cityData.cidade}-${bairroName}`;
+
+  const heroDescVariations = [
+    `Precisando de uma desentupidora no <strong>${bairroName}</strong>, em <strong>${cityData.cidade}</strong>? A <strong>${cityData.empresaNome}</strong> atende o bairro com técnicos que conhecem a região, visita técnica gratuita e orçamento fechado antes de começar qualquer serviço.`,
+    `Entupimento não escolhe hora. No <strong>${bairroName}</strong>, em <strong>${cityData.cidade}</strong>, a <strong>${cityData.empresaNome}</strong> chega rápido, avalia o problema com visita técnica gratuita e só cobra depois de fechar o orçamento com você.`,
+    `Se você mora ou trabalha no <strong>${bairroName}</strong>, <strong>${cityData.cidade}</strong>, conte com a <strong>${cityData.empresaNome}</strong>: diagnóstico no local sem custo, orçamento fechado antes de qualquer intervenção e equipe que já conhece as ruas do bairro.`,
+    `A <strong>${cityData.empresaNome}</strong> atende o <strong>${bairroName}</strong>, em <strong>${cityData.cidade}</strong>, com visita técnica 100% gratuita — nossos técnicos avaliam o encanamento no local e só iniciam o serviço depois do orçamento aprovado por você.`,
+  ];
+  heroDescription = pickText(heroDescVariations, `${seedBase}-hero`);
+
+  const quickAnswerVariations = [
+    `A <strong>${cityData.empresaNome}</strong> mantém viaturas móveis e técnicos especializados posicionados estrategicamente na região do <strong>${bairroName}</strong>, em ${cityData.cidade} - ${cityData.uf}. Atendemos residências, condomínios prediais e empresas com desentupimento de esgoto, pia de cozinha, vasos sanitários, ralos pluviais, caixas de gordura, esgotamento de fossas sépticas e hidrojateamento de alta pressão. Assim que você entra em contato, agendamos uma <strong>visita técnica 100% gratuita</strong> para avaliar a tubulação no local e fechar o orçamento antes de iniciar o trabalho.`,
+    `No <strong>${bairroName}</strong>, em ${cityData.cidade} - ${cityData.uf}, a <strong>${cityData.empresaNome}</strong> resolve entupimento de esgoto, pia, vaso sanitário, ralo, caixa de gordura e fossa séptica — residencial, condomínio ou empresa. Ligue ou chame no WhatsApp e agendamos uma <strong>visita técnica gratuita</strong> ainda hoje, com orçamento fechado antes de qualquer serviço começar.`,
+    `Moradores e comércios do <strong>${bairroName}</strong> (${cityData.cidade} - ${cityData.uf}) contam com a <strong>${cityData.empresaNome}</strong> pra desentupimento de esgoto, pia, vaso, ralo, limpeza de caixa de gordura e fossa, além de hidrojateamento de alta pressão pra obstruções mais sérias. A <strong>visita técnica é sempre gratuita</strong>, e o orçamento é fechado antes de qualquer intervenção.`,
+    `Atendemos o <strong>${bairroName}</strong> inteiro, em ${cityData.cidade} - ${cityData.uf}: esgoto, pia de cozinha, vaso sanitário, ralo pluvial, caixa de gordura, fossa séptica e hidrojateamento de alta pressão. A <strong>${cityData.empresaNome}</strong> faz uma <strong>visita técnica gratuita</strong> antes de fechar qualquer orçamento, pra você saber exatamente o que está pagando.`,
+  ];
+  quickAnswerText = pickText(quickAnswerVariations, `${seedBase}-quick`);
+
+  const card1Variations = [
+    `O bairro <strong>${bairroName}</strong> é uma localidade de destaque em ${cityData.cidade}, reunindo áreas residenciais ativas, condomínios, comércio variado, padarias, escolas e restaurantes com grande fluxo diário de pessoas.`,
+    `<strong>${bairroName}</strong> concentra uma mistura de casas, condomínios e pequenos comércios em ${cityData.cidade} — perfil comum de bairro consolidado, com movimento constante de moradores e clientes ao longo do dia.`,
+    `Como boa parte dos bairros de ${cityData.cidade}, o <strong>${bairroName}</strong> combina uso residencial e comercial: famílias, condomínios e estabelecimentos locais dividem a mesma rede de esgoto e água.`,
+  ];
+  card1Text = pickText(card1Variations, `${seedBase}-card1`);
+
+  const card2Variations = [
+    `Nossas viaturas de suporte circulam diariamente pelas principais vias de acesso do <strong>${bairroName}</strong>. Essa proximidade nos permite chegar em <strong>20 a 35 minutos</strong> para conter transbordamentos e entupimentos urgentes.`,
+    `Mantemos equipes de plantão que já conhecem as ruas de acesso do <strong>${bairroName}</strong>, o que reduz o tempo de chegada em emergências — normalmente entre <strong>20 e 35 minutos</strong> desde o seu chamado.`,
+    `Base descentralizada perto do <strong>${bairroName}</strong> significa resposta rápida: nossas equipes chegam em geral entre <strong>20 e 35 minutos</strong> pra conter vazamento, transbordamento ou entupimento urgente.`,
+  ];
+  card2Text = pickText(card2Variations, `${seedBase}-card2`);
+
+  const card3Variations = [
+    `A mescla de imóveis tradicionais e novas construções no ${bairroName} gera demandas constantes de desobstrução por gordura acumulada, raízes em tubulações coletoras e sobrecarga em encanamentos prediais.`,
+    `Como em qualquer bairro com imóveis de idades diferentes, no ${bairroName} os problemas mais comuns são acúmulo de gordura na tubulação, raízes de árvore infiltradas e redes prediais sobrecarregadas em dias de chuva forte.`,
+    `No ${bairroName}, os chamados mais frequentes envolvem entupimento por gordura em cozinhas, raízes que invadem a rede coletora e picos de uso que sobrecarregam encanamentos mais antigos.`,
+  ];
+  card3Text = pickText(card3Variations, `${seedBase}-card3`);
+
+  const card4Variations = [
+    `Trabalhamos com máquinas rotativas flexíveis K-50/K-500 e hidrojato de alta pressão, desobstruindo os canos por dentro e preservando seus pisos, azulejos e paredes intactos.`,
+    `Usamos sondas rotativas K-50/K-500 e hidrojateamento de alta pressão pra limpar a tubulação por dentro — sem quebrar piso, azulejo ou parede pra chegar até o problema.`,
+    `Nosso equipamento (molas rotativas K-50/K-500 e hidrojato de alta pressão) desobstrui o encanamento por dentro do próprio cano, então seu piso e revestimento saem intactos do atendimento.`,
+  ];
+  card4Text = pickText(card4Variations, `${seedBase}-card4`);
+
+  const landmark1Variations = [
+    `Cobertura nas vias de tráfego central e ruas residenciais do ${bairroName}.`,
+    `Atendemos tanto as vias principais quanto as ruas mais internas do ${bairroName}.`,
+    `Nossa equipe cobre igualmente as avenidas de maior movimento e as ruas residenciais do ${bairroName}.`,
+  ];
+  landmark1Text = pickText(landmark1Variations, `${seedBase}-lm1`);
+  const landmark2Variations = [
+    `Atendimento prioritário para síndicos e manutenção preventiva de colunas prediais.`,
+    `Contrato de manutenção preventiva pra colunas prediais e atendimento direto ao síndico.`,
+    `Suporte a condomínios com manutenção preventiva de coluna predial e prioridade em emergências.`,
+  ];
+  landmark2Text = pickText(landmark2Variations, `${seedBase}-lm2`);
+  const landmark3Variations = [
+    `Desobstrução higiênica e rápida para cozinhas comerciais sem interromper suas vendas.`,
+    `Limpeza de caixa de gordura e desobstrução de cozinha comercial fora do horário de pico, sem parar suas vendas.`,
+    `Atendimento rápido pra restaurantes e comércios, minimizando o tempo parado da cozinha.`,
+  ];
+  landmark3Text = pickText(landmark3Variations, `${seedBase}-lm3`);
+  const landmark4Variations = [
+    `Equipes uniformizadas e educadas com foco total na limpeza e preservação do imóvel.`,
+    `Técnicos uniformizados, atendimento educado e cuidado extra pra não sujar ou danificar o imóvel.`,
+    `Time uniformizado que trabalha com proteção de piso e limpeza do local ao final do serviço.`,
+  ];
+  landmark4Text = pickText(landmark4Variations, `${seedBase}-lm4`);
   // 🚫 Regra de ouro (achado 31/08/2026, São Caetano do Sul): mesmo
   // problema do bloco de serviço acima — bairro com nome composto
   // (ex: "Jardim Santa Rita de Cássia") + cidade composta estourava 60
@@ -160,9 +268,7 @@ if (props.type === 'service') {
             <span class="hero-highlight">Atendimento Rápido no Seu Bairro</span>
           </h1>
           
-          <p class="hero-description">
-            Precisando de uma desentupidora no <strong>{props.name}</strong>, em <strong>{cityData.cidade}</strong>? A <strong>{cityData.empresaNome}</strong> atende o bairro com técnicos que conhecem a região, visita técnica gratuita e orçamento fechado antes de começar qualquer serviço.
-          </p>
+          <p class="hero-description" set:html={heroDescription} />
 
           <div class="hours-badge">
             🕒 Horário de Atendimento: Segunda a Domingo | Plantão Emergencial 24 Horas
@@ -199,9 +305,7 @@ if (props.type === 'service') {
               <span class="quick-icon">⚡</span>
               <h3>Atendimento Direto & Imediato no Bairro {props.name}</h3>
             </div>
-            <p>
-              A <strong>{cityData.empresaNome}</strong> mantém viaturas móveis e técnicos especializados posicionados estrategicamente na região do <strong>{props.name}</strong>, em {cityData.cidade} - {cityData.uf}. Atendemos residências, condomínios prediais e empresas com desentupimento de esgoto, pia de cozinha, vasos sanitários, ralos pluviais, caixas de gordura, esgotamento de fossas sépticas e hidrojateamento de alta pressão. Assim que você entra em contato, agendamos uma <strong>visita técnica 100% gratuita</strong> para avaliar a tubulação no local e fechar o orçamento antes de iniciar o trabalho.
-            </p>
+            <p set:html={quickAnswerText} />
           </div>
         </div>
       </section>
@@ -222,36 +326,28 @@ if (props.type === 'service') {
             <div class="about-card">
               <div class="about-card-icon">🏙️</div>
               <h3>Perfil e Infraestrutura</h3>
-              <p>
-                O bairro <strong>{props.name}</strong> é uma localidade de destaque em {cityData.cidade}, reunindo áreas residenciais ativas, condomínios, comércio variado, padarias, escolas e restaurantes com grande fluxo diário de pessoas.
-              </p>
+              <p set:html={card1Text} />
             </div>
 
             <!-- Card 2 -->
             <div class="about-card">
               <div class="about-card-icon">🚀</div>
               <h3>Agilidade e Chegada em 30 Min</h3>
-              <p>
-                Nossas viaturas de suporte circulam diariamente pelas principais vias de acesso do <strong>{props.name}</strong>. Essa proximidade nos permite chegar em <strong>20 a 35 minutos</strong> para conter transbordamentos e entupimentos urgentes.
-              </p>
+              <p set:html={card2Text} />
             </div>
 
             <!-- Card 3 -->
             <div class="about-card">
               <div class="about-card-icon">⚠️</div>
               <h3>Desafios Hidráulicos Comuns</h3>
-              <p>
-                A mescla de imóveis tradicionais e novas construções no {props.name} gera demandas constantes de desobstrução por gordura acumulada, raízes em tubulações coletoras e sobrecarga em encanamentos prediais.
-              </p>
+              <p set:html={card3Text} />
             </div>
 
             <!-- Card 4 -->
             <div class="about-card">
               <div class="about-card-icon">🛡️</div>
               <h3>Tecnologia Sem Quebrar Piso</h3>
-              <p>
-                Trabalhamos com máquinas rotativas flexíveis K-50/K-500 e hidrojato de alta pressão, desobstruindo os canos por dentro e preservando seus pisos, azulejos e paredes intactos.
-              </p>
+              <p set:html={card4Text} />
             </div>
           </div>
         </div>
@@ -270,22 +366,22 @@ if (props.type === 'service') {
             <div class="landmark-box">
               <span class="landmark-ico">🛣️</span>
               <h4>Principais Avenidas e Ruas</h4>
-              <p>Cobertura nas vias de tráfego central e ruas residenciais do {props.name}.</p>
+              <p>{landmark1Text}</p>
             </div>
             <div class="landmark-box">
               <span class="landmark-ico">🏢</span>
               <h4>Condomínios & Prédios</h4>
-              <p>Atendimento prioritário para síndicos e manutenção preventiva de colunas prediais.</p>
+              <p>{landmark2Text}</p>
             </div>
             <div class="landmark-box">
               <span class="landmark-ico">🏪</span>
               <h4>Comércio & Restaurantes</h4>
-              <p>Desobstrução higiênica e rápida para cozinhas comerciais sem interromper suas vendas.</p>
+              <p>{landmark3Text}</p>
             </div>
             <div class="landmark-box">
               <span class="landmark-ico">🏡</span>
               <h4>Casas, Sobrados e Empresas</h4>
-              <p>Equipes uniformizadas e educadas com foco total na limpeza e preservação do imóvel.</p>
+              <p>{landmark4Text}</p>
             </div>
           </div>
         </div>

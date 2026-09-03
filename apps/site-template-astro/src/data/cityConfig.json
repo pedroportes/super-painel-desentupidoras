@@ -1,24 +1,25 @@
 {
-  "cidade": "Santa Bárbara d'Oeste",
+  "cidade": "Ferraz de Vasconcelos",
   "estado": "São Paulo",
   "uf": "SP",
-  "populacao": "189.456",
-  "ddd": "19",
-  "whatsapp": "19993221100",
-  "telefoneFixo": "(19) 4000-0000",
-  "empresaNome": "Desentupidora Técnica Santa Bárbara d'Oeste",
+  "populacao": "186.479",
+  "ddd": "",
+  "whatsapp": "",
+  "telefoneFixo": "",
+  "isDraft": true,
+  "empresaNome": "Site em preparacao: Ferraz de Vasconcelos",
   "cnpj": "",
   "endereco": "",
-  "hospedagem": "netlify",
-  "deployUrl": "https://desentupidora-santabarbaradoeste.netlify.app",
-  "paletaCores": "corporativo-verde-cinza",
-  "logoUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
+  "hospedagem": "cloudflare",
+  "deployUrl": "",
+  "paletaCores": "proativo-vinho-areia",
+  "logoUrl": "/images/ferrazdevasconcelos/logo-desentupidora-ferrazdevasconcelos.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/santabarbaradoeste/logo-desentupidora-santabarbaradoeste.webp",
-  "heroImage": "/images/santabarbaradoeste/desentupidora-santabarbaradoeste-tecnico-desentupimento.webp",
+  "faviconUrl": "/images/ferrazdevasconcelos/favicon-desentupidora-ferrazdevasconcelos.webp",
+  "heroImage": "/images/ferrazdevasconcelos/desentupidora-ferrazdevasconcelos-condominio-proativo.webp",
   "variants": {
-    "hero": "HeroV3",
-    "services": "ServicesGridV3",
+    "hero": "HeroV5",
+    "services": "ServicesGridV6",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -27,111 +28,94 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Santa Bárbara d'Oeste SP 24h",
-    "metaDescription": "Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em Santa Bárbara d'Oeste SP. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora Técnica Especializada em Santa Bárbara d'Oeste SP",
-    "firstParagraphText": "Uma desentupidora em Santa Bárbara d'Oeste que investiga antes de agir: a cidade foi fundada em 1869 e tem bairros com tubulação de décadas bem diferentes entre si, do Centro histórico ao Distrito Industrial. Por isso usamos vídeo inspeção pra identificar a causa real do entupimento antes de qualquer intervenção.",
-    "lastH2Title": "A desentupidora técnica que investiga a causa real em Santa Bárbara d'Oeste"
+    "metaTitle": "Desentupidora para condominios em Ferraz de Vasconcelos",
+    "metaDescription": "Desentupidora para condominios em Ferraz de Vasconcelos, SP, com foco em prevencao, inspecao e manutencao hidraulica programada.",
+    "h1Title": "Desentupidora para condominios em Ferraz de Vasconcelos",
+    "firstParagraphText": "Desentupidora para condominios em Ferraz de Vasconcelos: em uma cidade de 29,58 km2 e alta densidade urbana, a prevencao ajuda a planejar a manutencao hidraulica coletiva.",
+    "lastH2Title": "Como a desentupidora preventiva apoia condominios em Ferraz de Vasconcelos?"
   },
-  "aboutCityTitle": "Diagnóstico Técnico Especializado em Santa Bárbara d'Oeste - SP",
-  "aboutCityText": "Santa Bárbara d'Oeste é um dos municípios mais antigos da região de Campinas, emancipada em 1869, e viveu décadas de forte industrialização: sediou a primeira grande indústria têxtil da região (Fiação e Tecelagem Santa Bárbara) e, em 1956, o primeiro automóvel genuinamente brasileiro, o Romi-Isetta, foi fabricado na cidade. Esse histórico industrial deixou a rede de esgoto com idades muito diferentes conforme o bairro — trechos centenários no Centro e Cidade Nova convivem com redes mais novas em bairros como Distrito Industrial. Por isso, nossa equipe usa vídeo inspeção antes de intervir: identificamos raiz de árvore, colapso de tubulação antiga, acúmulo de gordura industrial ou objeto preso, e explicamos ao cliente exatamente o que foi encontrado antes de cobrar qualquer coisa.",
+  "aboutCityTitle": "Planejamento preventivo em uma Ferraz de Vasconcelos urbana e adensada",
+  "aboutCityText": "Ferraz de Vasconcelos tem 29,58 km2 de area territorial e 186.479 habitantes estimados pelo IBGE para 2025. A cidade se desenvolveu a partir da estacao inaugurada em 1926 e passou por urbanizacao acelerada, com pequenas industrias e comercio. Para imoveis coletivos, esse contexto reforca a importancia de registrar recorrencias e planejar a manutencao das instalacoes hidraulicas.",
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Jardim Europa",
-    "Cidade Nova",
-    "Pérola",
-    "Vila Mollon IV",
-    "Linópolis",
-    "Jardim São Francisco",
-    "Jardim Souza Queiroz",
-    "Jardim Santa Rita de Cássia",
-    "Distrito Industrial",
-    "Olaria",
-    "Cruzeiro do Sul"
+    "Jardim Ferrazense",
+    "Jardim Juliana",
+    "Jardim Selma Helena",
+    "Jardim Sao Joao",
+    "Parque Sao Francisco",
+    "Jardim Perola",
+    "Jardim Sao Judas Tadeu",
+    "Jardim Figueiredo",
+    "Vila Romanopolis",
+    "Vila Correa",
+    "Vila Andeyara",
+    "Jardim Planalto",
+    "Jardim Barao",
+    "Jardim Tinoco",
+    "Jardim Espinha",
+    "Jardim Ipanema",
+    "Jardim do Papai",
+    "Vila Santa Margarida",
+    "Cidade Kemel"
   ],
   "services": [
     {
-      "id": "inspecao",
-      "title": "Vídeo Inspeção de Tubulação",
-      "description": "Câmera de alta resolução identifica a causa exata do entupimento antes de qualquer intervenção — essencial nas redes mais antigas do Centro.",
-      "icon": "📹"
+      "title": "Mapeamento de pontos criticos",
+      "description": "Levantamento tecnico dos trechos com recorrencia para orientar prioridades de manutencao.",
+      "icon": "📍"
     },
     {
-      "id": "esgoto",
-      "title": "Desentupimento de Esgoto",
-      "description": "Método escolhido conforme o diagnóstico: rotativo, hidrojato ou combinação dos dois.",
-      "icon": "🚿"
+      "title": "Desentupimento de prumadas",
+      "description": "Atuacao planejada em colunas e redes coletivas, considerando o impacto na rotina do condominio.",
+      "icon": "🏢"
     },
     {
-      "id": "pia",
-      "title": "Desentupimento de Pia e Ralo",
-      "description": "Diagnóstico rápido para obstruções domésticas simples, com explicação da causa ao morador.",
-      "icon": "🚰"
+      "title": "Limpeza de caixa de gordura",
+      "description": "Servico programado para areas gourmet, cozinhas coletivas e operacoes compartilhadas.",
+      "icon": "🛢️"
     },
     {
-      "id": "reparo",
-      "title": "Reparo de Tubulação Colapsada",
-      "description": "Identificação de trechos danificados por décadas de uso que causam entupimento recorrente.",
-      "icon": "🔧"
-    },
-    {
-      "id": "hidrojato",
-      "title": "Hidrojateamento Técnico",
-      "description": "Pressão ajustada conforme o material e a idade da tubulação identificados na inspeção.",
+      "title": "Hidrojateamento preventivo",
+      "description": "Limpeza tecnica para redes que apresentam historico de retorno ou baixa vazao.",
       "icon": "🌊"
     },
     {
-      "id": "laudo",
-      "title": "Laudo Técnico de Diagnóstico",
-      "description": "Relatório com fotos e vídeo do problema encontrado, útil para laudos de imóvel e seguros.",
-      "icon": "📄"
+      "title": "Video inspecao e registro",
+      "description": "Diagnostico por imagem para documentar condicoes da tubulacao e apoiar decisoes tecnicas.",
+      "icon": "📹"
+    },
+    {
+      "title": "Plano de manutencao por prioridade",
+      "description": "Organizacao de acoes preventivas conforme recorrencia, risco e uso das areas comuns.",
+      "icon": "🧭"
     }
   ],
   "faqs": [
     {
-      "question": "A vídeo inspeção em Santa Bárbara d'Oeste tem custo separado?",
-      "answer": "Não, está incluída na visita técnica gratuita sempre que for necessária para o diagnóstico."
+      "question": "Por que condominios devem registrar ocorrencias hidraulicas recorrentes?",
+      "answer": "Um historico ajuda a identificar padroes, comparar intervencoes e definir prioridades de manutencao com mais criterio."
     },
     {
-      "question": "Por que o entupimento é recorrente em bairros mais antigos como o Centro?",
-      "answer": "Trechos de tubulação com mais de 50 anos são comuns na região central, e costumam ter colapsos parciais ou raízes infiltradas que a inspeção por câmera identifica com precisão."
+      "question": "Quando a video inspecao pode ser indicada?",
+      "answer": "Ela pode apoiar o diagnostico quando ha recorrencia, duvida sobre o trecho afetado ou necessidade de documentacao tecnica."
     },
     {
-      "question": "Vocês emitem laudo técnico em Santa Bárbara d'Oeste?",
-      "answer": "Sim, entregamos laudo com registro fotográfico e em vídeo do problema encontrado, útil para laudo de imóvel ou acionamento de seguro."
+      "question": "O que uma rotina preventiva pode considerar?",
+      "answer": "O plano pode reunir pontos criticos, frequencia de uso, historico de ocorrencias e janelas que reduzam o impacto nas areas comuns."
     },
     {
-      "question": "Vocês atendem indústrias e galpões do Distrito Industrial?",
-      "answer": "Sim, temos equipamento de hidrojateamento de alta pressão adequado para redes de maior porte e resíduo industrial."
+      "question": "Caixas de gordura exigem atencao em condominios?",
+      "answer": "Sim. Areas gourmet e cozinhas coletivas podem exigir acompanhamento conforme o uso e o volume de residuos."
     },
     {
-      "question": "O diagnóstico técnico demora mais que um desentupimento comum?",
-      "answer": "Leva alguns minutos a mais, mas evita retrabalho e intervenção no trecho errado da tubulação."
+      "question": "Como uma administradora pode comparar prioridades?",
+      "answer": "Registros de inspecao, recorrencia e impacto operacional ajudam a diferenciar manutencao programada de intervencoes urgentes."
     },
     {
-      "question": "A visita técnica com inspeção é gratuita em Santa Bárbara d'Oeste?",
-      "answer": "Sim, sempre gratuita e sem compromisso."
+      "question": "O cadastro ja esta pronto para atendimento comercial?",
+      "answer": "Nao. Esta e uma pagina em preparacao; contatos, endereco, CNPJ e condicoes comerciais serao incluidos somente apos verificacao."
     }
   ],
-  "testimonials": [
-    {
-      "name": "Eng. Rogério Fadel",
-      "neighborhood": "Distrito Industrial - Santa Bárbara d'Oeste",
-      "rating": 5,
-      "text": "Fizeram a inspeção por câmera no galpão e mostraram exatamente onde estava o colapso na tubulação. Muito mais profissional que só tentar."
-    },
-    {
-      "name": "Síndica Marli Terezinha",
-      "neighborhood": "Centro - Santa Bárbara d'Oeste",
-      "rating": 5,
-      "text": "Prédio antigo do Centro, cano de décadas, e eles descobriram a raiz de árvore com a câmera antes de fazer qualquer coisa."
-    },
-    {
-      "name": "Douglas Piovezan",
-      "neighborhood": "Jardim Europa - Santa Bárbara d'Oeste",
-      "rating": 5,
-      "text": "Entupia toda semana e ninguém sabia por quê. Com a vídeo inspeção acharam o problema na hora e ainda me deram o laudo."
-    }
-  ]
+  "testimonials": []
 }

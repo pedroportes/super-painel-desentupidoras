@@ -30,7 +30,7 @@ Antes de tocar no código do site, precisamos cadastrar a cidade no "banco de da
    - `telefoneFixo`: (telefone apenas números)
    - `endereco`: (endereço com rua e número)
    - `geoCoordinates`: `{ "latitude": "", "longitude": "" }`
-   - `bairros`: (Um array com pelo menos 15 a 30 bairros principais da cidade). *Gere essa lista usando seu conhecimento geográfico.*
+   - `bairros`: (Um array com pelo menos 15 a 30 bairros principais da cidade). 🚫 **NUNCA gerar essa lista "de cabeça"/por conhecimento geográfico — confirmar cada nome por busca real (WebSearch/Wikipédia/site de CEP) antes de cadastrar.** Regra de ouro 15/6 de `checklist-pre-publicacao/SKILL.md`: bairro inventado, copiado de outra cidade ou valor de teste já aconteceu de verdade em produção (Curitiba publicada com os bairros reais de Linhares; 3 cidades com a mesma lista fictícia genérica). Esta instrução dizia o contrário até 01/09/2026 — foi a causa raiz documentada desse bug, corrigida aqui.
    - `services`: (Um array fixo com os 6 serviços: Desentupimento de Esgoto, Pia, Vaso Sanitário, Ralo, Esgotamento de Fossa e Hidrojateamento).
 
 ⚠️ **Conteúdo tem que ser único de verdade, não template com find-replace**

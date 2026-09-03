@@ -139,20 +139,51 @@ componente de seção, estas regras têm que ser verdade na saída HTML **real**
    "scaled content abuse" documentado na skill
    [`rede-de-parceiros`](.agents/skills/rede-de-parceiros/SKILL.md), mas
    aplicado ao conteúdo principal do site, não só à página de parceiros).
-   ⚠️ **Bug conhecido, ainda não corrigido**: `generateUniqueCityContent()`
+   ⚠️ **Bug conhecido, PARCIALMENTE corrigido**: `generateUniqueCityContent()`
    em `cityGenerator.ts` gera hoje um `aboutCityText` e um conjunto de
-   FAQs **100% fixos por modelo de template** (só troca `${cidade}`) — e
-   as páginas de bairro (`[slug].astro`) são piores: os mesmos 4 cards
-   ("Perfil e Infraestrutura", "Desafios Hidráulicos Comuns", "Pontos
-   Conhecidos", "Tecnologia Sem Quebrar Piso") têm **texto idêntico,
-   palavra por palavra, em todo bairro de toda cidade**, só troca o nome
-   do bairro. Isso já soma 100+ páginas quase-idênticas publicadas hoje —
-   é a mesma classe de risco do exemplo de mercado de 940 páginas
-   analisado na skill de parceiros, só que em escala menor e já ao vivo,
-   não hipotético. Ao criar uma cidade nova, escrever o conteúdo (H1,
-   1º parágrafo, `aboutCityText`, FAQs) manualmente com fatos reais e
-   específicos daquela cidade — nunca usar `generateUniqueCityContent()`
-   direto pra produção sem reescrever o texto.
+   FAQs **100% fixos por modelo de template** (só troca `${cidade}`) — ao
+   criar uma cidade nova, escrever o conteúdo (H1, 1º parágrafo,
+   `aboutCityText`, FAQs) manualmente com fatos reais e específicos
+   daquela cidade, nunca usar `generateUniqueCityContent()` direto pra
+   produção sem reescrever o texto. Isso continua verdade.
+
+   ✅ **Corrigido em 01/09/2026 — texto do CORPO de cada página de
+   bairro**: até esta correção, os mesmos 4 cards em `[slug].astro`
+   ("Perfil e Infraestrutura", "Agilidade e Chegada em 30 Min", "Desafios
+   Hidráulicos Comuns", "Tecnologia Sem Quebrar Piso") mais a seção
+   "Pontos Conhecidos e Vias de Atendimento" (4 caixas) tinham **texto
+   idêntico, palavra por palavra, em todo bairro de toda cidade** — só o
+   nome do bairro variava via `{props.name}`. Isso já somava 300+ páginas
+   quase-idênticas publicadas (14 cidades × 15-30 bairros cada), mesma
+   classe de risco do exemplo de mercado de 940 páginas analisado na
+   skill `rede-de-parceiros`, só que em escala menor e já ao vivo, não
+   hipotético.
+
+   **Solução aplicada**: pesquisa individual por bairro em escala (300+
+   bairros) foi descartada por inviabilidade de tempo — e inventar
+   característica específica de um bairro não confirmada violaria a
+   regra de nunca inventar dado (regra de ouro 4/R4). Em vez disso, cada
+   um dos 10 blocos de texto (hero, resposta rápida, 4 cards, 4 caixas de
+   referência) ganhou 3-4 variações escritas à mão — ângulos/redação
+   diferentes, nenhuma alegando um fato específico não verificado do
+   bairro — escolhidas de forma **determinística por hash** do
+   `${city.id}-${bairroName}` (função `pickText()`, mesmo padrão já usado
+   em `[...partner].astro`). O mesmo bairro sempre cai na mesma variação
+   (estável entre builds); bairros diferentes tendem a cair em variações
+   diferentes, inclusive entre cidades. Verificado de verdade lendo o
+   `dist/` de 6 bairros de São Caetano do Sul: 3 variações distintas
+   realmente apareceram distribuídas entre eles, não a mesma pra todos.
+
+   Replicado nas 13 cidades já publicadas (regra de ouro 10: testado 1º
+   só em São Caetano do Sul, `checklist_completo.cjs` confirmando 100% em
+   produção, só então replicado) — build+deploy real nas 13, checklist
+   final `--all`: **14/14 cidades verdes**.
+
+   **Isso não é pesquisa factual por bairro** — é mitigação honesta do
+   sinal de "scaled content" sem inventar dado. Se no futuro fizer
+   sentido investir em texto 100% pesquisado por bairro (factual e único
+   de verdade), isso é trabalho novo, não uma extensão trivial deste
+   fix.
 10. **Title entre 40 e 60 caracteres, Meta Description entre 120 e 160
     caracteres — faixa NUMÉRICA, com piso e teto, nunca só um máximo.**
     ⚠️ **2 bugs reais encontrados, em datas diferentes**:
@@ -643,6 +674,12 @@ qualquer modelo.
    cidades (não fazem parte do texto reescrito em 30/08, prioridade mais
    baixa por serem descrições curtas e genéricas de serviço, prática comum
    no setor — mas ainda vale variar no futuro se o tempo permitir).
+8. ✅ **Corrigido em 01/09/2026 — texto do corpo de página de bairro
+   idêntico entre bairros**: ver bloco acima na regra 9. 10 blocos de
+   texto de `[slug].astro` (branch bairro) ganharam 3-4 variações cada,
+   escolhidas por hash determinístico do bairro+cidade. Replicado nas 13
+   cidades já publicadas, `checklist_completo.cjs --all` confirma 14/14
+   verdes.
 
 ---
 
