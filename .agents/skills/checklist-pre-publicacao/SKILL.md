@@ -18,6 +18,15 @@ um deles resultou em 404 real em produção, visto pelo usuário antes de mim.
 Título certo não significa página funcionando. Esta skill existe pra isso
 nunca se repetir.
 
+🚫 **AVISO ATIVO (03/09/2026 → 28/09/2026): NUNCA rodar `/api/deploy-city/:id`
+pra `pocosdecaldas` ou `santabarbaradoeste`** — conta Netlify sem créditos
+(e-mail da Netlify, 03/09/2026), deploy novo nessas 2 cidades arrisca
+suspender os sites que já estão no ar. `build-city` (sem publicar) continua
+liberado. Não cadastrar cidade nova com `hospedagem: 'netlify'` até esse
+aviso ser removido. Ver `CLAUDE_CODE_GUIDE.md` (topo do arquivo) pro
+detalhe completo — remover só depois de 28/09/2026 ou de o usuário
+confirmar upgrade.
+
 🚫 **Regra de ouro 17 (31/08/2026, pedido explícito do usuário)**: essa
 skill documentava a verificação em prosa/checkbox havia dias, e ainda
 assim o mesmo trabalho de checagem foi refeito manualmente (e incompleto)

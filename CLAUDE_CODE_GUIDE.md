@@ -16,6 +16,37 @@ tinham um bug grave. Não repita isso.)
 
 ---
 
+## 🚫 AVISO ATIVO — NÃO PUBLICAR NA NETLIFY até 28/09/2026
+
+A conta Netlify (`pedrosportes`) **estourou os créditos do plano** em
+03/09/2026 (e-mail "Action needed: pedrosportes's team has used all
+available credits"). Deploys de produção estão **bloqueados** até o ciclo
+de cobrança resetar em **28/09/2026** (ou até o usuário decidir fazer
+upgrade — decisão dele, não presumir). **Os sites já publicados continuam
+no ar normalmente** (não é uma queda, só bloqueio de deploy NOVO) — mas a
+Netlify avisou que, se os 30 créditos operacionais extras que ela deu de
+graça também acabarem, os sites publicados **ficam suspensos**.
+
+**Cidades afetadas (`hospedagem: 'netlify'`)**: `pocosdecaldas`
+(Poços de Caldas-MG), `santabarbaradoeste` (Santa Bárbara d'Oeste-SP).
+
+🚫 **Regra até 28/09/2026 (ou até o usuário liberar explicitamente)**:
+- **Nunca chamar `POST /api/deploy-city/:id` pra `pocosdecaldas` ou
+  `santabarbaradoeste`** — cada deploy consome os créditos restantes e
+  aumenta o risco de o site cair de vez.
+- `POST /api/build-city/:id` (build+auditoria local, sem publicar) continua
+  liberado normalmente pras duas — não consome crédito Netlify.
+- **Nunca cadastrar cidade nova com `hospedagem: 'netlify'`** enquanto essa
+  restrição estiver ativa — usar Cloudflare Pages, Vercel ou Render.
+- Se alguma correção urgente precisar ir ao ar numa dessas 2 cidades antes
+  de 28/09, **perguntar ao usuário antes** (opções: esperar, migrar a
+  cidade pra outro provedor, ou ele fazer upgrade na Netlify) — nunca
+  decidir sozinho qual caminho tomar.
+- Remover este aviso só depois de 28/09/2026 confirmado, ou se o usuário
+  confirmar que fez upgrade antes disso.
+
+---
+
 ## 🎯 Objetivo do Projeto
 
 Plataforma híbrida para escalar a criação de landing pages de desentupidora,
