@@ -47,6 +47,27 @@ graça também acabarem, os sites publicados **ficam suspensos**.
 
 ---
 
+## 📋 Qual cidade criar agora? → `docs/PROXIMAS_CIDADES.md`
+
+**Se a tarefa é "criar a próxima cidade" ou "qual cidade fazemos agora",
+não escolha por conta própria — leia [`docs/PROXIMAS_CIDADES.md`](docs/PROXIMAS_CIDADES.md).**
+Esse arquivo lista as cidades ainda não cadastradas ordenadas pela maior
+chance de ranquear rápido (menor concorrência real no Google, cruzada com
+população × saneamento), gerado a partir da planilha de scoring de
+concorrência (ver `docs/mapa-oportunidades-expansao.md`). Regenere antes de
+confiar cegamente na posição 1 — pode ter ficado desatualizado desde a
+última cidade cadastrada:
+
+```bash
+node apps/web-dashboard/scripts/generate_proximas_cidades.cjs
+```
+
+Isso vale pra qualquer IA que pegue este projeto (Claude, Antigravity/Gemini,
+ChatGPT) — o arquivo tem instruções passo a passo de como escolher e criar
+a cidade certa, incluindo qual skill seguir.
+
+---
+
 ## 🎯 Objetivo do Projeto
 
 Plataforma híbrida para escalar a criação de landing pages de desentupidora,
@@ -945,6 +966,19 @@ em `.agents/skills/checklist-pre-publicacao/SKILL.md`, regra de ouro 16.
 
 ## 📜 Histórico de Correções (mais recente primeiro)
 
+- (04/09/2026) — **Fila de próximas cidades a criar, ordenada por chance
+  real de ranquear.** Novo arquivo `docs/PROXIMAS_CIDADES.md` (+
+  `docs/proximas-cidades.json` pra consumo por script) gerado por
+  `apps/web-dashboard/scripts/generate_proximas_cidades.cjs` — cruza a
+  planilha de scoring de concorrência (SERP) com `cities.json` real e
+  lista as candidatas ainda não cadastradas, mais fácil de ranquear
+  primeiro. Existe pra qualquer IA que pegue este projeto saber o que
+  fazer a seguir sem ter que reabrir a planilha do zero. Ver ponteiro no
+  topo deste arquivo ("📋 Qual cidade criar agora?"). Complementa a nova
+  aba "🎯 Mapa de Oportunidades" do painel (mesma fonte de dados, endpoint
+  `GET /api/opportunity-ranking` em `server.cjs`), adicionada na mesma
+  sessão — ver `docs/mapa-oportunidades-expansao.md` pra metodologia
+  completa do Índice de Concorrência Fraca.
 - **`(pendente de commit)`** (30/08/2026) — **8 Modelos Estruturais**
   (eram 4, e só 2 esqueletos visuais reais). Pedido explícito do
   usuário: modelo tem que mudar layout, não só cor/texto. Construídos

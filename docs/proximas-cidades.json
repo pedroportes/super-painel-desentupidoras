@@ -1,0 +1,4564 @@
+{
+  "geradoEm": "2026-09-04T13:58:13.052Z",
+  "fonteDados": "planilha-google",
+  "dadosAtualizadosEm": "2026-09-04T13:58:12.189Z",
+  "totalCidadesNoUniverso": 526,
+  "totalJaCadastradas": 20,
+  "totalNaFila": 506,
+  "fila": [
+    {
+      "posicaoNaFila": 1,
+      "cidade": "Rio das Ostras",
+      "uf": "RJ",
+      "populacao": "168455",
+      "notaOportunidade": 41558,
+      "indiceConcorrenciaFraca": 0.5714285714285714,
+      "notaFinal": 65305
+    },
+    {
+      "posicaoNaFila": 2,
+      "cidade": "Patos de Minas",
+      "uf": "MG",
+      "populacao": "169173",
+      "notaOportunidade": 131904,
+      "indiceConcorrenciaFraca": 0.5555555555555556,
+      "notaFinal": 205184
+    },
+    {
+      "posicaoNaFila": 3,
+      "cidade": "Teófilo Otoni",
+      "uf": "MG",
+      "populacao": "142851",
+      "notaOportunidade": 88225,
+      "indiceConcorrenciaFraca": 0.5555555555555556,
+      "notaFinal": 137239
+    },
+    {
+      "posicaoNaFila": 4,
+      "cidade": "Altamira",
+      "uf": "PA",
+      "populacao": "138749",
+      "notaOportunidade": 60189,
+      "indiceConcorrenciaFraca": 0.5555555555555556,
+      "notaFinal": 93627
+    },
+    {
+      "posicaoNaFila": 5,
+      "cidade": "Umuarama",
+      "uf": "PR",
+      "populacao": "123059",
+      "notaOportunidade": 117078,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 175617
+    },
+    {
+      "posicaoNaFila": 6,
+      "cidade": "Itabira",
+      "uf": "MG",
+      "populacao": "118053",
+      "notaOportunidade": 102198,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 153297
+    },
+    {
+      "posicaoNaFila": 7,
+      "cidade": "Pato Branco",
+      "uf": "PR",
+      "populacao": "97821",
+      "notaOportunidade": 89868,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 134802
+    },
+    {
+      "posicaoNaFila": 8,
+      "cidade": "Bagé",
+      "uf": "RS",
+      "populacao": "121928",
+      "notaOportunidade": 75790,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 113685
+    },
+    {
+      "posicaoNaFila": 9,
+      "cidade": "Unaí",
+      "uf": "MG",
+      "populacao": "91320",
+      "notaOportunidade": 62819,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 94229
+    },
+    {
+      "posicaoNaFila": 10,
+      "cidade": "Tangará da Serra",
+      "uf": "MT",
+      "populacao": "114603",
+      "notaOportunidade": 25476,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 38214
+    },
+    {
+      "posicaoNaFila": 11,
+      "cidade": "Tianguá",
+      "uf": "CE",
+      "populacao": "86968",
+      "notaOportunidade": 14228,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 21342
+    },
+    {
+      "posicaoNaFila": 12,
+      "cidade": "Tucano",
+      "uf": "BA",
+      "populacao": "51016",
+      "notaOportunidade": 9397,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 14096
+    },
+    {
+      "posicaoNaFila": 13,
+      "cidade": "Ariquemes",
+      "uf": "RO",
+      "populacao": "109170",
+      "notaOportunidade": 2456,
+      "indiceConcorrenciaFraca": 0.5,
+      "notaFinal": 3684
+    },
+    {
+      "posicaoNaFila": 14,
+      "cidade": "Angra dos Reis",
+      "uf": "RJ",
+      "populacao": "179142",
+      "notaOportunidade": 92079,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 133003
+    },
+    {
+      "posicaoNaFila": 15,
+      "cidade": "Ubá",
+      "uf": "MG",
+      "populacao": "107423",
+      "notaOportunidade": 86411,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 124816
+    },
+    {
+      "posicaoNaFila": 16,
+      "cidade": "Timóteo",
+      "uf": "MG",
+      "populacao": "84172",
+      "notaOportunidade": 77741,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 112293
+    },
+    {
+      "posicaoNaFila": 17,
+      "cidade": "Luís Eduardo Magalhães",
+      "uf": "BA",
+      "populacao": "118382",
+      "notaOportunidade": 70496,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 101828
+    },
+    {
+      "posicaoNaFila": 18,
+      "cidade": "Mineiros",
+      "uf": "GO",
+      "populacao": "74999",
+      "notaOportunidade": 70072,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 101215
+    },
+    {
+      "posicaoNaFila": 19,
+      "cidade": "Rio Grande",
+      "uf": "RS",
+      "populacao": "198935",
+      "notaOportunidade": 68573,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 99050
+    },
+    {
+      "posicaoNaFila": 20,
+      "cidade": "Primavera do Leste",
+      "uf": "MT",
+      "populacao": "96006",
+      "notaOportunidade": 68366,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 98751
+    },
+    {
+      "posicaoNaFila": 21,
+      "cidade": "Frutal",
+      "uf": "MG",
+      "populacao": "61275",
+      "notaOportunidade": 47194,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 68169
+    },
+    {
+      "posicaoNaFila": 22,
+      "cidade": "Crato",
+      "uf": "CE",
+      "populacao": "139027",
+      "notaOportunidade": 38371,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 55425
+    },
+    {
+      "posicaoNaFila": 23,
+      "cidade": "Medianeira",
+      "uf": "PR",
+      "populacao": "57910",
+      "notaOportunidade": 24351,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 35174
+    },
+    {
+      "posicaoNaFila": 24,
+      "cidade": "Brusque",
+      "uf": "SC",
+      "populacao": "155307",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 25,
+      "cidade": "Vilhena",
+      "uf": "RO",
+      "populacao": "109651",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.4444444444444444,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 26,
+      "cidade": "Itapipoca",
+      "uf": "CE",
+      "populacao": "138978",
+      "notaOportunidade": 25391,
+      "indiceConcorrenciaFraca": 0.42857142857142855,
+      "notaFinal": 36273
+    },
+    {
+      "posicaoNaFila": 27,
+      "cidade": "Maranguape",
+      "uf": "CE",
+      "populacao": "108622",
+      "notaOportunidade": 12850,
+      "indiceConcorrenciaFraca": 0.42857142857142855,
+      "notaFinal": 18357
+    },
+    {
+      "posicaoNaFila": 28,
+      "cidade": "Ilhéus",
+      "uf": "BA",
+      "populacao": "189149",
+      "notaOportunidade": 103767,
+      "indiceConcorrenciaFraca": 0.4,
+      "notaFinal": 145274
+    },
+    {
+      "posicaoNaFila": 29,
+      "cidade": "Telêmaco Borba",
+      "uf": "PR",
+      "populacao": "77479",
+      "notaOportunidade": 74628,
+      "indiceConcorrenciaFraca": 0.4,
+      "notaFinal": 104479
+    },
+    {
+      "posicaoNaFila": 30,
+      "cidade": "Patos",
+      "uf": "PB",
+      "populacao": "108104",
+      "notaOportunidade": 13783,
+      "indiceConcorrenciaFraca": 0.4,
+      "notaFinal": 19296
+    },
+    {
+      "posicaoNaFila": 31,
+      "cidade": "Erechim",
+      "uf": "RS",
+      "populacao": "109609",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.4,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 32,
+      "cidade": "Barra Mansa",
+      "uf": "RJ",
+      "populacao": "181679",
+      "notaOportunidade": 134897,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 185483
+    },
+    {
+      "posicaoNaFila": 33,
+      "cidade": "Uruguaiana",
+      "uf": "RS",
+      "populacao": "120819",
+      "notaOportunidade": 106973,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 147088
+    },
+    {
+      "posicaoNaFila": 34,
+      "cidade": "Passos",
+      "uf": "MG",
+      "populacao": "116951",
+      "notaOportunidade": 103817,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 142748
+    },
+    {
+      "posicaoNaFila": 35,
+      "cidade": "Francisco Beltrão",
+      "uf": "PR",
+      "populacao": "102312",
+      "notaOportunidade": 80816,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 111122
+    },
+    {
+      "posicaoNaFila": 36,
+      "cidade": "Timon",
+      "uf": "MA",
+      "populacao": "182711",
+      "notaOportunidade": 58011,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 79765
+    },
+    {
+      "posicaoNaFila": 37,
+      "cidade": "Barra do Garças",
+      "uf": "MT",
+      "populacao": "73878",
+      "notaOportunidade": 50244,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 69086
+    },
+    {
+      "posicaoNaFila": 38,
+      "cidade": "Inhumas",
+      "uf": "GO",
+      "populacao": "53884",
+      "notaOportunidade": 41119,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 56539
+    },
+    {
+      "posicaoNaFila": 39,
+      "cidade": "Cachoeira do Sul",
+      "uf": "RS",
+      "populacao": "82222",
+      "notaOportunidade": 30365,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 41752
+    },
+    {
+      "posicaoNaFila": 40,
+      "cidade": "Lagarto",
+      "uf": "SE",
+      "populacao": "105957",
+      "notaOportunidade": 8243,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 11334
+    },
+    {
+      "posicaoNaFila": 41,
+      "cidade": "Biguaçu",
+      "uf": "SC",
+      "populacao": "83756",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 42,
+      "cidade": "Rio do Sul",
+      "uf": "SC",
+      "populacao": "77451",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 43,
+      "cidade": "Ouricuri",
+      "uf": "PE",
+      "populacao": "68489",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 44,
+      "cidade": "Mafra",
+      "uf": "SC",
+      "populacao": "57262",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.375,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 45,
+      "cidade": "Itapetininga",
+      "uf": "SP",
+      "populacao": "164256",
+      "notaOportunidade": 138024,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 184032
+    },
+    {
+      "posicaoNaFila": 46,
+      "cidade": "Apucarana",
+      "uf": "PR",
+      "populacao": "134910",
+      "notaOportunidade": 127962,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 170616
+    },
+    {
+      "posicaoNaFila": 47,
+      "cidade": "Jequié",
+      "uf": "BA",
+      "populacao": "169201",
+      "notaOportunidade": 127324,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 169765
+    },
+    {
+      "posicaoNaFila": 48,
+      "cidade": "Varginha",
+      "uf": "MG",
+      "populacao": "143676",
+      "notaOportunidade": 126262,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 168349
+    },
+    {
+      "posicaoNaFila": 49,
+      "cidade": "Barreiras",
+      "uf": "BA",
+      "populacao": "171634",
+      "notaOportunidade": 117260,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 156347
+    },
+    {
+      "posicaoNaFila": 50,
+      "cidade": "Tatuí",
+      "uf": "SP",
+      "populacao": "129130",
+      "notaOportunidade": 104337,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 139116
+    },
+    {
+      "posicaoNaFila": 51,
+      "cidade": "Trindade",
+      "uf": "GO",
+      "populacao": "153560",
+      "notaOportunidade": 98877,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 131836
+    },
+    {
+      "posicaoNaFila": 52,
+      "cidade": "Conselheiro Lafaiete",
+      "uf": "MG",
+      "populacao": "138946",
+      "notaOportunidade": 97082,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 129443
+    },
+    {
+      "posicaoNaFila": 53,
+      "cidade": "Muriaé",
+      "uf": "MG",
+      "populacao": "108447",
+      "notaOportunidade": 95889,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 127852
+    },
+    {
+      "posicaoNaFila": 54,
+      "cidade": "Ituiutaba",
+      "uf": "MG",
+      "populacao": "106775",
+      "notaOportunidade": 93353,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 124471
+    },
+    {
+      "posicaoNaFila": 55,
+      "cidade": "Lavras",
+      "uf": "MG",
+      "populacao": "110682",
+      "notaOportunidade": 92895,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 123860
+    },
+    {
+      "posicaoNaFila": 56,
+      "cidade": "Teixeira de Freitas",
+      "uf": "BA",
+      "populacao": "153738",
+      "notaOportunidade": 85694,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 114259
+    },
+    {
+      "posicaoNaFila": 57,
+      "cidade": "Catalão",
+      "uf": "GO",
+      "populacao": "122760",
+      "notaOportunidade": 72441,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 96588
+    },
+    {
+      "posicaoNaFila": 58,
+      "cidade": "Paracatu",
+      "uf": "MG",
+      "populacao": "99005",
+      "notaOportunidade": 71729,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 95639
+    },
+    {
+      "posicaoNaFila": 59,
+      "cidade": "Vacaria",
+      "uf": "RS",
+      "populacao": "66146",
+      "notaOportunidade": 64036,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 85381
+    },
+    {
+      "posicaoNaFila": 60,
+      "cidade": "Ponta Porã",
+      "uf": "MS",
+      "populacao": "98598",
+      "notaOportunidade": 55136,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 73515
+    },
+    {
+      "posicaoNaFila": 61,
+      "cidade": "Cacoal",
+      "uf": "RO",
+      "populacao": "98280",
+      "notaOportunidade": 54496,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 72661
+    },
+    {
+      "posicaoNaFila": 62,
+      "cidade": "Santiago",
+      "uf": "RS",
+      "populacao": "50336",
+      "notaOportunidade": 48937,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 65249
+    },
+    {
+      "posicaoNaFila": 63,
+      "cidade": "Porto Nacional",
+      "uf": "TO",
+      "populacao": "69551",
+      "notaOportunidade": 42092,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 56123
+    },
+    {
+      "posicaoNaFila": 64,
+      "cidade": "Palmas",
+      "uf": "PR",
+      "populacao": "50238",
+      "notaOportunidade": 39648,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 52864
+    },
+    {
+      "posicaoNaFila": 65,
+      "cidade": "São Lourenço da Mata",
+      "uf": "PE",
+      "populacao": "118258",
+      "notaOportunidade": 35655,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 47540
+    },
+    {
+      "posicaoNaFila": 66,
+      "cidade": "Santa Cruz do Sul",
+      "uf": "RS",
+      "populacao": "138270",
+      "notaOportunidade": 29645,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 39527
+    },
+    {
+      "posicaoNaFila": 67,
+      "cidade": "Prudentópolis",
+      "uf": "PR",
+      "populacao": "50946",
+      "notaOportunidade": 27292,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 36389
+    },
+    {
+      "posicaoNaFila": 68,
+      "cidade": "Alta Floresta",
+      "uf": "MT",
+      "populacao": "62158",
+      "notaOportunidade": 23608,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 31477
+    },
+    {
+      "posicaoNaFila": 69,
+      "cidade": "Santo Ângelo",
+      "uf": "RS",
+      "populacao": "79146",
+      "notaOportunidade": 23459,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 31279
+    },
+    {
+      "posicaoNaFila": 70,
+      "cidade": "Santo Antônio de Jesus",
+      "uf": "BA",
+      "populacao": "109791",
+      "notaOportunidade": 22968,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 30624
+    },
+    {
+      "posicaoNaFila": 71,
+      "cidade": "Concórdia",
+      "uf": "SC",
+      "populacao": "87206",
+      "notaOportunidade": 19351,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 25801
+    },
+    {
+      "posicaoNaFila": 72,
+      "cidade": "Araranguá",
+      "uf": "SC",
+      "populacao": "76611",
+      "notaOportunidade": 15797,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 21063
+    },
+    {
+      "posicaoNaFila": 73,
+      "cidade": "Paraíso do Tocantins",
+      "uf": "TO",
+      "populacao": "55704",
+      "notaOportunidade": 13842,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 18456
+    },
+    {
+      "posicaoNaFila": 74,
+      "cidade": "Eunápolis",
+      "uf": "BA",
+      "populacao": "121067",
+      "notaOportunidade": 12058,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 16077
+    },
+    {
+      "posicaoNaFila": 75,
+      "cidade": "Irecê",
+      "uf": "BA",
+      "populacao": "78781",
+      "notaOportunidade": 10951,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 14601
+    },
+    {
+      "posicaoNaFila": 76,
+      "cidade": "Canoinhas",
+      "uf": "SC",
+      "populacao": "56948",
+      "notaOportunidade": 9009,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 12012
+    },
+    {
+      "posicaoNaFila": 77,
+      "cidade": "Sapé",
+      "uf": "PB",
+      "populacao": "53457",
+      "notaOportunidade": 8842,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 11789
+    },
+    {
+      "posicaoNaFila": 78,
+      "cidade": "Araquari",
+      "uf": "SC",
+      "populacao": "52079",
+      "notaOportunidade": 7963,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 10617
+    },
+    {
+      "posicaoNaFila": 79,
+      "cidade": "Eusébio",
+      "uf": "CE",
+      "populacao": "82016",
+      "notaOportunidade": 7480,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 9973
+    },
+    {
+      "posicaoNaFila": 80,
+      "cidade": "Igarassu",
+      "uf": "PE",
+      "populacao": "123017",
+      "notaOportunidade": 5191,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 6921
+    },
+    {
+      "posicaoNaFila": 81,
+      "cidade": "Ji-Paraná",
+      "uf": "RO",
+      "populacao": "140101",
+      "notaOportunidade": 1723,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 2297
+    },
+    {
+      "posicaoNaFila": 82,
+      "cidade": "Itacoatiara",
+      "uf": "AM",
+      "populacao": "113917",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 83,
+      "cidade": "Tucuruí",
+      "uf": "PA",
+      "populacao": "96119",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 84,
+      "cidade": "Capanema",
+      "uf": "PA",
+      "populacao": "75309",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 85,
+      "cidade": "Xanxerê",
+      "uf": "SC",
+      "populacao": "54891",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 86,
+      "cidade": "Campo Novo do Parecis",
+      "uf": "MT",
+      "populacao": "51722",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3333333333333333,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 87,
+      "cidade": "Botucatu",
+      "uf": "SP",
+      "populacao": "151053",
+      "notaOportunidade": 134271,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 174552
+    },
+    {
+      "posicaoNaFila": 88,
+      "cidade": "Barbacena",
+      "uf": "MG",
+      "populacao": "129695",
+      "notaOportunidade": 120344,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 156447
+    },
+    {
+      "posicaoNaFila": 89,
+      "cidade": "Lages",
+      "uf": "SC",
+      "populacao": "172458",
+      "notaOportunidade": 69725,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 90643
+    },
+    {
+      "posicaoNaFila": 90,
+      "cidade": "Fernandópolis",
+      "uf": "SP",
+      "populacao": "73508",
+      "notaOportunidade": 68304,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 88795
+    },
+    {
+      "posicaoNaFila": 91,
+      "cidade": "Lençóis Paulista",
+      "uf": "SP",
+      "populacao": "68568",
+      "notaOportunidade": 65695,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 85404
+    },
+    {
+      "posicaoNaFila": 92,
+      "cidade": "Cianorte",
+      "uf": "PR",
+      "populacao": "82988",
+      "notaOportunidade": 58349,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 75854
+    },
+    {
+      "posicaoNaFila": 93,
+      "cidade": "São José do Rio Pardo",
+      "uf": "SP",
+      "populacao": "53427",
+      "notaOportunidade": 52204,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 67865
+    },
+    {
+      "posicaoNaFila": 94,
+      "cidade": "Tubarão",
+      "uf": "SC",
+      "populacao": "116725",
+      "notaOportunidade": 47472,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 61714
+    },
+    {
+      "posicaoNaFila": 95,
+      "cidade": "Guaxupé",
+      "uf": "MG",
+      "populacao": "52744",
+      "notaOportunidade": 43735,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 56856
+    },
+    {
+      "posicaoNaFila": 96,
+      "cidade": "São Gabriel",
+      "uf": "RS",
+      "populacao": "60090",
+      "notaOportunidade": 31109,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 40442
+    },
+    {
+      "posicaoNaFila": 97,
+      "cidade": "Queimados",
+      "uf": "RJ",
+      "populacao": "149135",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.3,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 98,
+      "cidade": "Araxá",
+      "uf": "MG",
+      "populacao": "118786",
+      "notaOportunidade": 101978,
+      "indiceConcorrenciaFraca": 0.2857142857142857,
+      "notaFinal": 131115
+    },
+    {
+      "posicaoNaFila": 99,
+      "cidade": "Cataguases",
+      "uf": "MG",
+      "populacao": "67732",
+      "notaOportunidade": 51266,
+      "indiceConcorrenciaFraca": 0.2857142857142857,
+      "notaFinal": 65913
+    },
+    {
+      "posicaoNaFila": 100,
+      "cidade": "Garanhuns",
+      "uf": "PE",
+      "populacao": "151803",
+      "notaOportunidade": 19051,
+      "indiceConcorrenciaFraca": 0.2857142857142857,
+      "notaFinal": 24494
+    },
+    {
+      "posicaoNaFila": 101,
+      "cidade": "Campo Mourão",
+      "uf": "PR",
+      "populacao": "104122",
+      "notaOportunidade": 99426,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 124283
+    },
+    {
+      "posicaoNaFila": 102,
+      "cidade": "Nova Serrana",
+      "uf": "MG",
+      "populacao": "114791",
+      "notaOportunidade": 80767,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 100959
+    },
+    {
+      "posicaoNaFila": 103,
+      "cidade": "Avaré",
+      "uf": "SP",
+      "populacao": "96450",
+      "notaOportunidade": 79407,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 99259
+    },
+    {
+      "posicaoNaFila": 104,
+      "cidade": "Valença",
+      "uf": "BA",
+      "populacao": "90053",
+      "notaOportunidade": 62524,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 78155
+    },
+    {
+      "posicaoNaFila": 105,
+      "cidade": "Sorriso",
+      "uf": "MT",
+      "populacao": "124665",
+      "notaOportunidade": 60712,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 75890
+    },
+    {
+      "posicaoNaFila": 106,
+      "cidade": "Alagoinhas",
+      "uf": "BA",
+      "populacao": "161196",
+      "notaOportunidade": 58740,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 73425
+    },
+    {
+      "posicaoNaFila": 107,
+      "cidade": "Paço do Lumiar",
+      "uf": "MA",
+      "populacao": "153158",
+      "notaOportunidade": 52089,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 65111
+    },
+    {
+      "posicaoNaFila": 108,
+      "cidade": "Quirinópolis",
+      "uf": "GO",
+      "populacao": "50329",
+      "notaOportunidade": 44627,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 55784
+    },
+    {
+      "posicaoNaFila": 109,
+      "cidade": "Picos",
+      "uf": "PI",
+      "populacao": "86701",
+      "notaOportunidade": 42674,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 53343
+    },
+    {
+      "posicaoNaFila": 110,
+      "cidade": "Araripina",
+      "uf": "PE",
+      "populacao": "90504",
+      "notaOportunidade": 37288,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 46610
+    },
+    {
+      "posicaoNaFila": 111,
+      "cidade": "Barcarena",
+      "uf": "PA",
+      "populacao": "139076",
+      "notaOportunidade": 26438,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 33048
+    },
+    {
+      "posicaoNaFila": 112,
+      "cidade": "Indaial",
+      "uf": "SC",
+      "populacao": "77888",
+      "notaOportunidade": 25493,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 31866
+    },
+    {
+      "posicaoNaFila": 113,
+      "cidade": "Itabaiana",
+      "uf": "SE",
+      "populacao": "109250",
+      "notaOportunidade": 23085,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 28856
+    },
+    {
+      "posicaoNaFila": 114,
+      "cidade": "Valença",
+      "uf": "RJ",
+      "populacao": "71449",
+      "notaOportunidade": 20027,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 25034
+    },
+    {
+      "posicaoNaFila": 115,
+      "cidade": "Limoeiro do Norte",
+      "uf": "CE",
+      "populacao": "62623",
+      "notaOportunidade": 16858,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 21073
+    },
+    {
+      "posicaoNaFila": 116,
+      "cidade": "Surubim",
+      "uf": "PE",
+      "populacao": "67821",
+      "notaOportunidade": 14371,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 17964
+    },
+    {
+      "posicaoNaFila": 117,
+      "cidade": "Paragominas",
+      "uf": "PA",
+      "populacao": "113498",
+      "notaOportunidade": 12587,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 15734
+    },
+    {
+      "posicaoNaFila": 118,
+      "cidade": "Codó",
+      "uf": "MA",
+      "populacao": "118283",
+      "notaOportunidade": 11379,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 14224
+    },
+    {
+      "posicaoNaFila": 119,
+      "cidade": "Venâncio Aires",
+      "uf": "RS",
+      "populacao": "70842",
+      "notaOportunidade": 8884,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 11105
+    },
+    {
+      "posicaoNaFila": 120,
+      "cidade": "Pacajus",
+      "uf": "CE",
+      "populacao": "75454",
+      "notaOportunidade": 1637,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 2046
+    },
+    {
+      "posicaoNaFila": 121,
+      "cidade": "Cametá",
+      "uf": "PA",
+      "populacao": "144859",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 122,
+      "cidade": "Caçador",
+      "uf": "SC",
+      "populacao": "76298",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 123,
+      "cidade": "Limoeiro",
+      "uf": "PE",
+      "populacao": "59236",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.25,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 124,
+      "cidade": "Toledo",
+      "uf": "PR",
+      "populacao": "160701",
+      "notaOportunidade": 140694,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 171959
+    },
+    {
+      "posicaoNaFila": 125,
+      "cidade": "Resende",
+      "uf": "RJ",
+      "populacao": "137697",
+      "notaOportunidade": 123432,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 150861
+    },
+    {
+      "posicaoNaFila": 126,
+      "cidade": "Três Lagoas",
+      "uf": "MS",
+      "populacao": "143523",
+      "notaOportunidade": 120559,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 147350
+    },
+    {
+      "posicaoNaFila": 127,
+      "cidade": "Araguari",
+      "uf": "MG",
+      "populacao": "123432",
+      "notaOportunidade": 117804,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 143983
+    },
+    {
+      "posicaoNaFila": 128,
+      "cidade": "Paranaguá",
+      "uf": "PR",
+      "populacao": "150104",
+      "notaOportunidade": 116796,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 142751
+    },
+    {
+      "posicaoNaFila": 129,
+      "cidade": "Catanduva",
+      "uf": "SP",
+      "populacao": "119275",
+      "notaOportunidade": 111999,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 136888
+    },
+    {
+      "posicaoNaFila": 130,
+      "cidade": "Guaratinguetá",
+      "uf": "SP",
+      "populacao": "121916",
+      "notaOportunidade": 108322,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 132394
+    },
+    {
+      "posicaoNaFila": 131,
+      "cidade": "Birigui",
+      "uf": "SP",
+      "populacao": "123340",
+      "notaOportunidade": 107244,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 131076
+    },
+    {
+      "posicaoNaFila": 132,
+      "cidade": "Colatina",
+      "uf": "ES",
+      "populacao": "129301",
+      "notaOportunidade": 105587,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 129051
+    },
+    {
+      "posicaoNaFila": 133,
+      "cidade": "Arapongas",
+      "uf": "PR",
+      "populacao": "124838",
+      "notaOportunidade": 105014,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 128350
+    },
+    {
+      "posicaoNaFila": 134,
+      "cidade": "Assis",
+      "uf": "SP",
+      "populacao": "104858",
+      "notaOportunidade": 100527,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 122866
+    },
+    {
+      "posicaoNaFila": 135,
+      "cidade": "Ourinhos",
+      "uf": "SP",
+      "populacao": "106911",
+      "notaOportunidade": 100368,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 122672
+    },
+    {
+      "posicaoNaFila": 136,
+      "cidade": "Jataí",
+      "uf": "GO",
+      "populacao": "111634",
+      "notaOportunidade": 94822,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 115894
+    },
+    {
+      "posicaoNaFila": 137,
+      "cidade": "Patrocínio",
+      "uf": "MG",
+      "populacao": "94357",
+      "notaOportunidade": 89375,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 109236
+    },
+    {
+      "posicaoNaFila": 138,
+      "cidade": "Manhuaçu",
+      "uf": "MG",
+      "populacao": "97328",
+      "notaOportunidade": 88783,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 108513
+    },
+    {
+      "posicaoNaFila": 139,
+      "cidade": "São Pedro da Aldeia",
+      "uf": "RJ",
+      "populacao": "110677",
+      "notaOportunidade": 81956,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 100168
+    },
+    {
+      "posicaoNaFila": 140,
+      "cidade": "Aracruz",
+      "uf": "ES",
+      "populacao": "103363",
+      "notaOportunidade": 80499,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 98388
+    },
+    {
+      "posicaoNaFila": 141,
+      "cidade": "Lins",
+      "uf": "SP",
+      "populacao": "76844",
+      "notaOportunidade": 74777,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 91394
+    },
+    {
+      "posicaoNaFila": 142,
+      "cidade": "Viçosa",
+      "uf": "MG",
+      "populacao": "79517",
+      "notaOportunidade": 70651,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 86351
+    },
+    {
+      "posicaoNaFila": 143,
+      "cidade": "Itapira",
+      "uf": "SP",
+      "populacao": "74038",
+      "notaOportunidade": 70440,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 86093
+    },
+    {
+      "posicaoNaFila": 144,
+      "cidade": "Sarandi",
+      "uf": "PR",
+      "populacao": "128106",
+      "notaOportunidade": 69331,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 84738
+    },
+    {
+      "posicaoNaFila": 145,
+      "cidade": "Parnaíba",
+      "uf": "PI",
+      "populacao": "170491",
+      "notaOportunidade": 66611,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 81413
+    },
+    {
+      "posicaoNaFila": 146,
+      "cidade": "Curvelo",
+      "uf": "MG",
+      "populacao": "84297",
+      "notaOportunidade": 60374,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 73790
+    },
+    {
+      "posicaoNaFila": 147,
+      "cidade": "Castro",
+      "uf": "PR",
+      "populacao": "75644",
+      "notaOportunidade": 60046,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 73390
+    },
+    {
+      "posicaoNaFila": 148,
+      "cidade": "Caratinga",
+      "uf": "MG",
+      "populacao": "90890",
+      "notaOportunidade": 56979,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 69641
+    },
+    {
+      "posicaoNaFila": 149,
+      "cidade": "Araguaína",
+      "uf": "TO",
+      "populacao": "183024",
+      "notaOportunidade": 56225,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 68719
+    },
+    {
+      "posicaoNaFila": 150,
+      "cidade": "Caldas Novas",
+      "uf": "GO",
+      "populacao": "106820",
+      "notaOportunidade": 54168,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 66205
+    },
+    {
+      "posicaoNaFila": 151,
+      "cidade": "Gurupi",
+      "uf": "TO",
+      "populacao": "90209",
+      "notaOportunidade": 53602,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 65514
+    },
+    {
+      "posicaoNaFila": 152,
+      "cidade": "Irati",
+      "uf": "PR",
+      "populacao": "61004",
+      "notaOportunidade": 53501,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 65390
+    },
+    {
+      "posicaoNaFila": 153,
+      "cidade": "Senhor do Bonfim",
+      "uf": "BA",
+      "populacao": "78090",
+      "notaOportunidade": 49337,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 60301
+    },
+    {
+      "posicaoNaFila": 154,
+      "cidade": "Rolândia",
+      "uf": "PR",
+      "populacao": "75818",
+      "notaOportunidade": 45696,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 55851
+    },
+    {
+      "posicaoNaFila": 155,
+      "cidade": "Bom Despacho",
+      "uf": "MG",
+      "populacao": "54377",
+      "notaOportunidade": 44546,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 54445
+    },
+    {
+      "posicaoNaFila": 156,
+      "cidade": "Vitória de Santo Antão",
+      "uf": "PE",
+      "populacao": "144243",
+      "notaOportunidade": 38556,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 47124
+    },
+    {
+      "posicaoNaFila": 157,
+      "cidade": "Paulo Afonso",
+      "uf": "BA",
+      "populacao": "119418",
+      "notaOportunidade": 38548,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 47114
+    },
+    {
+      "posicaoNaFila": 158,
+      "cidade": "Lucas do Rio Verde",
+      "uf": "MT",
+      "populacao": "95792",
+      "notaOportunidade": 35759,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 43705
+    },
+    {
+      "posicaoNaFila": 159,
+      "cidade": "São Bento do Sul",
+      "uf": "SC",
+      "populacao": "87661",
+      "notaOportunidade": 35398,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 43264
+    },
+    {
+      "posicaoNaFila": 160,
+      "cidade": "Pontes e Lacerda",
+      "uf": "MT",
+      "populacao": "55762",
+      "notaOportunidade": 32610,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 39857
+    },
+    {
+      "posicaoNaFila": 161,
+      "cidade": "Santa Rosa",
+      "uf": "RS",
+      "populacao": "79488",
+      "notaOportunidade": 26525,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 32419
+    },
+    {
+      "posicaoNaFila": 162,
+      "cidade": "Cabedelo",
+      "uf": "PB",
+      "populacao": "70734",
+      "notaOportunidade": 26306,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 32152
+    },
+    {
+      "posicaoNaFila": 163,
+      "cidade": "Camocim",
+      "uf": "CE",
+      "populacao": "65251",
+      "notaOportunidade": 24156,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 29524
+    },
+    {
+      "posicaoNaFila": 164,
+      "cidade": "União da Vitória",
+      "uf": "PR",
+      "populacao": "56560",
+      "notaOportunidade": 24032,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 29372
+    },
+    {
+      "posicaoNaFila": 165,
+      "cidade": "Naviraí",
+      "uf": "MS",
+      "populacao": "53014",
+      "notaOportunidade": 19790,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 24188
+    },
+    {
+      "posicaoNaFila": 166,
+      "cidade": "Gravatá",
+      "uf": "PE",
+      "populacao": "92429",
+      "notaOportunidade": 18717,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 22876
+    },
+    {
+      "posicaoNaFila": 167,
+      "cidade": "São Francisco do Sul",
+      "uf": "SC",
+      "populacao": "56726",
+      "notaOportunidade": 16961,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 20730
+    },
+    {
+      "posicaoNaFila": 168,
+      "cidade": "Iguatu",
+      "uf": "CE",
+      "populacao": "102588",
+      "notaOportunidade": 16404,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 20049
+    },
+    {
+      "posicaoNaFila": 169,
+      "cidade": "Aquiraz",
+      "uf": "CE",
+      "populacao": "85316",
+      "notaOportunidade": 11535,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 14098
+    },
+    {
+      "posicaoNaFila": 170,
+      "cidade": "Ibiúna",
+      "uf": "SP",
+      "populacao": "77801",
+      "notaOportunidade": 11040,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 13493
+    },
+    {
+      "posicaoNaFila": 171,
+      "cidade": "Januária",
+      "uf": "MG",
+      "populacao": "67123",
+      "notaOportunidade": 10552,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 12897
+    },
+    {
+      "posicaoNaFila": 172,
+      "cidade": "Canela",
+      "uf": "RS",
+      "populacao": "50715",
+      "notaOportunidade": 9377,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 11461
+    },
+    {
+      "posicaoNaFila": 173,
+      "cidade": "Cáceres",
+      "uf": "MT",
+      "populacao": "91767",
+      "notaOportunidade": 7286,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 8905
+    },
+    {
+      "posicaoNaFila": 174,
+      "cidade": "Bayeux",
+      "uf": "PB",
+      "populacao": "83862",
+      "notaOportunidade": 6374,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 7790
+    },
+    {
+      "posicaoNaFila": 175,
+      "cidade": "Horizonte",
+      "uf": "CE",
+      "populacao": "81161",
+      "notaOportunidade": 6363,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 7777
+    },
+    {
+      "posicaoNaFila": 176,
+      "cidade": "Bacabal",
+      "uf": "MA",
+      "populacao": "107755",
+      "notaOportunidade": 4827,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 5900
+    },
+    {
+      "posicaoNaFila": 177,
+      "cidade": "Senador Canedo",
+      "uf": "GO",
+      "populacao": "175042",
+      "notaOportunidade": 4499,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 5499
+    },
+    {
+      "posicaoNaFila": 178,
+      "cidade": "Arcoverde",
+      "uf": "PE",
+      "populacao": "82487",
+      "notaOportunidade": 3819,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 4668
+    },
+    {
+      "posicaoNaFila": 179,
+      "cidade": "Coroatá",
+      "uf": "MA",
+      "populacao": "61337",
+      "notaOportunidade": 3778,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 4618
+    },
+    {
+      "posicaoNaFila": 180,
+      "cidade": "Palmeira dos Índios",
+      "uf": "AL",
+      "populacao": "73621",
+      "notaOportunidade": 2452,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 2997
+    },
+    {
+      "posicaoNaFila": 181,
+      "cidade": "Rolim de Moura",
+      "uf": "RO",
+      "populacao": "62959",
+      "notaOportunidade": 1423,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 1739
+    },
+    {
+      "posicaoNaFila": 182,
+      "cidade": "Dom Eliseu",
+      "uf": "PA",
+      "populacao": "62823",
+      "notaOportunidade": 333,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 407
+    },
+    {
+      "posicaoNaFila": 183,
+      "cidade": "Videira",
+      "uf": "SC",
+      "populacao": "59074",
+      "notaOportunidade": 236,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 288
+    },
+    {
+      "posicaoNaFila": 184,
+      "cidade": "Campo Bom",
+      "uf": "RS",
+      "populacao": "64719",
+      "notaOportunidade": 91,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 111
+    },
+    {
+      "posicaoNaFila": 185,
+      "cidade": "Teresópolis",
+      "uf": "RJ",
+      "populacao": "176735",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 186,
+      "cidade": "Abaetetuba",
+      "uf": "PA",
+      "populacao": "172344",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 187,
+      "cidade": "Itaituba",
+      "uf": "PA",
+      "populacao": "135369",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 188,
+      "cidade": "Breves",
+      "uf": "PA",
+      "populacao": "116058",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 189,
+      "cidade": "Santa Cruz do Capibaribe",
+      "uf": "PE",
+      "populacao": "104854",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 190,
+      "cidade": "Japeri",
+      "uf": "RJ",
+      "populacao": "102171",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 191,
+      "cidade": "Parintins",
+      "uf": "AM",
+      "populacao": "101855",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 192,
+      "cidade": "Pinheiro",
+      "uf": "MA",
+      "populacao": "88091",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 193,
+      "cidade": "Carpina",
+      "uf": "PE",
+      "populacao": "83482",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 194,
+      "cidade": "Tailândia",
+      "uf": "PA",
+      "populacao": "75290",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 195,
+      "cidade": "Sousa",
+      "uf": "PB",
+      "populacao": "70066",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 196,
+      "cidade": "Camaquã",
+      "uf": "RS",
+      "populacao": "63961",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 197,
+      "cidade": "Carazinho",
+      "uf": "RS",
+      "populacao": "63670",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 198,
+      "cidade": "Nova Mutum",
+      "uf": "MT",
+      "populacao": "63455",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 199,
+      "cidade": "Acará",
+      "uf": "PA",
+      "populacao": "63110",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 200,
+      "cidade": "São Gabriel da Cachoeira",
+      "uf": "AM",
+      "populacao": "57396",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 201,
+      "cidade": "Óbidos",
+      "uf": "PA",
+      "populacao": "55527",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 202,
+      "cidade": "Juruti",
+      "uf": "PA",
+      "populacao": "54255",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 203,
+      "cidade": "Barra Velha",
+      "uf": "SC",
+      "populacao": "52860",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.2222222222222222,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 204,
+      "cidade": "Alvorada",
+      "uf": "RS",
+      "populacao": "194062",
+      "notaOportunidade": 80012,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 96014
+    },
+    {
+      "posicaoNaFila": 205,
+      "cidade": "Porto Feliz",
+      "uf": "SP",
+      "populacao": "58605",
+      "notaOportunidade": 56495,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 67794
+    },
+    {
+      "posicaoNaFila": 206,
+      "cidade": "Corumbá",
+      "uf": "MS",
+      "populacao": "98751",
+      "notaOportunidade": 51370,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 61644
+    },
+    {
+      "posicaoNaFila": 207,
+      "cidade": "Cidade Ocidental",
+      "uf": "GO",
+      "populacao": "101570",
+      "notaOportunidade": 35824,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 42989
+    },
+    {
+      "posicaoNaFila": 208,
+      "cidade": "Itaguaí",
+      "uf": "RJ",
+      "populacao": "124021",
+      "notaOportunidade": 33994,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 40793
+    },
+    {
+      "posicaoNaFila": 209,
+      "cidade": "Canaã dos Carajás",
+      "uf": "PA",
+      "populacao": "89524",
+      "notaOportunidade": 27197,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 32636
+    },
+    {
+      "posicaoNaFila": 210,
+      "cidade": "Canguçu",
+      "uf": "RS",
+      "populacao": "50968",
+      "notaOportunidade": 18089,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 21707
+    },
+    {
+      "posicaoNaFila": 211,
+      "cidade": "Cruz Alta",
+      "uf": "RS",
+      "populacao": "60454",
+      "notaOportunidade": 12707,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 15248
+    },
+    {
+      "posicaoNaFila": 212,
+      "cidade": "Cascavel",
+      "uf": "CE",
+      "populacao": "76866",
+      "notaOportunidade": 1768,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 2122
+    },
+    {
+      "posicaoNaFila": 213,
+      "cidade": "Bento Gonçalves",
+      "uf": "RS",
+      "populacao": "127977",
+      "notaOportunidade": 704,
+      "indiceConcorrenciaFraca": 0.2,
+      "notaFinal": 845
+    },
+    {
+      "posicaoNaFila": 214,
+      "cidade": "Benevides",
+      "uf": "PA",
+      "populacao": "68962",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.16666666666666666,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 215,
+      "cidade": "Guarapari",
+      "uf": "ES",
+      "populacao": "136311",
+      "notaOportunidade": 65579,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 74947
+    },
+    {
+      "posicaoNaFila": 216,
+      "cidade": "Crateús",
+      "uf": "CE",
+      "populacao": "80130",
+      "notaOportunidade": 24600,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 28114
+    },
+    {
+      "posicaoNaFila": 217,
+      "cidade": "Marituba",
+      "uf": "PA",
+      "populacao": "119437",
+      "notaOportunidade": 15467,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 17677
+    },
+    {
+      "posicaoNaFila": 218,
+      "cidade": "Tutóia",
+      "uf": "MA",
+      "populacao": "55076",
+      "notaOportunidade": 1366,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 1561
+    },
+    {
+      "posicaoNaFila": 219,
+      "cidade": "Chapadinha",
+      "uf": "MA",
+      "populacao": "84395",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 220,
+      "cidade": "Montenegro",
+      "uf": "RS",
+      "populacao": "66352",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.14285714285714285,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 221,
+      "cidade": "Itumbiara",
+      "uf": "GO",
+      "populacao": "113322",
+      "notaOportunidade": 103327,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 116243
+    },
+    {
+      "posicaoNaFila": 222,
+      "cidade": "Pará de Minas",
+      "uf": "MG",
+      "populacao": "102844",
+      "notaOportunidade": 96632,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 108711
+    },
+    {
+      "posicaoNaFila": 223,
+      "cidade": "Itaúna",
+      "uf": "MG",
+      "populacao": "103272",
+      "notaOportunidade": 93120,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 104760
+    },
+    {
+      "posicaoNaFila": 224,
+      "cidade": "São João da Boa Vista",
+      "uf": "SP",
+      "populacao": "96080",
+      "notaOportunidade": 85329,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 95995
+    },
+    {
+      "posicaoNaFila": 225,
+      "cidade": "João Monlevade",
+      "uf": "MG",
+      "populacao": "83791",
+      "notaOportunidade": 80188,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 90212
+    },
+    {
+      "posicaoNaFila": 226,
+      "cidade": "Goianésia",
+      "uf": "GO",
+      "populacao": "78009",
+      "notaOportunidade": 65691,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 73902
+    },
+    {
+      "posicaoNaFila": 227,
+      "cidade": "Formiga",
+      "uf": "MG",
+      "populacao": "70897",
+      "notaOportunidade": 60149,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 67668
+    },
+    {
+      "posicaoNaFila": 228,
+      "cidade": "União dos Palmares",
+      "uf": "AL",
+      "populacao": "60860",
+      "notaOportunidade": 59278,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 66688
+    },
+    {
+      "posicaoNaFila": 229,
+      "cidade": "Buíque",
+      "uf": "PE",
+      "populacao": "53489",
+      "notaOportunidade": 45701,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 51414
+    },
+    {
+      "posicaoNaFila": 230,
+      "cidade": "Registro",
+      "uf": "SP",
+      "populacao": "61927",
+      "notaOportunidade": 45015,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 50642
+    },
+    {
+      "posicaoNaFila": 231,
+      "cidade": "Morrinhos",
+      "uf": "GO",
+      "populacao": "54326",
+      "notaOportunidade": 36301,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 40839
+    },
+    {
+      "posicaoNaFila": 232,
+      "cidade": "Guarabira",
+      "uf": "PB",
+      "populacao": "60057",
+      "notaOportunidade": 33314,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 37478
+    },
+    {
+      "posicaoNaFila": 233,
+      "cidade": "Casa Nova",
+      "uf": "BA",
+      "populacao": "76131",
+      "notaOportunidade": 32500,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 36563
+    },
+    {
+      "posicaoNaFila": 234,
+      "cidade": "Cruz das Almas",
+      "uf": "BA",
+      "populacao": "63326",
+      "notaOportunidade": 30631,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 34460
+    },
+    {
+      "posicaoNaFila": 235,
+      "cidade": "Itaberaba",
+      "uf": "BA",
+      "populacao": "68425",
+      "notaOportunidade": 29785,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 33508
+    },
+    {
+      "posicaoNaFila": 236,
+      "cidade": "Delmiro Gouveia",
+      "uf": "AL",
+      "populacao": "52845",
+      "notaOportunidade": 29720,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 33435
+    },
+    {
+      "posicaoNaFila": 237,
+      "cidade": "Pacatuba",
+      "uf": "CE",
+      "populacao": "86564",
+      "notaOportunidade": 27796,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 31271
+    },
+    {
+      "posicaoNaFila": 238,
+      "cidade": "Viana",
+      "uf": "ES",
+      "populacao": "79043",
+      "notaOportunidade": 25681,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 28891
+    },
+    {
+      "posicaoNaFila": 239,
+      "cidade": "Salgueiro",
+      "uf": "PE",
+      "populacao": "65946",
+      "notaOportunidade": 24756,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 27851
+    },
+    {
+      "posicaoNaFila": 240,
+      "cidade": "Tijucas",
+      "uf": "SC",
+      "populacao": "58695",
+      "notaOportunidade": 24499,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 27561
+    },
+    {
+      "posicaoNaFila": 241,
+      "cidade": "Ijuí",
+      "uf": "RS",
+      "populacao": "87848",
+      "notaOportunidade": 19546,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 21989
+    },
+    {
+      "posicaoNaFila": 242,
+      "cidade": "Goianira",
+      "uf": "GO",
+      "populacao": "81495",
+      "notaOportunidade": 17195,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 19344
+    },
+    {
+      "posicaoNaFila": 243,
+      "cidade": "Alegrete",
+      "uf": "RS",
+      "populacao": "74285",
+      "notaOportunidade": 16001,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 18001
+    },
+    {
+      "posicaoNaFila": 244,
+      "cidade": "Caicó",
+      "uf": "RN",
+      "populacao": "63338",
+      "notaOportunidade": 15435,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 17364
+    },
+    {
+      "posicaoNaFila": 245,
+      "cidade": "Coruripe",
+      "uf": "AL",
+      "populacao": "51784",
+      "notaOportunidade": 13940,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 15683
+    },
+    {
+      "posicaoNaFila": 246,
+      "cidade": "Jacobina",
+      "uf": "BA",
+      "populacao": "86896",
+      "notaOportunidade": 11105,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 12493
+    },
+    {
+      "posicaoNaFila": 247,
+      "cidade": "Aracati",
+      "uf": "CE",
+      "populacao": "79205",
+      "notaOportunidade": 10210,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 11486
+    },
+    {
+      "posicaoNaFila": 248,
+      "cidade": "Barbalha",
+      "uf": "CE",
+      "populacao": "81441",
+      "notaOportunidade": 5261,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 5919
+    },
+    {
+      "posicaoNaFila": 249,
+      "cidade": "Acaraú",
+      "uf": "CE",
+      "populacao": "69317",
+      "notaOportunidade": 3230,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 3634
+    },
+    {
+      "posicaoNaFila": 250,
+      "cidade": "Imbituba",
+      "uf": "SC",
+      "populacao": "57256",
+      "notaOportunidade": 3138,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 3530
+    },
+    {
+      "posicaoNaFila": 251,
+      "cidade": "Açailândia",
+      "uf": "MA",
+      "populacao": "110611",
+      "notaOportunidade": 1582,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 1780
+    },
+    {
+      "posicaoNaFila": 252,
+      "cidade": "Queimadas",
+      "uf": "PB",
+      "populacao": "50698",
+      "notaOportunidade": 852,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 959
+    },
+    {
+      "posicaoNaFila": 253,
+      "cidade": "Itaitinga",
+      "uf": "CE",
+      "populacao": "72512",
+      "notaOportunidade": 413,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 465
+    },
+    {
+      "posicaoNaFila": 254,
+      "cidade": "Moju",
+      "uf": "PA",
+      "populacao": "91760",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 255,
+      "cidade": "Barra do Corda",
+      "uf": "MA",
+      "populacao": "87757",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 256,
+      "cidade": "Quixeramobim",
+      "uf": "CE",
+      "populacao": "86431",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 257,
+      "cidade": "Tefé",
+      "uf": "AM",
+      "populacao": "80137",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 258,
+      "cidade": "Santa Izabel do Pará",
+      "uf": "PA",
+      "populacao": "79195",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 259,
+      "cidade": "Extremoz",
+      "uf": "RN",
+      "populacao": "68584",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 260,
+      "cidade": "Viseu",
+      "uf": "PA",
+      "populacao": "62189",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 261,
+      "cidade": "Escada",
+      "uf": "PE",
+      "populacao": "62174",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 262,
+      "cidade": "Manicoré",
+      "uf": "AM",
+      "populacao": "58018",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 263,
+      "cidade": "Buriticupu",
+      "uf": "MA",
+      "populacao": "56733",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 264,
+      "cidade": "Palmares",
+      "uf": "PE",
+      "populacao": "56475",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 265,
+      "cidade": "Jaru",
+      "uf": "RO",
+      "populacao": "55682",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 266,
+      "cidade": "Vigia",
+      "uf": "PA",
+      "populacao": "54062",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 267,
+      "cidade": "Viana",
+      "uf": "MA",
+      "populacao": "53176",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.125,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 268,
+      "cidade": "Jaú",
+      "uf": "SP",
+      "populacao": "137409",
+      "notaOportunidade": 129357,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 143730
+    },
+    {
+      "posicaoNaFila": 269,
+      "cidade": "Barretos",
+      "uf": "SP",
+      "populacao": "126957",
+      "notaOportunidade": 116750,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 129722
+    },
+    {
+      "posicaoNaFila": 270,
+      "cidade": "Valinhos",
+      "uf": "SP",
+      "populacao": "132258",
+      "notaOportunidade": 112499,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 124999
+    },
+    {
+      "posicaoNaFila": 271,
+      "cidade": "Vespasiano",
+      "uf": "MG",
+      "populacao": "138583",
+      "notaOportunidade": 109106,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 121229
+    },
+    {
+      "posicaoNaFila": 272,
+      "cidade": "Jandira",
+      "uf": "SP",
+      "populacao": "121550",
+      "notaOportunidade": 107037,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 118930
+    },
+    {
+      "posicaoNaFila": 273,
+      "cidade": "Piraquara",
+      "uf": "PR",
+      "populacao": "127433",
+      "notaOportunidade": 105718,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 117464
+    },
+    {
+      "posicaoNaFila": 274,
+      "cidade": "Formosa",
+      "uf": "GO",
+      "populacao": "121559",
+      "notaOportunidade": 103471,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 114968
+    },
+    {
+      "posicaoNaFila": 275,
+      "cidade": "Araruama",
+      "uf": "RJ",
+      "populacao": "137906",
+      "notaOportunidade": 99610,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 110678
+    },
+    {
+      "posicaoNaFila": 276,
+      "cidade": "Leme",
+      "uf": "SP",
+      "populacao": "101537",
+      "notaOportunidade": 95506,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 106118
+    },
+    {
+      "posicaoNaFila": 277,
+      "cidade": "Itatiba",
+      "uf": "SP",
+      "populacao": "127112",
+      "notaOportunidade": 94520,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 105022
+    },
+    {
+      "posicaoNaFila": 278,
+      "cidade": "Itaperuna",
+      "uf": "RJ",
+      "populacao": "107297",
+      "notaOportunidade": 91557,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 101730
+    },
+    {
+      "posicaoNaFila": 279,
+      "cidade": "São João del Rei",
+      "uf": "MG",
+      "populacao": "94468",
+      "notaOportunidade": 90226,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 100251
+    },
+    {
+      "posicaoNaFila": 280,
+      "cidade": "Atibaia",
+      "uf": "SP",
+      "populacao": "167161",
+      "notaOportunidade": 89147,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 99052
+    },
+    {
+      "posicaoNaFila": 281,
+      "cidade": "Planaltina",
+      "uf": "GO",
+      "populacao": "112304",
+      "notaOportunidade": 86901,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 96557
+    },
+    {
+      "posicaoNaFila": 282,
+      "cidade": "Coronel Fabriciano",
+      "uf": "MG",
+      "populacao": "108708",
+      "notaOportunidade": 86347,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 95941
+    },
+    {
+      "posicaoNaFila": 283,
+      "cidade": "Caieiras",
+      "uf": "SP",
+      "populacao": "98549",
+      "notaOportunidade": 81608,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 90676
+    },
+    {
+      "posicaoNaFila": 284,
+      "cidade": "Mogi Mirim",
+      "uf": "SP",
+      "populacao": "95742",
+      "notaOportunidade": 81122,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 90136
+    },
+    {
+      "posicaoNaFila": 285,
+      "cidade": "Barra do Piraí",
+      "uf": "RJ",
+      "populacao": "98506",
+      "notaOportunidade": 79711,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 88568
+    },
+    {
+      "posicaoNaFila": 286,
+      "cidade": "Itajubá",
+      "uf": "MG",
+      "populacao": "96855",
+      "notaOportunidade": 76206,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 84673
+    },
+    {
+      "posicaoNaFila": 287,
+      "cidade": "Cajamar",
+      "uf": "SP",
+      "populacao": "98365",
+      "notaOportunidade": 74679,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 82977
+    },
+    {
+      "posicaoNaFila": 288,
+      "cidade": "Serra Talhada",
+      "uf": "PE",
+      "populacao": "98816",
+      "notaOportunidade": 71483,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 79426
+    },
+    {
+      "posicaoNaFila": 289,
+      "cidade": "Alfenas",
+      "uf": "MG",
+      "populacao": "82303",
+      "notaOportunidade": 68756,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 76396
+    },
+    {
+      "posicaoNaFila": 290,
+      "cidade": "Itapeva",
+      "uf": "SP",
+      "populacao": "92393",
+      "notaOportunidade": 68149,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 75721
+    },
+    {
+      "posicaoNaFila": 291,
+      "cidade": "Saquarema",
+      "uf": "RJ",
+      "populacao": "95315",
+      "notaOportunidade": 65805,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 73117
+    },
+    {
+      "posicaoNaFila": 292,
+      "cidade": "Itapetinga",
+      "uf": "BA",
+      "populacao": "68724",
+      "notaOportunidade": 63968,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 71076
+    },
+    {
+      "posicaoNaFila": 293,
+      "cidade": "São Sebastião do Paraíso",
+      "uf": "MG",
+      "populacao": "75179",
+      "notaOportunidade": 60887,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 67652
+    },
+    {
+      "posicaoNaFila": 294,
+      "cidade": "Tupã",
+      "uf": "SP",
+      "populacao": "65433",
+      "notaOportunidade": 58523,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 65026
+    },
+    {
+      "posicaoNaFila": 295,
+      "cidade": "Jaguariúna",
+      "uf": "SP",
+      "populacao": "62309",
+      "notaOportunidade": 58278,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 64753
+    },
+    {
+      "posicaoNaFila": 296,
+      "cidade": "Mococa",
+      "uf": "SP",
+      "populacao": "69372",
+      "notaOportunidade": 58141,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 64601
+    },
+    {
+      "posicaoNaFila": 297,
+      "cidade": "Ponte Nova",
+      "uf": "MG",
+      "populacao": "59638",
+      "notaOportunidade": 57777,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 64197
+    },
+    {
+      "posicaoNaFila": 298,
+      "cidade": "Ibitinga",
+      "uf": "SP",
+      "populacao": "62143",
+      "notaOportunidade": 56730,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 63033
+    },
+    {
+      "posicaoNaFila": 299,
+      "cidade": "Mariana",
+      "uf": "MG",
+      "populacao": "64506",
+      "notaOportunidade": 55249,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 61388
+    },
+    {
+      "posicaoNaFila": 300,
+      "cidade": "Três Pontas",
+      "uf": "MG",
+      "populacao": "57209",
+      "notaOportunidade": 55041,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 61157
+    },
+    {
+      "posicaoNaFila": 301,
+      "cidade": "Cosmópolis",
+      "uf": "SP",
+      "populacao": "61167",
+      "notaOportunidade": 55001,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 61112
+    },
+    {
+      "posicaoNaFila": 302,
+      "cidade": "Andradina",
+      "uf": "SP",
+      "populacao": "61625",
+      "notaOportunidade": 54945,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 61050
+    },
+    {
+      "posicaoNaFila": 303,
+      "cidade": "Monte Mor",
+      "uf": "SP",
+      "populacao": "67832",
+      "notaOportunidade": 54123,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 60137
+    },
+    {
+      "posicaoNaFila": 304,
+      "cidade": "Porto Ferreira",
+      "uf": "SP",
+      "populacao": "53966",
+      "notaOportunidade": 51705,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 57450
+    },
+    {
+      "posicaoNaFila": 305,
+      "cidade": "Ibiporã",
+      "uf": "PR",
+      "populacao": "53276",
+      "notaOportunidade": 50708,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 56342
+    },
+    {
+      "posicaoNaFila": 306,
+      "cidade": "Capivari",
+      "uf": "SP",
+      "populacao": "51369",
+      "notaOportunidade": 50069,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 55632
+    },
+    {
+      "posicaoNaFila": 307,
+      "cidade": "Pesqueira",
+      "uf": "PE",
+      "populacao": "65481",
+      "notaOportunidade": 49183,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 54648
+    },
+    {
+      "posicaoNaFila": 308,
+      "cidade": "Taquaritinga",
+      "uf": "SP",
+      "populacao": "53264",
+      "notaOportunidade": 49125,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 54583
+    },
+    {
+      "posicaoNaFila": 309,
+      "cidade": "Louveira",
+      "uf": "SP",
+      "populacao": "54865",
+      "notaOportunidade": 48621,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 54023
+    },
+    {
+      "posicaoNaFila": 310,
+      "cidade": "Itabirito",
+      "uf": "MG",
+      "populacao": "56369",
+      "notaOportunidade": 46628,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 51809
+    },
+    {
+      "posicaoNaFila": 311,
+      "cidade": "Jales",
+      "uf": "SP",
+      "populacao": "50078",
+      "notaOportunidade": 46568,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 51742
+    },
+    {
+      "posicaoNaFila": 312,
+      "cidade": "Novo Gama",
+      "uf": "GO",
+      "populacao": "107663",
+      "notaOportunidade": 46414,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 51571
+    },
+    {
+      "posicaoNaFila": 313,
+      "cidade": "Rio Bonito",
+      "uf": "RJ",
+      "populacao": "59126",
+      "notaOportunidade": 45941,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 51046
+    },
+    {
+      "posicaoNaFila": 314,
+      "cidade": "Guanambi",
+      "uf": "BA",
+      "populacao": "93488",
+      "notaOportunidade": 45716,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 50796
+    },
+    {
+      "posicaoNaFila": 315,
+      "cidade": "Esteio",
+      "uf": "RS",
+      "populacao": "78144",
+      "notaOportunidade": 45003,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 50003
+    },
+    {
+      "posicaoNaFila": 316,
+      "cidade": "Boituva",
+      "uf": "SP",
+      "populacao": "63850",
+      "notaOportunidade": 44842,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 49824
+    },
+    {
+      "posicaoNaFila": 317,
+      "cidade": "Campina Grande do Sul",
+      "uf": "PR",
+      "populacao": "50600",
+      "notaOportunidade": 43997,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 48886
+    },
+    {
+      "posicaoNaFila": 318,
+      "cidade": "Santo Antônio do Descoberto",
+      "uf": "GO",
+      "populacao": "75221",
+      "notaOportunidade": 43952,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 48836
+    },
+    {
+      "posicaoNaFila": 319,
+      "cidade": "Goiana",
+      "uf": "PE",
+      "populacao": "85497",
+      "notaOportunidade": 41654,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 46282
+    },
+    {
+      "posicaoNaFila": 320,
+      "cidade": "Ouro Preto",
+      "uf": "MG",
+      "populacao": "77914",
+      "notaOportunidade": 41450,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 46056
+    },
+    {
+      "posicaoNaFila": 321,
+      "cidade": "Ubatuba",
+      "uf": "SP",
+      "populacao": "97096",
+      "notaOportunidade": 38809,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 43121
+    },
+    {
+      "posicaoNaFila": 322,
+      "cidade": "Itamaraju",
+      "uf": "BA",
+      "populacao": "61999",
+      "notaOportunidade": 36765,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 40850
+    },
+    {
+      "posicaoNaFila": 323,
+      "cidade": "Congonhas",
+      "uf": "MG",
+      "populacao": "55272",
+      "notaOportunidade": 36369,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 40410
+    },
+    {
+      "posicaoNaFila": 324,
+      "cidade": "Lagoa Santa",
+      "uf": "MG",
+      "populacao": "81299",
+      "notaOportunidade": 35609,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 39566
+    },
+    {
+      "posicaoNaFila": 325,
+      "cidade": "Sant'Ana do Livramento",
+      "uf": "RS",
+      "populacao": "87329",
+      "notaOportunidade": 33010,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 36678
+    },
+    {
+      "posicaoNaFila": 326,
+      "cidade": "Guaíba",
+      "uf": "RS",
+      "populacao": "95946",
+      "notaOportunidade": 29849,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 33166
+    },
+    {
+      "posicaoNaFila": 327,
+      "cidade": "Santa Isabel",
+      "uf": "SP",
+      "populacao": "54691",
+      "notaOportunidade": 24020,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 26689
+    },
+    {
+      "posicaoNaFila": 328,
+      "cidade": "Brejo Santo",
+      "uf": "CE",
+      "populacao": "54192",
+      "notaOportunidade": 23844,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 26493
+    },
+    {
+      "posicaoNaFila": 329,
+      "cidade": "Abreu e Lima",
+      "uf": "PE",
+      "populacao": "104248",
+      "notaOportunidade": 23404,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 26004
+    },
+    {
+      "posicaoNaFila": 330,
+      "cidade": "Barra",
+      "uf": "BA",
+      "populacao": "53642",
+      "notaOportunidade": 23002,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 25558
+    },
+    {
+      "posicaoNaFila": 331,
+      "cidade": "Mesquita",
+      "uf": "RJ",
+      "populacao": "178830",
+      "notaOportunidade": 22622,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 25136
+    },
+    {
+      "posicaoNaFila": 332,
+      "cidade": "Bom Jesus da Lapa",
+      "uf": "BA",
+      "populacao": "68866",
+      "notaOportunidade": 22085,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 24539
+    },
+    {
+      "posicaoNaFila": 333,
+      "cidade": "Nova Andradina",
+      "uf": "MS",
+      "populacao": "50848",
+      "notaOportunidade": 20070,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 22300
+    },
+    {
+      "posicaoNaFila": 334,
+      "cidade": "Viçosa do Ceará",
+      "uf": "CE",
+      "populacao": "62972",
+      "notaOportunidade": 19137,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 21263
+    },
+    {
+      "posicaoNaFila": 335,
+      "cidade": "Janaúba",
+      "uf": "MG",
+      "populacao": "73555",
+      "notaOportunidade": 17940,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 19933
+    },
+    {
+      "posicaoNaFila": 336,
+      "cidade": "São Francisco",
+      "uf": "MG",
+      "populacao": "54223",
+      "notaOportunidade": 17763,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 19737
+    },
+    {
+      "posicaoNaFila": 337,
+      "cidade": "Canindé",
+      "uf": "CE",
+      "populacao": "77376",
+      "notaOportunidade": 15870,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 17633
+    },
+    {
+      "posicaoNaFila": 338,
+      "cidade": "Floriano",
+      "uf": "PI",
+      "populacao": "64393",
+      "notaOportunidade": 15834,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 17593
+    },
+    {
+      "posicaoNaFila": 339,
+      "cidade": "Ipirá",
+      "uf": "BA",
+      "populacao": "59222",
+      "notaOportunidade": 15285,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 16983
+    },
+    {
+      "posicaoNaFila": 340,
+      "cidade": "Tramandaí",
+      "uf": "RS",
+      "populacao": "56430",
+      "notaOportunidade": 15027,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 16697
+    },
+    {
+      "posicaoNaFila": 341,
+      "cidade": "Quixadá",
+      "uf": "CE",
+      "populacao": "88846",
+      "notaOportunidade": 14055,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 15617
+    },
+    {
+      "posicaoNaFila": 342,
+      "cidade": "Icó",
+      "uf": "CE",
+      "populacao": "64745",
+      "notaOportunidade": 13758,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 15287
+    },
+    {
+      "posicaoNaFila": 343,
+      "cidade": "Piripiri",
+      "uf": "PI",
+      "populacao": "67887",
+      "notaOportunidade": 13672,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 15191
+    },
+    {
+      "posicaoNaFila": 344,
+      "cidade": "Russas",
+      "uf": "CE",
+      "populacao": "74834",
+      "notaOportunidade": 12976,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 14418
+    },
+    {
+      "posicaoNaFila": 345,
+      "cidade": "Ceará-Mirim",
+      "uf": "RN",
+      "populacao": "83543",
+      "notaOportunidade": 12958,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 14398
+    },
+    {
+      "posicaoNaFila": 346,
+      "cidade": "Maués",
+      "uf": "AM",
+      "populacao": "66336",
+      "notaOportunidade": 12803,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 14226
+    },
+    {
+      "posicaoNaFila": 347,
+      "cidade": "São Borja",
+      "uf": "RS",
+      "populacao": "61311",
+      "notaOportunidade": 12385,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 13761
+    },
+    {
+      "posicaoNaFila": 348,
+      "cidade": "Içara",
+      "uf": "SC",
+      "populacao": "63489",
+      "notaOportunidade": 12164,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 13516
+    },
+    {
+      "posicaoNaFila": 349,
+      "cidade": "Caxias",
+      "uf": "MA",
+      "populacao": "163546",
+      "notaOportunidade": 12004,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 13338
+    },
+    {
+      "posicaoNaFila": 350,
+      "cidade": "Estância",
+      "uf": "SE",
+      "populacao": "67060",
+      "notaOportunidade": 7175,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 7972
+    },
+    {
+      "posicaoNaFila": 351,
+      "cidade": "Santa Rita",
+      "uf": "PB",
+      "populacao": "160852",
+      "notaOportunidade": 5968,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 6631
+    },
+    {
+      "posicaoNaFila": 352,
+      "cidade": "Barreirinhas",
+      "uf": "MA",
+      "populacao": "68234",
+      "notaOportunidade": 4851,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 5390
+    },
+    {
+      "posicaoNaFila": 353,
+      "cidade": "Brumado",
+      "uf": "BA",
+      "populacao": "74368",
+      "notaOportunidade": 4559,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 5066
+    },
+    {
+      "posicaoNaFila": 354,
+      "cidade": "Redenção",
+      "uf": "PA",
+      "populacao": "92694",
+      "notaOportunidade": 4394,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 4882
+    },
+    {
+      "posicaoNaFila": 355,
+      "cidade": "Beberibe",
+      "uf": "CE",
+      "populacao": "55977",
+      "notaOportunidade": 3997,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 4441
+    },
+    {
+      "posicaoNaFila": 356,
+      "cidade": "Balsas",
+      "uf": "MA",
+      "populacao": "105974",
+      "notaOportunidade": 3995,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 4439
+    },
+    {
+      "posicaoNaFila": 357,
+      "cidade": "Macaíba",
+      "uf": "RN",
+      "populacao": "87056",
+      "notaOportunidade": 2525,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 2806
+    },
+    {
+      "posicaoNaFila": 358,
+      "cidade": "Altos",
+      "uf": "PI",
+      "populacao": "50094",
+      "notaOportunidade": 2109,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 2343
+    },
+    {
+      "posicaoNaFila": 359,
+      "cidade": "Lajeado",
+      "uf": "RS",
+      "populacao": "96879",
+      "notaOportunidade": 2025,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 2250
+    },
+    {
+      "posicaoNaFila": 360,
+      "cidade": "Camaragibe",
+      "uf": "PE",
+      "populacao": "156112",
+      "notaOportunidade": 1811,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 2012
+    },
+    {
+      "posicaoNaFila": 361,
+      "cidade": "Gaspar",
+      "uf": "SC",
+      "populacao": "78344",
+      "notaOportunidade": 1684,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 1871
+    },
+    {
+      "posicaoNaFila": 362,
+      "cidade": "Trairi",
+      "uf": "CE",
+      "populacao": "62004",
+      "notaOportunidade": 1625,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 1806
+    },
+    {
+      "posicaoNaFila": 363,
+      "cidade": "Morada Nova",
+      "uf": "CE",
+      "populacao": "65390",
+      "notaOportunidade": 1399,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 1554
+    },
+    {
+      "posicaoNaFila": 364,
+      "cidade": "Ribeira do Pombal",
+      "uf": "BA",
+      "populacao": "56316",
+      "notaOportunidade": 1216,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 1351
+    },
+    {
+      "posicaoNaFila": 365,
+      "cidade": "Itupiranga",
+      "uf": "PA",
+      "populacao": "52201",
+      "notaOportunidade": 820,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 911
+    },
+    {
+      "posicaoNaFila": 366,
+      "cidade": "São José de Mipibu",
+      "uf": "RN",
+      "populacao": "50053",
+      "notaOportunidade": 265,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 294
+    },
+    {
+      "posicaoNaFila": 367,
+      "cidade": "Catu",
+      "uf": "BA",
+      "populacao": "50109",
+      "notaOportunidade": 100,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 111
+    },
+    {
+      "posicaoNaFila": 368,
+      "cidade": "Nilópolis",
+      "uf": "RJ",
+      "populacao": "155500",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 369,
+      "cidade": "Camboriú",
+      "uf": "SC",
+      "populacao": "117324",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 370,
+      "cidade": "Manacapuru",
+      "uf": "AM",
+      "populacao": "111751",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 371,
+      "cidade": "Navegantes",
+      "uf": "SC",
+      "populacao": "96046",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 372,
+      "cidade": "Alenquer",
+      "uf": "PA",
+      "populacao": "75882",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 373,
+      "cidade": "Oriximiná",
+      "uf": "PA",
+      "populacao": "72889",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 374,
+      "cidade": "Farroupilha",
+      "uf": "RS",
+      "populacao": "72552",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 375,
+      "cidade": "Iranduba",
+      "uf": "AM",
+      "populacao": "68862",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 376,
+      "cidade": "Portel",
+      "uf": "PA",
+      "populacao": "67580",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 377,
+      "cidade": "Bezerros",
+      "uf": "PE",
+      "populacao": "65007",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 378,
+      "cidade": "São Félix do Xingu",
+      "uf": "PA",
+      "populacao": "64651",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 379,
+      "cidade": "Monte Alegre",
+      "uf": "PA",
+      "populacao": "64002",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 380,
+      "cidade": "Capitão Poço",
+      "uf": "PA",
+      "populacao": "60318",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 381,
+      "cidade": "Santa Luzia",
+      "uf": "MA",
+      "populacao": "58839",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 382,
+      "cidade": "Baião",
+      "uf": "PA",
+      "populacao": "56850",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 383,
+      "cidade": "Taquara",
+      "uf": "RS",
+      "populacao": "54353",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 384,
+      "cidade": "Tobias Barreto",
+      "uf": "SE",
+      "populacao": "52783",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 385,
+      "cidade": "Poções",
+      "uf": "BA",
+      "populacao": "50773",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1111111111111111,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 386,
+      "cidade": "Cachoeirinha",
+      "uf": "RS",
+      "populacao": "141503",
+      "notaOportunidade": 116839,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 128523
+    },
+    {
+      "posicaoNaFila": 387,
+      "cidade": "Votuporanga",
+      "uf": "SP",
+      "populacao": "100568",
+      "notaOportunidade": 96636,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 106300
+    },
+    {
+      "posicaoNaFila": 388,
+      "cidade": "Bebedouro",
+      "uf": "SP",
+      "populacao": "78257",
+      "notaOportunidade": 76371,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 84008
+    },
+    {
+      "posicaoNaFila": 389,
+      "cidade": "Almirante Tamandaré",
+      "uf": "PR",
+      "populacao": "125861",
+      "notaOportunidade": 73729,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 81102
+    },
+    {
+      "posicaoNaFila": 390,
+      "cidade": "Itapema",
+      "uf": "SC",
+      "populacao": "86116",
+      "notaOportunidade": 57999,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 63799
+    },
+    {
+      "posicaoNaFila": 391,
+      "cidade": "Bertioga",
+      "uf": "SP",
+      "populacao": "67436",
+      "notaOportunidade": 40650,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 44715
+    },
+    {
+      "posicaoNaFila": 392,
+      "cidade": "Cristalina",
+      "uf": "GO",
+      "populacao": "66827",
+      "notaOportunidade": 24011,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 26412
+    },
+    {
+      "posicaoNaFila": 393,
+      "cidade": "Piedade",
+      "uf": "SP",
+      "populacao": "54266",
+      "notaOportunidade": 16339,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 17973
+    },
+    {
+      "posicaoNaFila": 394,
+      "cidade": "Esmeraldas",
+      "uf": "MG",
+      "populacao": "93103",
+      "notaOportunidade": 10930,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 12023
+    },
+    {
+      "posicaoNaFila": 395,
+      "cidade": "Santo Estêvão",
+      "uf": "BA",
+      "populacao": "55146",
+      "notaOportunidade": 4583,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 5041
+    },
+    {
+      "posicaoNaFila": 396,
+      "cidade": "Guaramirim",
+      "uf": "SC",
+      "populacao": "51009",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0.1,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 397,
+      "cidade": "Itu",
+      "uf": "SP",
+      "populacao": "175047",
+      "notaOportunidade": 129097,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 129097
+    },
+    {
+      "posicaoNaFila": 398,
+      "cidade": "Araras",
+      "uf": "SP",
+      "populacao": "135744",
+      "notaOportunidade": 128550,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 128550
+    },
+    {
+      "posicaoNaFila": 399,
+      "cidade": "Salto",
+      "uf": "SP",
+      "populacao": "141111",
+      "notaOportunidade": 127451,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 127451
+    },
+    {
+      "posicaoNaFila": 400,
+      "cidade": "Pinhais",
+      "uf": "PR",
+      "populacao": "131255",
+      "notaOportunidade": 127015,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 127015
+    },
+    {
+      "posicaoNaFila": 401,
+      "cidade": "Sertãozinho",
+      "uf": "SP",
+      "populacao": "132176",
+      "notaOportunidade": 126387,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 126387
+    },
+    {
+      "posicaoNaFila": 402,
+      "cidade": "Ibirité",
+      "uf": "MG",
+      "populacao": "179582",
+      "notaOportunidade": 124648,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 124648
+    },
+    {
+      "posicaoNaFila": 403,
+      "cidade": "Votorantim",
+      "uf": "SP",
+      "populacao": "133510",
+      "notaOportunidade": 122402,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 122402
+    },
+    {
+      "posicaoNaFila": 404,
+      "cidade": "Franco da Rocha",
+      "uf": "SP",
+      "populacao": "150241",
+      "notaOportunidade": 118014,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 118014
+    },
+    {
+      "posicaoNaFila": 405,
+      "cidade": "Francisco Morato",
+      "uf": "SP",
+      "populacao": "171476",
+      "notaOportunidade": 114872,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 114872
+    },
+    {
+      "posicaoNaFila": 406,
+      "cidade": "Paulínia",
+      "uf": "SP",
+      "populacao": "116674",
+      "notaOportunidade": 110537,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 110537
+    },
+    {
+      "posicaoNaFila": 407,
+      "cidade": "Cambé",
+      "uf": "PR",
+      "populacao": "110923",
+      "notaOportunidade": 107196,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 107196
+    },
+    {
+      "posicaoNaFila": 408,
+      "cidade": "Caraguatatuba",
+      "uf": "SP",
+      "populacao": "142248",
+      "notaOportunidade": 105278,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 105278
+    },
+    {
+      "posicaoNaFila": 409,
+      "cidade": "Poá",
+      "uf": "SP",
+      "populacao": "106355",
+      "notaOportunidade": 103760,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 103760
+    },
+    {
+      "posicaoNaFila": 410,
+      "cidade": "Santana de Parnaíba",
+      "uf": "SP",
+      "populacao": "163787",
+      "notaOportunidade": 100336,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 100336
+    },
+    {
+      "posicaoNaFila": 411,
+      "cidade": "Várzea Paulista",
+      "uf": "SP",
+      "populacao": "119655",
+      "notaOportunidade": 98943,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 98943
+    },
+    {
+      "posicaoNaFila": 412,
+      "cidade": "Campo Largo",
+      "uf": "PR",
+      "populacao": "144504",
+      "notaOportunidade": 96442,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 96442
+    },
+    {
+      "posicaoNaFila": 413,
+      "cidade": "Itapecerica da Serra",
+      "uf": "SP",
+      "populacao": "163003",
+      "notaOportunidade": 92961,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 92961
+    },
+    {
+      "posicaoNaFila": 414,
+      "cidade": "Paranavaí",
+      "uf": "PR",
+      "populacao": "96209",
+      "notaOportunidade": 91995,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 91995
+    },
+    {
+      "posicaoNaFila": 415,
+      "cidade": "Ribeirão Pires",
+      "uf": "SP",
+      "populacao": "118954",
+      "notaOportunidade": 90453,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 90453
+    },
+    {
+      "posicaoNaFila": 416,
+      "cidade": "Sabará",
+      "uf": "MG",
+      "populacao": "134576",
+      "notaOportunidade": 86384,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 86384
+    },
+    {
+      "posicaoNaFila": 417,
+      "cidade": "Lorena",
+      "uf": "SP",
+      "populacao": "87468",
+      "notaOportunidade": 80156,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 80156
+    },
+    {
+      "posicaoNaFila": 418,
+      "cidade": "Caçapava",
+      "uf": "SP",
+      "populacao": "100071",
+      "notaOportunidade": 78676,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 78676
+    },
+    {
+      "posicaoNaFila": 419,
+      "cidade": "Matão",
+      "uf": "SP",
+      "populacao": "81075",
+      "notaOportunidade": 77151,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 77151
+    },
+    {
+      "posicaoNaFila": 420,
+      "cidade": "Três Rios",
+      "uf": "RJ",
+      "populacao": "82319",
+      "notaOportunidade": 75610,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 75610
+    },
+    {
+      "posicaoNaFila": 421,
+      "cidade": "Cruzeiro",
+      "uf": "SP",
+      "populacao": "76444",
+      "notaOportunidade": 73669,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 73669
+    },
+    {
+      "posicaoNaFila": 422,
+      "cidade": "São Mateus",
+      "uf": "ES",
+      "populacao": "134423",
+      "notaOportunidade": 73597,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 73597
+    },
+    {
+      "posicaoNaFila": 423,
+      "cidade": "Jaboticabal",
+      "uf": "SP",
+      "populacao": "73473",
+      "notaOportunidade": 71820,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 71820
+    },
+    {
+      "posicaoNaFila": 424,
+      "cidade": "Vinhedo",
+      "uf": "SP",
+      "populacao": "79089",
+      "notaOportunidade": 68918,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 68918
+    },
+    {
+      "posicaoNaFila": 425,
+      "cidade": "Pirassununga",
+      "uf": "SP",
+      "populacao": "75594",
+      "notaOportunidade": 67294,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 67294
+    },
+    {
+      "posicaoNaFila": 426,
+      "cidade": "Arujá",
+      "uf": "SP",
+      "populacao": "90273",
+      "notaOportunidade": 64554,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 64554
+    },
+    {
+      "posicaoNaFila": 427,
+      "cidade": "Três Corações",
+      "uf": "MG",
+      "populacao": "78291",
+      "notaOportunidade": 63142,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 63142
+    },
+    {
+      "posicaoNaFila": 428,
+      "cidade": "Mirassol",
+      "uf": "SP",
+      "populacao": "65811",
+      "notaOportunidade": 61599,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 61599
+    },
+    {
+      "posicaoNaFila": 429,
+      "cidade": "Nova Odessa",
+      "uf": "SP",
+      "populacao": "64596",
+      "notaOportunidade": 59461,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 59461
+    },
+    {
+      "posicaoNaFila": 430,
+      "cidade": "Penápolis",
+      "uf": "SP",
+      "populacao": "63426",
+      "notaOportunidade": 59303,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 59303
+    },
+    {
+      "posicaoNaFila": 431,
+      "cidade": "Itanhaém",
+      "uf": "SP",
+      "populacao": "118495",
+      "notaOportunidade": 58477,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 58477
+    },
+    {
+      "posicaoNaFila": 432,
+      "cidade": "Olímpia",
+      "uf": "SP",
+      "populacao": "56874",
+      "notaOportunidade": 52921,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 52921
+    },
+    {
+      "posicaoNaFila": 433,
+      "cidade": "Mongaguá",
+      "uf": "SP",
+      "populacao": "64845",
+      "notaOportunidade": 52881,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 52881
+    },
+    {
+      "posicaoNaFila": 434,
+      "cidade": "Campo Limpo Paulista",
+      "uf": "SP",
+      "populacao": "79781",
+      "notaOportunidade": 52616,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 52616
+    },
+    {
+      "posicaoNaFila": 435,
+      "cidade": "Batatais",
+      "uf": "SP",
+      "populacao": "59939",
+      "notaOportunidade": 52333,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 52333
+    },
+    {
+      "posicaoNaFila": 436,
+      "cidade": "Amparo",
+      "uf": "SP",
+      "populacao": "69792",
+      "notaOportunidade": 50843,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 50843
+    },
+    {
+      "posicaoNaFila": 437,
+      "cidade": "Itupeva",
+      "uf": "SP",
+      "populacao": "74994",
+      "notaOportunidade": 50231,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 50231
+    },
+    {
+      "posicaoNaFila": 438,
+      "cidade": "Peruíbe",
+      "uf": "SP",
+      "populacao": "70629",
+      "notaOportunidade": 50019,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 50019
+    },
+    {
+      "posicaoNaFila": 439,
+      "cidade": "Campo Belo",
+      "uf": "MG",
+      "populacao": "54027",
+      "notaOportunidade": 49753,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 49753
+    },
+    {
+      "posicaoNaFila": 440,
+      "cidade": "Leopoldina",
+      "uf": "MG",
+      "populacao": "52739",
+      "notaOportunidade": 49021,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 49021
+    },
+    {
+      "posicaoNaFila": 441,
+      "cidade": "São Sebastião",
+      "uf": "SP",
+      "populacao": "84280",
+      "notaOportunidade": 48638,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 48638
+    },
+    {
+      "posicaoNaFila": 442,
+      "cidade": "São Bento do Una",
+      "uf": "PE",
+      "populacao": "51165",
+      "notaOportunidade": 48622,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 48622
+    },
+    {
+      "posicaoNaFila": 443,
+      "cidade": "Brejo da Madre de Deus",
+      "uf": "PE",
+      "populacao": "51308",
+      "notaOportunidade": 48312,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 48312
+    },
+    {
+      "posicaoNaFila": 444,
+      "cidade": "Lagoa da Prata",
+      "uf": "MG",
+      "populacao": "53927",
+      "notaOportunidade": 47796,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 47796
+    },
+    {
+      "posicaoNaFila": 445,
+      "cidade": "Tremembé",
+      "uf": "SP",
+      "populacao": "53426",
+      "notaOportunidade": 47448,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 47448
+    },
+    {
+      "posicaoNaFila": 446,
+      "cidade": "Artur Nogueira",
+      "uf": "SP",
+      "populacao": "53467",
+      "notaOportunidade": 46238,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 46238
+    },
+    {
+      "posicaoNaFila": 447,
+      "cidade": "Pedro Leopoldo",
+      "uf": "MG",
+      "populacao": "65174",
+      "notaOportunidade": 41855,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 41855
+    },
+    {
+      "posicaoNaFila": 448,
+      "cidade": "Simões Filho",
+      "uf": "BA",
+      "populacao": "120419",
+      "notaOportunidade": 41797,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 41797
+    },
+    {
+      "posicaoNaFila": 449,
+      "cidade": "São Miguel dos Campos",
+      "uf": "AL",
+      "populacao": "53380",
+      "notaOportunidade": 40297,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 40297
+    },
+    {
+      "posicaoNaFila": 450,
+      "cidade": "São Gonçalo do Amarante",
+      "uf": "RN",
+      "populacao": "124495",
+      "notaOportunidade": 39764,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 39764
+    },
+    {
+      "posicaoNaFila": 451,
+      "cidade": "São Roque",
+      "uf": "SP",
+      "populacao": "81366",
+      "notaOportunidade": 39585,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 39585
+    },
+    {
+      "posicaoNaFila": 452,
+      "cidade": "Dias d'Ávila",
+      "uf": "BA",
+      "populacao": "75296",
+      "notaOportunidade": 38092,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 38092
+    },
+    {
+      "posicaoNaFila": 453,
+      "cidade": "Capão da Canoa",
+      "uf": "RS",
+      "populacao": "66234",
+      "notaOportunidade": 34084,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 34084
+    },
+    {
+      "posicaoNaFila": 454,
+      "cidade": "Candeias",
+      "uf": "BA",
+      "populacao": "74854",
+      "notaOportunidade": 32105,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 32105
+    },
+    {
+      "posicaoNaFila": 455,
+      "cidade": "Mairiporã",
+      "uf": "SP",
+      "populacao": "97835",
+      "notaOportunidade": 31395,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 31395
+    },
+    {
+      "posicaoNaFila": 456,
+      "cidade": "Mairinque",
+      "uf": "SP",
+      "populacao": "51888",
+      "notaOportunidade": 30884,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 30884
+    },
+    {
+      "posicaoNaFila": 457,
+      "cidade": "São Cristóvão",
+      "uf": "SE",
+      "populacao": "101213",
+      "notaOportunidade": 26832,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 26832
+    },
+    {
+      "posicaoNaFila": 458,
+      "cidade": "Pirapora",
+      "uf": "MG",
+      "populacao": "57713",
+      "notaOportunidade": 26813,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 26813
+    },
+    {
+      "posicaoNaFila": 459,
+      "cidade": "Embu-Guaçu",
+      "uf": "SP",
+      "populacao": "68913",
+      "notaOportunidade": 26345,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 26345
+    },
+    {
+      "posicaoNaFila": 460,
+      "cidade": "Sapucaia do Sul",
+      "uf": "RS",
+      "populacao": "136572",
+      "notaOportunidade": 25689,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 25689
+    },
+    {
+      "posicaoNaFila": 461,
+      "cidade": "Santo Amaro",
+      "uf": "BA",
+      "populacao": "58398",
+      "notaOportunidade": 24918,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 24918
+    },
+    {
+      "posicaoNaFila": 462,
+      "cidade": "Extrema",
+      "uf": "MG",
+      "populacao": "59336",
+      "notaOportunidade": 24470,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 24470
+    },
+    {
+      "posicaoNaFila": 463,
+      "cidade": "Belo Jardim",
+      "uf": "PE",
+      "populacao": "84033",
+      "notaOportunidade": 24403,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 24403
+    },
+    {
+      "posicaoNaFila": 464,
+      "cidade": "Vargem Grande Paulista",
+      "uf": "SP",
+      "populacao": "52352",
+      "notaOportunidade": 23161,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 23161
+    },
+    {
+      "posicaoNaFila": 465,
+      "cidade": "Nova Lima",
+      "uf": "MG",
+      "populacao": "120959",
+      "notaOportunidade": 22922,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 22922
+    },
+    {
+      "posicaoNaFila": 466,
+      "cidade": "Boa Viagem",
+      "uf": "CE",
+      "populacao": "52133",
+      "notaOportunidade": 21541,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 21541
+    },
+    {
+      "posicaoNaFila": 467,
+      "cidade": "Araci",
+      "uf": "BA",
+      "populacao": "50308",
+      "notaOportunidade": 20973,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 20973
+    },
+    {
+      "posicaoNaFila": 468,
+      "cidade": "Moreno",
+      "uf": "PE",
+      "populacao": "57654",
+      "notaOportunidade": 20813,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 20813
+    },
+    {
+      "posicaoNaFila": 469,
+      "cidade": "Ipojuca",
+      "uf": "PE",
+      "populacao": "106539",
+      "notaOportunidade": 20466,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 20466
+    },
+    {
+      "posicaoNaFila": 470,
+      "cidade": "Marechal Cândido Rondon",
+      "uf": "PR",
+      "populacao": "58734",
+      "notaOportunidade": 17767,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 17767
+    },
+    {
+      "posicaoNaFila": 471,
+      "cidade": "Marechal Deodoro",
+      "uf": "AL",
+      "populacao": "62477",
+      "notaOportunidade": 15894,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 15894
+    },
+    {
+      "posicaoNaFila": 472,
+      "cidade": "Rio Largo",
+      "uf": "AL",
+      "populacao": "97658",
+      "notaOportunidade": 15410,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 15410
+    },
+    {
+      "posicaoNaFila": 473,
+      "cidade": "Cajazeiras",
+      "uf": "PB",
+      "populacao": "66585",
+      "notaOportunidade": 11406,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 11406
+    },
+    {
+      "posicaoNaFila": 474,
+      "cidade": "Nova Venécia",
+      "uf": "ES",
+      "populacao": "52324",
+      "notaOportunidade": 10941,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 10941
+    },
+    {
+      "posicaoNaFila": 475,
+      "cidade": "Euclides da Cunha",
+      "uf": "BA",
+      "populacao": "64768",
+      "notaOportunidade": 8193,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 8193
+    },
+    {
+      "posicaoNaFila": 476,
+      "cidade": "São Benedito",
+      "uf": "CE",
+      "populacao": "50058",
+      "notaOportunidade": 7614,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 7614
+    },
+    {
+      "posicaoNaFila": 477,
+      "cidade": "Serrinha",
+      "uf": "BA",
+      "populacao": "84690",
+      "notaOportunidade": 6699,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 6699
+    },
+    {
+      "posicaoNaFila": 478,
+      "cidade": "Itapecuru Mirim",
+      "uf": "MA",
+      "populacao": "62264",
+      "notaOportunidade": 6382,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 6382
+    },
+    {
+      "posicaoNaFila": 479,
+      "cidade": "São Gonçalo do Amarante",
+      "uf": "CE",
+      "populacao": "58191",
+      "notaOportunidade": 6343,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 6343
+    },
+    {
+      "posicaoNaFila": 480,
+      "cidade": "Tauá",
+      "uf": "CE",
+      "populacao": "64655",
+      "notaOportunidade": 3925,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 3925
+    },
+    {
+      "posicaoNaFila": 481,
+      "cidade": "Sapiranga",
+      "uf": "RS",
+      "populacao": "77935",
+      "notaOportunidade": 3538,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 3538
+    },
+    {
+      "posicaoNaFila": 482,
+      "cidade": "Granja",
+      "uf": "CE",
+      "populacao": "55809",
+      "notaOportunidade": 3003,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 3003
+    },
+    {
+      "posicaoNaFila": 483,
+      "cidade": "Campo Formoso",
+      "uf": "BA",
+      "populacao": "75112",
+      "notaOportunidade": 2516,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 2516
+    },
+    {
+      "posicaoNaFila": 484,
+      "cidade": "Novo Repartimento",
+      "uf": "PA",
+      "populacao": "63796",
+      "notaOportunidade": 2475,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 2475
+    },
+    {
+      "posicaoNaFila": 485,
+      "cidade": "Conceição do Coité",
+      "uf": "BA",
+      "populacao": "71601",
+      "notaOportunidade": 2177,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 2177
+    },
+    {
+      "posicaoNaFila": 486,
+      "cidade": "Xinguara",
+      "uf": "PA",
+      "populacao": "57768",
+      "notaOportunidade": 1635,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 1635
+    },
+    {
+      "posicaoNaFila": 487,
+      "cidade": "Santana",
+      "uf": "AP",
+      "populacao": "118803",
+      "notaOportunidade": 1414,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 1414
+    },
+    {
+      "posicaoNaFila": 488,
+      "cidade": "Seropédica",
+      "uf": "RJ",
+      "populacao": "84794",
+      "notaOportunidade": 534,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 534
+    },
+    {
+      "posicaoNaFila": 489,
+      "cidade": "Bragança",
+      "uf": "PA",
+      "populacao": "132489",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 490,
+      "cidade": "Cruzeiro do Sul",
+      "uf": "AC",
+      "populacao": "98916",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 491,
+      "cidade": "Santa Inês",
+      "uf": "MA",
+      "populacao": "88249",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 492,
+      "cidade": "Grajaú",
+      "uf": "MA",
+      "populacao": "76837",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 493,
+      "cidade": "Coari",
+      "uf": "AM",
+      "populacao": "73576",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 494,
+      "cidade": "Tabatinga",
+      "uf": "AM",
+      "populacao": "73348",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 495,
+      "cidade": "Tomé-Açu",
+      "uf": "PA",
+      "populacao": "73058",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 496,
+      "cidade": "Igarapé-Miri",
+      "uf": "PA",
+      "populacao": "69446",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 497,
+      "cidade": "Humaitá",
+      "uf": "AM",
+      "populacao": "63454",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 498,
+      "cidade": "Penedo",
+      "uf": "AL",
+      "populacao": "60185",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 499,
+      "cidade": "Paudalho",
+      "uf": "PE",
+      "populacao": "59924",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 500,
+      "cidade": "Cachoeiras de Macacu",
+      "uf": "RJ",
+      "populacao": "59861",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 501,
+      "cidade": "Açu",
+      "uf": "RN",
+      "populacao": "59099",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 502,
+      "cidade": "Rondon do Pará",
+      "uf": "PA",
+      "populacao": "57031",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 503,
+      "cidade": "São Miguel do Guamá",
+      "uf": "PA",
+      "populacao": "55970",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 504,
+      "cidade": "Caetité",
+      "uf": "BA",
+      "populacao": "54730",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 505,
+      "cidade": "Guapimirim",
+      "uf": "RJ",
+      "populacao": "54311",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    },
+    {
+      "posicaoNaFila": 506,
+      "cidade": "Parobé",
+      "uf": "RS",
+      "populacao": "53569",
+      "notaOportunidade": 0,
+      "indiceConcorrenciaFraca": 0,
+      "notaFinal": 0
+    }
+  ]
+}
