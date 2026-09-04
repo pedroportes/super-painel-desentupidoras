@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem, PartnerItem } from './cityGenerator';
 
+function formatPopulacao(raw: string): string {
+  const negativo = raw.startsWith('~') ? '~' : '';
+  const digits = raw.replace(/[^\d]/g, '');
+  if (!digits) return raw;
+  return negativo + digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
 function slugify(text: string): string {
   return text
     .toString()
@@ -22,8 +29,36 @@ interface HostingSettings {
   googleSheets: { sheetUrl: string };
 }
 
+// Uma linha da planilha de scoring de concorrência (ver
+// docs/mapa-oportunidades-expansao.md) já cruzada pelo backend com as
+// cidades reais cadastradas no painel.
+interface OpportunityCity {
+  ranking: string;
+  cidade: string;
+  uf: string;
+  populacao: string;
+  notaOportunidade: number;
+  cadastradaNoPainel: boolean;
+  indiceConcorrenciaFraca: number | null;
+  barraConcorrenciaFraca: string;
+  notaFinal: number | null;
+  testadaNoSerp: boolean;
+  foraDoUniverso: boolean;
+  observacoes: string;
+}
+
+interface OpportunityRanking {
+  source: string;
+  atualizadoEm: string;
+  totalCidades: number;
+  totalTestadasSerp: number;
+  totalCadastradas: number;
+  cidades: OpportunityCity[];
+  proximasACriar: OpportunityCity[];
+}
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'editor' | 'cities' | 'new-city' | 'settings'>('editor');
+  const [activeTab, setActiveTab] = useState<'editor' | 'cities' | 'new-city' | 'settings' | 'opportunities'>('editor');
   const [cities, setCities] = useState<CityConfig[]>([]);
   const [selectedCityId, setSelectedCityId] = useState<string>('linhares');
   const [editingCity, setEditingCity] = useState<CityConfig | null>(null);
@@ -94,6 +129,10 @@ export default function App() {
   const [isDragging, setIsDragging] = useState(false);
 
   // New City Wizard Form
+  const [opportunityData, setOpportunityData] = useState<OpportunityRanking | null>(null);
+  const [opportunityLoading, setOpportunityLoading] = useState(false);
+  const [opportunityError, setOpportunityError] = useState<string | null>(null);
+  const [showAllOpportunities, setShowAllOpportunities] = useState(false);
   const [createCityForm, setCreateCityForm] = useState({
     cidade: '',
     uf: 'PR',
@@ -138,6 +177,12 @@ export default function App() {
       window.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging]);
+
+  useEffect(() => {
+    if (activeTab === 'opportunities' && !opportunityData && !opportunityLoading) {
+      fetchOpportunities();
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     fetchCities();
@@ -226,6 +271,22 @@ export default function App() {
       if (data && data.cloudflare) setSettings(data);
     } catch (e) {
       console.error('Erro ao buscar configurações:', e);
+    }
+  };
+
+  const fetchOpportunities = async () => {
+    setOpportunityLoading(true);
+    setOpportunityError(null);
+    try {
+      const res = await fetch('/api/opportunity-ranking');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data: OpportunityRanking = await res.json();
+      setOpportunityData(data);
+    } catch (e: any) {
+      console.error('Erro ao buscar Mapa de Oportunidades:', e);
+      setOpportunityError(e?.message || 'Falha ao carregar a planilha de oportunidades.');
+    } finally {
+      setOpportunityLoading(false);
     }
   };
 
@@ -336,6 +397,11 @@ export default function App() {
         createCityForm.hospedagem
       );
 
+      // Toda cidade nasce como rascunho: o Quality Gate libera build/deploy
+      // somente depois de evidências territoriais e revisão editorial.
+      generated.isDraft = true;
+      generated.qualityGateRequired = true;
+
       if (createCityForm.whatsapp.trim()) {
         generated.whatsapp = createCityForm.whatsapp.trim().replace(/\D/g, '');
       }
@@ -352,7 +418,7 @@ export default function App() {
       });
       const data = await res.json();
 
-      showNotify(`🎉 Site exclusivo para "${createCityForm.cidade} (${createCityForm.uf})" criado com o modelo selecionado!`);
+      showNotify(`🧪 Rascunho de "${createCityForm.cidade} (${createCityForm.uf})" criado. Build e publicação permanecem bloqueados até o Quality Gate aprovar.`);
 
       // Seleciona a cidade recém-criada usando o objeto retornado pela API
       // diretamente, em vez de depender da lista 'cities' do estado (que ainda
@@ -404,13 +470,32 @@ export default function App() {
       setAuditLogModal({
         isOpen: true,
         title: `Resultado do Build & Auditoria: ${city.cidade} (${city.uf})`,
-        log: data.log || 'Build executado com sucesso.',
-        score: data.auditScore || 100
+        log: data.success
+          ? (data.log || 'Build executado com sucesso.')
+          : `Quality Gate bloqueou o build.\n\n${(data.readiness?.errors || [data.error || 'Falha não detalhada.']).join('\n')}`,
+        score: typeof data.auditScore === 'number' ? data.auditScore : 0
       });
 
       fetchCities();
     } catch (e) {
       showNotify('❌ Erro ao compilar cidade.');
+    }
+  };
+
+  const handleReadinessCheck = async (city: CityConfig) => {
+    try {
+      const res = await fetch(`/api/cities/${city.id}/readiness`);
+      const data = await res.json();
+      setAuditLogModal({
+        isOpen: true,
+        title: `Quality Gate: ${city.cidade} (${city.uf})`,
+        log: data.passed
+          ? 'Quality Gate aprovado. A cidade pode seguir para build e auditoria de rotas.'
+          : `Pendências para liberar a cidade:\n\n${(data.errors || []).join('\n')}`,
+        score: data.passed ? 100 : 0
+      });
+    } catch {
+      showNotify('❌ Não foi possível consultar o Quality Gate.');
     }
   };
 
@@ -700,6 +785,21 @@ export default function App() {
               }}
             >
               ⚙️ Hospedagem & Chaves API
+            </button>
+
+            <button
+              onClick={() => setActiveTab('opportunities')}
+              style={{
+                backgroundColor: activeTab === 'opportunities' ? '#f59e0b' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              🎯 Mapa de Oportunidades
             </button>
           </div>
         </div>
@@ -1321,7 +1421,10 @@ export default function App() {
                         { id: 'premium-clean', label: '💎 Modelo 5: Premium & Alto Padrão — Hero centralizado + ícones em passos' },
                         { id: 'rapido-economico', label: '💰 Modelo 6: Rápido & Econômico — Hero c/ formulário + sanfona' },
                         { id: 'familia-seguranca', label: '👨‍👩‍👧 Modelo 7: Família & Segurança — Hero c/ foto + lista c/ tag' },
-                        { id: 'tecnico-especializado', label: '🔬 Modelo 8: Técnico Especializado — Hero foto de fundo + sanfona' }
+                        { id: 'tecnico-especializado', label: '🔬 Modelo 8: Técnico Especializado — Hero foto de fundo + sanfona' },
+                        { id: 'bairro-referencia', label: '📍 Modelo 9: Bairro Referência — Hero editorial + painel local + board de serviços' },
+                        { id: 'agenda-premium', label: '🗓️ Modelo 10: Agenda Premium — Hero de processo + board premium de serviços' },
+                        { id: 'condominio-proativo', label: '🏬 Modelo 11: Condomínio Proativo — Hero editorial + trilha operacional preventiva' }
                       ].map(m => (
                         <button
                           key={m.id}
@@ -1356,6 +1459,9 @@ export default function App() {
                       <option value="residencial-bege">3. Residencial Bege / Terracota</option>
                       <option value="industrial-amarelo">4. Industrial Amarelo / Preto</option>
                       <option value="clean-azul">5. Clean Azul / Branco</option>
+                      <option value="bairro-azul-petroleo">6. Bairro Azul / Petróleo</option>
+                      <option value="premium-chumbo-dourado">7. Premium Chumbo / Dourado</option>
+                      <option value="proativo-vinho-areia">8. Proativo Vinho / Areia</option>
                     </select>
                   </div>
 
@@ -1608,6 +1714,14 @@ export default function App() {
                           ✏️ Abrir Editor
                         </button>
 
+                        <button
+                          onClick={() => handleReadinessCheck(c)}
+                          title="Ver pendências de fonte, conteúdo e SEO antes do build"
+                          style={{ backgroundColor: '#7c3aed', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+                        >
+                          ✓ Checar
+                        </button>
+
                         <button 
                           onClick={() => handleBuildAndAuditCity(c)}
                           title="Compilar Astro e Rodar Auditoria SEO/GEO"
@@ -1743,6 +1857,24 @@ export default function App() {
                     title: '🔬 Modelo 8: Técnico Especializado',
                     desc: 'Foco em diagnóstico por vídeo inspeção e laudo técnico antes de agir. Hero com foto de fundo, serviços em sanfona/accordion.',
                     theme: 'Verde / Cinza'
+                  },
+                  {
+                    id: 'bairro-referencia',
+                    title: '📍 Modelo 9: Bairro Referência',
+                    desc: 'Foco em presença real nos bairros, cobertura local organizada e comunicação clara do serviço. Hero editorial com painel local, serviços em board.',
+                    theme: 'Azul Petróleo / Cobre'
+                  },
+                  {
+                    id: 'agenda-premium',
+                    title: '🗓️ Modelo 10: Agenda Premium',
+                    desc: 'Foco em horário marcado, atendimento consultivo e execução discreta. Hero com trilha de processo, serviços em board premium.',
+                    theme: 'Chumbo / Dourado'
+                  },
+                  {
+                    id: 'condominio-proativo',
+                    title: '🏬 Modelo 11: Condomínio Proativo',
+                    desc: 'Foco em prevenção, recorrência e rotina condominial. Hero editorial com prova operacional e serviços em trilha técnica.',
+                    theme: 'Vinho / Areia'
                   }
                 ].map(mod => (
                   <div
@@ -2073,6 +2205,147 @@ export default function App() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: MAPA DE OPORTUNIDADES — cruza a planilha de scoring de concorrência */}
+      {/* (SERP) com as cidades reais do painel: quais são mais fáceis de ranquear */}
+      {/* e ainda não foram criadas. Ver docs/mapa-oportunidades-expansao.md.      */}
+      {/* ========================================================================= */}
+      {activeTab === 'opportunities' && (
+        <div>
+          <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', padding: '20px', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
+              <div>
+                <h2 style={{ fontSize: '1.3rem', fontWeight: 900, color: '#f8fafc', margin: 0, marginBottom: '4px' }}>
+                  🎯 Mapa de Oportunidades
+                </h2>
+                <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0, maxWidth: '640px' }}>
+                  Cruza a Nota Oportunidade (população × saneamento real) com o Índice de Concorrência Fraca
+                  (SERP orgânico do Google — quanto mais o top 10 for dominado por redes sociais/diretórios/marketplace
+                  em vez de site próprio de concorrente, mais fácil o mercado) pra mostrar quais cidades ainda
+                  não cadastradas valem mais a pena criar primeiro.
+                </p>
+              </div>
+              <button
+                onClick={fetchOpportunities}
+                disabled={opportunityLoading}
+                style={{ backgroundColor: '#f59e0b', color: '#1e293b', border: 'none', padding: '10px 18px', borderRadius: '8px', fontWeight: 800, cursor: opportunityLoading ? 'default' : 'pointer', opacity: opportunityLoading ? 0.6 : 1, whiteSpace: 'nowrap' }}
+              >
+                {opportunityLoading ? '⏳ Atualizando...' : '🔄 Atualizar da Planilha'}
+              </button>
+            </div>
+
+            {opportunityData && (
+              <div style={{ display: 'flex', gap: '12px', marginTop: '18px', flexWrap: 'wrap' }}>
+                <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', minWidth: '140px' }}>
+                  <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#f8fafc' }}>{opportunityData.totalCidades}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>cidades no universo</div>
+                </div>
+                <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', minWidth: '140px' }}>
+                  <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#38bdf8' }}>{opportunityData.totalTestadasSerp}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>testadas no SERP</div>
+                </div>
+                <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', minWidth: '140px' }}>
+                  <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#34d399' }}>{opportunityData.totalCadastradas}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>já cadastradas</div>
+                </div>
+                <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', minWidth: '140px' }}>
+                  <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#fbbf24' }}>{opportunityData.proximasACriar.length}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>candidatas prontas</div>
+                </div>
+                <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px', padding: '10px 16px', flex: 1, minWidth: '220px' }}>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: opportunityData.source === 'planilha-google' ? '#34d399' : '#fbbf24' }}>
+                    {opportunityData.source === 'planilha-google' ? '🟢 Dado ao vivo da planilha' : '🟡 Fallback local (planilha indisponível)'}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                    Atualizado em {new Date(opportunityData.atualizadoEm).toLocaleString('pt-BR')}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {opportunityLoading && !opportunityData && (
+            <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', padding: '40px', textAlign: 'center', color: '#94a3b8' }}>
+              ⏳ Buscando dados da planilha de scoring de concorrência...
+            </div>
+          )}
+
+          {opportunityError && (
+            <div style={{ backgroundColor: 'rgba(239,68,68,0.1)', border: '1px solid #ef4444', borderRadius: '12px', padding: '20px', marginBottom: '20px', color: '#fca5a5' }}>
+              ⚠️ {opportunityError} — tentando de novo pode ajudar (o botão "Atualizar da Planilha" acima), ou o painel
+              usa o CSV local salvo em <code>docs/serp-scoring-2026-09-03/</code> como fallback automático se a planilha
+              do Google estiver fora do ar.
+            </div>
+          )}
+
+          {opportunityData && (
+            <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', overflow: 'hidden' }}>
+              <div style={{ padding: '16px 20px', borderBottom: '1px solid #1e293b', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#f8fafc' }}>
+                  🏆 Próximas cidades mais fáceis de criar (ainda não cadastradas)
+                </h3>
+                {opportunityData.proximasACriar.length > 30 && (
+                  <button
+                    onClick={() => setShowAllOpportunities(v => !v)}
+                    style={{ backgroundColor: 'transparent', border: '1px solid #334155', color: '#94a3b8', padding: '6px 12px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.78rem' }}
+                  >
+                    {showAllOpportunities ? 'Mostrar só top 30' : `Mostrar todas (${opportunityData.proximasACriar.length})`}
+                  </button>
+                )}
+              </div>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#1e293b', color: '#94a3b8', borderBottom: '1px solid #334155' }}>
+                    <th style={{ padding: '12px 16px' }}>#</th>
+                    <th style={{ padding: '12px 16px' }}>CIDADE / UF</th>
+                    <th style={{ padding: '12px 16px' }}>POPULAÇÃO</th>
+                    <th style={{ padding: '12px 16px' }}>NOTA OPORTUNIDADE</th>
+                    <th style={{ padding: '12px 16px' }}>CONCORRÊNCIA FRACA</th>
+                    <th style={{ padding: '12px 16px' }}>NOTA FINAL</th>
+                    <th style={{ padding: '12px 16px', textAlign: 'right' }}>AÇÃO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(showAllOpportunities ? opportunityData.proximasACriar : opportunityData.proximasACriar.slice(0, 30)).map((c, idx) => (
+                    <tr key={`${c.cidade}-${c.uf}`} style={{ borderBottom: '1px solid #1e293b' }}>
+                      <td style={{ padding: '12px 16px', color: '#64748b', fontWeight: 700 }}>{idx + 1}</td>
+                      <td style={{ padding: '12px 16px', fontWeight: 800, color: '#f8fafc' }}>
+                        {c.cidade} <span style={{ color: '#0284c7', fontSize: '0.8rem' }}>({c.uf})</span>
+                      </td>
+                      <td style={{ padding: '12px 16px', color: '#cbd5e1' }}>{formatPopulacao(c.populacao)}</td>
+                      <td style={{ padding: '12px 16px', color: '#cbd5e1' }}>{Math.round(c.notaOportunidade).toLocaleString('pt-BR')}</td>
+                      <td style={{ padding: '12px 16px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span style={{ fontFamily: 'monospace', color: '#34d399', letterSpacing: '-1px' }}>{c.barraConcorrenciaFraca}</span>
+                          <span style={{ fontWeight: 800, color: '#34d399', fontSize: '0.85rem' }}>
+                            {c.indiceConcorrenciaFraca !== null ? `${Math.round(c.indiceConcorrenciaFraca * 100)}%` : '—'}
+                          </span>
+                        </div>
+                      </td>
+                      <td style={{ padding: '12px 16px', fontWeight: 800, color: '#fbbf24' }}>
+                        {c.notaFinal !== null ? Math.round(c.notaFinal).toLocaleString('pt-BR') : '—'}
+                      </td>
+                      <td style={{ padding: '12px 16px', textAlign: 'right' }}>
+                        <button
+                          onClick={() => {
+                            setCreateCityForm(prev => ({ ...prev, cidade: c.cidade, uf: c.uf, populacao: formatPopulacao(c.populacao) }));
+                            setActiveTab('new-city');
+                            showNotify(`Formulário pré-preenchido com ${c.cidade}/${c.uf} — Concorrência Fraca ${c.indiceConcorrenciaFraca !== null ? Math.round(c.indiceConcorrenciaFraca * 100) : '?'}%.`);
+                          }}
+                          style={{ backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '6px', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+                        >
+                          ➕ Criar Agora
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 

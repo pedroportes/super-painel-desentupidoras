@@ -7,7 +7,15 @@ const multer = require('multer');
 const { deployCitySite } = require('./scripts/deployEngine.cjs');
 
 const app = express();
-const PORT = 5002;
+// Usa BACKEND_PORT, não PORT — o script "dev" roda este server.cjs junto
+// com o Vite via `concurrently`, e o harness de preview do Claude Code
+// injeta a variável genérica PORT (igual ao "port" declarado em
+// .claude/launch.json, que precisa apontar pro Vite/5000) em TODOS os
+// processos filhos. Se este server lesse PORT também, ele tentaria bindar
+// na mesma porta do Vite e quebraria o proxy /api (que é fixo em 5002
+// no vite.config.ts) — achado 04/09/2026 ao abrir a prévia pela primeira
+// vez nesta sessão.
+const PORT = Number(process.env.BACKEND_PORT) || 5002;
 
 // Fórmula padrão de metaTitle — regra de ouro 10 (CLAUDE_CODE_GUIDE.md):
 // título tem que ficar entre 40 e 60 caracteres, nunca só "≤60". Achado
@@ -44,6 +52,7 @@ app.use(express.json());
 
 const DATA_DIR = path.join(__dirname, 'data');
 const CITIES_FILE = path.join(DATA_DIR, 'cities.json');
+const { validateCityReadiness } = require('./scripts/validateCityReadiness.cjs');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 const ASTRO_DIR = path.join(__dirname, '..', 'site-template-astro');
 const ASTRO_CONFIG_FILE = path.join(ASTRO_DIR, 'src', 'data', 'cityConfig.json');
@@ -51,6 +60,82 @@ const ASTRO_PUBLIC_DIR = path.join(ASTRO_DIR, 'public');
 const IMAGES_PUBLIC_DIR = path.join(ASTRO_DIR, 'public', 'images');
 const REDIRECTS_FILE = path.join(ASTRO_PUBLIC_DIR, '_redirects');
 const VERCEL_JSON_FILE = path.join(ASTRO_PUBLIC_DIR, 'vercel.json');
+
+// Mapa de Oportunidades — planilha "SCORING_CONCORRENCIA_DESENTUPIDORAS_2026_COMPLETO"
+// (ver docs/mapa-oportunidades-expansao.md). Pública ("qualquer um com o
+// link pode ver"), então dá pra ler o export CSV direto sem OAuth/service
+// account. Se a busca falhar (sem internet, planilha ficou privada, etc.)
+// cai pro CSV local salvo em docs/serp-scoring-2026-09-03/ na última
+// raspagem (03/09/2026) — nunca deixa a aba do painel vazia.
+const OPPORTUNITY_SHEET_ID = '1g2snXkPohdDVS75nHTCJJP4JW6XiLOjE8OqxlGiencE';
+const OPPORTUNITY_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${OPPORTUNITY_SHEET_ID}/export?format=csv`;
+const OPPORTUNITY_FALLBACK_CSV = path.join(__dirname, '..', '..', 'docs', 'serp-scoring-2026-09-03', 'scoring_concorrencia_serp_2026-09-03.csv');
+const OPPORTUNITY_CACHE_TTL_MS = 10 * 60 * 1000; // 10 min — evita bater na planilha a cada F5 do painel.
+let opportunityCache = { rows: null, source: null, fetchedAt: 0 };
+
+// Parser CSV genérico (lida com aspas, vírgula dentro de campo e "" escapado).
+function parseCsvText(text) {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+  const pushField = () => { row.push(field); field = ''; };
+  const pushRow = () => { pushField(); rows.push(row); row = []; };
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; } else { inQuotes = false; }
+      } else {
+        field += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ',') {
+      pushField();
+    } else if (ch === '\r') {
+      // ignora — CRLF tratado no \n
+    } else if (ch === '\n') {
+      pushRow();
+    } else {
+      field += ch;
+    }
+  }
+  if (field.length > 0 || row.length > 0) pushRow();
+  return rows.filter(r => r.length > 1 || (r[0] || '').trim() !== '');
+}
+
+function csvRowsToObjects(rows) {
+  if (rows.length === 0) return [];
+  const header = rows[0];
+  return rows.slice(1).map(cols => {
+    const obj = {};
+    header.forEach((h, idx) => { obj[h] = cols[idx] !== undefined ? cols[idx] : ''; });
+    return obj;
+  });
+}
+
+async function fetchOpportunityRows() {
+  const now = Date.now();
+  if (opportunityCache.rows && (now - opportunityCache.fetchedAt) < OPPORTUNITY_CACHE_TTL_MS) {
+    return opportunityCache;
+  }
+  let csvText;
+  let source = 'planilha-google';
+  try {
+    const res = await fetch(OPPORTUNITY_SHEET_CSV_URL, { signal: AbortSignal.timeout(8000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    csvText = await res.text();
+    if (!csvText || csvText.trim().length === 0) throw new Error('resposta vazia');
+  } catch (e) {
+    console.warn('[opportunity-ranking] Falha ao buscar a planilha do Google, usando CSV local de fallback:', e.message);
+    csvText = fs.readFileSync(OPPORTUNITY_FALLBACK_CSV, 'utf-8');
+    source = 'csv-local-fallback (03/09/2026)';
+  }
+  const rows = csvRowsToObjects(parseCsvText(csvText));
+  opportunityCache = { rows, source, fetchedAt: now };
+  return opportunityCache;
+}
 
 // As imagens ficam DENTRO da pasta pública do site Astro (não em serviço
 // externo), pois é essa pasta que é enviada no deploy estático (Cloudflare
@@ -115,15 +200,19 @@ function writeSettings(settings) {
 
 function syncCityToAstro(city) {
   try {
+    // Drafts may be previewed before commercial details are verified.
+    const isDraft = city.isDraft === true;
     const astroConfig = {
       cidade: city.cidade,
       estado: city.uf === 'ES' ? 'Espírito Santo' : city.uf === 'BA' ? 'Bahia' : city.uf === 'MG' ? 'Minas Gerais' : city.uf === 'PR' ? 'Paraná' : city.uf === 'SP' ? 'São Paulo' : 'Brasil',
       uf: city.uf,
       populacao: city.populacao || '150.000',
-      ddd: city.whatsapp ? city.whatsapp.substring(0, 2) : '27',
-      whatsapp: city.whatsapp || '27992795590',
-      telefoneFixo: city.telefoneFixo || `(${city.whatsapp ? city.whatsapp.substring(0, 2) : '27'}) 3000-0000`,
-      empresaNome: city.empresaNome || `Desentupidora ${city.cidade} 24h`,
+      ddd: city.whatsapp ? city.whatsapp.substring(0, 2) : '',
+      whatsapp: city.whatsapp || '',
+      telefoneFixo: city.telefoneFixo || '',
+      isDraft,
+      commercialClaimsVerified: city.commercialClaimsVerified === true,
+      empresaNome: city.empresaNome || `Desentupidora ${city.cidade}`,
       cnpj: city.cnpj || '',
       endereco: city.endereco || '',
       hospedagem: city.hospedagem || 'cloudflare',
@@ -174,6 +263,11 @@ function syncCityToAstro(city) {
       },
       aboutCityTitle: city.aboutCityTitle || `Estrutura e Atendimento de Desentupidora em ${city.cidade} - ${city.uf}`,
       aboutCityText: city.aboutCityText || `${city.cidade} é um dos municípios mais importantes de ${city.uf}, reunindo mais de ${city.populacao || '150.000'} habitantes e bairros com intensa movimentação residencial e comercial. Nossa empresa mantém veículos equipados e técnicos posicionados estrategicamente em ${city.cidade} para chegar em até 30 minutos em emergências de esgoto, pias e ralos.`,
+      cityFacts: city.cityFacts || [],
+      citySources: city.citySources || [],
+      bairroEvidence: city.bairroEvidence || {},
+      neighborhoodContent: city.neighborhoodContent || {},
+      neighborhoodFacts: city.neighborhoodFacts || {},
       parceiros: city.parceiros || [],
       bairros: city.bairros && city.bairros.length > 0 ? city.bairros : ['Centro', 'Interlagos', 'Conceição', 'Novo Horizonte'],
       services: city.services || [
@@ -192,11 +286,11 @@ function syncCityToAstro(city) {
         { question: `Precisa quebrar piso, azulejos ou paredes para desentupir?`, answer: `Na grande maioria dos casos não! Utilizamos máquinas rotativas K-50/K-500 e hidrojateamento que desobstruem o encanamento por dentro.` },
         { question: `Vocês atendem empresas, condomínios e comércios em ${city.cidade}?`, answer: `Sim! Dispomos de frotas preparadas para atendimento residencial, condomínios prediais, restaurantes, indústrias e comércio em geral.` }
       ],
-      testimonials: (city.testimonials && city.testimonials.length >= 3) ? city.testimonials : [
+      testimonials: (city.testimonials && city.testimonials.length >= 3) ? city.testimonials : (isDraft ? [] : [
         { name: 'Carlos Eduardo M.', neighborhood: `Centro - ${city.cidade}`, rating: 5, text: `Atendimento nota 10! O esgoto do banheiro transbordou na madrugada e a equipe chegou muito rápido em ${city.cidade}, resolvendo sem sujeira.` },
         { name: 'Maria Aparecida Silva', neighborhood: `Santa Cruz - ${city.cidade}`, rating: 5, text: `Profissionais extremamente educados e organizados. Desentupiram a pia da cozinha sem precisar quebrar nada. Recomendo muito!` },
         { name: 'João Paulo Santos', neighborhood: `Bonsucesso - ${city.cidade}`, rating: 5, text: `Chamei para uma emergência no ralo do quintal e chegaram em 25 minutos. Orçamento transparente e serviço com garantia.` }
-      ]
+      ])
     };
     fs.writeFileSync(ASTRO_CONFIG_FILE, JSON.stringify(astroConfig, null, 2), 'utf-8');
     writeBairroRedirects(city);
@@ -290,6 +384,13 @@ app.get('/api/cities', (req, res) => {
   }
 });
 
+// Read-only report used by the editorial workflow before a city can be built.
+app.get('/api/cities/:id/readiness', (req, res) => {
+  const city = readCities().find(item => item.id === req.params.id);
+  if (!city) return res.status(404).json({ error: 'Cidade não encontrada' });
+  res.json(validateCityReadiness(city));
+});
+
 // 2. SAVE OR UPDATE CITY (PERSIST BOTH IN DATABASE AND ASTRO FILE)
 app.post('/api/cities', (req, res) => {
   const cityData = req.body;
@@ -333,6 +434,74 @@ app.delete('/api/cities/:id', (req, res) => {
 // 4. GET SETTINGS
 app.get('/api/settings', (req, res) => {
   res.json(readSettings());
+});
+
+// Mapa de Oportunidades — cruza a planilha de scoring de concorrência
+// (SERP) com as cidades já cadastradas no painel (fonte de verdade real,
+// não a coluna "Status" da planilha, que é um snapshot manual e pode
+// estar desatualizado). Devolve tudo já ordenado: cidades ainda livres
+// no topo, priorizadas pelo Índice de Concorrência Fraca (mercado mais
+// fácil de ranquear primeiro).
+app.get('/api/opportunity-ranking', async (req, res) => {
+  try {
+    const { rows, source, fetchedAt } = await fetchOpportunityRows();
+    const cidadesReais = readCities();
+    const cadastradasSet = new Set(
+      cidadesReais.map(c => `${(c.cidade || '').trim().toLowerCase()}|${(c.uf || '').trim().toLowerCase()}`)
+    );
+
+    const cidades = rows
+      .filter(r => (r.Cidade || '').trim() !== '')
+      .map(r => {
+        const chave = `${(r.Cidade || '').trim().toLowerCase()}|${(r.UF || '').trim().toLowerCase()}`;
+        // Recalcula o índice a partir das colunas inteiras brutas em vez de
+        // confiar na coluna IndiceConcorrenciaFraca do CSV — o export do
+        // Google Sheets reformata essa coluna decimal por locale (achado
+        // 04/09/2026: 0.3333 virava 3.333 no CSV exportado, x10 errado).
+        // Colunas inteiras (Sociais/Diretorios/Marketplaces/Total) não têm
+        // esse problema, então o cálculo aqui é a fonte confiável.
+        const totalSerp = Number(r.TotalResultadosSERP) || 0;
+        const fracosSerp = (Number(r.Sociais) || 0) + (Number(r.Diretorios) || 0) + (Number(r.Marketplaces) || 0);
+        const temDadoSerp = r.TotalResultadosSERP !== '' && r.TotalResultadosSERP !== undefined && totalSerp > 0;
+        const indice = temDadoSerp ? fracosSerp / totalSerp : null;
+        const notaOportunidade = Number(r.NotaOportunidadeParcial) || 0;
+        const notaFinal = indice === null ? notaOportunidade : Math.round(notaOportunidade * (1 + indice));
+        return {
+          ranking: r.Ranking,
+          cidade: r.Cidade,
+          uf: r.UF,
+          populacao: r.Populacao,
+          notaOportunidade,
+          cadastradaNoPainel: cadastradasSet.has(chave),
+          indiceConcorrenciaFraca: indice,
+          barraConcorrenciaFraca: r.BarraConcorrenciaFraca || '',
+          notaFinal,
+          testadaNoSerp: indice !== null,
+          foraDoUniverso: r.Ranking === 'fora-do-universo',
+          observacoes: r.Observacoes || '',
+        };
+      });
+
+    // Próximas a criar: ainda não cadastradas + já testadas no SERP,
+    // ordenadas por menor concorrência primeiro (mais fácil de ranquear),
+    // com Nota Oportunidade como critério de desempate.
+    const proximasACriar = cidades
+      .filter(c => !c.cadastradaNoPainel && c.testadaNoSerp && !c.foraDoUniverso)
+      .sort((a, b) => (b.indiceConcorrenciaFraca - a.indiceConcorrenciaFraca) || (b.notaOportunidade - a.notaOportunidade));
+
+    res.json({
+      source,
+      atualizadoEm: new Date(fetchedAt).toISOString(),
+      totalCidades: cidades.length,
+      totalTestadasSerp: cidades.filter(c => c.testadaNoSerp).length,
+      totalCadastradas: cidades.filter(c => c.cadastradaNoPainel).length,
+      cidades,
+      proximasACriar,
+    });
+  } catch (e) {
+    console.error('[opportunity-ranking] erro:', e);
+    res.status(500).json({ error: e.message });
+  }
 });
 
 // 5. SAVE SETTINGS
@@ -978,6 +1147,11 @@ app.post('/api/build-city/:id', (req, res) => {
     return res.status(404).json({ error: 'Cidade não encontrada' });
   }
 
+  const readiness = validateCityReadiness(city);
+  if (!readiness.passed) {
+    return res.status(422).json({ success: false, auditScore: 0, readiness, error: 'A cidade nao passou no Quality Gate. O build aprovavel foi bloqueado.' });
+  }
+
   syncCityToAstro(city);
 
   const cmd = `npm run build && npm run audit`;
@@ -987,7 +1161,7 @@ app.post('/api/build-city/:id', (req, res) => {
     const score = auditPassed ? 100 : 90;
 
     city.auditScore = score;
-    city.status = 'ativo';
+    city.status = auditPassed ? 'ativo' : city.status;
     writeCities(cities);
 
     res.json({
@@ -1011,6 +1185,11 @@ app.post('/api/deploy-city/:id', async (req, res) => {
 
   if (!city) {
     return res.status(404).json({ error: 'Cidade não encontrada' });
+  }
+
+  const readiness = validateCityReadiness(city);
+  if (!readiness.passed) {
+    return res.status(422).json({ success: false, readiness, error: 'Publicacao bloqueada pelo Quality Gate.' });
   }
 
   // URL usada pra gerar o canonical/og:url/schema no build ANTES desse

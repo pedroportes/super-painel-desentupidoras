@@ -5,7 +5,7 @@
       "name": "web-dashboard",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "apps/web-dashboard"],
-      "port": 5173
+      "port": 5000
     },
     {
       "name": "astro-site",
