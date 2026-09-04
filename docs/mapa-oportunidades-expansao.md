@@ -4,14 +4,23 @@ Sistema de inteligência de mercado pra decidir em quais cidades brasileiras abr
 
 Esse documento é a fonte de verdade do projeto de decisão de cidades. As cidades escolhidas aqui viram input pro `web-dashboard` / `cityConfig.json` deste repo, que gera o site novo em `apps/site-template-astro`.
 
-⚠️ **O painel NÃO puxa a planilha automaticamente** (achado 03/09/2026) —
-não existe nenhuma integração entre o Google Sheets
-`BANCO_CIDADES_DESENTUPIDORAS_2026` e `cities.json`. A tabela "Top 12
-atual" abaixo é uma **cópia manual congelada** do ranking da planilha,
-atualizada à mão sempre que uma cidade é cadastrada. Se a planilha for
-recalculada (nova rodada de SERP, dado de concorrência, etc.), essa tabela
-fica desatualizada até alguém copiar de novo — sempre conferir a planilha
-original se o ranking parecer antigo.
+✅ **Atualizado 04/09/2026 — o painel AGORA puxa a planilha de scoring
+automaticamente.** A aba "🎯 Mapa de Oportunidades" do Super Painel
+(`apps/web-dashboard`) lê ao vivo a planilha
+`SCORING_CONCORRENCIA_DESENTUPIDORAS_2026_COMPLETO` (export CSV público,
+sem OAuth — ver link abaixo) via o endpoint `GET /api/opportunity-ranking`
+(`server.cjs`), cruza com as cidades reais de `cities.json` (fonte de
+verdade de quem já está cadastrado, não a coluna "Status" da planilha,
+que é só um snapshot) e mostra as cidades ainda livres ordenadas pelo
+Índice de Concorrência Fraca — mercado mais fácil primeiro. Cache de 10
+minutos; cai pro CSV local em `docs/serp-scoring-2026-09-03/` se a
+planilha do Google ficar fora do ar. Botão "Criar Agora" na tabela
+pré-preenche o formulário de Nova Cidade.
+
+⚠️ Isso vale só pra planilha de **scoring de concorrência**. A planilha
+`BANCO_CIDADES_DESENTUPIDORAS_2026` (a original, com as 524 cidades e a
+Nota Oportunidade Parcial) continua sem integração automática — a
+tabela "Top 12 atual" abaixo é uma cópia manual congelada dela.
 
 ## Artefatos principais (links)
 
