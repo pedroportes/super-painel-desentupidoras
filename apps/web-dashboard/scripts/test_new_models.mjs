@@ -1,6 +1,6 @@
 // Script de VERIFICAÇÃO LOCAL apenas — escreve direto em
 // site-template-astro/src/data/cityConfig.json pra testar o render de um
-// modelo (dos 8 em cityGenerator.ts) sem precisar cadastrar uma cidade
+// modelo (dos 11 em cityGenerator.ts) sem precisar cadastrar uma cidade
 // real no painel. Uso: `npx tsx scripts/test_new_models.mjs <modeloId>`,
 // depois `cd ../site-template-astro && npm run build`. NUNCA rodar isso
 // e depois fazer deploy sem antes rodar `/api/build-city/:id` numa
@@ -39,8 +39,8 @@ const astroConfig = {
   sectionsConfig: config.sectionsConfig || {},
   geoCoordinates: { latitude: '', longitude: '' },
   seo: {
-    metaTitle: `Desentupidora em ${config.cidade} ${config.uf} 24h`,
-    metaDescription: `teste`,
+    metaTitle: `Desentupidora em ${config.cidade} ${config.uf} com Atendimento 24h`,
+    metaDescription: `Desentupidora em ${config.cidade} ${config.uf} com atendimento local, equipe técnica, visita gratuita e suporte 24 horas para emergências e serviços programados.`,
     h1Title: config.h1Title,
     firstParagraphText: config.firstParagraph,
     lastH2Title: config.lastH2

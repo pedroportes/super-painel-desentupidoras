@@ -1,0 +1,164 @@
+---
+// ServicesGridV7.astro — Adaptado do Modelo ChatGPT Premium
+// Grid de serviços em cards modernos com cantos arredondados, bordas sutis e botões diretos para WhatsApp
+const { cidade, uf, whatsapp, services = [] } = Astro.props;
+import { slugify } from '../utils/slugify';
+const cidadeSlug = slugify(cidade);
+---
+
+<section class="services-v7" id="servicos">
+  <div class="container">
+    <div class="services-v7-header text-center">
+      <div class="section-kicker">
+        <span>SOLUÇÕES COMPLETAS EM SANEAMENTO</span>
+      </div>
+      <h2>Serviços Especializados em {cidade} - {uf}</h2>
+      <p>Equipe técnica qualificada e equipamentos modernos para atender residências, condomínios e indústrias com rapidez e limpeza.</p>
+    </div>
+
+    <div class="services-v7-grid">
+      {services.map((service: any) => (
+        <article class="service-v7-card">
+          <div class="card-icon-wrapper">
+            <span class="service-v7-icon">{service.icon || '🛠️'}</span>
+          </div>
+          <div class="card-body">
+            <h3>{service.title}</h3>
+            <p>{service.shortDescription || service.description}</p>
+          </div>
+          <div class="card-footer">
+            <a href={`/${slugify(service.title)}-em-${cidadeSlug}/`} class="btn-service-internal">
+              <span>Ver Detalhes do Serviço</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            {whatsapp && (
+              <a
+                href={`https://wa.me/55${whatsapp}?text=Olá,%20solicito%20orçamento%20para%20${encodeURIComponent(service.title)}%20em%20${encodeURIComponent(cidade)}`}
+                class="btn-service-whatsapp"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>Orçamento via WhatsApp</span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v7 {
+    padding: 90px 0;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  .services-v7-header {
+    max-width: 720px;
+    margin: 0 auto 50px auto;
+  }
+  .section-kicker {
+    display: inline-block;
+    color: var(--color-primary, #0284c7);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .services-v7-header h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.025em;
+  }
+  .services-v7-header p {
+    font-size: 1.08rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+  .services-v7-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+  .service-v7-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  .service-v7-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+  }
+  .card-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  .card-body h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+  }
+  .card-body p {
+    font-size: 0.96rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 18px;
+  }
+  .btn-service-internal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0284c7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .btn-service-internal:hover {
+    color: #0369a1;
+  }
+  .btn-service-whatsapp {
+    display: inline-block;
+    text-align: center;
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-service-whatsapp:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+</style>

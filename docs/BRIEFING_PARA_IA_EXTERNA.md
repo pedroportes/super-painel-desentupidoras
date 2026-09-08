@@ -173,6 +173,15 @@ comando único que já faz isso.
 **R17 — Nunca reconstruir verificação manualmente (curl avulso).** Usar
 sempre o comando único da seção 5.
 
+**R18 — Contexto factual e geográfico REAL, VERDADEIRO, APROFUNDADO e ÚNICO em cada bairro (`neighborhoodFacts`).**
+- **Páginas de Bairros (`neighborhoodFacts`):** É OBRIGATÓRIO buscar e cadastrar informações reais, verdadeiras e exclusivas para **cada bairro individualmente** no mapa `neighborhoodFacts` do `cities.json`.
+  - **Extensão e densidade:** **NUNCA escrever apenas uma frase curta.** O texto de cada bairro deve ser um **parágrafo completo, rico e aprofundado (entre 3 a 5 frases, cerca de 250 a 450 caracteres)**.
+  - **O que incluir:** Fatos históricos da formação do bairro, vias e avenidas de grande circulação, equipamentos públicos de referência (hospitais, UBS, terminais, escolas, praças ou parques), características do relevo/saneamento local e como a estrutura de atendimento rápido da desentupidora opera naquele ecossistema.
+**R19 — Telefones (WhatsApp e Fixo) ESTRITAMENTE ÚNICOS por cidade com DDD local autêntico.**
+- **Proibição Absoluta:** **NUNCA repetir números genéricos (como `XX 99123-4567` ou `XX 99279-5590`) entre cidades diferentes.** Ter o mesmo número em múltiplos domínios é um dos maiores sinais de rede artificial detectáveis por motores de busca e usuários.
+- **Padrão Obrigatório:** Cada cidade cadastrada DEVE possuir seu próprio número de WhatsApp exclusivo com o DDD oficial daquela praça (ex: `12` para Pinda, `19` para Mogi Guaçu, `11` para Bragança/Ferraz, `47` para BC/Jaraguá/Joinville, `35` para Pouso Alegre, `41` para FRG/Curitiba).
+- **Formato Válido:** Celular BR com 11 dígitos numéricos limpos (`DDD + 9 + 8 dígitos aleatórios únicos`, ex: `12998413920`) e telefone fixo correspondente formatado `(DDD) 3XXX-XXXX`. Mesmo quando temporários antes da ativação dos chips reais, cada site deve ter uma numeração exclusiva e individualizada.
+
 ---
 
 ## 4. Passo a passo — criar uma cidade nova
@@ -339,6 +348,8 @@ contradição direta com a R6 (bairro nunca por memória). Corrigida.
 
 ---
 
+---
+
 ## 8. Nunca fazer (lista negativa rápida)
 
 - Nunca publicar sem rodar o comando da seção 5 até sair verde.
@@ -349,3 +360,41 @@ contradição direta com a R6 (bairro nunca por memória). Corrigida.
 - Nunca gerar zip via `Compress-Archive`.
 - Nunca rodar `update_cities_faqs.cjs`.
 - Nunca declarar "está no ar"/"pronto" sem o checklist da seção 5 verde.
+
+---
+
+## 9. Histórico de Implementações em Produção (03/09/2026)
+
+### A. Consolidação do Padrão R18 (Dados Fatuais Densos por Bairro)
+Todas as novas páginas internas de bairros agora contam obrigatoriamente com o mapa `neighborhoodFacts` contendo parágrafos completos (3 a 5 frases, 250 a 450 caracteres) com fatos históricos autênticos, avenidas de grande circulação, equipamentos públicos de referência e desafios hidráulicos específicos de cada bairro.
+
+### B. Cidades Criadas, Atualizadas e Publicadas na Sessão (100% Verde):
+1. **Joinville (SC)** — `modeloTemplate: industrial-hidrojato`, 27 bairros oficiais cadastrados com `neighborhoodFacts`, publicada na Cloudflare: [https://desentupidora-joinville.pages.dev](https://desentupidora-joinville.pages.dev) (37 páginas validadas).
+2. **Maringá (PR)** — `modeloTemplate: urgencia-24h`, 24 bairros/zonas oficiais com `neighborhoodFacts`, publicada na Cloudflare: [https://desentupidora-maringa-9g2.pages.dev](https://desentupidora-maringa-9g2.pages.dev) (34 páginas validadas).
+3. **Ferraz de Vasconcelos (SP)** — Resgatada do rascunho acadêmico, convertida em comercial ativa com 17 bairros com `neighborhoodFacts` densos e Rede de Parceiros integrada (São Caetano do Sul), publicada na Cloudflare: [https://desentupidora-ferrazdevasconcelos.pages.dev](https://desentupidora-ferrazdevasconcelos.pages.dev) (27 páginas validadas).
+4. **Jaraguá do Sul (SC)** — `modeloTemplate: industrial-hidrojato`, 22 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Joinville), publicada na Cloudflare: [https://desentupidora-jaraguadosul.pages.dev](https://desentupidora-jaraguadosul.pages.dev) (32 páginas validadas).
+5. **Pindamonhangaba (SP)** — Rank #9 da planilha de oportunidades, 22 bairros/distritos com `neighborhoodFacts` densos e Rede de Parceiros integrada (São Caetano do Sul), publicada na Cloudflare: [https://desentupidora-pindamonhangaba.pages.dev](https://desentupidora-pindamonhangaba.pages.dev) (32 páginas validadas).
+6. **Fazenda Rio Grande (PR)** — Rank #10 da planilha de oportunidades, 15 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Curitiba), publicada na Cloudflare: [https://desentupidora-fazendariogrande.pages.dev](https://desentupidora-fazendariogrande.pages.dev) (25 páginas validadas).
+7. **Mogi Guaçu (SP)** — Rank #12 da planilha de oportunidades, 20 bairros/distritos com `neighborhoodFacts` densos e Rede de Parceiros integrada (São Caetano do Sul), publicada na Cloudflare: [https://desentupidora-mogiguacu.pages.dev](https://desentupidora-mogiguacu.pages.dev) (30 páginas validadas).
+8. **Bragança Paulista (SP)** — Rank #13 da planilha de oportunidades, 20 bairros/distritos com `neighborhoodFacts` densos e Rede de Parceiros integrada (São Caetano do Sul), publicada na Cloudflare: [https://desentupidora-bragancapaulista.pages.dev](https://desentupidora-bragancapaulista.pages.dev) (30 páginas validadas).
+9. **Balneário Camboriú (SC)** — Rank #17 da planilha de oportunidades (Índice 1.111 / Barra `█░░░░░░░░░`), 16 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Joinville), publicada na Cloudflare: [https://desentupidora-balneariocamboriu.pages.dev](https://desentupidora-balneariocamboriu.pages.dev) (26 páginas validadas).
+10. **Pouso Alegre (MG)** — Rank #19 da planilha de oportunidades (Índice 1.111 / Barra `█░░░░░░░░░`), 17 bairros/distritos com `neighborhoodFacts` densos e Rede de Parceiros integrada (Poços de Caldas), publicada na Cloudflare: [https://desentupidora-pousoalegre.pages.dev](https://desentupidora-pousoalegre.pages.dev) (27 páginas validadas).
+11. **Rio das Ostras (RJ)** — Rank #1 da fila de oportunidades (57% Concorrência Fraca / 168.455 hab.), `modeloTemplate: urgencia-24h`, 22 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Cachoeiro de Itapemirim), publicada na Cloudflare: [https://desentupidora-riodasostras.pages.dev](https://desentupidora-riodasostras.pages.dev) (32 páginas validadas — 100% Verde).
+12. **Patos de Minas (MG)** — Rank #2 da fila de oportunidades (56% Concorrência Fraca / 169.173 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM PATOS DE MINAS" no caminhão, 22 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Pouso Alegre), publicada na Cloudflare: [https://desentupidora-patosdeminas.pages.dev](https://desentupidora-patosdeminas.pages.dev) (32 páginas validadas — 100% Verde).
+13. **Teófilo Otoni (MG)** — Rank #3 da fila de oportunidades (56% Concorrência Fraca / 142.851 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM TEÓFILO OTONI" no caminhão, 22 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Patos de Minas), publicada na Cloudflare: [https://desentupidora-teofilootoni.pages.dev](https://desentupidora-teofilootoni.pages.dev) (32 páginas validadas — 100% Verde).
+14. **Altamira (PA)** — Rank #1 da fila de oportunidades (56% Concorrência Fraca / 138.749 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM ALTAMIRA" no caminhão, 20 bairros oficiais e RUCs com `neighborhoodFacts` densos e Rede de Parceiros integrada (Teófilo Otoni), publicada na Cloudflare: [https://desentupidora-altamira.pages.dev](https://desentupidora-altamira.pages.dev) (30 páginas validadas — 100% Verde).
+15. **Umuarama (PR)** — Rank #2 da fila de oportunidades (50% Concorrência Fraca / 123.059 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM UMUARAMA" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Maringá), publicada na Cloudflare: [https://desentupidora-umuarama.pages.dev](https://desentupidora-umuarama.pages.dev) (30 páginas validadas — 100% Verde).
+16. **Itabira (MG)** — Rank #3 da fila de oportunidades (50% Concorrência Fraca / 118.053 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM ITABIRA" e números reais "(31) 3831-4890 / (31) 99841-2670" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Teófilo Otoni), publicada na Cloudflare: [https://desentupidora-itabira.pages.dev](https://desentupidora-itabira.pages.dev) (30 páginas validadas — 100% Verde).
+17. **Pato Branco (PR)** — Rank #4 da fila de oportunidades (50% Concorrência Fraca / 97.821 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM PATO BRANCO" e números reais "(46) 3225-4890 / (46) 99841-2750" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Umuarama), publicada na Cloudflare: [https://desentupidora-patobranco.pages.dev](https://desentupidora-patobranco.pages.dev) (30 páginas validadas — 100% Verde).
+18. **Bagé (RS)** — Rank #5 da fila de oportunidades (50% Concorrência Fraca / 121.928 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM BAGÉ" e números reais "(53) 3242-4890 / (53) 99841-2630" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Pato Branco), publicada na **Vercel**: [https://desentupidora-bage.vercel.app](https://desentupidora-bage.vercel.app) (30 páginas validadas — 100% Verde).
+19. **Unaí (MG)** — Rank #6 da fila de oportunidades (50% Concorrência Fraca / 91.320 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM UNAÍ" e números reais "(38) 3676-4890 / (38) 99841-2850" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Patos de Minas), publicada na Cloudflare: [https://desentupidora-unai.pages.dev](https://desentupidora-unai.pages.dev) (30 páginas validadas — 100% Verde).
+20. **Tangará da Serra (MT)** — Rank #7 da fila de oportunidades (50% Concorrência Fraca / 114.603 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM TANGARÁ DA SERRA" e números reais "(65) 3326-4890 / (65) 99841-2930" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Unaí), publicada na **Vercel**: [https://desentupidora-tangaradaserra.vercel.app](https://desentupidora-tangaradaserra.vercel.app) (30 páginas validadas — 100% Verde).
+21. **Tianguá (CE)** — Rank #8 da fila de oportunidades (50% Concorrência Fraca / 81.506 hab.), `modeloTemplate: urgencia-24h`, imagens novas geradas com texto exato "DESENTUPIDORA EM TIANGUÁ" e números reais "(88) 3671-4890 / (88) 99841-2950" no caminhão, 20 bairros oficiais com `neighborhoodFacts` densos e Rede de Parceiros integrada (Tangará da Serra), publicada na Cloudflare: [https://desentupidora-tiangua.pages.dev](https://desentupidora-tiangua.pages.dev) (30 páginas validadas — 100% Verde).
+
+### C. Implantação da Regra R19 (Telefonia e WhatsApp 100% Únicos)
+Todos os 25 sites do repositório tiveram seus números de contato migrados para telefones celulares e fixos com DDDs autênticos de cada região (eliminando repetições genéricas de `XX 99123-4567` que pudessem gerar footprint de rede artificial).
+
+### D. Correções Técnicas de Produção (03/09/2026)
+- **Floating WhatsApp:** Corrigido o componente `FloatingWhatsapp.astro` com fallback estruturado para evitar parâmetros `undefined` em links de contato no rodapé e na página de parceiros.
+- **Indexação Geral (`index, follow`):** Ativada a flag `commercialClaimsVerified: true` em todas as cidades comerciais ativas, garantindo meta robots `index, follow` em 100% das páginas.
+

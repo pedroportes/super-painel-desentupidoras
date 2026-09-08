@@ -1,6 +1,6 @@
-export function slugify(text: string): string {
-  return text
-    .toString()
+export function slugify(text: any): string {
+  if (!text) return '';
+  return String(text)
     .toLowerCase()
     .normalize('NFD') // separate accents from letters
     .replace(/[\u0300-\u036f]/g, '') // remove accents

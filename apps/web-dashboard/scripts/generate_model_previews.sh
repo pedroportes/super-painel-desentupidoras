@@ -5,7 +5,7 @@
 # tira um screenshot com Playwright.
 set -e
 cd "$(dirname "$0")/.."   # apps/web-dashboard
-MODELS="urgencia-24h corporativo-empresarial residencial-bairros industrial-hidrojato premium-clean rapido-economico familia-seguranca tecnico-especializado"
+MODELS="urgencia-24h corporativo-empresarial residencial-bairros industrial-hidrojato premium-clean rapido-economico familia-seguranca tecnico-especializado bairro-referencia agenda-premium condominio-proativo"
 mkdir -p scripts/_previews
 
 for m in $MODELS; do

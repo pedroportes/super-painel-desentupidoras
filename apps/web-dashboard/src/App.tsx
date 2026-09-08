@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CityConfig, generateUniqueCityContent, ServiceItem, FaqItem, PartnerItem } from './cityGenerator';
+import AnalyticsTab from './components/AnalyticsTab';
 
 function formatPopulacao(raw: string): string {
   const negativo = raw.startsWith('~') ? '~' : '';
@@ -58,7 +59,7 @@ interface OpportunityRanking {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'editor' | 'cities' | 'new-city' | 'settings' | 'opportunities'>('editor');
+  const [activeTab, setActiveTab] = useState<'editor' | 'cities' | 'new-city' | 'settings' | 'opportunities' | 'analytics'>('editor');
   const [cities, setCities] = useState<CityConfig[]>([]);
   const [selectedCityId, setSelectedCityId] = useState<string>('linhares');
   const [editingCity, setEditingCity] = useState<CityConfig | null>(null);
@@ -647,7 +648,7 @@ export default function App() {
   };
 
   const filteredCities = cities.filter(c => {
-    const matchesSearch = c.cidade.toLowerCase().includes(search.toLowerCase()) || c.dominio.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = (c.cidade || '').toLowerCase().includes(search.toLowerCase()) || (c.dominio || '').toLowerCase().includes(search.toLowerCase());
     const matchesUf = ufFilter === 'todos' || c.uf === ufFilter;
     const matchesProvider = providerFilter === 'todos' || c.hospedagem === providerFilter;
     return matchesSearch && matchesUf && matchesProvider;
@@ -800,6 +801,21 @@ export default function App() {
               }}
             >
               🎯 Mapa de Oportunidades
+            </button>
+
+            <button
+              onClick={() => setActiveTab('analytics')}
+              style={{
+                backgroundColor: activeTab === 'analytics' ? '#10b981' : 'transparent',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              📊 Métricas & Cliques
             </button>
           </div>
         </div>
@@ -1424,7 +1440,8 @@ export default function App() {
                         { id: 'tecnico-especializado', label: '🔬 Modelo 8: Técnico Especializado — Hero foto de fundo + sanfona' },
                         { id: 'bairro-referencia', label: '📍 Modelo 9: Bairro Referência — Hero editorial + painel local + board de serviços' },
                         { id: 'agenda-premium', label: '🗓️ Modelo 10: Agenda Premium — Hero de processo + board premium de serviços' },
-                        { id: 'condominio-proativo', label: '🏬 Modelo 11: Condomínio Proativo — Hero editorial + trilha operacional preventiva' }
+                        { id: 'condominio-proativo', label: '🏬 Modelo 11: Condomínio Proativo — Hero editorial + trilha operacional preventiva' },
+                        { id: 'premium-chatgpt', label: '✨ Modelo 12: ChatGPT Premium — Hero alta conversão c/ tags + grid 3 colunas moderno' }
                       ].map(m => (
                         <button
                           key={m.id}
@@ -1875,6 +1892,12 @@ export default function App() {
                     title: '🏬 Modelo 11: Condomínio Proativo',
                     desc: 'Foco em prevenção, recorrência e rotina condominial. Hero editorial com prova operacional e serviços em trilha técnica.',
                     theme: 'Vinho / Areia'
+                  },
+                  {
+                    id: 'premium-chatgpt',
+                    title: '✨ Modelo 12: ChatGPT Premium',
+                    desc: 'Design refinado e responsivo com hero de alta conversão, micro-badges de garantia e grid de serviços 3 colunas moderno.',
+                    theme: 'Ocean Teal / Esmeralda'
                   }
                 ].map(mod => (
                   <div
@@ -2348,6 +2371,11 @@ export default function App() {
           )}
         </div>
       )}
+
+      {/* ========================================================================= */}
+      {/* TAB: 📊 MÉTRICAS, CONVERSÕES & NOSSO PIXEL PRÓPRIO */}
+      {/* ========================================================================= */}
+      {activeTab === 'analytics' && <AnalyticsTab />}
 
     </div>
   );

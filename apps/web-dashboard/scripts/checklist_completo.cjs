@@ -38,7 +38,7 @@ const TITLE_MIN = 40;
 const TITLE_MAX_HOME = 60;
 const TITLE_MAX_SUBPAGE = 80;
 const DESC_MIN = 120;
-const DESC_MAX = 160;
+const DESC_MAX = 150;
 
 const INSTITUTIONAL_SLUGS = ['contato', 'politica-de-privacidade', 'termos-de-uso'];
 
@@ -162,12 +162,13 @@ async function checkCity(city, opts) {
   }
   console.log(`   ${city.deployUrl}`);
 
+  const baseUrl = city.deployUrl.replace(/\/+$/, '');
   const routes = buildRoutes(city, opts);
   console.log(`   ${routes.length} página(s) a checar${opts.sample ? ' (amostra: 1 bairro + 1 serviço)' : ' (TODAS)'}...`);
 
   let cityOk = true;
   for (const route of routes) {
-    const res = await checkPage(city.deployUrl, route, city);
+    const res = await checkPage(baseUrl, route, city);
     if (!res.ok) {
       cityOk = false;
       console.log(`   ❌ ${route.type.padEnd(13)} ${route.path}`);

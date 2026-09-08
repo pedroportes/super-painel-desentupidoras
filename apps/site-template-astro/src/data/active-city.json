@@ -1,0 +1,143 @@
+{
+  "id": "riogrande",
+  "cidade": "Rio Grande",
+  "uf": "RS",
+  "ddd": "53",
+  "slug": "riogrande",
+  "whatsapp": "53998412895",
+  "telefoneFixo": "(53) 3232-4890",
+  "hospedagem": "vercel",
+  "deployUrl": "https://desentupidora-riogrande.vercel.app",
+  "status": "active",
+  "modeloTemplate": "tecnico-especializado",
+  "paletaCores": "clean-azul",
+  "heroVariant": "HeroV4",
+  "servicesVariant": "ServicesGridV2",
+  "metaTitle": "Desentupidora em Rio Grande RS | 24 Horas Chegada Rápida",
+  "metaDescription": "Desentupidora em Rio Grande RS com atendimento 24h para esgotos, fossas, pias e ralos. Equipe em todos os bairros e no Cassino sem taxa!",
+  "h1Title": "Desentupidora em Rio Grande RS 24 Horas",
+  "firstParagraph": "Atendimento emergencial de desentupimento e limpeza de fossas em Rio Grande - RS. Frota própria de caminhões hidrojato e técnicos de plantão 24h no Centro, Cassino e todos os bairros com orçamento gratuito e chegada em até 30 minutos.",
+  "lastH2": "Ligue Agora e Peça Seu Orçamento Gratuito em Rio Grande",
+  "ctaButtonText": "Solicitar Desentupidora em Rio Grande",
+  "heroImage": "/images/riogrande/desentupidora-riogrande-caminhao-limpa-fossa.webp",
+  "logoImage": "/images/riogrande/logo-desentupidora-riogrande.webp",
+  "faviconImage": "/images/riogrande/favicon-desentupidora-riogrande.webp",
+  "geoCoordinates": {
+    "latitude": -32.035,
+    "longitude": -52.0986
+  },
+  "bairros": [
+    "Centro",
+    "Cassino",
+    "Cidade Nova",
+    "Parque Marinha",
+    "Vila Rocha",
+    "Vila São Miguel",
+    "Trevo",
+    "Lar Gaúcho",
+    "Navegantes",
+    "Getúlio Vargas",
+    "Profilurb",
+    "Parque São Pedro",
+    "Bolívia",
+    "Miguel De Castro Moreira",
+    "Santa Tereza",
+    "Junção",
+    "Castelo Branco",
+    "Bairro Carreiros",
+    "Distrito Industrial",
+    "Barra"
+  ],
+  "neighborhoodFacts": {
+    "Cassino": "A Praia do Cassino possui solo altamente arenoso e grande extensão costeira, onde o vento e a maresia aceleram o acúmulo de areia em caixas de gordura e exigem esgotamento periódico de fossas sépticas com caminhão a vácuo.",
+    "Centro": "O Centro histórico de Rio Grande conta com construções coloniais centenárias e galerias de manilha de barro que exigem sondagem eletrônica e hidrojateamento com pressão dosada para não abalar estruturas antigas.",
+    "Parque Marinha": "Região residencial com alta densidade habitacional onde os ramais de esgoto condominiais e pias de cozinha sofrem com entupimentos por gordura e detritos orgânicos.",
+    "Distrito Industrial": "Área estratégica próxima ao Superporto de Rio Grande e terminal de fertilizantes, com redes industriais robustas que necessitam de hidrojato de alta capacidade para óleo, graxa e resíduos pesados.",
+    "Bairro Carreiros": "Abriga o campus principal da Universidade Federal do Rio Grande (FURG) e expressivo número de repúblicas estudantis, com alta demanda de manutenção preventiva em ralos e vasos sanitários.",
+    "Navegantes": "Bairro litorâneo portuário próximo à Lagoa dos Patos, com nível do lençol freático elevado que requer atenção redobrada no dimensionamento e sucção de poços e fossas.",
+    "Cidade Nova": "Bairro residencial consolidado com residências de médio e alto padrão, onde o atendimento 24h para desentupimento de ralos e esgotos domésticos é constante.",
+    "Lar Gaúcho": "Bairro tradicional com conexões diretas à malha viária principal da cidade, permitindo deslocamento veloz das equipes de plantão para socorrer refluxos de esgoto."
+  },
+  "services": [
+    {
+      "id": "esgoto",
+      "title": "Desentupimento de Esgoto",
+      "shortDescription": "Desobstrução completa de redes coletoras e ramais primários de esgoto com maquinário rotativo K-500.",
+      "icon": "pipe"
+    },
+    {
+      "id": "fossa",
+      "title": "Limpeza de Fossa Séptica",
+      "shortDescription": "Esgotamento e transporte técnico de efluentes com caminhão auto-vácuo e descarte em estação autorizada.",
+      "icon": "truck"
+    },
+    {
+      "id": "vaso",
+      "title": "Desentupimento de Vaso Sanitário",
+      "shortDescription": "Remoção de obstruções em vasos e bacias sem arranhar a louça ou quebrar pisos e azulejos.",
+      "icon": "toilet"
+    },
+    {
+      "id": "pia-ralo",
+      "title": "Desentupimento de Pia e Ralo",
+      "shortDescription": "Raspagem e limpeza de sifões, caixas de gordura e ralos pluviais com eliminação do mau cheiro.",
+      "icon": "sink"
+    },
+    {
+      "id": "hidrojateamento",
+      "title": "Hidrojateamento de Alta Pressão",
+      "shortDescription": "Lavagem interna de galerias e tubulações com jatos pressurizados de água para indústrias e condomínios.",
+      "icon": "water"
+    },
+    {
+      "id": "aguas-pluviais",
+      "title": "Desentupimento de Águas Pluviais",
+      "shortDescription": "Desobstrução de calhas, canaletas e galerias pluviais para evitar alagamentos em dias de chuva forte.",
+      "icon": "cloud-rain"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Carlos Eduardo Silveira",
+      "neighborhood": "Cassino",
+      "role": "Morador do Cassino",
+      "text": "Excelente atendimento no Cassino! A fossa da nossa pousada transbordou no fim de semana e a equipe chegou em 25 minutos com o caminhão limpa fossa.",
+      "content": "Excelente atendimento no Cassino! A fossa da nossa pousada transbordou no fim de semana e a equipe chegou em 25 minutos com o caminhão limpa fossa.",
+      "rating": 5
+    },
+    {
+      "name": "Mariana Lemos",
+      "neighborhood": "Centro",
+      "role": "Comerciante no Centro",
+      "text": "O esgoto do nosso restaurante no Centro entupiu na sexta à noite. Resolveram rapidamente com maquinário elétrico sem quebrar o piso histórico.",
+      "content": "O esgoto do nosso restaurante no Centro entupiu na sexta à noite. Resolveram rapidamente com maquinário elétrico sem quebrar o piso histórico.",
+      "rating": 5
+    },
+    {
+      "name": "Roberto Dornelles",
+      "neighborhood": "Parque Marinha",
+      "role": "Síndico no Parque Marinha",
+      "text": "Atendimento impecável e preço justo. Fizeram a limpeza da caixa de gordura e desobstrução das colunas do condomínio com muita rapidez.",
+      "content": "Atendimento impecável e preço justo. Fizeram a limpeza da caixa de gordura e desobstrução das colunas do condomínio com muita rapidez.",
+      "rating": 5
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Qual o prazo de chegada da desentupidora em Rio Grande RS?",
+      "answer": "Nossas unidades móveis ficam posicionadas em pontos estratégicos de Rio Grande e no Cassino, garantindo chegada média entre 20 e 35 minutos após o chamado."
+    },
+    {
+      "question": "O orçamento em Rio Grande e no Cassino é gratuito?",
+      "answer": "Sim! Não cobramos taxa de visita nem deslocamento para avaliar o problema em qualquer bairro ou balneário de Rio Grande RS."
+    },
+    {
+      "question": "Vocês atendem emergências no Cassino e Distrito Industrial aos domingos?",
+      "answer": "Sim, atuamos com equipes de plantão 24 horas ininterruptas em feriados, fins de semana e madrugadas para residências, condomínios e indústrias."
+    },
+    {
+      "question": "Quais métodos são usados para desentupir sem quebrar o piso?",
+      "answer": "Utilizamos máquinas rotativas com molas flexíveis e hidrojateamento de alta pressão, que trituram os resíduos por dentro da tubulação sem danificar alvenarias."
+    }
+  ]
+}

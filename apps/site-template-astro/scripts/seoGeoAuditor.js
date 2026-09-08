@@ -16,6 +16,17 @@ if (!fs.existsSync(distPath)) {
 }
 
 const cityConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+const isResearchDraft = cityConfig.isDraft === true;
+const isNoIndexResearch = isResearchDraft || cityConfig.commercialClaimsVerified === false;
+const isPreDeploy = !isNoIndexResearch && !cityConfig.deployUrl;
+
+console.log(isResearchDraft
+  ? 'Modo: rascunho editorial. Exige noindex e ausencia de dados comerciais.'
+  : isNoIndexResearch
+    ? 'Modo: pesquisa sem indexacao. Exige noindex e ausencia de dados comerciais.'
+  : isPreDeploy
+    ? 'Modo: pre-publicacao. O canonical sera conferido apos o provedor informar a URL real.'
+    : 'Modo: publicacao comercial. Exige canonical e schema LocalBusiness.');
 
 const checks = [];
 
@@ -82,7 +93,7 @@ const TITLE_MAX_HOME = 60;
 // + folga, não em uma meta arbitrária.
 const TITLE_MAX_SUBPAGE = 80;
 const DESC_MIN = 120;
-const DESC_MAX = 160;
+const DESC_MAX = 150;
 
 let totalPagesAudited = 0;
 
@@ -100,9 +111,25 @@ for (const { file, routePath } of pages) {
 
   const canonicalMatch = html.match(/<link rel="canonical" href="([^"]*)"/i);
   const canonicalHref = canonicalMatch ? canonicalMatch[1] : '';
-  const canonicalPath = canonicalHref.replace(/^https?:\/\/[^/]+/, '') || '/';
-  const canonicalPathOk = canonicalPath === routePath;
-  addCheck('STRUCTURE', 'Canonical bate com a rota real do arquivo', canonicalPathOk, `canonical="${canonicalPath}" rota real="${routePath}"`, pageTag);
+  if (isResearchDraft) {
+    addCheck('STRUCTURE', 'Rascunho sem canonical de producao', !canonicalMatch, canonicalMatch ? `canonical indevido="${canonicalHref}"` : 'ok', pageTag);
+    const robotsMatch = html.match(/<meta\s+name="robots"\s+content="([^"]*)"/i);
+    const robotsContent = robotsMatch ? robotsMatch[1].toLowerCase() : '';
+    addCheck('STRUCTURE', 'Rascunho bloqueado para indexacao', robotsContent.includes('noindex') && robotsContent.includes('nofollow'), `robots="${robotsContent || 'ausente'}"`, pageTag);
+  } else if (isNoIndexResearch) {
+    const canonicalPath = canonicalHref.replace(/^https?:\/\/[^/]+/, '') || '/';
+    const canonicalPathOk = canonicalPath === routePath;
+    addCheck('STRUCTURE', 'Canonical bate com a rota real do arquivo', canonicalPathOk, `canonical="${canonicalPath}" rota real="${routePath}"`, pageTag);
+    const robotsMatch = html.match(/<meta\s+name="robots"\s+content="([^"]*)"/i);
+    const robotsContent = robotsMatch ? robotsMatch[1].toLowerCase() : '';
+    addCheck('STRUCTURE', 'Pesquisa bloqueada para indexacao', robotsContent.includes('noindex') && robotsContent.includes('nofollow'), `robots="${robotsContent || 'ausente'}"`, pageTag);
+  } else if (isPreDeploy) {
+    addCheck('STRUCTURE', 'Pre-publicacao sem canonical inferido', !canonicalMatch, canonicalMatch ? `canonical indevido="${canonicalHref}"` : 'ok', pageTag);
+  } else {
+    const canonicalPath = canonicalHref.replace(/^https?:\/\/[^/]+/, '') || '/';
+    const canonicalPathOk = canonicalPath === routePath;
+    addCheck('STRUCTURE', 'Canonical bate com a rota real do arquivo', canonicalPathOk, `canonical="${canonicalPath}" rota real="${routePath}"`, pageTag);
+  }
 
   // Todo link interno de conteúdo (começa com "/", sem extensão de arquivo,
   // não é âncora #, não é a raiz) tem que terminar com "/" — senão created
@@ -150,13 +177,19 @@ const homeHtml = fs.readFileSync(distPath, 'utf-8');
 
 // 2. GEO CHECKS (site-wide, checados na home)
 const hasLocalBusinessSchema = homeHtml.includes('"@type":["LocalBusiness","EmergencyService"]') || homeHtml.includes('"LocalBusiness"');
-addCheck('GEO', 'Schema JSON-LD LocalBusiness & EmergencyService', hasLocalBusinessSchema, 'Schema encontrado no head');
-
 const hasAreaServed = homeHtml.includes('"areaServed"');
-addCheck('GEO', 'Schema areaServed preenchido com bairros reais', hasAreaServed, `Bairros cadastrados: ${cityConfig.bairros.length}`);
+const hasConfiguredPhone = Boolean(cityConfig.whatsapp || cityConfig.ddd);
+const hasPhoneDDD = hasConfiguredPhone && (homeHtml.includes(cityConfig.whatsapp) || homeHtml.includes(cityConfig.ddd));
 
-const hasPhoneDDD = homeHtml.includes(cityConfig.whatsapp) || homeHtml.includes(cityConfig.ddd);
-addCheck('GEO', 'Telefone e DDD local presentes', hasPhoneDDD, `DDD: (${cityConfig.ddd}) WhatsApp: ${cityConfig.whatsapp}`);
+if (isNoIndexResearch) {
+  addCheck('GEO', 'Rascunho sem schema LocalBusiness', !hasLocalBusinessSchema, hasLocalBusinessSchema ? 'schema comercial indevido' : 'ok');
+  addCheck('GEO', 'Rascunho sem areaServed comercial', !hasAreaServed, hasAreaServed ? 'areaServed indevido' : 'ok');
+  addCheck('GEO', 'Rascunho sem telefone nao verificado', !hasPhoneDDD, hasPhoneDDD ? 'telefone indevido' : 'ok');
+} else {
+  addCheck('GEO', 'Schema JSON-LD LocalBusiness & EmergencyService', hasLocalBusinessSchema, 'Schema encontrado no head');
+  addCheck('GEO', 'Schema areaServed preenchido com bairros reais', hasAreaServed, `Bairros cadastrados: ${cityConfig.bairros.length}`);
+  addCheck('GEO', 'Telefone e DDD local presentes', hasPhoneDDD, `DDD: (${cityConfig.ddd}) WhatsApp: ${cityConfig.whatsapp}`);
+}
 
 // 3. AGENT READINESS & AEO CHECKS
 const hasFAQSchema = homeHtml.includes('"@type":"FAQPage"');

@@ -1,35 +1,40 @@
 ---
+const { cidade, uf, bairros = [], heroImage, whatsapp, isDraft = false } = Astro.props;
 import { slugify } from '../utils/slugify';
-const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
 ---
 
-<section id="bairros" class="local-areas-section">
+<section class="local-areas-section">
   <div class="container">
     <div class="section-header text-center">
-      <span class="section-badge">COBERTURA GEOGRÁFICA</span>
-      <h2>Atendimento Rápido nos Bairros de {cidade} - {uf}</h2>
-      <p>Nossas frotas de suporte estão estrategicamente posicionadas para atender residências e empresas em toda a cidade de {cidade}:</p>
+      <span class="section-badge">ÁREA DE COBERTURA COMPLETA</span>
+      <h2>Atendimento em Todos os Bairros de {cidade}</h2>
+      <p>{isDraft ? `Ficha territorial de ${cidade} - ${uf}: listagem de bairros consultada em fontes públicas municipais.` : `Nossa frota atende 24 horas por dia em todas as regiões de ${cidade} - ${uf}. Confira os principais bairros atendidos com chegada rápida:`}</p>
     </div>
 
-    <div class="bairros-grid" data-edit-tab="bairros">
-      {bairros.map((bairrosName: string, idx: number) => (
-        <a href={`/${slugify(bairrosName)}/`} class="bairro-chip">
-          <span class="pin-icon">📍</span>
-          <span>Desentupidora em <strong id={`bairros.${idx}`} data-editor-id={`bairros.${idx}`}>{bairrosName}</strong> ({cidade})</span>
+    <div class="bairros-grid">
+      {bairros.map((bairro: string, index: number) => (
+        <a href={`/${slugify(bairro)}/`} class="bairro-chip" id={`bairros.${index}`} data-edit-tab="bairros">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pin-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>{bairro}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><path d="m9 18 6-6-6-6"/></svg>
         </a>
       ))}
     </div>
 
     <div class="bairros-note text-center">
-      <p>Seu bairro não está na lista acima? **Atendemos 100% dos bairros e zonas rurais de {cidade}!**</p>
-      <a href={`https://wa.me/55${whatsapp}?text=Olá,%20vocês%20atendem%20no%20meu%20bairro%20em%20${cidade}?`} class="btn btn-bairros" target="_blank" rel="noopener">
-        📲 Confirmar Atendimento no Meu Bairro
-      </a>
+      {isDraft ? (
+        <p>Cadastro em preparação: a existência do bairro não confirma cobertura, prazo, frota ou canal de atendimento.</p>
+      ) : (
+        <>
+          <p>Seu bairro não está na lista acima? Consulte a disponibilidade para o seu endereço.</p>
+          {whatsapp && <a href={`https://wa.me/55${whatsapp}?text=Olá,%20vocês%20atendem%20no%20meu%20bairro%20em%20${cidade}?`} class="btn btn-bairros" target="_blank" rel="noopener">Confirmar atendimento no meu bairro</a>}
+        </>
+      )}
     </div>
 
     <!-- Map Section (+ foto local, quando cadastrada) -->
     <div class="map-container">
-      <h3 class="text-center" style="margin-bottom: 20px; color: #0f172a; font-size: 1.5rem;">Nossa Sede e Área de Cobertura</h3>
+      <h3 class="text-center" style="margin-bottom: 20px; color: #0f172a; font-size: 1.5rem;">{isDraft ? `Localização de ${cidade}` : 'Nossa sede e área de cobertura'}</h3>
       <div class:list={['map-photo-grid', { 'has-photo': !!heroImage }]}>
         {heroImage && (
           <div class="local-photo-wrapper">
@@ -38,19 +43,49 @@ const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
         )}
         <div class="iframe-wrapper">
           <iframe
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(cidade + ', ' + uf + ', Brasil')}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
             title={`Mapa de cobertura em ${cidade} - ${uf}`}
             width="100%"
-            height="400"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            src={`https://maps.google.com/maps?q=${cidade},${uf}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
-            style="border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+            height="100%"
+            style="border: none; display: block; width: 100%; height: 100%; min-height: 400px; border-radius: 12px;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>
     </div>
+
+    {Astro.props.parceiros && Astro.props.parceiros.length > 0 && (
+      <div class="partners-showcase" style="margin-top: 50px; padding: 30px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0;">
+        <div class="text-center" style="margin-bottom: 24px;">
+          <span class="section-badge" style="color: #0284c7; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px;">REDE NACIONAL CREDENCIADA</span>
+          <h3 style="font-size: 1.5rem; color: #0f172a; margin: 8px 0;">Precisa de Atendimento Fora de {cidade}?</h3>
+          <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Recomendamos empresas parceiras verificadas com atendimento 24 horas em outras cidades:</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          {Astro.props.parceiros.map((p: any) => (
+            <a
+              href={`/fora-da-area-de-cobertura/${slugify(p.cidade)}-${slugify(p.empresa || p.nome)}/`}
+              style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; text-decoration: none; color: #1e293b; font-weight: 600; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"
+            >
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #e0f2fe; color: #0284c7; border-radius: 8px; font-size: 1.1rem;">🏢</span>
+                <div>
+                  <div style="font-size: 0.95rem; color: #0f172a;">{p.empresa || p.nome}</div>
+                  <div style="font-size: 0.8rem; color: #64748b; font-weight: 400;">{p.cidade} - {p.uf}</div>
+                </div>
+              </div>
+              <span style="color: #0284c7; font-size: 1.2rem;">→</span>
+            </a>
+          ))}
+        </div>
+        <div class="text-center" style="margin-top: 20px;">
+          <a href="/fora-da-area-de-cobertura/" style="color: #0284c7; font-weight: 600; font-size: 0.9rem; text-decoration: underline;">
+            Ver todas as cidades e parceiros fora da área de cobertura →
+          </a>
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
@@ -90,68 +125,198 @@ const { cidade, uf, bairros, whatsapp, heroImage } = Astro.props;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: #334155;
-    font-weight: 500;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
   }
   .bairro-chip:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
+    border-color: #0284c7;
+    background: #f0f9ff;
+    color: #0284c7;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
   }
-  .bairros-note p {
-    color: #64748b;
-    font-size: 1rem;
-    margin-bottom: 20px;
+  .bairro-chip .arrow-icon {
+    margin-left: auto;
+    opacity: 0.4;
+    transition: transform 0.2s;
+  }
+  .bairro-chip:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+  .pin-icon {
+    color: #0284c7;
+    flex-shrink: 0;
+  }
+  .bairros-note {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 600px;
+    margin: 0 auto;
   }
   .btn-bairros {
-    background: #0284c7;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
     display: inline-block;
+    background: #22c55e;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 12px;
   }
   .map-container {
     margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #e2e8f0;
-  }
-  .iframe-wrapper {
-    overflow: hidden;
-    border-radius: 12px;
   }
   .map-photo-grid {
-    display: block;
-  }
-  .map-photo-grid.has-photo {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 24px;
-    align-items: stretch;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .map-photo-grid.has-photo {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
   }
   .local-photo-wrapper {
+    width: 100%;
+    height: 400px;
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    aspect-ratio: 4 / 3;
   }
   .local-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
-  @media (max-width: 900px) {
-    .map-photo-grid.has-photo {
-      grid-template-columns: 1fr;
-    }
-    .local-photo-wrapper {
-      aspect-ratio: 16 / 9;
-    }
+  .iframe-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    min-height: 400px;
+    height: 400px;
+  }
+  .map-facade-container {
+    background-color: #f1f5f9;
+    background-image: 
+      radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
+      linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(241,245,249,0.95));
+    background-size: 20px 20px, 100% 100%;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map-facade-content {
+    text-align: center;
+    padding: 30px 20px;
+    max-width: 420px;
+    z-index: 2;
+  }
+  .map-pin-pulse {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px auto;
+    background: #fee2e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.15);
+  }
+  .map-facade-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+  .map-facade-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 22px;
+  }
+  .map-facade-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .btn-load-map {
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  }
+  .btn-load-map:hover {
+    background: #0369a1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  }
+  .btn-open-gmaps {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .btn-open-gmaps:hover {
+    color: #0284c7;
+    text-decoration: underline;
   }
 </style>
+
+<script>
+  function initMapFacades() {
+    document.querySelectorAll('.map-facade-container').forEach(container => {
+      const load = () => {
+        if (container.getAttribute('data-loaded') === 'true') return;
+        container.setAttribute('data-loaded', 'true');
+        const src = container.getAttribute('data-map-src');
+        const title = container.getAttribute('data-map-title') || 'Mapa';
+        if (!src) return;
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.title = title;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.display = 'block';
+        iframe.setAttribute('loading', 'lazy');
+        
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      };
+
+      const btn = container.querySelector('.btn-load-map');
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          load();
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMapFacades);
+  } else {
+    initMapFacades();
+  }
+</script>

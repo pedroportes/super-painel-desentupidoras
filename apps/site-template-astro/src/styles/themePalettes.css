@@ -82,3 +82,60 @@
   --color-badge-bg: rgba(37, 99, 235, 0.2);
   --color-badge-text: #60a5fa;
 }
+
+/* 6. Bairro Azul/Petróleo */
+[data-theme="bairro-azul-petroleo"] {
+  --color-bg-dark: #0b1f2a;
+  --color-bg-card: #123547;
+  --color-primary: #0f6b78;
+  --color-primary-hover: #0b5661;
+  --color-accent: #a85210;
+  --color-accent-hover: #86420d;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #c7d2da;
+  --color-badge-bg: rgba(15, 107, 120, 0.2);
+  --color-badge-text: #8de5ee;
+}
+
+/* 7. Premium Chumbo/Dourado */
+[data-theme="premium-chumbo-dourado"] {
+  --color-bg-dark: #171717;
+  --color-bg-card: #262626;
+  --color-primary: #7a5a12;
+  --color-primary-hover: #5f460e;
+  --color-accent: #8b4513;
+  --color-accent-hover: #6d360f;
+  --color-text-main: #fafaf9;
+  --color-text-muted: #d6d3d1;
+  --color-badge-bg: rgba(122, 90, 18, 0.18);
+  --color-badge-text: #facc15;
+}
+
+/* 8. Proativo Vinho/Areia */
+[data-theme="proativo-vinho-areia"] {
+  --color-bg-dark: #2a1515;
+  --color-bg-card: #432121;
+  --color-primary: #7f1d1d;
+  --color-primary-hover: #631717;
+  --color-accent: #9a3412;
+  --color-accent-hover: #7c2a0f;
+  --color-text-main: #fff7ed;
+  --color-text-muted: #fed7aa;
+  --color-badge-bg: rgba(154, 52, 18, 0.18);
+  --color-badge-text: #fdba74;
+}
+
+/* 9. ChatGPT Premium Ocean Teal */
+[data-theme="premium-ocean-teal"] {
+  --color-bg-dark: #071d2b;
+  --color-bg-card: #0d3043;
+  --color-primary: #097e7a;
+  --color-primary-hover: #065e5b;
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+  --color-text-main: #f5fafb;
+  --color-text-muted: #94a3b8;
+  --color-badge-bg: rgba(24, 197, 189, 0.15);
+  --color-badge-text: #18c5bd;
+}
+

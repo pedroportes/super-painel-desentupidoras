@@ -34,6 +34,9 @@ export interface CityConfig {
   id: string;
   cidade: string;
   uf: string;
+  // Prevents unverified draft records from rendering fallback commercial data.
+  isDraft?: boolean;
+  qualityGateRequired?: boolean;
   deployUrl?: string;
   lastDeployAt?: string;
   // Nome REAL do projeto na Cloudflare Pages (distinto do subdomínio
@@ -54,12 +57,14 @@ export interface CityConfig {
   // hero+serviços (e alguns com seções desligadas via sectionsConfig) —
   // pedido explícito do usuário: "modelo" tem que ser estrutura diferente,
   // não só cor/texto em cima do mesmo layout.
-  modeloTemplate: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato' | 'premium-clean' | 'rapido-economico' | 'familia-seguranca' | 'tecnico-especializado';
+  // 02/09/2026: novos modelos entram de forma estritamente aditiva, sem
+  // alterar IDs nem combinações dos 8 existentes.
+  modeloTemplate: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato' | 'premium-clean' | 'rapido-economico' | 'familia-seguranca' | 'tecnico-especializado' | 'bairro-referencia' | 'agenda-premium' | 'condominio-proativo' | 'premium-chatgpt';
   status: 'ativo' | 'em_construcao' | 'pendente';
   hospedagem: 'cloudflare' | 'vercel' | 'netlify' | 'render';
-  paletaCores: 'urgencia-azul-laranja' | 'corporativo-verde-cinza' | 'residencial-bege' | 'industrial-amarelo' | 'clean-azul';
-  heroVariant: 'HeroV1' | 'HeroV2' | 'HeroV3' | 'HeroV4';
-  servicesVariant: 'ServicesGridV1' | 'ServicesGridV2' | 'ServicesGridV3' | 'ServicesGridV4';
+  paletaCores: 'urgencia-azul-laranja' | 'corporativo-verde-cinza' | 'residencial-bege' | 'industrial-amarelo' | 'clean-azul' | 'bairro-azul-petroleo' | 'premium-chumbo-dourado' | 'proativo-vinho-areia' | 'premium-ocean-teal';
+  heroVariant: 'HeroV1' | 'HeroV2' | 'HeroV3' | 'HeroV4' | 'HeroV5' | 'HeroV6' | 'HeroV7';
+  servicesVariant: 'ServicesGridV1' | 'ServicesGridV2' | 'ServicesGridV3' | 'ServicesGridV4' | 'ServicesGridV5' | 'ServicesGridV6' | 'ServicesGridV7';
   // Liga/desliga seções da home por modelo (ex: um modelo família pode
   // preferir não ter os "sinais de alerta" alarmistas). Ausente = tudo
   // ligado (nunca quebra cidade antiga sem esse campo).
@@ -119,7 +124,7 @@ export function generateUniqueCityContent(
   cidade: string,
   uf: string,
   populacao: string = '150.000',
-  modelo: 'urgencia-24h' | 'corporativo-empresarial' | 'residencial-bairros' | 'industrial-hidrojato' | 'premium-clean' | 'rapido-economico' | 'familia-seguranca' | 'tecnico-especializado' = 'urgencia-24h',
+  modelo: CityConfig['modeloTemplate'] = 'urgencia-24h',
   hospedagem: 'cloudflare' | 'vercel' | 'netlify' | 'render' = 'cloudflare'
 ): CityConfig {
   const cityKey = cidade.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
@@ -479,6 +484,206 @@ export function generateUniqueCityContent(
         { name: 'Eng. Marcelo Tanaka', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Fizeram a inspeção por câmera e mostraram exatamente onde estava o problema. Muito mais profissional que só "tentar".` },
         { name: 'Síndica Ana Paula Reis', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Precisava de laudo técnico pro seguro do condomínio e eles entregaram completo, com fotos do problema.` },
         { name: 'Vinícius Bastos', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `Entupia toda semana e ninguém sabia por quê. Descobriram a raiz de árvore na tubulação com a câmera.` }
+      ],
+      auditScore: 0
+    };
+  }
+
+  if (modelo === 'bairro-referencia') {
+    return {
+      id: cityKey,
+      cidade,
+      uf,
+      populacao,
+      modeloTemplate: 'bairro-referencia',
+      status: 'pendente',
+      hospedagem,
+      paletaCores: 'bairro-azul-petroleo',
+      heroVariant: 'HeroV5',
+      servicesVariant: 'ServicesGridV5',
+      dominio: `desentupidora${cityKey}.com.br`,
+      whatsapp: `${ddd}991114477`,
+      telefoneFixo: `(${ddd}) 4100-0000`,
+      empresaNome: `Desentupidora Referência ${cidade}`,
+      cnpj: '11.214.356/0001-78',
+      endereco: `Rua da Base Local, 220 - Centro, ${cidade} - ${uf}`,
+      h1Title: `Desentupidora de Referência nos Bairros de ${cidade} ${uf}`,
+      firstParagraph: `Se você quer uma desentupidora em ${cidade} que realmente conhece os bairros e não só anuncia na cidade inteira, esse modelo foi pensado para isso: atendimento local organizado, rota rápida e explicação clara do serviço antes de começar.`,
+      ctaButtonText: `Pedir equipe do seu bairro`,
+      lastH2: `Por que escolher uma desentupidora com presença real nos bairros de ${cidade}?`,
+      aboutCityTitle: `Cobertura Local Organizada em ${cidade} - ${uf}`,
+      aboutCityText: `${cidade} reúne mais de ${populacao} habitantes espalhados entre regiões com ritmos bem diferentes de atendimento. Por isso estruturamos a operação com cobertura de bairro, priorizando deslocamento curto, comunicação objetiva e uma leitura mais realista do tipo de entupimento encontrado em cada região de ${cidade}.`,
+      bairros,
+      services: [
+        { title: 'Desentupimento de Esgoto por Região', description: `Triagem rápida para mandar a equipe certa ao seu trecho de ${cidade}, evitando perda de tempo e retrabalho.`, icon: '🗺️' },
+        { title: 'Desentupimento de Pia e Cozinha', description: 'Atendimento local para gordura, sifão e retorno de água com diagnóstico simples e execução limpa.', icon: '🚰' },
+        { title: 'Desentupimento de Vaso Sanitário', description: 'Resposta ágil para urgências domésticas com orientação clara antes da execução.', icon: '🚽' },
+        { title: 'Desentupimento de Ralos e Quintais', description: 'Equipe preparada para áreas molhadas, ralos externos e retorno de mau cheiro em casas e comércios.', icon: '🛁' },
+        { title: 'Limpeza de Caixa de Gordura', description: 'Serviço programado ou emergencial com foco em prevenção de retorno e mau odor.', icon: '🛢️' },
+        { title: 'Hidrojateamento Localizado', description: 'Aplicação quando o cenário pede limpeza mais profunda sem assumir intervenção pesada antes do necessário.', icon: '🌊' }
+      ],
+      faqs: [
+        { question: `Vocês atendem todos os bairros de ${cidade}?`, answer: `Sim. Organizamos a operação por regiões de ${cidade} justamente para manter previsibilidade no deslocamento e no tempo de resposta.` },
+        { question: `O técnico que vai até meu bairro em ${cidade} já sabe qual serviço é mais comum na região?`, answer: `Sim. A triagem considera o bairro e o tipo de sintoma relatado para priorizar a frente mais adequada.` },
+        { question: `O atendimento em ${cidade} também serve para condomínio e comércio de bairro?`, answer: `Sim, esse modelo cobre residências, pequenos comércios e condomínios com a mesma lógica de proximidade.` },
+        { question: `Vocês cobram taxa só para visitar meu endereço em ${cidade}?`, answer: `Não. A visita e o orçamento continuam gratuitos.` },
+        { question: `Precisa quebrar piso para resolver o problema?`, answer: `Na maioria dos casos não. Avaliamos primeiro e priorizamos métodos internos de desobstrução.` },
+        { question: `Dá para chamar pelo WhatsApp e já informar o bairro em ${cidade}?`, answer: `Sim. Esse é o jeito mais rápido de encaixar sua solicitação na frente local correta.` }
+      ],
+      testimonials: [
+        { name: 'Mariana Ribas', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Pedi ajuda já informando meu bairro e o técnico chegou com a abordagem certa, sem perder tempo tentando adivinhar o problema.` },
+        { name: 'Rogério Pacheco', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Gostei porque explicaram o atendimento de forma objetiva e o deslocamento foi bem mais rápido que em outras empresas.` },
+        { name: 'Lívia Telles', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `Atendimento limpo, rápido e com a sensação de que realmente conhecem a rotina dos bairros daqui.` }
+      ],
+      auditScore: 0
+    };
+  }
+
+  if (modelo === 'agenda-premium') {
+    return {
+      id: cityKey,
+      cidade,
+      uf,
+      populacao,
+      modeloTemplate: 'agenda-premium',
+      status: 'pendente',
+      hospedagem,
+      paletaCores: 'premium-chumbo-dourado',
+      heroVariant: 'HeroV6',
+      servicesVariant: 'ServicesGridV5',
+      dominio: `desentupidora${cityKey}.com.br`,
+      whatsapp: `${ddd}992225588`,
+      telefoneFixo: `(${ddd}) 4200-0000`,
+      empresaNome: `Desentupidora Agenda Premium ${cidade}`,
+      cnpj: '21.348.567/0001-39',
+      endereco: `Alameda do Atendimento, 88 - Centro, ${cidade} - ${uf}`,
+      h1Title: `Desentupidora com Agendamento Premium em ${cidade} ${uf}`,
+      firstParagraph: `Precisa de uma desentupidora em ${cidade} com horário combinado, comunicação limpa e execução discreta? Este modelo prioriza atendimento planejado, confirmação clara da visita e uma experiência mais organizada do primeiro contato ao pós-serviço.`,
+      ctaButtonText: `Agendar visita organizada`,
+      lastH2: `Por que a desentupidora com agendamento premium em ${cidade} funciona melhor?`,
+      aboutCityTitle: `Atendimento Planejado e Discreto em ${cidade} - ${uf}`,
+      aboutCityText: `${cidade} tem um público cada vez mais atento a pontualidade, previsibilidade e cuidado com o imóvel. Por isso nossa frente premium em ${cidade} trabalha com confirmação de agenda, janela de atendimento bem definida e execução técnica com comunicação mais consultiva do que improvisada.`,
+      bairros,
+      services: [
+        { title: 'Desentupimento com Hora Marcada', description: 'Ideal para apartamentos, casas ocupadas e rotinas que exigem janela de atendimento previsível.', icon: '🗓️' },
+        { title: 'Desentupimento de Pia e Espaços Gourmet', description: 'Abordagem discreta para cozinhas planejadas e ambientes com acabamento delicado.', icon: '🍽️' },
+        { title: 'Desentupimento de Banheiros', description: 'Atuação limpa, protegendo circulação e reduzindo impacto no uso do imóvel.', icon: '🧼' },
+        { title: 'Hidrojateamento de Precisão', description: 'Aplicação técnica quando a tubulação pede limpeza profunda com controle maior da intervenção.', icon: '🌊' },
+        { title: 'Vídeo Inspeção para Decisão Segura', description: 'Diagnóstico que ajuda o cliente a entender o que vale a pena fazer agora e o que pode ser programado.', icon: '📹' },
+        { title: 'Relato Técnico e Garantia', description: 'Fechamento do serviço com resumo do que foi executado e orientação de prevenção.', icon: '📄' }
+      ],
+      faqs: [
+        { question: `Vocês realmente trabalham com horário marcado em ${cidade}?`, answer: `Sim. Esse é o foco principal deste modelo: combinar janela de visita e manter comunicação mais previsível.` },
+        { question: `O atendimento premium em ${cidade} também serve para emergência?`, answer: `Sim, mas ele é mais forte quando o cliente valoriza organização, discrição e clareza no processo.` },
+        { question: `A equipe entra em apartamento e condomínio com postura mais discreta?`, answer: `Sim. Esse modelo foi pensado para contextos em que apresentação e rotina do imóvel importam bastante.` },
+        { question: `A avaliação técnica tem custo?`, answer: `Não. A avaliação continua gratuita.` },
+        { question: `Vocês explicam antes se vale vídeo inspeção ou hidrojato?`, answer: `Sim. O diferencial aqui é justamente orientar a escolha antes de executar.` },
+        { question: `Dá para remarcar o atendimento em ${cidade} se surgir imprevisto?`, answer: `Sim, desde que avisado com antecedência, a agenda é reorganizada com nova janela.` }
+      ],
+      testimonials: [
+        { name: 'Paula Sehn', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Chegaram dentro da janela combinada e conduziram tudo com muita discrição. Foi bem diferente do padrão corrido que eu esperava.` },
+        { name: 'Condomínio Vista Serena', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `A organização do atendimento foi o que mais chamou atenção. Ficou claro o que fariam e em quanto tempo.` },
+        { name: 'Rafael Esteves', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `Gostei porque não vieram empurrando o serviço mais caro. Explicaram o cenário e agiram só no que precisava.` }
+      ],
+      auditScore: 0
+    };
+  }
+
+  if (modelo === 'condominio-proativo') {
+    return {
+      id: cityKey,
+      cidade,
+      uf,
+      populacao,
+      modeloTemplate: 'condominio-proativo',
+      status: 'pendente',
+      hospedagem,
+      paletaCores: 'proativo-vinho-areia',
+      heroVariant: 'HeroV5',
+      servicesVariant: 'ServicesGridV6',
+      dominio: `desentupidora${cityKey}.com.br`,
+      whatsapp: `${ddd}993336699`,
+      telefoneFixo: `(${ddd}) 4300-0000`,
+      empresaNome: `Desentupidora Proativa ${cidade}`,
+      cnpj: '31.459.678/0001-40',
+      endereco: `Av. das Administradoras, 510 - Centro, ${cidade} - ${uf}`,
+      h1Title: `Desentupidora Proativa para Condomínios em ${cidade} ${uf}`,
+      firstParagraph: `Quando o objetivo não é só apagar incêndio, mas evitar reincidência, este modelo de desentupidora em ${cidade} entra com foco em rotina condominial, prevenção, priorização por risco e comunicação útil para síndicos e administradoras.`,
+      ctaButtonText: `Falar sobre plano proativo`,
+      lastH2: `Como a desentupidora proativa reduz emergências recorrentes em condomínios de ${cidade}?`,
+      aboutCityTitle: `Prevenção e Rotina Técnica em ${cidade} - ${uf}`,
+      aboutCityText: `Com mais de ${populacao} habitantes, ${cidade} reúne condomínios, centros comerciais e imóveis de uso coletivo que não podem depender apenas de chamados emergenciais. Nossa frente proativa atua com vistoria, histórico de pontos críticos e manutenção orientada por recorrência para reduzir novos entupimentos em ${cidade}.`,
+      bairros,
+      services: [
+        { title: 'Mapeamento de Pontos Críticos', description: 'Levantamento dos trechos que mais repetem ocorrência para agir com prioridade e não só por demanda do dia.', icon: '📍' },
+        { title: 'Desentupimento de Prumadas e Colunas', description: 'Atuação organizada para minimizar impacto no condomínio e proteger a rotina dos moradores.', icon: '🏢' },
+        { title: 'Limpeza Programada de Caixa de Gordura', description: 'Rotina preventiva para cozinhas coletivas, áreas gourmet e operação comercial no térreo.', icon: '🛢️' },
+        { title: 'Hidrojateamento Preventivo', description: 'Limpeza técnica antes da obstrução crítica, especialmente em redes que já demonstram histórico de retorno.', icon: '🌊' },
+        { title: 'Vídeo Inspeção e Registro', description: 'Base para comparar recorrências e justificar decisão técnica para síndico, conselho ou administradora.', icon: '📹' },
+        { title: 'Plano de Manutenção por Prioridade', description: 'Sequência prática de ações para reduzir urgências e organizar investimentos hidráulicos.', icon: '🧭' }
+      ],
+      faqs: [
+        { question: `Vocês atendem condomínios em ${cidade} só na emergência ou também com prevenção?`, answer: `Também com prevenção. Esse modelo foi criado exatamente para reduzir reincidência e organizar manutenção.` },
+        { question: `É possível montar uma rotina técnica por prioridades em ${cidade}?`, answer: `Sim. Podemos separar o que é urgente, o que é preventivo e o que precisa de acompanhamento periódico.` },
+        { question: `A vídeo inspeção ajuda administradora e síndico a justificar decisão?`, answer: `Sim. Ela traz evidência visual do ponto crítico e melhora a tomada de decisão.` },
+        { question: `Vocês trabalham sem paralisar totalmente a rotina do condomínio?`, answer: `Sim. O planejamento da frente proativa considera janelas, áreas afetadas e comunicação com a administração.` },
+        { question: `Esse atendimento também serve para centros comerciais em ${cidade}?`, answer: `Sim. Qualquer operação com uso coletivo e recorrência de problema tende a se beneficiar desse modelo.` },
+        { question: `A vistoria inicial para montar o plano em ${cidade} é gratuita?`, answer: `Sim, a primeira avaliação segue sem custo.` }
+      ],
+      testimonials: [
+        { name: 'Síndico Marcelo Azevedo', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Pararam de tratar cada entupimento como caso isolado. Mapearam os pontos mais críticos e isso já melhorou nossa rotina.` },
+        { name: 'Administradora Horizonte', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `A frente preventiva deu clareza do que era urgência e do que podia entrar em cronograma. Ficou muito mais gerenciável.` },
+        { name: 'Condomínio Jardim das Torres', neighborhood: `${bairros[2] || 'Centro'} - ${cidade}`, rating: 5, text: `O registro por inspeção e a ordem de prioridades evitaram dois chamados repetidos no mesmo mês.` }
+      ],
+      auditScore: 0
+    };
+  }
+
+  if (modelo === 'premium-chatgpt') {
+    return {
+      id: cityKey,
+      cidade,
+      uf,
+      populacao,
+      modeloTemplate: 'premium-chatgpt',
+      status: 'pendente',
+      hospedagem,
+      paletaCores: 'premium-ocean-teal',
+      heroVariant: 'HeroV7',
+      servicesVariant: 'ServicesGridV7',
+      dominio: `desentupidora${cityKey}.com.br`,
+      whatsapp: `${ddd}992795590`,
+      telefoneFixo: `(${ddd}) 3323-0000`,
+      empresaNome: `Desentupidora Premium ${cidade}`,
+      cnpj: '24.981.432/0001-18',
+      endereco: `Av. Principal, 1000 - Centro, ${cidade} - ${uf}`,
+      h1Title: `Desentupidora em ${cidade} ${uf} 24h Especializada`,
+      firstParagraph: `Soluções completas em desentupimento técnico, hidrojateamento e esgotamento em ${cidade} e região com frota própria e tecnologia de ponta para residências, condomínios e indústrias.`,
+      ctaButtonText: `Solicitar Atendimento Imediato`,
+      lastH2: `Por que contratar nossa equipe de desentupimento em ${cidade}?`,
+      aboutCityTitle: `Atendimento Técnico Especializado em ${cidade} - ${uf}`,
+      aboutCityText: `Com mais de ${populacao} habitantes, ${cidade} exige estrutura ágil e equipamentos de alta performance para resolver desentupimentos sem quebra-quebra. Nossa frota com equipamentos rotativos e caminhão auto-vácuo atende toda a área urbana com rapidez e laudo técnico.`,
+      bairros,
+      services: [
+        { title: 'Desentupimento de Esgoto', description: 'Desobstrução rápida com sondas rotativas e hidrojato de última geração em redes coletoras e ramais.', icon: '🚿' },
+        { title: 'Limpeza de Fossa Séptica', description: 'Esgotamento e transporte seguro de efluentes com caminhão auto-vácuo credenciado.', icon: '🚛' },
+        { title: 'Desentupimento de Vasos e Ralos', description: 'Remoção de obstruções em vasos sanitários, ralos e caixas sifonadas sem danificar pisos ou louças.', icon: '🚽' },
+        { title: 'Desobstrução de Pias e Tanques', description: 'Eliminação profunda de gordura e resíduos orgânicos nas tubulações da cozinha e lavanderia.', icon: '🚰' },
+        { title: 'Hidrojateamento de Alta Pressão', description: 'Limpeza profunda e desincrustação de redes industriais, comerciais e prediais sob alta pressão.', icon: '🌊' },
+        { title: 'Vídeo Inspeção Robotizada', description: 'Diagnóstico por câmera em alta definição para localizar rachaduras, raízes e pontos críticos com precisão.', icon: '📹' }
+      ],
+      faqs: [
+        { question: `Qual é o prazo de chegada da equipe em ${cidade}?`, answer: `Contamos com viaturas volantes em pontos estratégicos de ${cidade}, chegando ao seu endereço em 20 a 40 minutos.` },
+        { question: `A visita técnica e o orçamento são gratuitos em ${cidade}?`, answer: `Sim, a avaliação no local é 100% gratuita e sem qualquer compromisso.` },
+        { question: `O serviço possui garantia formal?`, answer: `Sim, todos os serviços acompanham certificado de garantia por escrito de até 90 dias.` },
+        { question: `Vocês quebram pisos ou paredes para desentupir?`, answer: `Não! Em mais de 98% dos chamados utilizamos maquinário rotativo K-500 e hidrojateamento que desobstruem diretamente pelos pontos de acesso.` },
+        { question: `Quais são as formas de pagamento aceitas?`, answer: `Aceitamos cartões de crédito e débito (parcelamento disponível), Pix, transferência e faturamento para empresas e condomínios.` },
+        { question: `O atendimento funciona 24 horas aos sábados, domingos e feriados?`, answer: `Sim! Mantemos equipes de plantão 24h ininterruptas todos os dias do ano em ${cidade}.` }
+      ],
+      testimonials: [
+        { name: 'Ricardo Mendes', neighborhood: `${bairros[0]} - ${cidade}`, rating: 5, text: `Atendimento impecável! O caminhão chegou em 30 minutos e o técnico resolveu o esgoto entupido com muita agilidade e sem sujeira.` },
+        { name: 'Patrícia Nogueira', neighborhood: `${bairros[1] || 'Centro'} - ${cidade}`, rating: 5, text: `Ótimo atendimento. Fizeram a vídeo inspeção e mostraram exatamente onde estava a obstrução na tubulação da cozinha.` },
+        { name: 'Engenheiro Bruno Faria', neighborhood: `${bairros[2] || 'Distrito'} - ${cidade}`, rating: 5, text: `Contratamos para limpeza de fossa e hidrojateamento na nossa empresa. Serviço profissional, emitiram laudo e nota fiscal rapidamente.` }
       ],
       auditScore: 0
     };

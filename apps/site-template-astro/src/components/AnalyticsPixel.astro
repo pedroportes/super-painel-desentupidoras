@@ -1,0 +1,118 @@
+---
+import cityData from '../data/cityConfig.json';
+
+const {
+  id = cityData.id || '',
+  cidade = cityData.cidade || '',
+  uf = cityData.uf || ''
+} = Astro.props;
+
+const effectiveCityId = id || cityData.id || cidade.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+---
+
+<!-- 📊 Pixel Próprio de Conversões & Navegação Interna (HTTPS Nuvem & Local) -->
+<script is:inline define:vars={{ cityId: effectiveCityId, cityName: cidade, uf }}>
+  (function () {
+    const SUPABASE_URL = 'https://dltqxfyrltgbudtzxzot.supabase.co/rest/v1/analytics_events';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsdHF4ZnlybHRnYnVkdHp4em90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NTMzNzIsImV4cCI6MjA4MjQyOTM3Mn0.25dykN-BHp6B_iB0l-EDtKiGrOGSc9inmo_403yhsUQ';
+
+    // 1. Identificador anônimo de sessão
+    let sessionId = sessionStorage.getItem('_px_sid');
+    if (!sessionId) {
+      sessionId = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 8);
+      sessionStorage.setItem('_px_sid', sessionId);
+    }
+
+    const device = /mobile|android|iphone/i.test(navigator.userAgent || '') ? 'mobile' : 'desktop';
+
+    // 2. Função de disparo
+    function track(eventType, extraData) {
+      extraData = extraData || {};
+      try {
+        const payload = {
+          session_id: sessionId,
+          city_id: cityId,
+          city_name: cityName,
+          uf: uf,
+          event_type: eventType, // 'pageview' | 'whatsapp_click' | 'phone_click' | 'partner_click'
+          page_path: window.location.pathname,
+          page_title: document.title,
+          referrer: document.referrer || 'direto',
+          device: device,
+          element_id: extraData.elementId || '',
+          target_href: extraData.targetHref || ''
+        };
+
+        // Envia para o coletor HTTPS na nuvem
+        fetch(SUPABASE_URL, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload),
+          keepalive: true,
+          mode: 'cors'
+        }).catch(function () {});
+
+        // Se estiver em localhost, envia também para a API local
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          fetch('http://localhost:5002/api/pixel/event', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              sessionId: sessionId,
+              cityId: cityId,
+              cityName: cityName,
+              uf: uf,
+              eventType: eventType,
+              pagePath: window.location.pathname,
+              pageTitle: document.title,
+              referrer: document.referrer || 'direto',
+              elementId: extraData.elementId || '',
+              device: device
+            }),
+            keepalive: true,
+            mode: 'cors'
+          }).catch(function () {});
+        }
+      } catch (e) {}
+    }
+
+    // 3. Dispara visualização de página
+    track('pageview');
+
+    // 4. Captura cliques em tempo real
+    document.addEventListener('click', function (e) {
+      const target = e.target.closest('a');
+      if (!target) return;
+
+      const href = target.getAttribute('href') || '';
+      let elementId = target.id || target.getAttribute('data-editor-id') || '';
+
+      if (!elementId) {
+        if (target.classList.contains('floating-whatsapp') || target.closest('.floating-whatsapp')) {
+          elementId = 'whatsapp-flutuante';
+        } else if (target.classList.contains('top-whatsapp') || target.closest('.top-bar')) {
+          elementId = 'whatsapp-topo';
+        } else if (target.classList.contains('btn-hero') || target.classList.contains('btn-wa-glow') || target.closest('.hero-content') || target.closest('.hero-buttons-group')) {
+          elementId = 'whatsapp-hero';
+        } else if (target.classList.contains('btn-bairros') || target.closest('.bairros-note')) {
+          elementId = 'whatsapp-bairros';
+        } else if (target.classList.contains('btn-header') || target.closest('.header-cta')) {
+          elementId = 'whatsapp-header';
+        } else {
+          elementId = 'link-geral';
+        }
+      }
+
+      if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+        track('whatsapp_click', { elementId: elementId, targetHref: href });
+      } else if (href.startsWith('tel:')) {
+        track('phone_click', { elementId: elementId, targetHref: href });
+      } else if (href.includes('/fora-da-area-de-cobertura/')) {
+        track('partner_click', { elementId: elementId, targetHref: href });
+      }
+    }, true);
+  })();
+</script>

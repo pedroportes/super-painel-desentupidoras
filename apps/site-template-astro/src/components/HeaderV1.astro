@@ -20,12 +20,14 @@ const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = A
           {logoUrl ? (
             <img src={logoUrl} alt={empresaNome} style="height: 46px; max-width: 140px; object-fit: contain;" />
           ) : (
-            <span class="logo-badge">24H</span>
+            <>
+              <span class="logo-badge">24H</span>
+              <div class="logo-text">
+                <strong>{empresaNome}</strong>
+                <small>Desentupimentos & Hidrojateamento em {cidade}</small>
+              </div>
+            </>
           )}
-          <div class="logo-text">
-            <strong>{empresaNome}</strong>
-            <small>Desentupimentos & Hidrojateamento em {cidade}</small>
-          </div>
         </a>
       </div>
 

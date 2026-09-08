@@ -2,21 +2,25 @@ import type { APIRoute } from 'astro';
 import cityData from '../data/cityConfig.json';
 
 export const GET: APIRoute = async () => {
-  const markdownContent = `
-# ${cityData.seo.h1Title}
+  const h1 = cityData.seo?.h1Title || cityData.h1Title || `Desentupidora em ${cityData.cidade} ${cityData.uf}`;
+  const firstP = cityData.seo?.firstParagraphText || cityData.firstParagraph || '';
+  const lastH2 = cityData.seo?.lastH2Title || cityData.lastH2 || `Por que contratar em ${cityData.cidade}?`;
 
-${cityData.seo.firstParagraphText}
+  const markdownContent = `
+# ${h1}
+
+${firstP}
 
 ## Serviços Oferecidos em ${cityData.cidade} - ${cityData.uf}
-${cityData.services.map(s => `- **${s.title}**: ${s.description}`).join('\n')}
+${(cityData.services || []).map(s => `- **${s.title}**: ${s.description}`).join('\n')}
 
 ## Áreas Atendidas em ${cityData.cidade}
-Atendemos todos os bairros de ${cityData.cidade}: ${cityData.bairros.join(', ')}.
+Atendemos todos os bairros de ${cityData.cidade}: ${(cityData.bairros || []).join(', ')}.
 
 ## Perguntas Frequentes (FAQ)
-${cityData.faqs.map(f => `### ${f.question}\n${f.answer}`).join('\n\n')}
+${(cityData.faqs || []).map(f => `### ${f.question}\n${f.answer}`).join('\n\n')}
 
-## ${cityData.seo.lastH2Title}
+## ${lastH2}
 - **Atendimento 24h**: Chegamos em até 30 minutos.
 - **Visita Grátis**: Orçamento sem compromisso.
 - **WhatsApp**: +55${cityData.whatsapp}

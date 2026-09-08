@@ -1,8 +1,12 @@
 ---
-const { whatsapp, cidade } = Astro.props;
+import cityData from '../data/cityConfig.json';
+const { whatsapp = cityData.whatsapp, cidade = cityData.cidade, phone } = Astro.props;
+const finalPhone = whatsapp || phone || cityData.whatsapp || '';
+const finalCidade = cidade || cityData.cidade || '';
+const cleanPhone = String(finalPhone).replace(/\D/g, '');
 ---
 
-<a href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20de%20desentupimento%20emergencial%20em%20${cidade}`} class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a href={`https://wa.me/55${cleanPhone}?text=${encodeURIComponent(`Olá, preciso de atendimento de desentupimento emergencial em ${finalCidade}`)}`} class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <div class="whatsapp-icon">💬</div>
   <span class="whatsapp-text">WhatsApp 24h</span>
 </a>

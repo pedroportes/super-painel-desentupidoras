@@ -1,274 +1,13 @@
 {
-  "geradoEm": "2026-09-04T13:58:13.052Z",
+  "geradoEm": "2026-09-08T18:21:25.753Z",
   "fonteDados": "planilha-google",
-  "dadosAtualizadosEm": "2026-09-04T13:58:12.189Z",
+  "dadosAtualizadosEm": "2026-09-08T18:18:41.727Z",
   "totalCidadesNoUniverso": 526,
-  "totalJaCadastradas": 20,
-  "totalNaFila": 506,
+  "totalJaCadastradas": 50,
+  "totalNaFila": 476,
   "fila": [
     {
       "posicaoNaFila": 1,
-      "cidade": "Rio das Ostras",
-      "uf": "RJ",
-      "populacao": "168455",
-      "notaOportunidade": 41558,
-      "indiceConcorrenciaFraca": 0.5714285714285714,
-      "notaFinal": 65305
-    },
-    {
-      "posicaoNaFila": 2,
-      "cidade": "Patos de Minas",
-      "uf": "MG",
-      "populacao": "169173",
-      "notaOportunidade": 131904,
-      "indiceConcorrenciaFraca": 0.5555555555555556,
-      "notaFinal": 205184
-    },
-    {
-      "posicaoNaFila": 3,
-      "cidade": "Teófilo Otoni",
-      "uf": "MG",
-      "populacao": "142851",
-      "notaOportunidade": 88225,
-      "indiceConcorrenciaFraca": 0.5555555555555556,
-      "notaFinal": 137239
-    },
-    {
-      "posicaoNaFila": 4,
-      "cidade": "Altamira",
-      "uf": "PA",
-      "populacao": "138749",
-      "notaOportunidade": 60189,
-      "indiceConcorrenciaFraca": 0.5555555555555556,
-      "notaFinal": 93627
-    },
-    {
-      "posicaoNaFila": 5,
-      "cidade": "Umuarama",
-      "uf": "PR",
-      "populacao": "123059",
-      "notaOportunidade": 117078,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 175617
-    },
-    {
-      "posicaoNaFila": 6,
-      "cidade": "Itabira",
-      "uf": "MG",
-      "populacao": "118053",
-      "notaOportunidade": 102198,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 153297
-    },
-    {
-      "posicaoNaFila": 7,
-      "cidade": "Pato Branco",
-      "uf": "PR",
-      "populacao": "97821",
-      "notaOportunidade": 89868,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 134802
-    },
-    {
-      "posicaoNaFila": 8,
-      "cidade": "Bagé",
-      "uf": "RS",
-      "populacao": "121928",
-      "notaOportunidade": 75790,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 113685
-    },
-    {
-      "posicaoNaFila": 9,
-      "cidade": "Unaí",
-      "uf": "MG",
-      "populacao": "91320",
-      "notaOportunidade": 62819,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 94229
-    },
-    {
-      "posicaoNaFila": 10,
-      "cidade": "Tangará da Serra",
-      "uf": "MT",
-      "populacao": "114603",
-      "notaOportunidade": 25476,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 38214
-    },
-    {
-      "posicaoNaFila": 11,
-      "cidade": "Tianguá",
-      "uf": "CE",
-      "populacao": "86968",
-      "notaOportunidade": 14228,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 21342
-    },
-    {
-      "posicaoNaFila": 12,
-      "cidade": "Tucano",
-      "uf": "BA",
-      "populacao": "51016",
-      "notaOportunidade": 9397,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 14096
-    },
-    {
-      "posicaoNaFila": 13,
-      "cidade": "Ariquemes",
-      "uf": "RO",
-      "populacao": "109170",
-      "notaOportunidade": 2456,
-      "indiceConcorrenciaFraca": 0.5,
-      "notaFinal": 3684
-    },
-    {
-      "posicaoNaFila": 14,
-      "cidade": "Angra dos Reis",
-      "uf": "RJ",
-      "populacao": "179142",
-      "notaOportunidade": 92079,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 133003
-    },
-    {
-      "posicaoNaFila": 15,
-      "cidade": "Ubá",
-      "uf": "MG",
-      "populacao": "107423",
-      "notaOportunidade": 86411,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 124816
-    },
-    {
-      "posicaoNaFila": 16,
-      "cidade": "Timóteo",
-      "uf": "MG",
-      "populacao": "84172",
-      "notaOportunidade": 77741,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 112293
-    },
-    {
-      "posicaoNaFila": 17,
-      "cidade": "Luís Eduardo Magalhães",
-      "uf": "BA",
-      "populacao": "118382",
-      "notaOportunidade": 70496,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 101828
-    },
-    {
-      "posicaoNaFila": 18,
-      "cidade": "Mineiros",
-      "uf": "GO",
-      "populacao": "74999",
-      "notaOportunidade": 70072,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 101215
-    },
-    {
-      "posicaoNaFila": 19,
-      "cidade": "Rio Grande",
-      "uf": "RS",
-      "populacao": "198935",
-      "notaOportunidade": 68573,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 99050
-    },
-    {
-      "posicaoNaFila": 20,
-      "cidade": "Primavera do Leste",
-      "uf": "MT",
-      "populacao": "96006",
-      "notaOportunidade": 68366,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 98751
-    },
-    {
-      "posicaoNaFila": 21,
-      "cidade": "Frutal",
-      "uf": "MG",
-      "populacao": "61275",
-      "notaOportunidade": 47194,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 68169
-    },
-    {
-      "posicaoNaFila": 22,
-      "cidade": "Crato",
-      "uf": "CE",
-      "populacao": "139027",
-      "notaOportunidade": 38371,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 55425
-    },
-    {
-      "posicaoNaFila": 23,
-      "cidade": "Medianeira",
-      "uf": "PR",
-      "populacao": "57910",
-      "notaOportunidade": 24351,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 35174
-    },
-    {
-      "posicaoNaFila": 24,
-      "cidade": "Brusque",
-      "uf": "SC",
-      "populacao": "155307",
-      "notaOportunidade": 0,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 0
-    },
-    {
-      "posicaoNaFila": 25,
-      "cidade": "Vilhena",
-      "uf": "RO",
-      "populacao": "109651",
-      "notaOportunidade": 0,
-      "indiceConcorrenciaFraca": 0.4444444444444444,
-      "notaFinal": 0
-    },
-    {
-      "posicaoNaFila": 26,
-      "cidade": "Itapipoca",
-      "uf": "CE",
-      "populacao": "138978",
-      "notaOportunidade": 25391,
-      "indiceConcorrenciaFraca": 0.42857142857142855,
-      "notaFinal": 36273
-    },
-    {
-      "posicaoNaFila": 27,
-      "cidade": "Maranguape",
-      "uf": "CE",
-      "populacao": "108622",
-      "notaOportunidade": 12850,
-      "indiceConcorrenciaFraca": 0.42857142857142855,
-      "notaFinal": 18357
-    },
-    {
-      "posicaoNaFila": 28,
-      "cidade": "Ilhéus",
-      "uf": "BA",
-      "populacao": "189149",
-      "notaOportunidade": 103767,
-      "indiceConcorrenciaFraca": 0.4,
-      "notaFinal": 145274
-    },
-    {
-      "posicaoNaFila": 29,
-      "cidade": "Telêmaco Borba",
-      "uf": "PR",
-      "populacao": "77479",
-      "notaOportunidade": 74628,
-      "indiceConcorrenciaFraca": 0.4,
-      "notaFinal": 104479
-    },
-    {
-      "posicaoNaFila": 30,
       "cidade": "Patos",
       "uf": "PB",
       "populacao": "108104",
@@ -277,7 +16,7 @@
       "notaFinal": 19296
     },
     {
-      "posicaoNaFila": 31,
+      "posicaoNaFila": 2,
       "cidade": "Erechim",
       "uf": "RS",
       "populacao": "109609",
@@ -286,16 +25,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 32,
-      "cidade": "Barra Mansa",
-      "uf": "RJ",
-      "populacao": "181679",
-      "notaOportunidade": 134897,
-      "indiceConcorrenciaFraca": 0.375,
-      "notaFinal": 185483
-    },
-    {
-      "posicaoNaFila": 33,
+      "posicaoNaFila": 3,
       "cidade": "Uruguaiana",
       "uf": "RS",
       "populacao": "120819",
@@ -304,7 +34,7 @@
       "notaFinal": 147088
     },
     {
-      "posicaoNaFila": 34,
+      "posicaoNaFila": 4,
       "cidade": "Passos",
       "uf": "MG",
       "populacao": "116951",
@@ -313,7 +43,7 @@
       "notaFinal": 142748
     },
     {
-      "posicaoNaFila": 35,
+      "posicaoNaFila": 5,
       "cidade": "Francisco Beltrão",
       "uf": "PR",
       "populacao": "102312",
@@ -322,7 +52,7 @@
       "notaFinal": 111122
     },
     {
-      "posicaoNaFila": 36,
+      "posicaoNaFila": 6,
       "cidade": "Timon",
       "uf": "MA",
       "populacao": "182711",
@@ -331,7 +61,7 @@
       "notaFinal": 79765
     },
     {
-      "posicaoNaFila": 37,
+      "posicaoNaFila": 7,
       "cidade": "Barra do Garças",
       "uf": "MT",
       "populacao": "73878",
@@ -340,7 +70,7 @@
       "notaFinal": 69086
     },
     {
-      "posicaoNaFila": 38,
+      "posicaoNaFila": 8,
       "cidade": "Inhumas",
       "uf": "GO",
       "populacao": "53884",
@@ -349,7 +79,7 @@
       "notaFinal": 56539
     },
     {
-      "posicaoNaFila": 39,
+      "posicaoNaFila": 9,
       "cidade": "Cachoeira do Sul",
       "uf": "RS",
       "populacao": "82222",
@@ -358,7 +88,7 @@
       "notaFinal": 41752
     },
     {
-      "posicaoNaFila": 40,
+      "posicaoNaFila": 10,
       "cidade": "Lagarto",
       "uf": "SE",
       "populacao": "105957",
@@ -367,7 +97,7 @@
       "notaFinal": 11334
     },
     {
-      "posicaoNaFila": 41,
+      "posicaoNaFila": 11,
       "cidade": "Biguaçu",
       "uf": "SC",
       "populacao": "83756",
@@ -376,7 +106,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 42,
+      "posicaoNaFila": 12,
       "cidade": "Rio do Sul",
       "uf": "SC",
       "populacao": "77451",
@@ -385,7 +115,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 43,
+      "posicaoNaFila": 13,
       "cidade": "Ouricuri",
       "uf": "PE",
       "populacao": "68489",
@@ -394,7 +124,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 44,
+      "posicaoNaFila": 14,
       "cidade": "Mafra",
       "uf": "SC",
       "populacao": "57262",
@@ -403,7 +133,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 45,
+      "posicaoNaFila": 15,
       "cidade": "Itapetininga",
       "uf": "SP",
       "populacao": "164256",
@@ -412,7 +142,7 @@
       "notaFinal": 184032
     },
     {
-      "posicaoNaFila": 46,
+      "posicaoNaFila": 16,
       "cidade": "Apucarana",
       "uf": "PR",
       "populacao": "134910",
@@ -421,7 +151,7 @@
       "notaFinal": 170616
     },
     {
-      "posicaoNaFila": 47,
+      "posicaoNaFila": 17,
       "cidade": "Jequié",
       "uf": "BA",
       "populacao": "169201",
@@ -430,7 +160,7 @@
       "notaFinal": 169765
     },
     {
-      "posicaoNaFila": 48,
+      "posicaoNaFila": 18,
       "cidade": "Varginha",
       "uf": "MG",
       "populacao": "143676",
@@ -439,7 +169,7 @@
       "notaFinal": 168349
     },
     {
-      "posicaoNaFila": 49,
+      "posicaoNaFila": 19,
       "cidade": "Barreiras",
       "uf": "BA",
       "populacao": "171634",
@@ -448,7 +178,7 @@
       "notaFinal": 156347
     },
     {
-      "posicaoNaFila": 50,
+      "posicaoNaFila": 20,
       "cidade": "Tatuí",
       "uf": "SP",
       "populacao": "129130",
@@ -457,7 +187,7 @@
       "notaFinal": 139116
     },
     {
-      "posicaoNaFila": 51,
+      "posicaoNaFila": 21,
       "cidade": "Trindade",
       "uf": "GO",
       "populacao": "153560",
@@ -466,7 +196,7 @@
       "notaFinal": 131836
     },
     {
-      "posicaoNaFila": 52,
+      "posicaoNaFila": 22,
       "cidade": "Conselheiro Lafaiete",
       "uf": "MG",
       "populacao": "138946",
@@ -475,7 +205,7 @@
       "notaFinal": 129443
     },
     {
-      "posicaoNaFila": 53,
+      "posicaoNaFila": 23,
       "cidade": "Muriaé",
       "uf": "MG",
       "populacao": "108447",
@@ -484,7 +214,7 @@
       "notaFinal": 127852
     },
     {
-      "posicaoNaFila": 54,
+      "posicaoNaFila": 24,
       "cidade": "Ituiutaba",
       "uf": "MG",
       "populacao": "106775",
@@ -493,7 +223,7 @@
       "notaFinal": 124471
     },
     {
-      "posicaoNaFila": 55,
+      "posicaoNaFila": 25,
       "cidade": "Lavras",
       "uf": "MG",
       "populacao": "110682",
@@ -502,7 +232,7 @@
       "notaFinal": 123860
     },
     {
-      "posicaoNaFila": 56,
+      "posicaoNaFila": 26,
       "cidade": "Teixeira de Freitas",
       "uf": "BA",
       "populacao": "153738",
@@ -511,7 +241,7 @@
       "notaFinal": 114259
     },
     {
-      "posicaoNaFila": 57,
+      "posicaoNaFila": 27,
       "cidade": "Catalão",
       "uf": "GO",
       "populacao": "122760",
@@ -520,7 +250,7 @@
       "notaFinal": 96588
     },
     {
-      "posicaoNaFila": 58,
+      "posicaoNaFila": 28,
       "cidade": "Paracatu",
       "uf": "MG",
       "populacao": "99005",
@@ -529,7 +259,7 @@
       "notaFinal": 95639
     },
     {
-      "posicaoNaFila": 59,
+      "posicaoNaFila": 29,
       "cidade": "Vacaria",
       "uf": "RS",
       "populacao": "66146",
@@ -538,7 +268,7 @@
       "notaFinal": 85381
     },
     {
-      "posicaoNaFila": 60,
+      "posicaoNaFila": 30,
       "cidade": "Ponta Porã",
       "uf": "MS",
       "populacao": "98598",
@@ -547,7 +277,7 @@
       "notaFinal": 73515
     },
     {
-      "posicaoNaFila": 61,
+      "posicaoNaFila": 31,
       "cidade": "Cacoal",
       "uf": "RO",
       "populacao": "98280",
@@ -556,7 +286,7 @@
       "notaFinal": 72661
     },
     {
-      "posicaoNaFila": 62,
+      "posicaoNaFila": 32,
       "cidade": "Santiago",
       "uf": "RS",
       "populacao": "50336",
@@ -565,7 +295,7 @@
       "notaFinal": 65249
     },
     {
-      "posicaoNaFila": 63,
+      "posicaoNaFila": 33,
       "cidade": "Porto Nacional",
       "uf": "TO",
       "populacao": "69551",
@@ -574,7 +304,7 @@
       "notaFinal": 56123
     },
     {
-      "posicaoNaFila": 64,
+      "posicaoNaFila": 34,
       "cidade": "Palmas",
       "uf": "PR",
       "populacao": "50238",
@@ -583,7 +313,7 @@
       "notaFinal": 52864
     },
     {
-      "posicaoNaFila": 65,
+      "posicaoNaFila": 35,
       "cidade": "São Lourenço da Mata",
       "uf": "PE",
       "populacao": "118258",
@@ -592,7 +322,7 @@
       "notaFinal": 47540
     },
     {
-      "posicaoNaFila": 66,
+      "posicaoNaFila": 36,
       "cidade": "Santa Cruz do Sul",
       "uf": "RS",
       "populacao": "138270",
@@ -601,7 +331,7 @@
       "notaFinal": 39527
     },
     {
-      "posicaoNaFila": 67,
+      "posicaoNaFila": 37,
       "cidade": "Prudentópolis",
       "uf": "PR",
       "populacao": "50946",
@@ -610,7 +340,7 @@
       "notaFinal": 36389
     },
     {
-      "posicaoNaFila": 68,
+      "posicaoNaFila": 38,
       "cidade": "Alta Floresta",
       "uf": "MT",
       "populacao": "62158",
@@ -619,7 +349,7 @@
       "notaFinal": 31477
     },
     {
-      "posicaoNaFila": 69,
+      "posicaoNaFila": 39,
       "cidade": "Santo Ângelo",
       "uf": "RS",
       "populacao": "79146",
@@ -628,7 +358,7 @@
       "notaFinal": 31279
     },
     {
-      "posicaoNaFila": 70,
+      "posicaoNaFila": 40,
       "cidade": "Santo Antônio de Jesus",
       "uf": "BA",
       "populacao": "109791",
@@ -637,7 +367,7 @@
       "notaFinal": 30624
     },
     {
-      "posicaoNaFila": 71,
+      "posicaoNaFila": 41,
       "cidade": "Concórdia",
       "uf": "SC",
       "populacao": "87206",
@@ -646,7 +376,7 @@
       "notaFinal": 25801
     },
     {
-      "posicaoNaFila": 72,
+      "posicaoNaFila": 42,
       "cidade": "Araranguá",
       "uf": "SC",
       "populacao": "76611",
@@ -655,7 +385,7 @@
       "notaFinal": 21063
     },
     {
-      "posicaoNaFila": 73,
+      "posicaoNaFila": 43,
       "cidade": "Paraíso do Tocantins",
       "uf": "TO",
       "populacao": "55704",
@@ -664,7 +394,7 @@
       "notaFinal": 18456
     },
     {
-      "posicaoNaFila": 74,
+      "posicaoNaFila": 44,
       "cidade": "Eunápolis",
       "uf": "BA",
       "populacao": "121067",
@@ -673,7 +403,7 @@
       "notaFinal": 16077
     },
     {
-      "posicaoNaFila": 75,
+      "posicaoNaFila": 45,
       "cidade": "Irecê",
       "uf": "BA",
       "populacao": "78781",
@@ -682,7 +412,7 @@
       "notaFinal": 14601
     },
     {
-      "posicaoNaFila": 76,
+      "posicaoNaFila": 46,
       "cidade": "Canoinhas",
       "uf": "SC",
       "populacao": "56948",
@@ -691,7 +421,7 @@
       "notaFinal": 12012
     },
     {
-      "posicaoNaFila": 77,
+      "posicaoNaFila": 47,
       "cidade": "Sapé",
       "uf": "PB",
       "populacao": "53457",
@@ -700,7 +430,7 @@
       "notaFinal": 11789
     },
     {
-      "posicaoNaFila": 78,
+      "posicaoNaFila": 48,
       "cidade": "Araquari",
       "uf": "SC",
       "populacao": "52079",
@@ -709,7 +439,7 @@
       "notaFinal": 10617
     },
     {
-      "posicaoNaFila": 79,
+      "posicaoNaFila": 49,
       "cidade": "Eusébio",
       "uf": "CE",
       "populacao": "82016",
@@ -718,7 +448,7 @@
       "notaFinal": 9973
     },
     {
-      "posicaoNaFila": 80,
+      "posicaoNaFila": 50,
       "cidade": "Igarassu",
       "uf": "PE",
       "populacao": "123017",
@@ -727,7 +457,7 @@
       "notaFinal": 6921
     },
     {
-      "posicaoNaFila": 81,
+      "posicaoNaFila": 51,
       "cidade": "Ji-Paraná",
       "uf": "RO",
       "populacao": "140101",
@@ -736,7 +466,7 @@
       "notaFinal": 2297
     },
     {
-      "posicaoNaFila": 82,
+      "posicaoNaFila": 52,
       "cidade": "Itacoatiara",
       "uf": "AM",
       "populacao": "113917",
@@ -745,7 +475,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 83,
+      "posicaoNaFila": 53,
       "cidade": "Tucuruí",
       "uf": "PA",
       "populacao": "96119",
@@ -754,7 +484,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 84,
+      "posicaoNaFila": 54,
       "cidade": "Capanema",
       "uf": "PA",
       "populacao": "75309",
@@ -763,7 +493,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 85,
+      "posicaoNaFila": 55,
       "cidade": "Xanxerê",
       "uf": "SC",
       "populacao": "54891",
@@ -772,7 +502,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 86,
+      "posicaoNaFila": 56,
       "cidade": "Campo Novo do Parecis",
       "uf": "MT",
       "populacao": "51722",
@@ -781,7 +511,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 87,
+      "posicaoNaFila": 57,
       "cidade": "Botucatu",
       "uf": "SP",
       "populacao": "151053",
@@ -790,7 +520,7 @@
       "notaFinal": 174552
     },
     {
-      "posicaoNaFila": 88,
+      "posicaoNaFila": 58,
       "cidade": "Barbacena",
       "uf": "MG",
       "populacao": "129695",
@@ -799,7 +529,7 @@
       "notaFinal": 156447
     },
     {
-      "posicaoNaFila": 89,
+      "posicaoNaFila": 59,
       "cidade": "Lages",
       "uf": "SC",
       "populacao": "172458",
@@ -808,7 +538,7 @@
       "notaFinal": 90643
     },
     {
-      "posicaoNaFila": 90,
+      "posicaoNaFila": 60,
       "cidade": "Fernandópolis",
       "uf": "SP",
       "populacao": "73508",
@@ -817,7 +547,7 @@
       "notaFinal": 88795
     },
     {
-      "posicaoNaFila": 91,
+      "posicaoNaFila": 61,
       "cidade": "Lençóis Paulista",
       "uf": "SP",
       "populacao": "68568",
@@ -826,7 +556,7 @@
       "notaFinal": 85404
     },
     {
-      "posicaoNaFila": 92,
+      "posicaoNaFila": 62,
       "cidade": "Cianorte",
       "uf": "PR",
       "populacao": "82988",
@@ -835,7 +565,7 @@
       "notaFinal": 75854
     },
     {
-      "posicaoNaFila": 93,
+      "posicaoNaFila": 63,
       "cidade": "São José do Rio Pardo",
       "uf": "SP",
       "populacao": "53427",
@@ -844,7 +574,7 @@
       "notaFinal": 67865
     },
     {
-      "posicaoNaFila": 94,
+      "posicaoNaFila": 64,
       "cidade": "Tubarão",
       "uf": "SC",
       "populacao": "116725",
@@ -853,7 +583,7 @@
       "notaFinal": 61714
     },
     {
-      "posicaoNaFila": 95,
+      "posicaoNaFila": 65,
       "cidade": "Guaxupé",
       "uf": "MG",
       "populacao": "52744",
@@ -862,7 +592,7 @@
       "notaFinal": 56856
     },
     {
-      "posicaoNaFila": 96,
+      "posicaoNaFila": 66,
       "cidade": "São Gabriel",
       "uf": "RS",
       "populacao": "60090",
@@ -871,7 +601,7 @@
       "notaFinal": 40442
     },
     {
-      "posicaoNaFila": 97,
+      "posicaoNaFila": 67,
       "cidade": "Queimados",
       "uf": "RJ",
       "populacao": "149135",
@@ -880,7 +610,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 98,
+      "posicaoNaFila": 68,
       "cidade": "Araxá",
       "uf": "MG",
       "populacao": "118786",
@@ -889,7 +619,7 @@
       "notaFinal": 131115
     },
     {
-      "posicaoNaFila": 99,
+      "posicaoNaFila": 69,
       "cidade": "Cataguases",
       "uf": "MG",
       "populacao": "67732",
@@ -898,7 +628,7 @@
       "notaFinal": 65913
     },
     {
-      "posicaoNaFila": 100,
+      "posicaoNaFila": 70,
       "cidade": "Garanhuns",
       "uf": "PE",
       "populacao": "151803",
@@ -907,7 +637,7 @@
       "notaFinal": 24494
     },
     {
-      "posicaoNaFila": 101,
+      "posicaoNaFila": 71,
       "cidade": "Campo Mourão",
       "uf": "PR",
       "populacao": "104122",
@@ -916,7 +646,7 @@
       "notaFinal": 124283
     },
     {
-      "posicaoNaFila": 102,
+      "posicaoNaFila": 72,
       "cidade": "Nova Serrana",
       "uf": "MG",
       "populacao": "114791",
@@ -925,7 +655,7 @@
       "notaFinal": 100959
     },
     {
-      "posicaoNaFila": 103,
+      "posicaoNaFila": 73,
       "cidade": "Avaré",
       "uf": "SP",
       "populacao": "96450",
@@ -934,7 +664,7 @@
       "notaFinal": 99259
     },
     {
-      "posicaoNaFila": 104,
+      "posicaoNaFila": 74,
       "cidade": "Valença",
       "uf": "BA",
       "populacao": "90053",
@@ -943,7 +673,7 @@
       "notaFinal": 78155
     },
     {
-      "posicaoNaFila": 105,
+      "posicaoNaFila": 75,
       "cidade": "Sorriso",
       "uf": "MT",
       "populacao": "124665",
@@ -952,7 +682,7 @@
       "notaFinal": 75890
     },
     {
-      "posicaoNaFila": 106,
+      "posicaoNaFila": 76,
       "cidade": "Alagoinhas",
       "uf": "BA",
       "populacao": "161196",
@@ -961,7 +691,7 @@
       "notaFinal": 73425
     },
     {
-      "posicaoNaFila": 107,
+      "posicaoNaFila": 77,
       "cidade": "Paço do Lumiar",
       "uf": "MA",
       "populacao": "153158",
@@ -970,7 +700,7 @@
       "notaFinal": 65111
     },
     {
-      "posicaoNaFila": 108,
+      "posicaoNaFila": 78,
       "cidade": "Quirinópolis",
       "uf": "GO",
       "populacao": "50329",
@@ -979,7 +709,7 @@
       "notaFinal": 55784
     },
     {
-      "posicaoNaFila": 109,
+      "posicaoNaFila": 79,
       "cidade": "Picos",
       "uf": "PI",
       "populacao": "86701",
@@ -988,7 +718,7 @@
       "notaFinal": 53343
     },
     {
-      "posicaoNaFila": 110,
+      "posicaoNaFila": 80,
       "cidade": "Araripina",
       "uf": "PE",
       "populacao": "90504",
@@ -997,7 +727,7 @@
       "notaFinal": 46610
     },
     {
-      "posicaoNaFila": 111,
+      "posicaoNaFila": 81,
       "cidade": "Barcarena",
       "uf": "PA",
       "populacao": "139076",
@@ -1006,7 +736,7 @@
       "notaFinal": 33048
     },
     {
-      "posicaoNaFila": 112,
+      "posicaoNaFila": 82,
       "cidade": "Indaial",
       "uf": "SC",
       "populacao": "77888",
@@ -1015,7 +745,7 @@
       "notaFinal": 31866
     },
     {
-      "posicaoNaFila": 113,
+      "posicaoNaFila": 83,
       "cidade": "Itabaiana",
       "uf": "SE",
       "populacao": "109250",
@@ -1024,7 +754,7 @@
       "notaFinal": 28856
     },
     {
-      "posicaoNaFila": 114,
+      "posicaoNaFila": 84,
       "cidade": "Valença",
       "uf": "RJ",
       "populacao": "71449",
@@ -1033,7 +763,7 @@
       "notaFinal": 25034
     },
     {
-      "posicaoNaFila": 115,
+      "posicaoNaFila": 85,
       "cidade": "Limoeiro do Norte",
       "uf": "CE",
       "populacao": "62623",
@@ -1042,7 +772,7 @@
       "notaFinal": 21073
     },
     {
-      "posicaoNaFila": 116,
+      "posicaoNaFila": 86,
       "cidade": "Surubim",
       "uf": "PE",
       "populacao": "67821",
@@ -1051,7 +781,7 @@
       "notaFinal": 17964
     },
     {
-      "posicaoNaFila": 117,
+      "posicaoNaFila": 87,
       "cidade": "Paragominas",
       "uf": "PA",
       "populacao": "113498",
@@ -1060,7 +790,7 @@
       "notaFinal": 15734
     },
     {
-      "posicaoNaFila": 118,
+      "posicaoNaFila": 88,
       "cidade": "Codó",
       "uf": "MA",
       "populacao": "118283",
@@ -1069,7 +799,7 @@
       "notaFinal": 14224
     },
     {
-      "posicaoNaFila": 119,
+      "posicaoNaFila": 89,
       "cidade": "Venâncio Aires",
       "uf": "RS",
       "populacao": "70842",
@@ -1078,7 +808,7 @@
       "notaFinal": 11105
     },
     {
-      "posicaoNaFila": 120,
+      "posicaoNaFila": 90,
       "cidade": "Pacajus",
       "uf": "CE",
       "populacao": "75454",
@@ -1087,7 +817,7 @@
       "notaFinal": 2046
     },
     {
-      "posicaoNaFila": 121,
+      "posicaoNaFila": 91,
       "cidade": "Cametá",
       "uf": "PA",
       "populacao": "144859",
@@ -1096,7 +826,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 122,
+      "posicaoNaFila": 92,
       "cidade": "Caçador",
       "uf": "SC",
       "populacao": "76298",
@@ -1105,7 +835,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 123,
+      "posicaoNaFila": 93,
       "cidade": "Limoeiro",
       "uf": "PE",
       "populacao": "59236",
@@ -1114,7 +844,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 124,
+      "posicaoNaFila": 94,
       "cidade": "Toledo",
       "uf": "PR",
       "populacao": "160701",
@@ -1123,7 +853,7 @@
       "notaFinal": 171959
     },
     {
-      "posicaoNaFila": 125,
+      "posicaoNaFila": 95,
       "cidade": "Resende",
       "uf": "RJ",
       "populacao": "137697",
@@ -1132,7 +862,7 @@
       "notaFinal": 150861
     },
     {
-      "posicaoNaFila": 126,
+      "posicaoNaFila": 96,
       "cidade": "Três Lagoas",
       "uf": "MS",
       "populacao": "143523",
@@ -1141,7 +871,7 @@
       "notaFinal": 147350
     },
     {
-      "posicaoNaFila": 127,
+      "posicaoNaFila": 97,
       "cidade": "Araguari",
       "uf": "MG",
       "populacao": "123432",
@@ -1150,7 +880,7 @@
       "notaFinal": 143983
     },
     {
-      "posicaoNaFila": 128,
+      "posicaoNaFila": 98,
       "cidade": "Paranaguá",
       "uf": "PR",
       "populacao": "150104",
@@ -1159,7 +889,7 @@
       "notaFinal": 142751
     },
     {
-      "posicaoNaFila": 129,
+      "posicaoNaFila": 99,
       "cidade": "Catanduva",
       "uf": "SP",
       "populacao": "119275",
@@ -1168,7 +898,7 @@
       "notaFinal": 136888
     },
     {
-      "posicaoNaFila": 130,
+      "posicaoNaFila": 100,
       "cidade": "Guaratinguetá",
       "uf": "SP",
       "populacao": "121916",
@@ -1177,7 +907,7 @@
       "notaFinal": 132394
     },
     {
-      "posicaoNaFila": 131,
+      "posicaoNaFila": 101,
       "cidade": "Birigui",
       "uf": "SP",
       "populacao": "123340",
@@ -1186,7 +916,7 @@
       "notaFinal": 131076
     },
     {
-      "posicaoNaFila": 132,
+      "posicaoNaFila": 102,
       "cidade": "Colatina",
       "uf": "ES",
       "populacao": "129301",
@@ -1195,7 +925,7 @@
       "notaFinal": 129051
     },
     {
-      "posicaoNaFila": 133,
+      "posicaoNaFila": 103,
       "cidade": "Arapongas",
       "uf": "PR",
       "populacao": "124838",
@@ -1204,7 +934,7 @@
       "notaFinal": 128350
     },
     {
-      "posicaoNaFila": 134,
+      "posicaoNaFila": 104,
       "cidade": "Assis",
       "uf": "SP",
       "populacao": "104858",
@@ -1213,7 +943,7 @@
       "notaFinal": 122866
     },
     {
-      "posicaoNaFila": 135,
+      "posicaoNaFila": 105,
       "cidade": "Ourinhos",
       "uf": "SP",
       "populacao": "106911",
@@ -1222,7 +952,7 @@
       "notaFinal": 122672
     },
     {
-      "posicaoNaFila": 136,
+      "posicaoNaFila": 106,
       "cidade": "Jataí",
       "uf": "GO",
       "populacao": "111634",
@@ -1231,7 +961,7 @@
       "notaFinal": 115894
     },
     {
-      "posicaoNaFila": 137,
+      "posicaoNaFila": 107,
       "cidade": "Patrocínio",
       "uf": "MG",
       "populacao": "94357",
@@ -1240,7 +970,7 @@
       "notaFinal": 109236
     },
     {
-      "posicaoNaFila": 138,
+      "posicaoNaFila": 108,
       "cidade": "Manhuaçu",
       "uf": "MG",
       "populacao": "97328",
@@ -1249,7 +979,7 @@
       "notaFinal": 108513
     },
     {
-      "posicaoNaFila": 139,
+      "posicaoNaFila": 109,
       "cidade": "São Pedro da Aldeia",
       "uf": "RJ",
       "populacao": "110677",
@@ -1258,7 +988,7 @@
       "notaFinal": 100168
     },
     {
-      "posicaoNaFila": 140,
+      "posicaoNaFila": 110,
       "cidade": "Aracruz",
       "uf": "ES",
       "populacao": "103363",
@@ -1267,7 +997,7 @@
       "notaFinal": 98388
     },
     {
-      "posicaoNaFila": 141,
+      "posicaoNaFila": 111,
       "cidade": "Lins",
       "uf": "SP",
       "populacao": "76844",
@@ -1276,7 +1006,7 @@
       "notaFinal": 91394
     },
     {
-      "posicaoNaFila": 142,
+      "posicaoNaFila": 112,
       "cidade": "Viçosa",
       "uf": "MG",
       "populacao": "79517",
@@ -1285,7 +1015,7 @@
       "notaFinal": 86351
     },
     {
-      "posicaoNaFila": 143,
+      "posicaoNaFila": 113,
       "cidade": "Itapira",
       "uf": "SP",
       "populacao": "74038",
@@ -1294,7 +1024,7 @@
       "notaFinal": 86093
     },
     {
-      "posicaoNaFila": 144,
+      "posicaoNaFila": 114,
       "cidade": "Sarandi",
       "uf": "PR",
       "populacao": "128106",
@@ -1303,7 +1033,7 @@
       "notaFinal": 84738
     },
     {
-      "posicaoNaFila": 145,
+      "posicaoNaFila": 115,
       "cidade": "Parnaíba",
       "uf": "PI",
       "populacao": "170491",
@@ -1312,7 +1042,7 @@
       "notaFinal": 81413
     },
     {
-      "posicaoNaFila": 146,
+      "posicaoNaFila": 116,
       "cidade": "Curvelo",
       "uf": "MG",
       "populacao": "84297",
@@ -1321,7 +1051,7 @@
       "notaFinal": 73790
     },
     {
-      "posicaoNaFila": 147,
+      "posicaoNaFila": 117,
       "cidade": "Castro",
       "uf": "PR",
       "populacao": "75644",
@@ -1330,7 +1060,7 @@
       "notaFinal": 73390
     },
     {
-      "posicaoNaFila": 148,
+      "posicaoNaFila": 118,
       "cidade": "Caratinga",
       "uf": "MG",
       "populacao": "90890",
@@ -1339,7 +1069,7 @@
       "notaFinal": 69641
     },
     {
-      "posicaoNaFila": 149,
+      "posicaoNaFila": 119,
       "cidade": "Araguaína",
       "uf": "TO",
       "populacao": "183024",
@@ -1348,7 +1078,7 @@
       "notaFinal": 68719
     },
     {
-      "posicaoNaFila": 150,
+      "posicaoNaFila": 120,
       "cidade": "Caldas Novas",
       "uf": "GO",
       "populacao": "106820",
@@ -1357,7 +1087,7 @@
       "notaFinal": 66205
     },
     {
-      "posicaoNaFila": 151,
+      "posicaoNaFila": 121,
       "cidade": "Gurupi",
       "uf": "TO",
       "populacao": "90209",
@@ -1366,7 +1096,7 @@
       "notaFinal": 65514
     },
     {
-      "posicaoNaFila": 152,
+      "posicaoNaFila": 122,
       "cidade": "Irati",
       "uf": "PR",
       "populacao": "61004",
@@ -1375,7 +1105,7 @@
       "notaFinal": 65390
     },
     {
-      "posicaoNaFila": 153,
+      "posicaoNaFila": 123,
       "cidade": "Senhor do Bonfim",
       "uf": "BA",
       "populacao": "78090",
@@ -1384,7 +1114,7 @@
       "notaFinal": 60301
     },
     {
-      "posicaoNaFila": 154,
+      "posicaoNaFila": 124,
       "cidade": "Rolândia",
       "uf": "PR",
       "populacao": "75818",
@@ -1393,7 +1123,7 @@
       "notaFinal": 55851
     },
     {
-      "posicaoNaFila": 155,
+      "posicaoNaFila": 125,
       "cidade": "Bom Despacho",
       "uf": "MG",
       "populacao": "54377",
@@ -1402,7 +1132,7 @@
       "notaFinal": 54445
     },
     {
-      "posicaoNaFila": 156,
+      "posicaoNaFila": 126,
       "cidade": "Vitória de Santo Antão",
       "uf": "PE",
       "populacao": "144243",
@@ -1411,7 +1141,7 @@
       "notaFinal": 47124
     },
     {
-      "posicaoNaFila": 157,
+      "posicaoNaFila": 127,
       "cidade": "Paulo Afonso",
       "uf": "BA",
       "populacao": "119418",
@@ -1420,7 +1150,7 @@
       "notaFinal": 47114
     },
     {
-      "posicaoNaFila": 158,
+      "posicaoNaFila": 128,
       "cidade": "Lucas do Rio Verde",
       "uf": "MT",
       "populacao": "95792",
@@ -1429,7 +1159,7 @@
       "notaFinal": 43705
     },
     {
-      "posicaoNaFila": 159,
+      "posicaoNaFila": 129,
       "cidade": "São Bento do Sul",
       "uf": "SC",
       "populacao": "87661",
@@ -1438,7 +1168,7 @@
       "notaFinal": 43264
     },
     {
-      "posicaoNaFila": 160,
+      "posicaoNaFila": 130,
       "cidade": "Pontes e Lacerda",
       "uf": "MT",
       "populacao": "55762",
@@ -1447,7 +1177,7 @@
       "notaFinal": 39857
     },
     {
-      "posicaoNaFila": 161,
+      "posicaoNaFila": 131,
       "cidade": "Santa Rosa",
       "uf": "RS",
       "populacao": "79488",
@@ -1456,7 +1186,7 @@
       "notaFinal": 32419
     },
     {
-      "posicaoNaFila": 162,
+      "posicaoNaFila": 132,
       "cidade": "Cabedelo",
       "uf": "PB",
       "populacao": "70734",
@@ -1465,7 +1195,7 @@
       "notaFinal": 32152
     },
     {
-      "posicaoNaFila": 163,
+      "posicaoNaFila": 133,
       "cidade": "Camocim",
       "uf": "CE",
       "populacao": "65251",
@@ -1474,7 +1204,7 @@
       "notaFinal": 29524
     },
     {
-      "posicaoNaFila": 164,
+      "posicaoNaFila": 134,
       "cidade": "União da Vitória",
       "uf": "PR",
       "populacao": "56560",
@@ -1483,7 +1213,7 @@
       "notaFinal": 29372
     },
     {
-      "posicaoNaFila": 165,
+      "posicaoNaFila": 135,
       "cidade": "Naviraí",
       "uf": "MS",
       "populacao": "53014",
@@ -1492,7 +1222,7 @@
       "notaFinal": 24188
     },
     {
-      "posicaoNaFila": 166,
+      "posicaoNaFila": 136,
       "cidade": "Gravatá",
       "uf": "PE",
       "populacao": "92429",
@@ -1501,7 +1231,7 @@
       "notaFinal": 22876
     },
     {
-      "posicaoNaFila": 167,
+      "posicaoNaFila": 137,
       "cidade": "São Francisco do Sul",
       "uf": "SC",
       "populacao": "56726",
@@ -1510,7 +1240,7 @@
       "notaFinal": 20730
     },
     {
-      "posicaoNaFila": 168,
+      "posicaoNaFila": 138,
       "cidade": "Iguatu",
       "uf": "CE",
       "populacao": "102588",
@@ -1519,7 +1249,7 @@
       "notaFinal": 20049
     },
     {
-      "posicaoNaFila": 169,
+      "posicaoNaFila": 139,
       "cidade": "Aquiraz",
       "uf": "CE",
       "populacao": "85316",
@@ -1528,7 +1258,7 @@
       "notaFinal": 14098
     },
     {
-      "posicaoNaFila": 170,
+      "posicaoNaFila": 140,
       "cidade": "Ibiúna",
       "uf": "SP",
       "populacao": "77801",
@@ -1537,7 +1267,7 @@
       "notaFinal": 13493
     },
     {
-      "posicaoNaFila": 171,
+      "posicaoNaFila": 141,
       "cidade": "Januária",
       "uf": "MG",
       "populacao": "67123",
@@ -1546,7 +1276,7 @@
       "notaFinal": 12897
     },
     {
-      "posicaoNaFila": 172,
+      "posicaoNaFila": 142,
       "cidade": "Canela",
       "uf": "RS",
       "populacao": "50715",
@@ -1555,7 +1285,7 @@
       "notaFinal": 11461
     },
     {
-      "posicaoNaFila": 173,
+      "posicaoNaFila": 143,
       "cidade": "Cáceres",
       "uf": "MT",
       "populacao": "91767",
@@ -1564,7 +1294,7 @@
       "notaFinal": 8905
     },
     {
-      "posicaoNaFila": 174,
+      "posicaoNaFila": 144,
       "cidade": "Bayeux",
       "uf": "PB",
       "populacao": "83862",
@@ -1573,7 +1303,7 @@
       "notaFinal": 7790
     },
     {
-      "posicaoNaFila": 175,
+      "posicaoNaFila": 145,
       "cidade": "Horizonte",
       "uf": "CE",
       "populacao": "81161",
@@ -1582,7 +1312,7 @@
       "notaFinal": 7777
     },
     {
-      "posicaoNaFila": 176,
+      "posicaoNaFila": 146,
       "cidade": "Bacabal",
       "uf": "MA",
       "populacao": "107755",
@@ -1591,7 +1321,7 @@
       "notaFinal": 5900
     },
     {
-      "posicaoNaFila": 177,
+      "posicaoNaFila": 147,
       "cidade": "Senador Canedo",
       "uf": "GO",
       "populacao": "175042",
@@ -1600,7 +1330,7 @@
       "notaFinal": 5499
     },
     {
-      "posicaoNaFila": 178,
+      "posicaoNaFila": 148,
       "cidade": "Arcoverde",
       "uf": "PE",
       "populacao": "82487",
@@ -1609,7 +1339,7 @@
       "notaFinal": 4668
     },
     {
-      "posicaoNaFila": 179,
+      "posicaoNaFila": 149,
       "cidade": "Coroatá",
       "uf": "MA",
       "populacao": "61337",
@@ -1618,7 +1348,7 @@
       "notaFinal": 4618
     },
     {
-      "posicaoNaFila": 180,
+      "posicaoNaFila": 150,
       "cidade": "Palmeira dos Índios",
       "uf": "AL",
       "populacao": "73621",
@@ -1627,7 +1357,7 @@
       "notaFinal": 2997
     },
     {
-      "posicaoNaFila": 181,
+      "posicaoNaFila": 151,
       "cidade": "Rolim de Moura",
       "uf": "RO",
       "populacao": "62959",
@@ -1636,7 +1366,7 @@
       "notaFinal": 1739
     },
     {
-      "posicaoNaFila": 182,
+      "posicaoNaFila": 152,
       "cidade": "Dom Eliseu",
       "uf": "PA",
       "populacao": "62823",
@@ -1645,7 +1375,7 @@
       "notaFinal": 407
     },
     {
-      "posicaoNaFila": 183,
+      "posicaoNaFila": 153,
       "cidade": "Videira",
       "uf": "SC",
       "populacao": "59074",
@@ -1654,7 +1384,7 @@
       "notaFinal": 288
     },
     {
-      "posicaoNaFila": 184,
+      "posicaoNaFila": 154,
       "cidade": "Campo Bom",
       "uf": "RS",
       "populacao": "64719",
@@ -1663,7 +1393,7 @@
       "notaFinal": 111
     },
     {
-      "posicaoNaFila": 185,
+      "posicaoNaFila": 155,
       "cidade": "Teresópolis",
       "uf": "RJ",
       "populacao": "176735",
@@ -1672,7 +1402,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 186,
+      "posicaoNaFila": 156,
       "cidade": "Abaetetuba",
       "uf": "PA",
       "populacao": "172344",
@@ -1681,7 +1411,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 187,
+      "posicaoNaFila": 157,
       "cidade": "Itaituba",
       "uf": "PA",
       "populacao": "135369",
@@ -1690,7 +1420,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 188,
+      "posicaoNaFila": 158,
       "cidade": "Breves",
       "uf": "PA",
       "populacao": "116058",
@@ -1699,7 +1429,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 189,
+      "posicaoNaFila": 159,
       "cidade": "Santa Cruz do Capibaribe",
       "uf": "PE",
       "populacao": "104854",
@@ -1708,7 +1438,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 190,
+      "posicaoNaFila": 160,
       "cidade": "Japeri",
       "uf": "RJ",
       "populacao": "102171",
@@ -1717,7 +1447,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 191,
+      "posicaoNaFila": 161,
       "cidade": "Parintins",
       "uf": "AM",
       "populacao": "101855",
@@ -1726,7 +1456,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 192,
+      "posicaoNaFila": 162,
       "cidade": "Pinheiro",
       "uf": "MA",
       "populacao": "88091",
@@ -1735,7 +1465,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 193,
+      "posicaoNaFila": 163,
       "cidade": "Carpina",
       "uf": "PE",
       "populacao": "83482",
@@ -1744,7 +1474,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 194,
+      "posicaoNaFila": 164,
       "cidade": "Tailândia",
       "uf": "PA",
       "populacao": "75290",
@@ -1753,7 +1483,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 195,
+      "posicaoNaFila": 165,
       "cidade": "Sousa",
       "uf": "PB",
       "populacao": "70066",
@@ -1762,7 +1492,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 196,
+      "posicaoNaFila": 166,
       "cidade": "Camaquã",
       "uf": "RS",
       "populacao": "63961",
@@ -1771,7 +1501,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 197,
+      "posicaoNaFila": 167,
       "cidade": "Carazinho",
       "uf": "RS",
       "populacao": "63670",
@@ -1780,7 +1510,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 198,
+      "posicaoNaFila": 168,
       "cidade": "Nova Mutum",
       "uf": "MT",
       "populacao": "63455",
@@ -1789,7 +1519,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 199,
+      "posicaoNaFila": 169,
       "cidade": "Acará",
       "uf": "PA",
       "populacao": "63110",
@@ -1798,7 +1528,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 200,
+      "posicaoNaFila": 170,
       "cidade": "São Gabriel da Cachoeira",
       "uf": "AM",
       "populacao": "57396",
@@ -1807,7 +1537,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 201,
+      "posicaoNaFila": 171,
       "cidade": "Óbidos",
       "uf": "PA",
       "populacao": "55527",
@@ -1816,7 +1546,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 202,
+      "posicaoNaFila": 172,
       "cidade": "Juruti",
       "uf": "PA",
       "populacao": "54255",
@@ -1825,7 +1555,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 203,
+      "posicaoNaFila": 173,
       "cidade": "Barra Velha",
       "uf": "SC",
       "populacao": "52860",
@@ -1834,7 +1564,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 204,
+      "posicaoNaFila": 174,
       "cidade": "Alvorada",
       "uf": "RS",
       "populacao": "194062",
@@ -1843,7 +1573,7 @@
       "notaFinal": 96014
     },
     {
-      "posicaoNaFila": 205,
+      "posicaoNaFila": 175,
       "cidade": "Porto Feliz",
       "uf": "SP",
       "populacao": "58605",
@@ -1852,7 +1582,7 @@
       "notaFinal": 67794
     },
     {
-      "posicaoNaFila": 206,
+      "posicaoNaFila": 176,
       "cidade": "Corumbá",
       "uf": "MS",
       "populacao": "98751",
@@ -1861,7 +1591,7 @@
       "notaFinal": 61644
     },
     {
-      "posicaoNaFila": 207,
+      "posicaoNaFila": 177,
       "cidade": "Cidade Ocidental",
       "uf": "GO",
       "populacao": "101570",
@@ -1870,7 +1600,7 @@
       "notaFinal": 42989
     },
     {
-      "posicaoNaFila": 208,
+      "posicaoNaFila": 178,
       "cidade": "Itaguaí",
       "uf": "RJ",
       "populacao": "124021",
@@ -1879,7 +1609,7 @@
       "notaFinal": 40793
     },
     {
-      "posicaoNaFila": 209,
+      "posicaoNaFila": 179,
       "cidade": "Canaã dos Carajás",
       "uf": "PA",
       "populacao": "89524",
@@ -1888,7 +1618,7 @@
       "notaFinal": 32636
     },
     {
-      "posicaoNaFila": 210,
+      "posicaoNaFila": 180,
       "cidade": "Canguçu",
       "uf": "RS",
       "populacao": "50968",
@@ -1897,7 +1627,7 @@
       "notaFinal": 21707
     },
     {
-      "posicaoNaFila": 211,
+      "posicaoNaFila": 181,
       "cidade": "Cruz Alta",
       "uf": "RS",
       "populacao": "60454",
@@ -1906,7 +1636,7 @@
       "notaFinal": 15248
     },
     {
-      "posicaoNaFila": 212,
+      "posicaoNaFila": 182,
       "cidade": "Cascavel",
       "uf": "CE",
       "populacao": "76866",
@@ -1915,7 +1645,7 @@
       "notaFinal": 2122
     },
     {
-      "posicaoNaFila": 213,
+      "posicaoNaFila": 183,
       "cidade": "Bento Gonçalves",
       "uf": "RS",
       "populacao": "127977",
@@ -1924,7 +1654,7 @@
       "notaFinal": 845
     },
     {
-      "posicaoNaFila": 214,
+      "posicaoNaFila": 184,
       "cidade": "Benevides",
       "uf": "PA",
       "populacao": "68962",
@@ -1933,7 +1663,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 215,
+      "posicaoNaFila": 185,
       "cidade": "Guarapari",
       "uf": "ES",
       "populacao": "136311",
@@ -1942,7 +1672,7 @@
       "notaFinal": 74947
     },
     {
-      "posicaoNaFila": 216,
+      "posicaoNaFila": 186,
       "cidade": "Crateús",
       "uf": "CE",
       "populacao": "80130",
@@ -1951,7 +1681,7 @@
       "notaFinal": 28114
     },
     {
-      "posicaoNaFila": 217,
+      "posicaoNaFila": 187,
       "cidade": "Marituba",
       "uf": "PA",
       "populacao": "119437",
@@ -1960,7 +1690,7 @@
       "notaFinal": 17677
     },
     {
-      "posicaoNaFila": 218,
+      "posicaoNaFila": 188,
       "cidade": "Tutóia",
       "uf": "MA",
       "populacao": "55076",
@@ -1969,7 +1699,7 @@
       "notaFinal": 1561
     },
     {
-      "posicaoNaFila": 219,
+      "posicaoNaFila": 189,
       "cidade": "Chapadinha",
       "uf": "MA",
       "populacao": "84395",
@@ -1978,7 +1708,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 220,
+      "posicaoNaFila": 190,
       "cidade": "Montenegro",
       "uf": "RS",
       "populacao": "66352",
@@ -1987,7 +1717,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 221,
+      "posicaoNaFila": 191,
       "cidade": "Itumbiara",
       "uf": "GO",
       "populacao": "113322",
@@ -1996,7 +1726,7 @@
       "notaFinal": 116243
     },
     {
-      "posicaoNaFila": 222,
+      "posicaoNaFila": 192,
       "cidade": "Pará de Minas",
       "uf": "MG",
       "populacao": "102844",
@@ -2005,7 +1735,7 @@
       "notaFinal": 108711
     },
     {
-      "posicaoNaFila": 223,
+      "posicaoNaFila": 193,
       "cidade": "Itaúna",
       "uf": "MG",
       "populacao": "103272",
@@ -2014,7 +1744,7 @@
       "notaFinal": 104760
     },
     {
-      "posicaoNaFila": 224,
+      "posicaoNaFila": 194,
       "cidade": "São João da Boa Vista",
       "uf": "SP",
       "populacao": "96080",
@@ -2023,7 +1753,7 @@
       "notaFinal": 95995
     },
     {
-      "posicaoNaFila": 225,
+      "posicaoNaFila": 195,
       "cidade": "João Monlevade",
       "uf": "MG",
       "populacao": "83791",
@@ -2032,7 +1762,7 @@
       "notaFinal": 90212
     },
     {
-      "posicaoNaFila": 226,
+      "posicaoNaFila": 196,
       "cidade": "Goianésia",
       "uf": "GO",
       "populacao": "78009",
@@ -2041,7 +1771,7 @@
       "notaFinal": 73902
     },
     {
-      "posicaoNaFila": 227,
+      "posicaoNaFila": 197,
       "cidade": "Formiga",
       "uf": "MG",
       "populacao": "70897",
@@ -2050,7 +1780,7 @@
       "notaFinal": 67668
     },
     {
-      "posicaoNaFila": 228,
+      "posicaoNaFila": 198,
       "cidade": "União dos Palmares",
       "uf": "AL",
       "populacao": "60860",
@@ -2059,7 +1789,7 @@
       "notaFinal": 66688
     },
     {
-      "posicaoNaFila": 229,
+      "posicaoNaFila": 199,
       "cidade": "Buíque",
       "uf": "PE",
       "populacao": "53489",
@@ -2068,7 +1798,7 @@
       "notaFinal": 51414
     },
     {
-      "posicaoNaFila": 230,
+      "posicaoNaFila": 200,
       "cidade": "Registro",
       "uf": "SP",
       "populacao": "61927",
@@ -2077,7 +1807,7 @@
       "notaFinal": 50642
     },
     {
-      "posicaoNaFila": 231,
+      "posicaoNaFila": 201,
       "cidade": "Morrinhos",
       "uf": "GO",
       "populacao": "54326",
@@ -2086,7 +1816,7 @@
       "notaFinal": 40839
     },
     {
-      "posicaoNaFila": 232,
+      "posicaoNaFila": 202,
       "cidade": "Guarabira",
       "uf": "PB",
       "populacao": "60057",
@@ -2095,7 +1825,7 @@
       "notaFinal": 37478
     },
     {
-      "posicaoNaFila": 233,
+      "posicaoNaFila": 203,
       "cidade": "Casa Nova",
       "uf": "BA",
       "populacao": "76131",
@@ -2104,7 +1834,7 @@
       "notaFinal": 36563
     },
     {
-      "posicaoNaFila": 234,
+      "posicaoNaFila": 204,
       "cidade": "Cruz das Almas",
       "uf": "BA",
       "populacao": "63326",
@@ -2113,7 +1843,7 @@
       "notaFinal": 34460
     },
     {
-      "posicaoNaFila": 235,
+      "posicaoNaFila": 205,
       "cidade": "Itaberaba",
       "uf": "BA",
       "populacao": "68425",
@@ -2122,7 +1852,7 @@
       "notaFinal": 33508
     },
     {
-      "posicaoNaFila": 236,
+      "posicaoNaFila": 206,
       "cidade": "Delmiro Gouveia",
       "uf": "AL",
       "populacao": "52845",
@@ -2131,7 +1861,7 @@
       "notaFinal": 33435
     },
     {
-      "posicaoNaFila": 237,
+      "posicaoNaFila": 207,
       "cidade": "Pacatuba",
       "uf": "CE",
       "populacao": "86564",
@@ -2140,7 +1870,7 @@
       "notaFinal": 31271
     },
     {
-      "posicaoNaFila": 238,
+      "posicaoNaFila": 208,
       "cidade": "Viana",
       "uf": "ES",
       "populacao": "79043",
@@ -2149,7 +1879,7 @@
       "notaFinal": 28891
     },
     {
-      "posicaoNaFila": 239,
+      "posicaoNaFila": 209,
       "cidade": "Salgueiro",
       "uf": "PE",
       "populacao": "65946",
@@ -2158,7 +1888,7 @@
       "notaFinal": 27851
     },
     {
-      "posicaoNaFila": 240,
+      "posicaoNaFila": 210,
       "cidade": "Tijucas",
       "uf": "SC",
       "populacao": "58695",
@@ -2167,7 +1897,7 @@
       "notaFinal": 27561
     },
     {
-      "posicaoNaFila": 241,
+      "posicaoNaFila": 211,
       "cidade": "Ijuí",
       "uf": "RS",
       "populacao": "87848",
@@ -2176,7 +1906,7 @@
       "notaFinal": 21989
     },
     {
-      "posicaoNaFila": 242,
+      "posicaoNaFila": 212,
       "cidade": "Goianira",
       "uf": "GO",
       "populacao": "81495",
@@ -2185,7 +1915,7 @@
       "notaFinal": 19344
     },
     {
-      "posicaoNaFila": 243,
+      "posicaoNaFila": 213,
       "cidade": "Alegrete",
       "uf": "RS",
       "populacao": "74285",
@@ -2194,7 +1924,7 @@
       "notaFinal": 18001
     },
     {
-      "posicaoNaFila": 244,
+      "posicaoNaFila": 214,
       "cidade": "Caicó",
       "uf": "RN",
       "populacao": "63338",
@@ -2203,7 +1933,7 @@
       "notaFinal": 17364
     },
     {
-      "posicaoNaFila": 245,
+      "posicaoNaFila": 215,
       "cidade": "Coruripe",
       "uf": "AL",
       "populacao": "51784",
@@ -2212,7 +1942,7 @@
       "notaFinal": 15683
     },
     {
-      "posicaoNaFila": 246,
+      "posicaoNaFila": 216,
       "cidade": "Jacobina",
       "uf": "BA",
       "populacao": "86896",
@@ -2221,7 +1951,7 @@
       "notaFinal": 12493
     },
     {
-      "posicaoNaFila": 247,
+      "posicaoNaFila": 217,
       "cidade": "Aracati",
       "uf": "CE",
       "populacao": "79205",
@@ -2230,7 +1960,7 @@
       "notaFinal": 11486
     },
     {
-      "posicaoNaFila": 248,
+      "posicaoNaFila": 218,
       "cidade": "Barbalha",
       "uf": "CE",
       "populacao": "81441",
@@ -2239,7 +1969,7 @@
       "notaFinal": 5919
     },
     {
-      "posicaoNaFila": 249,
+      "posicaoNaFila": 219,
       "cidade": "Acaraú",
       "uf": "CE",
       "populacao": "69317",
@@ -2248,7 +1978,7 @@
       "notaFinal": 3634
     },
     {
-      "posicaoNaFila": 250,
+      "posicaoNaFila": 220,
       "cidade": "Imbituba",
       "uf": "SC",
       "populacao": "57256",
@@ -2257,7 +1987,7 @@
       "notaFinal": 3530
     },
     {
-      "posicaoNaFila": 251,
+      "posicaoNaFila": 221,
       "cidade": "Açailândia",
       "uf": "MA",
       "populacao": "110611",
@@ -2266,7 +1996,7 @@
       "notaFinal": 1780
     },
     {
-      "posicaoNaFila": 252,
+      "posicaoNaFila": 222,
       "cidade": "Queimadas",
       "uf": "PB",
       "populacao": "50698",
@@ -2275,7 +2005,7 @@
       "notaFinal": 959
     },
     {
-      "posicaoNaFila": 253,
+      "posicaoNaFila": 223,
       "cidade": "Itaitinga",
       "uf": "CE",
       "populacao": "72512",
@@ -2284,7 +2014,7 @@
       "notaFinal": 465
     },
     {
-      "posicaoNaFila": 254,
+      "posicaoNaFila": 224,
       "cidade": "Moju",
       "uf": "PA",
       "populacao": "91760",
@@ -2293,7 +2023,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 255,
+      "posicaoNaFila": 225,
       "cidade": "Barra do Corda",
       "uf": "MA",
       "populacao": "87757",
@@ -2302,7 +2032,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 256,
+      "posicaoNaFila": 226,
       "cidade": "Quixeramobim",
       "uf": "CE",
       "populacao": "86431",
@@ -2311,7 +2041,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 257,
+      "posicaoNaFila": 227,
       "cidade": "Tefé",
       "uf": "AM",
       "populacao": "80137",
@@ -2320,7 +2050,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 258,
+      "posicaoNaFila": 228,
       "cidade": "Santa Izabel do Pará",
       "uf": "PA",
       "populacao": "79195",
@@ -2329,7 +2059,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 259,
+      "posicaoNaFila": 229,
       "cidade": "Extremoz",
       "uf": "RN",
       "populacao": "68584",
@@ -2338,7 +2068,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 260,
+      "posicaoNaFila": 230,
       "cidade": "Viseu",
       "uf": "PA",
       "populacao": "62189",
@@ -2347,7 +2077,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 261,
+      "posicaoNaFila": 231,
       "cidade": "Escada",
       "uf": "PE",
       "populacao": "62174",
@@ -2356,7 +2086,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 262,
+      "posicaoNaFila": 232,
       "cidade": "Manicoré",
       "uf": "AM",
       "populacao": "58018",
@@ -2365,7 +2095,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 263,
+      "posicaoNaFila": 233,
       "cidade": "Buriticupu",
       "uf": "MA",
       "populacao": "56733",
@@ -2374,7 +2104,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 264,
+      "posicaoNaFila": 234,
       "cidade": "Palmares",
       "uf": "PE",
       "populacao": "56475",
@@ -2383,7 +2113,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 265,
+      "posicaoNaFila": 235,
       "cidade": "Jaru",
       "uf": "RO",
       "populacao": "55682",
@@ -2392,7 +2122,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 266,
+      "posicaoNaFila": 236,
       "cidade": "Vigia",
       "uf": "PA",
       "populacao": "54062",
@@ -2401,7 +2131,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 267,
+      "posicaoNaFila": 237,
       "cidade": "Viana",
       "uf": "MA",
       "populacao": "53176",
@@ -2410,7 +2140,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 268,
+      "posicaoNaFila": 238,
       "cidade": "Jaú",
       "uf": "SP",
       "populacao": "137409",
@@ -2419,7 +2149,7 @@
       "notaFinal": 143730
     },
     {
-      "posicaoNaFila": 269,
+      "posicaoNaFila": 239,
       "cidade": "Barretos",
       "uf": "SP",
       "populacao": "126957",
@@ -2428,7 +2158,7 @@
       "notaFinal": 129722
     },
     {
-      "posicaoNaFila": 270,
+      "posicaoNaFila": 240,
       "cidade": "Valinhos",
       "uf": "SP",
       "populacao": "132258",
@@ -2437,7 +2167,7 @@
       "notaFinal": 124999
     },
     {
-      "posicaoNaFila": 271,
+      "posicaoNaFila": 241,
       "cidade": "Vespasiano",
       "uf": "MG",
       "populacao": "138583",
@@ -2446,7 +2176,7 @@
       "notaFinal": 121229
     },
     {
-      "posicaoNaFila": 272,
+      "posicaoNaFila": 242,
       "cidade": "Jandira",
       "uf": "SP",
       "populacao": "121550",
@@ -2455,7 +2185,7 @@
       "notaFinal": 118930
     },
     {
-      "posicaoNaFila": 273,
+      "posicaoNaFila": 243,
       "cidade": "Piraquara",
       "uf": "PR",
       "populacao": "127433",
@@ -2464,7 +2194,7 @@
       "notaFinal": 117464
     },
     {
-      "posicaoNaFila": 274,
+      "posicaoNaFila": 244,
       "cidade": "Formosa",
       "uf": "GO",
       "populacao": "121559",
@@ -2473,7 +2203,7 @@
       "notaFinal": 114968
     },
     {
-      "posicaoNaFila": 275,
+      "posicaoNaFila": 245,
       "cidade": "Araruama",
       "uf": "RJ",
       "populacao": "137906",
@@ -2482,7 +2212,7 @@
       "notaFinal": 110678
     },
     {
-      "posicaoNaFila": 276,
+      "posicaoNaFila": 246,
       "cidade": "Leme",
       "uf": "SP",
       "populacao": "101537",
@@ -2491,7 +2221,7 @@
       "notaFinal": 106118
     },
     {
-      "posicaoNaFila": 277,
+      "posicaoNaFila": 247,
       "cidade": "Itatiba",
       "uf": "SP",
       "populacao": "127112",
@@ -2500,7 +2230,7 @@
       "notaFinal": 105022
     },
     {
-      "posicaoNaFila": 278,
+      "posicaoNaFila": 248,
       "cidade": "Itaperuna",
       "uf": "RJ",
       "populacao": "107297",
@@ -2509,7 +2239,7 @@
       "notaFinal": 101730
     },
     {
-      "posicaoNaFila": 279,
+      "posicaoNaFila": 249,
       "cidade": "São João del Rei",
       "uf": "MG",
       "populacao": "94468",
@@ -2518,7 +2248,7 @@
       "notaFinal": 100251
     },
     {
-      "posicaoNaFila": 280,
+      "posicaoNaFila": 250,
       "cidade": "Atibaia",
       "uf": "SP",
       "populacao": "167161",
@@ -2527,7 +2257,7 @@
       "notaFinal": 99052
     },
     {
-      "posicaoNaFila": 281,
+      "posicaoNaFila": 251,
       "cidade": "Planaltina",
       "uf": "GO",
       "populacao": "112304",
@@ -2536,7 +2266,7 @@
       "notaFinal": 96557
     },
     {
-      "posicaoNaFila": 282,
+      "posicaoNaFila": 252,
       "cidade": "Coronel Fabriciano",
       "uf": "MG",
       "populacao": "108708",
@@ -2545,7 +2275,7 @@
       "notaFinal": 95941
     },
     {
-      "posicaoNaFila": 283,
+      "posicaoNaFila": 253,
       "cidade": "Caieiras",
       "uf": "SP",
       "populacao": "98549",
@@ -2554,7 +2284,7 @@
       "notaFinal": 90676
     },
     {
-      "posicaoNaFila": 284,
+      "posicaoNaFila": 254,
       "cidade": "Mogi Mirim",
       "uf": "SP",
       "populacao": "95742",
@@ -2563,7 +2293,7 @@
       "notaFinal": 90136
     },
     {
-      "posicaoNaFila": 285,
+      "posicaoNaFila": 255,
       "cidade": "Barra do Piraí",
       "uf": "RJ",
       "populacao": "98506",
@@ -2572,7 +2302,7 @@
       "notaFinal": 88568
     },
     {
-      "posicaoNaFila": 286,
+      "posicaoNaFila": 256,
       "cidade": "Itajubá",
       "uf": "MG",
       "populacao": "96855",
@@ -2581,7 +2311,7 @@
       "notaFinal": 84673
     },
     {
-      "posicaoNaFila": 287,
+      "posicaoNaFila": 257,
       "cidade": "Cajamar",
       "uf": "SP",
       "populacao": "98365",
@@ -2590,7 +2320,7 @@
       "notaFinal": 82977
     },
     {
-      "posicaoNaFila": 288,
+      "posicaoNaFila": 258,
       "cidade": "Serra Talhada",
       "uf": "PE",
       "populacao": "98816",
@@ -2599,7 +2329,7 @@
       "notaFinal": 79426
     },
     {
-      "posicaoNaFila": 289,
+      "posicaoNaFila": 259,
       "cidade": "Alfenas",
       "uf": "MG",
       "populacao": "82303",
@@ -2608,7 +2338,7 @@
       "notaFinal": 76396
     },
     {
-      "posicaoNaFila": 290,
+      "posicaoNaFila": 260,
       "cidade": "Itapeva",
       "uf": "SP",
       "populacao": "92393",
@@ -2617,7 +2347,7 @@
       "notaFinal": 75721
     },
     {
-      "posicaoNaFila": 291,
+      "posicaoNaFila": 261,
       "cidade": "Saquarema",
       "uf": "RJ",
       "populacao": "95315",
@@ -2626,7 +2356,7 @@
       "notaFinal": 73117
     },
     {
-      "posicaoNaFila": 292,
+      "posicaoNaFila": 262,
       "cidade": "Itapetinga",
       "uf": "BA",
       "populacao": "68724",
@@ -2635,7 +2365,7 @@
       "notaFinal": 71076
     },
     {
-      "posicaoNaFila": 293,
+      "posicaoNaFila": 263,
       "cidade": "São Sebastião do Paraíso",
       "uf": "MG",
       "populacao": "75179",
@@ -2644,7 +2374,7 @@
       "notaFinal": 67652
     },
     {
-      "posicaoNaFila": 294,
+      "posicaoNaFila": 264,
       "cidade": "Tupã",
       "uf": "SP",
       "populacao": "65433",
@@ -2653,7 +2383,7 @@
       "notaFinal": 65026
     },
     {
-      "posicaoNaFila": 295,
+      "posicaoNaFila": 265,
       "cidade": "Jaguariúna",
       "uf": "SP",
       "populacao": "62309",
@@ -2662,7 +2392,7 @@
       "notaFinal": 64753
     },
     {
-      "posicaoNaFila": 296,
+      "posicaoNaFila": 266,
       "cidade": "Mococa",
       "uf": "SP",
       "populacao": "69372",
@@ -2671,7 +2401,7 @@
       "notaFinal": 64601
     },
     {
-      "posicaoNaFila": 297,
+      "posicaoNaFila": 267,
       "cidade": "Ponte Nova",
       "uf": "MG",
       "populacao": "59638",
@@ -2680,7 +2410,7 @@
       "notaFinal": 64197
     },
     {
-      "posicaoNaFila": 298,
+      "posicaoNaFila": 268,
       "cidade": "Ibitinga",
       "uf": "SP",
       "populacao": "62143",
@@ -2689,7 +2419,7 @@
       "notaFinal": 63033
     },
     {
-      "posicaoNaFila": 299,
+      "posicaoNaFila": 269,
       "cidade": "Mariana",
       "uf": "MG",
       "populacao": "64506",
@@ -2698,7 +2428,7 @@
       "notaFinal": 61388
     },
     {
-      "posicaoNaFila": 300,
+      "posicaoNaFila": 270,
       "cidade": "Três Pontas",
       "uf": "MG",
       "populacao": "57209",
@@ -2707,7 +2437,7 @@
       "notaFinal": 61157
     },
     {
-      "posicaoNaFila": 301,
+      "posicaoNaFila": 271,
       "cidade": "Cosmópolis",
       "uf": "SP",
       "populacao": "61167",
@@ -2716,7 +2446,7 @@
       "notaFinal": 61112
     },
     {
-      "posicaoNaFila": 302,
+      "posicaoNaFila": 272,
       "cidade": "Andradina",
       "uf": "SP",
       "populacao": "61625",
@@ -2725,7 +2455,7 @@
       "notaFinal": 61050
     },
     {
-      "posicaoNaFila": 303,
+      "posicaoNaFila": 273,
       "cidade": "Monte Mor",
       "uf": "SP",
       "populacao": "67832",
@@ -2734,7 +2464,7 @@
       "notaFinal": 60137
     },
     {
-      "posicaoNaFila": 304,
+      "posicaoNaFila": 274,
       "cidade": "Porto Ferreira",
       "uf": "SP",
       "populacao": "53966",
@@ -2743,7 +2473,7 @@
       "notaFinal": 57450
     },
     {
-      "posicaoNaFila": 305,
+      "posicaoNaFila": 275,
       "cidade": "Ibiporã",
       "uf": "PR",
       "populacao": "53276",
@@ -2752,7 +2482,7 @@
       "notaFinal": 56342
     },
     {
-      "posicaoNaFila": 306,
+      "posicaoNaFila": 276,
       "cidade": "Capivari",
       "uf": "SP",
       "populacao": "51369",
@@ -2761,7 +2491,7 @@
       "notaFinal": 55632
     },
     {
-      "posicaoNaFila": 307,
+      "posicaoNaFila": 277,
       "cidade": "Pesqueira",
       "uf": "PE",
       "populacao": "65481",
@@ -2770,7 +2500,7 @@
       "notaFinal": 54648
     },
     {
-      "posicaoNaFila": 308,
+      "posicaoNaFila": 278,
       "cidade": "Taquaritinga",
       "uf": "SP",
       "populacao": "53264",
@@ -2779,7 +2509,7 @@
       "notaFinal": 54583
     },
     {
-      "posicaoNaFila": 309,
+      "posicaoNaFila": 279,
       "cidade": "Louveira",
       "uf": "SP",
       "populacao": "54865",
@@ -2788,7 +2518,7 @@
       "notaFinal": 54023
     },
     {
-      "posicaoNaFila": 310,
+      "posicaoNaFila": 280,
       "cidade": "Itabirito",
       "uf": "MG",
       "populacao": "56369",
@@ -2797,7 +2527,7 @@
       "notaFinal": 51809
     },
     {
-      "posicaoNaFila": 311,
+      "posicaoNaFila": 281,
       "cidade": "Jales",
       "uf": "SP",
       "populacao": "50078",
@@ -2806,7 +2536,7 @@
       "notaFinal": 51742
     },
     {
-      "posicaoNaFila": 312,
+      "posicaoNaFila": 282,
       "cidade": "Novo Gama",
       "uf": "GO",
       "populacao": "107663",
@@ -2815,7 +2545,7 @@
       "notaFinal": 51571
     },
     {
-      "posicaoNaFila": 313,
+      "posicaoNaFila": 283,
       "cidade": "Rio Bonito",
       "uf": "RJ",
       "populacao": "59126",
@@ -2824,7 +2554,7 @@
       "notaFinal": 51046
     },
     {
-      "posicaoNaFila": 314,
+      "posicaoNaFila": 284,
       "cidade": "Guanambi",
       "uf": "BA",
       "populacao": "93488",
@@ -2833,7 +2563,7 @@
       "notaFinal": 50796
     },
     {
-      "posicaoNaFila": 315,
+      "posicaoNaFila": 285,
       "cidade": "Esteio",
       "uf": "RS",
       "populacao": "78144",
@@ -2842,7 +2572,7 @@
       "notaFinal": 50003
     },
     {
-      "posicaoNaFila": 316,
+      "posicaoNaFila": 286,
       "cidade": "Boituva",
       "uf": "SP",
       "populacao": "63850",
@@ -2851,7 +2581,7 @@
       "notaFinal": 49824
     },
     {
-      "posicaoNaFila": 317,
+      "posicaoNaFila": 287,
       "cidade": "Campina Grande do Sul",
       "uf": "PR",
       "populacao": "50600",
@@ -2860,7 +2590,7 @@
       "notaFinal": 48886
     },
     {
-      "posicaoNaFila": 318,
+      "posicaoNaFila": 288,
       "cidade": "Santo Antônio do Descoberto",
       "uf": "GO",
       "populacao": "75221",
@@ -2869,7 +2599,7 @@
       "notaFinal": 48836
     },
     {
-      "posicaoNaFila": 319,
+      "posicaoNaFila": 289,
       "cidade": "Goiana",
       "uf": "PE",
       "populacao": "85497",
@@ -2878,7 +2608,7 @@
       "notaFinal": 46282
     },
     {
-      "posicaoNaFila": 320,
+      "posicaoNaFila": 290,
       "cidade": "Ouro Preto",
       "uf": "MG",
       "populacao": "77914",
@@ -2887,7 +2617,7 @@
       "notaFinal": 46056
     },
     {
-      "posicaoNaFila": 321,
+      "posicaoNaFila": 291,
       "cidade": "Ubatuba",
       "uf": "SP",
       "populacao": "97096",
@@ -2896,7 +2626,7 @@
       "notaFinal": 43121
     },
     {
-      "posicaoNaFila": 322,
+      "posicaoNaFila": 292,
       "cidade": "Itamaraju",
       "uf": "BA",
       "populacao": "61999",
@@ -2905,7 +2635,7 @@
       "notaFinal": 40850
     },
     {
-      "posicaoNaFila": 323,
+      "posicaoNaFila": 293,
       "cidade": "Congonhas",
       "uf": "MG",
       "populacao": "55272",
@@ -2914,7 +2644,7 @@
       "notaFinal": 40410
     },
     {
-      "posicaoNaFila": 324,
+      "posicaoNaFila": 294,
       "cidade": "Lagoa Santa",
       "uf": "MG",
       "populacao": "81299",
@@ -2923,7 +2653,7 @@
       "notaFinal": 39566
     },
     {
-      "posicaoNaFila": 325,
+      "posicaoNaFila": 295,
       "cidade": "Sant'Ana do Livramento",
       "uf": "RS",
       "populacao": "87329",
@@ -2932,7 +2662,7 @@
       "notaFinal": 36678
     },
     {
-      "posicaoNaFila": 326,
+      "posicaoNaFila": 296,
       "cidade": "Guaíba",
       "uf": "RS",
       "populacao": "95946",
@@ -2941,7 +2671,7 @@
       "notaFinal": 33166
     },
     {
-      "posicaoNaFila": 327,
+      "posicaoNaFila": 297,
       "cidade": "Santa Isabel",
       "uf": "SP",
       "populacao": "54691",
@@ -2950,7 +2680,7 @@
       "notaFinal": 26689
     },
     {
-      "posicaoNaFila": 328,
+      "posicaoNaFila": 298,
       "cidade": "Brejo Santo",
       "uf": "CE",
       "populacao": "54192",
@@ -2959,7 +2689,7 @@
       "notaFinal": 26493
     },
     {
-      "posicaoNaFila": 329,
+      "posicaoNaFila": 299,
       "cidade": "Abreu e Lima",
       "uf": "PE",
       "populacao": "104248",
@@ -2968,7 +2698,7 @@
       "notaFinal": 26004
     },
     {
-      "posicaoNaFila": 330,
+      "posicaoNaFila": 300,
       "cidade": "Barra",
       "uf": "BA",
       "populacao": "53642",
@@ -2977,7 +2707,7 @@
       "notaFinal": 25558
     },
     {
-      "posicaoNaFila": 331,
+      "posicaoNaFila": 301,
       "cidade": "Mesquita",
       "uf": "RJ",
       "populacao": "178830",
@@ -2986,7 +2716,7 @@
       "notaFinal": 25136
     },
     {
-      "posicaoNaFila": 332,
+      "posicaoNaFila": 302,
       "cidade": "Bom Jesus da Lapa",
       "uf": "BA",
       "populacao": "68866",
@@ -2995,7 +2725,7 @@
       "notaFinal": 24539
     },
     {
-      "posicaoNaFila": 333,
+      "posicaoNaFila": 303,
       "cidade": "Nova Andradina",
       "uf": "MS",
       "populacao": "50848",
@@ -3004,7 +2734,7 @@
       "notaFinal": 22300
     },
     {
-      "posicaoNaFila": 334,
+      "posicaoNaFila": 304,
       "cidade": "Viçosa do Ceará",
       "uf": "CE",
       "populacao": "62972",
@@ -3013,7 +2743,7 @@
       "notaFinal": 21263
     },
     {
-      "posicaoNaFila": 335,
+      "posicaoNaFila": 305,
       "cidade": "Janaúba",
       "uf": "MG",
       "populacao": "73555",
@@ -3022,7 +2752,7 @@
       "notaFinal": 19933
     },
     {
-      "posicaoNaFila": 336,
+      "posicaoNaFila": 306,
       "cidade": "São Francisco",
       "uf": "MG",
       "populacao": "54223",
@@ -3031,7 +2761,7 @@
       "notaFinal": 19737
     },
     {
-      "posicaoNaFila": 337,
+      "posicaoNaFila": 307,
       "cidade": "Canindé",
       "uf": "CE",
       "populacao": "77376",
@@ -3040,7 +2770,7 @@
       "notaFinal": 17633
     },
     {
-      "posicaoNaFila": 338,
+      "posicaoNaFila": 308,
       "cidade": "Floriano",
       "uf": "PI",
       "populacao": "64393",
@@ -3049,7 +2779,7 @@
       "notaFinal": 17593
     },
     {
-      "posicaoNaFila": 339,
+      "posicaoNaFila": 309,
       "cidade": "Ipirá",
       "uf": "BA",
       "populacao": "59222",
@@ -3058,7 +2788,7 @@
       "notaFinal": 16983
     },
     {
-      "posicaoNaFila": 340,
+      "posicaoNaFila": 310,
       "cidade": "Tramandaí",
       "uf": "RS",
       "populacao": "56430",
@@ -3067,7 +2797,7 @@
       "notaFinal": 16697
     },
     {
-      "posicaoNaFila": 341,
+      "posicaoNaFila": 311,
       "cidade": "Quixadá",
       "uf": "CE",
       "populacao": "88846",
@@ -3076,7 +2806,7 @@
       "notaFinal": 15617
     },
     {
-      "posicaoNaFila": 342,
+      "posicaoNaFila": 312,
       "cidade": "Icó",
       "uf": "CE",
       "populacao": "64745",
@@ -3085,7 +2815,7 @@
       "notaFinal": 15287
     },
     {
-      "posicaoNaFila": 343,
+      "posicaoNaFila": 313,
       "cidade": "Piripiri",
       "uf": "PI",
       "populacao": "67887",
@@ -3094,7 +2824,7 @@
       "notaFinal": 15191
     },
     {
-      "posicaoNaFila": 344,
+      "posicaoNaFila": 314,
       "cidade": "Russas",
       "uf": "CE",
       "populacao": "74834",
@@ -3103,7 +2833,7 @@
       "notaFinal": 14418
     },
     {
-      "posicaoNaFila": 345,
+      "posicaoNaFila": 315,
       "cidade": "Ceará-Mirim",
       "uf": "RN",
       "populacao": "83543",
@@ -3112,7 +2842,7 @@
       "notaFinal": 14398
     },
     {
-      "posicaoNaFila": 346,
+      "posicaoNaFila": 316,
       "cidade": "Maués",
       "uf": "AM",
       "populacao": "66336",
@@ -3121,7 +2851,7 @@
       "notaFinal": 14226
     },
     {
-      "posicaoNaFila": 347,
+      "posicaoNaFila": 317,
       "cidade": "São Borja",
       "uf": "RS",
       "populacao": "61311",
@@ -3130,7 +2860,7 @@
       "notaFinal": 13761
     },
     {
-      "posicaoNaFila": 348,
+      "posicaoNaFila": 318,
       "cidade": "Içara",
       "uf": "SC",
       "populacao": "63489",
@@ -3139,7 +2869,7 @@
       "notaFinal": 13516
     },
     {
-      "posicaoNaFila": 349,
+      "posicaoNaFila": 319,
       "cidade": "Caxias",
       "uf": "MA",
       "populacao": "163546",
@@ -3148,7 +2878,7 @@
       "notaFinal": 13338
     },
     {
-      "posicaoNaFila": 350,
+      "posicaoNaFila": 320,
       "cidade": "Estância",
       "uf": "SE",
       "populacao": "67060",
@@ -3157,7 +2887,7 @@
       "notaFinal": 7972
     },
     {
-      "posicaoNaFila": 351,
+      "posicaoNaFila": 321,
       "cidade": "Santa Rita",
       "uf": "PB",
       "populacao": "160852",
@@ -3166,7 +2896,7 @@
       "notaFinal": 6631
     },
     {
-      "posicaoNaFila": 352,
+      "posicaoNaFila": 322,
       "cidade": "Barreirinhas",
       "uf": "MA",
       "populacao": "68234",
@@ -3175,7 +2905,7 @@
       "notaFinal": 5390
     },
     {
-      "posicaoNaFila": 353,
+      "posicaoNaFila": 323,
       "cidade": "Brumado",
       "uf": "BA",
       "populacao": "74368",
@@ -3184,7 +2914,7 @@
       "notaFinal": 5066
     },
     {
-      "posicaoNaFila": 354,
+      "posicaoNaFila": 324,
       "cidade": "Redenção",
       "uf": "PA",
       "populacao": "92694",
@@ -3193,7 +2923,7 @@
       "notaFinal": 4882
     },
     {
-      "posicaoNaFila": 355,
+      "posicaoNaFila": 325,
       "cidade": "Beberibe",
       "uf": "CE",
       "populacao": "55977",
@@ -3202,7 +2932,7 @@
       "notaFinal": 4441
     },
     {
-      "posicaoNaFila": 356,
+      "posicaoNaFila": 326,
       "cidade": "Balsas",
       "uf": "MA",
       "populacao": "105974",
@@ -3211,7 +2941,7 @@
       "notaFinal": 4439
     },
     {
-      "posicaoNaFila": 357,
+      "posicaoNaFila": 327,
       "cidade": "Macaíba",
       "uf": "RN",
       "populacao": "87056",
@@ -3220,7 +2950,7 @@
       "notaFinal": 2806
     },
     {
-      "posicaoNaFila": 358,
+      "posicaoNaFila": 328,
       "cidade": "Altos",
       "uf": "PI",
       "populacao": "50094",
@@ -3229,7 +2959,7 @@
       "notaFinal": 2343
     },
     {
-      "posicaoNaFila": 359,
+      "posicaoNaFila": 329,
       "cidade": "Lajeado",
       "uf": "RS",
       "populacao": "96879",
@@ -3238,7 +2968,7 @@
       "notaFinal": 2250
     },
     {
-      "posicaoNaFila": 360,
+      "posicaoNaFila": 330,
       "cidade": "Camaragibe",
       "uf": "PE",
       "populacao": "156112",
@@ -3247,7 +2977,7 @@
       "notaFinal": 2012
     },
     {
-      "posicaoNaFila": 361,
+      "posicaoNaFila": 331,
       "cidade": "Gaspar",
       "uf": "SC",
       "populacao": "78344",
@@ -3256,7 +2986,7 @@
       "notaFinal": 1871
     },
     {
-      "posicaoNaFila": 362,
+      "posicaoNaFila": 332,
       "cidade": "Trairi",
       "uf": "CE",
       "populacao": "62004",
@@ -3265,7 +2995,7 @@
       "notaFinal": 1806
     },
     {
-      "posicaoNaFila": 363,
+      "posicaoNaFila": 333,
       "cidade": "Morada Nova",
       "uf": "CE",
       "populacao": "65390",
@@ -3274,7 +3004,7 @@
       "notaFinal": 1554
     },
     {
-      "posicaoNaFila": 364,
+      "posicaoNaFila": 334,
       "cidade": "Ribeira do Pombal",
       "uf": "BA",
       "populacao": "56316",
@@ -3283,7 +3013,7 @@
       "notaFinal": 1351
     },
     {
-      "posicaoNaFila": 365,
+      "posicaoNaFila": 335,
       "cidade": "Itupiranga",
       "uf": "PA",
       "populacao": "52201",
@@ -3292,7 +3022,7 @@
       "notaFinal": 911
     },
     {
-      "posicaoNaFila": 366,
+      "posicaoNaFila": 336,
       "cidade": "São José de Mipibu",
       "uf": "RN",
       "populacao": "50053",
@@ -3301,7 +3031,7 @@
       "notaFinal": 294
     },
     {
-      "posicaoNaFila": 367,
+      "posicaoNaFila": 337,
       "cidade": "Catu",
       "uf": "BA",
       "populacao": "50109",
@@ -3310,7 +3040,7 @@
       "notaFinal": 111
     },
     {
-      "posicaoNaFila": 368,
+      "posicaoNaFila": 338,
       "cidade": "Nilópolis",
       "uf": "RJ",
       "populacao": "155500",
@@ -3319,7 +3049,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 369,
+      "posicaoNaFila": 339,
       "cidade": "Camboriú",
       "uf": "SC",
       "populacao": "117324",
@@ -3328,7 +3058,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 370,
+      "posicaoNaFila": 340,
       "cidade": "Manacapuru",
       "uf": "AM",
       "populacao": "111751",
@@ -3337,7 +3067,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 371,
+      "posicaoNaFila": 341,
       "cidade": "Navegantes",
       "uf": "SC",
       "populacao": "96046",
@@ -3346,7 +3076,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 372,
+      "posicaoNaFila": 342,
       "cidade": "Alenquer",
       "uf": "PA",
       "populacao": "75882",
@@ -3355,7 +3085,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 373,
+      "posicaoNaFila": 343,
       "cidade": "Oriximiná",
       "uf": "PA",
       "populacao": "72889",
@@ -3364,7 +3094,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 374,
+      "posicaoNaFila": 344,
       "cidade": "Farroupilha",
       "uf": "RS",
       "populacao": "72552",
@@ -3373,7 +3103,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 375,
+      "posicaoNaFila": 345,
       "cidade": "Iranduba",
       "uf": "AM",
       "populacao": "68862",
@@ -3382,7 +3112,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 376,
+      "posicaoNaFila": 346,
       "cidade": "Portel",
       "uf": "PA",
       "populacao": "67580",
@@ -3391,7 +3121,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 377,
+      "posicaoNaFila": 347,
       "cidade": "Bezerros",
       "uf": "PE",
       "populacao": "65007",
@@ -3400,7 +3130,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 378,
+      "posicaoNaFila": 348,
       "cidade": "São Félix do Xingu",
       "uf": "PA",
       "populacao": "64651",
@@ -3409,7 +3139,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 379,
+      "posicaoNaFila": 349,
       "cidade": "Monte Alegre",
       "uf": "PA",
       "populacao": "64002",
@@ -3418,7 +3148,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 380,
+      "posicaoNaFila": 350,
       "cidade": "Capitão Poço",
       "uf": "PA",
       "populacao": "60318",
@@ -3427,7 +3157,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 381,
+      "posicaoNaFila": 351,
       "cidade": "Santa Luzia",
       "uf": "MA",
       "populacao": "58839",
@@ -3436,7 +3166,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 382,
+      "posicaoNaFila": 352,
       "cidade": "Baião",
       "uf": "PA",
       "populacao": "56850",
@@ -3445,7 +3175,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 383,
+      "posicaoNaFila": 353,
       "cidade": "Taquara",
       "uf": "RS",
       "populacao": "54353",
@@ -3454,7 +3184,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 384,
+      "posicaoNaFila": 354,
       "cidade": "Tobias Barreto",
       "uf": "SE",
       "populacao": "52783",
@@ -3463,7 +3193,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 385,
+      "posicaoNaFila": 355,
       "cidade": "Poções",
       "uf": "BA",
       "populacao": "50773",
@@ -3472,7 +3202,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 386,
+      "posicaoNaFila": 356,
       "cidade": "Cachoeirinha",
       "uf": "RS",
       "populacao": "141503",
@@ -3481,7 +3211,7 @@
       "notaFinal": 128523
     },
     {
-      "posicaoNaFila": 387,
+      "posicaoNaFila": 357,
       "cidade": "Votuporanga",
       "uf": "SP",
       "populacao": "100568",
@@ -3490,7 +3220,7 @@
       "notaFinal": 106300
     },
     {
-      "posicaoNaFila": 388,
+      "posicaoNaFila": 358,
       "cidade": "Bebedouro",
       "uf": "SP",
       "populacao": "78257",
@@ -3499,7 +3229,7 @@
       "notaFinal": 84008
     },
     {
-      "posicaoNaFila": 389,
+      "posicaoNaFila": 359,
       "cidade": "Almirante Tamandaré",
       "uf": "PR",
       "populacao": "125861",
@@ -3508,7 +3238,7 @@
       "notaFinal": 81102
     },
     {
-      "posicaoNaFila": 390,
+      "posicaoNaFila": 360,
       "cidade": "Itapema",
       "uf": "SC",
       "populacao": "86116",
@@ -3517,7 +3247,7 @@
       "notaFinal": 63799
     },
     {
-      "posicaoNaFila": 391,
+      "posicaoNaFila": 361,
       "cidade": "Bertioga",
       "uf": "SP",
       "populacao": "67436",
@@ -3526,7 +3256,7 @@
       "notaFinal": 44715
     },
     {
-      "posicaoNaFila": 392,
+      "posicaoNaFila": 362,
       "cidade": "Cristalina",
       "uf": "GO",
       "populacao": "66827",
@@ -3535,7 +3265,7 @@
       "notaFinal": 26412
     },
     {
-      "posicaoNaFila": 393,
+      "posicaoNaFila": 363,
       "cidade": "Piedade",
       "uf": "SP",
       "populacao": "54266",
@@ -3544,7 +3274,7 @@
       "notaFinal": 17973
     },
     {
-      "posicaoNaFila": 394,
+      "posicaoNaFila": 364,
       "cidade": "Esmeraldas",
       "uf": "MG",
       "populacao": "93103",
@@ -3553,7 +3283,7 @@
       "notaFinal": 12023
     },
     {
-      "posicaoNaFila": 395,
+      "posicaoNaFila": 365,
       "cidade": "Santo Estêvão",
       "uf": "BA",
       "populacao": "55146",
@@ -3562,7 +3292,7 @@
       "notaFinal": 5041
     },
     {
-      "posicaoNaFila": 396,
+      "posicaoNaFila": 366,
       "cidade": "Guaramirim",
       "uf": "SC",
       "populacao": "51009",
@@ -3571,7 +3301,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 397,
+      "posicaoNaFila": 367,
       "cidade": "Itu",
       "uf": "SP",
       "populacao": "175047",
@@ -3580,7 +3310,7 @@
       "notaFinal": 129097
     },
     {
-      "posicaoNaFila": 398,
+      "posicaoNaFila": 368,
       "cidade": "Araras",
       "uf": "SP",
       "populacao": "135744",
@@ -3589,7 +3319,7 @@
       "notaFinal": 128550
     },
     {
-      "posicaoNaFila": 399,
+      "posicaoNaFila": 369,
       "cidade": "Salto",
       "uf": "SP",
       "populacao": "141111",
@@ -3598,7 +3328,7 @@
       "notaFinal": 127451
     },
     {
-      "posicaoNaFila": 400,
+      "posicaoNaFila": 370,
       "cidade": "Pinhais",
       "uf": "PR",
       "populacao": "131255",
@@ -3607,7 +3337,7 @@
       "notaFinal": 127015
     },
     {
-      "posicaoNaFila": 401,
+      "posicaoNaFila": 371,
       "cidade": "Sertãozinho",
       "uf": "SP",
       "populacao": "132176",
@@ -3616,7 +3346,7 @@
       "notaFinal": 126387
     },
     {
-      "posicaoNaFila": 402,
+      "posicaoNaFila": 372,
       "cidade": "Ibirité",
       "uf": "MG",
       "populacao": "179582",
@@ -3625,7 +3355,7 @@
       "notaFinal": 124648
     },
     {
-      "posicaoNaFila": 403,
+      "posicaoNaFila": 373,
       "cidade": "Votorantim",
       "uf": "SP",
       "populacao": "133510",
@@ -3634,7 +3364,7 @@
       "notaFinal": 122402
     },
     {
-      "posicaoNaFila": 404,
+      "posicaoNaFila": 374,
       "cidade": "Franco da Rocha",
       "uf": "SP",
       "populacao": "150241",
@@ -3643,7 +3373,7 @@
       "notaFinal": 118014
     },
     {
-      "posicaoNaFila": 405,
+      "posicaoNaFila": 375,
       "cidade": "Francisco Morato",
       "uf": "SP",
       "populacao": "171476",
@@ -3652,7 +3382,7 @@
       "notaFinal": 114872
     },
     {
-      "posicaoNaFila": 406,
+      "posicaoNaFila": 376,
       "cidade": "Paulínia",
       "uf": "SP",
       "populacao": "116674",
@@ -3661,7 +3391,7 @@
       "notaFinal": 110537
     },
     {
-      "posicaoNaFila": 407,
+      "posicaoNaFila": 377,
       "cidade": "Cambé",
       "uf": "PR",
       "populacao": "110923",
@@ -3670,7 +3400,7 @@
       "notaFinal": 107196
     },
     {
-      "posicaoNaFila": 408,
+      "posicaoNaFila": 378,
       "cidade": "Caraguatatuba",
       "uf": "SP",
       "populacao": "142248",
@@ -3679,7 +3409,7 @@
       "notaFinal": 105278
     },
     {
-      "posicaoNaFila": 409,
+      "posicaoNaFila": 379,
       "cidade": "Poá",
       "uf": "SP",
       "populacao": "106355",
@@ -3688,7 +3418,7 @@
       "notaFinal": 103760
     },
     {
-      "posicaoNaFila": 410,
+      "posicaoNaFila": 380,
       "cidade": "Santana de Parnaíba",
       "uf": "SP",
       "populacao": "163787",
@@ -3697,7 +3427,7 @@
       "notaFinal": 100336
     },
     {
-      "posicaoNaFila": 411,
+      "posicaoNaFila": 381,
       "cidade": "Várzea Paulista",
       "uf": "SP",
       "populacao": "119655",
@@ -3706,7 +3436,7 @@
       "notaFinal": 98943
     },
     {
-      "posicaoNaFila": 412,
+      "posicaoNaFila": 382,
       "cidade": "Campo Largo",
       "uf": "PR",
       "populacao": "144504",
@@ -3715,7 +3445,7 @@
       "notaFinal": 96442
     },
     {
-      "posicaoNaFila": 413,
+      "posicaoNaFila": 383,
       "cidade": "Itapecerica da Serra",
       "uf": "SP",
       "populacao": "163003",
@@ -3724,7 +3454,7 @@
       "notaFinal": 92961
     },
     {
-      "posicaoNaFila": 414,
+      "posicaoNaFila": 384,
       "cidade": "Paranavaí",
       "uf": "PR",
       "populacao": "96209",
@@ -3733,7 +3463,7 @@
       "notaFinal": 91995
     },
     {
-      "posicaoNaFila": 415,
+      "posicaoNaFila": 385,
       "cidade": "Ribeirão Pires",
       "uf": "SP",
       "populacao": "118954",
@@ -3742,7 +3472,7 @@
       "notaFinal": 90453
     },
     {
-      "posicaoNaFila": 416,
+      "posicaoNaFila": 386,
       "cidade": "Sabará",
       "uf": "MG",
       "populacao": "134576",
@@ -3751,7 +3481,7 @@
       "notaFinal": 86384
     },
     {
-      "posicaoNaFila": 417,
+      "posicaoNaFila": 387,
       "cidade": "Lorena",
       "uf": "SP",
       "populacao": "87468",
@@ -3760,7 +3490,7 @@
       "notaFinal": 80156
     },
     {
-      "posicaoNaFila": 418,
+      "posicaoNaFila": 388,
       "cidade": "Caçapava",
       "uf": "SP",
       "populacao": "100071",
@@ -3769,7 +3499,7 @@
       "notaFinal": 78676
     },
     {
-      "posicaoNaFila": 419,
+      "posicaoNaFila": 389,
       "cidade": "Matão",
       "uf": "SP",
       "populacao": "81075",
@@ -3778,7 +3508,7 @@
       "notaFinal": 77151
     },
     {
-      "posicaoNaFila": 420,
+      "posicaoNaFila": 390,
       "cidade": "Três Rios",
       "uf": "RJ",
       "populacao": "82319",
@@ -3787,7 +3517,7 @@
       "notaFinal": 75610
     },
     {
-      "posicaoNaFila": 421,
+      "posicaoNaFila": 391,
       "cidade": "Cruzeiro",
       "uf": "SP",
       "populacao": "76444",
@@ -3796,7 +3526,7 @@
       "notaFinal": 73669
     },
     {
-      "posicaoNaFila": 422,
+      "posicaoNaFila": 392,
       "cidade": "São Mateus",
       "uf": "ES",
       "populacao": "134423",
@@ -3805,7 +3535,7 @@
       "notaFinal": 73597
     },
     {
-      "posicaoNaFila": 423,
+      "posicaoNaFila": 393,
       "cidade": "Jaboticabal",
       "uf": "SP",
       "populacao": "73473",
@@ -3814,7 +3544,7 @@
       "notaFinal": 71820
     },
     {
-      "posicaoNaFila": 424,
+      "posicaoNaFila": 394,
       "cidade": "Vinhedo",
       "uf": "SP",
       "populacao": "79089",
@@ -3823,7 +3553,7 @@
       "notaFinal": 68918
     },
     {
-      "posicaoNaFila": 425,
+      "posicaoNaFila": 395,
       "cidade": "Pirassununga",
       "uf": "SP",
       "populacao": "75594",
@@ -3832,7 +3562,7 @@
       "notaFinal": 67294
     },
     {
-      "posicaoNaFila": 426,
+      "posicaoNaFila": 396,
       "cidade": "Arujá",
       "uf": "SP",
       "populacao": "90273",
@@ -3841,7 +3571,7 @@
       "notaFinal": 64554
     },
     {
-      "posicaoNaFila": 427,
+      "posicaoNaFila": 397,
       "cidade": "Três Corações",
       "uf": "MG",
       "populacao": "78291",
@@ -3850,7 +3580,7 @@
       "notaFinal": 63142
     },
     {
-      "posicaoNaFila": 428,
+      "posicaoNaFila": 398,
       "cidade": "Mirassol",
       "uf": "SP",
       "populacao": "65811",
@@ -3859,7 +3589,7 @@
       "notaFinal": 61599
     },
     {
-      "posicaoNaFila": 429,
+      "posicaoNaFila": 399,
       "cidade": "Nova Odessa",
       "uf": "SP",
       "populacao": "64596",
@@ -3868,7 +3598,7 @@
       "notaFinal": 59461
     },
     {
-      "posicaoNaFila": 430,
+      "posicaoNaFila": 400,
       "cidade": "Penápolis",
       "uf": "SP",
       "populacao": "63426",
@@ -3877,7 +3607,7 @@
       "notaFinal": 59303
     },
     {
-      "posicaoNaFila": 431,
+      "posicaoNaFila": 401,
       "cidade": "Itanhaém",
       "uf": "SP",
       "populacao": "118495",
@@ -3886,7 +3616,7 @@
       "notaFinal": 58477
     },
     {
-      "posicaoNaFila": 432,
+      "posicaoNaFila": 402,
       "cidade": "Olímpia",
       "uf": "SP",
       "populacao": "56874",
@@ -3895,7 +3625,7 @@
       "notaFinal": 52921
     },
     {
-      "posicaoNaFila": 433,
+      "posicaoNaFila": 403,
       "cidade": "Mongaguá",
       "uf": "SP",
       "populacao": "64845",
@@ -3904,7 +3634,7 @@
       "notaFinal": 52881
     },
     {
-      "posicaoNaFila": 434,
+      "posicaoNaFila": 404,
       "cidade": "Campo Limpo Paulista",
       "uf": "SP",
       "populacao": "79781",
@@ -3913,7 +3643,7 @@
       "notaFinal": 52616
     },
     {
-      "posicaoNaFila": 435,
+      "posicaoNaFila": 405,
       "cidade": "Batatais",
       "uf": "SP",
       "populacao": "59939",
@@ -3922,7 +3652,7 @@
       "notaFinal": 52333
     },
     {
-      "posicaoNaFila": 436,
+      "posicaoNaFila": 406,
       "cidade": "Amparo",
       "uf": "SP",
       "populacao": "69792",
@@ -3931,7 +3661,7 @@
       "notaFinal": 50843
     },
     {
-      "posicaoNaFila": 437,
+      "posicaoNaFila": 407,
       "cidade": "Itupeva",
       "uf": "SP",
       "populacao": "74994",
@@ -3940,7 +3670,7 @@
       "notaFinal": 50231
     },
     {
-      "posicaoNaFila": 438,
+      "posicaoNaFila": 408,
       "cidade": "Peruíbe",
       "uf": "SP",
       "populacao": "70629",
@@ -3949,7 +3679,7 @@
       "notaFinal": 50019
     },
     {
-      "posicaoNaFila": 439,
+      "posicaoNaFila": 409,
       "cidade": "Campo Belo",
       "uf": "MG",
       "populacao": "54027",
@@ -3958,7 +3688,7 @@
       "notaFinal": 49753
     },
     {
-      "posicaoNaFila": 440,
+      "posicaoNaFila": 410,
       "cidade": "Leopoldina",
       "uf": "MG",
       "populacao": "52739",
@@ -3967,7 +3697,7 @@
       "notaFinal": 49021
     },
     {
-      "posicaoNaFila": 441,
+      "posicaoNaFila": 411,
       "cidade": "São Sebastião",
       "uf": "SP",
       "populacao": "84280",
@@ -3976,7 +3706,7 @@
       "notaFinal": 48638
     },
     {
-      "posicaoNaFila": 442,
+      "posicaoNaFila": 412,
       "cidade": "São Bento do Una",
       "uf": "PE",
       "populacao": "51165",
@@ -3985,7 +3715,7 @@
       "notaFinal": 48622
     },
     {
-      "posicaoNaFila": 443,
+      "posicaoNaFila": 413,
       "cidade": "Brejo da Madre de Deus",
       "uf": "PE",
       "populacao": "51308",
@@ -3994,7 +3724,7 @@
       "notaFinal": 48312
     },
     {
-      "posicaoNaFila": 444,
+      "posicaoNaFila": 414,
       "cidade": "Lagoa da Prata",
       "uf": "MG",
       "populacao": "53927",
@@ -4003,7 +3733,7 @@
       "notaFinal": 47796
     },
     {
-      "posicaoNaFila": 445,
+      "posicaoNaFila": 415,
       "cidade": "Tremembé",
       "uf": "SP",
       "populacao": "53426",
@@ -4012,7 +3742,7 @@
       "notaFinal": 47448
     },
     {
-      "posicaoNaFila": 446,
+      "posicaoNaFila": 416,
       "cidade": "Artur Nogueira",
       "uf": "SP",
       "populacao": "53467",
@@ -4021,7 +3751,7 @@
       "notaFinal": 46238
     },
     {
-      "posicaoNaFila": 447,
+      "posicaoNaFila": 417,
       "cidade": "Pedro Leopoldo",
       "uf": "MG",
       "populacao": "65174",
@@ -4030,7 +3760,7 @@
       "notaFinal": 41855
     },
     {
-      "posicaoNaFila": 448,
+      "posicaoNaFila": 418,
       "cidade": "Simões Filho",
       "uf": "BA",
       "populacao": "120419",
@@ -4039,7 +3769,7 @@
       "notaFinal": 41797
     },
     {
-      "posicaoNaFila": 449,
+      "posicaoNaFila": 419,
       "cidade": "São Miguel dos Campos",
       "uf": "AL",
       "populacao": "53380",
@@ -4048,7 +3778,7 @@
       "notaFinal": 40297
     },
     {
-      "posicaoNaFila": 450,
+      "posicaoNaFila": 420,
       "cidade": "São Gonçalo do Amarante",
       "uf": "RN",
       "populacao": "124495",
@@ -4057,7 +3787,7 @@
       "notaFinal": 39764
     },
     {
-      "posicaoNaFila": 451,
+      "posicaoNaFila": 421,
       "cidade": "São Roque",
       "uf": "SP",
       "populacao": "81366",
@@ -4066,7 +3796,7 @@
       "notaFinal": 39585
     },
     {
-      "posicaoNaFila": 452,
+      "posicaoNaFila": 422,
       "cidade": "Dias d'Ávila",
       "uf": "BA",
       "populacao": "75296",
@@ -4075,7 +3805,7 @@
       "notaFinal": 38092
     },
     {
-      "posicaoNaFila": 453,
+      "posicaoNaFila": 423,
       "cidade": "Capão da Canoa",
       "uf": "RS",
       "populacao": "66234",
@@ -4084,7 +3814,7 @@
       "notaFinal": 34084
     },
     {
-      "posicaoNaFila": 454,
+      "posicaoNaFila": 424,
       "cidade": "Candeias",
       "uf": "BA",
       "populacao": "74854",
@@ -4093,7 +3823,7 @@
       "notaFinal": 32105
     },
     {
-      "posicaoNaFila": 455,
+      "posicaoNaFila": 425,
       "cidade": "Mairiporã",
       "uf": "SP",
       "populacao": "97835",
@@ -4102,7 +3832,7 @@
       "notaFinal": 31395
     },
     {
-      "posicaoNaFila": 456,
+      "posicaoNaFila": 426,
       "cidade": "Mairinque",
       "uf": "SP",
       "populacao": "51888",
@@ -4111,7 +3841,7 @@
       "notaFinal": 30884
     },
     {
-      "posicaoNaFila": 457,
+      "posicaoNaFila": 427,
       "cidade": "São Cristóvão",
       "uf": "SE",
       "populacao": "101213",
@@ -4120,7 +3850,7 @@
       "notaFinal": 26832
     },
     {
-      "posicaoNaFila": 458,
+      "posicaoNaFila": 428,
       "cidade": "Pirapora",
       "uf": "MG",
       "populacao": "57713",
@@ -4129,7 +3859,7 @@
       "notaFinal": 26813
     },
     {
-      "posicaoNaFila": 459,
+      "posicaoNaFila": 429,
       "cidade": "Embu-Guaçu",
       "uf": "SP",
       "populacao": "68913",
@@ -4138,7 +3868,7 @@
       "notaFinal": 26345
     },
     {
-      "posicaoNaFila": 460,
+      "posicaoNaFila": 430,
       "cidade": "Sapucaia do Sul",
       "uf": "RS",
       "populacao": "136572",
@@ -4147,7 +3877,7 @@
       "notaFinal": 25689
     },
     {
-      "posicaoNaFila": 461,
+      "posicaoNaFila": 431,
       "cidade": "Santo Amaro",
       "uf": "BA",
       "populacao": "58398",
@@ -4156,7 +3886,7 @@
       "notaFinal": 24918
     },
     {
-      "posicaoNaFila": 462,
+      "posicaoNaFila": 432,
       "cidade": "Extrema",
       "uf": "MG",
       "populacao": "59336",
@@ -4165,7 +3895,7 @@
       "notaFinal": 24470
     },
     {
-      "posicaoNaFila": 463,
+      "posicaoNaFila": 433,
       "cidade": "Belo Jardim",
       "uf": "PE",
       "populacao": "84033",
@@ -4174,7 +3904,7 @@
       "notaFinal": 24403
     },
     {
-      "posicaoNaFila": 464,
+      "posicaoNaFila": 434,
       "cidade": "Vargem Grande Paulista",
       "uf": "SP",
       "populacao": "52352",
@@ -4183,7 +3913,7 @@
       "notaFinal": 23161
     },
     {
-      "posicaoNaFila": 465,
+      "posicaoNaFila": 435,
       "cidade": "Nova Lima",
       "uf": "MG",
       "populacao": "120959",
@@ -4192,7 +3922,7 @@
       "notaFinal": 22922
     },
     {
-      "posicaoNaFila": 466,
+      "posicaoNaFila": 436,
       "cidade": "Boa Viagem",
       "uf": "CE",
       "populacao": "52133",
@@ -4201,7 +3931,7 @@
       "notaFinal": 21541
     },
     {
-      "posicaoNaFila": 467,
+      "posicaoNaFila": 437,
       "cidade": "Araci",
       "uf": "BA",
       "populacao": "50308",
@@ -4210,7 +3940,7 @@
       "notaFinal": 20973
     },
     {
-      "posicaoNaFila": 468,
+      "posicaoNaFila": 438,
       "cidade": "Moreno",
       "uf": "PE",
       "populacao": "57654",
@@ -4219,7 +3949,7 @@
       "notaFinal": 20813
     },
     {
-      "posicaoNaFila": 469,
+      "posicaoNaFila": 439,
       "cidade": "Ipojuca",
       "uf": "PE",
       "populacao": "106539",
@@ -4228,7 +3958,7 @@
       "notaFinal": 20466
     },
     {
-      "posicaoNaFila": 470,
+      "posicaoNaFila": 440,
       "cidade": "Marechal Cândido Rondon",
       "uf": "PR",
       "populacao": "58734",
@@ -4237,7 +3967,7 @@
       "notaFinal": 17767
     },
     {
-      "posicaoNaFila": 471,
+      "posicaoNaFila": 441,
       "cidade": "Marechal Deodoro",
       "uf": "AL",
       "populacao": "62477",
@@ -4246,7 +3976,7 @@
       "notaFinal": 15894
     },
     {
-      "posicaoNaFila": 472,
+      "posicaoNaFila": 442,
       "cidade": "Rio Largo",
       "uf": "AL",
       "populacao": "97658",
@@ -4255,7 +3985,7 @@
       "notaFinal": 15410
     },
     {
-      "posicaoNaFila": 473,
+      "posicaoNaFila": 443,
       "cidade": "Cajazeiras",
       "uf": "PB",
       "populacao": "66585",
@@ -4264,7 +3994,7 @@
       "notaFinal": 11406
     },
     {
-      "posicaoNaFila": 474,
+      "posicaoNaFila": 444,
       "cidade": "Nova Venécia",
       "uf": "ES",
       "populacao": "52324",
@@ -4273,7 +4003,7 @@
       "notaFinal": 10941
     },
     {
-      "posicaoNaFila": 475,
+      "posicaoNaFila": 445,
       "cidade": "Euclides da Cunha",
       "uf": "BA",
       "populacao": "64768",
@@ -4282,7 +4012,7 @@
       "notaFinal": 8193
     },
     {
-      "posicaoNaFila": 476,
+      "posicaoNaFila": 446,
       "cidade": "São Benedito",
       "uf": "CE",
       "populacao": "50058",
@@ -4291,7 +4021,7 @@
       "notaFinal": 7614
     },
     {
-      "posicaoNaFila": 477,
+      "posicaoNaFila": 447,
       "cidade": "Serrinha",
       "uf": "BA",
       "populacao": "84690",
@@ -4300,7 +4030,7 @@
       "notaFinal": 6699
     },
     {
-      "posicaoNaFila": 478,
+      "posicaoNaFila": 448,
       "cidade": "Itapecuru Mirim",
       "uf": "MA",
       "populacao": "62264",
@@ -4309,7 +4039,7 @@
       "notaFinal": 6382
     },
     {
-      "posicaoNaFila": 479,
+      "posicaoNaFila": 449,
       "cidade": "São Gonçalo do Amarante",
       "uf": "CE",
       "populacao": "58191",
@@ -4318,7 +4048,7 @@
       "notaFinal": 6343
     },
     {
-      "posicaoNaFila": 480,
+      "posicaoNaFila": 450,
       "cidade": "Tauá",
       "uf": "CE",
       "populacao": "64655",
@@ -4327,7 +4057,7 @@
       "notaFinal": 3925
     },
     {
-      "posicaoNaFila": 481,
+      "posicaoNaFila": 451,
       "cidade": "Sapiranga",
       "uf": "RS",
       "populacao": "77935",
@@ -4336,7 +4066,7 @@
       "notaFinal": 3538
     },
     {
-      "posicaoNaFila": 482,
+      "posicaoNaFila": 452,
       "cidade": "Granja",
       "uf": "CE",
       "populacao": "55809",
@@ -4345,7 +4075,7 @@
       "notaFinal": 3003
     },
     {
-      "posicaoNaFila": 483,
+      "posicaoNaFila": 453,
       "cidade": "Campo Formoso",
       "uf": "BA",
       "populacao": "75112",
@@ -4354,7 +4084,7 @@
       "notaFinal": 2516
     },
     {
-      "posicaoNaFila": 484,
+      "posicaoNaFila": 454,
       "cidade": "Novo Repartimento",
       "uf": "PA",
       "populacao": "63796",
@@ -4363,7 +4093,7 @@
       "notaFinal": 2475
     },
     {
-      "posicaoNaFila": 485,
+      "posicaoNaFila": 455,
       "cidade": "Conceição do Coité",
       "uf": "BA",
       "populacao": "71601",
@@ -4372,7 +4102,7 @@
       "notaFinal": 2177
     },
     {
-      "posicaoNaFila": 486,
+      "posicaoNaFila": 456,
       "cidade": "Xinguara",
       "uf": "PA",
       "populacao": "57768",
@@ -4381,7 +4111,7 @@
       "notaFinal": 1635
     },
     {
-      "posicaoNaFila": 487,
+      "posicaoNaFila": 457,
       "cidade": "Santana",
       "uf": "AP",
       "populacao": "118803",
@@ -4390,7 +4120,7 @@
       "notaFinal": 1414
     },
     {
-      "posicaoNaFila": 488,
+      "posicaoNaFila": 458,
       "cidade": "Seropédica",
       "uf": "RJ",
       "populacao": "84794",
@@ -4399,7 +4129,7 @@
       "notaFinal": 534
     },
     {
-      "posicaoNaFila": 489,
+      "posicaoNaFila": 459,
       "cidade": "Bragança",
       "uf": "PA",
       "populacao": "132489",
@@ -4408,7 +4138,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 490,
+      "posicaoNaFila": 460,
       "cidade": "Cruzeiro do Sul",
       "uf": "AC",
       "populacao": "98916",
@@ -4417,7 +4147,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 491,
+      "posicaoNaFila": 461,
       "cidade": "Santa Inês",
       "uf": "MA",
       "populacao": "88249",
@@ -4426,7 +4156,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 492,
+      "posicaoNaFila": 462,
       "cidade": "Grajaú",
       "uf": "MA",
       "populacao": "76837",
@@ -4435,7 +4165,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 493,
+      "posicaoNaFila": 463,
       "cidade": "Coari",
       "uf": "AM",
       "populacao": "73576",
@@ -4444,7 +4174,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 494,
+      "posicaoNaFila": 464,
       "cidade": "Tabatinga",
       "uf": "AM",
       "populacao": "73348",
@@ -4453,7 +4183,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 495,
+      "posicaoNaFila": 465,
       "cidade": "Tomé-Açu",
       "uf": "PA",
       "populacao": "73058",
@@ -4462,7 +4192,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 496,
+      "posicaoNaFila": 466,
       "cidade": "Igarapé-Miri",
       "uf": "PA",
       "populacao": "69446",
@@ -4471,7 +4201,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 497,
+      "posicaoNaFila": 467,
       "cidade": "Humaitá",
       "uf": "AM",
       "populacao": "63454",
@@ -4480,7 +4210,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 498,
+      "posicaoNaFila": 468,
       "cidade": "Penedo",
       "uf": "AL",
       "populacao": "60185",
@@ -4489,7 +4219,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 499,
+      "posicaoNaFila": 469,
       "cidade": "Paudalho",
       "uf": "PE",
       "populacao": "59924",
@@ -4498,7 +4228,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 500,
+      "posicaoNaFila": 470,
       "cidade": "Cachoeiras de Macacu",
       "uf": "RJ",
       "populacao": "59861",
@@ -4507,7 +4237,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 501,
+      "posicaoNaFila": 471,
       "cidade": "Açu",
       "uf": "RN",
       "populacao": "59099",
@@ -4516,7 +4246,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 502,
+      "posicaoNaFila": 472,
       "cidade": "Rondon do Pará",
       "uf": "PA",
       "populacao": "57031",
@@ -4525,7 +4255,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 503,
+      "posicaoNaFila": 473,
       "cidade": "São Miguel do Guamá",
       "uf": "PA",
       "populacao": "55970",
@@ -4534,7 +4264,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 504,
+      "posicaoNaFila": 474,
       "cidade": "Caetité",
       "uf": "BA",
       "populacao": "54730",
@@ -4543,7 +4273,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 505,
+      "posicaoNaFila": 475,
       "cidade": "Guapimirim",
       "uf": "RJ",
       "populacao": "54311",
@@ -4552,7 +4282,7 @@
       "notaFinal": 0
     },
     {
-      "posicaoNaFila": 506,
+      "posicaoNaFila": 476,
       "cidade": "Parobé",
       "uf": "RS",
       "populacao": "53569",

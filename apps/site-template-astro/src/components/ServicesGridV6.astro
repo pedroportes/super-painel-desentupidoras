@@ -1,0 +1,200 @@
+---
+// ServicesGridV6: trilha operacional vertical com cards conectados.
+// Diferente do V4 porque cada item tem corpo completo e ligação visual de
+// processo, não apenas vitrine circular numerada.
+import { slugify } from '../utils/slugify';
+
+const { services, cidade } = Astro.props;
+const cidadeSlug = slugify(cidade);
+const serviceFocus = ['Triagem', 'Execução', 'Recorrência', 'Infraestrutura', 'Urgência', 'Garantia'];
+---
+
+<section id="servicos" class="services-v6">
+  <div class="container">
+    <div class="services-v6-header">
+      <span class="section-badge">OPERAÇÃO EM ETAPAS</span>
+      <h2>Atendimento técnico orientado por cenário em {cidade}</h2>
+      <p>Cada frente abaixo mostra quando ela costuma ser indicada e como o time conduz o serviço.</p>
+    </div>
+
+    <div class="services-v6-timeline">
+      {services.map((s: any, idx: number) => (
+        <article class="service-v6-item">
+          <div class="service-v6-marker" aria-hidden="true">
+            <span>{String(idx + 1).padStart(2, '0')}</span>
+          </div>
+
+          <div class="service-v6-card">
+            <div class="service-v6-card-top">
+              <span class="service-v6-focus">{serviceFocus[idx] || 'Atendimento local'}</span>
+              <span class="service-v6-icon">{s.icon || '⚙️'}</span>
+            </div>
+
+            <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>
+            <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
+
+            <div class="service-v6-footer">
+              <span>Equipe orientada por diagnóstico</span>
+              <a href={`/${slugify(s.title)}-em-${cidadeSlug}/`} class="service-v6-link">
+                Pedir avaliação deste serviço
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v6 {
+    padding: 88px 0;
+    background: var(--color-bg-dark, #0f172a);
+    color: var(--color-text-main, #ffffff);
+  }
+  .services-v6-header {
+    max-width: 740px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .section-badge {
+    display: inline-block;
+    color: var(--color-accent, #f97316);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+  .services-v6-header h2 {
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 10px 0 14px;
+  }
+  .services-v6-header p {
+    color: var(--color-text-muted, #cbd5e1);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .services-v6-timeline {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .services-v6-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .service-v6-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+  }
+  .service-v6-marker {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 8px;
+  }
+  .service-v6-marker span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background: var(--color-bg-card, #1e293b);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--color-badge-text, #ffffff);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+  .service-v6-card {
+    padding: 26px 26px 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .service-v6-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .service-v6-focus {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-main, #ffffff);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .service-v6-icon {
+    font-size: 1.4rem;
+  }
+  .service-v6-card h3 {
+    font-size: 1.28rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .service-v6-card p {
+    color: var(--color-text-muted, #cbd5e1);
+    font-size: 0.96rem;
+    line-height: 1.72;
+    margin-bottom: 18px;
+  }
+  .service-v6-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-v6-footer span {
+    color: var(--color-badge-text, #ffffff);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .service-v6-link {
+    color: var(--color-accent, #f97316);
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  @media (max-width: 640px) {
+    .services-v6-timeline::before {
+      display: none;
+    }
+    .service-v6-item {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .service-v6-marker {
+      justify-content: flex-start;
+      padding-top: 0;
+    }
+    .service-v6-card-top,
+    .service-v6-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

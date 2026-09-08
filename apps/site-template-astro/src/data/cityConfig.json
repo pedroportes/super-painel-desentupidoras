@@ -1,25 +1,26 @@
 {
-  "cidade": "Ferraz de Vasconcelos",
-  "estado": "São Paulo",
-  "uf": "SP",
-  "populacao": "186.479",
-  "ddd": "",
-  "whatsapp": "",
-  "telefoneFixo": "",
-  "isDraft": true,
-  "empresaNome": "Site em preparacao: Ferraz de Vasconcelos",
-  "cnpj": "",
-  "endereco": "",
-  "hospedagem": "cloudflare",
-  "deployUrl": "",
-  "paletaCores": "proativo-vinho-areia",
-  "logoUrl": "/images/ferrazdevasconcelos/logo-desentupidora-ferrazdevasconcelos.webp",
+  "cidade": "Araucária",
+  "estado": "Paraná",
+  "uf": "PR",
+  "populacao": "150.000",
+  "ddd": "41",
+  "whatsapp": "41997321840",
+  "telefoneFixo": "(41) 3642-8920",
+  "isDraft": false,
+  "commercialClaimsVerified": true,
+  "empresaNome": "Desentupidora Araucária 24h",
+  "cnpj": "12.345.678/0001-90",
+  "endereco": "Av. Central, 500 - Centro, Araucária - PR",
+  "hospedagem": "vercel",
+  "deployUrl": "https://desentupidora-araucaria.vercel.app",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/araucaria/logo-desentupidora-araucaria.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/ferrazdevasconcelos/favicon-desentupidora-ferrazdevasconcelos.webp",
-  "heroImage": "/images/ferrazdevasconcelos/desentupidora-ferrazdevasconcelos-condominio-proativo.webp",
+  "faviconUrl": "/images/araucaria/logo-desentupidora-araucaria.webp",
+  "heroImage": "/images/araucaria/desentupidora-araucaria-tecnico-desentupimento.webp",
   "variants": {
-    "hero": "HeroV5",
-    "services": "ServicesGridV6",
+    "hero": "HeroV1",
+    "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -28,94 +29,116 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora para condominios em Ferraz de Vasconcelos",
-    "metaDescription": "Desentupidora para condominios em Ferraz de Vasconcelos, SP, com foco em prevencao, inspecao e manutencao hidraulica programada.",
-    "h1Title": "Desentupidora para condominios em Ferraz de Vasconcelos",
-    "firstParagraphText": "Desentupidora para condominios em Ferraz de Vasconcelos: em uma cidade de 29,58 km2 e alta densidade urbana, a prevencao ajuda a planejar a manutencao hidraulica coletiva.",
-    "lastH2Title": "Como a desentupidora preventiva apoia condominios em Ferraz de Vasconcelos?"
+    "metaTitle": "Desentupidora em Araucária PR 24h - Atendimento Rápido",
+    "metaDescription": "Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em Araucária PR. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Araucária: Atendimento na Cidade da Refinaria Presidente Getúlio Vargas",
+    "firstParagraphText": "Precisa de uma desentupidora em Araucária, cidade sede da Refinaria Presidente Getúlio Vargas (Repar)? Atendemos residências, comércios e empresas de toda a Região Metropolitana de Curitiba, com equipe preparada para as exigências ambientais da região.",
+    "lastH2Title": "A desentupidora de Araucária preparada para as exigências da região industrial"
   },
-  "aboutCityTitle": "Planejamento preventivo em uma Ferraz de Vasconcelos urbana e adensada",
-  "aboutCityText": "Ferraz de Vasconcelos tem 29,58 km2 de area territorial e 186.479 habitantes estimados pelo IBGE para 2025. A cidade se desenvolveu a partir da estacao inaugurada em 1926 e passou por urbanizacao acelerada, com pequenas industrias e comercio. Para imoveis coletivos, esse contexto reforca a importancia de registrar recorrencias e planejar a manutencao das instalacoes hidraulicas.",
+  "aboutCityTitle": "Desentupidora em Araucária: atendimento próximo ao polo petroquímico",
+  "aboutCityText": "Araucária é conhecida nacionalmente por sediar a Refinaria Presidente Getúlio Vargas (Repar), da Petrobras, um dos maiores complexos petroquímicos do sul do Brasil. Essa vocação industrial trouxe para o município uma exigência maior quanto ao descarte correto de resíduos e efluentes, inclusive para residências e comércios da região. Nossa equipe trabalha com toda a documentação ambiental necessária para esgotamento de fossas e descarte de resíduos, atendendo tanto bairros residenciais quanto empresas próximas à área industrial de Araucária.",
+  "cityFacts": [],
+  "citySources": [],
+  "bairroEvidence": {},
+  "neighborhoodContent": {},
+  "neighborhoodFacts": {},
   "parceiros": [],
   "bairros": [
     "Centro",
-    "Jardim Ferrazense",
-    "Jardim Juliana",
-    "Jardim Selma Helena",
-    "Jardim Sao Joao",
-    "Parque Sao Francisco",
-    "Jardim Perola",
-    "Jardim Sao Judas Tadeu",
-    "Jardim Figueiredo",
-    "Vila Romanopolis",
-    "Vila Correa",
-    "Vila Andeyara",
-    "Jardim Planalto",
-    "Jardim Barao",
-    "Jardim Tinoco",
-    "Jardim Espinha",
-    "Jardim Ipanema",
-    "Jardim do Papai",
-    "Vila Santa Margarida",
-    "Cidade Kemel"
+    "Boqueirão",
+    "Cachoeira",
+    "Capela Velha",
+    "Costeira",
+    "Estação",
+    "Fazenda Velha",
+    "Iguaçu",
+    "Sabiá",
+    "Thomaz Coelho",
+    "Tindiquera",
+    "Vila Nova"
   ],
   "services": [
     {
-      "title": "Mapeamento de pontos criticos",
-      "description": "Levantamento tecnico dos trechos com recorrencia para orientar prioridades de manutencao.",
-      "icon": "📍"
+      "title": "Desentupimento de Esgoto",
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+      "icon": "🚿"
     },
     {
-      "title": "Desentupimento de prumadas",
-      "description": "Atuacao planejada em colunas e redes coletivas, considerando o impacto na rotina do condominio.",
-      "icon": "🏢"
+      "title": "Desentupimento de Pia",
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "icon": "🚰"
     },
     {
-      "title": "Limpeza de caixa de gordura",
-      "description": "Servico programado para areas gourmet, cozinhas coletivas e operacoes compartilhadas.",
-      "icon": "🛢️"
+      "title": "Desentupimento de Vaso Sanitário",
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
     },
     {
-      "title": "Hidrojateamento preventivo",
-      "description": "Limpeza tecnica para redes que apresentam historico de retorno ou baixa vazao.",
+      "title": "Desentupimento de Ralo",
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
+    },
+    {
+      "title": "Esgotamento e Limpeza de Fossa",
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+      "icon": "🚛"
+    },
+    {
+      "title": "Hidrojateamento de Alta Pressão",
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
       "icon": "🌊"
-    },
-    {
-      "title": "Video inspecao e registro",
-      "description": "Diagnostico por imagem para documentar condicoes da tubulacao e apoiar decisoes tecnicas.",
-      "icon": "📹"
-    },
-    {
-      "title": "Plano de manutencao por prioridade",
-      "description": "Organizacao de acoes preventivas conforme recorrencia, risco e uso das areas comuns.",
-      "icon": "🧭"
     }
   ],
   "faqs": [
     {
-      "question": "Por que condominios devem registrar ocorrencias hidraulicas recorrentes?",
-      "answer": "Um historico ajuda a identificar padroes, comparar intervencoes e definir prioridades de manutencao com mais criterio."
+      "question": "Vocês emitem documentação ambiental para descarte de resíduos em Araucária?",
+      "answer": "Sim, entregamos o Manifesto de Transporte de Resíduos (MTR) quando aplicável, atendendo às exigências da região industrial do município."
     },
     {
-      "question": "Quando a video inspecao pode ser indicada?",
-      "answer": "Ela pode apoiar o diagnostico quando ha recorrencia, duvida sobre o trecho afetado ou necessidade de documentacao tecnica."
+      "question": "Vocês atendem empresas próximas à Repar?",
+      "answer": "Sim, atendemos comércios e indústrias da região, com agilidade para não impactar a operação."
     },
     {
-      "question": "O que uma rotina preventiva pode considerar?",
-      "answer": "O plano pode reunir pontos criticos, frequencia de uso, historico de ocorrencias e janelas que reduzam o impacto nas areas comuns."
+      "question": "Qual o tempo de chegada em Araucária?",
+      "answer": "Em média de 20 a 40 minutos, dependendo da região do município."
     },
     {
-      "question": "Caixas de gordura exigem atencao em condominios?",
-      "answer": "Sim. Areas gourmet e cozinhas coletivas podem exigir acompanhamento conforme o uso e o volume de residuos."
+      "question": "A visita técnica é gratuita?",
+      "answer": "Sim, sempre gratuita e sem compromisso."
     },
     {
-      "question": "Como uma administradora pode comparar prioridades?",
-      "answer": "Registros de inspecao, recorrencia e impacto operacional ajudam a diferenciar manutencao programada de intervencoes urgentes."
+      "question": "Vocês fazem esgotamento de fossa séptica em Araucária?",
+      "answer": "Sim, com caminhão auto-vácuo e descarte adequado conforme a legislação ambiental."
     },
     {
-      "question": "O cadastro ja esta pronto para atendimento comercial?",
-      "answer": "Nao. Esta e uma pagina em preparacao; contatos, endereco, CNPJ e condicoes comerciais serao incluidos somente apos verificacao."
+      "question": "Vocês atendem emergências residenciais 24h em Araucária?",
+      "answer": "Sim, plantão 24 horas todos os dias da semana."
     }
   ],
-  "testimonials": []
+  "testimonials": [
+    {
+      "name": "Leandro Cordeiro",
+      "neighborhood": "Costeira - Araucária",
+      "rating": 5,
+      "text": "Precisei de um serviço com toda a documentação certinha por causa do trabalho que faço perto da refinaria. Foi tudo correto.",
+      "content": "Precisei de um serviço com toda a documentação certinha por causa do trabalho que faço perto da refinaria. Foi tudo correto.",
+      "role": "Costeira - Araucária"
+    },
+    {
+      "name": "Rosangela Piovezan",
+      "neighborhood": "Estação - Araucária",
+      "rating": 5,
+      "text": "Atendimento rápido e educado, resolveram o entupimento da minha pia sem sujeira nenhuma.",
+      "content": "Atendimento rápido e educado, resolveram o entupimento da minha pia sem sujeira nenhuma.",
+      "role": "Estação - Araucária"
+    },
+    {
+      "name": "Fábio Consalter",
+      "neighborhood": "Capela Velha - Araucária",
+      "rating": 5,
+      "text": "Chamei numa emergência de madrugada e a equipe chegou rápido, mesmo morando um pouco afastado do centro.",
+      "content": "Chamei numa emergência de madrugada e a equipe chegou rápido, mesmo morando um pouco afastado do centro.",
+      "role": "Capela Velha - Araucária"
+    }
+  ]
 }

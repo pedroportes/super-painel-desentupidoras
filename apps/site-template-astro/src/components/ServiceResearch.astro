@@ -1,0 +1,36 @@
+---
+const { service, cidade, description, seo, faqs = [], source, whatsapp = '', isDraft = false } = Astro.props;
+---
+
+<main class="service-research">
+  <section class="service-research-hero"><div class="container narrow"><span>FICHA TÉCNICA COM CONTEXTO LOCAL</span><h1>{seo.h1Title}</h1><p>{seo.firstParagraph}</p>{whatsapp && <a class="service-contact" href={`https://wa.me/55${whatsapp}?text=Olá,%20gostaria%20de%20informações%20sobre%20${service}%20em%20${cidade}`} target="_blank" rel="noopener">Falar pelo WhatsApp</a>}</div></section>
+
+  <section class="service-research-section"><div class="container narrow"><span class="label">SOBRE O TEMA</span><h2>O que esta ficha explica sobre {service}</h2><p>{description}</p><p>O conteúdo técnico não confirma uma empresa, cobertura, prazo ou valor. Esses dados permanecem fora da página até a validação comercial.</p>{source?.url && <a href={source.url} target="_blank" rel="noopener">Fonte pública de contexto: {source.title}</a>}</div></section>
+
+  <section class="service-research-faq"><div class="container narrow"><span class="label">PERGUNTAS FREQUENTES</span><h2>Perguntas sobre {service} em {cidade}</h2><div>{faqs.map((faq: any) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></div></section>
+
+  <section class="service-research-note"><div class="container narrow"><h2>{seo.lastH2}</h2><p>{isDraft || !whatsapp ? 'Esta rota não é indexável enquanto a cidade estiver em rascunho. O Quality Gate bloqueia publicação até que a revisão humana e os dados empresariais aplicáveis sejam confirmados.' : 'Esta página apresenta uma explicação técnica. A disponibilidade, os valores e as condições de atendimento são confirmados diretamente pelo contato.'}</p></div></section>
+</main>
+
+<style>
+  .service-research { background: #f7f5f0; color: #182236; }
+  .service-research-hero { padding: 90px 0; background: linear-gradient(135deg, #0a1729, #264562); color: #f8fbff; }
+  .narrow { max-width: 920px; }
+  .service-research-hero span, .label { color: #d77b4a; font-size: .74rem; font-weight: 900; letter-spacing: .12em; }
+  h1 { max-width: 16ch; margin: 16px 0 24px; font-size: clamp(2.6rem, 5vw, 4.8rem); line-height: 1; letter-spacing: -.04em; }
+  h2 { margin: 12px 0 22px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -.035em; }
+  p { max-width: 72ch; font-size: 1.08rem; line-height: 1.8; }
+  .service-research-hero p { color: #dce9f3; }
+  .service-contact { display: inline-block; margin-top: 22px; padding: 13px 18px; border-radius: 999px; background: #d77b4a; color: #fff; font-weight: 900; text-decoration: none; }
+  .service-research-section, .service-research-faq { padding: 82px 0; }
+  .service-research-section { background: #fff; }
+  .service-research-section a { color: #0e5d91; font-weight: 800; }
+  .service-research-faq { background: #e9edf0; }
+  .service-research-faq > div > div { display: grid; gap: 10px; }
+  details { border: 1px solid #d5dde5; background: #fff; }
+  summary { padding: 18px 20px; cursor: pointer; font-weight: 800; }
+  details p { margin: 0; padding: 0 20px 18px; color: #45566d; }
+  .service-research-note { padding: 72px 0; background: #182236; color: #f8fbff; }
+  .service-research-note p { color: #c9d7e4; }
+  @media (max-width: 760px) { .service-research-hero, .service-research-section, .service-research-faq, .service-research-note { padding: 56px 0; } }
+</style>

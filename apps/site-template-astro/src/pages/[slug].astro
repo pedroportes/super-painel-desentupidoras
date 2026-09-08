@@ -8,6 +8,8 @@ import Footer from '../components/Footer.astro';
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
 import FAQ from '../components/FAQ.astro';
 import Benefits from '../components/Benefits.astro';
+import NeighborhoodResearch from '../components/NeighborhoodResearch.astro';
+import ServiceResearch from '../components/ServiceResearch.astro';
 
 export async function getStaticPaths() {
   const cidadeSlug = slugify(cityData.cidade);
@@ -43,6 +45,13 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const props = Astro.props;
+const neighborhoodRecord = props.type === 'neighborhood'
+  ? cityData.neighborhoodContent?.[props.name]
+  : undefined;
+const neighborhoodEvidence = props.type === 'neighborhood'
+  ? cityData.bairroEvidence?.[props.name]
+  : undefined;
+const isResearchMode = cityData.isDraft || cityData.commercialClaimsVerified === false;
 
 // Prepare custom SEO based on page type
 let pageSeo = { ...cityData.seo };
@@ -60,6 +69,67 @@ let landmark1Text = '';
 let landmark2Text = '';
 let landmark3Text = '';
 let landmark4Text = '';
+
+function neighborhoodMetaDescription(bairro: string, cidade: string) {
+  const versions = [
+    `Desentupidora em ${bairro}, ${cidade}: guia local com fatos verificados, fonte municipal e contexto próprio do bairro. Conteúdo editorial em revisão.`,
+    `Desentupidora em ${bairro}, ${cidade}: referência local pesquisada, com fonte pública, fatos territoriais e contexto específico do bairro.`,
+    `Desentupidora em ${bairro}, ${cidade}: conteúdo local pesquisado com fonte pública, fatos territoriais e contexto próprio para o bairro.`,
+    `Desentupidora em ${bairro}, ${cidade}: guia local com fonte pública, fatos verificados e contexto próprio do bairro.`
+  ];
+  const valid = versions.find((description) => description.length >= 120 && description.length <= 160);
+  if (!valid) throw new Error(`Meta description fora da faixa para ${bairro}.`);
+  return valid;
+}
+
+function neighborhoodResearchFaqs(bairro: string, cidade: string, record: any, evidence: any) {
+  const facts = Array.isArray(record?.facts) ? record.facts : [];
+  const sourceName = evidence?.title || 'a fonte pública indicada nesta ficha';
+  return [
+    { question: `O que esta página registra sobre ${bairro}?`, answer: record?.intro || `A página reúne uma referência pública sobre ${bairro}, em ${cidade}.` },
+    { question: `Qual fato local é destacado para ${bairro}?`, answer: facts[0] || `A ficha depende de fonte pública específica sobre ${bairro}.` },
+    { question: `Que outro dado ajuda a contextualizar ${bairro}?`, answer: facts[1] || `A pesquisa mantém separado o dado territorial e qualquer alegação comercial.` },
+    { question: `Qual fonte sustenta a pesquisa sobre ${bairro}?`, answer: `A referência utilizada é ${sourceName}. O link para o documento original está disponível nesta página.` },
+    { question: `Esta ficha confirma atendimento comercial no ${bairro}?`, answer: `Não. A ficha apresenta contexto pesquisado sobre ${bairro}; atendimento, endereço e contato só podem ser publicados depois de validação empresarial.` },
+    { question: `Por que a página usa desentupidora em ${bairro}?`, answer: `A expressão identifica o tema pesquisado. Os fatos sobre ${bairro} permanecem separados de promessas comerciais que não tenham comprovação.` }
+  ];
+}
+
+function serviceDraftTitle(service: string, cidade: string) {
+  const versions = [
+    `Desentupidora e ${service} em ${cidade}`,
+    `Desentupidora: ${service} em ${cidade}`,
+    `Desentupidora em ${cidade} | ${service}`
+  ];
+  const valid = versions.find((title) => title.length >= 40 && title.length <= 80);
+  if (!valid) throw new Error(`Meta title fora da faixa para ${service}.`);
+  return valid;
+}
+
+function serviceDraftMetaDescription(service: string, cidade: string) {
+  const subject = service.toLocaleLowerCase('pt-BR');
+  const versions = [
+    `Desentupidora e ${subject} em ${cidade}: ficha editorial em revisão, com explicação técnica e sem promessas comerciais não verificadas.`,
+    `Desentupidora em ${cidade}: ficha em revisão sobre ${subject}, com informação técnica e sem dados comerciais não confirmados.`,
+    `Desentupidora em ${cidade}: pesquisa editorial sobre ${subject}, com explicação técnica e dados comerciais ainda em validação.`,
+    `Desentupidora em ${cidade}: ficha técnica sobre ${subject}, em revisão e sem dados comerciais confirmados.`
+  ];
+  const valid = versions.find((description) => description.length >= 120 && description.length <= 160);
+  if (!valid) throw new Error(`Meta description fora da faixa para ${service}.`);
+  return valid;
+}
+
+function serviceResearchFaqs(service: string, cidade: string, description: string, source: any) {
+  const sourceName = source?.title || 'a fonte pública indicada pela cidade';
+  return [
+    { question: `O que esta ficha explica sobre ${service}?`, answer: description },
+    { question: `A ficha confirma atendimento comercial de ${service} em ${cidade}?`, answer: `Não. A página está em revisão e não confirma cobertura, contato, preço ou prazo de uma empresa.` },
+    { question: `Qual contexto local acompanha ${service} em ${cidade}?`, answer: `A pesquisa usa ${sourceName} como referência pública para contextualizar a cidade, sem transformar o fato local em promessa comercial.` },
+    { question: `Quais dados ainda precisam de validação para ${service}?`, answer: `Identidade empresarial, contato, endereço, área atendida e condições de execução só podem ser publicados depois de verificação independente.` },
+    { question: `Por que desentupidora aparece nesta ficha de ${service}?`, answer: `A expressão identifica o tema editorial. Ela não representa uma confirmação de atendimento enquanto o cadastro permanecer em rascunho.` },
+    { question: `Como interpretar esta página sobre ${service}?`, answer: `Use esta ficha como explicação inicial do tema. Para informação comercial, aguarde a conclusão do Quality Gate da cidade.` }
+  ];
+}
 
 if (props.type === 'service') {
   const serviceName = props.title;
@@ -89,9 +159,13 @@ if (props.type === 'service') {
   // curto ("Pia" em cidade curta batia só 96 chars sem esse texto extra);
   // se o serviço/cidade for muito comprido e estourar o teto de 160, cai
   // pra uma versão mais enxuta em vez de cortar o nome do serviço/cidade.
-  const descLong = `Desentupidora especialista em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Atendimento rápido, visita técnica e orçamento gratuito. Plantão de emergência 24h!`;
-  const descMedium = `Desentupidora especialista em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Atendimento rápido e orçamento gratuito. Plantão 24h!`;
-  pageSeo.metaDescription = descLong.length <= 160 ? descLong : descMedium;
+  const serviceCandidates = [
+    `Desentupidora especializada em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf} 24 horas. Atendimento emergencial rápido, visita técnica e orçamento sem taxa no local!`,
+    `Desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf} 24 horas. Atendimento técnico ágil, visita no local e orçamento gratuito sem taxa de visita!`,
+    `Desentupidora especializada em ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Plantão 24 horas com visita técnica e orçamento gratuito sem compromisso no local!`,
+    `Desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Atendimento 24h, equipe especializada, visita e orçamento gratuito sem taxa!`
+  ];
+  pageSeo.metaDescription = serviceCandidates.find(c => c.length >= 120 && c.length <= 150) || serviceCandidates[0];
   pageSeo.h1Title = titleWithUf;
   pageSeo.firstParagraph = `Problemas com entupimento? Nossa equipe é especializada em desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade} ${cityData.uf}. Oferecemos atendimento emergencial rápido, serviço 100% limpo sem quebrar azulejos, com garantia por escrito e orçamento gratuito na sua residência ou empresa.`;
   pageSeo.lastH2 = `Por que somos a melhor opção para desentupidora de ${shortServiceName.toLowerCase()} em ${cityData.cidade}?`;
@@ -104,6 +178,14 @@ if (props.type === 'service') {
     { question: `Vocês atendem empresas e comércios para ${serviceName.toLowerCase()}?`, answer: `Sim, possuímos equipes especializadas tanto para atendimento residencial quanto para condomínios, restaurantes, indústrias e comércios em geral.` },
     { question: `Quais equipamentos são usados no ${serviceName.toLowerCase()}?`, answer: `Utilizamos maquinário de ponta, como molas rotativas K-50 e K-500, além de caminhões de hidrojateamento de alta pressão, dependendo da gravidade da obstrução.` }
   ];
+  if (isResearchMode) {
+    pageSeo.metaTitle = serviceDraftTitle(serviceName, cityData.cidade);
+    pageSeo.metaDescription = serviceDraftMetaDescription(serviceName, cityData.cidade);
+    pageSeo.h1Title = `Desentupidora e ${serviceName} em ${cityData.cidade}: ficha em revisão`;
+    pageSeo.firstParagraph = `Desentupidora e ${serviceName} em ${cityData.cidade}: esta ficha editorial explica o tema sem confirmar atendimento comercial, prazo, preço ou cobertura.`;
+    pageSeo.lastH2 = `Referência para desentupidora e ${serviceName} em ${cityData.cidade}`;
+    pageFaqs = serviceResearchFaqs(serviceName, cityData.cidade, props.description, cityData.citySources?.[0]);
+  }
 } else if (props.type === 'neighborhood') {
   const bairroName = props.name;
   // 🚫 Regra de ouro 1 (conteúdo quase-duplicado): até esta correção,
@@ -220,9 +302,16 @@ if (props.type === 'service') {
   // (bairro/cidade curtos, ex: "BNH, Linhares" ficava só 96 chars sem esse
   // texto extra); se bairro+cidade compostos estourarem o teto de 160, cai
   // pra uma versão mais enxuta — nunca corta o nome do bairro/cidade.
-  const descLong = `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24h, visita técnica e orçamento 100% grátis, sem compromisso!`;
-  const descMedium = `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento 24h, visita e orçamento grátis!`;
-  pageSeo.metaDescription = descLong.length <= 160 ? descLong : descMedium;
+  const neighCandidates = [
+    `Desentupidora no bairro ${bairroName}, em ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24 horas, visita técnica e orçamento sem taxa. Chame agora!`,
+    `Desentupidora no bairro ${bairroName}, em ${cityData.cidade} ${cityData.uf}. Atendimento 24h com visita técnica gratuita e orçamento sem taxa. Peça já!`,
+    `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24 horas com visita técnica e orçamento gratuito sem taxa!`,
+    `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento 24h com visita técnica e orçamento sem taxa de visita. Chame agora!`,
+    `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24h, visita técnica e orçamento sem taxa de visita!`,
+    `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento emergencial 24h, visita técnica e orçamento 100% grátis sem taxa!`,
+    `Desentupidora no bairro ${bairroName}, ${cityData.cidade} ${cityData.uf}. Atendimento 24h, visita técnica e orçamento grátis sem taxa!`
+  ];
+  pageSeo.metaDescription = neighCandidates.find(c => c.length >= 120 && c.length <= 150) || neighCandidates[0];
   pageSeo.h1Title = `Desentupidora no ${bairroName}, ${cityData.cidade}: Atendimento Rápido no Seu Bairro`;
   pageSeo.firstParagraph = `Precisando de uma desentupidora no ${bairroName}, ${cityData.cidade}? A ${cityData.empresaNome} atende o bairro com técnicos que conhecem a região, visita técnica gratuita e orçamento fechado antes de começar qualquer serviço.`;
   pageSeo.lastH2 = `Por que escolher a ${cityData.empresaNome} no bairro ${bairroName}?`;
@@ -240,13 +329,28 @@ if (props.type === 'service') {
       answer: `Basta nos chamar no WhatsApp ou ligar. Uma equipe mais próxima ao bairro ${bairroName} será despachada imediatamente.`
     });
   }
+
+  // O rascunho editorial deve exibir somente a ficha pesquisada do bairro,
+  // nunca o texto comercial padrao que este template usa para cidades ativas.
+  if (isResearchMode && neighborhoodRecord) {
+    pageSeo.metaTitle = `Desentupidora em ${bairroName} | Caderno local SP`;
+    pageSeo.metaDescription = neighborhoodMetaDescription(bairroName, cityData.cidade);
+    pageSeo.h1Title = `Desentupidora em ${bairroName}, ${cityData.cidade}: caderno local`;
+    pageSeo.firstParagraph = neighborhoodRecord.intro;
+    pageSeo.lastH2 = neighborhoodRecord.lastH2;
+    pageFaqs = neighborhoodResearchFaqs(bairroName, cityData.cidade, neighborhoodRecord, neighborhoodEvidence);
+  }
 }
 ---
 
 <Layout {...cityData} seo={pageSeo} faqs={pageFaqs}>
-  <Header {...cityData} />
+  {!isResearchMode && <Header {...cityData} />}
   
-  {props.type === 'neighborhood' ? (
+  {isResearchMode && props.type === 'neighborhood' ? (
+    <NeighborhoodResearch bairro={props.name} cidade={cityData.cidade} record={neighborhoodRecord} evidence={neighborhoodEvidence} faqs={pageFaqs} />
+  ) : isResearchMode && props.type === 'service' ? (
+    <ServiceResearch service={props.title} cidade={cityData.cidade} description={props.description} seo={pageSeo} faqs={pageFaqs} source={cityData.citySources?.[0]} />
+  ) : props.type === 'neighborhood' ? (
     <!-- ========================================================================= -->
     <!-- MODELO MODERNO EM SEÇÕES CLARAS & CARDS (PADRÃO CRISTO REI / RONDONÓPOLIS) -->
     <!-- ========================================================================= -->
@@ -350,6 +454,20 @@ if (props.type === 'service') {
               <p set:html={card4Text} />
             </div>
           </div>
+
+          <!-- BLOCO FACTUAL REAL DO BAIRRO (E-E-A-T & CONTEXTO HISTÓRICO/GEOGRÁFICO ÚNICO) -->
+          {(cityData.neighborhoodFacts?.[props.name] || cityData.aboutCityText) && (
+            <div class="bairro-city-fact-card">
+              <div class="bairro-city-fact-header">
+                <span class="fact-icon">📍</span>
+                <div>
+                  <h3>Particularidades & Referências do Bairro {props.name}</h3>
+                  <small>{props.name} • {cityData.cidade} - {cityData.uf}</small>
+                </div>
+              </div>
+              <p>{cityData.neighborhoodFacts?.[props.name] || cityData.aboutCityText}</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -402,21 +520,19 @@ if (props.type === 'service') {
             <div class="map-header-bar">
               <span class="map-pin">📍</span>
               <div>
-                <strong>Mapa Interativo do Bairro {props.name}</strong>
+                <strong>Base Móvel no Bairro {props.name}</strong>
                 <small>{props.name}, {cityData.cidade} - {cityData.uf}</small>
               </div>
             </div>
             <div class="map-iframe-box">
               <iframe
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(props.name + ', ' + cityData.cidade + ' - ' + cityData.uf + ', Brasil')}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 title={`Mapa do bairro ${props.name} em ${cityData.cidade} - ${cityData.uf}`}
                 width="100%"
-                height="380"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(props.name + ', ' + cityData.cidade + ' - ' + cityData.uf + ', Brasil')}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
-                style="border: none; display: block;"
+                height="100%"
+                style="border: none; display: block; min-height: 400px; width: 100%; border-radius: 0 0 12px 12px;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
@@ -486,6 +602,13 @@ if (props.type === 'service') {
             <h2>Como realizamos o {props.title} em {cityData.cidade}</h2>
             <p>{props.description} Nossa equipe técnica utiliza equipamentos de ponta para garantir a desobstrução completa sem danificar sua tubulação. O serviço é rápido, higiênico e possui garantia total.</p>
             
+            {cityData.aboutCityText && (
+              <div class="service-city-context-box">
+                <strong>📍 Atendimento adaptado a {cityData.cidade} - {cityData.uf}</strong>
+                <p>{cityData.aboutCityText}</p>
+              </div>
+            )}
+
             <a href={`https://wa.me/55${cityData.whatsapp}?text=Olá, preciso de um orçamento para ${props.title}`} class="btn btn-wa-glow" target="_blank" rel="noopener">
               Solicitar Orçamento Agora
             </a>
@@ -495,14 +618,10 @@ if (props.type === 'service') {
     </main>
   )}
 
-  <!-- FAQ SECTION CONTEXTUALIZADA -->
-  <FAQ {...cityData} faqs={pageFaqs} cidade={props.type === 'neighborhood' ? `${props.name} - ${cityData.cidade}` : cityData.cidade} />
+  {!isResearchMode && <><FAQ {...cityData} faqs={pageFaqs} cidade={props.type === 'neighborhood' ? `${props.name} - ${cityData.cidade}` : cityData.cidade} /><Benefits {...cityData} lastH2Text={pageSeo.lastH2} /></>}
 
-  <!-- STRICT SEO RULE: este precisa ser o ÚLTIMO H2 da página, logo antes do rodapé. -->
-  <Benefits {...cityData} lastH2Text={pageSeo.lastH2} />
-
-  <Footer {...cityData} />
-  <FloatingWhatsapp {...cityData} />
+  <Footer {...cityData} isResearchMode={isResearchMode} />
+  {!isResearchMode && <FloatingWhatsapp {...cityData} />}
 </Layout>
 
 <style is:global>
@@ -774,6 +893,65 @@ if (props.type === 'service') {
     margin: 0;
   }
 
+  /* FACTUAL CITY CONTEXT CARD */
+  .bairro-city-fact-card {
+    background: #ffffff;
+    border: 1.5px solid #0284c7;
+    border-left: 6px solid #0284c7;
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-top: 32px;
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.08);
+  }
+  .bairro-city-fact-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .bairro-city-fact-header .fact-icon {
+    font-size: 1.8rem;
+  }
+  .bairro-city-fact-header h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a !important;
+    margin: 0;
+  }
+  .bairro-city-fact-header small {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .bairro-city-fact-card p {
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: #334155 !important;
+    margin: 0;
+  }
+
+  .service-city-context-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0284c7;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0 28px 0;
+    text-align: left;
+  }
+  .service-city-context-box strong {
+    display: block;
+    color: #0f172a;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .service-city-context-box p {
+    color: #475569 !important;
+    font-size: 0.96rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+  }
+
   /* ========================================================================= */
   /* 4. PONTOS CONHECIDOS */
   /* ========================================================================= */
@@ -992,4 +1170,149 @@ if (props.type === 'service') {
       padding: 22px 20px;
     }
   }
+
+  .map-container-styled {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    margin-top: 24px;
+  }
+  .map-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .map-header-bar strong {
+    display: block;
+    font-size: 1rem;
+    color: #0f172a;
+  }
+  .map-header-bar small {
+    color: #64748b;
+    font-size: 0.85rem;
+  }
+  .map-iframe-box {
+    position: relative;
+    min-height: 380px;
+    height: 380px;
+  }
+  .map-facade-container {
+    background-color: #f1f5f9;
+    background-image: 
+      radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
+      linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(241,245,249,0.95));
+    background-size: 20px 20px, 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map-facade-content {
+    text-align: center;
+    padding: 30px 20px;
+    max-width: 420px;
+    z-index: 2;
+  }
+  .map-pin-pulse {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 14px auto;
+    background: #fee2e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.15);
+  }
+  .map-facade-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+  .map-facade-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+  }
+  .map-facade-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .btn-load-map {
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  }
+  .btn-load-map:hover {
+    background: #0369a1;
+    transform: translateY(-1px);
+  }
+  .btn-open-gmaps {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .btn-open-gmaps:hover {
+    color: #0284c7;
+    text-decoration: underline;
+  }
 </style>
+
+<script>
+  function initSlugMapFacades() {
+    document.querySelectorAll('.map-facade-container').forEach(container => {
+      const load = () => {
+        if (container.getAttribute('data-loaded') === 'true') return;
+        container.setAttribute('data-loaded', 'true');
+        const src = container.getAttribute('data-map-src');
+        const title = container.getAttribute('data-map-title') || 'Mapa';
+        if (!src) return;
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.title = title;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.display = 'block';
+        iframe.setAttribute('loading', 'lazy');
+        
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      };
+
+      const btn = container.querySelector('.btn-load-map');
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          load();
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlugMapFacades);
+  } else {
+    initSlugMapFacades();
+  }
+</script>

@@ -42,6 +42,13 @@ econômicas, um problema hidráulico plausível pra região, etc.) — nunca
 usar `generateUniqueCityContent()` direto pra produção sem reescrever.
 Isso não é opcional: cidades com o mesmo conteúdo template são o mesmo
 risco de "scaled content abuse" documentado na skill `rede-de-parceiros`.
+*(Regra R18 - Dados Reais, Densos e Únicos por Bairro):* É obrigatório pesquisar e preencher
+no objeto `neighborhoodFacts` um parágrafo completo e rico para **cada bairro** (3 a 5 frases,
+250 a 450 caracteres, abordando história, avenidas principais, equipamentos públicos, hospitais,
+parques e desafios hidráulicos locais). **Nunca colocar apenas uma frase curta** nem duplicar
+o texto da cidade nos bairros. As páginas de serviços continuam utilizando o `aboutCityText` como âncora técnica.
+
+*(Regra R19 - Telefones e WhatsApp Estritamente Únicos):* É terminantemente proibido repetir o mesmo número de WhatsApp ou fixo temporário entre cidades diferentes (ex: `XX 99123-4567`). Cada cidade deve ter sua combinação única com o DDD oficial local (11 dígitos para celular e fixo correspondente).
 
 ⚠️ **`metaTitle` ≤ ~60 caracteres, `metaDescription` ≤ ~155-160** (regra 10
 do guia, bug real encontrado 30/08/2026): a fórmula padrão de
@@ -102,6 +109,28 @@ A IA deve conferir se o site de destino está operando corretamente e sem falhas
 1. Navegue para `apps/site-template-astro`.
 2. Faça um check rápido em `src/pages/index.astro` e `src/pages/[slug].astro` para garantir que o código base está intacto.
 3. Certifique-se de que o CSS (estilos globais) estão funcionando, caso contrário lembre-se da regra: *No Astro, estilos de design em componentes filhos que devem quebrar o tema global do Layout precisam usar `<style is:global>` no final do arquivo.*
+
+## 🛑 Quality Gate Obrigatório
+
+Nenhuma cidade nova pode ser tratada como pronta apenas porque o layout foi gerado. Ela nasce como `isDraft: true` e `qualityGateRequired: true`; os endpoints de build e deploy recusam a operação enquanto houver falhas.
+
+Antes de liberar o rascunho, registre para **cada** bairro:
+
+1. Uma fonte pública verificável em HTTPS, com trecho que mencione literalmente o bairro.
+2. Um texto editorial próprio de pelo menos 180 caracteres que cite o bairro e a palavra-chave `desentupidora` já no primeiro parágrafo.
+3. Um último H2 contendo `desentupidora` e ao menos um fato que a fonte sustente. Não inferir cobertura, prazo, frota, endereço, preço ou operação a partir da existência geográfica do bairro.
+4. Corpo exclusivo: não reutilizar a mesma introdução, fatos ou blocos alterando apenas o nome do bairro.
+
+Além disso, validar title de 40–60 caracteres, description de 120–160, palavra-chave no title, description, H1, primeiro parágrafo e último H2, e no mínimo seis FAQs. Consultar o relatório sem alterar nada em `GET /api/cities/<id>/readiness`.
+
+Antes de mudar `isDraft`, sincronizar a cidade na prévia selecionada e rodar, nesta ordem:
+
+```bash
+npm run build
+npm run audit:preview
+```
+
+`audit:preview` percorre home, todos os bairros e todos os serviços. Ele reprova metadados, H1, primeiro parágrafo, último H2, FAQ visível/schema, fonte dos bairros, conteúdo duplicado, schema comercial indevido, canonical/OG fictícia e status incorreto de rascunho. Se o painel estiver com outra cidade aberta, criar cópia temporária da configuração para auditar sem sobrescrever a prévia em uso. Só após o resultado verde da prévia, da revisão humana e do `readiness.passed: true`, remover `isDraft` e executar build, auditoria de produção e deploy.
 
 ---
 

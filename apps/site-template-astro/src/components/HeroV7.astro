@@ -1,0 +1,262 @@
+---
+// HeroV7.astro — Modelo ChatGPT Premium com foto integrada à direita em fade
+const {
+  cidade,
+  uf,
+  whatsapp,
+  telefoneFixo,
+  heroImage,
+  seo = {},
+  empresaNome,
+  firstParagraph,
+  heroTitle,
+  heroSubtitle,
+  ctaButtonText
+} = Astro.props;
+
+const cityKey = cidade.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+const resolvedHeroImage = heroImage || `/images/${cityKey}/desentupidora-${cityKey}-caminhao-limpa-fossa.webp`;
+
+const displayH1 = seo.h1Title || heroTitle || `Desentupidora em ${cidade} ${uf} 24 Horas`;
+const displaySub = seo.firstParagraphText || firstParagraph || heroSubtitle || `Atendimento emergencial 24 horas para desentupimento de esgoto, pias, ralos, vasos e limpeza de fossa séptica em todos os bairros de ${cidade} e região com garantia por escrito.`;
+const displayCta = ctaButtonText || 'Solicitar Orçamento Grátis no WhatsApp';
+---
+
+<section class="hero-v7">
+  <!-- Imagem de fundo com fade gradiente à direita idêntico ao modelo ChatGPT -->
+  <div
+    class="hero-v7-bg"
+    style={`background-image: linear-gradient(90deg, #071d2b 0%, #071d2b 40%, rgba(7, 29, 43, 0.85) 60%, rgba(7, 29, 43, 0.35) 100%), url('${resolvedHeroImage}');`}
+  ></div>
+
+  <div class="container hero-v7-container">
+    <div class="hero-v7-content">
+      <!-- Breadcrumb do topo -->
+      <div class="hero-v7-breadcrumbs">
+        <span>Início</span>
+        <span class="crumb-sep">/</span>
+        <span class="crumb-current">Desentupidora em {cidade}</span>
+      </div>
+
+      <!-- Kicker badge verde/teal com pulso -->
+      <div class="hero-v7-kicker">
+        <span class="kicker-pulse"></span>
+        <span>ATENDIMENTO LOCAL EM {cidade.toUpperCase()}</span>
+      </div>
+
+      <!-- H1 com destaque visual -->
+      <h1 class="hero-v7-title">
+        {displayH1}
+      </h1>
+
+      <!-- Parágrafo introdutório -->
+      <p class="hero-v7-description">
+        {displaySub}
+      </p>
+
+      <!-- Botões de ação -->
+      <div class="hero-v7-actions">
+        {whatsapp && (
+          <a
+            href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20orçamento%20para%20desentupimento%20em%20${encodeURIComponent(cidade)}`}
+            class="btn-v7 btn-v7-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>{displayCta}</span>
+          </a>
+        )}
+        {telefoneFixo && (
+          <a href={`tel:${telefoneFixo.replace(/\D/g, '')}`} class="btn-v7 btn-v7-secondary">
+            <span>Ligue: {telefoneFixo}</span>
+          </a>
+        )}
+      </div>
+
+      <!-- Micro-badges de credibilidade -->
+      <div class="hero-v7-badges">
+        <div class="v7-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Visita e Orçamento Grátis</span>
+        </div>
+        <div class="v7-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Chegada em até 30 Minutos</span>
+        </div>
+        <div class="v7-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Sem Quebrar Pisos ou Paredes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-v7 {
+    position: relative;
+    background-color: #071d2b;
+    color: #f8fafc;
+    min-height: 560px;
+    padding: 70px 0 90px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-v7-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-v7-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .hero-v7-content {
+    max-width: 680px;
+  }
+  .hero-v7-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .crumb-sep {
+    color: #64748b;
+  }
+  .crumb-current {
+    color: #cbd5e1;
+  }
+  .hero-v7-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(13, 148, 136, 0.18);
+    border: 1px solid rgba(20, 184, 166, 0.4);
+    color: #14b8a6;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .kicker-pulse {
+    width: 8px;
+    height: 8px;
+    background: #14b8a6;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.35);
+    animation: pulseGlow 2s infinite;
+  }
+  @keyframes pulseGlow {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+  .hero-v7-title {
+    font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  .hero-v7-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin-bottom: 32px;
+    max-width: 600px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+  .hero-v7-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .btn-v7 {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.98rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .btn-v7-primary {
+    background: #0d9488;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
+  }
+  .btn-v7-primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(13, 148, 136, 0.55);
+  }
+  .btn-v7-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+  }
+  .btn-v7-secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+  }
+  .hero-v7-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .v7-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: rgba(7, 29, 43, 0.7);
+    backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .v7-badge svg {
+    color: #14b8a6;
+  }
+
+  @media (max-width: 960px) {
+    .hero-v7 {
+      padding: 50px 0 70px 0;
+      min-height: auto;
+    }
+    .hero-v7-bg {
+      background-position: center center !important;
+      opacity: 0.35;
+    }
+    .hero-v7-title {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+

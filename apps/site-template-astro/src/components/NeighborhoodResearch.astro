@@ -1,0 +1,94 @@
+---
+const { bairro, cidade, record, evidence, faqs = [], whatsapp = '', isDraft = false } = Astro.props;
+const facts = Array.isArray(record?.facts) ? record.facts : [];
+const milestones = Array.isArray(record?.milestones) ? record.milestones : [];
+---
+
+<main class="neighborhood-research">
+  <section class="research-hero">
+    <div class="container research-hero-inner">
+      <div class="research-eyebrow">GUIA LOCAL PESQUISADO</div>
+      <div class="research-kicker">{bairro}, {cidade}</div>
+      <h1>Desentupidora em {bairro}: contexto local e referências</h1>
+      <p class="research-intro">{record?.intro}</p>
+      <div class="research-proof"><span>Fonte consultada</span><strong>{evidence?.title || 'Fonte em revisão editorial'}</strong></div>
+      {whatsapp && <a class="research-contact" href={`https://wa.me/55${whatsapp}?text=Olá,%20gostaria%20de%20informações%20sobre%20desentupimento%20em%20${bairro},%20${cidade}`} target="_blank" rel="noopener">Falar pelo WhatsApp</a>}
+    </div>
+  </section>
+
+  <section class="research-section">
+    <div class="container research-grid">
+      <div class="research-body">
+        <span class="section-label">O QUE TORNA ESTE BAIRRO ESPECÍFICO</span>
+        <h2>{record?.localTitle || `O recorte local de ${bairro}`}</h2>
+        <p>{record?.story || `Esta página trata ${bairro} a partir de uma referência pública concreta. Em vez de repetir uma descrição comercial, ela preserva os fatos que a fonte municipal registra para o bairro e deixa explícito o limite dessa informação.`}</p>
+        <p>{record?.context || `A existência de um equipamento, obra, iniciativa ou registro territorial não comprova cobertura de uma empresa. Por isso, o conteúdo separa a informação urbana verificada de qualquer dado comercial que ainda precise ser validado.`}</p>
+      </div>
+      <aside class="research-source-card">
+        <span>DOCUMENTO-BASE</span>
+        <h3>{evidence?.title || 'Fonte pendente'}</h3>
+        {evidence?.url ? <a href={evidence.url} target="_blank" rel="noopener">Abrir fonte original</a> : <p>Fonte pendente de conferência.</p>}
+        {evidence?.excerpt && <blockquote>“{evidence.excerpt}”</blockquote>}
+      </aside>
+    </div>
+  </section>
+
+  <section class="research-facts-section">
+    <div class="container">
+      <span class="section-label">FATOS EXTRAÍDOS DA PESQUISA</span>
+      <h2>Referências de {bairro}</h2>
+      <div class="research-facts">
+        {facts.map((fact: string, index: number) => <article><span>0{index + 1}</span><p>{fact}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  {milestones.length > 0 && <section class="research-section timeline-section"><div class="container"><span class="section-label">LINHA DO TEMPO</span><h2>Como este lugar entra na história de {cidade}</h2><ol class="research-timeline">{milestones.map((item: any) => <li><strong>{item.year}</strong><p>{item.text}</p></li>)}</ol></div></section>}
+
+  {faqs.length > 0 && <section class="research-faq-section"><div class="container research-faq-inner"><span class="section-label">PERGUNTAS FREQUENTES</span><h2>Perguntas sobre {bairro}</h2><div class="research-faqs">{faqs.map((faq: any) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></div></section>}
+
+  <section class="research-note"><div class="container"><h2>{record?.lastH2 || `Referência local para desentupidora em ${bairro}`}</h2><p>{isDraft || !whatsapp ? 'Esta é uma ficha editorial de pesquisa. Antes de tornar a página indexável, o Quality Gate exige dados empresariais verificáveis, revisão humana e auditoria de todas as rotas.' : 'Esta página apresenta uma referência territorial documentada. A disponibilidade e as condições de atendimento são confirmadas diretamente pelo contato.'}</p></div></section>
+</main>
+
+<style>
+  .neighborhood-research { color: #182236; background: #f7f5f0; }
+  .research-hero { padding: 92px 0 86px; background: radial-gradient(circle at 80% 12%, #294765 0, transparent 33%), linear-gradient(135deg, #081526, #102c48); color: #f8fbff; }
+  .research-hero-inner { max-width: 900px; }
+  .research-eyebrow, .section-label { color: #d77b4a; font-size: .74rem; font-weight: 900; letter-spacing: .12em; }
+  .research-kicker { margin: 18px 0 6px; color: #9ec7e7; font-size: 1rem; font-weight: 800; }
+  .research-hero h1 { max-width: 16ch; margin: 0; font-size: clamp(2.8rem, 5.7vw, 5.1rem); line-height: .98; letter-spacing: -.045em; }
+  .research-intro { max-width: 760px; margin: 30px 0 26px; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.78; color: #dbe9f5; }
+  .research-proof { display: inline-grid; gap: 3px; padding: 13px 18px; border-left: 3px solid #d77b4a; background: rgba(255,255,255,.08); }
+  .research-contact { display: inline-block; margin-top: 20px; padding: 13px 18px; border-radius: 999px; background: #d77b4a; color: #fff; font-weight: 900; text-decoration: none; }
+  .research-proof span { color: #9ec7e7; font-size: .76rem; font-weight: 800; text-transform: uppercase; }
+  .research-section { padding: 86px 0; }
+  .research-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: 60px; align-items: start; }
+  .research-body h2, .research-facts-section h2, .timeline-section h2, .research-note h2 { margin: 12px 0 22px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; letter-spacing: -.035em; }
+  .research-body p { max-width: 68ch; margin: 0 0 18px; font-size: 1.08rem; line-height: 1.82; color: #45566d; }
+  .research-source-card { padding: 27px; background: #fff; border-top: 5px solid #d77b4a; box-shadow: 0 18px 38px rgba(20, 37, 58, .1); }
+  .research-source-card span { color: #d77b4a; font-size: .72rem; font-weight: 900; letter-spacing: .1em; }
+  .research-source-card h3 { margin: 12px 0; font-size: 1.3rem; line-height: 1.2; }
+  .research-source-card a { color: #0e5d91; font-weight: 800; }
+  .research-source-card blockquote { margin: 20px 0 0; padding: 16px 0 0; border-top: 1px solid #dce3eb; color: #526278; line-height: 1.6; }
+  .research-facts-section { padding: 86px 0; background: #e9edf0; }
+  .research-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 32px; }
+  .research-facts article { min-height: 160px; padding: 26px; background: #fff; border-radius: 4px; box-shadow: 0 12px 26px rgba(20, 37, 58, .08); }
+  .research-facts span { color: #d77b4a; font-weight: 900; letter-spacing: .08em; }
+  .research-facts p { margin: 17px 0 0; font-size: 1.06rem; font-weight: 700; line-height: 1.55; }
+  .timeline-section { background: #f7f5f0; }
+  .research-timeline { display: grid; gap: 0; max-width: 800px; padding: 0; list-style: none; }
+  .research-timeline li { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 23px 0; border-top: 1px solid #d4d7da; }
+  .research-timeline strong { color: #b8532d; font-size: 1.3rem; }
+  .research-timeline p { margin: 0; line-height: 1.65; color: #45566d; }
+  .research-note { padding: 72px 0; background: #182236; color: #f8fbff; }
+  .research-note h2 { max-width: 760px; }
+  .research-note p { max-width: 720px; margin: 0; color: #c9d7e4; line-height: 1.75; }
+  .research-faq-section { padding: 86px 0; background: #fff; }
+  .research-faq-inner { max-width: 920px; }
+  .research-faq-section h2 { margin: 12px 0 28px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -.035em; }
+  .research-faqs { display: grid; gap: 10px; }
+  .research-faqs details { border: 1px solid #d9e0e6; background: #f8fafb; }
+  .research-faqs summary { padding: 19px 22px; cursor: pointer; color: #182236; font-weight: 800; }
+  .research-faqs p { margin: 0; padding: 0 22px 20px; color: #45566d; line-height: 1.7; }
+  @media (max-width: 760px) { .research-hero, .research-section, .research-facts-section, .research-note { padding: 58px 0; } .research-grid { grid-template-columns: 1fr; gap: 32px; } .research-hero h1 { font-size: 2.8rem; } .research-timeline li { grid-template-columns: 1fr; gap: 8px; } }
+</style>

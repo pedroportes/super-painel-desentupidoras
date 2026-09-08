@@ -34,8 +34,8 @@ function pick<T>(arr: T[], seed: string): T {
 
 export async function getStaticPaths() {
   const activePartners = (cityData.parceiros || []).filter(
-    (p: any) => p.status === 'ativo' && p.nome && p.cidade && p.url
-  );
+    (p: any) => (p.status === 'ativo' || p.status === undefined) && (p.nome || p.empresa) && p.cidade && p.url
+  ).map((p: any) => ({ ...p, nome: p.nome || p.empresa, status: 'ativo' }));
 
   if (activePartners.length === 0) return [];
 
@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 }
 
 const { partner } = Astro.props as { partner?: any };
-const activePartners = (cityData.parceiros || []).filter((p: any) => p.status === 'ativo');
+const activePartners = (cityData.parceiros || []).filter((p: any) => p.status === 'ativo' || p.status === undefined).map((p: any) => ({ ...p, nome: p.nome || p.empresa, status: 'ativo' }));
 const cidadePrincipal = `${cityData.cidade} - ${cityData.uf}`;
 
 const introVariations = [
@@ -77,7 +77,7 @@ const pageSeo = partner
     };
 ---
 
-<Layout seo={pageSeo}>
+<Layout {...cityData} seo={pageSeo}>
   <Header {...cityData} />
 
   <main>
@@ -170,7 +170,7 @@ const pageSeo = partner
   </main>
 
   <Footer {...cityData} />
-  <FloatingWhatsapp phone={cityData.whatsapp} />
+  <FloatingWhatsapp {...cityData} />
 </Layout>
 
 <style>

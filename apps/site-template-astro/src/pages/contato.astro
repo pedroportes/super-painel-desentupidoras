@@ -6,7 +6,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
 
-const seo = {
+const isPublicResearch = cityData.isDraft || cityData.commercialClaimsVerified === false;
+const seo = isPublicResearch ? {
+  ...cityData.seo,
+  metaTitle: `Contato em revisão - Desentupidora em ${cityData.cidade}`,
+  metaDescription: `Página de contato da desentupidora em ${cityData.cidade} em revisão. Dados comerciais não são publicados antes da validação independente.`,
+  h1Title: `Contato em revisão`
+} : {
   ...cityData.seo,
   metaTitle: `Contato - Desentupidora em ${cityData.cidade} 24h`,
   metaDescription: `Fale conosco agora! Atendimento 24h em ${cityData.cidade}. Orçamento gratuito via WhatsApp ou Telefone. Equipes prontas para emergências.`,
@@ -16,8 +22,7 @@ const seo = {
 
 <Layout {...cityData} seo={seo}>
   <div data-theme={cityData.paletaCores || 'urgencia-azul-laranja'}>
-    <Header {...cityData} />
-    <main>
+    {isPublicResearch ? <main class="research-contact-page"><section class="internal-hero"><div class="container text-center"><h1>{seo.h1Title}</h1><p class="hero-desc">Dados de contato, cobertura e condições de atendimento permanecem fora desta versão até validação independente.</p></div></section></main> : <><Header {...cityData} /><main>
     <section class="internal-hero">
       <div class="container text-center">
         <h1>{seo.h1Title}</h1>
@@ -56,9 +61,9 @@ const seo = {
       </div>
     </section>
 
-    </main>
-    <Footer {...cityData} />
-    <FloatingWhatsapp {...cityData} />
+    </main></>}
+    <Footer {...cityData} isResearchMode={isPublicResearch} />
+    {!isPublicResearch && <FloatingWhatsapp {...cityData} />}
   </div>
 </Layout>
 

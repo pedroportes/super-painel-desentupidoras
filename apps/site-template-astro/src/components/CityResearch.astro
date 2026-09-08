@@ -1,0 +1,102 @@
+---
+import { slugify } from '../utils/slugify';
+const { cidade, uf, seo, aboutCityTitle, aboutCityText, cityFacts = [], citySources = [], heroImage, bairros = [], neighborhoodContent = {}, faqs = [], whatsapp = '', isDraft = false } = Astro.props;
+---
+
+<main class="city-research">
+  <section class="city-research-hero">
+    <div class="container city-research-grid">
+      <div>
+        <span class="research-kicker">CADERNO LOCAL COM FONTES PUBLICAS</span>
+        <h1>{seo.h1Title}</h1>
+        <p class="research-lead">{seo.firstParagraphText}</p>
+        <p class="research-status">{whatsapp ? 'Esta página reúne informações locais documentadas. A disponibilidade e as condições de atendimento devem ser confirmadas diretamente pelo contato.' : 'Esta página reúne apenas informações locais documentadas. Dados comerciais e contato permanecem fora da publicação até validação independente.'}</p>
+        {whatsapp && <a class="research-contact" href={`https://wa.me/55${whatsapp}?text=Olá,%20gostaria%20de%20informações%20sobre%20desentupimento%20em%20${cidade}`} target="_blank" rel="noopener">Falar pelo WhatsApp</a>}
+      </div>
+      {heroImage && <img src={heroImage} alt={`Paisagem urbana de ${cidade}, ${uf}`} width="1600" height="1000" />}
+    </div>
+  </section>
+
+  <section class="city-research-section">
+    <div class="container narrow">
+      <span class="research-kicker dark">FATOS DA CIDADE</span>
+      <h2>{aboutCityTitle}</h2>
+      <p class="research-copy">{aboutCityText}</p>
+      <div class="city-facts-grid">
+        {cityFacts.map((fact: any) => <article><strong>{fact.label}</strong><span>{fact.value}</span><p>{fact.detail}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="city-neighborhoods">
+    <div class="container narrow">
+      <span class="research-kicker dark">BAIRROS PESQUISADOS</span>
+      <h2>Fichas locais com fonte identificada</h2>
+      <p class="research-copy">Cada ficha abaixo abre um texto próprio, com fatos locais e a referência pública consultada. Bairros sem essa base não entram nesta versão.</p>
+      <div class="neighborhood-list">
+        {bairros.filter((bairro: string) => neighborhoodContent[bairro]).map((bairro: string) => <a href={`/${slugify(bairro)}/`}><strong>{bairro}</strong><span>{neighborhoodContent[bairro].facts[0]}</span></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="city-research-sources">
+    <div class="container narrow">
+      <span class="research-kicker">FONTES CONSULTADAS</span>
+      <h2>De onde vieram as informacoes</h2>
+      <ul>{citySources.map((source: any) => <li><a href={source.url} target="_blank" rel="noopener">{source.title}</a><span>{source.note}</span></li>)}</ul>
+    </div>
+  </section>
+
+  {faqs.length > 0 && <section class="city-research-faqs">
+    <div class="container narrow">
+      <span class="research-kicker dark">PERGUNTAS FREQUENTES</span>
+      <h2>Perguntas sobre {cidade}</h2>
+      <div class="research-faq-list">{faqs.map((faq: any) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+    </div>
+  </section>}
+
+  <section class="city-research-note"><div class="container narrow"><h2>Referência local para desentupidora em {cidade}</h2><p>{isDraft || !whatsapp ? 'Esta ficha editorial permanece sem indexação enquanto a validação empresarial, a revisão humana e a auditoria completa das rotas não forem concluídas.' : 'Esta página reúne fatos públicos da cidade. Para confirmar disponibilidade, valores e condições de atendimento, utilize o canal de contato indicado.'}</p></div></section>
+</main>
+
+<style>
+  .city-research { background: #f8f5ef; color: #241815; }
+  .city-research-hero { padding: 84px 0; background: linear-gradient(130deg, #241513, #4a241d); color: #fff7eb; }
+  .city-research-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .city-research-grid img { width: 100%; border-radius: 22px; aspect-ratio: 4 / 3; object-fit: cover; box-shadow: 0 26px 60px rgba(0,0,0,.28); }
+  .research-kicker { display: inline-block; color: #f6b662; font-size: .78rem; font-weight: 800; letter-spacing: .1em; margin-bottom: 16px; }
+  .research-kicker.dark { color: #8a3b28; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4.7rem); line-height: 1.02; max-width: 12ch; margin: 0 0 22px; }
+  .research-lead { max-width: 65ch; font-size: 1.1rem; line-height: 1.75; }
+  .research-status { margin-top: 24px; padding-left: 14px; border-left: 3px solid #f6b662; color: #f2dac1; line-height: 1.55; }
+  .research-contact { display: inline-block; margin-top: 24px; padding: 14px 22px; border-radius: 999px; background: #f6b662; color: #241513; font-weight: 900; text-decoration: none; }
+  .city-research-section, .city-research-sources { padding: 78px 0; }
+  .city-neighborhoods { padding: 78px 0; background: #f0ebe2; }
+  .city-research-sources { background: #211815; color: #fff7eb; }
+  .city-research-faqs { padding: 78px 0; background: #fff; }
+  .research-faq-list { display: grid; gap: 10px; }
+  .research-faq-list details { border: 1px solid #dfd4c7; background: #fdfbf8; }
+  .research-faq-list summary { padding: 18px 20px; cursor: pointer; font-weight: 800; }
+  .research-faq-list p { margin: 0; padding: 0 20px 18px; line-height: 1.7; }
+  .city-research-note { padding: 72px 0; background: #241815; color: #fff7eb; }
+  .city-research-note h2 { max-width: 760px; }
+  .city-research-note p { max-width: 720px; color: #ddc9b5; line-height: 1.7; }
+  .narrow { max-width: 980px; }
+  h2 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; margin: 0 0 18px; }
+  .research-copy { max-width: 78ch; font-size: 1.08rem; line-height: 1.75; }
+  .city-facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: 32px; }
+  .city-facts-grid article { background: #fff; padding: 24px; border-top: 4px solid #9b432d; box-shadow: 0 10px 22px rgba(36,24,21,.08); }
+  .city-facts-grid strong, .city-facts-grid span { display: block; }
+  .city-facts-grid strong { color: #7b3324; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; }
+  .city-facts-grid span { font-size: 1.5rem; font-weight: 800; margin: 8px 0; }
+  .city-facts-grid p { margin: 0; line-height: 1.5; }
+  .neighborhood-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 30px; }
+  .neighborhood-list a { display: grid; gap: 7px; min-height: 132px; padding: 20px; color: #241815; text-decoration: none; background: #fff; border: 1px solid #dfd4c7; border-radius: 12px; transition: transform .2s, border-color .2s; }
+  .neighborhood-list a:hover { border-color: #9b432d; transform: translateY(-3px); }
+  .neighborhood-list strong { color: #7b3324; font-size: 1.08rem; }
+  .neighborhood-list span { font-size: .92rem; line-height: 1.45; }
+  .city-research-sources ul { display: grid; gap: 14px; list-style: none; padding: 0; }
+  .city-research-sources li { display: grid; gap: 5px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+  .city-research-sources a { color: #f6b662; font-weight: 800; }
+  .city-research-sources span { color: #ddc9b5; line-height: 1.5; }
+  @media (max-width: 760px) { .city-research-hero { padding: 58px 0; } .city-research-grid { grid-template-columns: 1fr; gap: 28px; } .city-research-section, .city-research-sources { padding: 54px 0; } }
+</style>

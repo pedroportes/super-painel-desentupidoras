@@ -5,22 +5,31 @@ import '../styles/themePalettes.css';
 
 import Header from '../components/Header.astro';
 
-// Seleção dinâmica de Hero — 4 layouts genuinamente diferentes (não só
+// Seleção dinâmica de Hero — 6 layouts genuinamente diferentes (não só
 // cor/texto): V1 = form lateral, V2 = centralizado sem foto (com stats),
-// V3 = foto de fundo em tela cheia, V4 = foto ao lado sem form.
+// V3 = foto de fundo em tela cheia, V4 = foto ao lado sem form, V5 =
+// editorial com painel lateral, V6 = processo centralizado.
 import HeroV1 from '../components/HeroV1.astro';
 import HeroV2 from '../components/HeroV2.astro';
 import HeroV3 from '../components/HeroV3.astro';
 import HeroV4 from '../components/HeroV4.astro';
+import HeroV5 from '../components/HeroV5.astro';
+import HeroV6 from '../components/HeroV6.astro';
+import HeroV7 from '../components/HeroV7.astro';
 
-// Seleção dinâmica de Serviços — 4 layouts: V1 = grid de cards claro,
-// V2 = lista escura com tag, V3 = sanfona/accordion, V4 = ícones em passos.
+// Seleção dinâmica de Serviços — 7 layouts: V1 = grid de cards claro,
+// V2 = lista escura com tag, V3 = sanfona/accordion, V4 = ícones em
+// passos, V5 = board editorial, V6 = trilha operacional vertical, V7 = ChatGPT Premium Grid.
 import ServicesGridV1 from '../components/ServicesGridV1.astro';
 import ServicesGridV2 from '../components/ServicesGridV2.astro';
 import ServicesGridV3 from '../components/ServicesGridV3.astro';
 import ServicesGridV4 from '../components/ServicesGridV4.astro';
+import ServicesGridV5 from '../components/ServicesGridV5.astro';
+import ServicesGridV6 from '../components/ServicesGridV6.astro';
+import ServicesGridV7 from '../components/ServicesGridV7.astro';
 
 import CityContext from '../components/CityContext.astro';
+import CityResearch from '../components/CityResearch.astro';
 
 import Benefits from '../components/Benefits.astro';
 import WarningSigns from '../components/WarningSigns.astro';
@@ -30,10 +39,21 @@ import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
 
-const HERO_MAP: Record<string, any> = { HeroV1, HeroV2, HeroV3, HeroV4 };
-const SERVICES_MAP: Record<string, any> = { ServicesGridV1, ServicesGridV2, ServicesGridV3, ServicesGridV4 };
-const HeroComponent = HERO_MAP[cityData.variants.hero] || HeroV1;
-const ServicesComponent = SERVICES_MAP[cityData.variants.services] || ServicesGridV1;
+const HERO_MAP: Record<string, any> = { HeroV1, HeroV2, HeroV3, HeroV4, HeroV5, HeroV6, HeroV7 };
+const SERVICES_MAP: Record<string, any> = { ServicesGridV1, ServicesGridV2, ServicesGridV3, ServicesGridV4, ServicesGridV5, ServicesGridV6, ServicesGridV7 };
+const HeroComponent = HERO_MAP[cityData.heroVariant] || HERO_MAP[cityData.variants?.hero] || HeroV1;
+const ServicesComponent = SERVICES_MAP[cityData.servicesVariant] || SERVICES_MAP[cityData.variants?.services] || ServicesGridV1;
+const cityFacts = cityData.cityFacts || [];
+const citySources = cityData.citySources || [];
+const isResearchMode = cityData.isDraft || cityData.commercialClaimsVerified === false;
+const cityResearchFaqs = isResearchMode ? [
+  { question: `Qual data marca a estação de ${cityData.cidade}?`, answer: cityFacts[0]?.detail || `A pesquisa local reúne fontes públicas sobre ${cityData.cidade}.` },
+  { question: `Qual é a relação entre Vila Romanópolis e ${cityData.cidade}?`, answer: cityData.aboutCityText || `A história urbana de ${cityData.cidade} está documentada nas fontes indicadas.` },
+  { question: `Quando ${cityData.cidade} se tornou município?`, answer: cityFacts[1]?.detail || `A formação administrativa aparece na fonte municipal consultada.` },
+  { question: `Quais dados territoriais a ficha de ${cityData.cidade} usa?`, answer: `${cityFacts[2]?.detail || ''} ${cityFacts[3]?.detail || ''}`.trim() },
+  { question: `Quais fontes sustentam esta página sobre ${cityData.cidade}?`, answer: `A ficha usa ${citySources.map((source: any) => source.title).filter(Boolean).join(', ')}.` },
+  { question: `Esta página confirma atendimento comercial de desentupidora em ${cityData.cidade}?`, answer: `Não. A página separa fatos públicos sobre ${cityData.cidade} de dados comerciais, que só serão incluídos após validação independente.` }
+] : (cityData.faqs || []);
 
 // Presença de seção variável por modelo (regra de ouro do usuário:
 // "modelo" tem que mudar estrutura, não só cor/texto) — cada modelo em
@@ -46,19 +66,8 @@ const showWarningSigns = sections.warningSigns !== false;
 const showCityContext = sections.cityContext !== false;
 ---
 
-<Layout {...cityData}>
-  <Header {...cityData} />
-  <main>
-    <HeroComponent {...cityData} />
-    {showCityContext && <CityContext {...cityData} />}
-    <ServicesComponent {...cityData} />
-    {showWarningSigns && <WarningSigns {...cityData} />}
-    <LocalAreas {...cityData} />
-    <Testimonials {...cityData} />
-    <FAQ {...cityData} />
-    <!-- STRICT SEO RULE: este precisa ser o ÚLTIMO H2 da página, logo antes do rodapé -->
-    <Benefits {...cityData} lastH2Text={cityData.seo.lastH2Title} />
-  </main>
-  <Footer {...cityData} />
-  <FloatingWhatsapp {...cityData} />
+<Layout {...cityData} faqs={cityResearchFaqs}>
+  {isResearchMode ? <CityResearch {...cityData} faqs={cityResearchFaqs} /> : <><Header {...cityData} /><main><HeroComponent {...cityData} />{showCityContext && <CityContext {...cityData} />}<ServicesComponent {...cityData} />{showWarningSigns && <WarningSigns {...cityData} />}<LocalAreas {...cityData} /><Testimonials {...cityData} /><FAQ {...cityData} /><Benefits {...cityData} lastH2Text={cityData.seo?.lastH2Title || cityData.lastH2} /></main></>}
+  <Footer {...cityData} isResearchMode={isResearchMode} />
+  {!isResearchMode && <FloatingWhatsapp {...cityData} />}
 </Layout>

@@ -9,14 +9,18 @@ import { slugify } from '../utils/slugify';
 export async function getStaticPaths() {
   const cidadeSlug = slugify(cityData.cidade);
 
-  const servicePaths = cityData.services.map((service) => ({
-    params: { slug: `${slugify(service.title)}-em-${cidadeSlug}` },
-    props: {
-      type: 'service',
-      title: service.title,
-      description: service.description
-    }
-  }));
+  const servicePaths = (cityData.services || []).map((service: any) => {
+    const title = service.title || service.name || 'Servico';
+    const description = service.description || service.shortDescription || '';
+    return {
+      params: { slug: `${slugify(title)}-em-${cidadeSlug}` },
+      props: {
+        type: 'service',
+        title: title,
+        description: description
+      }
+    };
+  });
 
   const neighborhoodPaths = cityData.bairros.map((bairro) => ({
     params: { slug: slugify(bairro) },

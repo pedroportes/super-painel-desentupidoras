@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "audit": "node scripts/seoGeoAuditor.js"
+    "audit": "node scripts/seoGeoAuditor.js",
+    "audit:preview": "node scripts/checklist_preview.cjs && node scripts/audit_sources.cjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

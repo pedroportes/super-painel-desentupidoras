@@ -219,7 +219,7 @@ export default function App() {
   };
 
   const filteredCities = cities.filter(c => {
-    const matchesSearch = c.cidade.toLowerCase().includes(search.toLowerCase()) || c.dominio.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = (c.cidade || '').toLowerCase().includes(search.toLowerCase()) || (c.dominio || '').toLowerCase().includes(search.toLowerCase());
     const matchesUf = ufFilter === 'todos' || c.uf === ufFilter;
     const matchesStatus = statusFilter === 'todos' || c.status === statusFilter;
     return matchesSearch && matchesUf && matchesStatus;

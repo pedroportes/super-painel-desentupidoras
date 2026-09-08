@@ -1,10 +1,10 @@
 ---
 import cityData from '../data/cityConfig.json';
-const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl } = Astro.props;
+const { cidade, uf, ddd, whatsapp, empresaNome, logoUrl = cityData.logoUrl, commercialClaimsVerified = true } = Astro.props;
+const hasWhatsapp = /^\d{10,13}$/.test(String(whatsapp || '').replace(/\D/g, ''));
+const isResearchMode = commercialClaimsVerified === false;
 
 // Tamanho da logo ajustável pelo painel (campo `logoHeight`, em px).
-// max-width acompanha proporcionalmente (~3.1x a altura) pra manter espaço
-// suficiente pra logos mais largas sem esticar o layout do header.
 const logoHeight = cityData.logoHeight || 64;
 const logoMaxWidth = Math.round(logoHeight * 3.1);
 ---
@@ -12,16 +12,18 @@ const logoMaxWidth = Math.round(logoHeight * 3.1);
 <header class="header">
   <div class="top-bar">
     <div class="container top-bar-content">
-      <span>⚡ Atendimento Emergencial 24 Horas em {cidade} - {uf}</span>
-      <a
-        href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`}
-        class="top-whatsapp"
-        target="_blank"
-        rel="noopener"
-        aria-label={`Falar no WhatsApp 24h: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}`}
-      >
-        <span>📲 WhatsApp 24h: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</span>
-      </a>
+      <span>{isResearchMode ? `Referências locais de ${cidade} - ${uf}` : `⚡ Atendimento Emergencial 24 Horas em ${cidade} - ${uf}`}</span>
+      {hasWhatsapp && (
+        <a
+          href={`https://wa.me/55${whatsapp}?text=Olá,%20preciso%20de%20atendimento%20emergencial%20em%20${cidade}`}
+          class="top-whatsapp"
+          target="_blank"
+          rel="noopener"
+          aria-label={`Falar no WhatsApp 24h: (${ddd}) ${whatsapp.substring(2, 7)}-${whatsapp.substring(7)}`}
+        >
+          <span>📲 WhatsApp 24h: ({ddd}) {whatsapp.substring(2, 7)}-{whatsapp.substring(7)}</span>
+        </a>
+      )}
     </div>
   </div>
 
@@ -32,44 +34,48 @@ const logoMaxWidth = Math.round(logoHeight * 3.1);
           {logoUrl ? (
             <img src={logoUrl} alt={empresaNome} width="512" height="512" style={`height: ${logoHeight}px; max-width: ${logoMaxWidth}px; object-fit: contain;`} />
           ) : (
-            <span class="logo-badge">24H</span>
+            <>
+              <span class="logo-badge">DS</span>
+              <div class="logo-text">
+                <strong id="empresaNome" data-editor-id="empresaNome" data-edit-tab="hero">{empresaNome}</strong>
+                <small>Desentupimentos & Hidrojateamento em {cidade}</small>
+              </div>
+            </>
           )}
-          <div class="logo-text">
-            <strong id="empresaNome" data-editor-id="empresaNome" data-edit-tab="hero">{empresaNome}</strong>
-            <small>Desentupimentos & Hidrojateamento em {cidade}</small>
-          </div>
         </a>
       </div>
 
       <nav class="nav-menu">
         <a href="/#servicos">Serviços</a>
         <a href="/#diferenciais">Diferenciais</a>
-        <a href="/#bairros">Áreas Atendidas</a>
+        <a href="/#bairros">{isResearchMode ? 'Fichas locais' : 'Áreas Atendidas'}</a>
+        {cityData.parceiros && cityData.parceiros.length > 0 && <a href="/fora-da-area-de-cobertura/">Parceiros</a>}
         <a href="/contato/">Contato</a>
         <a href="/#faq">FAQ</a>
       </nav>
 
-      <div class="header-cta">
-        <a href={`https://wa.me/55${whatsapp}?text=Olá!%20Quero%20um%20orçamento%20gratuito%20para%20${cidade}`} class="btn btn-header" target="_blank" rel="noopener">
-          Chamar no WhatsApp
-        </a>
-      </div>
+      {hasWhatsapp && (
+        <div class="header-cta">
+          <a href={`https://wa.me/55${whatsapp}?text=Olá!%20Quero%20um%20orçamento%20gratuito%20para%20${cidade}`} class="btn btn-header" target="_blank" rel="noopener">
+            Chamar no WhatsApp
+          </a>
+        </div>
+      )}
     </div>
   </div>
 </header>
 
 <style>
   .header {
-    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--color-bg-dark, #0f172a);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   .top-bar {
-    background: var(--color-primary, #0284c7);
-    color: #ffffff;
+    background: var(--color-topbar-bg, #0b132b);
+    color: var(--color-topbar-text, #fff);
     font-size: 0.85rem;
     padding: 6px 0;
     font-weight: 500;
@@ -80,86 +86,72 @@ const logoMaxWidth = Math.round(logoHeight * 3.1);
     align-items: center;
   }
   .top-whatsapp {
-    color: #ffffff;
+    color: var(--color-topbar-accent, #20ba5a);
     text-decoration: none;
     font-weight: 700;
   }
   .main-header {
-    padding: 14px 0;
-    background: var(--color-bg-dark, #0f172a);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
   }
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .logo a {
+  .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    text-decoration: none;
-    color: #ffffff;
   }
   .logo-badge {
-    background: var(--color-accent, #f97316);
-    color: #ffffff;
+    background: var(--color-primary, #0284c7);
+    color: #fff;
     font-weight: 900;
-    font-size: 0.9rem;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 8px;
+    font-size: 1.2rem;
   }
   .logo-text strong {
     display: block;
     font-size: 1.2rem;
+    color: var(--color-text-title, #0f172a);
     line-height: 1.2;
-    color: #f8fafc;
   }
   .logo-text small {
-    color: var(--color-text-muted, #94a3b8);
-    font-size: 0.78rem;
+    color: var(--color-text-muted, #64748b);
+    font-size: 0.8rem;
   }
   .nav-menu {
     display: flex;
-    gap: 24px;
+    gap: 20px;
   }
   .nav-menu a {
-    color: var(--color-text-muted, #cbd5e1);
     text-decoration: none;
-    font-weight: 500;
+    color: #1e293b;
+    font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.2s;
   }
   .nav-menu a:hover {
-    color: var(--color-accent, #10b981);
+    color: var(--color-primary, #0284c7);
   }
   .btn-header {
-    background: var(--color-accent, #f97316);
-    color: #ffffff;
+    background: var(--color-primary, #0284c7);
+    color: #fff;
     padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 700;
+    border-radius: 6px;
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.2s;
   }
   .btn-header:hover {
-    background: var(--color-accent-hover, #ea580c);
-    transform: translateY(-2px);
+    background: var(--color-primary-hover, #0369a1);
   }
-  @media (max-width: 768px) {
-    .nav-menu, .top-bar span { display: none; }
-    .header-container {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-    .logo a {
-      justify-content: center;
-    }
-    .btn-header {
-      width: 100%;
-      display: block;
-      padding: 12px;
+
+  @media (max-width: 900px) {
+    .nav-menu, .header-cta {
+      display: none;
     }
   }
 </style>

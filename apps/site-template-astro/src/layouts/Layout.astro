@@ -1,5 +1,6 @@
 ---
 import cityData from '../data/cityConfig.json';
+import AnalyticsPixel from '../components/AnalyticsPixel.astro';
 
   const { 
     seo = cityData.seo, 
@@ -11,25 +12,22 @@ import cityData from '../data/cityConfig.json';
     endereco = cityData.endereco,
     geoCoordinates = cityData.geoCoordinates,
     bairros = cityData.bairros,
-    faqs = cityData.faqs
+    faqs = cityData.faqs,
+    isDraft = cityData.isDraft === true,
+    commercialClaimsVerified = cityData.commercialClaimsVerified === true
   } = Astro.props;
 
   const currentPath = Astro.url.pathname;
   
-  // Real Production Canonical Base (Cloudflare / Vercel / Custom Domain)
-  const cityKey = (cidade || cityData.cidade || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
-  const hosting = cityData.hospedagem || 'cloudflare';
+  // A canonical nunca pode apontar para um dominio inferido. Em producao,
+  // o painel persiste deployUrl; em desenvolvimento, Astro.url e a previa real.
   const productionBaseUrl = cityData.deployUrl
     ? cityData.deployUrl.replace(/\/$/, '')
-    : (hosting === 'cloudflare'
-        ? `https://desentupidora-${cityKey}.pages.dev`
-        : (hosting === 'vercel'
-            ? `https://desentupidora-${cityKey}.vercel.app`
-            : (hosting === 'netlify'
-                ? `https://desentupidora-${cityKey}.netlify.app`
-                : `https://${cityData.dominio || `desentupidora${cityKey}.com.br`}`)));
+    : (import.meta.env.DEV ? Astro.url.origin.replace(/\/$/, '') : '');
 
-  const canonicalUrl = `${productionBaseUrl}${currentPath === '/' ? '' : currentPath}`;
+  const canonicalUrl = productionBaseUrl
+    ? `${productionBaseUrl}${currentPath === '/' ? '' : currentPath}`
+    : '';
 
   // O favicon pode vir em qualquer formato que o painel salvou
   // (.webp/.jpg/.png/.svg) — nunca fixar type="image/x-icon" igual antes,
@@ -50,21 +48,27 @@ import cityData from '../data/cityConfig.json';
   const finalMetaTitle = seo.metaTitle || `Desentupidora em ${cidade} ${uf} 24h | Atendimento Sem Quebrar Piso`;
   const finalMetaDescription = seo.metaDescription || `Especialistas em desentupimento de esgoto, pias, ralos e limpeza de fossa em ${cidade} ${uf}. Chegamos em 30 min. Orçamento gratuito 24h!`;
   
-  // Schema JSON-LD LocalBusiness & EmergencyService
-  const schemaLocalBusiness = {
+  const safeFaqs = Array.isArray(faqs) ? faqs : [];
+  const isPublicResearch = isDraft || commercialClaimsVerified === false;
+  const hasVerifiedCompanyName = Boolean(empresaNome && !/^site em preparacao/i.test(empresaNome));
+  const validWhatsapp = /^\d{10,13}$/.test(String(whatsapp || '').replace(/\D/g, ''));
+
+  // Dados empresariais ausentes nao sao preenchidos com suposicoes. O schema
+  // comercial so existe quando a identidade da empresa foi de fato fornecida.
+const schemaLocalBusiness = !isPublicResearch && hasVerifiedCompanyName ? {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "EmergencyService"],
+  "@type": commercialClaimsVerified ? ["LocalBusiness", "EmergencyService"] : "LocalBusiness",
   "name": `${empresaNome} - ${finalMetaTitle}`,
   "description": finalMetaDescription,
   "url": canonicalUrl,
-  "telephone": `+55${whatsapp}`,
-  "address": {
+  ...(validWhatsapp ? { "telephone": `+55${String(whatsapp).replace(/\D/g, '')}` } : {}),
+  ...(endereco && String(endereco).trim() ? { "address": {
     "@type": "PostalAddress",
     "streetAddress": endereco,
     "addressLocality": cidade,
     "addressRegion": uf,
     "addressCountry": "BR"
-  },
+  }} : {}),
   // STRICT RULE: nunca inventar/deixar coordenadas vazias no schema — um
   // valor "" é JSON-LD inválido. Só inclui 'geo' quando há valores reais.
   ...(geoCoordinates && geoCoordinates.latitude && geoCoordinates.longitude ? {
@@ -74,16 +78,14 @@ import cityData from '../data/cityConfig.json';
       "longitude": parseFloat(geoCoordinates.longitude)
     }
   } : {}),
-  "areaServed": bairros.map(b => `${b}, ${cidade} - ${uf}`),
-  "priceRange": "$$",
-  "openingHours": "Mo-Su 00:00-23:59"
-};
+  "areaServed": (bairros || []).map(b => `${b}, ${cidade} - ${uf}`)
+} : null;
 
 // Schema FAQPage for AEO
 const schemaFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(f => ({
+  "mainEntity": safeFaqs.map(f => ({
     "@type": "Question",
     "name": f.question,
     "acceptedAnswer": {
@@ -104,14 +106,14 @@ const schemaFAQ = {
     <title>{finalMetaTitle}</title>
     <meta name="description" content={finalMetaDescription} />
     <meta name="keywords" content={`desentupidora em ${cidade}, desentupimento ${cidade}, limpa fossa ${cidade}, desentupir pia ${cidade}`} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta name="robots" content="index, follow" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta name="robots" content={isPublicResearch ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="icon" type={faviconType} href={faviconHref} />
 
     <!-- OpenGraph / Social Meta Tags -->
     <meta property="og:title" content={finalMetaTitle} />
     <meta property="og:description" content={finalMetaDescription} />
-    <meta property="og:url" content={canonicalUrl} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={empresaNome} />
@@ -130,8 +132,8 @@ const schemaFAQ = {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />
-    <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+    {!isPublicResearch && schemaLocalBusiness && <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />}
+    {safeFaqs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />}
   </head>
   <body>
     <slot />
@@ -229,6 +231,7 @@ const schemaFAQ = {
         }
       }
     </script>
+    <AnalyticsPixel {...Astro.props} />
   </body>
 </html>
 

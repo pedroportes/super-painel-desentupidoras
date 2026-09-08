@@ -49,6 +49,9 @@ function slugify(text) {
 
 app.use(cors());
 app.use(express.json());
+app.use(express.text({ type: ['text/plain', 'application/json'] }));
+
+const { recordEvent, getAnalyticsSummary, getCityAnalytics } = require('./scripts/analyticsManager.cjs');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const CITIES_FILE = path.join(DATA_DIR, 'cities.json');
@@ -1279,6 +1282,71 @@ app.post('/api/deploy-city/:id', async (req, res) => {
     log: deployResult.log,
     city
   });
+});
+
+// ==========================================
+// 📊 NOSSO PIXEL PRÓPRIO & ANALYTICS API
+// ==========================================
+
+// Endpoint receptor de eventos disparados pelo Pixel (beacon / fetch)
+app.post('/api/pixel/event', (req, res) => {
+  try {
+    let payload = req.body;
+    if (typeof payload === 'string') {
+      try {
+        payload = JSON.parse(payload);
+      } catch (e) {
+        // payload might be plain string
+      }
+    }
+    if (!payload || typeof payload !== 'object') {
+      return res.status(400).json({ error: 'Payload inválido' });
+    }
+
+    // Extrair dados com fallbacks
+    const event = recordEvent({
+      sessionId: payload.sessionId,
+      cityId: payload.cityId,
+      cityName: payload.cityName,
+      uf: payload.uf,
+      eventType: payload.eventType, // pageview | whatsapp_click | phone_click | partner_click
+      pagePath: payload.pagePath,
+      pageTitle: payload.pageTitle,
+      elementId: payload.elementId,
+      referrer: payload.referrer || req.headers.referer || '',
+      userAgent: payload.userAgent || req.headers['user-agent'] || '',
+      device: payload.device
+    });
+
+    res.json({ success: true, eventId: event.id });
+  } catch (err) {
+    console.error('Erro no /api/pixel/event:', err);
+    res.status(500).json({ error: 'Erro interno ao registrar evento' });
+  }
+});
+
+// Endpoint de resumo geral para a aba "Métricas & Cliques"
+app.get('/api/analytics/summary', async (req, res) => {
+  try {
+    const days = Number(req.query.days) || 30;
+    const summary = await getAnalyticsSummary(days);
+    res.json(summary);
+  } catch (err) {
+    console.error('Erro no /api/analytics/summary:', err);
+    res.status(500).json({ error: 'Erro ao gerar resumo de analytics' });
+  }
+});
+
+// Endpoint de detalhes de uma cidade específica
+app.get('/api/analytics/city/:cityId', async (req, res) => {
+  try {
+    const days = Number(req.query.days) || 30;
+    const details = await getCityAnalytics(req.params.cityId, days);
+    res.json(details);
+  } catch (err) {
+    console.error('Erro no /api/analytics/city/:cityId:', err);
+    res.status(500).json({ error: 'Erro ao carregar métricas da cidade' });
+  }
 });
 
 app.listen(PORT, () => {

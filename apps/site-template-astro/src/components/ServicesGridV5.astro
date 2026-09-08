@@ -1,0 +1,170 @@
+---
+// ServicesGridV5: painel editorial com um card em destaque e grade de
+// capacidade. Diferente do V1 por priorizar um serviço âncora e usar os
+// ícones reais do conteúdo; diferente do V2 porque não é lista linear.
+import { slugify } from '../utils/slugify';
+
+const { services, cidade } = Astro.props;
+const cidadeSlug = slugify(cidade);
+const featureLabels = ['Mais buscado', 'Residencial', 'Comercial', 'Condominial', 'Emergência', 'Especializado'];
+---
+
+<section id="servicos" class="services-v5">
+  <div class="container">
+    <div class="services-v5-header">
+      <span class="section-badge">FRENTES DE ATENDIMENTO</span>
+      <h2>Como nossa operação atua em {cidade}</h2>
+      <p>Escolha abaixo o tipo de serviço mais próximo do seu cenário e veja a frente adequada.</p>
+    </div>
+
+    <div class="services-v5-board">
+      {services.map((s: any, idx: number) => (
+        <article class:list={['service-v5-card', idx === 0 && 'service-v5-card-featured']}>
+          <div class="service-v5-top">
+            <span class="service-v5-icon">{s.icon || '⚙️'}</span>
+            <span class="service-v5-label">{featureLabels[idx] || 'Atendimento local'}</span>
+          </div>
+
+          <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>
+          <p id={`services.${idx}.description`} data-edit-tab="services">{s.description}</p>
+
+          <div class="service-v5-meta">
+            <span>Sem quebra quando possível</span>
+            <span>Equipe local</span>
+            <span>Resposta ágil</span>
+          </div>
+
+          <a href={`/${slugify(s.title)}-em-${cidadeSlug}/`} class="service-v5-link">
+            Ver detalhes deste atendimento
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-v5 {
+    padding: 88px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    color: #0f172a;
+  }
+  .services-v5-header {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .section-badge {
+    display: inline-block;
+    color: var(--color-primary, #0284c7);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+  .services-v5-header h2 {
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 10px 0 14px;
+  }
+  .services-v5-header p {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .services-v5-board {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .service-v5-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 28px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+  }
+  .service-v5-card-featured {
+    grid-column: span 2;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.82)),
+      linear-gradient(180deg, rgba(2, 132, 199, 0.05), transparent);
+  }
+  .service-v5-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .service-v5-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.06);
+    font-size: 1.45rem;
+  }
+  .service-v5-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.06);
+    color: #334155;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .service-v5-card h3 {
+    font-size: 1.38rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .service-v5-card p {
+    color: #475569;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .service-v5-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .service-v5-meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .service-v5-link {
+    margin-top: auto;
+    color: var(--color-primary, #0284c7);
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    .services-v5-board {
+      grid-template-columns: 1fr;
+    }
+    .service-v5-card-featured {
+      grid-column: span 1;
+    }
+  }
+</style>
