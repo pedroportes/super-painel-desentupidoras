@@ -16,16 +16,25 @@ const effectiveCityId = id || cityData.id || cidade.toLowerCase().normalize('NFD
     const SUPABASE_URL = 'https://dltqxfyrltgbudtzxzot.supabase.co/rest/v1/analytics_events';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsdHF4ZnlybHRnYnVkdHp4em90Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NTMzNzIsImV4cCI6MjA4MjQyOTM3Mn0.25dykN-BHp6B_iB0l-EDtKiGrOGSc9inmo_403yhsUQ';
 
-    // 1. Identificador anônimo de sessão
+    // 1. Filtros anti-bot e anti-poluição de métricas
+    const ua = navigator.userAgent || '';
+    const isBot = navigator.webdriver || /bot|crawler|spider|slurp|lighthouse|headless|curl|fetch|wget|python|node/i.test(ua);
+    const is404 = window.location.pathname.includes('404') || (document.title || '').toLowerCase().includes('404') || (document.title || '').toLowerCase().includes('não encontrada');
+    const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+    // Se for bot automatizado ou página de erro 404, não contabiliza no analytics oficial
+    if (isBot || is404) return;
+
+    // 2. Identificador anônimo de sessão
     let sessionId = sessionStorage.getItem('_px_sid');
     if (!sessionId) {
       sessionId = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 8);
-      sessionStorage.setItem('_px_sid', sessionId);
+      try { sessionStorage.setItem('_px_sid', sessionId); } catch(e) {}
     }
 
-    const device = /mobile|android|iphone/i.test(navigator.userAgent || '') ? 'mobile' : 'desktop';
+    const device = /mobile|android|iphone/i.test(ua) ? 'mobile' : 'desktop';
 
-    // 2. Função de disparo
+    // 3. Função de disparo
     function track(eventType, extraData) {
       extraData = extraData || {};
       try {
@@ -43,35 +52,24 @@ const effectiveCityId = id || cityData.id || cidade.toLowerCase().normalize('NFD
           target_href: extraData.targetHref || ''
         };
 
-        // Envia para o coletor HTTPS na nuvem
-        fetch(SUPABASE_URL, {
-          method: 'POST',
-          headers: {
-            'apikey': SUPABASE_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload),
-          keepalive: true,
-          mode: 'cors'
-        }).catch(function () {});
-
-        // Se estiver em localhost, envia também para a API local
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Só envia para a nuvem (Supabase) em domínios públicos de produção
+        if (!isDev) {
+          fetch(SUPABASE_URL, {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_KEY,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+            keepalive: true,
+            mode: 'cors'
+          }).catch(function () {});
+        } else {
+          // Em localhost, envia apenas para a API local de testes
           fetch('http://localhost:5002/api/pixel/event', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              sessionId: sessionId,
-              cityId: cityId,
-              cityName: cityName,
-              uf: uf,
-              eventType: eventType,
-              pagePath: window.location.pathname,
-              pageTitle: document.title,
-              referrer: document.referrer || 'direto',
-              elementId: extraData.elementId || '',
-              device: device
-            }),
+            body: JSON.stringify(payload),
             keepalive: true,
             mode: 'cors'
           }).catch(function () {});

@@ -234,17 +234,49 @@ export default function AnalyticsTab() {
               backgroundColor: '#1e293b',
               color: '#38bdf8',
               border: '1px solid #334155',
-              padding: '8px 14px',
+              padding: '6px 14px',
               borderRadius: '8px',
               fontSize: '0.85rem',
-              fontWeight: 700,
-              cursor: 'pointer',
+              fontWeight: 600,
+              cursor: loading ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px'
             }}
           >
             <span>🔄</span> {loading ? 'Atualizando...' : 'Atualizar'}
+          </button>
+
+          <button
+            onClick={async () => {
+              if (window.confirm('Tem certeza que deseja zerar todas as métricas acumuladas de analytics para reiniciar os dados limpos?')) {
+                try {
+                  const res = await fetch('/api/analytics/reset', { method: 'POST' });
+                  const data = await res.json();
+                  if (data.success) {
+                    await fetchSummary(days);
+                    alert('Métricas zeradas com sucesso!');
+                  }
+                } catch (e) {
+                  alert('Erro ao zerar métricas');
+                }
+              }
+            }}
+            style={{
+              backgroundColor: '#3f1515',
+              color: '#f87171',
+              border: '1px solid #7f1d1d',
+              padding: '6px 14px',
+              borderRadius: '8px',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <span>🗑️</span> Zerar Métricas
           </button>
         </div>
       </div>

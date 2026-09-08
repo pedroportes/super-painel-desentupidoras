@@ -39,8 +39,16 @@ function loadEventsFromDisk() {
   }
 }
 
+function resetAnalyticsCache() {
+  eventsCache = [];
+  isLoaded = true;
+  if (fs.existsSync(EVENTS_FILE)) {
+    fs.writeFileSync(EVENTS_FILE, '', 'utf-8');
+  }
+}
+
 async function syncWithSupabase() {
-  if (!isLoaded) loadEventsFromDisk();
+  loadEventsFromDisk();
 
   try {
     const res = await fetch(`${SUPABASE_URL}?order=created_at.desc&limit=1000`, {
@@ -49,6 +57,12 @@ async function syncWithSupabase() {
     if (!res.ok) return;
     const remote = await res.json();
     if (!Array.isArray(remote)) return;
+
+    // Se o Supabase estiver vazio e o disco vazio, zerar cache
+    if (remote.length === 0 && eventsCache.length === 0) {
+      eventsCache = [];
+      return;
+    }
 
     const existingIds = new Set(eventsCache.map(e => e.id));
     let newEvents = 0;
@@ -276,5 +290,6 @@ async function getCityAnalytics(cityId, filterDays = 30) {
 module.exports = {
   recordEvent,
   getAnalyticsSummary,
-  getCityAnalytics
+  getCityAnalytics,
+  resetAnalyticsCache
 };

@@ -51,7 +51,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.text({ type: ['text/plain', 'application/json'] }));
 
-const { recordEvent, getAnalyticsSummary, getCityAnalytics } = require('./scripts/analyticsManager.cjs');
+const { recordEvent, getAnalyticsSummary, getCityAnalytics, resetAnalyticsCache } = require('./scripts/analyticsManager.cjs');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const CITIES_FILE = path.join(DATA_DIR, 'cities.json');
@@ -1346,6 +1346,17 @@ app.get('/api/analytics/city/:cityId', async (req, res) => {
   } catch (err) {
     console.error('Erro no /api/analytics/city/:cityId:', err);
     res.status(500).json({ error: 'Erro ao carregar métricas da cidade' });
+  }
+});
+
+// Endpoint para resetar/zerar todas as métricas de analytics
+app.post('/api/analytics/reset', async (req, res) => {
+  try {
+    resetAnalyticsCache();
+    res.json({ success: true, message: 'Métricas de analytics zeradas com sucesso!' });
+  } catch (err) {
+    console.error('Erro no /api/analytics/reset:', err);
+    res.status(500).json({ error: 'Erro ao zerar métricas' });
   }
 });
 

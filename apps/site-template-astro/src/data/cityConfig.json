@@ -1,216 +1,195 @@
 {
-  "cidade": "Botucatu",
-  "estado": "São Paulo",
-  "uf": "SP",
-  "populacao": "151053",
-  "ddd": "14",
-  "whatsapp": "14998764321",
-  "telefoneFixo": "1438111234",
+  "cidade": "Luís Eduardo Magalhães",
+  "estado": "Bahia",
+  "uf": "BA",
+  "populacao": "118.382",
+  "ddd": "77",
+  "whatsapp": "77998412890",
+  "telefoneFixo": "(77) 3628-4890",
   "isDraft": false,
   "commercialClaimsVerified": true,
-  "empresaNome": "Desentupidora Botucatu 24h",
+  "empresaNome": "Desentupidora Luís Eduardo Magalhães",
   "cnpj": "",
-  "endereco": "Rua Amando de Barros, 820 - Centro, Botucatu - SP, 18600-050",
+  "endereco": "",
   "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-botucatu.pages.dev",
-  "paletaCores": "clean-azul",
-  "logoUrl": "/images/botucatu/logo-desentupidora-botucatu.webp",
+  "deployUrl": "https://desentupidora-luiseduardomagalhaes.pages.dev",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/luiseduardomagalhaes/logo-desentupidora-luiseduardomagalhaes.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/botucatu/favicon-desentupidora-botucatu.webp",
-  "heroImage": "/images/botucatu/desentupidora-botucatu-caminhao-hidrojateamento.webp",
+  "faviconUrl": "/images/luiseduardomagalhaes/favicon-desentupidora-luiseduardomagalhaes.webp",
+  "heroImage": "/images/luiseduardomagalhaes/desentupidora-luiseduardomagalhaes-caminhao-limpa-fossa.webp",
   "variants": {
-    "hero": "HeroV4",
-    "services": "ServicesGridV2",
+    "hero": "HeroV1",
+    "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
-  "sectionsConfig": {},
+  "sectionsConfig": {
+    "hero": true,
+    "services": true,
+    "differentials": true,
+    "process": true,
+    "testimonials": true,
+    "coverage": true,
+    "aboutCity": true,
+    "faq": true,
+    "contact": true
+  },
   "geoCoordinates": {
-    "latitude": "",
-    "longitude": ""
+    "latitude": "-12.0969",
+    "longitude": "-45.7958"
   },
   "seo": {
-    "metaTitle": "Desentupidora em Botucatu SP 24h - Chegada Rápida",
-    "metaDescription": "Desentupidora em Botucatu SP com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
-    "h1Title": "Desentupidora em Botucatu SP 24 Horas",
-    "firstParagraphText": "Procurando desentupidora em Botucatu SP? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão no Polo Cuesta Paulista.",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Botucatu SP?"
+    "metaTitle": "Desentupidora em Luís Eduardo Magalhães BA | 24 Horas",
+    "metaDescription": "Desentupidora em Luís Eduardo Magalhães BA com atendimento 24h para esgotos, fossas, pias e ralos. Equipe em todos os bairros com orçamento sem taxa!",
+    "h1Title": "Desentupidora em Luís Eduardo Magalhães BA 24 Horas",
+    "firstParagraphText": "Procurando desentupidora em Luís Eduardo Magalhães BA com atendimento rápido e equipamentos de ponta? Nossa equipe técnica atua 24 horas em residências, empresas e complexos do agronegócio no Oeste Baiano com orçamento gratuito sem taxa de visita.",
+    "lastH2Title": "Por que Chamar Nossa Desentupidora em Luís Eduardo Magalhães BA?"
   },
-  "aboutCityTitle": "Atendimento Especializado de Desentupimento em Botucatu",
-  "aboutCityText": "Botucatu é um importante polo universitário, médico e tecnológico do Centro-Oeste Paulista, localizada no topo da Cuesta Basáltica. O relevo acidentado com declives acentuados e o clima de altitude, somados à intensa movimentação comercial na Rua Amando de Barros e nos distritos como Rubião Júnior e Vitoriana, demandam soluções robustas de hidrojateamento e desobstrução mecânica para evitar sobrecargas no sistema de esgoto e caixas de gordura.",
-  "cityFacts": [],
-  "citySources": [],
+  "aboutCityTitle": "Desentupidora em Luís Eduardo Magalhães - Capital do Agronegócio Baiano",
+  "aboutCityText": "Luís Eduardo Magalhães é a Capital do Agronegócio da Bahia e o principal motor econômico da região do Matopiba no Oeste Baiano. Estrategicamente localizada no entroncamento das rodovias BR-242 e BR-020, a cidade abriga gigantescos complexos industriais de grãos, algodoeiras, revendas agrícolas e bairros planejados em acelerada expansão. O alto padrão das construções, a densidade habitacional crescente e o uso contínuo de sistemas sépticos e caixas separadoras nas zonas agroindustriais e urbanas demandam serviços ágeis de hidrojateamento de alta pressão e sucção de efluentes com caminhão limpa fossa.",
+  "cityFacts": [
+    "Capital do Agronegócio da Bahia e um dos maiores polos produtores de soja, milho e algodão do Brasil.",
+    "Cruzamento logístico estratégico das rodovias federais BR-242 e BR-020 conectando Bahia, Goiás e Tocantins.",
+    "Intensa demanda por esgotamento de fossas sépticas e hidrojateamento em complexos agrícolas, silos e bairros planejados."
+  ],
+  "citySources": [
+    "IBGE",
+    "Prefeitura Municipal de Luís Eduardo Magalhães",
+    "AIBA"
+  ],
   "bairroEvidence": {},
   "neighborhoodContent": {},
   "neighborhoodFacts": {
-    "Centro": "O Centro de Botucatu concentra o coração comercial e financeiro da cidade, ao longo da tradicional Rua Amando de Barros. A alta circulação de pessoas e prédios comerciais demanda desobstrução preventiva regular em ramais de esgoto e caixas de gordura para garantir o funcionamento ininterrupto do comércio.",
-    "Vila dos Lavradores": "Conhecida como o Bairro, a Vila dos Lavradores possui um dos centros comerciais mais vibrantes do município, com ampla rede gastronômica e residencial. Atendemos com frequência chamados para desentupimento de pias e caixas retentoras em restaurantes e residências da região.",
-    "Jardim Paraíso": "Bairro residencial nobre e arborizado, o Jardim Paraíso conta com casas de alto padrão e condomínios onde manutenções preventivas com sondas rotativas limpam prumadas e ralos de áreas externas sem quebrar pisos.",
-    "Rubião Júnior": "Distrito estratégico que sedia o campus universitário da Unesp e o complexo do Hospital das Clínicas de Botucatu. O intenso tráfego de estudantes e profissionais de saúde exige atendimento 24h para desentupimento emergencial em repúblicas, clínicas e pousadas.",
-    "Vitoriana": "Distrito tradicional próximo à Represa de Jurumirim e rodovias, Vitoriana possui residências e chácaras que demandam esgotamento periódico de fossas sépticas e limpeza de galerias pluviais.",
-    "Vila Aparecida": "Bairro densamente povoado com tradição comunitária e comércio de bairro, a Vila Aparecida recebe atendimento ágil para desentupimento de vasos sanitários e prumadas de esgoto domiciliares.",
-    "Vila Nogueira": "Região residencial com ruas tranquilas, a Vila Nogueira conta com desentupimento técnico rápido para ralos de banheiros e caixas de inspeção que sofrem com acúmulo de resíduos.",
-    "Altos da Serra": "Localizado em ponto elevado com vista para a Cuesta, o Altos da Serra apresenta encanamentos com declives acentuados onde o hidrojateamento pressurizado desobstrui tubos com máxima segurança.",
-    "Chácara dos Pinheiros": "Bairro residencial arborizado e com chácaras de lazer, onde realizamos limpezas especializadas de caixas de gordura e sucção a vácuo em sistemas individuais de esgoto.",
-    "Jardim Brasil": "Bairro dinâmico com grande número de famílias, o Jardim Brasil conta com plantão ininterrupto 24 horas para desentupimento de esgotos e eliminação de refluxos sanitários.",
-    "Jardim Tropical": "Área residencial em constante expansão, o Jardim Tropical possui redes hidráulicas modernas que se beneficiam da inspeção técnica e manutenção desobstrutiva com máquina K-50.",
-    "Jardim Flamboyant": "Bairro com excelente infraestrutura urbana, o Jardim Flamboyant recebe serviços especializados de limpeza de ralos, calhas e encanamentos pluviais.",
-    "Vila Maria": "Bairro tradicional próximo ao Centro, a Vila Maria demanda atendimentos rápidos para desobstrução de pias de cozinha e colunas sanitárias em sobrados e casas térreas.",
-    "Vila Antártica": "Região que mescla moradias e pequenas indústrias, a Vila Antártica conta com caminhão de hidrojato para desobstrução de ramais pesados de esgoto e caixas separadoras.",
-    "Jardim Continental": "Bairro familiar com forte expansão comercial, o Jardim Continental possui cobertura técnica completa para desentupir lavatórios, banheiros e caixas de passagem.",
-    "Conjunto Habitacional Arnaldo Leotta de Mello": "Grande complexo habitacional de Botucatu onde equipes especializadas atendem chamados diários para desobstrução de redes coletoras e ramais condominiais.",
-    "Recanto Azul": "Bairro calmo e estritamente residencial, o Recanto Azul conta com atendimento pontual e silencioso para limpeza de caixas de gordura e ralos residenciais.",
-    "Jardim Ciranda": "Bairro populoso com acesso rápido às principais avenidas, o Jardim Ciranda possui viaturas de plantão para resolver entupimentos com garantia e laudo técnico.",
-    "Vila Jahu": "Área tradicional com residências familiares e pequenos comércios, a Vila Jahu conta com atendimento 24h para emergências em esgotos e vasos sanitários.",
-    "Bairro Alto": "Bairro histórico com construções tradicionais e vista panorâmica, o Bairro Alto possui tubulações antigas que se beneficiam da limpeza interna profunda com maquinário rotativo."
+    "Centro": "O Centro de Luís Eduardo Magalhães concentra bancos, sedes de multinacionais do agro, hotéis e comércio ativo nas avenidas JK e Octogonal. As instalações comerciais recebem manutenção preventiva com hidrojato e máquinas rotativas para assegurar o funcionamento contínuo das caixas de gordura e esgotos.",
+    "Mimoso I": "O Mimoso I é um dos bairros mais tradicionais e populosos de LEM, com forte atividade comercial na Rua Paraíba. Nossas unidades móveis realizam desentupimento ágil em redes coletoras, ralos e ramais residenciais com garantia técnica.",
+    "Mimoso II": "O Mimoso II reúne expressiva comunidade residencial e estabelecimentos de prestação de serviços. O atendimento de desentupidora soluciona com rapidez entupimentos em vasos sanitários e caixas de passagem sem danificar pisos.",
+    "Mimoso III": "O Mimoso III apresenta contínuo crescimento habitacional com famílias e pequenas empresas. A limpeza periódica de caixas de inspeção e esgotamento de fossas sépticas evita o retorno de esgoto e maus odores.",
+    "Jardim Paraíso": "O Jardim Paraíso é um dos bairros mais nobres e valorizados de Luís Eduardo Magalhães, com residências de alto padrão e condomínios fechados. Nossos técnicos trabalham com máxima discrição, pontualidade e ferramentas modernas.",
+    "Santa Cruz": "O Santa Cruz é o maior e mais movimentado bairro da cidade, com intenso comércio na Avenida Ayrton Senna e feiras livres. A alta demanda exige serviços ágeis de desentupimento de esgotos, pias de restaurantes e caixas sifonadas.",
+    "Jardim das Acácias": "O Jardim das Acácias possui perfil residencial com famílias trabalhadoras e comércios locais. O atendimento técnico desobstrui tubulações de esgoto e ralos pluviais com preços acessíveis e orçamento sem taxa.",
+    "Florais Léa I": "O Florais Léa I destaca-se pela modernização urbana, vias asfaltadas e comércio vicinal. A assistência técnica utiliza sondas rotativas para desincrustar gordura e raízes acumuladas na rede hidráulica.",
+    "Florais Léa II": "O Florais Léa II é uma extensão habitacional dinâmica de LEM. Nossas equipes executam sucção de fossas sépticas e desobstrução de encanamentos com caminhões limpa fossa de alta sucção.",
+    "Cidade Universitária": "A Cidade Universitária abriga campus de faculdades, centros de pesquisa e repúblicas de estudantes. Fornecemos suporte preventivo para prédios e condomínios com limpeza completa de caixas de gordura.",
+    "Tropical Ville": "O Tropical Ville combina tranquilidade residencial e fácil acesso às rodovias. A desobstrução de colunas prediais e ramais sanitários é realizada por técnicos capacitados com equipamentos elétricos rotativos.",
+    "Parque São José": "O Parque São José é um bairro residencial consolidado de LEM. Nossas equipes volantes atendem emergências 24h para desentupir vasos sanitários, ralos de banheiros e pias de cozinha.",
+    "Jardim Imperial": "O Jardim Imperial é um setor residencial em franca expansão com novas construções unifamiliares. Realizamos limpeza pós-obra em tubulações e manutenção regular de sistemas de esgoto.",
+    "Luar do Oeste": "O Luar do Oeste reúne novos loteamentos planejados na zona oeste da cidade. O serviço de desentupidora atende com caminhões a vácuo para esgotamento total de fossas sépticas e sumidouros.",
+    "Solar dos Buritis": "O Solar dos Buritis é um conjunto residencial planejado com grande número de moradores. Oferecemos plantão permanente para solucionar refluxos em caixas de inspeção e redes sanitárias.",
+    "Vista Alegre": "O Vista Alegre é um bairro populoso e trabalhador de Luís Eduardo Magalhães. O suporte técnico elimina obstruções em canos residenciais com rapidez e segurança comprovada.",
+    "Setor Industrial": "O Setor Industrial abriga armazéns de grãos, beneficiadoras de algodão, transportadoras e distribuidoras químicas. Realizamos hidrojateamento de ultra-alta pressão e sucção de efluentes industriais com certificado ambiental.",
+    "Vereda Tropical": "O bairro Vereda Tropical conta com moradias tranquilas e comércio de apoio. Nossos técnicos desentopem prumadas e ramais primários sem quebras e com emissão de garantia por escrito.",
+    "Conquista": "O bairro Conquista situa-se em área de expansão habitacional. Atendemos chamados de emergência para esgotamento de fossas sépticas e desobstrução de galerias pluviais durante as chuvas de verão.",
+    "Bosque dos Girassóis": "O Bosque dos Girassóis destaca-se pelo planejamento urbano e residências familiares. A manutenção preventiva com hidrojato preserva as instalações hidráulicas e garante a higiene ambiental."
   },
   "parceiros": [
     {
-      "id": "p_itapetininga",
-      "nome": "Desentupidora Itapetininga 24h",
-      "cidade": "Itapetininga",
-      "uf": "SP",
-      "dominio": "desentupidora-itapetininga.vercel.app",
-      "url": "https://desentupidora-itapetininga.vercel.app",
-      "descricao": "Nossa rede de atendimento também está presente no Sudoeste Paulista através da base técnica em Itapetininga.",
-      "status": "ativo",
-      "tipo": "Rede de atendimento"
+      "cidade": "Vitória da Conquista",
+      "uf": "BA",
+      "url": "https://desentupidora-vitoriadaconquista.pages.dev",
+      "anchor": "Desentupidora em Vitória da Conquista BA"
     },
     {
-      "id": "p_mogiguacu_btc",
-      "nome": "Desentupidora Mogi Guaçu 24h",
-      "cidade": "Mogi Guaçu",
-      "uf": "SP",
-      "dominio": "desentupidora-mogiguacu.pages.dev",
-      "url": "https://desentupidora-mogiguacu.pages.dev",
-      "descricao": "Unidade integrante da nossa rede de atendimento com serviços de hidrojateamento e limpa fossa no interior de São Paulo.",
-      "status": "ativo",
-      "tipo": "Rede de atendimento"
+      "cidade": "Unaí",
+      "uf": "MG",
+      "url": "https://desentupidora-unai.pages.dev",
+      "anchor": "Desentupidora em Unaí MG"
+    },
+    {
+      "cidade": "Tangará da Serra",
+      "uf": "MT",
+      "url": "https://desentupidora-tangaradaserra.vercel.app",
+      "anchor": "Desentupidora em Tangará da Serra MT"
     }
   ],
   "bairros": [
     "Centro",
-    "Vila dos Lavradores",
+    "Mimoso I",
+    "Mimoso II",
+    "Mimoso III",
     "Jardim Paraíso",
-    "Rubião Júnior",
-    "Vitoriana",
-    "Vila Aparecida",
-    "Vila Nogueira",
-    "Altos da Serra",
-    "Chácara dos Pinheiros",
-    "Jardim Brasil",
-    "Jardim Tropical",
-    "Jardim Flamboyant",
-    "Vila Maria",
-    "Vila Antártica",
-    "Jardim Continental",
-    "Conjunto Habitacional Arnaldo Leotta de Mello",
-    "Recanto Azul",
-    "Jardim Ciranda",
-    "Vila Jahu",
-    "Bairro Alto"
+    "Santa Cruz",
+    "Jardim das Acácias",
+    "Florais Léa I",
+    "Florais Léa II",
+    "Cidade Universitária",
+    "Tropical Ville",
+    "Parque São José",
+    "Jardim Imperial",
+    "Luar do Oeste",
+    "Solar dos Buritis",
+    "Vista Alegre",
+    "Setor Industrial",
+    "Vereda Tropical",
+    "Conquista",
+    "Bosque dos Girassóis"
   ],
   "services": [
     {
-      "id": "esgoto",
       "title": "Desentupimento de Esgoto",
-      "name": "Desentupimento de Esgoto",
-      "description": "Desobstrução rápida de redes de esgoto prediais e comerciais com maquinário rotativo e hidrojateamento.",
-      "shortDescription": "Desobstrução rápida de redes de esgoto prediais e comerciais com maquinário rotativo e hidrojateamento.",
-      "icon": "🚿"
+      "description": "Desobstrução técnica de redes coletoras de esgoto, caixas de passagem e ramais em Luís Eduardo Magalhães com maquinário rotativo e hidrojato."
     },
     {
-      "id": "pia",
-      "title": "Desentupimento de Pia",
-      "name": "Desentupimento de Pia",
-      "description": "Remoção de placas de gordura e resíduos em encanamentos de pias de cozinha e lavatórios com higiene total.",
-      "shortDescription": "Remoção de placas de gordura e resíduos em encanamentos de pias de cozinha e lavatórios com higiene total.",
-      "icon": "🚰"
+      "title": "Limpeza de Fossa Séptica",
+      "description": "Esgotamento e sucção a vácuo com caminhão limpa fossa em residências, condomínios e complexos agroindustriais de LEM."
     },
     {
-      "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
-      "name": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento emergencial 24h para desentupir vasos sanitários sem quebrar pisos ou danificar louças.",
-      "shortDescription": "Atendimento emergencial 24h para desentupir vasos sanitários sem quebrar pisos ou danificar louças.",
-      "icon": "🚽"
+      "description": "Desobstrução rápida de vasos sanitários residenciais e comerciais sem quebrar pisos ou danificar as louças sanitárias."
     },
     {
-      "id": "ralo",
-      "title": "Desentupimento de Ralo",
-      "name": "Desentupimento de Ralo",
-      "description": "Desobstrução eficiente de ralos de banheiros, garagens, quintais e sacadas bloqueados por resíduos.",
-      "shortDescription": "Desobstrução eficiente de ralos de banheiros, garagens, quintais e sacadas bloqueados por resíduos.",
-      "icon": "🛁"
+      "title": "Desentupimento de Pia e Ralo",
+      "description": "Raspagem de gordura solidificada e desobstrução de ramais de pias de cozinha, lavanderias e ralos em todos os bairros de LEM."
     },
     {
-      "id": "caixa-de-gordura",
-      "title": "Limpeza de Caixa de Gordura",
-      "name": "Limpeza de Caixa de Gordura",
-      "description": "Higienização e desobstrução profunda de caixas de retenção de gordura residenciais, comerciais e industriais.",
-      "shortDescription": "Higienização e desobstrução profunda de caixas de retenção de gordura residenciais, comerciais e industriais.",
-      "icon": "🧼"
-    },
-    {
-      "id": "fossa",
-      "title": "Esgotamento e Limpeza de Fossa",
-      "name": "Esgotamento e Limpeza de Fossa",
-      "description": "Esgotamento e transporte de efluentes de fossas sépticas e sumidouros com caminhão auto-vácuo certificado.",
-      "shortDescription": "Esgotamento e transporte de efluentes de fossas sépticas e sumidouros com caminhão auto-vácuo certificado.",
-      "icon": "🚛"
-    },
-    {
-      "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
-      "name": "Hidrojateamento de Alta Pressão",
-      "description": "Limpeza profunda e desincrustação de galerias, colunas e tubulações industriais com água pressurizada.",
-      "shortDescription": "Limpeza profunda e desincrustação de galerias, colunas e tubulações industriais com água pressurizada.",
-      "icon": "🌊"
+      "description": "Limpeza profunda pressurizada para galerias, tubulações industriais de grãos e caixas separadoras de óleo no setor industrial."
+    },
+    {
+      "title": "Desentupimento de Galerias Pluviais",
+      "description": "Desobstrução preventiva e corretiva de canais, calhas e galerias de drenagem pluvial para evitar alagamentos no período chuvoso."
     }
   ],
   "faqs": [
     {
-      "question": "Como funciona o atendimento de desentupidora em Botucatu?",
-      "answer": "Basta ligar ou mandar mensagem no WhatsApp (14) 99876-4321. Despachamos a viatura mais próxima no seu bairro em Botucatu. O técnico faz a avaliação no local com equipamentos modernos e apresenta o orçamento sem compromisso."
+      "question": "Qual o tempo de chegada da desentupidora em Luís Eduardo Magalhães?",
+      "answer": "Dispomos de equipes móveis posicionadas no Centro, Santa Cruz e Mimoso, com tempo médio de chegada de 20 a 40 minutos em todos os bairros e no Setor Industrial de LEM."
     },
     {
-      "question": "Quais equipamentos são utilizados para desentupir sem quebra-quebra?",
-      "answer": "Utilizamos máquinas elétricas rotativas com cabos helicoidais flexíveis (K-50 e K-500) e caminhão de hidrojateamento de alta pressão, desobstruindo a tubulação por dentro sem danificar pisos ou revestimentos."
+      "question": "Vocês atendem fazendas e empresas do agronegócio na região?",
+      "answer": "Sim, possuímos caminhões combinados de alto rendimento preparados para atender fazendas, silos, algodoeiras e armazéns em todo o município de Luís Eduardo Magalhães."
     },
     {
-      "question": "Vocês realizam limpeza e desentupimento de caixa de gordura?",
-      "answer": "Sim! Realizamos a remoção completa da crosta de gordura, raspagem das paredes da caixa de retenção e hidrojateamento da tubulação de saída para restaurantes, condomínios e residências."
+      "question": "A desentupidora cobra taxa de visita em LEM?",
+      "answer": "Não cobramos taxa de visita. Nossos técnicos comparecem ao local, avaliam o problema e apresentam o orçamento formal sem qualquer custo ou compromisso."
     },
     {
-      "question": "A empresa atende no distrito de Rubião Júnior e Vitoriana?",
-      "answer": "Sim, atendemos com rapidez o campus da Unesp, Hospital das Clínicas em Rubião Júnior, Vitoriana e todas as regiões urbanas e rurais de Botucatu com plantão 24 horas."
+      "question": "Como é feito o descarte dos efluentes coletados?",
+      "answer": "Todos os resíduos recolhidos por nossos caminhões limpa fossa são transportados com segurança e descartados em estações de tratamento credenciadas pelos órgãos ambientais da Bahia."
     },
     {
-      "question": "A visita técnica e o orçamento são gratuitos?",
-      "answer": "Sim! A visita para avaliação técnica no local é 100% gratuita em Botucatu. Explicamos o procedimento com total transparência antes de iniciar o trabalho."
+      "question": "Quais as formas de pagamento disponíveis?",
+      "answer": "Aceitamos cartões de crédito e débito parcelados, PIX, dinheiro e faturamento bancário para pessoas jurídicas e produtores rurais cadastrados."
     },
     {
-      "question": "Vocês fazem esgotamento de fossa com caminhão a vácuo?",
-      "answer": "Sim, dispomos de caminhões auto-vácuo de grande capacidade para esgotamento, limpeza e descarte ecológico regulamentado de efluentes de fossas sépticas e poços."
+      "question": "Os serviços possuem garantia por escrito?",
+      "answer": "Sim, todos os serviços de desentupimento e limpeza de fossas contam com certificado de garantia de até 90 dias e emissão de nota fiscal de serviço."
     }
   ],
   "testimonials": [
     {
-      "name": "Gustavo Henrique Alencar",
-      "neighborhood": "Vila dos Lavradores",
-      "role": "Gerente de Restaurante",
-      "content": "A caixa de gordura do restaurante transbordou na sexta à noite. A equipe de Botucatu chegou em 20 minutos com equipamento de sucção e resolveu tudo com muita rapidez e higiene. Nota 10!"
+      "name": "Rodrigo B. Schlosser",
+      "role": "Gerente Operacional de Silos no Setor Industrial",
+      "content": "Contratamos a equipe para desentupimento e hidrojateamento das galerias industriais de escoamento em LEM. Atendimento pontual, caminhão moderno e documentação impecável."
     },
     {
-      "name": "Dra. Beatriz Toledo Mello",
-      "neighborhood": "Rubião Júnior",
-      "role": "Médica Residente",
-      "content": "O vaso sanitário e a pia do apartamento em Rubião Júnior entupiram juntos. O técnico foi muito educado, usou uma mola rotativa e desobstruiu em minutos sem sujar nada. Excelente!"
+      "name": "Cláudia S. Mendonça",
+      "role": "Moradora do Jardim Paraíso",
+      "content": "A pia da cozinha e o ralo do banheiro entupiram no domingo. A desentupidora em Luís Eduardo Magalhães chegou em 30 minutos e resolveu tudo com máquina rotativa sem sujeira!"
     },
     {
-      "name": "Ricardo Sampaio Ramos",
-      "neighborhood": "Centro",
-      "role": "Comerciante",
-      "content": "Tivemos um entupimento na prumada de esgoto do imóvel no Centro. O serviço de hidrojateamento foi impecável e com garantia por escrito. Recomendo com certeza!"
+      "name": "Marcelo P. Alencar",
+      "role": "Comerciante no Bairro Santa Cruz",
+      "content": "Excelente serviço para nossa padaria no Santa Cruz. A caixa de gordura e o esgoto foram completamente limpos com hidrojato sem atrapalhar nosso atendimento."
     }
   ]
 }
