@@ -54,7 +54,7 @@ extra.) Isso reescreve este arquivo e o `docs/proximas-cidades.json`
   Fraca e só desempata por Nota Oportunidade (prioriza "fácil de ranquear"
   sobre "mercado grande").
 
-## Fila (top 50 de 476 candidatas — ver `proximas-cidades.json` pra lista completa)
+## Fila (top 50 de 475 candidatas — ver `proximas-cidades.json` pra lista completa)
 
 | # | Cidade/UF | População | Concorrência Fraca | Nota Oportunidade | Nota Final |
 |---|-----------|-----------|---------------------|--------------------|------------|
@@ -72,43 +72,43 @@ extra.) Isso reescreve este arquivo e o `docs/proximas-cidades.json`
 | 12 | **Rio do Sul/SC** | 77.451 | 38% | 0 | 0 |
 | 13 | **Ouricuri/PE** | 68.489 | 38% | 0 | 0 |
 | 14 | **Mafra/SC** | 57.262 | 38% | 0 | 0 |
-| 15 | **Itapetininga/SP** | 164.256 | 33% | 138.024 | 184.032 |
-| 16 | **Apucarana/PR** | 134.910 | 33% | 127.962 | 170.616 |
-| 17 | **Jequié/BA** | 169.201 | 33% | 127.324 | 169.765 |
-| 18 | **Varginha/MG** | 143.676 | 33% | 126.262 | 168.349 |
-| 19 | **Barreiras/BA** | 171.634 | 33% | 117.260 | 156.347 |
-| 20 | **Tatuí/SP** | 129.130 | 33% | 104.337 | 139.116 |
-| 21 | **Trindade/GO** | 153.560 | 33% | 98.877 | 131.836 |
-| 22 | **Conselheiro Lafaiete/MG** | 138.946 | 33% | 97.082 | 129.443 |
-| 23 | **Muriaé/MG** | 108.447 | 33% | 95.889 | 127.852 |
-| 24 | **Ituiutaba/MG** | 106.775 | 33% | 93.353 | 124.471 |
-| 25 | **Lavras/MG** | 110.682 | 33% | 92.895 | 123.860 |
-| 26 | **Teixeira de Freitas/BA** | 153.738 | 33% | 85.694 | 114.259 |
-| 27 | **Catalão/GO** | 122.760 | 33% | 72.441 | 96.588 |
-| 28 | **Paracatu/MG** | 99.005 | 33% | 71.729 | 95.639 |
-| 29 | **Vacaria/RS** | 66.146 | 33% | 64.036 | 85.381 |
-| 30 | **Ponta Porã/MS** | 98.598 | 33% | 55.136 | 73.515 |
-| 31 | **Cacoal/RO** | 98.280 | 33% | 54.496 | 72.661 |
-| 32 | **Santiago/RS** | 50.336 | 33% | 48.937 | 65.249 |
-| 33 | **Porto Nacional/TO** | 69.551 | 33% | 42.092 | 56.123 |
-| 34 | **Palmas/PR** | 50.238 | 33% | 39.648 | 52.864 |
-| 35 | **São Lourenço da Mata/PE** | 118.258 | 33% | 35.655 | 47.540 |
-| 36 | **Santa Cruz do Sul/RS** | 138.270 | 33% | 29.645 | 39.527 |
-| 37 | **Prudentópolis/PR** | 50.946 | 33% | 27.292 | 36.389 |
-| 38 | **Alta Floresta/MT** | 62.158 | 33% | 23.608 | 31.477 |
-| 39 | **Santo Ângelo/RS** | 79.146 | 33% | 23.459 | 31.279 |
-| 40 | **Santo Antônio de Jesus/BA** | 109.791 | 33% | 22.968 | 30.624 |
-| 41 | **Concórdia/SC** | 87.206 | 33% | 19.351 | 25.801 |
-| 42 | **Araranguá/SC** | 76.611 | 33% | 15.797 | 21.063 |
-| 43 | **Paraíso do Tocantins/TO** | 55.704 | 33% | 13.842 | 18.456 |
-| 44 | **Eunápolis/BA** | 121.067 | 33% | 12.058 | 16.077 |
-| 45 | **Irecê/BA** | 78.781 | 33% | 10.951 | 14.601 |
-| 46 | **Canoinhas/SC** | 56.948 | 33% | 9.009 | 12.012 |
-| 47 | **Sapé/PB** | 53.457 | 33% | 8.842 | 11.789 |
-| 48 | **Araquari/SC** | 52.079 | 33% | 7.963 | 10.617 |
-| 49 | **Eusébio/CE** | 82.016 | 33% | 7.480 | 9.973 |
-| 50 | **Igarassu/PE** | 123.017 | 33% | 5.191 | 6.921 |
+| 15 | **Apucarana/PR** | 134.910 | 33% | 127.962 | 170.616 |
+| 16 | **Jequié/BA** | 169.201 | 33% | 127.324 | 169.765 |
+| 17 | **Varginha/MG** | 143.676 | 33% | 126.262 | 168.349 |
+| 18 | **Barreiras/BA** | 171.634 | 33% | 117.260 | 156.347 |
+| 19 | **Tatuí/SP** | 129.130 | 33% | 104.337 | 139.116 |
+| 20 | **Trindade/GO** | 153.560 | 33% | 98.877 | 131.836 |
+| 21 | **Conselheiro Lafaiete/MG** | 138.946 | 33% | 97.082 | 129.443 |
+| 22 | **Muriaé/MG** | 108.447 | 33% | 95.889 | 127.852 |
+| 23 | **Ituiutaba/MG** | 106.775 | 33% | 93.353 | 124.471 |
+| 24 | **Lavras/MG** | 110.682 | 33% | 92.895 | 123.860 |
+| 25 | **Teixeira de Freitas/BA** | 153.738 | 33% | 85.694 | 114.259 |
+| 26 | **Catalão/GO** | 122.760 | 33% | 72.441 | 96.588 |
+| 27 | **Paracatu/MG** | 99.005 | 33% | 71.729 | 95.639 |
+| 28 | **Vacaria/RS** | 66.146 | 33% | 64.036 | 85.381 |
+| 29 | **Ponta Porã/MS** | 98.598 | 33% | 55.136 | 73.515 |
+| 30 | **Cacoal/RO** | 98.280 | 33% | 54.496 | 72.661 |
+| 31 | **Santiago/RS** | 50.336 | 33% | 48.937 | 65.249 |
+| 32 | **Porto Nacional/TO** | 69.551 | 33% | 42.092 | 56.123 |
+| 33 | **Palmas/PR** | 50.238 | 33% | 39.648 | 52.864 |
+| 34 | **São Lourenço da Mata/PE** | 118.258 | 33% | 35.655 | 47.540 |
+| 35 | **Santa Cruz do Sul/RS** | 138.270 | 33% | 29.645 | 39.527 |
+| 36 | **Prudentópolis/PR** | 50.946 | 33% | 27.292 | 36.389 |
+| 37 | **Alta Floresta/MT** | 62.158 | 33% | 23.608 | 31.477 |
+| 38 | **Santo Ângelo/RS** | 79.146 | 33% | 23.459 | 31.279 |
+| 39 | **Santo Antônio de Jesus/BA** | 109.791 | 33% | 22.968 | 30.624 |
+| 40 | **Concórdia/SC** | 87.206 | 33% | 19.351 | 25.801 |
+| 41 | **Araranguá/SC** | 76.611 | 33% | 15.797 | 21.063 |
+| 42 | **Paraíso do Tocantins/TO** | 55.704 | 33% | 13.842 | 18.456 |
+| 43 | **Eunápolis/BA** | 121.067 | 33% | 12.058 | 16.077 |
+| 44 | **Irecê/BA** | 78.781 | 33% | 10.951 | 14.601 |
+| 45 | **Canoinhas/SC** | 56.948 | 33% | 9.009 | 12.012 |
+| 46 | **Sapé/PB** | 53.457 | 33% | 8.842 | 11.789 |
+| 47 | **Araquari/SC** | 52.079 | 33% | 7.963 | 10.617 |
+| 48 | **Eusébio/CE** | 82.016 | 33% | 7.480 | 9.973 |
+| 49 | **Igarassu/PE** | 123.017 | 33% | 5.191 | 6.921 |
+| 50 | **Ji-Paraná/RO** | 140.101 | 33% | 1.723 | 2.297 |
 
 ---
 
-*Gerado em 2026-09-08T18:21:25.753Z · fonte: planilha-google · dados da planilha atualizados em 2026-09-08T18:18:41.727Z · 526 cidades no universo, 50 já cadastradas, 476 na fila.*
+*Gerado em 2026-09-08T18:58:17.198Z · fonte: planilha-google · dados da planilha atualizados em 2026-09-08T18:58:14.940Z · 526 cidades no universo, 51 já cadastradas, 475 na fila.*
