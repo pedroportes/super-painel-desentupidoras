@@ -144,7 +144,7 @@ if (props.type === 'service') {
   // 2) se ainda estourar 60 com o UF, tenta de novo sem o UF (degradação
   // graciosa, nunca corta o nome da cidade/bairro — isso seria dado errado,
   // não só estética).
-  const shortServiceName = serviceName.replace(/^Desentupimento (de\s+)?/i, '').replace(/^Desobstru[cç][aã]o (de\s+)?/i, '');
+  const shortServiceName = serviceName.replace(/^Desentupimento (de\s+)?/i, '').replace(/^Desobstru[cç][aã]o (de\s+)?/i, '').replace(/^Limpeza (e\s+Desentupimento\s+)?(de\s+)?/i, '').replace(/^Esgotamento e /i, '');
   const titleWithUf = `Desentupidora de ${shortServiceName} em ${cityData.cidade} ${cityData.uf}`;
   const titleNoUf = `Desentupidora de ${shortServiceName} em ${cityData.cidade}`;
   let serviceTitle = titleWithUf.length <= 60 ? titleWithUf : titleNoUf;

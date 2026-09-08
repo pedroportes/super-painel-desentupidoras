@@ -54,7 +54,7 @@ extra.) Isso reescreve este arquivo e o `docs/proximas-cidades.json`
   Fraca e só desempata por Nota Oportunidade (prioriza "fácil de ranquear"
   sobre "mercado grande").
 
-## Fila (top 50 de 475 candidatas — ver `proximas-cidades.json` pra lista completa)
+## Fila (top 50 de 474 candidatas — ver `proximas-cidades.json` pra lista completa)
 
 | # | Cidade/UF | População | Concorrência Fraca | Nota Oportunidade | Nota Final |
 |---|-----------|-----------|---------------------|--------------------|------------|
@@ -111,4 +111,4 @@ extra.) Isso reescreve este arquivo e o `docs/proximas-cidades.json`
 
 ---
 
-*Gerado em 2026-09-08T18:58:17.198Z · fonte: planilha-google · dados da planilha atualizados em 2026-09-08T18:58:14.940Z · 526 cidades no universo, 51 já cadastradas, 475 na fila.*
+*Gerado em 2026-09-08T20:06:08.806Z · fonte: planilha-google · dados da planilha atualizados em 2026-09-08T20:06:07.343Z · 526 cidades no universo, 52 já cadastradas, 474 na fila.*

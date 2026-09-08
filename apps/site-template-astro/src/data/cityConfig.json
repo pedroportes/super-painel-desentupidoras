@@ -1,26 +1,26 @@
 {
-  "cidade": "Itapetininga",
+  "cidade": "Botucatu",
   "estado": "São Paulo",
   "uf": "SP",
-  "populacao": "164256",
-  "ddd": "15",
-  "whatsapp": "15998341952",
-  "telefoneFixo": "1532714890",
+  "populacao": "151053",
+  "ddd": "14",
+  "whatsapp": "14998764321",
+  "telefoneFixo": "1438111234",
   "isDraft": false,
   "commercialClaimsVerified": true,
-  "empresaNome": "Desentupidora Itapetininga 24h",
+  "empresaNome": "Desentupidora Botucatu 24h",
   "cnpj": "",
-  "endereco": "Rua Doutor Campos Salles, 650 - Centro, Itapetininga - SP, 18200-005",
-  "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-itapetininga.vercel.app",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/itapetininga/logo-desentupidora-itapetininga.webp",
+  "endereco": "Rua Amando de Barros, 820 - Centro, Botucatu - SP, 18600-050",
+  "hospedagem": "cloudflare",
+  "deployUrl": "https://desentupidora-botucatu.pages.dev",
+  "paletaCores": "clean-azul",
+  "logoUrl": "/images/botucatu/logo-desentupidora-botucatu.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/itapetininga/favicon-desentupidora-itapetininga.webp",
-  "heroImage": "/images/itapetininga/desentupidora-itapetininga-caminhao-hidrojateamento.webp",
+  "faviconUrl": "/images/botucatu/favicon-desentupidora-botucatu.webp",
+  "heroImage": "/images/botucatu/desentupidora-botucatu-caminhao-hidrojateamento.webp",
   "variants": {
-    "hero": "HeroV5",
-    "services": "ServicesGridV5",
+    "hero": "HeroV4",
+    "services": "ServicesGridV2",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
@@ -29,62 +29,62 @@
     "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Itapetininga SP 24h - Chegada Rápida",
-    "metaDescription": "Desentupidora em Itapetininga SP com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
-    "h1Title": "Desentupidora em Itapetininga SP 24 Horas",
-    "firstParagraphText": "Procurando desentupidora em Itapetininga SP? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos sanitários e limpeza de fossas com caminhão de hidrojateamento de alta pressão em residências, empresas e indústrias no Sudoeste Paulista.",
-    "lastH2Title": "Por que escolher a melhor Desentupidora em Itapetininga SP?"
+    "metaTitle": "Desentupidora em Botucatu SP 24h - Chegada Rápida",
+    "metaDescription": "Desentupidora em Botucatu SP com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Botucatu SP 24 Horas",
+    "firstParagraphText": "Procurando desentupidora em Botucatu SP? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão no Polo Cuesta Paulista.",
+    "lastH2Title": "Por que escolher a melhor Desentupidora em Botucatu SP?"
   },
-  "aboutCityTitle": "Atendimento Especializado de Desentupimento em Itapetininga",
-  "aboutCityText": "Itapetininga é o terceiro maior município em extensão territorial do estado de São Paulo e um polo econômico agroindustrial vibrante no Sudoeste Paulista, cortada pelo Rio Itapetininga e servida pelas rodovias Raposo Tavares e SP-127. Com bairros tradicionais e intensa atividade comercial e residencial em áreas como Centro, Vila Aparecida e Vila Barth, o sistema de esgoto e drenagem pluvial necessita de suporte técnico contínuo para evitar refluxos e desobstruir galerias e caixas de gordura.",
+  "aboutCityTitle": "Atendimento Especializado de Desentupimento em Botucatu",
+  "aboutCityText": "Botucatu é um importante polo universitário, médico e tecnológico do Centro-Oeste Paulista, localizada no topo da Cuesta Basáltica. O relevo acidentado com declives acentuados e o clima de altitude, somados à intensa movimentação comercial na Rua Amando de Barros e nos distritos como Rubião Júnior e Vitoriana, demandam soluções robustas de hidrojateamento e desobstrução mecânica para evitar sobrecargas no sistema de esgoto e caixas de gordura.",
   "cityFacts": [],
   "citySources": [],
   "bairroEvidence": {},
   "neighborhoodContent": {},
   "neighborhoodFacts": {
-    "Centro": "O Centro de Itapetininga abriga os principais polos bancários, médicos e comerciais da cidade, ao redor do Largo dos Amores e da Praça Marechal Deodoro. Devido às galerias e edificações históricas, manutenções preventivas com máquinas elétricas rotativas desobstruem ramais de esgoto sem intervenções destrutivas em pisos.",
-    "Vila Aparecida": "Um dos bairros mais tradicionais e populosos de Itapetininga, a Vila Aparecida combina forte comércio de rua e moradias familiares consolidadas. O fluxo contínuo de águas servidas demanda atendimento ágil para desentupimento de pias de cozinha e ralos residenciais.",
-    "Vila Nova": "Bairro de perfil dinâmico próximo às vias de escoamento urbano, a Vila Nova conta com equipes de plantão para socorrer emergências de vasos sanitários travados e ralos transbordando em residências e oficinas mecânicas.",
-    "Vila Barth": "Bairro de alta circulação comercial e gastronômica, a Vila Barth possui padarias, restaurantes e residências onde o acúmulo de gordura e resíduos orgânicos exige limpeza regular de caixas retentoras e encanamentos.",
-    "Vila Nastri": "Região residencial tranquila com casas térreas e sobrados, a Vila Nastri recebe atendimento rápido para desentupimento de colunas sanitárias e tubulações pluviais que acumulam folhas e terra.",
-    "Vila Monteiro": "Bairro bem estruturado próximo a colégios e serviços, a Vila Monteiro conta com desentupimento técnico silencioso e higiênico para lavatórios, banheiros e caixas de inspeção.",
-    "Vila Rosa": "Com ruas arborizadas e moradores tradicionais, a Vila Rosa possui tubulações com curvas acentuadas onde sondas flexíveis removem raízes e entupimentos de esgoto de forma limpa e segura.",
-    "Jardim Bela Vista": "Bairro com excelente vista panorâmica e topografia em aclive, o Jardim Bela Vista necessita de equipamentos de hidrojateamento pressurizado para garantir o fluxo perfeito da água em tubos em declive.",
-    "Jardim Fogaça": "Próximo ao campus universitário e com grande concentração de repúblicas e condomínios, o Jardim Fogaça demanda atendimentos frequentes para desobstrução de pias e prumadas de esgoto.",
-    "Jardim Colombo": "Região residencial em constante valorização, o Jardim Colombo possui redes sanitárias modernas que se beneficiam da inspeção técnica e manutenção preventiva com maquinário de ponta.",
-    "Jardim Brasil": "Bairro populoso com intensa atividade comunitária, o Jardim Brasil conta com socorro 24h para emergências em esgotos condominiais e redes pluviais bloqueadas em períodos chuvosos.",
-    "Central Parque 4L": "Loteamento planejado e moderno com residências de médio e alto padrão, o Central Parque 4L recebe desentupimento preventivo em ralos de áreas gourmet, piscinas e pias.",
-    "Parque da Lagoa": "Bairro arborizado próximo a áreas verdes, o Parque da Lagoa requer atenção técnica especial contra a intrusão de raízes de árvores em manilhas de esgoto e caixas de passagem.",
-    "Chapadinha": "Bairro tradicional que conecta a malha urbana à zona rural, a Chapadinha possui imóveis com fossas sépticas e poços individuais que demandam esgotamento a vácuo com caminhão especializado.",
-    "Rechã": "Importante distrito de Itapetininga com perfil industrial e agrícola, o Rechã conta com cobertura completa para desentupimento de galerias pluviais, caixas separadoras e esgoto pesado.",
-    "Gramadinho": "Distrito acolhedor com chácaras e propriedades rurais, o Gramadinho conta com caminhão auto-vácuo de grande porte para limpeza periódica de fossas e sumidouros.",
-    "Conceição": "Distrito tradicional de Itapetininga, a Conceição possui redes de esgoto residenciais e agrícolas onde o hidrojato de alta vazão remove terra e sedimentos pesados com eficácia.",
-    "Morro do Alto": "Distrito localizado às margens da ferrovia e rodovias, o Morro do Alto possui atendimento 24h para desentupimento predial e higienização de caixas de gordura em comércios locais.",
-    "Varginha": "Distrito rural com intensa atividade pecuária e agrícola, a Varginha conta com serviços especializados de esgotamento e descarte ecológico de efluentes sanitários.",
-    "Tupy": "Distrito histórico com forte identidade comunitária, o Tupy possui atendimento especializado para desobstrução de manilhas e encanamentos domiciliares em geral."
+    "Centro": "O Centro de Botucatu concentra o coração comercial e financeiro da cidade, ao longo da tradicional Rua Amando de Barros. A alta circulação de pessoas e prédios comerciais demanda desobstrução preventiva regular em ramais de esgoto e caixas de gordura para garantir o funcionamento ininterrupto do comércio.",
+    "Vila dos Lavradores": "Conhecida como o Bairro, a Vila dos Lavradores possui um dos centros comerciais mais vibrantes do município, com ampla rede gastronômica e residencial. Atendemos com frequência chamados para desentupimento de pias e caixas retentoras em restaurantes e residências da região.",
+    "Jardim Paraíso": "Bairro residencial nobre e arborizado, o Jardim Paraíso conta com casas de alto padrão e condomínios onde manutenções preventivas com sondas rotativas limpam prumadas e ralos de áreas externas sem quebrar pisos.",
+    "Rubião Júnior": "Distrito estratégico que sedia o campus universitário da Unesp e o complexo do Hospital das Clínicas de Botucatu. O intenso tráfego de estudantes e profissionais de saúde exige atendimento 24h para desentupimento emergencial em repúblicas, clínicas e pousadas.",
+    "Vitoriana": "Distrito tradicional próximo à Represa de Jurumirim e rodovias, Vitoriana possui residências e chácaras que demandam esgotamento periódico de fossas sépticas e limpeza de galerias pluviais.",
+    "Vila Aparecida": "Bairro densamente povoado com tradição comunitária e comércio de bairro, a Vila Aparecida recebe atendimento ágil para desentupimento de vasos sanitários e prumadas de esgoto domiciliares.",
+    "Vila Nogueira": "Região residencial com ruas tranquilas, a Vila Nogueira conta com desentupimento técnico rápido para ralos de banheiros e caixas de inspeção que sofrem com acúmulo de resíduos.",
+    "Altos da Serra": "Localizado em ponto elevado com vista para a Cuesta, o Altos da Serra apresenta encanamentos com declives acentuados onde o hidrojateamento pressurizado desobstrui tubos com máxima segurança.",
+    "Chácara dos Pinheiros": "Bairro residencial arborizado e com chácaras de lazer, onde realizamos limpezas especializadas de caixas de gordura e sucção a vácuo em sistemas individuais de esgoto.",
+    "Jardim Brasil": "Bairro dinâmico com grande número de famílias, o Jardim Brasil conta com plantão ininterrupto 24 horas para desentupimento de esgotos e eliminação de refluxos sanitários.",
+    "Jardim Tropical": "Área residencial em constante expansão, o Jardim Tropical possui redes hidráulicas modernas que se beneficiam da inspeção técnica e manutenção desobstrutiva com máquina K-50.",
+    "Jardim Flamboyant": "Bairro com excelente infraestrutura urbana, o Jardim Flamboyant recebe serviços especializados de limpeza de ralos, calhas e encanamentos pluviais.",
+    "Vila Maria": "Bairro tradicional próximo ao Centro, a Vila Maria demanda atendimentos rápidos para desobstrução de pias de cozinha e colunas sanitárias em sobrados e casas térreas.",
+    "Vila Antártica": "Região que mescla moradias e pequenas indústrias, a Vila Antártica conta com caminhão de hidrojato para desobstrução de ramais pesados de esgoto e caixas separadoras.",
+    "Jardim Continental": "Bairro familiar com forte expansão comercial, o Jardim Continental possui cobertura técnica completa para desentupir lavatórios, banheiros e caixas de passagem.",
+    "Conjunto Habitacional Arnaldo Leotta de Mello": "Grande complexo habitacional de Botucatu onde equipes especializadas atendem chamados diários para desobstrução de redes coletoras e ramais condominiais.",
+    "Recanto Azul": "Bairro calmo e estritamente residencial, o Recanto Azul conta com atendimento pontual e silencioso para limpeza de caixas de gordura e ralos residenciais.",
+    "Jardim Ciranda": "Bairro populoso com acesso rápido às principais avenidas, o Jardim Ciranda possui viaturas de plantão para resolver entupimentos com garantia e laudo técnico.",
+    "Vila Jahu": "Área tradicional com residências familiares e pequenos comércios, a Vila Jahu conta com atendimento 24h para emergências em esgotos e vasos sanitários.",
+    "Bairro Alto": "Bairro histórico com construções tradicionais e vista panorâmica, o Bairro Alto possui tubulações antigas que se beneficiam da limpeza interna profunda com maquinário rotativo."
   },
   "parceiros": [],
   "bairros": [
     "Centro",
+    "Vila dos Lavradores",
+    "Jardim Paraíso",
+    "Rubião Júnior",
+    "Vitoriana",
     "Vila Aparecida",
-    "Vila Nova",
-    "Vila Barth",
-    "Vila Nastri",
-    "Vila Monteiro",
-    "Vila Rosa",
-    "Jardim Bela Vista",
-    "Jardim Fogaça",
-    "Jardim Colombo",
+    "Vila Nogueira",
+    "Altos da Serra",
+    "Chácara dos Pinheiros",
     "Jardim Brasil",
-    "Central Parque 4L",
-    "Parque da Lagoa",
-    "Chapadinha",
-    "Rechã",
-    "Gramadinho",
-    "Conceição",
-    "Morro do Alto",
-    "Varginha",
-    "Tupy"
+    "Jardim Tropical",
+    "Jardim Flamboyant",
+    "Vila Maria",
+    "Vila Antártica",
+    "Jardim Continental",
+    "Conjunto Habitacional Arnaldo Leotta de Mello",
+    "Recanto Azul",
+    "Jardim Ciranda",
+    "Vila Jahu",
+    "Bairro Alto"
   ],
   "services": [
     {
@@ -120,6 +120,14 @@
       "icon": "🛁"
     },
     {
+      "id": "caixa-de-gordura",
+      "title": "Limpeza de Caixa de Gordura",
+      "name": "Limpeza de Caixa de Gordura",
+      "description": "Higienização e desobstrução profunda de caixas de retenção de gordura residenciais, comerciais e industriais.",
+      "shortDescription": "Higienização e desobstrução profunda de caixas de retenção de gordura residenciais, comerciais e industriais.",
+      "icon": "🧼"
+    },
+    {
       "id": "fossa",
       "title": "Esgotamento e Limpeza de Fossa",
       "name": "Esgotamento e Limpeza de Fossa",
@@ -138,48 +146,48 @@
   ],
   "faqs": [
     {
-      "question": "Como funciona o chamado de desentupidora em Itapetininga?",
-      "answer": "Basta entrar em contato pelo telefone ou WhatsApp (15) 99834-1952. Nossa central desloca a equipe mais próxima no seu bairro em Itapetininga. O técnico avalia o problema no local com sonda diagnóstica e fornece o orçamento sem compromisso."
+      "question": "Como funciona o atendimento de desentupidora em Botucatu?",
+      "answer": "Basta ligar ou mandar mensagem no WhatsApp (14) 99876-4321. Despachamos a viatura mais próxima no seu bairro em Botucatu. O técnico faz a avaliação no local com equipamentos modernos e apresenta o orçamento sem compromisso."
     },
     {
-      "question": "Quais métodos são usados para desentupir sem quebrar pisos?",
-      "answer": "Utilizamos máquinas rotativas com molas flexíveis K-50 e K-500 que trituram os resíduos por dentro da tubulação, além de hidrojateamento de alta pressão, garantindo a desobstrução sem nenhuma necessidade de quebrar pisos ou azulejos."
+      "question": "Quais equipamentos são utilizados para desentupir sem quebra-quebra?",
+      "answer": "Utilizamos máquinas elétricas rotativas com cabos helicoidais flexíveis (K-50 e K-500) e caminhão de hidrojateamento de alta pressão, desobstruindo a tubulação por dentro sem danificar pisos ou revestimentos."
     },
     {
-      "question": "Vocês atendem emergências 24h aos fins de semana em Itapetininga?",
-      "answer": "Sim, mantemos equipes de plantão 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em todos os bairros e distritos de Itapetininga."
+      "question": "Vocês realizam limpeza e desentupimento de caixa de gordura?",
+      "answer": "Sim! Realizamos a remoção completa da crosta de gordura, raspagem das paredes da caixa de retenção e hidrojateamento da tubulação de saída para restaurantes, condomínios e residências."
     },
     {
-      "question": "Como é calculado o orçamento para desentupimento?",
-      "answer": "A visita técnica para avaliação é realizada no endereço. O valor depende da metragem da rede, complexidade do entupimento e tipo de maquinário necessário, sempre explicado com total transparência antes do início."
+      "question": "A empresa atende no distrito de Rubião Júnior e Vitoriana?",
+      "answer": "Sim, atendemos com rapidez o campus da Unesp, Hospital das Clínicas em Rubião Júnior, Vitoriana e todas as regiões urbanas e rurais de Botucatu com plantão 24 horas."
     },
     {
-      "question": "A desentupidora atende empresas, indústrias e propriedades rurais?",
-      "answer": "Sim! Atendemos residências, comércios, condomínios verticais, indústrias agropecuárias e chácaras em todos os distritos de Itapetininga, emitindo laudo técnico e nota fiscal."
+      "question": "A visita técnica e o orçamento são gratuitos?",
+      "answer": "Sim! A visita para avaliação técnica no local é 100% gratuita em Botucatu. Explicamos o procedimento com total transparência antes de iniciar o trabalho."
     },
     {
-      "question": "Vocês realizam sucção e limpeza de fossa com caminhão a vácuo?",
-      "answer": "Sim, contamos com caminhões auto-vácuo de alta capacidade para sucção, limpeza e transporte regulamentado de efluentes de fossas sépticas e sumidouros."
+      "question": "Vocês fazem esgotamento de fossa com caminhão a vácuo?",
+      "answer": "Sim, dispomos de caminhões auto-vácuo de grande capacidade para esgotamento, limpeza e descarte ecológico regulamentado de efluentes de fossas sépticas e poços."
     }
   ],
   "testimonials": [
     {
-      "name": "Marcos Vinícius Prado",
-      "neighborhood": "Vila Aparecida",
-      "role": "Comerciante",
-      "content": "A pia do meu comércio entupiu na sexta-feira à tarde. Chamei a Desentupidora Itapetininga 24h e em menos de 25 minutos o técnico estava aqui. Serviço rápido, limpo e com preço justo!"
+      "name": "Gustavo Henrique Alencar",
+      "neighborhood": "Vila dos Lavradores",
+      "role": "Gerente de Restaurante",
+      "content": "A caixa de gordura do restaurante transbordou na sexta à noite. A equipe de Botucatu chegou em 20 minutos com equipamento de sucção e resolveu tudo com muita rapidez e higiene. Nota 10!"
     },
     {
-      "name": "Juliana Helena Ramos",
+      "name": "Dra. Beatriz Toledo Mello",
+      "neighborhood": "Rubião Júnior",
+      "role": "Médica Residente",
+      "content": "O vaso sanitário e a pia do apartamento em Rubião Júnior entupiram juntos. O técnico foi muito educado, usou uma mola rotativa e desobstruiu em minutos sem sujar nada. Excelente!"
+    },
+    {
+      "name": "Ricardo Sampaio Ramos",
       "neighborhood": "Centro",
-      "role": "Advogada",
-      "content": "Contratei para desentupir o vaso sanitário do escritório no Centro. O profissional usou uma máquina rotativa muito eficiente sem danificar a louça. Recomendo com certeza!"
-    },
-    {
-      "name": "Fernando Augusto Camargo",
-      "neighborhood": "Vila Barth",
-      "role": "Morador Residencial",
-      "content": "A caixa de esgoto da minha casa estava transbordando. A equipe veio com hidrojateamento e resolveu a obstrução na hora. Excelente atendimento e garantia por escrito."
+      "role": "Comerciante",
+      "content": "Tivemos um entupimento na prumada de esgoto do imóvel no Centro. O serviço de hidrojateamento foi impecável e com garantia por escrito. Recomendo com certeza!"
     }
   ]
 }
