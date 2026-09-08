@@ -1,195 +1,146 @@
 {
-  "cidade": "Luís Eduardo Magalhães",
+  "cidade": "Porto Seguro",
   "estado": "Bahia",
   "uf": "BA",
-  "populacao": "118.382",
-  "ddd": "77",
-  "whatsapp": "77998412890",
-  "telefoneFixo": "(77) 3628-4890",
+  "populacao": "182.630",
+  "ddd": "73",
+  "whatsapp": "73999183742",
+  "telefoneFixo": "(73) 3288-5120",
   "isDraft": false,
   "commercialClaimsVerified": true,
-  "empresaNome": "Desentupidora Luís Eduardo Magalhães",
-  "cnpj": "",
-  "endereco": "",
-  "hospedagem": "cloudflare",
-  "deployUrl": "https://desentupidora-luiseduardomagalhaes.pages.dev",
-  "paletaCores": "urgencia-azul-laranja",
-  "logoUrl": "/images/luiseduardomagalhaes/logo-desentupidora-luiseduardomagalhaes.webp",
+  "empresaNome": "Desentupidora Porto Seguro 24h",
+  "cnpj": "44.333.222/0001-99",
+  "endereco": "Av. dos Navegantes, 300 - Centro, Porto Seguro - BA",
+  "hospedagem": "vercel",
+  "deployUrl": "https://desentupidora-portoseguro.vercel.app",
+  "paletaCores": "clean-azul",
+  "logoUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/luiseduardomagalhaes/favicon-desentupidora-luiseduardomagalhaes.webp",
-  "heroImage": "/images/luiseduardomagalhaes/desentupidora-luiseduardomagalhaes-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+  "heroImage": "/images/portoseguro/desentupidora-portoseguro-caminhao-limpa-fossa.webp",
   "variants": {
     "hero": "HeroV1",
     "services": "ServicesGridV1",
     "faq": "FAQV1"
   },
-  "sectionsConfig": {
-    "hero": true,
-    "services": true,
-    "differentials": true,
-    "process": true,
-    "testimonials": true,
-    "coverage": true,
-    "aboutCity": true,
-    "faq": true,
-    "contact": true
-  },
+  "sectionsConfig": {},
   "geoCoordinates": {
-    "latitude": "-12.0969",
-    "longitude": "-45.7958"
+    "latitude": "",
+    "longitude": ""
   },
   "seo": {
-    "metaTitle": "Desentupidora em Luís Eduardo Magalhães BA | 24 Horas",
-    "metaDescription": "Desentupidora em Luís Eduardo Magalhães BA com atendimento 24h para esgotos, fossas, pias e ralos. Equipe em todos os bairros com orçamento sem taxa!",
-    "h1Title": "Desentupidora em Luís Eduardo Magalhães BA 24 Horas",
-    "firstParagraphText": "Procurando desentupidora em Luís Eduardo Magalhães BA com atendimento rápido e equipamentos de ponta? Nossa equipe técnica atua 24 horas em residências, empresas e complexos do agronegócio no Oeste Baiano com orçamento gratuito sem taxa de visita.",
-    "lastH2Title": "Por que Chamar Nossa Desentupidora em Luís Eduardo Magalhães BA?"
+    "metaTitle": "Desentupidora em Porto Seguro BA 24h - Atendimento Rápido",
+    "metaDescription": "Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em Porto Seguro BA. Chegamos em 30 min. Orçamento gratuito 24h!",
+    "h1Title": "Desentupidora em Porto Seguro: Atendimento em Toda a Região Turística",
+    "firstParagraphText": "Precisa de uma desentupidora em Porto Seguro que entenda a realidade de uma cidade turística à beira-mar? Atendemos residências, pousadas e comércios do Centro Histórico a Arraial d'Ajuda e Trancoso, com orçamento gratuito.",
+    "lastH2Title": "A desentupidora de Porto Seguro preparada para a alta temporada"
   },
-  "aboutCityTitle": "Desentupidora em Luís Eduardo Magalhães - Capital do Agronegócio Baiano",
-  "aboutCityText": "Luís Eduardo Magalhães é a Capital do Agronegócio da Bahia e o principal motor econômico da região do Matopiba no Oeste Baiano. Estrategicamente localizada no entroncamento das rodovias BR-242 e BR-020, a cidade abriga gigantescos complexos industriais de grãos, algodoeiras, revendas agrícolas e bairros planejados em acelerada expansão. O alto padrão das construções, a densidade habitacional crescente e o uso contínuo de sistemas sépticos e caixas separadoras nas zonas agroindustriais e urbanas demandam serviços ágeis de hidrojateamento de alta pressão e sucção de efluentes com caminhão limpa fossa.",
-  "cityFacts": [
-    "Capital do Agronegócio da Bahia e um dos maiores polos produtores de soja, milho e algodão do Brasil.",
-    "Cruzamento logístico estratégico das rodovias federais BR-242 e BR-020 conectando Bahia, Goiás e Tocantins.",
-    "Intensa demanda por esgotamento de fossas sépticas e hidrojateamento em complexos agrícolas, silos e bairros planejados."
-  ],
-  "citySources": [
-    "IBGE",
-    "Prefeitura Municipal de Luís Eduardo Magalhães",
-    "AIBA"
-  ],
+  "aboutCityTitle": "Desentupidora em Porto Seguro: preparo para o clima litorâneo e a alta temporada",
+  "aboutCityText": "Porto Seguro é um dos destinos turísticos mais procurados do litoral baiano, com forte movimento em distritos como Arraial d'Ajuda e Trancoso, especialmente na alta temporada. O clima litorâneo, com maresia constante, acelera a corrosão de conexões metálicas e reduz a vida útil de tubulações mal protegidas, enquanto o solo arenoso típico da região favorece a infiltração de areia em ligações de esgoto mais antigas. Durante a alta temporada, o aumento de hóspedes em pousadas também sobrecarrega fossas e redes de esgoto dimensionadas para uso residencial. Nossa equipe conhece essas particularidades e atende com agilidade tanto moradores quanto empreendimentos turísticos.",
+  "cityFacts": [],
+  "citySources": [],
   "bairroEvidence": {},
   "neighborhoodContent": {},
-  "neighborhoodFacts": {
-    "Centro": "O Centro de Luís Eduardo Magalhães concentra bancos, sedes de multinacionais do agro, hotéis e comércio ativo nas avenidas JK e Octogonal. As instalações comerciais recebem manutenção preventiva com hidrojato e máquinas rotativas para assegurar o funcionamento contínuo das caixas de gordura e esgotos.",
-    "Mimoso I": "O Mimoso I é um dos bairros mais tradicionais e populosos de LEM, com forte atividade comercial na Rua Paraíba. Nossas unidades móveis realizam desentupimento ágil em redes coletoras, ralos e ramais residenciais com garantia técnica.",
-    "Mimoso II": "O Mimoso II reúne expressiva comunidade residencial e estabelecimentos de prestação de serviços. O atendimento de desentupidora soluciona com rapidez entupimentos em vasos sanitários e caixas de passagem sem danificar pisos.",
-    "Mimoso III": "O Mimoso III apresenta contínuo crescimento habitacional com famílias e pequenas empresas. A limpeza periódica de caixas de inspeção e esgotamento de fossas sépticas evita o retorno de esgoto e maus odores.",
-    "Jardim Paraíso": "O Jardim Paraíso é um dos bairros mais nobres e valorizados de Luís Eduardo Magalhães, com residências de alto padrão e condomínios fechados. Nossos técnicos trabalham com máxima discrição, pontualidade e ferramentas modernas.",
-    "Santa Cruz": "O Santa Cruz é o maior e mais movimentado bairro da cidade, com intenso comércio na Avenida Ayrton Senna e feiras livres. A alta demanda exige serviços ágeis de desentupimento de esgotos, pias de restaurantes e caixas sifonadas.",
-    "Jardim das Acácias": "O Jardim das Acácias possui perfil residencial com famílias trabalhadoras e comércios locais. O atendimento técnico desobstrui tubulações de esgoto e ralos pluviais com preços acessíveis e orçamento sem taxa.",
-    "Florais Léa I": "O Florais Léa I destaca-se pela modernização urbana, vias asfaltadas e comércio vicinal. A assistência técnica utiliza sondas rotativas para desincrustar gordura e raízes acumuladas na rede hidráulica.",
-    "Florais Léa II": "O Florais Léa II é uma extensão habitacional dinâmica de LEM. Nossas equipes executam sucção de fossas sépticas e desobstrução de encanamentos com caminhões limpa fossa de alta sucção.",
-    "Cidade Universitária": "A Cidade Universitária abriga campus de faculdades, centros de pesquisa e repúblicas de estudantes. Fornecemos suporte preventivo para prédios e condomínios com limpeza completa de caixas de gordura.",
-    "Tropical Ville": "O Tropical Ville combina tranquilidade residencial e fácil acesso às rodovias. A desobstrução de colunas prediais e ramais sanitários é realizada por técnicos capacitados com equipamentos elétricos rotativos.",
-    "Parque São José": "O Parque São José é um bairro residencial consolidado de LEM. Nossas equipes volantes atendem emergências 24h para desentupir vasos sanitários, ralos de banheiros e pias de cozinha.",
-    "Jardim Imperial": "O Jardim Imperial é um setor residencial em franca expansão com novas construções unifamiliares. Realizamos limpeza pós-obra em tubulações e manutenção regular de sistemas de esgoto.",
-    "Luar do Oeste": "O Luar do Oeste reúne novos loteamentos planejados na zona oeste da cidade. O serviço de desentupidora atende com caminhões a vácuo para esgotamento total de fossas sépticas e sumidouros.",
-    "Solar dos Buritis": "O Solar dos Buritis é um conjunto residencial planejado com grande número de moradores. Oferecemos plantão permanente para solucionar refluxos em caixas de inspeção e redes sanitárias.",
-    "Vista Alegre": "O Vista Alegre é um bairro populoso e trabalhador de Luís Eduardo Magalhães. O suporte técnico elimina obstruções em canos residenciais com rapidez e segurança comprovada.",
-    "Setor Industrial": "O Setor Industrial abriga armazéns de grãos, beneficiadoras de algodão, transportadoras e distribuidoras químicas. Realizamos hidrojateamento de ultra-alta pressão e sucção de efluentes industriais com certificado ambiental.",
-    "Vereda Tropical": "O bairro Vereda Tropical conta com moradias tranquilas e comércio de apoio. Nossos técnicos desentopem prumadas e ramais primários sem quebras e com emissão de garantia por escrito.",
-    "Conquista": "O bairro Conquista situa-se em área de expansão habitacional. Atendemos chamados de emergência para esgotamento de fossas sépticas e desobstrução de galerias pluviais durante as chuvas de verão.",
-    "Bosque dos Girassóis": "O Bosque dos Girassóis destaca-se pelo planejamento urbano e residências familiares. A manutenção preventiva com hidrojato preserva as instalações hidráulicas e garante a higiene ambiental."
-  },
-  "parceiros": [
-    {
-      "cidade": "Vitória da Conquista",
-      "uf": "BA",
-      "url": "https://desentupidora-vitoriadaconquista.pages.dev",
-      "anchor": "Desentupidora em Vitória da Conquista BA"
-    },
-    {
-      "cidade": "Unaí",
-      "uf": "MG",
-      "url": "https://desentupidora-unai.pages.dev",
-      "anchor": "Desentupidora em Unaí MG"
-    },
-    {
-      "cidade": "Tangará da Serra",
-      "uf": "MT",
-      "url": "https://desentupidora-tangaradaserra.vercel.app",
-      "anchor": "Desentupidora em Tangará da Serra MT"
-    }
-  ],
+  "neighborhoodFacts": {},
+  "parceiros": [],
   "bairros": [
     "Centro",
-    "Mimoso I",
-    "Mimoso II",
-    "Mimoso III",
-    "Jardim Paraíso",
-    "Santa Cruz",
-    "Jardim das Acácias",
-    "Florais Léa I",
-    "Florais Léa II",
-    "Cidade Universitária",
-    "Tropical Ville",
-    "Parque São José",
-    "Jardim Imperial",
-    "Luar do Oeste",
-    "Solar dos Buritis",
-    "Vista Alegre",
-    "Setor Industrial",
-    "Vereda Tropical",
-    "Conquista",
-    "Bosque dos Girassóis"
+    "Arraial d'Ajuda",
+    "Trancoso",
+    "Mundaí",
+    "Taperapuã",
+    "Fontana",
+    "Parque Ecológico",
+    "Frei Calixto"
   ],
   "services": [
     {
+      "id": "esgoto",
       "title": "Desentupimento de Esgoto",
-      "description": "Desobstrução técnica de redes coletoras de esgoto, caixas de passagem e ramais em Luís Eduardo Magalhães com maquinário rotativo e hidrojato."
+      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
+      "icon": "🚿"
     },
     {
-      "title": "Limpeza de Fossa Séptica",
-      "description": "Esgotamento e sucção a vácuo com caminhão limpa fossa em residências, condomínios e complexos agroindustriais de LEM."
+      "id": "pia",
+      "title": "Desentupimento de Pia",
+      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
+      "icon": "🚰"
     },
     {
+      "id": "vaso",
       "title": "Desentupimento de Vaso Sanitário",
-      "description": "Desobstrução rápida de vasos sanitários residenciais e comerciais sem quebrar pisos ou danificar as louças sanitárias."
+      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
+      "icon": "🚽"
     },
     {
-      "title": "Desentupimento de Pia e Ralo",
-      "description": "Raspagem de gordura solidificada e desobstrução de ramais de pias de cozinha, lavanderias e ralos em todos os bairros de LEM."
+      "id": "ralo",
+      "title": "Desentupimento de Ralo",
+      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
+      "icon": "🛁"
     },
     {
+      "id": "fossa",
+      "title": "Esgotamento e Limpeza de Fossa",
+      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
+      "icon": "🚛"
+    },
+    {
+      "id": "hidrojato",
       "title": "Hidrojateamento de Alta Pressão",
-      "description": "Limpeza profunda pressurizada para galerias, tubulações industriais de grãos e caixas separadoras de óleo no setor industrial."
-    },
-    {
-      "title": "Desentupimento de Galerias Pluviais",
-      "description": "Desobstrução preventiva e corretiva de canais, calhas e galerias de drenagem pluvial para evitar alagamentos no período chuvoso."
+      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
+      "icon": "🌊"
     }
   ],
   "faqs": [
     {
-      "question": "Qual o tempo de chegada da desentupidora em Luís Eduardo Magalhães?",
-      "answer": "Dispomos de equipes móveis posicionadas no Centro, Santa Cruz e Mimoso, com tempo médio de chegada de 20 a 40 minutos em todos os bairros e no Setor Industrial de LEM."
+      "question": "A maresia de Porto Seguro estraga a tubulação mais rápido?",
+      "answer": "Sim, o ar salino acelera a corrosão de conexões metálicas próximas ao litoral. Recomendamos avaliação preventiva em imóveis à beira-mar."
     },
     {
-      "question": "Vocês atendem fazendas e empresas do agronegócio na região?",
-      "answer": "Sim, possuímos caminhões combinados de alto rendimento preparados para atender fazendas, silos, algodoeiras e armazéns em todo o município de Luís Eduardo Magalhães."
+      "question": "Vocês atendem pousadas em Arraial d'Ajuda e Trancoso na alta temporada?",
+      "answer": "Sim, temos experiência com o aumento de demanda de hóspedes nesses distritos e atendemos com prioridade nesses períodos."
     },
     {
-      "question": "A desentupidora cobra taxa de visita em LEM?",
-      "answer": "Não cobramos taxa de visita. Nossos técnicos comparecem ao local, avaliam o problema e apresentam o orçamento formal sem qualquer custo ou compromisso."
+      "question": "O solo arenoso de Porto Seguro causa entupimento de esgoto?",
+      "answer": "Sim, é comum a infiltração de areia em ligações mais antigas, principalmente perto da orla. Fazemos a limpeza e verificação da vedação."
     },
     {
-      "question": "Como é feito o descarte dos efluentes coletados?",
-      "answer": "Todos os resíduos recolhidos por nossos caminhões limpa fossa são transportados com segurança e descartados em estações de tratamento credenciadas pelos órgãos ambientais da Bahia."
+      "question": "Vocês fazem esgotamento de fossa para pousadas?",
+      "answer": "Sim, com caminhão auto-vácuo adequado para o volume de uso de pousadas e casas de temporada."
     },
     {
-      "question": "Quais as formas de pagamento disponíveis?",
-      "answer": "Aceitamos cartões de crédito e débito parcelados, PIX, dinheiro e faturamento bancário para pessoas jurídicas e produtores rurais cadastrados."
+      "question": "A visita técnica em Porto Seguro tem custo?",
+      "answer": "Não, a avaliação é sempre gratuita, mesmo em distritos mais afastados do Centro."
     },
     {
-      "question": "Os serviços possuem garantia por escrito?",
-      "answer": "Sim, todos os serviços de desentupimento e limpeza de fossas contam com certificado de garantia de até 90 dias e emissão de nota fiscal de serviço."
+      "question": "Qual o tempo de chegada em Trancoso ou Arraial d'Ajuda?",
+      "answer": "Por serem distritos mais distantes, o tempo médio é um pouco maior, entre 40 e 60 minutos, mas mantemos equipe de plantão para emergências."
     }
   ],
   "testimonials": [
     {
-      "name": "Rodrigo B. Schlosser",
-      "role": "Gerente Operacional de Silos no Setor Industrial",
-      "content": "Contratamos a equipe para desentupimento e hidrojateamento das galerias industriais de escoamento em LEM. Atendimento pontual, caminhão moderno e documentação impecável."
+      "name": "Bianca Nascimento",
+      "neighborhood": "Arraial d'Ajuda - Porto Seguro",
+      "rating": 5,
+      "text": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar.",
+      "content": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar.",
+      "role": "Arraial d'Ajuda - Porto Seguro"
     },
     {
-      "name": "Cláudia S. Mendonça",
-      "role": "Moradora do Jardim Paraíso",
-      "content": "A pia da cozinha e o ralo do banheiro entupiram no domingo. A desentupidora em Luís Eduardo Magalhães chegou em 30 minutos e resolveu tudo com máquina rotativa sem sujeira!"
+      "name": "Diego Farias",
+      "neighborhood": "Centro - Porto Seguro",
+      "rating": 5,
+      "text": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho.",
+      "content": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho.",
+      "role": "Centro - Porto Seguro"
     },
     {
-      "name": "Marcelo P. Alencar",
-      "role": "Comerciante no Bairro Santa Cruz",
-      "content": "Excelente serviço para nossa padaria no Santa Cruz. A caixa de gordura e o esgoto foram completamente limpos com hidrojato sem atrapalhar nosso atendimento."
+      "name": "Camila Duarte",
+      "neighborhood": "Trancoso - Porto Seguro",
+      "rating": 5,
+      "text": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo.",
+      "content": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo.",
+      "role": "Trancoso - Porto Seguro"
     }
   ]
 }
