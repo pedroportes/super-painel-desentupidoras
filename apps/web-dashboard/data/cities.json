@@ -10920,13 +10920,37 @@
     "auditScore": 100,
     "status": "ativo",
     "deployUrl": "https://desentupidora-barramansa.pages.dev",
-    "lastDeployAt": "2026-09-08T18:22:06.828Z",
+    "lastDeployAt": "2026-09-08T20:14:17.109Z",
     "cloudflareProjectName": "desentupidora-barramansa",
     "commercialClaimsVerified": true,
     "isDraft": false,
     "slug": "barramansa",
     "name": "Barra Mansa",
-    "populacao": "181679"
+    "populacao": "181679",
+    "parceiros": [
+      {
+        "id": "p_riodasostras",
+        "nome": "Desentupidora Rio das Ostras 24h",
+        "cidade": "Rio das Ostras",
+        "uf": "RJ",
+        "dominio": "desentupidora-riodasostras.pages.dev",
+        "url": "https://desentupidora-riodasostras.pages.dev",
+        "descricao": "Nossa rede de atendimento também cobre a região litorânea do Rio de Janeiro através da base em Rio das Ostras com equipe própria.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      },
+      {
+        "id": "p_angradosreis",
+        "nome": "Desentupidora Angra dos Reis 24h",
+        "cidade": "Angra dos Reis",
+        "uf": "RJ",
+        "dominio": "desentupidora-angradosreis.pages.dev",
+        "url": "https://desentupidora-angradosreis.pages.dev",
+        "descricao": "Atendimento estendido para a Costa Verde e Sul Fluminense com viaturas e caminhão auto-vácuo em Angra dos Reis.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ]
   },
   {
     "id": "itapetininga",
@@ -11103,8 +11127,32 @@
     "status": "ativo",
     "auditScore": 100,
     "deployUrl": "https://desentupidora-itapetininga.vercel.app",
-    "lastDeployAt": "2026-09-08T18:57:36.315Z",
-    "deployedAt": "2026-09-08T18:56:53.008Z"
+    "lastDeployAt": "2026-09-08T20:14:48.116Z",
+    "deployedAt": "2026-09-08T18:56:53.008Z",
+    "parceiros": [
+      {
+        "id": "p_botucatu",
+        "nome": "Desentupidora Botucatu 24h",
+        "cidade": "Botucatu",
+        "uf": "SP",
+        "dominio": "desentupidora-botucatu.pages.dev",
+        "url": "https://desentupidora-botucatu.pages.dev",
+        "descricao": "Fazemos parte da rede de atendimento especializada no Centro-Oeste Paulista com base técnica completa em Botucatu.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      },
+      {
+        "id": "p_mogiguacu",
+        "nome": "Desentupidora Mogi Guaçu 24h",
+        "cidade": "Mogi Guaçu",
+        "uf": "SP",
+        "dominio": "desentupidora-mogiguacu.pages.dev",
+        "url": "https://desentupidora-mogiguacu.pages.dev",
+        "descricao": "Cobertura regional estendida para o interior paulista através da nossa unidade parceira em Mogi Guaçu.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ]
   },
   {
     "id": "botucatu",
@@ -11289,7 +11337,31 @@
     "isDraft": false,
     "status": "ativo",
     "auditScore": 100,
-    "lastDeployAt": "2026-09-08T20:04:39.484Z",
-    "cloudflareProjectName": "desentupidora-botucatu"
+    "lastDeployAt": "2026-09-08T20:15:26.934Z",
+    "cloudflareProjectName": "desentupidora-botucatu",
+    "parceiros": [
+      {
+        "id": "p_itapetininga",
+        "nome": "Desentupidora Itapetininga 24h",
+        "cidade": "Itapetininga",
+        "uf": "SP",
+        "dominio": "desentupidora-itapetininga.vercel.app",
+        "url": "https://desentupidora-itapetininga.vercel.app",
+        "descricao": "Nossa rede de atendimento também está presente no Sudoeste Paulista através da base técnica em Itapetininga.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      },
+      {
+        "id": "p_mogiguacu_btc",
+        "nome": "Desentupidora Mogi Guaçu 24h",
+        "cidade": "Mogi Guaçu",
+        "uf": "SP",
+        "dominio": "desentupidora-mogiguacu.pages.dev",
+        "url": "https://desentupidora-mogiguacu.pages.dev",
+        "descricao": "Unidade integrante da nossa rede de atendimento com serviços de hidrojateamento e limpa fossa no interior de São Paulo.",
+        "status": "ativo",
+        "tipo": "Rede de atendimento"
+      }
+    ]
   }
 ]

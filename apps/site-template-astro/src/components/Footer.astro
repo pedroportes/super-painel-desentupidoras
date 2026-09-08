@@ -1,5 +1,6 @@
 ---
 import { slugify } from '../utils/slugify';
+import { partnerSlug } from '../utils/partnerSlug';
 import cityData from '../data/cityConfig.json';
 
 const { empresaNome, cidade, uf, ddd, whatsapp, cnpj, endereco, isDraft = false, isResearchMode = false, commercialClaimsVerified = true } = Astro.props;
@@ -64,7 +65,7 @@ const isPublicResearch = isDraft || isResearchMode || commercialClaimsVerified =
         <ul>
           {cityData.parceiros.map((p: any) => (
             <li>
-              <a href={`/fora-da-area-de-cobertura/${slugify(p.cidade)}-${slugify(p.empresa || p.nome)}/`}>
+              <a href={`/fora-da-area-de-cobertura/${partnerSlug(p)}/`}>
                 {p.anchorText || `Desentupidora em ${p.cidade} ${p.uf}`}
               </a>
             </li>

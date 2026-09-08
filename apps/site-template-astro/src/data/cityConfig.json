@@ -63,7 +63,30 @@
     "Vila Jahu": "Área tradicional com residências familiares e pequenos comércios, a Vila Jahu conta com atendimento 24h para emergências em esgotos e vasos sanitários.",
     "Bairro Alto": "Bairro histórico com construções tradicionais e vista panorâmica, o Bairro Alto possui tubulações antigas que se beneficiam da limpeza interna profunda com maquinário rotativo."
   },
-  "parceiros": [],
+  "parceiros": [
+    {
+      "id": "p_itapetininga",
+      "nome": "Desentupidora Itapetininga 24h",
+      "cidade": "Itapetininga",
+      "uf": "SP",
+      "dominio": "desentupidora-itapetininga.vercel.app",
+      "url": "https://desentupidora-itapetininga.vercel.app",
+      "descricao": "Nossa rede de atendimento também está presente no Sudoeste Paulista através da base técnica em Itapetininga.",
+      "status": "ativo",
+      "tipo": "Rede de atendimento"
+    },
+    {
+      "id": "p_mogiguacu_btc",
+      "nome": "Desentupidora Mogi Guaçu 24h",
+      "cidade": "Mogi Guaçu",
+      "uf": "SP",
+      "dominio": "desentupidora-mogiguacu.pages.dev",
+      "url": "https://desentupidora-mogiguacu.pages.dev",
+      "descricao": "Unidade integrante da nossa rede de atendimento com serviços de hidrojateamento e limpa fossa no interior de São Paulo.",
+      "status": "ativo",
+      "tipo": "Rede de atendimento"
+    }
+  ],
   "bairros": [
     "Centro",
     "Vila dos Lavradores",
