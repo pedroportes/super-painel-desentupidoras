@@ -3,6 +3,7 @@
 // capacidade. Diferente do V1 por priorizar um serviço âncora e usar os
 // ícones reais do conteúdo; diferente do V2 porque não é lista linear.
 import { slugify } from '../utils/slugify';
+import { getServiceIcon } from '../utils/iconMap';
 
 const { services, cidade } = Astro.props;
 const cidadeSlug = slugify(cidade);
@@ -21,7 +22,7 @@ const featureLabels = ['Mais buscado', 'Residencial', 'Comercial', 'Condominial'
       {services.map((s: any, idx: number) => (
         <article class:list={['service-v5-card', idx === 0 && 'service-v5-card-featured']}>
           <div class="service-v5-top">
-            <span class="service-v5-icon">{s.icon || '⚙️'}</span>
+            <span class="service-v5-icon">{getServiceIcon(s.icon)}</span>
             <span class="service-v5-label">{featureLabels[idx] || 'Atendimento local'}</span>
           </div>
 

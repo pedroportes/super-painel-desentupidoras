@@ -3,6 +3,7 @@
 // Diferente do V4 porque cada item tem corpo completo e ligação visual de
 // processo, não apenas vitrine circular numerada.
 import { slugify } from '../utils/slugify';
+import { getServiceIcon } from '../utils/iconMap';
 
 const { services, cidade } = Astro.props;
 const cidadeSlug = slugify(cidade);
@@ -27,7 +28,7 @@ const serviceFocus = ['Triagem', 'Execução', 'Recorrência', 'Infraestrutura',
           <div class="service-v6-card">
             <div class="service-v6-card-top">
               <span class="service-v6-focus">{serviceFocus[idx] || 'Atendimento local'}</span>
-              <span class="service-v6-icon">{s.icon || '⚙️'}</span>
+              <span class="service-v6-icon">{getServiceIcon(s.icon)}</span>
             </div>
 
             <h3 id={`services.${idx}.title`} data-edit-tab="services">{s.title} em {cidade}</h3>

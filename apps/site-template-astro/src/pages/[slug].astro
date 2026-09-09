@@ -10,6 +10,7 @@ import FAQ from '../components/FAQ.astro';
 import Benefits from '../components/Benefits.astro';
 import NeighborhoodResearch from '../components/NeighborhoodResearch.astro';
 import ServiceResearch from '../components/ServiceResearch.astro';
+import { getServiceIcon } from '../utils/iconMap';
 
 export async function getStaticPaths() {
   const cidadeSlug = slugify(cityData.cidade);
@@ -552,7 +553,7 @@ if (props.type === 'service') {
             {(cityData.services || []).map((s) => (
               <div class="service-item-card">
                 <div class="service-card-top">
-                  <span class="service-item-icon">{s.icon || '⚙️'}</span>
+                  <span class="service-item-icon">{getServiceIcon(s.icon)}</span>
                   <h3>{s.title}</h3>
                 </div>
                 <p>{s.description}</p>
@@ -598,7 +599,7 @@ if (props.type === 'service') {
       <section class="section-block bg-white">
         <div class="container container-narrow">
           <div class="service-content-card">
-            <span class="service-large-icon">{props.icon}</span>
+            <span class="service-large-icon">{getServiceIcon(props.icon)}</span>
             <h2>Como realizamos o {props.title} em {cityData.cidade}</h2>
             <p>{props.description} Nossa equipe técnica utiliza equipamentos de ponta para garantir a desobstrução completa sem danificar sua tubulação. O serviço é rápido, higiênico e possui garantia total.</p>
             

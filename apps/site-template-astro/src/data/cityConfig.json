@@ -1,146 +1,215 @@
 {
-  "cidade": "Porto Seguro",
-  "estado": "Bahia",
-  "uf": "BA",
-  "populacao": "182.630",
-  "ddd": "73",
-  "whatsapp": "73999183742",
-  "telefoneFixo": "(73) 3288-5120",
+  "cidade": "Inhumas",
+  "estado": "Goiás",
+  "uf": "GO",
+  "populacao": "53.884",
+  "ddd": "62",
+  "whatsapp": "62998412890",
+  "telefoneFixo": "(62) 3514-4890",
   "isDraft": false,
   "commercialClaimsVerified": true,
-  "empresaNome": "Desentupidora Porto Seguro 24h",
-  "cnpj": "44.333.222/0001-99",
-  "endereco": "Av. dos Navegantes, 300 - Centro, Porto Seguro - BA",
-  "hospedagem": "vercel",
-  "deployUrl": "https://desentupidora-portoseguro.vercel.app",
-  "paletaCores": "clean-azul",
-  "logoUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
+  "empresaNome": "Desentupidora Inhumas GO 24h",
+  "cnpj": "",
+  "endereco": "Avenida Wilson Quirino de Andrade, 450 - Centro, Inhumas - GO, 75400-000",
+  "hospedagem": "cloudflare",
+  "deployUrl": "https://desentupidora-inhumas.pages.dev",
+  "paletaCores": "urgencia-azul-laranja",
+  "logoUrl": "/images/inhumas/logo-desentupidora-inhumas.webp",
   "logoHeight": 64,
-  "faviconUrl": "/images/portoseguro/logo-desentupidora-portoseguro.webp",
-  "heroImage": "/images/portoseguro/desentupidora-portoseguro-caminhao-limpa-fossa.webp",
+  "faviconUrl": "/images/inhumas/favicon-desentupidora-inhumas.webp",
+  "heroImage": "/images/inhumas/desentupidora-inhumas-caminhao-hidrojateamento.webp",
   "variants": {
-    "hero": "HeroV1",
-    "services": "ServicesGridV1",
+    "hero": "HeroV4",
+    "services": "ServicesGridV2",
     "faq": "FAQV1"
   },
   "sectionsConfig": {},
   "geoCoordinates": {
-    "latitude": "",
-    "longitude": ""
+    "latitude": "-16.3575",
+    "longitude": "-49.4950"
   },
   "seo": {
-    "metaTitle": "Desentupidora em Porto Seguro BA 24h - Atendimento Rápido",
-    "metaDescription": "Desentupidora especialista em esgoto, pias, ralos e limpeza de fossa em Porto Seguro BA. Chegamos em 30 min. Orçamento gratuito 24h!",
-    "h1Title": "Desentupidora em Porto Seguro: Atendimento em Toda a Região Turística",
-    "firstParagraphText": "Precisa de uma desentupidora em Porto Seguro que entenda a realidade de uma cidade turística à beira-mar? Atendemos residências, pousadas e comércios do Centro Histórico a Arraial d'Ajuda e Trancoso, com orçamento gratuito.",
-    "lastH2Title": "A desentupidora de Porto Seguro preparada para a alta temporada"
+    "metaTitle": "Desentupidora em Inhumas GO 24h",
+    "metaDescription": "Desentupidora em Inhumas GO com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento gratuito!",
+    "h1Title": "Desentupidora em Inhumas GO 24 Horas",
+    "firstParagraphText": "Procurando desentupidora em Inhumas GO? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão na Região Metropolitana de Goiânia.",
+    "lastH2Title": "Por que Escolher Nossa Desentupidora em Inhumas GO?"
   },
-  "aboutCityTitle": "Desentupidora em Porto Seguro: preparo para o clima litorâneo e a alta temporada",
-  "aboutCityText": "Porto Seguro é um dos destinos turísticos mais procurados do litoral baiano, com forte movimento em distritos como Arraial d'Ajuda e Trancoso, especialmente na alta temporada. O clima litorâneo, com maresia constante, acelera a corrosão de conexões metálicas e reduz a vida útil de tubulações mal protegidas, enquanto o solo arenoso típico da região favorece a infiltração de areia em ligações de esgoto mais antigas. Durante a alta temporada, o aumento de hóspedes em pousadas também sobrecarrega fossas e redes de esgoto dimensionadas para uso residencial. Nossa equipe conhece essas particularidades e atende com agilidade tanto moradores quanto empreendimentos turísticos.",
+  "aboutCityTitle": "Atendimento Especializado de Desentupimento em Inhumas - GO",
+  "aboutCityText": "Inhumas é um estratégico polo agroindustrial, educacional e comercial situado no Eixo Goiânia-Itaberaí (GO-070). Conhecida como a Cidade das Mangueiras, possui intensa atividade sucroalcooleira, confecções e forte comércio urbano. A expansão habitacional em novos residenciais e o fluxo comercial contínuo demandam manutenção preventiva periódica, hidrojateamento de alta pressão e sucção de fossas sépticas com garantia e preservação estrutural.",
   "cityFacts": [],
   "citySources": [],
   "bairroEvidence": {},
   "neighborhoodContent": {},
-  "neighborhoodFacts": {},
-  "parceiros": [],
-  "bairros": [
-    "Centro",
-    "Arraial d'Ajuda",
-    "Trancoso",
-    "Mundaí",
-    "Taperapuã",
-    "Fontana",
-    "Parque Ecológico",
-    "Frei Calixto"
-  ],
+  "neighborhoodFacts": {
+    "Centro": "O Centro de Inhumas concentra forte atividade bancária, comercial e gastronômica na Avenida Wilson Quirino e Praça Belarmino Cruvinel. Restaurantes e lojas demandam desentupimento rápido de redes sanitárias e limpeza contínua de caixas de gordura.",
+    "Vila Lucimar": "Bairro tradicional e populoso de Inhumas com residências familiares consolidadas. Nossas equipes prestam atendimento 24h para desentupimento de ralos de banheiro e pias de cozinha.",
+    "Vila América": "Bairro dinâmico com expressivo comércio de vizinhança. Atendemos com agilidade ocorrências de esgoto transbordando com máquinas rotativas sem quebra de piso.",
+    "Residencial Paraíso": "Bairro planejado com forte crescimento habitacional. Fornecemos serviços de hidrojateamento e esgotamento de fossas sépticas com caminhão auto-vácuo.",
+    "Jardim América": "Bairro residencial consolidado e arborizado. Prestamos assistência técnica para desobstrução de vasos sanitários e prumadas de esgoto sem sujeira.",
+    "Setor Nilo Peçanha": "Bairro com perfil misto de serviços e moradias. Nossos especialistas atuam com prontidão na desobstrução de canos e ramais pluviais.",
+    "Vila Floresta": "Bairro acolhedor com vias tranquilas e perfil comunitário. Executamos desentupimentos rápidos com garantia formal emitida na hora.",
+    "Jardim Real": "Bairro residencial moderno com condomínios e residências térreas. Atendimento cuidadoso com maquinário moderno e silencioso.",
+    "Setor Santa Maria": "Bairro tradicional da Zona Sul com famílias consolidadas. Oferecemos soluções completas para desentupimento de caixas de gordura e inspeção.",
+    "Setor Vale das Goiabeiras": "Bairro em constante expansão com novos loteamentos. Viaturas locais garantem chegada rápida em menos de 30 minutos.",
+    "Residencial Atenas": "Bairro residencial planejado com vias amplas. Realizamos esgotamento de fossas e desentupimentos mecânicos com preço justo.",
+    "Vila Heitor": "Bairro com forte convivência de vizinhança. Atendemos prontamente emergências de refluxo de esgoto com orçamento gratuito.",
+    "Setor Bueno": "Bairro residencial valorizado em Inhumas. Nossos profissionais realizam desentupimentos preventivos e corretivos preservando acabamentos.",
+    "Vila Nova": "Bairro tradicional com comércio variado. Prestamos socorro 24 horas para desentupimento de esgotos coletivos e residenciais.",
+    "Vila Alvorada": "Bairro acolhedor próximo aos acessos rodoviários. Oferecemos caminhão limpa fossa para chácaras e residências.",
+    "Residencial Solar dos Buritis": "Novo conjunto residencial com padrão moderno. Atendimento técnico com equipamentos rotativos de precisão.",
+    "Parque das Primaveras": "Bairro calmo e arborizado com residências familiares. Desobstrução rápida de ralos e sifões com total limpeza.",
+    "Residencial Monte Carlo": "Loteamento planejado com belas moradias. Serviços especializados de hidrojateamento com descarte ambiental regulamentado.",
+    "Jardim Sorriso": "Bairro comunitário tradicional de Inhumas. Realizamos desentupimentos rápidos de vasos sanitários e tubulações de esgoto.",
+    "Setor Pedregal": "Bairro elevado com vias pavimentadas. Atendimento emergencial 24h para redes de drenagem e caixas de gordura.",
+    "Vale do Araguaia": "Bairro residencial com perfil familiar. Equipes especializadas resolvem qualquer obstrução hidráulica com rapidez.",
+    "Vila Romana": "Bairro acolhedor com moradias tradicionais. Prestamos serviços completos de encanador e desentupidora com nota fiscal.",
+    "Residencial Jatobá": "Bairro novo em expansão residencial. Atendimento rápido para desentupimento de tubulações pluviais e esgotos.",
+    "Setor Imperial": "Bairro planejado com fácil acesso ao Centro de Inhumas. Vistorias técnicas sem custo e suporte 24 horas todos os dias."
+  },
   "services": [
     {
-      "id": "esgoto",
+      "id": "desentupimento-de-esgoto",
       "title": "Desentupimento de Esgoto",
-      "description": "Desobstrução rápida de redes de esgoto residenciais e comerciais com máquina rotativa e hidrojateamento.",
-      "icon": "🚿"
+      "shortDescription": "Desobstrução de tubulações e redes de esgoto em Inhumas GO com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+      "description": "Desobstrução de tubulações e redes de esgoto em Inhumas GO com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+      "icon": "pipe"
     },
     {
-      "id": "pia",
+      "id": "desentupimento-de-pia",
       "title": "Desentupimento de Pia",
-      "description": "Remoção de gordura e restos de alimentos bloqueando a tubulação da cozinha sem danificar o sifão.",
-      "icon": "🚰"
+      "shortDescription": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Inhumas GO com maquinário limpo e silencioso.",
+      "description": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Inhumas GO com maquinário limpo e silencioso.",
+      "icon": "sink"
     },
     {
-      "id": "vaso",
+      "id": "desentupimento-de-vaso-sanitario",
       "title": "Desentupimento de Vaso Sanitário",
-      "description": "Atendimento higiênico e rápido para vasos entupidos. Desobstruímos sem quebrar pisos ou louças.",
-      "icon": "🚽"
+      "shortDescription": "Desobstrução rápida e higiênica de vasos sanitários em residências, indústrias e comércios de Inhumas GO, preservando louças e instalações.",
+      "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, indústrias e comércios de Inhumas GO, preservando louças e instalações.",
+      "icon": "toilet"
     },
     {
-      "id": "ralo",
+      "id": "desentupimento-de-ralo",
       "title": "Desentupimento de Ralo",
-      "description": "Limpeza de ralos de banheiros, quintais e lavanderias bloqueados por sujeira acumulada.",
-      "icon": "🛁"
+      "shortDescription": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e quintais em Inhumas GO, eliminando mau cheiro e refluxos.",
+      "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e quintais em Inhumas GO, eliminando mau cheiro e refluxos.",
+      "icon": "drain"
     },
     {
-      "id": "fossa",
-      "title": "Esgotamento e Limpeza de Fossa",
-      "description": "Caminhão auto-vácuo equipado para sucção e descarte ecológico de fossas sépticas.",
-      "icon": "🚛"
+      "id": "esgotamento-de-fossa",
+      "title": "Limpa Fossa e Esgotamento",
+      "shortDescription": "Limpeza e esgotamento de fossas sépticas e sumidouros em Inhumas GO com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+      "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Inhumas GO com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+      "icon": "truck"
     },
     {
-      "id": "hidrojato",
+      "id": "hidrojateamento",
       "title": "Hidrojateamento de Alta Pressão",
-      "description": "Lavagem interna pressurizada para higienização e desobstrução profunda em tubulações.",
-      "icon": "🌊"
+      "shortDescription": "Limpeza pesada de tubulações industriais, usinas e redes comerciais em Inhumas GO com jatos de água em alta pressão.",
+      "description": "Limpeza pesada de tubulações industriais, usinas e redes comerciais em Inhumas GO com jatos de água em alta pressão.",
+      "icon": "water"
     }
+  ],
+  "bairros": [
+    "Centro",
+    "Vila Lucimar",
+    "Vila América",
+    "Residencial Paraíso",
+    "Jardim América",
+    "Setor Nilo Peçanha",
+    "Vila Floresta",
+    "Jardim Real",
+    "Setor Santa Maria",
+    "Setor Vale das Goiabeiras",
+    "Residencial Atenas",
+    "Vila Heitor",
+    "Setor Bueno",
+    "Vila Nova",
+    "Vila Alvorada",
+    "Residencial Solar dos Buritis",
+    "Parque das Primaveras",
+    "Residencial Monte Carlo",
+    "Jardim Sorriso",
+    "Setor Pedregal",
+    "Vale do Araguaia",
+    "Vila Romana",
+    "Residencial Jatobá",
+    "Setor Imperial"
   ],
   "faqs": [
     {
-      "question": "A maresia de Porto Seguro estraga a tubulação mais rápido?",
-      "answer": "Sim, o ar salino acelera a corrosão de conexões metálicas próximas ao litoral. Recomendamos avaliação preventiva em imóveis à beira-mar."
+      "question": "Como funciona o atendimento de desentupidora em Inhumas GO?",
+      "answer": "Basta entrar em contato pelo WhatsApp (62) 99841-2890 ou telefone fixo (62) 3514-4890. Nossa equipe técnica em Inhumas vai até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
     },
     {
-      "question": "Vocês atendem pousadas em Arraial d'Ajuda e Trancoso na alta temporada?",
-      "answer": "Sim, temos experiência com o aumento de demanda de hóspedes nesses distritos e atendemos com prioridade nesses períodos."
+      "question": "Qual é o tempo médio de chegada em Inhumas?",
+      "answer": "Temos viaturas posicionadas em pontos estratégicos de Inhumas GO, garantindo chegada rápida em até 30 a 40 minutos em todos os bairros e no Centro."
     },
     {
-      "question": "O solo arenoso de Porto Seguro causa entupimento de esgoto?",
-      "answer": "Sim, é comum a infiltração de areia em ligações mais antigas, principalmente perto da orla. Fazemos a limpeza e verificação da vedação."
+      "question": "Vocês cobram taxa de visita em Inhumas?",
+      "answer": "Não cobramos taxa de visita em Inhumas GO. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
     },
     {
-      "question": "Vocês fazem esgotamento de fossa para pousadas?",
-      "answer": "Sim, com caminhão auto-vácuo adequado para o volume de uso de pousadas e casas de temporada."
+      "question": "O serviço de desentupimento tem garantia?",
+      "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Inhumas contam com garantia formal por escrito emitida na entrega do serviço."
     },
     {
-      "question": "A visita técnica em Porto Seguro tem custo?",
-      "answer": "Não, a avaliação é sempre gratuita, mesmo em distritos mais afastados do Centro."
+      "question": "Quais formas de pagamento são aceitas?",
+      "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento bancário para usinas, comércios, indústrias e condomínios cadastrados."
     },
     {
-      "question": "Qual o tempo de chegada em Trancoso ou Arraial d'Ajuda?",
-      "answer": "Por serem distritos mais distantes, o tempo médio é um pouco maior, entre 40 e 60 minutos, mas mantemos equipe de plantão para emergências."
+      "question": "Vocês atendem finais de semana e feriados em Inhumas?",
+      "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade."
     }
   ],
   "testimonials": [
     {
-      "name": "Bianca Nascimento",
-      "neighborhood": "Arraial d'Ajuda - Porto Seguro",
-      "rating": 5,
-      "text": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar.",
-      "content": "Tenho uma pousada e no verão o esgoto quase transbordou de tanto hóspede. Vieram rápido e resolveram antes de complicar.",
-      "role": "Arraial d'Ajuda - Porto Seguro"
+      "name": "Geraldo Magela Ferreira",
+      "neighborhood": "Centro",
+      "role": "Gerente Comercial",
+      "content": "A prumada de esgoto do nosso estabelecimento comercial no Centro de Inhumas entupiu no sábado de manhã. A equipe chegou muito rápido com a máquina rotativa e desobstruiu tudo sem quebrar nada. Recomendo!"
     },
     {
-      "name": "Diego Farias",
-      "neighborhood": "Centro - Porto Seguro",
-      "rating": 5,
-      "text": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho.",
-      "content": "Notei que os canos de metal da minha casa enferrujam rápido por causa da maresia. Trocaram um trecho e explicaram direitinho.",
-      "role": "Centro - Porto Seguro"
+      "name": "Divina Aparecida Peixoto",
+      "neighborhood": "Vila Lucimar",
+      "role": "Professora",
+      "content": "Tivemos entupimento na pia da cozinha e no ralo do banheiro na Vila Lucimar. O técnico foi muito atencioso, explicou o procedimento e deixou tudo funcionando perfeitamente. Serviço nota 10!"
     },
     {
-      "name": "Camila Duarte",
-      "neighborhood": "Trancoso - Porto Seguro",
-      "rating": 5,
-      "text": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo.",
-      "content": "Mesmo morando mais longe do centro, o atendimento foi rápido e o preço justo.",
-      "role": "Trancoso - Porto Seguro"
+      "name": "Sebastião Rodrigues Cunha",
+      "neighborhood": "Residencial Paraíso",
+      "role": "Produtor Rural",
+      "content": "Contratamos o serviço de caminhão limpa fossa para esgotamento da nossa fossa no Residencial Paraíso. Caminhão moderno, sucção rápida e preço justo com garantia."
+    }
+  ],
+  "parceiros": [
+    {
+      "id": "p_mineiros",
+      "nome": "Desentupidora Mineiros GO 24h",
+      "cidade": "Mineiros",
+      "uf": "GO",
+      "dominio": "desentupidora-mineiros.pages.dev",
+      "url": "https://desentupidora-mineiros.pages.dev",
+      "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Sudoeste Goiano."
+    },
+    {
+      "id": "p_barradogarcas",
+      "nome": "Desentupidora Barra do Garças MT 24h",
+      "cidade": "Barra do Garças",
+      "uf": "MT",
+      "dominio": "desentupidora-barradogarcas.pages.dev",
+      "url": "https://desentupidora-barradogarcas.pages.dev",
+      "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa no Vale do Araguaia."
+    },
+    {
+      "id": "p_primavera",
+      "nome": "Desentupidora Primavera do Leste MT 24h",
+      "cidade": "Primavera do Leste",
+      "uf": "MT",
+      "dominio": "desentupidora-primaveradoleste.pages.dev",
+      "url": "https://desentupidora-primaveradoleste.pages.dev",
+      "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Leste Mato-grossense."
     }
   ]
 }

@@ -11363,5 +11363,1651 @@
         "tipo": "Rede de atendimento"
       }
     ]
+  },
+  {
+    "id": "patos",
+    "cidade": "Patos",
+    "name": "Patos",
+    "slug": "patos",
+    "uf": "PB",
+    "estado": "Paraíba",
+    "ddd": "83",
+    "populacao": "108.104",
+    "empresaNome": "Desentupidora Patos PB 24h",
+    "whatsapp": "83998412890",
+    "telefoneFixo": "(83) 3421-4890",
+    "phone": "(83) 3421-4890",
+    "endereco": "Rua Pedro Firmino, 350 - Centro, Patos - PB, 58700-070",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-patos.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/patos/logo-desentupidora-patos.webp",
+    "faviconUrl": "/images/patos/favicon-desentupidora-patos.webp",
+    "heroImage": "/images/patos/desentupidora-patos-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Patos PB 24h - Chegada Rápida",
+    "metaDescription": "Desentupidora em Patos PB com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Patos PB 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Patos PB? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão na Capital do Sertão Paraibano.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Patos",
+    "aboutCityText": "Patos é o principal polo econômico, universitário e médico do Sertão Paraibano, situada estrategicamente no entroncamento da BR-230 e às margens do Rio Espinharas. O clima semiárido, as altas temperaturas e a intensa circulação comercial no Centro e no bairro Jatobá exigem manutenção preventiva e hidrojateamento de alta pressão para evitar sobrecargas e entupimentos recorrentes nas redes de esgoto.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Patos PB?",
+    "geoCoordinates": {
+      "latitude": "-7.0272",
+      "longitude": "-37.2803"
+    },
+    "bairros": [
+      "Centro",
+      "Brasília",
+      "Santo Antônio",
+      "Belo Horizonte",
+      "Bela Vista",
+      "Distrito Industrial",
+      "Jardim Magnólia",
+      "Noé Trajano",
+      "Novo Horizonte",
+      "Ana Leite",
+      "Salgadinho",
+      "São Sebastião",
+      "Sete Casas",
+      "Alto da Tubiba",
+      "Jatobá",
+      "Jardim Santa Cecília",
+      "Monte Castelo",
+      "Nova Conquista",
+      "Bivar Olinto",
+      "Liberdade",
+      "Morada do Sol",
+      "Maternidade",
+      "Morro",
+      "Santa Gertrudes"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Patos concentra o coração financeiro e comercial do Sertão, abrangendo a Rua Pedro Firmino, Avenida Epitácio Pessoa e a histórica Catedral de Nossa Senhora da Guia. O grande fluxo diário em restaurantes e lojas exige desentupimento ágil e limpeza constante de caixas de gordura.",
+      "Brasília": "Bairro central e tradicional de Patos com vias movimentadas e residências consolidadas. Nossas equipes atuam 24 horas prestando atendimento técnico para desobstrução mecânica de ramais prediais, ralos de banheiro e redes de esgoto doméstico.",
+      "Santo Antônio": "Bairro histórico vizinho ao Centro com expressivo comércio de bairro e residências familiares. Tubulações antigas demandam tecnologia rotativa de ponta para desentupimento sem quebra de pisos ou danos estruturais.",
+      "Belo Horizonte": "Importante bairro da Zona Norte de Patos com grande expansão imobiliária e avenidas ativas. Realizamos serviços completos de esgotamento de fossas sépticas e limpeza de caixas de gordura com caminhão especializado.",
+      "Bela Vista": "Bairro residencial com topografia elevada e perfil familiar tranquilo. Atendemos residências e condomínios com chegada rápida para desentupimento de vasos sanitários, pias de cozinha e colunas pluviais.",
+      "Distrito Industrial": "Polo fabril estratégico às margens da BR-230, reunindo indústrias de calçados, confecções e galpões de logística. Oferecemos hidrojateamento industrial pesado e sucção de efluentes com laudo técnico.",
+      "Jardim Magnólia": "Bairro residencial arborizado e bem estruturado na Zona Norte de Patos. Nossos técnicos atendem prontamente chamados de ralos entupidos, canos de esgoto e inspeção preventiva de tubulações.",
+      "Noé Trajano": "Região dinâmica com constante crescimento residencial e pequenos comércios na Zona Norte. Fornecemos atendimento 24 horas para desentupimento de pias, ralos e caixas de inspeção sanitária.",
+      "Novo Horizonte": "Bairro planejado com novas construções e residências unifamiliares. Atuamos com equipes volantes garantindo socorro emergencial para transbordamentos de esgoto e desobstrução de vasos.",
+      "Ana Leite": "Bairro da Zona Leste com fácil acesso às principais saídas da cidade. Executamos desobstrução com sondas elétricas rotativas e limpeza profunda de redes coletoras de esgoto.",
+      "Salgadinho": "Bairro tradicional da Zona Leste situado nas proximidades do Rio Espinharas e canais urbanos. A drenagem local requer atenção constante e limpeza periódica de galerias pluviais e ramais de esgoto.",
+      "São Sebastião": "Bairro populoso e vibrante com comércio diversificado, praças e escolas. Realizamos desentupimentos residenciais e comerciais com garantia estendida e equipamentos modernos.",
+      "Sete Casas": "Bairro residencial tradicional com ligação rápida entre a Zona Norte e a Zona Leste de Patos. Oferecemos atendimento técnico limpo, rápido e sem complicações para moradores e pequenos negócios.",
+      "Alto da Tubiba": "Bairro elevado na Zona Sul de Patos com belas vistas e relevo característico. Prestamos serviços especializados de manutenção hidráulica e limpeza de caixas de gordura com agendamento flexível.",
+      "Jatobá": "Um dos maiores e mais ativos bairros da Zona Sul de Patos, com feiras livres, comércio forte e alta densidade. Demandas constantes de desentupimento em restaurantes, bares e residências são atendidas 24 horas.",
+      "Jardim Santa Cecília": "Bairro residencial calmo e seguro na Zona Sul. Atendemos chamados diários para desobstrução de pias de cozinha, vasos sanitários e limpeza completa de caixas de esgoto.",
+      "Monte Castelo": "Bairro consolidado da Zona Sul com expressiva circulação e variedade de serviços. Nossos especialistas resolvem entupimentos graves em prumadas prediais e redes de esgoto domésticas.",
+      "Nova Conquista": "Região residencial em expansão na Zona Sul de Patos com grande número de habitações. Atendemos com agilidade serviços de limpa fossa e desentupimentos em geral.",
+      "Bivar Olinto": "Grande complexo habitacional da Zona Oeste com milhares de moradores. Viaturas locais oferecem pronto atendimento para desobstrução de ramais de esgoto sanitário e caixas de inspeção.",
+      "Liberdade": "Bairro histórico e muito popular da Zona Oeste de Patos, com vida comunitária ativa e feira tradicional. Atendemos emergências 24 horas com equipamentos elétricos rotativos de alto desempenho.",
+      "Morada do Sol": "Bairro moderno da Zona Oeste com residências de alto padrão e condomínios fechados. Utilizamos maquinário silencioso e técnico para desobstruir tubulações sofisticadas sem sujeira.",
+      "Maternidade": "Bairro de grande relevância na Zona Oeste onde se concentra o complexo materno-infantil e clínicas médicas. Exige protocolos rígidos de higiene no desentupimento de instalações sanitárias.",
+      "Morro": "Bairro tradicional de relevo acidentado na Zona Oeste de Patos. Prestamos assistência completa para redes de esgoto e desentupimento preventivo com orçamento gratuito no local.",
+      "Santa Gertrudes": "Distrito estratégico de Patos cortado pela rodovia federal BR-230, com comunidades agrícolas, comércios e postos. Atendemos chácaras, sítios e empresas com caminhões limpa fossa e hidrojato."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução técnica de redes de esgoto em Patos PB com sondas rotativas e hidrojateamento de alta pressão, eliminando bloqueios graves sem danificar pisos e paredes.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção completa de gordura e resíduos acumulados em sifões e ramais de pias de cozinha e banheiros em Patos PB com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, condomínios e comércios de Patos PB, restabelecendo o fluxo sem quebrar louças.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens, quintais e áreas de serviço em Patos PB, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Esgotamento e limpeza de fossas sépticas, sumidouros e poços negros em Patos PB com caminhão auto-vácuo e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, comerciais e prediais em Patos PB com jatos de água em alta pressão para desobstrução de raízes e crostas.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Patos PB?",
+        "answer": "Basta entrar em contato pelo WhatsApp (83) 99841-2890 ou telefone fixo (83) 3421-4890. Nossa equipe técnica mais próxima em Patos se desloca até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Patos?",
+        "answer": "Temos viaturas estrategicamente posicionadas em Patos PB, garantindo chegada ágil em até 30 a 40 minutos na maioria dos bairros urbanos e atendimento programado no distrito de Santa Gertrudes."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Patos?",
+        "answer": "Não cobramos taxa de visita em Patos PB. A vistoria técnica para avaliação do problema e elaboração do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, limpeza de caixas de gordura e esgotamento de fossas em Patos contam com garantia formal por escrito."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito com parcelamento facilitado, dinheiro e faturamento para empresas e condomínios cadastrados."
+      },
+      {
+        "question": "Vocês atendem fins de semana e feriados em Patos?",
+        "answer": "Sim! Nosso plantão de atendimento funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade de Patos."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Severino Manoel Bezerra",
+        "neighborhood": "Jatobá",
+        "role": "Comerciante",
+        "content": "A rede de esgoto do restaurante entupiu em pleno almoço de domingo. A equipe chegou em menos de 25 minutos e resolveu tudo com equipamento rotativo sem quebrar nada. Recomendo demais!"
+      },
+      {
+        "name": "Maria Cecília Medeiros",
+        "neighborhood": "Centro",
+        "role": "Advogada",
+        "content": "A pia e o ralo do escritório no Centro estavam voltando água e mau cheiro. O técnico foi super profissional, limpou tudo e deixou o ambiente impecável. Preço justo e ótimo serviço."
+      },
+      {
+        "name": "José Carlos Wanderley",
+        "neighborhood": "Belo Horizonte",
+        "role": "Morador",
+        "content": "Contratamos a limpeza de fossa na nossa casa no Belo Horizonte. O caminhão é moderno, a sucção foi muito rápida e não ficou nenhum cheiro desagradável. Nota 10!"
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-patos",
+    "parceiros": [
+      {
+        "id": "p_crato",
+        "nome": "Desentupidora Crato CE 24h",
+        "cidade": "Crato",
+        "uf": "CE",
+        "dominio": "desentupidora-crato.pages.dev",
+        "url": "https://desentupidora-crato.pages.dev",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento na região do Cariri Cearense."
+      },
+      {
+        "id": "p_itapipoca",
+        "nome": "Desentupidora Itapipoca CE 24h",
+        "cidade": "Itapipoca",
+        "uf": "CE",
+        "dominio": "desentupidora-itapipoca.pages.dev",
+        "url": "https://desentupidora-itapipoca.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e esgotamento de fossas no litoral e serra do Ceará."
+      },
+      {
+        "id": "p_maranguape",
+        "nome": "Desentupidora Maranguape CE 24h",
+        "cidade": "Maranguape",
+        "uf": "CE",
+        "dominio": "desentupidora-maranguape.pages.dev",
+        "url": "https://desentupidora-maranguape.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e caixas de gordura na Região Metropolitana."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T13:26:50.801Z"
+  },
+  {
+    "id": "erechim",
+    "cidade": "Erechim",
+    "name": "Erechim",
+    "slug": "erechim",
+    "uf": "RS",
+    "estado": "Rio Grande do Sul",
+    "ddd": "54",
+    "populacao": "109.609",
+    "empresaNome": "Desentupidora Erechim RS 24h",
+    "whatsapp": "54998412890",
+    "telefoneFixo": "(54) 3522-4890",
+    "phone": "(54) 3522-4890",
+    "endereco": "Avenida Maurício Cardoso, 450 - Centro, Erechim - RS, 99700-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-erechim.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/erechim/logo-desentupidora-erechim.webp",
+    "faviconUrl": "/images/erechim/favicon-desentupidora-erechim.webp",
+    "heroImage": "/images/erechim/desentupidora-erechim-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Erechim RS 24h - Chegada Rápida",
+    "metaDescription": "Desentupidora em Erechim RS com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Erechim RS 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Erechim RS? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão na Capital do Alto Uruguai Gaúcho.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Erechim",
+    "aboutCityText": "Erechim é o principal polo econômico, educacional e agroindustrial do Norte Gaúcho, reconhecida pelo seu traçado urbano radial planejado com avenidas largas que convergem na Praça da Bandeira. O relevo ondulado do planalto serrano e as baixas temperaturas de inverno favorecem o acúmulo de gordura solidificada nas tubulações, exigindo soluções técnicas de hidrojateamento de alta pressão e manutenção preventiva de caixas de gordura e prumadas de esgoto.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Erechim RS?",
+    "geoCoordinates": {
+      "latitude": "-27.6341",
+      "longitude": "-52.2739"
+    },
+    "bairros": [
+      "Centro",
+      "Bela Vista",
+      "Cerâmica",
+      "Copas Verdes",
+      "José Bonifácio",
+      "Koller",
+      "Morro da Cegonha",
+      "São Cristóvão",
+      "Três Vendas",
+      "Triângulo",
+      "São Caetano",
+      "Aeroporto",
+      "Atlântico",
+      "Boa Vista",
+      "Colégio Agrícola",
+      "Cristo Rei",
+      "Dal Molin",
+      "Esperança",
+      "Espírito Santo",
+      "Fátima",
+      "Florestinha",
+      "Frinape",
+      "Industrial",
+      "Ipiranga",
+      "Linho",
+      "Paiol Grande",
+      "Parque Lívia",
+      "Presidente Castelo Branco",
+      "Presidente Vargas",
+      "Progresso",
+      "Santa Catarina"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Erechim abriga a icônica Praça da Bandeira, a Catedral São José e os principais eixos comerciais nas Avenidas Maurício Cardoso e Sete de Setembro. O grande movimento gastronômico e de edifícios comerciais demanda desentupimento regular de caixas de gordura e ramais de esgoto.",
+      "Bela Vista": "Bairro residencial nobre de Erechim situado em área elevada com belas residências e condomínios. Nossas equipes atuam 24h na desobstrução técnica de pias, vasos sanitários e prumadas com equipamentos rotativos modernos sem quebra.",
+      "Cerâmica": "Bairro tradicional e valorizado próximo à região central, com perfil residencial consolidado e clínicas de saúde. Realizamos manutenções preventivas e desentupimentos de ralos, sifões e caixas de inspeção sanitária.",
+      "Copas Verdes": "Região residencial tranquila com ruas arborizadas e moradias familiares de médio e alto padrão. Oferecemos pronto atendimento para desobstrução de esgotos domésticos e limpeza profunda de tubulações pluviais.",
+      "José Bonifácio": "Bairro dinâmico que combina áreas residenciais e comércios de proximidade com fácil acesso às avenidas perimetrais. Atendemos com agilidade ocorrências de esgoto transbordando e pias obstruídas.",
+      "Koller": "Bairro residencial tradicional de Erechim caracterizado pela tranquilidade e forte convivência comunitária. Nossas viaturas prestam atendimento rápido para desentupimento de ramais prediais e ralos.",
+      "Morro da Cegonha": "Bairro de relevo acidentado com vista panorâmica da cidade e residências de alto padrão. Prestamos serviços especializados com sondas flexíveis para tubulações com curvas acentuadas e desníveis.",
+      "São Cristóvão": "Um dos maiores e mais tradicionais bairros de Erechim, com intenso comércio local, escolas e indústrias. Atendemos comércios, restaurantes e residências com hidrojateamento e desentupimento 24 horas.",
+      "Três Vendas": "Polo comercial e residencial altamente movimentado na Zona Norte de Erechim, interligando importantes rodovias. Demanda constante por limpeza de caixas de gordura e desobstrução de redes de esgoto.",
+      "Triângulo": "Bairro estratégico com entroncamentos viários e perfil misto comercial e residencial. Realizamos desobstrução mecânica de tubulações e esgotamento preventivo de fossas sépticas com equipe técnica.",
+      "São Caetano": "Bairro residencial em expansão com novas construções e loteamentos planejados. Oferecemos suporte completo para desentupimento emergencial de banheiros, pias e caixas de passagem.",
+      "Aeroporto": "Bairro localizado próximo ao Aeroporto Regional de Erechim, abrigando hangares, empresas e áreas residenciais. Prestamos serviços especializados de hidrojateamento de alta pressão e sucção de efluentes.",
+      "Atlântico": "Grande bairro populoso da Zona Leste de Erechim, com forte comércio comunitário e serviços. Nossas equipes garantem chegada rápida para desentupimento de vasos, ralos e redes de esgoto.",
+      "Boa Vista": "Bairro residencial tradicional com perfil calmo e famílias consolidadas. Atendemos chamados diários para desobstrução de pias de cozinha, lavanderias e tubulações de esgoto.",
+      "Colégio Agrícola": "Região que sedia instituições de ensino técnico e propriedades com perfil semiurbano. Realizamos esgotamento de fossas sépticas e limpeza de galerias com caminhão auto-vácuo.",
+      "Cristo Rei": "Bairro vibrante com igrejas históricas, praças e comércio diversificado. Fornecemos atendimento 24 horas com equipamentos elétricos rotativos para desobstrução limpa e rápida.",
+      "Dal Molin": "Bairro residencial em desenvolvimento na Zona Norte com novas moradias. Nossos técnicos solucionam com eficiência refluxos de esgoto e realizam vistorias gratuitas no local.",
+      "Esperança": "Bairro com expressiva densidade populacional e vida comunitária ativa. Equipes volantes atendem emergências hidráulicas com maquinário moderno e garantia formal do serviço.",
+      "Espírito Santo": "Bairro tradicional de Erechim com perfil familiar e pequenos estabelecimentos. Executamos desentupimentos de ralos, prumadas e limpeza de caixas de gordura com total higiene.",
+      "Fátima": "Bairro dinâmico com serviços essenciais e vias de conexão rápida ao Centro. Atendimento pontual para residências e condomínios com desobstrução especializada sem danos a pisos.",
+      "Florestinha": "Bairro residencial cercado por áreas verdes e topografia suave. Atendemos residências e chácaras com serviços de limpa fossa, desentupimento de pias e desobstrução de canos.",
+      "Frinape": "Bairro vizinho ao Parque da Frinape, polo de grandes feiras e eventos agroindustriais de Erechim. Atendemos pavilhões, galpões e comércios com hidrojateamento de grande porte.",
+      "Industrial": "Polo fabril estratégico de Erechim que abriga indústrias metalmecânicas, transportadoras e frigoríficos. Demanda hidrojateamento pesado, sucção de efluentes industriais e desobstrução de prumadas.",
+      "Ipiranga": "Bairro tradicional e bem localizado com residências e pequenos negócios. Realizamos desentupimentos mecânicos rápidos em vasos sanitários, ralos e caixas de inspeção.",
+      "Linho": "Bairro com histórico ligado ao desenvolvimento operário e industrial de Erechim. Prestamos socorro 24 horas para redes coletoras de esgoto e desentupimento de ramais domésticos.",
+      "Paiol Grande": "Um dos maiores bairros habitacionais de Erechim com comércio autônomo vigoroso. Equipes locais realizam desentupimentos rápidos com maquinário rotativo e preço justo.",
+      "Parque Lívia": "Bairro residencial planejado com imóveis modernos e perfil familiar. Atendimento diferenciado com equipamentos limpos e silenciosos para desobstrução de tubulações residenciais.",
+      "Presidente Castelo Branco": "Bairro consolidado com vias pavimentadas e perfil comunitário tradicional. Oferecemos manutenção preventiva de redes hidráulicas e desentupimento de esgotos.",
+      "Presidente Vargas": "Bairro populoso com grande número de residências e pequenos comércios. Nossas viaturas atuam 24 horas no desentupimento de vasos, pias e esgotamento de fossas sépticas.",
+      "Progresso": "Bairro dinâmico da Zona Sul com expressivo crescimento urbano. Atendemos chamados de emergência para esgoto transbordando com chegada técnica em até 30 minutos.",
+      "Santa Catarina": "Bairro tradicional com acesso às saídas para o estado vizinho e comércio de estrada. Realizamos hidrojateamento preventivo e desentupimento para postos, empresas e residências."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Erechim RS com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura solidificada e resíduos acumulados em canos e sifões de pias de cozinha em Erechim RS com maquinário específico e higiênico.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida de vasos sanitários em residências, empresas e prédios em Erechim RS, preservando louças e instalações sanitárias.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução de ralos de banheiros, garagens e áreas de serviço em Erechim RS, eliminando mau cheiro e refluxo de água.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Erechim RS com caminhão auto-vácuo moderno e descarte ecológico regulamentado.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza técnica de redes industriais, comerciais e prediais em Erechim RS com jatos de água em alta pressão para desobstrução de raízes e crostas.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Erechim RS?",
+        "answer": "Você entra em contato pelo WhatsApp (54) 99841-2890 ou telefone fixo (54) 3522-4890. Nossa viatura técnica mais próxima em Erechim vai até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo de chegada em Erechim?",
+        "answer": "Atendemos com viaturas posicionadas estrategicamente em Erechim RS, garantindo chegada rápida em até 30 a 40 minutos em todos os bairros urbanos e distritos."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Erechim?",
+        "answer": "Não cobramos taxa de visita em Erechim RS. A avaliação técnica presencial e a formulação do orçamento são 100% gratuitas."
+      },
+      {
+        "question": "O serviço de desentupimento possui garantia?",
+        "answer": "Sim, todos os serviços de desentupimento, hidrojateamento e limpeza de fossas contam com garantia formal por escrito emitida na conclusão do serviço."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito em até 12x, dinheiro e faturamento bancário para indústrias, condomínios e empresas cadastradas."
+      },
+      {
+        "question": "O atendimento funciona aos finais de semana e feriados?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, inclusive em domingos e feriados em toda a região de Erechim."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Paulo Ricardo Menegatti",
+        "neighborhood": "Três Vendas",
+        "role": "Comerciante",
+        "content": "A caixa de gordura do nosso restaurante nas Três Vendas transbordou no sábado à noite. A equipe chegou em 25 minutos com o caminhão e desobstruiu tudo com muita rapidez e higiene. Excelente serviço!"
+      },
+      {
+        "name": "Luciana Maria Zardo",
+        "neighborhood": "Bela Vista",
+        "role": "Arquiteta",
+        "content": "Tivemos um entupimento na prumada do condomínio no Bela Vista. O técnico utilizou a sonda rotativa e resolveu o problema sem quebrar nenhum azulejo. Muito profissionais e educados!"
+      },
+      {
+        "name": "Cláudio Roberto Sperotto",
+        "neighborhood": "Industrial",
+        "role": "Gerente Industrial",
+        "content": "Contratamos o hidrojateamento para as galerias da nossa empresa no Distrito Industrial. O serviço foi impecável, cumpriram as normas de segurança e emitiram o laudo na hora. Recomendo!"
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-erechim",
+    "parceiros": [
+      {
+        "id": "p_riogrande",
+        "nome": "Desentupidora Rio Grande RS 24h",
+        "cidade": "Rio Grande",
+        "uf": "RS",
+        "dominio": "desentupidora-riogrande.vercel.app",
+        "url": "https://desentupidora-riogrande.vercel.app",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento na Zona Sul Gaúcha."
+      },
+      {
+        "id": "p_bage",
+        "nome": "Desentupidora Bagé RS 24h",
+        "cidade": "Bagé",
+        "uf": "RS",
+        "dominio": "desentupidora-bage.vercel.app",
+        "url": "https://desentupidora-bage.vercel.app",
+        "descricao": "Equipes de prontidão 24 horas para desentupimento de esgotos e limpa fossa na Região da Campanha."
+      },
+      {
+        "id": "p_patobranco",
+        "nome": "Desentupidora Pato Branco PR 24h",
+        "cidade": "Pato Branco",
+        "uf": "PR",
+        "dominio": "desentupidora-patobranco.vercel.app",
+        "url": "https://desentupidora-patobranco.vercel.app",
+        "descricao": "Desentupidora com hidrojateamento e esgotamento de fossas no Sudoeste do Paraná."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T13:50:18.556Z"
+  },
+  {
+    "id": "uruguaiana",
+    "cidade": "Uruguaiana",
+    "name": "Uruguaiana",
+    "slug": "uruguaiana",
+    "uf": "RS",
+    "estado": "Rio Grande do Sul",
+    "ddd": "55",
+    "populacao": "120.819",
+    "empresaNome": "Desentupidora Uruguaiana RS 24h",
+    "whatsapp": "55998412890",
+    "telefoneFixo": "(55) 3412-4890",
+    "phone": "(55) 3412-4890",
+    "endereco": "Rua Bento Martins, 2450 - Centro, Uruguaiana - RS, 97501-520",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-uruguaiana.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/uruguaiana/logo-desentupidora-uruguaiana.webp",
+    "faviconUrl": "/images/uruguaiana/favicon-desentupidora-uruguaiana.webp",
+    "heroImage": "/images/uruguaiana/desentupidora-uruguaiana-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Uruguaiana RS 24h - Chegada Rápida",
+    "metaDescription": "Desentupidora em Uruguaiana RS com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Uruguaiana RS 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Uruguaiana RS? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão na Fronteira Oeste Gaúcha.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Uruguaiana",
+    "aboutCityText": "Uruguaiana é o maior polo de comércio exterior e transporte rodoviário da América Latina, estrategicamente situada na Fronteira Oeste Gaúcha às margens do Rio Uruguai. O intenso fluxo logístico no Porto Seco, as baixas temperaturas de inverno na Campanha e o relevo plano exigem manutenção preventiva periódica e hidrojateamento de alta pressão em ramais coletoras e caixas de gordura para evitar obstruções e transbordamentos no sistema de esgoto.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Uruguaiana RS?",
+    "geoCoordinates": {
+      "latitude": "-29.7547",
+      "longitude": "-57.0883"
+    },
+    "bairros": [
+      "Centro",
+      "Cidade Nova",
+      "Bela Vista",
+      "São Miguel",
+      "São João",
+      "Cabo Luiz Quevedo",
+      "Cohab I",
+      "Cohab II",
+      "Santo Inácio",
+      "Mascarenhas de Moraes",
+      "Nova Esperança",
+      "Hípica",
+      "Santana",
+      "Vila Júlia",
+      "Tabajara Brites",
+      "Ipiranga",
+      "Proficar",
+      "Rui Ramos",
+      "União das Vilas",
+      "Rio Branco",
+      "São José",
+      "Francisca Tarragó",
+      "Área Industrial",
+      "Barragem Sanchuri"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Uruguaiana concentra a atividade comercial e histórica ao longo da Rua Bento Martins, Rua Duque de Caxias e a Praça Barão do Rio Branco. A densidade de edifícios antigos e restaurantes exige desentupimento especializado e limpeza regular de caixas de gordura.",
+      "Cidade Nova": "Bairro residencial e comercial consolidado de Uruguaiana com grande movimento urbano. Nossas equipes atuam 24 horas prestando atendimento técnico para desobstrução de redes de esgoto domésticas, pias e ralos de banheiros.",
+      "Bela Vista": "Bairro residencial nobre de Uruguaiana com residências amplas e condomínios fechados. Fornecemos serviços silenciosos com maquinário rotativo moderno para desobstrução de encanamentos sem danificar pisos e revestimentos.",
+      "São Miguel": "Bairro tradicional e populoso com forte presença de comércios locais e prestadores de serviço. Atendemos com agilidade ocorrências de esgoto sanitário transbordando e limpeza preventiva de caixas de inspeção.",
+      "São João": "Bairro dinâmico com vias de ligação importantes e comércio de proximidade. Nossos técnicos realizam desentupimentos mecânicos rápidos em vasos sanitários, pias de cozinha e ralos pluviais.",
+      "Cabo Luiz Quevedo": "Grande bairro habitacional da Zona Leste com milhares de famílias e comércio ativo. Viaturas locais garantem chegada técnica em até 30 minutos para desentupimentos residenciais e esgotamento de fossas.",
+      "Cohab I": "Complexo residencial tradicional com alta densidade habitacional. Prestamos assistência emergencial 24 horas para desobstrução de prumadas e redes coletoras condominiais.",
+      "Cohab II": "Conjunto habitacional consolidado na Zona Sul de Uruguaiana. Oferecemos soluções completas para esgoto entupido, refluxo em ralos e limpeza técnica de sifões.",
+      "Santo Inácio": "Bairro com perfil misto residencial e comercial próximo a eixos viários da cidade. Realizamos hidrojateamento preventivo e desobstrução de ramais prediais com orçamento gratuito no local.",
+      "Mascarenhas de Moraes": "Bairro residencial planejado com moradias familiares e praças comunitárias. Nossas equipes prestam socorro rápido para desentupimento de vasos sanitários e caixas de gordura.",
+      "Nova Esperança": "Bairro residencial em expansão com constante crescimento urbano. Executamos serviços de limpa fossa com caminhão auto-vácuo e desobstrução com sondas elétricas rotativas.",
+      "Hípica": "Bairro nobre e arborizado de Uruguaiana, próximo ao Jockey Club e clubes sociais. Atendimento técnico especializado para desentupimento de tubulações sofisticadas com total discrição e limpeza.",
+      "Santana": "Bairro tradicional ribeirinho com vista para o Rio Uruguai e perfil comunitário ativo. A proximidade com o rio exige atenção especial às galerias pluviais e desobstrução preventiva de esgotos.",
+      "Vila Júlia": "Bairro residencial tranquilo com famílias consolidadas e ruas calmas. Atendemos chamados diários para desentupimento de pias de cozinha, tanques de lavanderia e ralos.",
+      "Tabajara Brites": "Bairro tradicional da Zona Norte com comércio variado e escolas. Oferecemos atendimento 24 horas para desobstrução de redes de esgoto e manutenção de caixas de gordura.",
+      "Ipiranga": "Bairro vibrante com serviços essenciais e rápido acesso ao Centro. Nossos especialistas solucionam entupimentos em ramais de esgoto com equipamentos rotativos de última geração.",
+      "Proficar": "Região habitacional dinâmica com intensa circulação de moradores. Fornecemos atendimento pontual para desentupimento de esgotos residenciais com garantia formal por escrito.",
+      "Rui Ramos": "Bairro residencial tradicional com perfil comunitário acolhedor. Prestamos serviços de desentupimento mecânico e hidrojateamento com preços justos e facilidade de pagamento.",
+      "União das Vilas": "Comunidade populosa na periferia urbana de Uruguaiana. Equipes volantes atendem prontamente ocorrências de transbordamento de esgoto e esgotamento de fossas sépticas.",
+      "Rio Branco": "Bairro histórico com construções tradicionais e vias movimentadas. Realizamos desentupimentos especializados em tubulações antigas sem provocar danos estruturais.",
+      "São José": "Bairro residencial com comércio de vizinhança e áreas de lazer. Atendemos emergências 24h para desobstrução de pias, vasos sanitários e redes pluviais.",
+      "Francisca Tarragó": "Bairro residencial calmo com grande número de moradias familiares. Nossas viaturas prestam atendimento rápido para desentupimento de ramais de esgoto e caixas de gordura.",
+      "Área Industrial": "Polo aduaneiro e logístico estratégico que abriga o maior Porto Seco da América Latina, transportadoras e armazéns. Demanda hidrojateamento industrial pesado e sucção de efluentes com laudo técnico.",
+      "Barragem Sanchuri": "Importante distrito e polo agrícola de Uruguaiana, centro da produção arrozeira gaúcha. Atendemos propriedades rurais, armazéns e granjas com caminhões limpa fossa e hidrojato sob agendamento."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Uruguaiana RS com sondas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura solidificada e resíduos acumulados em canos e sifões de pias de cozinha em Uruguaiana RS com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução higiênica e rápida de vasos sanitários em residências, condomínios e comércios em Uruguaiana RS, preservando louças e encanamentos.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e quintais em Uruguaiana RS, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Esgotamento e limpeza de fossas sépticas, poços e sumidouros em Uruguaiana RS com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, transportadoras e armazéns aduaneiros em Uruguaiana RS com jatos de água de altíssima pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Uruguaiana RS?",
+        "answer": "Basta entrar em contato pelo WhatsApp (55) 99841-2890 ou telefone fixo (55) 3412-4890. Nossa equipe técnica em Uruguaiana se desloca até o seu local para realizar uma avaliação gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Uruguaiana?",
+        "answer": "Temos viaturas em pontos estratégicos de Uruguaiana RS, garantindo chegada rápida em até 30 a 40 minutos na maioria dos bairros urbanos e atendimento no Porto Seco e Barragem Sanchuri."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Uruguaiana?",
+        "answer": "Não cobramos taxa de visita em Uruguaiana RS. A vistoria técnica presencial para avaliação do problema e apresentação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Uruguaiana possuem garantia formal por escrito emitida na conclusão."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento bancário para transportadoras, empresas aduaneiras e condomínios."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Uruguaiana?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade de Uruguaiana."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Rodrigo Silveira Dornelles",
+        "neighborhood": "Área Industrial",
+        "role": "Gerente de Logística",
+        "content": "A prumada de esgoto do galpão de cargas no Porto Seco entupiu de madrugada. A desentupidora chegou em 20 minutos com o caminhão de hidrojato e normalizou tudo rapidamente. Serviço de primeira linha!"
+      },
+      {
+        "name": "Clarice Fontoura Vargas",
+        "neighborhood": "Bela Vista",
+        "role": "Médica Veterinária",
+        "content": "O vaso e a pia da nossa casa no Bela Vista entupiram no domingo. O técnico foi extremamente atencioso, utilizou a máquina rotativa e resolveu tudo sem sujeira. Recomendo com certeza!"
+      },
+      {
+        "name": "Getúlio Martins Fagundes",
+        "neighborhood": "Centro",
+        "role": "Comerciante",
+        "content": "Excelente atendimento para limpeza da caixa de gordura do nosso restaurante no Centro. Preço transparente, pontualidade e serviço muito limpo. Nota 10!"
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-uruguaiana",
+    "parceiros": [
+      {
+        "id": "p_erechim",
+        "nome": "Desentupidora Erechim RS 24h",
+        "cidade": "Erechim",
+        "uf": "RS",
+        "dominio": "desentupidora-erechim.pages.dev",
+        "url": "https://desentupidora-erechim.pages.dev",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Alto Uruguai Gaúcho."
+      },
+      {
+        "id": "p_riogrande",
+        "nome": "Desentupidora Rio Grande RS 24h",
+        "cidade": "Rio Grande",
+        "uf": "RS",
+        "dominio": "desentupidora-riogrande.vercel.app",
+        "url": "https://desentupidora-riogrande.vercel.app",
+        "descricao": "Serviços 24 horas de desentupimento e limpa fossa na Zona Sul Gaúcha."
+      },
+      {
+        "id": "p_bage",
+        "nome": "Desentupidora Bagé RS 24h",
+        "cidade": "Bagé",
+        "uf": "RS",
+        "dominio": "desentupidora-bage.vercel.app",
+        "url": "https://desentupidora-bage.vercel.app",
+        "descricao": "Desentupidora com equipes de prontidão e hidrojato na Região da Campanha."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T14:18:29.349Z"
+  },
+  {
+    "id": "passos",
+    "cidade": "Passos",
+    "name": "Passos",
+    "slug": "passos",
+    "uf": "MG",
+    "estado": "Minas Gerais",
+    "ddd": "35",
+    "populacao": "116.951",
+    "empresaNome": "Desentupidora Passos MG 24h",
+    "whatsapp": "35998412890",
+    "telefoneFixo": "(35) 3521-4890",
+    "phone": "(35) 3521-4890",
+    "endereco": "Avenida da Moda, 1200 - Centro, Passos - MG, 37900-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-passos.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/passos/logo-desentupidora-passos.webp",
+    "faviconUrl": "/images/passos/favicon-desentupidora-passos.webp",
+    "heroImage": "/images/passos/desentupidora-passos-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Passos MG 24h - Chegada Rápida",
+    "metaDescription": "Desentupidora em Passos MG com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Passos MG 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Passos MG? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão no Sudoeste Mineiro.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Passos",
+    "aboutCityText": "Passos é o principal polo econômico, agropecuário e de confecções do Sudoeste Mineiro, localizada próxima ao Lago de Furnas e à Serra da Canastra. O relevo suavemente ondulado, o clima tropical de altitude e o forte fluxo comercial na Avenida da Moda e indústrias têxteis demandam serviços frequentes de hidrojateamento de alta pressão e manutenção de caixas de gordura para evitar refluxos e sobrecargas na rede coletora de esgoto.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Passos MG?",
+    "geoCoordinates": {
+      "latitude": "-20.7188",
+      "longitude": "-46.6097"
+    },
+    "bairros": [
+      "Centro",
+      "Muarama",
+      "Penha",
+      "Belo Horizonte",
+      "Coimbras",
+      "Canjeranus",
+      "Santa Casa",
+      "Novo Horizonte",
+      "Carmelo",
+      "California",
+      "Vila Rica",
+      "São Francisco",
+      "Santa Luzia",
+      "Jardim Flamboyant",
+      "Jardim América",
+      "Aclimação",
+      "Polivalente",
+      "Cohab I",
+      "Cohab II",
+      "Jardim Colúmbia",
+      "Jardim Santo Antônio",
+      "Distrito Industrial",
+      "Parque da Moda",
+      "Nossa Senhora das Graças"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Passos concentra o comércio tradicional, a Praça Monsenhor Messias Bragança e prédios históricos. O intenso movimento de restaurantes, lojas e escritórios exige desentupimento técnico ágil e limpeza constante de caixas de gordura e redes de esgoto.",
+      "Muarama": "Bairro residencial nobre de Passos com casas de alto padrão e avenidas arborizadas. Nossas equipes utilizam maquinário rotativo moderno para desobstrução de tubulações sofisticadas com total discrição e sem danificar pisos.",
+      "Penha": "Bairro tradicional e populoso de Passos com comércio diversificado e igrejas históricas. Prestamos assistência 24 horas para desentupimento de pias de cozinha, vasos sanitários e ramais de esgoto sanitário.",
+      "Belo Horizonte": "Bairro residencial consolidado com grande densidade familiar e pequenos comércios. Atendemos com agilidade ocorrências de esgoto transbordando e realizamos manutenção preventiva de caixas de inspeção.",
+      "Coimbras": "Bairro dinâmico próximo ao Centro com intensa circulação e serviços essenciais. Fornecemos atendimento pontual para desentupimento mecânico e esgotamento de fossas com caminhão especializado.",
+      "Canjeranus": "Bairro residencial tradicional com vias movimentadas e perfil comunitário ativo. Nossos técnicos solucionam com precisão obstruções em ralos pluviais, pias e tubulações de esgoto domésticas.",
+      "Santa Casa": "Região de referência em saúde que abriga o complexo hospitalar da Santa Casa de Misericórdia de Passos. Exige rigorosos padrões de higiene no desentupimento emergencial de instalações sanitárias e caixas de gordura.",
+      "Novo Horizonte": "Bairro planejado em constante expansão com novas moradias familiares. Oferecemos socorro rápido 24h para desentupimentos residenciais e desobstrução de prumadas prediais.",
+      "Carmelo": "Bairro tradicional da Zona Sul de Passos com perfil residencial tranquilo. Nossas viaturas atuam rapidamente na desobstrução de vasos sanitários, ralos e caixas de passagem.",
+      "California": "Bairro residencial moderno com condomínios e residências amplas. Atendimento técnico especializado para desentupimento de canos e galerias com equipamentos limpos e silenciosos.",
+      "Vila Rica": "Bairro residencial consolidado com famílias tradicionais e comércio de bairro. Prestamos serviços completos de limpa fossa com caminhão auto-vácuo e desentupimentos em geral.",
+      "São Francisco": "Bairro populoso com grande atividade comunitária e estabelecimentos comerciais. Equipes volantes garantem chegada em até 30 minutos para desobstrução de redes de esgoto.",
+      "Santa Luzia": "Bairro residencial bem localizado com fácil acesso aos eixos viários da cidade. Executamos desentupimentos mecânicos sem quebra e limpeza profunda de redes coletoras.",
+      "Jardim Flamboyant": "Bairro nobre e arborizado de Passos com residências de alto padrão. Atendimento de alta qualidade para desobstrução de encanamentos delicados com garantia por escrito.",
+      "Jardim América": "Bairro residencial calmo com moradias unifamiliares. Atendemos chamados diários para desentupimento de pias, ralos de banheiro e limpeza de caixas de gordura.",
+      "Aclimação": "Bairro residencial tradicional com vista panorâmica da cidade e relevo característico. Realizamos manutenções hidráulicas completas com sondas elétricas de alta precisão.",
+      "Polivalente": "Bairro com polo educacional e grande circulação de estudantes e moradores. Fornecemos atendimento rápido para desentupimentos emergenciais em escolas, comércios e residências.",
+      "Cohab I": "Conjunto habitacional tradicional de Passos com expressiva densidade populacional. Viaturas locais oferecem pronto atendimento para desobstrução de esgotos e ralos.",
+      "Cohab II": "Grande complexo habitacional da Zona Leste com milhares de moradores. Nossos técnicos atuam 24 horas no desentupimento de ramais prediais e caixas de inspeção.",
+      "Jardim Colúmbia": "Bairro residencial em expansão com novas construções e perfil familiar. Atendemos com agilidade ocorrências de refluxo de esgoto com orçamento gratuito no local.",
+      "Jardim Santo Antônio": "Bairro acolhedor com residências familiares e pequenos negócios. Realizamos desentupimento higiênico de pias, vasos sanitários e tanques de lavanderia.",
+      "Distrito Industrial": "Polo fabril estratégico de Passos que reúne indústrias agropecuárias, têxteis e transportadoras. Demanda hidrojateamento industrial pesado e sucção de efluentes em grande escala.",
+      "Parque da Moda": "Região emblemática ao longo da Avenida da Moda com centenas de confecções, fábricas de tricô e lojas. Demanda limpeza constante de caixas de gordura e desobstrução de redes coletoras.",
+      "Nossa Senhora das Graças": "Bairro tradicional e populoso com forte vida comunitária. Prestamos socorro emergencial para desentupimento de esgotos residenciais com equipamentos de ponta."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Passos MG com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura e resíduos acumulados em canos e sifões de pias de cozinha em Passos MG com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, confecções e comércios de Passos MG, preservando louças e instalações.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e áreas de serviço em Passos MG, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Passos MG com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, fábricas têxteis e redes comerciais em Passos MG com jatos de água em alta pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Passos MG?",
+        "answer": "Basta entrar em contato pelo WhatsApp (35) 99841-2890 ou telefone fixo (35) 3521-4890. Nossa equipe técnica em Passos vai até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Passos?",
+        "answer": "Temos viaturas posicionadas em pontos estratégicos de Passos MG, garantindo chegada rápida em até 30 a 40 minutos na maioria dos bairros e no Parque da Moda."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Passos?",
+        "answer": "Não cobramos taxa de visita em Passos MG. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Passos contam com garantia formal por escrito emitida na entrega."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento para confecções, fábricas e condomínios cadastrados."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Passos?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade de Passos."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Marcos Aurélio Silveira",
+        "neighborhood": "Parque da Moda",
+        "role": "Empresário do Ramo Têxtil",
+        "content": "A caixa de gordura e o esgoto da nossa fábrica de tricô na Avenida da Moda entupiram durante a semana. A desentupidora chegou em 20 minutos com hidrojato e resolveu sem interromper a produção. Nota 10!"
+      },
+      {
+        "name": "Helena Maria Vasconcelos",
+        "neighborhood": "Muarama",
+        "role": "Professora",
+        "content": "Tivemos um problema com a pia da cozinha e o vaso sanitário da nossa casa no Muarama. O técnico foi muito profissional, usou máquina rotativa e deixou tudo limpo. Recomendo muito!"
+      },
+      {
+        "name": "Antônio Carlos Lemos",
+        "neighborhood": "Centro",
+        "role": "Comerciante",
+        "content": "Serviço rápido e com preço justo para desobstrução da prumada do nosso restaurante no Centro de Passos. Garantia emitida na hora e atendimento de primeira!"
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-passos",
+    "parceiros": [
+      {
+        "id": "p_pocosdecaldas",
+        "nome": "Desentupidora Poços de Caldas MG 24h",
+        "cidade": "Poços de Caldas",
+        "uf": "MG",
+        "dominio": "desentupidora-pocosdecaldas.netlify.app",
+        "url": "https://desentupidora-pocosdecaldas.netlify.app",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Sul de Minas."
+      },
+      {
+        "id": "p_uba",
+        "nome": "Desentupidora Ubá MG 24h",
+        "cidade": "Ubá",
+        "uf": "MG",
+        "dominio": "desentupidora-uba.pages.dev",
+        "url": "https://desentupidora-uba.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa na Zona da Mata Mineira."
+      },
+      {
+        "id": "p_timoteo",
+        "nome": "Desentupidora Timóteo MG 24h",
+        "cidade": "Timóteo",
+        "uf": "MG",
+        "dominio": "desentupidora-timoteo.pages.dev",
+        "url": "https://desentupidora-timoteo.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Vale do Aço."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T14:51:10.268Z"
+  },
+  {
+    "id": "francisco-beltrao",
+    "cidade": "Francisco Beltrão",
+    "name": "Francisco Beltrão",
+    "slug": "francisco-beltrao",
+    "uf": "PR",
+    "estado": "Paraná",
+    "ddd": "46",
+    "populacao": "102.312",
+    "empresaNome": "Desentupidora Francisco Beltrão PR 24h",
+    "whatsapp": "46998412890",
+    "telefoneFixo": "(46) 3524-4890",
+    "phone": "(46) 3524-4890",
+    "endereco": "Avenida Júlio Assis Cavalheiro, 850 - Centro, Francisco Beltrão - PR, 85601-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-franciscobeltrao.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/franciscobeltrao/logo-desentupidora-franciscobeltrao.webp",
+    "faviconUrl": "/images/franciscobeltrao/favicon-desentupidora-franciscobeltrao.webp",
+    "heroImage": "/images/franciscobeltrao/desentupidora-franciscobeltrao-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Francisco Beltrão PR 24h",
+    "metaDescription": "Desentupidora em Francisco Beltrão PR com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Francisco Beltrão PR 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Francisco Beltrão PR? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão no Sudoeste do Paraná.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Francisco Beltrão",
+    "aboutCityText": "Francisco Beltrão é o principal polo econômico, educacional e agroindustrial do Sudoeste Paranaense, cortada pelo Rio Marrecas e situada no Terceiro Planalto. O clima subtropical com invernos rigorosos, o relevo ondulado e a intensa movimentação no Centro e polos universitários exigem manutenção preventiva periódica e hidrojateamento de alta pressão para desobstrução de gorduras e resíduos em tubulações sanitárias.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Francisco Beltrão PR?",
+    "geoCoordinates": {
+      "latitude": "-26.0811",
+      "longitude": "-53.0550"
+    },
+    "bairros": [
+      "Centro",
+      "Cango",
+      "Alvorada",
+      "Vila Nova",
+      "Marrecas",
+      "Luther King",
+      "São Cristóvão",
+      "Padre Ulrico",
+      "Pinheirinho",
+      "Miniguaçu",
+      "Presidente Kennedy",
+      "Cristo Rei",
+      "Industrial",
+      "Água Branca",
+      "Jardim Itália",
+      "Sadia",
+      "Guanabara",
+      "São Miguel",
+      "Cantelmo",
+      "Novo Mundo",
+      "Seminário",
+      "Nossa Senhora Aparecida",
+      "São Francisco",
+      "Jacutinga"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Francisco Beltrão concentra os maiores eixos comerciais na Avenida Júlio Assis Cavalheiro, a Praça Eduardo Virmond Suplicy e a imponente Concatedral. O intenso fluxo de restaurantes e edifícios comerciais demanda limpeza contínua de caixas de gordura e desentupimento de redes sanitárias.",
+      "Cango": "Bairro histórico onde nasceu a cidade com a instalação da Colônia Agrícola Nacional General Osório (CANGO). Suas redes hidráulicas tradicionais requerem atendimento técnico especializado com máquinas rotativas para desentupimento sem quebra.",
+      "Alvorada": "Importante bairro residencial e comercial de Francisco Beltrão com grande fluxo urbano. Nossas equipes prestam socorro 24 horas para desobstrução de prumadas prediais, ralos e ramais de esgoto.",
+      "Vila Nova": "Bairro dinâmico e tradicional com expressiva concentração habitacional e comércio variado. Atendemos com agilidade ocorrências de esgoto transbordando e realizamos vistorias técnicas gratuitas.",
+      "Marrecas": "Bairro situado às margens do histórico Rio Marrecas com perfil misto. A proximidade com o leito fluvial exige manutenção preventiva e desobstrução frequente de galerias pluviais e esgoto doméstico.",
+      "Luther King": "Bairro residencial nobre com imóveis modernos e ruas tranquilas. Fornecemos atendimento técnico de alto padrão para desobstrução de canos, pias e vasos sanitários com equipamentos limpos.",
+      "São Cristóvão": "Um dos maiores e mais populosos bairros de Francisco Beltrão, com forte presença de oficinas, transportadoras e comércios. Realizamos hidrojateamento de alta pressão e limpa fossa 24h.",
+      "Padre Ulrico": "Grande comunidade habitacional da Zona Leste com milhares de famílias. Equipes locais garantem pronto atendimento para desentupimento de esgotos residenciais e caixas de inspeção.",
+      "Pinheirinho": "Bairro residencial consolidado com perfil familiar e vias arborizadas. Prestamos serviços completos de desentupimento de pias de cozinha, tanques e vasos sanitários sem sujeira.",
+      "Miniguaçu": "Bairro estratégico com acesso ao parque de exposições e rodovias. Oferecemos soluções eficientes para desentupimentos emergenciais em empresas, galpões e moradias.",
+      "Presidente Kennedy": "Bairro residencial tradicional com perfil calmo e famílias consolidadas. Nossos especialistas atuam com rapidez na desobstrução de ralos de banheiro e redes de esgoto.",
+      "Cristo Rei": "Bairro elevado com vista privilegiada e comércio ativo de vizinhança. Executamos desentupimentos mecânicos rápidos e seguros com garantia formal por escrito.",
+      "Industrial": "Polo fabril estratégico que abriga indústrias agropecuárias, têxteis e metalmecânicas. Demanda hidrojateamento industrial pesado, limpeza de caixas separadoras e sucção de efluentes.",
+      "Água Branca": "Bairro em constante expansão com novos loteamentos e condomínios. Nossas viaturas atendem chamados de emergência para desobstrução de redes coletoras e limpa fossa.",
+      "Jardim Itália": "Bairro residencial nobre com construções sofisticadas. Atendimento especializado com maquinário moderno e silencioso para preservar acabamentos de alto padrão.",
+      "Sadia": "Bairro vizinho ao complexo agroindustrial de alimentos e ao aeroporto municipal. Atendemos empresas, alojamentos e residências com hidrojateamento e esgotamento técnico.",
+      "Guanabara": "Bairro tradicional com comércio diversificado e praças comunitárias. Fornecemos suporte 24 horas para desentupimento de encanamentos prediais e sanitários.",
+      "São Miguel": "Bairro residencial tranquilo com forte convivência comunitária. Realizamos desentupimentos de sifões, pias e ralos com total higiene e pontualidade.",
+      "Cantelmo": "Bairro residencial em desenvolvimento na Zona Norte com novas moradias. Nossos técnicos atendem prontamente com viaturas equipadas para socorro imediato.",
+      "Novo Mundo": "Bairro planejado com residências familiares e fácil acesso ao Centro. Atendemos com agilidade ocorrências de refluxo de esgoto com orçamento gratuito no local.",
+      "Seminário": "Bairro tradicional e arborizado que abriga instituições religiosas e educacionais. Prestamos manutenção hidráulica completa e esgotamento de fossas sépticas.",
+      "Nossa Senhora Aparecida": "Bairro acolhedor com residências familiares e pequenos negócios. Realizamos desentupimentos rápidos de esgotos com preço justo e facilidade de pagamento.",
+      "São Francisco": "Bairro consolidado com vias pavimentadas e perfil comunitário. Oferecemos assistência técnica 24h para redes de esgoto e caixas de gordura residenciais.",
+      "Jacutinga": "Importante distrito agrícola e polo produtor rural de Francisco Beltrão. Atendemos chácaras, agroindústrias e propriedades rurais com caminhão auto-vácuo limpa fossa."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Francisco Beltrão PR com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Francisco Beltrão PR com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, empresas e faculdades de Francisco Beltrão PR, preservando louças e instalações.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e áreas de serviço em Francisco Beltrão PR, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Francisco Beltrão PR com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, agroindústrias e redes comerciais em Francisco Beltrão PR com jatos de água em alta pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Francisco Beltrão PR?",
+        "answer": "Basta entrar em contato pelo WhatsApp (46) 99841-2890 ou telefone fixo (46) 3524-4890. Nossa equipe técnica em Francisco Beltrão vai até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Francisco Beltrão?",
+        "answer": "Temos viaturas posicionadas em pontos estratégicos de Francisco Beltrão PR, garantindo chegada rápida em até 30 a 40 minutos na maioria dos bairros e no Distrito Industrial."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Francisco Beltrão?",
+        "answer": "Não cobramos taxa de visita em Francisco Beltrão PR. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Francisco Beltrão contam com garantia formal por escrito emitida na entrega."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento bancário para agroindústrias, comércios e condomínios cadastrados."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Francisco Beltrão?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Darci Antônio Bortoluzzi",
+        "neighborhood": "Industrial",
+        "role": "Gerente Operacional",
+        "content": "A prumada de esgoto do nosso galpão no Distrito Industrial entupiu na sexta-feira. A desentupidora chegou em 20 minutos com hidrojato e resolveu sem interromper as operações. Serviço excelente!"
+      },
+      {
+        "name": "Maristela Silveira Cordeiro",
+        "neighborhood": "Jardim Itália",
+        "role": "Arquiteta",
+        "content": "Tivemos um problema com o vaso sanitário e a pia da nossa residência no Jardim Itália. O técnico foi muito cuidadoso, utilizou máquina rotativa e deixou tudo limpo. Recomendo muito!"
+      },
+      {
+        "name": "Valmor José Fontana",
+        "neighborhood": "Centro",
+        "role": "Comerciante",
+        "content": "Atendimento pontual e transparente para limpeza da caixa de gordura do nosso restaurante no Centro de Francisco Beltrão. Preço justo e garantia na hora. Nota 10!"
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-franciscobeltrao",
+    "parceiros": [
+      {
+        "id": "p_patobranco",
+        "nome": "Desentupidora Pato Branco PR 24h",
+        "cidade": "Pato Branco",
+        "uf": "PR",
+        "dominio": "desentupidora-patobranco.vercel.app",
+        "url": "https://desentupidora-patobranco.vercel.app",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Sudoeste do Paraná."
+      },
+      {
+        "id": "p_medianeira",
+        "nome": "Desentupidora Medianeira PR 24h",
+        "cidade": "Medianeira",
+        "uf": "PR",
+        "dominio": "desentupidora-medianeira.pages.dev",
+        "url": "https://desentupidora-medianeira.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa no Oeste Paranaense."
+      },
+      {
+        "id": "p_erechim",
+        "nome": "Desentupidora Erechim RS 24h",
+        "cidade": "Erechim",
+        "uf": "RS",
+        "dominio": "desentupidora-erechim.pages.dev",
+        "url": "https://desentupidora-erechim.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Alto Uruguai Gaúcho."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T16:00:44.764Z"
+  },
+  {
+    "id": "timon",
+    "cidade": "Timon",
+    "name": "Timon",
+    "slug": "timon",
+    "uf": "MA",
+    "estado": "Maranhão",
+    "ddd": "99",
+    "populacao": "182.711",
+    "empresaNome": "Desentupidora Timon MA 24h",
+    "whatsapp": "99998412890",
+    "telefoneFixo": "(99) 3212-4890",
+    "phone": "(99) 3212-4890",
+    "endereco": "Avenida Presidente Médici, 1250 - Parque Piauí, Timon - MA, 65631-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-timon.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/timon/logo-desentupidora-timon.webp",
+    "faviconUrl": "/images/timon/favicon-desentupidora-timon.webp",
+    "heroImage": "/images/timon/desentupidora-timon-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Timon MA 24h",
+    "metaDescription": "Desentupidora em Timon MA com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento gratuito!",
+    "h1Title": "Desentupidora em Timon MA 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Timon MA? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos sanitários, caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão e sucção a vácuo em toda a Grande Timon e Região dos Cocais.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Timon - MA",
+    "aboutCityText": "Timon é uma das maiores e mais populosas cidades do Maranhão, situada estrategicamente às margens do Rio Parnaíba e conurbada à capital piauiense. Com sua economia pulsante no comércio, indústria cerâmica e serviços, além de seu clima tropical e relevo dinâmico com eixos como a Avenida Presidente Médici e a Avenida Tiúba, as tubulações residenciais e comerciais exigem desobstruções técnicas de alta performance e esgotamento de fossas para garantir a higiene ambiental sem comprometer as estruturas.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Timon MA?",
+    "geoCoordinates": {
+      "latitude": "-5.0939",
+      "longitude": "-42.8364"
+    },
+    "bairros": [
+      "Centro",
+      "Parque Piauí",
+      "Formosa",
+      "São Benedito",
+      "Cidade Nova",
+      "São Francisco",
+      "Joia",
+      "Novo Tempo",
+      "Bela Vista",
+      "Flores",
+      "Mangueira",
+      "Boa Vista",
+      "Marimar",
+      "Mateuzinho",
+      "Mutirão",
+      "Parque Alvorada",
+      "Pedro Patrício",
+      "Planalto Formosa",
+      "Santo Antônio",
+      "Sete Estrelas",
+      "Vila Angélica",
+      "Vila Bec",
+      "Vila Osmar",
+      "Parque União"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Timon concentra grande atividade bancária, comercial e institucional próxima às pontes metálica e da amizade sobre o Rio Parnaíba. A intensa movimentação de lojas e restaurantes demanda desentupimento ágil de prumadas e limpeza periódica de caixas de gordura.",
+      "Parque Piauí": "Um dos bairros mais tradicionais e populosos de Timon, cortado pela Avenida Presidente Médici. Nossas viaturas prestam atendimento rápido para desentupimento de redes sanitárias residenciais e comércios.",
+      "Formosa": "Bairro de perfil misto com comércio forte e grande fluxo viário. Atendemos ocorrências de esgotos obstruídos com máquinas rotativas modernas que limpam a tubulação sem quebradeira.",
+      "São Benedito": "Bairro histórico e vibrante com igrejas tradicionais e vida comunitária ativa. Prestamos socorro 24 horas para desentupimento de pias de cozinha, ralos e vasos sanitários.",
+      "Cidade Nova": "Bairro em constante crescimento habitacional e comercial na Zona Oeste. Realizamos esgotamento de fossas sépticas com caminhão auto-vácuo e desobstrução de encanamentos prediais.",
+      "São Francisco": "Bairro residencial consolidado e acolhedor. Nossos técnicos realizam diagnósticos rápidos e desobstrução de ramais de esgoto com garantia formal por escrito.",
+      "Joia": "Área de expansão com novos loteamentos, residências e chácaras. Fornecemos atendimento técnico especializado para limpeza de fossas e desentupimento de caixas de inspeção.",
+      "Novo Tempo": "Bairro planejado com expressiva densidade residencial. Atendemos com agilidade ocorrências de refluxo de esgoto em banheiros e pias de serviço.",
+      "Bela Vista": "Bairro elevado com residências familiares e vias tranquilas. Executamos desentupimentos mecânicos e desobstrução de canos pluviais com total pontualidade.",
+      "Flores": "Bairro acolhedor com perfil tradicional de Timon. Prestamos serviços completos de limpeza de caixas de gordura e ralos entupidos com descarte ecológico.",
+      "Mangueira": "Bairro tradicional próximo ao polo comercial central. Equipes de plantão 24h garantem desobstrução imediata de esgotos e pias sem sujeira.",
+      "Boa Vista": "Bairro dinâmico com moradias consolidadas e comércio local ativo. Realizamos desentupimentos preventivos e corretivos com orçamento sem custos.",
+      "Marimar": "Bairro residencial com vias pavimentadas e perfil familiar. Nossas equipes especializadas resolvem entupimentos em sifões, ralos e vasos rapidamente.",
+      "Mateuzinho": "Bairro ribeirinho tradicional com grande histórico comunitário. A proximidade com bacias requer manutenção preventiva contínua em ramais de drenagem e esgoto.",
+      "Mutirão": "Grande comunidade residencial com milhares de moradores. Atendemos chamados urgentes para desentupimento de esgotos coletivos e residenciais a preço justo.",
+      "Parque Alvorada": "Bairro planejado com vias amplas e forte comércio de bairro. Prestamos serviços de desentupimento com equipamentos eletrorrotativos de alta precisão.",
+      "Pedro Patrício": "Bairro tradicional da Zona Sul de Timon com intenso comércio vicinal. Oferecemos assistência técnica emergencial 24h para redes coletoras e fossas.",
+      "Planalto Formosa": "Área residencial alta e arejada com condomínios e residências térreas. Atendimento com maquinário moderno e silencioso que preserva os acabamentos.",
+      "Santo Antônio": "Bairro consolidado com forte vida de bairro e serviços variados. Nossos profissionais realizam desentupimentos rápidos de canos pluviais e esgoto sanitário.",
+      "Sete Estrelas": "Bairro em expansão com novos projetos residenciais e chácaras. Atendemos com caminhão limpa fossa e hidrojateamento de alta pressão.",
+      "Vila Angélica": "Bairro residencial tradicional com acessos rápidos a avenidas principais. Realizamos desobstrução de vasos sanitários e tanques com máxima higiene.",
+      "Vila Bec": "Área habitacional tradicional e movimentada de Timon. Oferecemos soluções eficientes para desentupimentos emergenciais com garantia e qualidade.",
+      "Vila Osmar": "Bairro dinâmico com perfil comunitário acolhedor. Equipes volantes atendem prontamente qualquer emergência hidráulica ou entupimento.",
+      "Parque União": "Importante bairro residencial e comercial interligado aos principais polos de Timon. Atendimento completo para desentupimento predial e comercial 24 horas."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Timon MA com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Timon MA com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, empresas e escolas de Timon MA, preservando louças e instalações.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, quintais e áreas de serviço em Timon MA, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Timon MA com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, cerâmicas e redes comerciais em Timon MA com jatos de água em alta pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Timon MA?",
+        "answer": "Basta entrar em contato pelo WhatsApp (99) 99841-2890 ou telefone fixo (99) 3212-4890. Nossa equipe técnica em Timon vai até o seu imóvel para realizar uma vistoria gratuita e apresentar o orçamento detalhado sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Timon?",
+        "answer": "Temos viaturas posicionadas em pontos estratégicos de Timon MA, garantindo chegada rápida em até 30 a 40 minutos em todos os bairros e avenidas principais."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Timon?",
+        "answer": "Não cobramos taxa de visita em Timon MA. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Timon contam com garantia formal por escrito emitida na entrega do serviço."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento para comércios, indústrias e condomínios cadastrados."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Timon?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Raimundo Nonato de Sousa",
+        "neighborhood": "Parque Piauí",
+        "role": "Comerciante",
+        "content": "A caixa de gordura do nosso restaurante no Parque Piauí transbordou na hora do almoço. A equipe chegou muito rápido com a máquina rotativa e deixou tudo desobstruído e limpo. Recomendo demais!"
+      },
+      {
+        "name": "Maria Francinete Silveira",
+        "neighborhood": "Centro",
+        "role": "Advogada",
+        "content": "Excelente atendimento em nosso escritório no Centro de Timon. O técnico foi muito educado, explicou o que causava o entupimento e resolveu em menos de 30 minutos sem quebrar nada."
+      },
+      {
+        "name": "Antônio Carlos Meireles",
+        "neighborhood": "Cidade Nova",
+        "role": "Proprietário Residencial",
+        "content": "Precisamos do caminhão limpa fossa para esgotamento da nossa fossa séptica na Cidade Nova. Trabalho impecável, caminhão potente e preço justo com garantia."
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-timon",
+    "parceiros": [
+      {
+        "id": "p_patos",
+        "nome": "Desentupidora Patos PB 24h",
+        "cidade": "Patos",
+        "uf": "PB",
+        "dominio": "desentupidora-patos.pages.dev",
+        "url": "https://desentupidora-patos.pages.dev",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Sertão Paraibano."
+      },
+      {
+        "id": "p_crato",
+        "nome": "Desentupidora Crato CE 24h",
+        "cidade": "Crato",
+        "uf": "CE",
+        "dominio": "desentupidora-crato.pages.dev",
+        "url": "https://desentupidora-crato.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa no Cariri Cearense."
+      },
+      {
+        "id": "p_itapipoca",
+        "nome": "Desentupidora Itapipoca CE 24h",
+        "cidade": "Itapipoca",
+        "uf": "CE",
+        "dominio": "desentupidora-itapipoca.pages.dev",
+        "url": "https://desentupidora-itapipoca.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Norte Cearense."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T19:48:18.329Z"
+  },
+  {
+    "id": "barra-do-garcas",
+    "cidade": "Barra do Garças",
+    "name": "Barra do Garças",
+    "slug": "barra-do-garcas",
+    "uf": "MT",
+    "estado": "Mato Grosso",
+    "ddd": "66",
+    "populacao": "73.878",
+    "empresaNome": "Desentupidora Barra do Garças MT 24h",
+    "whatsapp": "66998412890",
+    "telefoneFixo": "(66) 3401-4890",
+    "phone": "(66) 3401-4890",
+    "endereco": "Avenida Ministro João Alberto, 820 - Centro, Barra do Garças - MT, 78600-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-barradogarcas.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/barradogarcas/logo-desentupidora-barradogarcas.webp",
+    "faviconUrl": "/images/barradogarcas/favicon-desentupidora-barradogarcas.webp",
+    "heroImage": "/images/barradogarcas/desentupidora-barradogarcas-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Barra do Garças MT 24h",
+    "metaDescription": "Desentupidora em Barra do Garças MT com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento!",
+    "h1Title": "Desentupidora em Barra do Garças MT 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Barra do Garças MT? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão no Vale do Araguaia.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Barra do Garças - MT",
+    "aboutCityText": "Barra do Garças é o principal polo econômico, turístico e universitário do Vale do Araguaia e Leste Mato-grossense, situada no encontro dos rios Araguaia e Garças ao pé da imponente Serra Azul. Com intenso turismo nas praias fluviais, forte agronegócio e grande fluxo urbano no Centro e na Avenida Ministro João Alberto, as redes de esgoto residenciais, pousadas e galpões comerciais demandam desobstruções técnicas de alta pressão e sucção a vácuo para manter o funcionamento higiênico sem danificar as estruturas.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Barra do Garças MT?",
+    "geoCoordinates": {
+      "latitude": "-15.8928",
+      "longitude": "-52.2567"
+    },
+    "bairros": [
+      "Centro",
+      "Santo Antônio",
+      "Sena Marques",
+      "São Benedito",
+      "Nova Barra",
+      "Vila Maria",
+      "Jardim Amazônia",
+      "Jardim Palmares",
+      "Anchieta",
+      "União",
+      "Mangueiras",
+      "Morada do Sol",
+      "Vila Varjão",
+      "BNH",
+      "Ouro Fino",
+      "Jardim Pitaluga",
+      "Jardim dos Ipês",
+      "São José",
+      "Wilmar Peres",
+      "Recanto das Acácias",
+      "Zeca Ribeiro",
+      "Solar Ville",
+      "Campinas",
+      "Vale dos Sonhos"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Barra do Garças concentra forte atividade financeira, gastronômica e hoteleira na Avenida Ministro João Alberto e orla do Rio Araguaia. Restaurantes e hotéis demandam limpeza frequente de caixas de gordura e desentupimento ágil de prumadas sanitárias.",
+      "Santo Antônio": "Bairro histórico e vibrante com comércio vicinal e residências tradicionais. Nossas equipes realizam desentupimentos mecânicos de esgotos e ralos com máxima higiene e sem sujeira.",
+      "Sena Marques": "Bairro tradicional próximo ao Centro com expressiva densidade habitacional. Prestamos assistência técnica 24 horas para desobstrução de pias de cozinha e vasos sanitários.",
+      "São Benedito": "Bairro residencial acolhedor com comércio ativo. Nossos técnicos utilizam maquinário rotativo para desobstruir canos sem quebrar pisos ou paredes.",
+      "Nova Barra": "Um dos maiores e mais populosos bairros de Barra do Garças, com grande expansão comercial. Oferecemos caminhão limpa fossa e hidrojateamento de alta pressão para residências e galpões.",
+      "Vila Maria": "Bairro dinâmico com perfil comunitário e ruas comerciais. Atendemos com agilidade ocorrências de esgoto transbordando com visita e orçamento gratuitos.",
+      "Jardim Amazônia": "Bairro residencial planejado com vias arborizadas e moradias familiares. Executamos desentupimentos preventivos e corretivos com garantia formal.",
+      "Jardim Palmares": "Bairro residencial consolidado na Zona Leste. Prestamos suporte especializado para desobstrução de caixas de inspeção, ralos e sifões.",
+      "Anchieta": "Bairro tradicional com perfil tranquilo e famílias de longa data. Realizamos esgotamento de fossas sépticas com caminhão auto-vácuo ecológico.",
+      "União": "Bairro em constante desenvolvimento com novos comércios e residências. Viaturas locais garantem chegada rápida em menos de 30 minutos para emergências.",
+      "Mangueiras": "Bairro acolhedor com chácaras e residências familiares. Oferecemos soluções eficientes para desentupimento de tubulações pluviais e esgotos.",
+      "Morada do Sol": "Bairro residencial elevado com vista para os morros da região. Atendimento técnico com equipamentos modernos e silenciosos que preservam acabamentos.",
+      "Vila Varjão": "Bairro tradicional próximo às vias de acesso rodoviário. Realizamos serviços completos de desentupimento predial e comercial com pontualidade.",
+      "BNH": "Conjunto habitacional consolidado com grande número de famílias. Nossos especialistas atuam com rapidez na desobstrução de canos de esgoto sanitário.",
+      "Ouro Fino": "Bairro nobre e tranquilo com residências de alto padrão. Atendimento técnico cuidadoso para preservação de louças e instalações hidráulicas.",
+      "Jardim Pitaluga": "Bairro tradicional e valorizado com intenso comércio de bairro. Prestamos manutenção hidráulica 24h para redes coletoras e caixas de gordura.",
+      "Jardim dos Ipês": "Bairro planejado com novas construções e condomínios. Desentupimentos rápidos com maquinário eletrorrotativo de última geração.",
+      "São José": "Bairro comunitário com perfil acolhedor. Equipes de plantão atendem chamados urgentes para desobstrução de ralos de banheiro e pias.",
+      "Wilmar Peres": "Bairro em expansão na Zona Norte com moradias familiares. Fornecemos serviços acessíveis de desentupimento e limpa fossa com nota fiscal.",
+      "Recanto das Acácias": "Bairro residencial calmo com belas moradias. Nossas equipes garantem solução rápida para refluxo de esgoto com garantia estendida.",
+      "Zeca Ribeiro": "Bairro tradicional próximo a polos de serviços e oficinas. Atendemos empresas e residências com hidrojateamento e esgotamento técnico.",
+      "Solar Ville": "Loteamento moderno e planejado com condomínios fechados. Atendimento com viaturas compactas e equipamentos de alta precisão.",
+      "Campinas": "Bairro de perfil misto com indústrias leves e residências. Oferecemos sucção a vácuo e desobstrução pesada para caixas separadoras de óleo.",
+      "Vale dos Sonhos": "Bairro em crescimento habitacional com novos projetos residenciais. Atendimento rápido 24 horas para desentupimento de redes de esgoto."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Barra do Garças MT com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Barra do Garças MT com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, hotéis e comércios de Barra do Garças MT, preservando louças e instalações.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e quintais em Barra do Garças MT, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Barra do Garças MT com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, agroindústrias e redes comerciais em Barra do Garças MT com jatos de água em alta pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Barra do Garças MT?",
+        "answer": "Basta entrar em contato pelo WhatsApp (66) 99841-2890 ou telefone fixo (66) 3401-4890. Nossa equipe técnica em Barra do Garças vai até o seu imóvel para realizar uma vistoria gratuita e apresentar o orçamento detalhado sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Barra do Garças?",
+        "answer": "Temos viaturas posicionadas em pontos estratégicos de Barra do Garças MT, garantindo chegada rápida em até 30 a 40 minutos em todos os bairros e no Centro."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Barra do Garças?",
+        "answer": "Não cobramos taxa de visita em Barra do Garças MT. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Barra do Garças contam com garantia formal por escrito emitida na entrega do serviço."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento para pousadas, hotéis, comércios e empresas cadastradas."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Barra do Garças?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Getúlio Silva Resende",
+        "neighborhood": "Centro",
+        "role": "Gerente Hoteleiro",
+        "content": "Durante a alta temporada de turismo na praia do Araguaia, a prumada de esgoto da pousada entupiu. A equipe da desentupidora chegou em 20 minutos com máquina rotativa e resolveu com total discrição e higiene. Excelente serviço!"
+      },
+      {
+        "name": "Luciana Mendonça Castro",
+        "neighborhood": "Jardim Amazônia",
+        "role": "Nutricionista",
+        "content": "A pia e a caixa de gordura da nossa residência no Jardim Amazônia estavam com mau cheiro e refluxo. O técnico foi super profissional, utilizou equipamento limpo e resolveu na hora. Nota 10!"
+      },
+      {
+        "name": "Valdemir Souza Pinto",
+        "neighborhood": "Nova Barra",
+        "role": "Empresário",
+        "content": "Contratamos o caminhão limpa fossa para esgotar as fossas do nosso galpão na Nova Barra. Atendimento pontual, caminhão moderno com sucção potente e preço justo com garantia."
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-barradogarcas",
+    "parceiros": [
+      {
+        "id": "p_primavera",
+        "nome": "Desentupidora Primavera do Leste MT 24h",
+        "cidade": "Primavera do Leste",
+        "uf": "MT",
+        "dominio": "desentupidora-primaveradoleste.pages.dev",
+        "url": "https://desentupidora-primaveradoleste.pages.dev",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Leste Mato-grossense."
+      },
+      {
+        "id": "p_tangara",
+        "nome": "Desentupidora Tangará da Serra MT 24h",
+        "cidade": "Tangará da Serra",
+        "uf": "MT",
+        "dominio": "desentupidora-tangaradaserra.pages.dev",
+        "url": "https://desentupidora-tangaradaserra.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa no Médio-Norte de MT."
+      },
+      {
+        "id": "p_mineiros",
+        "nome": "Desentupidora Mineiros GO 24h",
+        "cidade": "Mineiros",
+        "uf": "GO",
+        "dominio": "desentupidora-mineiros.pages.dev",
+        "url": "https://desentupidora-mineiros.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Sudoeste Goiano."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T19:55:46.844Z"
+  },
+  {
+    "id": "inhumas",
+    "cidade": "Inhumas",
+    "name": "Inhumas",
+    "slug": "inhumas",
+    "uf": "GO",
+    "estado": "Goiás",
+    "ddd": "62",
+    "populacao": "53.884",
+    "empresaNome": "Desentupidora Inhumas GO 24h",
+    "whatsapp": "62998412890",
+    "telefoneFixo": "(62) 3514-4890",
+    "phone": "(62) 3514-4890",
+    "endereco": "Avenida Wilson Quirino de Andrade, 450 - Centro, Inhumas - GO, 75400-000",
+    "hospedagem": "cloudflare",
+    "deployUrl": "https://desentupidora-inhumas.pages.dev",
+    "paletaCores": "urgencia-azul-laranja",
+    "modeloPagina": "tecnico-especializado",
+    "logoUrl": "/images/inhumas/logo-desentupidora-inhumas.webp",
+    "faviconUrl": "/images/inhumas/favicon-desentupidora-inhumas.webp",
+    "heroImage": "/images/inhumas/desentupidora-inhumas-caminhao-hidrojateamento.webp",
+    "metaTitle": "Desentupidora em Inhumas GO 24h",
+    "metaDescription": "Desentupidora em Inhumas GO com hidrojateamento e limpa fossa 24 horas. Atendimento técnico ágil em todos os bairros. Peça seu orçamento gratuito!",
+    "h1Title": "Desentupidora em Inhumas GO 24 Horas",
+    "firstParagraph": "Procurando desentupidora em Inhumas GO? Oferecemos atendimento técnico especializado 24 horas para desentupimento de esgotos, pias, ralos, vasos, limpeza de caixas de gordura e esgotamento de fossas com caminhão de hidrojateamento de alta pressão na Região Metropolitana de Goiânia.",
+    "aboutCityTitle": "Atendimento Especializado de Desentupimento em Inhumas - GO",
+    "aboutCityText": "Inhumas é um estratégico polo agroindustrial, educacional e comercial situado no Eixo Goiânia-Itaberaí (GO-070). Conhecida como a Cidade das Mangueiras, possui intensa atividade sucroalcooleira, confecções e forte comércio urbano. A expansão habitacional em novos residenciais e o fluxo comercial contínuo demandam manutenção preventiva periódica, hidrojateamento de alta pressão e sucção de fossas sépticas com garantia e preservação estrutural.",
+    "lastH2": "Por que Escolher Nossa Desentupidora em Inhumas GO?",
+    "geoCoordinates": {
+      "latitude": "-16.3575",
+      "longitude": "-49.4950"
+    },
+    "bairros": [
+      "Centro",
+      "Vila Lucimar",
+      "Vila América",
+      "Residencial Paraíso",
+      "Jardim América",
+      "Setor Nilo Peçanha",
+      "Vila Floresta",
+      "Jardim Real",
+      "Setor Santa Maria",
+      "Setor Vale das Goiabeiras",
+      "Residencial Atenas",
+      "Vila Heitor",
+      "Setor Bueno",
+      "Vila Nova",
+      "Vila Alvorada",
+      "Residencial Solar dos Buritis",
+      "Parque das Primaveras",
+      "Residencial Monte Carlo",
+      "Jardim Sorriso",
+      "Setor Pedregal",
+      "Vale do Araguaia",
+      "Vila Romana",
+      "Residencial Jatobá",
+      "Setor Imperial"
+    ],
+    "neighborhoodFacts": {
+      "Centro": "O Centro de Inhumas concentra forte atividade bancária, comercial e gastronômica na Avenida Wilson Quirino e Praça Belarmino Cruvinel. Restaurantes e lojas demandam desentupimento rápido de redes sanitárias e limpeza contínua de caixas de gordura.",
+      "Vila Lucimar": "Bairro tradicional e populoso de Inhumas com residências familiares consolidadas. Nossas equipes prestam atendimento 24h para desentupimento de ralos de banheiro e pias de cozinha.",
+      "Vila América": "Bairro dinâmico com expressivo comércio de vizinhança. Atendemos com agilidade ocorrências de esgoto transbordando com máquinas rotativas sem quebra de piso.",
+      "Residencial Paraíso": "Bairro planejado com forte crescimento habitacional. Fornecemos serviços de hidrojateamento e esgotamento de fossas sépticas com caminhão auto-vácuo.",
+      "Jardim América": "Bairro residencial consolidado e arborizado. Prestamos assistência técnica para desobstrução de vasos sanitários e prumadas de esgoto sem sujeira.",
+      "Setor Nilo Peçanha": "Bairro com perfil misto de serviços e moradias. Nossos especialistas atuam com prontidão na desobstrução de canos e ramais pluviais.",
+      "Vila Floresta": "Bairro acolhedor com vias tranquilas e perfil comunitário. Executamos desentupimentos rápidos com garantia formal emitida na hora.",
+      "Jardim Real": "Bairro residencial moderno com condomínios e residências térreas. Atendimento cuidadoso com maquinário moderno e silencioso.",
+      "Setor Santa Maria": "Bairro tradicional da Zona Sul com famílias consolidadas. Oferecemos soluções completas para desentupimento de caixas de gordura e inspeção.",
+      "Setor Vale das Goiabeiras": "Bairro em constante expansão com novos loteamentos. Viaturas locais garantem chegada rápida em menos de 30 minutos.",
+      "Residencial Atenas": "Bairro residencial planejado com vias amplas. Realizamos esgotamento de fossas e desentupimentos mecânicos com preço justo.",
+      "Vila Heitor": "Bairro com forte convivência de vizinhança. Atendemos prontamente emergências de refluxo de esgoto com orçamento gratuito.",
+      "Setor Bueno": "Bairro residencial valorizado em Inhumas. Nossos profissionais realizam desentupimentos preventivos e corretivos preservando acabamentos.",
+      "Vila Nova": "Bairro tradicional com comércio variado. Prestamos socorro 24 horas para desentupimento de esgotos coletivos e residenciais.",
+      "Vila Alvorada": "Bairro acolhedor próximo aos acessos rodoviários. Oferecemos caminhão limpa fossa para chácaras e residências.",
+      "Residencial Solar dos Buritis": "Novo conjunto residencial com padrão moderno. Atendimento técnico com equipamentos rotativos de precisão.",
+      "Parque das Primaveras": "Bairro calmo e arborizado com residências familiares. Desobstrução rápida de ralos e sifões com total limpeza.",
+      "Residencial Monte Carlo": "Loteamento planejado com belas moradias. Serviços especializados de hidrojateamento com descarte ambiental regulamentado.",
+      "Jardim Sorriso": "Bairro comunitário tradicional de Inhumas. Realizamos desentupimentos rápidos de vasos sanitários e tubulações de esgoto.",
+      "Setor Pedregal": "Bairro elevado com vias pavimentadas. Atendimento emergencial 24h para redes de drenagem e caixas de gordura.",
+      "Vale do Araguaia": "Bairro residencial com perfil familiar. Equipes especializadas resolvem qualquer obstrução hidráulica com rapidez.",
+      "Vila Romana": "Bairro acolhedor com moradias tradicionais. Prestamos serviços completos de encanador e desentupidora com nota fiscal.",
+      "Residencial Jatobá": "Bairro novo em expansão residencial. Atendimento rápido para desentupimento de tubulações pluviais e esgotos.",
+      "Setor Imperial": "Bairro planejado com fácil acesso ao Centro de Inhumas. Vistorias técnicas sem custo e suporte 24 horas todos os dias."
+    },
+    "services": [
+      {
+        "id": "desentupimento-de-esgoto",
+        "title": "Desentupimento de Esgoto",
+        "description": "Desobstrução de tubulações e redes de esgoto em Inhumas GO com máquinas rotativas e hidrojateamento de alta pressão, restabelecendo o fluxo sem quebra.",
+        "icon": "pipe"
+      },
+      {
+        "id": "desentupimento-de-pia",
+        "title": "Desentupimento de Pia",
+        "description": "Remoção de gordura acumulada e resíduos em canos e sifões de pias de cozinha em Inhumas GO com maquinário limpo e silencioso.",
+        "icon": "sink"
+      },
+      {
+        "id": "desentupimento-de-vaso-sanitario",
+        "title": "Desentupimento de Vaso Sanitário",
+        "description": "Desobstrução rápida e higiênica de vasos sanitários em residências, indústrias e comércios de Inhumas GO, preservando louças e instalações.",
+        "icon": "toilet"
+      },
+      {
+        "id": "desentupimento-de-ralo",
+        "title": "Desentupimento de Ralo",
+        "description": "Limpeza e desobstrução profunda de ralos de banheiros, garagens e quintais em Inhumas GO, eliminando mau cheiro e refluxos.",
+        "icon": "drain"
+      },
+      {
+        "id": "esgotamento-de-fossa",
+        "title": "Limpa Fossa e Esgotamento",
+        "description": "Limpeza e esgotamento de fossas sépticas e sumidouros em Inhumas GO com caminhão auto-vácuo moderno e destinação ecológica regulamentada.",
+        "icon": "truck"
+      },
+      {
+        "id": "hidrojateamento",
+        "title": "Hidrojateamento de Alta Pressão",
+        "description": "Limpeza pesada de tubulações industriais, usinas e redes comerciais em Inhumas GO com jatos de água em alta pressão.",
+        "icon": "water"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como funciona o atendimento de desentupidora em Inhumas GO?",
+        "answer": "Basta entrar em contato pelo WhatsApp (62) 99841-2890 ou telefone fixo (62) 3514-4890. Nossa equipe técnica em Inhumas vai até o seu endereço para realizar uma vistoria gratuita e apresentar o orçamento sem compromisso."
+      },
+      {
+        "question": "Qual é o tempo médio de chegada em Inhumas?",
+        "answer": "Temos viaturas posicionadas em pontos estratégicos de Inhumas GO, garantindo chegada rápida em até 30 a 40 minutos em todos os bairros e no Centro."
+      },
+      {
+        "question": "Vocês cobram taxa de visita em Inhumas?",
+        "answer": "Não cobramos taxa de visita em Inhumas GO. A vistoria técnica para avaliação do problema e formulação do orçamento é 100% gratuita."
+      },
+      {
+        "question": "O serviço de desentupimento tem garantia?",
+        "answer": "Sim, todos os nossos serviços de desentupimento, hidrojateamento e limpeza de fossas em Inhumas contam com garantia formal por escrito emitida na entrega do serviço."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Aceitamos PIX, cartões de crédito e débito parcelados, dinheiro e faturamento bancário para usinas, comércios, indústrias e condomínios cadastrados."
+      },
+      {
+        "question": "Vocês atendem finais de semana e feriados em Inhumas?",
+        "answer": "Sim! Nosso plantão de atendimento de emergência funciona 24 horas por dia, 7 dias por semana, incluindo sábados, domingos e feriados em toda a cidade."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Geraldo Magela Ferreira",
+        "neighborhood": "Centro",
+        "role": "Gerente Comercial",
+        "content": "A prumada de esgoto do nosso estabelecimento comercial no Centro de Inhumas entupiu no sábado de manhã. A equipe chegou muito rápido com a máquina rotativa e desobstruiu tudo sem quebrar nada. Recomendo!"
+      },
+      {
+        "name": "Divina Aparecida Peixoto",
+        "neighborhood": "Vila Lucimar",
+        "role": "Professora",
+        "content": "Tivemos entupimento na pia da cozinha e no ralo do banheiro na Vila Lucimar. O técnico foi muito atencioso, explicou o procedimento e deixou tudo funcionando perfeitamente. Serviço nota 10!"
+      },
+      {
+        "name": "Sebastião Rodrigues Cunha",
+        "neighborhood": "Residencial Paraíso",
+        "role": "Produtor Rural",
+        "content": "Contratamos o serviço de caminhão limpa fossa para esgotamento da nossa fossa no Residencial Paraíso. Caminhão moderno, sucção rápida e preço justo com garantia."
+      }
+    ],
+    "commercialClaimsVerified": true,
+    "isDraft": false,
+    "status": "ativo",
+    "auditScore": 100,
+    "cloudflareProjectName": "desentupidora-inhumas",
+    "parceiros": [
+      {
+        "id": "p_mineiros",
+        "nome": "Desentupidora Mineiros GO 24h",
+        "cidade": "Mineiros",
+        "uf": "GO",
+        "dominio": "desentupidora-mineiros.pages.dev",
+        "url": "https://desentupidora-mineiros.pages.dev",
+        "descricao": "Atendimento técnico especializado em desentupimento e hidrojateamento no Sudoeste Goiano."
+      },
+      {
+        "id": "p_barradogarcas",
+        "nome": "Desentupidora Barra do Garças MT 24h",
+        "cidade": "Barra do Garças",
+        "uf": "MT",
+        "dominio": "desentupidora-barradogarcas.pages.dev",
+        "url": "https://desentupidora-barradogarcas.pages.dev",
+        "descricao": "Serviços de desentupimento de esgotos, pias, ralos e limpa fossa no Vale do Araguaia."
+      },
+      {
+        "id": "p_primavera",
+        "nome": "Desentupidora Primavera do Leste MT 24h",
+        "cidade": "Primavera do Leste",
+        "uf": "MT",
+        "dominio": "desentupidora-primaveradoleste.pages.dev",
+        "url": "https://desentupidora-primaveradoleste.pages.dev",
+        "descricao": "Equipes 24 horas para desentupimento e hidrojateamento no Leste Mato-grossense."
+      }
+    ],
+    "lastDeployAt": "2026-09-09T20:32:04.269Z"
   }
 ]

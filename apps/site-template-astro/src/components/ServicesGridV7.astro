@@ -3,6 +3,7 @@
 // Grid de serviços em cards modernos com cantos arredondados, bordas sutis e botões diretos para WhatsApp
 const { cidade, uf, whatsapp, services = [] } = Astro.props;
 import { slugify } from '../utils/slugify';
+import { getServiceIcon } from '../utils/iconMap';
 const cidadeSlug = slugify(cidade);
 ---
 
@@ -20,7 +21,7 @@ const cidadeSlug = slugify(cidade);
       {services.map((service: any) => (
         <article class="service-v7-card">
           <div class="card-icon-wrapper">
-            <span class="service-v7-icon">{service.icon || '🛠️'}</span>
+            <span class="service-v7-icon">{getServiceIcon(service.icon)}</span>
           </div>
           <div class="card-body">
             <h3>{service.title}</h3>
