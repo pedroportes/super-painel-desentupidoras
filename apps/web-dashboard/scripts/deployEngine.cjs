@@ -15,6 +15,7 @@
 
 const { exec } = require('child_process');
 const path = require('path');
+const fs = require('fs');
 
 function run(cmd, opts = {}) {
   return new Promise((resolve) => {
@@ -26,19 +27,39 @@ function run(cmd, opts = {}) {
 
 async function deployCitySite(cityConfig, apiKeys = {}, distDir) {
   const provider = cityConfig.hospedagem ? cityConfig.hospedagem.toLowerCase() : 'cloudflare';
+  let result;
 
   switch (provider) {
     case 'cloudflare':
-      return deployToCloudflarePages(cityConfig, apiKeys.cloudflare, distDir);
+      result = await deployToCloudflarePages(cityConfig, apiKeys.cloudflare, distDir);
+      break;
     case 'vercel':
-      return deployToVercel(cityConfig, apiKeys.vercel, distDir);
+      result = await deployToVercel(cityConfig, apiKeys.vercel, distDir);
+      break;
     case 'netlify':
-      return deployToNetlify(cityConfig, apiKeys.netlify, distDir);
+      result = await deployToNetlify(cityConfig, apiKeys.netlify, distDir);
+      break;
     case 'render':
-      return deployToRender(cityConfig, apiKeys.render, distDir);
+      result = await deployToRender(cityConfig, apiKeys.render, distDir);
+      break;
     default:
       return { success: false, provider, error: `Provedor desconhecido: ${provider}` };
   }
+
+  // 📡 Disparo automático do IndexEngine (IndexNow + Sitemaps Ping + Supabase Log)
+  if (result && result.success && result.url) {
+    try {
+      const indexEnginePath = path.join(__dirname, '..', '..', '..', 'scripts', 'indexEngine.cjs');
+      if (fs.existsSync(indexEnginePath)) {
+        const { triggerAutoIndex } = require(indexEnginePath);
+        await triggerAutoIndex(cityConfig, result.url);
+      }
+    } catch (e) {
+      console.warn('⚠️ Erro ao disparar IndexEngine pós-deploy:', e.message);
+    }
+  }
+
+  return result;
 }
 
 function getCleanProjectName(cityName) {
