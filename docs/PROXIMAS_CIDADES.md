@@ -58,10 +58,9 @@ extra.) Isso reescreve este arquivo e o `docs/proximas-cidades.json`
 
 | # | Cidade/UF | População | Concorrência Fraca | Nota Oportunidade | Nota Final |
 |---|-----------|-----------|---------------------|--------------------|------------|
-| 1 | **Cachoeira do Sul/RS** | 82.222 | 38% | 30.365 | 41.752 |
-| 2 | **Lagarto/SE** | 105.957 | 38% | 8.243 | 11.334 |
-| 3 | **Biguaçu/SC** | 83.756 | 38% | 0 | 0 |
-| 12 | **Rio do Sul/SC** | 77.451 | 38% | 0 | 0 |
+| 1 | **Lagarto/SE** | 105.957 | 38% | 8.243 | 11.334 |
+| 2 | **Biguaçu/SC** | 83.756 | 38% | 0 | 0 |
+| 3 | **Rio do Sul/SC** | 77.451 | 38% | 0 | 0 |
 | 13 | **Ouricuri/PE** | 68.489 | 38% | 0 | 0 |
 | 14 | **Mafra/SC** | 57.262 | 38% | 0 | 0 |
 | 15 | **Apucarana/PR** | 134.910 | 33% | 127.962 | 170.616 |
